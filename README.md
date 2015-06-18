@@ -1,24 +1,26 @@
 # Overview
 MarkupKit is a framework for simplifying development of Cocoa Touch applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
 
-Building an interface in markup makes it easy to visualize the resulting output and behavior as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
+Building an interface in markup makes it easy to visualize the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
 
 For example, the following markup declares an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
     <UILabel text="Hello, World!"/>
 
-The next section describes the structure of a MarkupKit document and explains how view instances can be created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development:
+The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development:
 
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by a Cocoa Touch application
-* `LMTableView` and `LMTableViewCell` - table view and table view cell types that simplify the definition of static table view content
+* `LMTableView` and `LMTableViewCell` - table view types that simplify the definition of static table view content
 * `LMScrollView` - scroll view that automatically adapts to the size of its content
 
 Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
+Note that MarkupKit requires iOS 8 or later.
+
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent instances of `UIView` subclasses, and XML attributes represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
 
-For example, the following markup produces an instance of `LMTableViewCell` containing a `UIImageView` whose `image` property is set to an image named "world.png":
+For example, the following markup produces an instance of `LMTableViewCell` containing a `UIImageView`. The `image` property of the image view is set to an image named "world.png":
 
     <LMTableViewCell>
         <UIImageView image="world.png"/>
@@ -31,13 +33,13 @@ Elements in a MarkupKit document represent instances of `UIView` or its subclass
 
 In general, the `new` method is called on the named type to create the class instance. However, in some cases, it is necessary to invoke a named factory method to create the instance. This is discussed in more detail later.
 
-MarkupKit adds the following method to the `UIView` class to facilitate construction of the view hierarchy:
+MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
 
     - (void)appendMarkupElementView:(UIView *)view;
 
-This method is called on the superview of every view defined in the document except for the root, which has no superview, to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
+This method is called on the superview of every view defined in the document except for the root (which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
-For example, `LMTableView` overrides this method to call `insertCell:forRowAtIndexPath:` on itself, and  `LMScrollView` overrides it to call `setContentView:`. Other classes that support sub-elements provide similar implementations.
+For example, `LMTableView` overrides this method to call `insertCell:forRowAtIndexPath:` on itself, and  `LMScrollView` overrides it to call `setContentView:`. Other classes that support sub-elements provide similar overrides.
 
 ## Attributes
 XML attributes in a MarkupKit document generally represent either view properties or actions associated with a view. For example, the following markup declares an instance of `UISwitch` and sets the value of its `on` property to `true`:
@@ -120,7 +122,7 @@ For example, the following markup creates an instance of `LMTableViewCell` with 
         ...
     </LMTableViewCell>
     
-Layout margin components may also be specified individually; this is discussed in more detail later.
+MarkupKit also adds properties to `UIView` that allow layout margin components to be specified individually. This is discussed in more detail later.
 
 ### Localization
 Localization is performed automatically by MarkupKit. If an attribute does not fall into any of the previously mentioned categories, MarkupKit attempts to look up a localized version of the attribute's value before setting the property value.
@@ -139,13 +141,13 @@ For example, assuming that an application does not provide a localized value for
 
     <UILabel text="goodbye"/>
 
-It is possible to define a set of local string values in a MarkupKit document using the `strings` processing instruction (PI). This PI tells MarkupKit to load an additional set of string values for use by the current document.
+In addition to the global values defined in _Localizable.strings_, the `strings` processing instruction can be used to define a set of local string values that are only visible to the current document. 
 
-For example, if the application additionally defines the following localized value in a file named _MyStrings.strings_:
+For example, if the application additionally provides the following localized value in a file named _MyStrings.strings_:
     
     "goodbye" = "Goodbye!";
 
-This markup would produce a table view containing two rows reading "Hello, World!" and "Goodbye!":
+this markup would produce a table view containing two rows reading "Hello, World!" and "Goodbye!":
     
     <?strings MyStrings?>
     
@@ -175,7 +177,7 @@ The complete set of extensions MarkupKit adds to UIKit types is discussed in mor
 ### Template Properties
 Often, when constructing a user interface, the same set of property values are applied repeatedly to instances of a given type. For example, an application designer may want all buttons to have a similar appearance. While it is possible to simply duplicate the property definitions for each button instance, this is repetitive and does not allow the design to be easily modified later - each button instance must be located and modified individually, which can be time-consuming and error-prone.
 
-MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to class instances. This makes it much easier to apply common property definitions as well as modify them later.
+MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to class instances. This makes it much easier to assign common property values as well as modify them later.
 
 Property templates are defined in property list (or _.plist_) files. Each template is represented by a dictionary defined at the top level of the property list. The dictionary's contents represent the property values that will be set when the template is applied.
 
@@ -183,7 +185,7 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties MyStyles?>
 
-Templates are applied to individual class instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the class instance. Note that nested properties such as "titleLabel.font" are supported.
+Templates are applied to individual class instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the class instance. Note that nested properties such as "titleLabel.font" are supported by property templates.
 
 For example, assuming that _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values:
 
@@ -307,7 +309,7 @@ MarkupKit provides extensions to the standard `UITableView` and `UITableViewCell
 
 These methods support the declaration of styled table view instances in markup and are discussed in more detail later.
 
-For example, the following markup declares a plain table view containing three rows labeled "Row 1", "Row 2", and "Row 3", all of which appear in a single default section:
+For example, the following markup declares a plain `LMTableView` containing three rows labeled "Row 1", "Row 2", and "Row 3". All of the rows appear in a single unlabeled section, which is created by default:
 
     <LMTableView style="plainTableView">
         <UITableViewCell textLabel.text="Row 1"/>
@@ -315,7 +317,7 @@ For example, the following markup declares a plain table view containing three r
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `header` processing instruction can be used to assign a title to the default section, or to create additional sections. This example uses the "grouped" table view style: 
+The `header` processing instruction can be used to assign a title to the default section, or to create additional sections. The following example creates a "grouped" table view with two sections: 
 
     <LMTableView style="groupedTableView">
         <?header Section 1?>
@@ -329,7 +331,7 @@ The `header` processing instruction can be used to assign a title to the default
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-The `footer` processing instruction can be used to set the footer title for the current section:
+The `footer` processing instruction can be used to set a footer title for the current section:
 
     <LMTableView style="groupedTableView">
         <?header Section 1?>
@@ -368,41 +370,41 @@ Since `LMTableViewCell` ultimately inherits from `UIView`, it is possible to spe
         </LMTableViewCell>
     </LMTableView>
 
-Note that `LMTableViewCell` instances are self-sizing. However, to enable self-sizing, the `estimatedRowHeight` property of the table view that contains the cells must be set to a non-zero value. `LMTableView` enables self-sizing cell behavior by default.
+Note that `LMTableViewCell` instances are self-sizing. However, to enable this behavior, the `estimatedRowHeight` property of the table view that contains the cells must be set to a non-zero value. `LMTableView` enables self-sizing cell behavior by default.
 
 Finally, as discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content and behavior is expressed in markup rather than in code. 
 
 See _LMTableViewCell.h_ for more information.
 
 ## LMScrollView
-The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of a scroll view's content in markup. It presents a single content view at a time, optionally scrolling in one or both directions. As mentioned earlier, `LMScrollView` defines a `contentView` property representing this content, and overrides `appendMarkupElementView:` to set the value of this property in markup.
+The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of a scroll view's content in markup. It presents a single content view at a time, optionally scrolling in one or both directions. As noted earlier, `LMScrollView` defines a `contentView` property representing this content, and overrides `appendMarkupElementView:` to set the value of this property in markup.
 
-In addition to `contentView`, `LMScrollView` defines the following two properties:
+In addition to `contentView`, `LMScrollView` defines the following properties:
 
     @property (nonatomic) BOOL fitToWidth;
     @property (nonatomic) BOOL fitToHeight;
 
-When both properties are set to `false` (the default), the scroll view will automatically display scroll bars when needed, allowing the user to pan in either direction to see the entire image:
+When both properties are set to `false` (the default), the scroll view will automatically display scroll bars when needed, allowing the user to pan in both directions to see the content in its entirety. For example:
 
     <LMScrollView>
         <UIImageView image="large_image.png"/>
     </LMScrollView>
 
-When `fitToWidth` is set to `true`, the scroll view will ensure that the width of its content matches its own width, causing the content to wrap and scroll in the vertical direction:
+When `fitToWidth` is set to `true`, the scroll view will ensure that the width of its content matches its own width, causing the content to wrap and scroll in the vertical direction. The vertical scroll bar will be displayed when necessary, but the horizontal scroll bar will never be shown, since the width of the content will never exceed the width of the scroll view:
 
     <LMScrollView fitToWidth="true">
         <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
             numberOfLines="0"/>
     </LMScrollView>
 
-Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction.
+Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
 
 See _LMScrollView.h_ for more information.
 
 ## UIKit Extensions
-MarkupKit extends several UIKit classes to adapt them for use in markup. For example, some classes define a custom default initializer and must be instiated via factory methods. Additionally, features of some classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
+MarkupKit extends several UIKit classes to adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
 
-Note that this section only describes classes that require extensions in order to work with markup. Classes that do not require extension are not discussed.
+Note that this section only describes classes that require extensions in order to work with markup. Types or features that are already markup-compliant are not discussed.
 
 ### UIView
 In addition to the `appendMarkupElementView:` and `processMarkupInstruction:data:` methods added to `UIView` to support markup processing, MarkupKit also adds the following properties to allow the view's layout margin components to be set individually:
@@ -418,6 +420,8 @@ For example, the following markup creates a `LMTableViewCell` instance with a to
     ...
     </LMTableViewCell>
 
+The other layout margin components retain their default values.
+
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons be declared in markup:
 
@@ -427,8 +431,6 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
     + (UIButton *)infoLightButton;
     + (UIButton *)infoDarkButton;
     + (UIButton *)contactAddButton;
-
-Note that these methods only produce instances of 
 
 Button content including "title", "title color", "title shadow color", "image", and "background image" is set for button states including "normal", "highlighted", "disabled", and "selected" using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
@@ -468,9 +470,9 @@ Instances of `UITableView` are created programmatically using the `initWithFrame
 
 As shown in previous examples, these factory methods are used to create instances of `UITableView` in the plain or grouped style, respectively:
 
-    <LMTableView style="plainTableView">
-    ...
-    </LMTableView>
+    <UITableView id="tableView" style="plainTableView"/>
+
+Note that `UITableView` can only be used to declare table views whose contents will be defined programmatically. For example, the table view in the previous example is given an ID so its owner can assign a data source or delegate to it after the document has been loaded. For static table view content, `LMTableView` should be used instead.
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
@@ -494,6 +496,10 @@ For example, the following markup declares an instance of `LMTableView` that con
             detailTextLabel.text="This is the third row."/>
     </LMTableView>
 
+While it is possible to use the factory methods to declare instances of custom `UITableViewCell` subclasses, this is not common. It is preferable to simply declare such classes by name. For example:
+
+    <MyCustomTableViewCell .../>
+
 ### UIProgressView
 Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
 
@@ -505,7 +511,7 @@ For example, the following markup declares an instance of a default-style `UIPro
     <UIProgressView id="progressView" style="defaultProgressView"/>
 
 ### UISegmentedControl
-Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupInstruction:data:` to allow segmented controls to be populated in markup. The `segmentTitle` progressing instruction can be used to add a segment title to a segmented control:
+Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupInstruction:data:` to allow segmented control content to be configured in markup. The `segmentTitle` progressing instruction can be used to add a segment title to a segmented control:
 
     <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
         <?segmentTitle Yes?>
@@ -534,5 +540,5 @@ For example, the following markup creates a system button with a shadow opacity 
         layer.shadowOpacity="0.5" layer.shadowRadius="10" layer.shadowOffsetHeight="3"/>
 
 # More Information
-For more information, refer to [the wiki](wiki) or [the issue list](issues).
+For more information, refer to [the wiki](https://github.com/gk-brown/MarkupKit/wiki) or [the issue list](https://github.com/gk-brown/MarkupKit/issues).
 
