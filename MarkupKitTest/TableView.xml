@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<LMTableView style="groupedTableView">
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png"/>
+    <?footer Section 1 End?>
+
+    <?header section2.start?>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Disclosure Indicator" accessoryType="disclosureIndicator"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Disclosure Button" accessoryType="detailDisclosureButton"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Checkmark" accessoryType="checkmark"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Button" accessoryType="detailButton"/>
+    <?footer?>
+    <?footer Section 2 End?>
+
+    <?header Section 3 Start?>
+    <LMTableViewCell layoutMargins="12" accessoryType="detailButton">
+        <UITextField placeholder="Type something"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell accessoryType="checkmark">
+        <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            numberOfLines="0"/>
+    </LMTableViewCell>
+
+    <?header Section 4 Start?>
+    <LMTableViewCell>
+        <UIDatePicker datePickerMode="date"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell>
+        <UIStepper id="stepper" minimumValue="0" maximumValue="1" stepValue="0.1" value="0.5" onValueChanged="stepperValueChanged:"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell>
+        <UISlider id="slider" onValueChanged="sliderValueChanged:"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell>
+        <UIPageControl id="pageControl" numberOfPages="10" pageIndicatorTintColor="#ff0000" currentPageIndicatorTintColor="#00ff00"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell>
+        <UIProgressView id="progressView" style="defaultProgressView"/>
+    </LMTableViewCell>
+</LMTableView>

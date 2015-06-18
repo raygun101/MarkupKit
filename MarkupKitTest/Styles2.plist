@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>row.first</key>
+	<dict>
+		<key>layer.borderColor</key>
+		<string>#ffff00</string>
+		<key>layer.borderWidth</key>
+		<string>4</string>
+	</dict>
+	<key>row.second</key>
+	<dict>
+		<key>layer.borderColor</key>
+		<string>#00ffff</string>
+		<key>layer.borderWidth</key>
+		<string>4</string>
+	</dict>
+</dict>
+</plist>
