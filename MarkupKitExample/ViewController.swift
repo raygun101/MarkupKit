@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 
         LMViewBuilder.viewWithName("View", owner: self, root: view)
 
-        var scrollView = view as! UIScrollView
+        let scrollView = view as! UIScrollView
 
         scrollView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
