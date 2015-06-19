@@ -15,6 +15,16 @@
 		372418ED1ADF34600067CDF0 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 372418E61ADF34600067CDF0 /* sample.txt */; };
 		372418EE1ADF34600067CDF0 /* ScrollView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E71ADF34600067CDF0 /* ScrollView.xml */; };
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
+		3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
+		3742F0081B34D28500B31987 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0061B34D28500B31987 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3742F0091B34D28500B31987 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0071B34D28500B31987 /* LMBoxView.m */; };
+		3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00A1B34D28C00B31987 /* LMColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00B1B34D28C00B31987 /* LMColumnView.m */; };
+		3742F0101B34D29300B31987 /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00E1B34D29300B31987 /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3742F0111B34D29300B31987 /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00F1B34D29300B31987 /* LMRowView.m */; };
+		3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0121B34D2C800B31987 /* LMLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0131B34D2C800B31987 /* LMLayerView.m */; };
 		3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */; };
 		3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D01ADEC11B0002E16C /* UIView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,6 +108,16 @@
 		372418E61ADF34600067CDF0 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		372418E71ADF34600067CDF0 /* ScrollView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollView.xml; sourceTree = "<group>"; };
 		372418E81ADF34600067CDF0 /* Styles1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles1.plist; sourceTree = "<group>"; };
+		3742F0021B34D27B00B31987 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
+		3742F0031B34D27B00B31987 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayoutView.m; sourceTree = "<group>"; };
+		3742F0061B34D28500B31987 /* LMBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBoxView.h; sourceTree = "<group>"; };
+		3742F0071B34D28500B31987 /* LMBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMBoxView.m; sourceTree = "<group>"; };
+		3742F00A1B34D28C00B31987 /* LMColumnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMColumnView.h; sourceTree = "<group>"; };
+		3742F00B1B34D28C00B31987 /* LMColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMColumnView.m; sourceTree = "<group>"; };
+		3742F00E1B34D29300B31987 /* LMRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRowView.h; sourceTree = "<group>"; };
+		3742F00F1B34D29300B31987 /* LMRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRowView.m; sourceTree = "<group>"; };
+		3742F0121B34D2C800B31987 /* LMLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayerView.h; sourceTree = "<group>"; };
+		3742F0131B34D2C800B31987 /* LMLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayerView.m; sourceTree = "<group>"; };
 		3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMViewBuilder.h; sourceTree = "<group>"; };
 		3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMViewBuilder.m; sourceTree = "<group>"; };
 		3757B7D01ADEC11B0002E16C /* UIView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Markup.h"; sourceTree = "<group>"; };
@@ -205,6 +225,16 @@
 			isa = PBXGroup;
 			children = (
 				37B070681ADEBE3F00A92FCF /* MarkupKit.h */,
+				3742F0021B34D27B00B31987 /* LMLayoutView.h */,
+				3742F0031B34D27B00B31987 /* LMLayoutView.m */,
+				3742F0061B34D28500B31987 /* LMBoxView.h */,
+				3742F0071B34D28500B31987 /* LMBoxView.m */,
+				3742F00A1B34D28C00B31987 /* LMColumnView.h */,
+				3742F00B1B34D28C00B31987 /* LMColumnView.m */,
+				3742F00E1B34D29300B31987 /* LMRowView.h */,
+				3742F00F1B34D29300B31987 /* LMRowView.m */,
+				3742F0121B34D2C800B31987 /* LMLayerView.h */,
+				3742F0131B34D2C800B31987 /* LMLayerView.m */,
 				3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */,
 				3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */,
 				3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */,
@@ -309,16 +339,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */,
 				37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */,
 				3B5FFE041B309E0D00E8EC39 /* LMScrollView.h in Headers */,
 				3BAD2D591B30E7CA00DDB6CD /* LMTableView.h in Headers */,
 				3BAD2D5D1B30E8FB00DDB6CD /* LMTableViewCell.h in Headers */,
 				3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */,
 				3B4D1F2A1B041EF400CB61A9 /* CALayer+Markup.h in Headers */,
+				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
 				3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */,
+				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
 				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
+				3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
+				3742F0101B34D29300B31987 /* LMRowView.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
 			);
@@ -486,11 +521,16 @@
 			files = (
 				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
+				3742F0111B34D29300B31987 /* LMRowView.m in Sources */,
 				3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */,
 				3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */,
 				3B4D1F2C1B041F0900CB61A9 /* CALayer+Markup.m in Sources */,
+				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
 				3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */,
 				3B5A12491B19EDFC00E28F37 /* UIProgressView+Markup.m in Sources */,
+				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
+				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
+				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
 				3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */,
 				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
 				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
