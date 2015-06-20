@@ -20,10 +20,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         LMViewBuilder.viewWithName("View", owner: self, root: view)
-
-        let scrollView = view as! UIScrollView
-
-        scrollView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
 }
 

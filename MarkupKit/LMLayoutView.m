@@ -14,6 +14,8 @@
 
 #import "LMLayoutView.h"
 
+#define DEFAULT_LAYOUT_MARGINS UIEdgeInsetsZero
+
 @implementation LMLayoutView
 {
     NSMutableArray *_arrangedSubviews;
@@ -28,6 +30,7 @@
 
 #define INIT {\
     _arrangedSubviews = [NSMutableArray new];\
+    [self setLayoutMargins:DEFAULT_LAYOUT_MARGINS];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -55,6 +58,10 @@
 
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index
 {
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self addSubview:view];
+    
     [_arrangedSubviews insertObject:view atIndex:index];
 
     [self invalidateIntrinsicContentSize];
