@@ -18,16 +18,10 @@ limitations under the License.
 
 <?strings View?>
 
-<root>
-    <LMTableViewCell>
-        <UILabel class="label.hello" text="hello"/>
-    </LMTableViewCell>
-
-    <LMTableViewCell>
-        <UIImageView image="World" contentMode="scaleAspectFit"/>
-    </LMTableViewCell>
-
-    <LMTableViewCell>
-        <UILabel class="label.from" text="from"/>
-    </LMTableViewCell>
+<root layoutMargins="20">
+    <UIView weight="1"/>
+    <UILabel class="label.hello" text="hello"/>
+    <UIImageView image="World" contentMode="scaleAspectFit"/>
+    <UILabel class="label.from" text="from"/>
+    <UIView weight="1"/>
 </root>

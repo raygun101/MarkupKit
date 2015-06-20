@@ -17,6 +17,11 @@
 @interface UIView (Markup)
 
 /**
+ * The view's weight.
+ */
+@property (nonatomic) CGFloat weight;
+
+/**
  * The view's horizontal content compression resistance priority.
  */
 @property (nonatomic) CGFloat horizontalContentCompressionResistancePriority;

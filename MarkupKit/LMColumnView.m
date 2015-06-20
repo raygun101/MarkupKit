@@ -13,6 +13,7 @@
 //
 
 #import "LMColumnView.h"
+#import "UIView+Markup.h"
 
 @implementation LMColumnView
 
@@ -60,6 +61,11 @@
         for (UIView * subview in [self arrangedSubviews]) {
             [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
             [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+
+            if (!isnan([subview weight])) {
+                [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+                [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+            }
         }
     }
 
@@ -74,6 +80,7 @@
     CGFloat spacing = [self spacing];
 
     UIView *previousSubview = nil;
+    UIView *previousWeightedSubview = nil;
 
     for (UIView *subview in [self arrangedSubviews]) {
         // Align to siblings
@@ -85,6 +92,18 @@
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
                 multiplier:1 constant:spacing]];
+        }
+
+        CGFloat weight = [subview weight];
+
+        if (!isnan(weight)) {
+            if (previousWeightedSubview != nil) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeHeight
+                    relatedBy:NSLayoutRelationEqual toItem:previousWeightedSubview attribute:NSLayoutAttributeHeight
+                    multiplier:weight / [previousWeightedSubview weight] constant:0]];
+            }
+
+            previousWeightedSubview = subview;
         }
 
         // Align to parent

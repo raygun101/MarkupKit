@@ -13,6 +13,7 @@
 //
 
 #import "LMRowView.h"
+#import "UIView+Markup.h"
 
 @implementation LMRowView
 
@@ -58,6 +59,11 @@
 {
     if ([self alignment] == LMBoxViewAlignmentFill) {
         for (UIView * subview in [self arrangedSubviews]) {
+            if (!isnan([subview weight])) {
+                [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+                [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+            }
+
             [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
             [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
         }
@@ -74,6 +80,7 @@
     CGFloat spacing = [self spacing];
 
     UIView *previousSubview = nil;
+    UIView *previousWeightedSubview = nil;
 
     for (UIView *subview in [self arrangedSubviews]) {
         // Align to siblings
@@ -91,6 +98,18 @@
                     relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBaseline
                     multiplier:1 constant:0]];
             }
+        }
+
+        CGFloat weight = [subview weight];
+
+        if (!isnan(weight)) {
+            if (previousWeightedSubview != nil) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeWidth
+                    relatedBy:NSLayoutRelationEqual toItem:previousWeightedSubview attribute:NSLayoutAttributeWidth
+                    multiplier:weight / [previousWeightedSubview weight] constant:0]];
+            }
+
+            previousWeightedSubview = subview;
         }
 
         // Align to parent

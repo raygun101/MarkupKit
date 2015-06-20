@@ -12,9 +12,27 @@
 // limitations under the License.
 //
 
+#import <objc/message.h>
 #import "UIView+Markup.h"
 
 @implementation UIView (Markup)
+
+- (CGFloat)weight
+{
+    NSNumber *weight = objc_getAssociatedObject(self, @selector(weight));
+
+    return (weight == nil) ? NAN : [weight floatValue];
+}
+
+- (void)setWeight:(CGFloat)weight
+{
+    NSAssert(isnan(weight) || weight > 0, @"Invalid weight.");
+    
+    objc_setAssociatedObject(self, @selector(weight), isnan(weight) ? nil : [NSNumber numberWithFloat:weight],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
 
 - (CGFloat)horizontalContentCompressionResistancePriority
 {
