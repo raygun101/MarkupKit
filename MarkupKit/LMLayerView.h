@@ -14,6 +14,9 @@
 
 #import "LMLayoutView.h"
 
+/**
+ * Layout view that arranges subviews in layers.
+ */
 @interface LMLayerView : LMLayoutView
 
 @end

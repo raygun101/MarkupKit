@@ -39,13 +39,17 @@ static NSString * const LMTableViewFooterTarget = @"footer";
     NSMutableArray *_sections;
 }
 
+#define INIT {\
+    _sections = [NSMutableArray new];\
+    [self setEstimatedRowHeight:DEFAULT_ESTIMATED_ROW_HEIGHT];\
+    [super setDataSource:self];\
+}
+
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
 
-    if (self) {
-        [self setup];
-    }
+    if (self) INIT
 
     return self;
 }
@@ -54,20 +58,9 @@ static NSString * const LMTableViewFooterTarget = @"footer";
 {
     self = [super initWithCoder:decoder];
 
-    if (self) {
-        [self setup];
-    }
+    if (self) INIT
 
     return self;
-}
-
-- (void)setup
-{
-    _sections = [NSMutableArray new];
-
-    [self setEstimatedRowHeight:DEFAULT_ESTIMATED_ROW_HEIGHT];
-
-    [super setDataSource:self];
 }
 
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource

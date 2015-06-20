@@ -21,6 +21,16 @@
     NSArray *_layoutConstraints;
 }
 
+- (void)layoutSubviews
+{
+    if (_contentElementView != nil) {
+        [_contentElementView setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [_contentElementView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    }
+
+    [super layoutSubviews];
+}
+
 - (void)updateConstraints
 {
     if (_layoutConstraints == nil) {

@@ -14,8 +14,6 @@
 
 #import "LMScrollView.h"
 
-#define DEFAULT_STYLE LMScrollViewStyleDefault
-
 @implementation LMScrollView
 {
     NSArray *_layoutConstraints;
