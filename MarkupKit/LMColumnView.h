@@ -14,6 +14,9 @@
 
 #import "LMBoxView.h"
 
+/**
+ * Box view that arranges subviews vertically in a column.
+ */
 @interface LMColumnView : LMBoxView
 
 @end

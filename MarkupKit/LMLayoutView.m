@@ -15,26 +15,117 @@
 #import "LMLayoutView.h"
 
 @implementation LMLayoutView
-
-- (NSArray *)arrangedSubviews
 {
-    // TODO
-    return nil;
+    NSMutableArray *_arrangedSubviews;
+
+    NSArray *_constraints;
+}
+
++ (BOOL)requiresConstraintBasedLayout
+{
+    return YES;
+}
+
+#define INIT {\
+    _arrangedSubviews = [NSMutableArray new];\
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+
+    if (self) INIT
+
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+
+    if (self) INIT
+
+    return self;
 }
 
 - (void)addArrangedSubview:(UIView *)view
 {
-    // TODO
+    [self insertArrangedSubview:view atIndex:[_arrangedSubviews count]];
 }
 
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index
 {
-    // TODO
+    [_arrangedSubviews insertObject:view atIndex:index];
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)removeArrangedSubview:(UIView *)view
 {
-    // TODO
+    [_arrangedSubviews removeObject:view];
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)willRemoveSubview:(UIView *)subview
+{
+    NSUInteger index = [_arrangedSubviews indexOfObject:subview];
+
+    if (index != NSNotFound) {
+        [_arrangedSubviews removeObjectAtIndex:index];
+
+        [self invalidateIntrinsicContentSize];
+        [self setNeedsUpdateConstraints];
+    }
+
+    [super willRemoveSubview:subview];
+}
+
+- (UIView *)viewForBaselineLayout
+{
+    return ([_arrangedSubviews count] == 0) ? [super viewForBaselineLayout] : [[_arrangedSubviews objectAtIndex:0] viewForBaselineLayout];
+}
+
+- (void)setNeedsUpdateConstraints
+{
+    if (_constraints != nil) {
+        [self removeConstraints:_constraints];
+
+        _constraints = nil;
+    }
+
+    [super setNeedsUpdateConstraints];
+}
+
+- (void)updateConstraints
+{
+    if (_constraints == nil) {
+        _constraints = [self createConstraints];
+
+        if (_constraints != nil) {
+            [self addConstraints:_constraints];
+        }
+    }
+
+    [super updateConstraints];
+}
+
+- (NSArray *)createConstraints
+{
+    return nil;
+}
+
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    UIView *view = [super hitTest:point withEvent:event];
+
+    if (view == self) {
+        view = nil;
+    }
+
+    return view;
 }
 
 - (void)appendMarkupElementView:(UIView *)view

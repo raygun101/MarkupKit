@@ -19,10 +19,31 @@
  */
 @interface LMLayoutView : UIView
 
+/**
+ * The list of subviews arranged by the layout view.
+ */
 @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
 
+/**
+ * Adds an arranged subview.
+ * 
+ * @param view The view to add.
+ */
 - (void)addArrangedSubview:(UIView *)view;
+
+/**
+ * Inserts an arranged subview.
+ *
+ * @param view The view to insert.
+ * @param index The index at which to insert the view.
+ */
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
+
+/**
+ * Removes an arranged subview.
+ *
+ * @param view The view to remove.
+ */
 - (void)removeArrangedSubview:(UIView *)view;
 
 @end

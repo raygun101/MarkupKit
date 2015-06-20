@@ -14,20 +14,47 @@
 
 #import "LMBoxView.h"
 
+#define DEFAULT_ALIGNMENT LMBoxViewAlignmentFill
+#define DEFAULT_SPACING 8
+
 @implementation LMBoxView
+
+#define INIT {\
+    _alignment = DEFAULT_ALIGNMENT;\
+    _spacing = DEFAULT_SPACING;\
+}
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+
+    if (self) INIT
+
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    self = [super initWithCoder:decoder];
+
+    if (self) INIT
+
+    return self;
+}
 
 - (void)setAlignment:(LMBoxViewAlignment)alignment
 {
-    // TODO Invalidate constraints
-
     _alignment = alignment;
+
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)setSpacing:(CGFloat)spacing
 {
-    // TODO Invalidate constraints
-
     _spacing = spacing;
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
 }
 
 @end
