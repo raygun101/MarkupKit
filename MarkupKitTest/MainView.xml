@@ -22,16 +22,16 @@ limitations under the License.
 <?strings Missing?>
 
 <root fitToWidth="true">
-    <LMLayerView>
+    <LMLayerView layoutMargins="20">
         <UIView backgroundColor="#eeeeee"/>
         
-        <LMColumnView>
+        <LMColumnView alignment="center">
             <LMRowView class="row.first">
                 <UILabel id="greetingLabel" text="greeting" textColor="#ff00ff"/>
                 <UILabel text="missing.key" textAlignment="right"/>
             </LMRowView>
 
-            <LMRowView class="row.second">
+            <LMRowView class="row.second" alignment="baseline">
                 <UILabel text="12345" font="Helvetica-Bold 32"/>
                 <UIView weight="1"/>
                 <UIButton style="systemButton" normalTitle="prompt"
@@ -43,11 +43,11 @@ limitations under the License.
                 <UISwitch on="false" onValueChanged="handleSwitchValueChanged:"/>
             </LMRowView>
 
-            <LMRowView layoutMargins="12">
+            <LMRowView layoutMargins="12" backgroundColor="#ffffff">
                 <UITextField placeholder="text" clearButtonMode="whileEditing" keyboardType="numberPad"/>
             </LMRowView>
             
-            <LMRowView layoutMargins="12">
+            <LMRowView layoutMargins="12" backgroundColor="#ffffff">
                 <UITextField placeholder="password" clearButtonMode="whileEditing" secureTextEntry="true"/>
             </LMRowView>
 
