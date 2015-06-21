@@ -13,6 +13,7 @@
 //
 
 #import "LMViewBuilder.h"
+#import "LMBoxView.h"
 #import "UIView+Markup.h"
 
 static NSString * const LMViewBuilderPropertiesTarget = @"properties";
@@ -656,6 +657,32 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 }
 
                 value = [NSNumber numberWithInt:webPaginationMode];
+            } else if ([key isEqual:@"alignment"]) {
+                // Translate to stack view alignment
+                LMBoxViewAlignment boxViewAlignment;
+                if ([value isEqual:@"top"]) {
+                    boxViewAlignment = LMBoxViewAlignmentTop;
+                } else if ([value isEqual:@"bottom"]) {
+                    boxViewAlignment = LMBoxViewAlignmentBottom;
+                } else if ([value isEqual:@"left"]) {
+                    boxViewAlignment = LMBoxViewAlignmentLeft;
+                } else if ([value isEqual:@"right"]) {
+                    boxViewAlignment = LMBoxViewAlignmentRight;
+                } else if ([value isEqual:@"leading"]) {
+                    boxViewAlignment = LMBoxViewAlignmentLeading;
+                } else if ([value isEqual:@"trailing"]) {
+                    boxViewAlignment = LMBoxViewAlignmentTrailing;
+                } else if ([value isEqual:@"center"]) {
+                    boxViewAlignment = LMBoxViewAlignmentCenter;
+                } else if ([value isEqual:@"baseline"]) {
+                    boxViewAlignment = LMBoxViewAlignmentBaseline;
+                } else if ([value isEqual:@"fill"]) {
+                    boxViewAlignment = LMBoxViewAlignmentFill;
+                } else {
+                    boxViewAlignment = -1;
+                }
+
+                value = [NSNumber numberWithInt:boxViewAlignment];
             } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Parse color specification
                 if ([value hasPrefix:LMViewBuilderHexValuePrefix]) {
