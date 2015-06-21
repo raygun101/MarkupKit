@@ -7,13 +7,7 @@ For example, the following markup declares an instance of `UILabel` and sets the
 
     <UILabel text="Hello, World!"/>
 
-The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development:
-
-* `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by a Cocoa Touch application
-* `LMTableView` and `LMTableViewCell` - table view types that simplify the definition of static table view content
-* `LMScrollView` - scroll view that automatically adapts to the size of its content
-
-Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
+The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
 Note that MarkupKit requires iOS 8 or later.
 
@@ -240,7 +234,18 @@ In addition to the document-wide `strings` and `properties` PIs mentioned earlie
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. The `LMTableView` class overrides this method to support section header and footer declarations. An extension to `UISegmentedControl` overrides it to support segment title and image declarations. Both classes are discussed in more detail below.
 
-# LMViewBuilder
+# MarkupKit Classes
+The remaining sections introduce the classes included with the MarkupKit framework:
+
+* `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by a Cocoa Touch application
+* `LMTableView` and `LMTableViewCell` - table view types that simplify the definition of static table view content
+* `LMScrollView` - scroll view that automatically adapts to the size of its content
+* `LMRowView` and `LMColumnView` - layout management views that arrange subviews in either a horizontal or vertical line, respectively
+* `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
+
+Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
+
+## LMViewBuilder
 `LMViewBuilder` is the class that is actually responsible for loading a MarkupKit document. It defines a single method that returns the deserialized view hierarchy:
 
     + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
@@ -400,6 +405,169 @@ When `fitToWidth` is set to `true`, the scroll view will ensure that the width o
 Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
 
 See _LMScrollView.h_ for more information.
+
+## LMLayoutView
+Autolayout is an iOS feature that allows developers to create applications that automatically adapt to device orientation or content changes. An application built using autolayout generally has little or no hard-coded view widths or heights, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
+
+Autolayout in iOS (as well as Mac OS X) is implemented via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be cumbersome to work with. MarkupKit provides several classes that simplify the process of adding autolayout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
+
+* `LMRowView` - view that arranges subviews in a horizontal line
+* `LMColumnView` - view that arranges subviews in a vertical line, optionally grouping nested subviews into columns
+* `LMLayerView` - view that arranges subviews in layers, like a stack of transparencies
+
+These classes use layout constraints internally, but abstract the details away from the developer. When used in markup, they can help the developer more easily visualize the resulting output. However, they can also be created and manipulated programmatically to provide dynamic layout behavior.
+
+All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
+    
+    - (void)addArrangedSubview:(UIView *)view;
+    - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
+    - (void)removeArrangedSubview:(UIView *)view;
+
+These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. `LMLayoutView` also defines a read-only property that returns the current list of arranged subviews:
+
+    @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
+
+Note that layout views can be nested to create complex layouts that automatically adjust to orientation or screen size changes. 
+
+All three layout view types are discussed in more detail in the following sections. See _LMLayoutView.h_ for more information.
+
+## LMRowView and LMColumnView
+The `LMRowView` and `LMColumnView` classes lay out subviews in either a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which extends `LMLayoutView` and adds the following properties:
+
+    @property (nonatomic) LMBoxViewAlignment alignment;
+    @property (nonatomic) CGFloat spacing;
+
+The `alignment` property specifies how content should be aligned within a box view. It is specified as an instance of the `LMBoxViewAlignment` enumeration:
+
+* `LMBoxViewAlignmentTop` 
+* `LMBoxViewAlignmentBottom` 
+* `LMBoxViewAlignmentLeft` 
+* `LMBoxViewAlignmentRight` 
+* `LMBoxViewAlignmentLeading` 
+* `LMBoxViewAlignmentTrailing` 
+* `LMBoxViewAlignmentCenter` 
+* `LMBoxViewAlignmentBaseline` 
+* `LMBoxViewAlignmentFill` 
+
+`LMBoxViewAlignmentTop`, `LMBoxViewAlignmentBottom`, and `LMBoxViewAlignmentBaseline` apply to `LMRowView` instances, which align content vertically within a row. 
+
+`LMBoxViewAlignmentLeft`, `LMBoxViewAlignmentRight`, `LMBoxViewAlignmentLeading`, and `LMBoxViewAlignmentTrailing` apply to `LMColumnView` instances, which align content horizontally. `LMBoxViewAlignmentLeading` and `LMBoxViewAlignmentTrailing` are relative to the text direction used by the system language. For left-to-right languages, "leading" refers to the left edge and trailing to the right. For right-to-left languages, "leading" refers to the right edge and trailing to the left.
+
+`LMBoxViewAlignmentCenter` and `LMBoxViewAlignmentFill` apply to both row and column views. The default value for both box view types is `LMBoxViewAlignmentFill`.
+
+The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
+
+See _LMBoxView.h_ for more information.
+
+### LMRowView
+The `LMRowView` class arranges its subviews in a horizontal line. For example, the following markup creates a row view containing three labels:
+
+    <LMRowView>
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+    </LMRowView>
+
+Because the default alignment is "fill", the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), effectively ensuring that all subviews are the same height. 
+
+This markup declares a row view containing three labels, all with different font sizes:
+
+    <LMRowView alignment="baseline">
+        <UILabel text="One" font="Helvetica 12"/>
+        <UILabel text="Two" font="Helvetica 24"/>
+        <UILabel text="Three" font="Helvetica 48"/>
+    </LMRowView>
+    
+Because the `alignment` property is set to "baseline", the baselines of all three labels will line up when the view is shown.
+
+### LMColumnView
+The `LMColumnView` class arranges its subviews in a vertical line. For example, the following markup creates a column view containing three labels:
+
+    <LMColumnView>
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+    </LMColumnView>
+
+Because the default alignment is "fill", the left and right edges of each subview will be pinned to the left and right edges of the row (excluding layout margins), effectively ensuring that all subviews are the same width. 
+
+`LMBoxViewAlignmentFill` also enables subview content to wrap. For example, if the column view contains a long label and the `numberOfLines` property of the label is set to 0, the label will wrap to as many lines as needed to display the text:
+
+    <LMColumnView horizontalAlignment="fill">
+        <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
+            numberOfLines="0"/>
+    </LMColumnView>
+
+### View Weights
+MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:
+
+    @property (nonatomic) CGFloat weight;
+
+A view's weight specifies the amount of excess space the view would like to be given within its superview (once the sizes of all unweighted views have been determined) and is relative to all other weights specified within the superview. For row views, weight applies to the excess horizontal space, and for column views to the excess vertical space.
+
+For example, with a weight of "1", the label in the following example will be given the entire vertical space of the column view:
+
+    <LMColumnView>
+        <UILabel weight="1" text="Hello, World!"/>
+    </LMColumnView>
+    
+Since weights are relative, the following example will produce identical output:
+
+    <LMColumnView>
+        <UILabel weight="100" text="Hello, World!"/>
+    </LMColumnView>
+    
+The choice of what values to use is a matter of developer preference.
+
+In this example, each label will be given 50% of the height of the column view:
+
+    <LMColumnView>
+        <UILabel weight="0.5" text="Hello"/>
+        <UILabel weight="0.5" text="World"/>
+    </LMColumnView>
+    
+Again, since weights are relative, the following markup will produce identical results:
+
+    <LMColumnView>
+        <UILabel weight="1" text="Hello"/>
+        <UILabel weight="1" text="World"/>
+    </LMColumnView>
+    
+Here, the first label will be given 1/6 of the available space, the second 1/3, and the third 1/2:
+
+    <LMColumnView>
+        <UILabel weight="1" text="One"/>
+        <UILabel weight="2" text="Two"/>
+        <UILabel weight="3" text="Three"/>
+    </LMColumnView>
+
+Weights in `LMRowView` are handled identically, but in the horizontal direction.
+
+A common use for weights is to add flexible space around a view. For example, the following markup centers a label vertically within a column:
+
+    <LMColumnView>
+        <UIView weight="1"/>
+        <UILabel text="Hello, World!"/>
+        <UIView weight="1"/>
+    </LMColumnView>
+
+Similarly, the following markup centers a label horizontally within a row:
+
+    <LMRowView>
+        <UIView weight="1"/>
+        <UILabel text="Hello, World!"/>
+        <UIView weight="1"/>
+    </LMRowView>
+
+## LMLayerView
+The `LMLayerView` class is arguably the simplest layout view. It simply arranges its subviews in layers, like a stack of transparencies. Because it does not support padding or spacing, it does not extend the `LMLayoutView` class. However, its primary purpose is still layout.
+
+For example, the following markup declares an instance of `LMLayerView` with two sub-views. The `UIImageView` instance, since it is declared first, appears beneath the `UILabel` instance, effectively creating a background for the label:
+
+    <LMLayerView>
+        <UIImageView image="world.png" contentMode="scaleAspectFit"/>
+        <UILabel text="Hello, World!" textAlignment="center"/>
+    </LMLayerView>
 
 ## UIKit Extensions
 MarkupKit extends several UIKit classes to adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
