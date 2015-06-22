@@ -741,11 +741,6 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 }
 
                 value = [NSNumber numberWithFloat:layoutPriority];
-            } else if ([key isEqual:@"layoutMargins"]) {
-                // Create edge insets from value
-                CGFloat inset = [value floatValue];
-
-                value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
             } else {
                 // Get localized value
                 NSString *localizedValue = [_strings objectForKey:value];
@@ -756,6 +751,13 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
 
                 value = localizedValue;
             }
+        }
+
+        if ([key isEqual:@"layoutMargins"]) {
+            // Create edge insets from value
+            CGFloat inset = [value floatValue];
+
+            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         }
 
         [_view setValue:value forKeyPath:key];

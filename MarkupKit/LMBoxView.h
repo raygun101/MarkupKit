@@ -52,6 +52,16 @@ typedef NS_ENUM(NSInteger, LMBoxViewAlignment) {
 @interface LMBoxView : LMLayoutView
 
 /**
+ * Initializes the box view with a frame and an alignment.
+ */
+- (instancetype)initWithFrame:(CGRect)frame alignment:(LMBoxViewAlignment)alignment;
+
+/**
+ * Initializes the box view with a coder and an alignment.
+ */
+- (id)initWithCoder:(NSCoder *)decoder alignment:(LMBoxViewAlignment)alignment;
+
+/**
  * Defines how subviews are aligned.
  */
 @property (nonatomic) LMBoxViewAlignment alignment;

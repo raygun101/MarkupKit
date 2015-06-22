@@ -4,6 +4,8 @@
 <dict>
 	<key>row.first</key>
 	<dict>
+		<key>layoutMargins</key>
+		<integer>6</integer>
 		<key>layer.borderColor</key>
 		<string>#ffff00</string>
 		<key>layer.borderWidth</key>
@@ -11,6 +13,8 @@
 	</dict>
 	<key>row.second</key>
 	<dict>
+		<key>layoutMargins</key>
+		<integer>6</integer>
 		<key>layer.borderColor</key>
 		<string>#00ffff</string>
 		<key>layer.borderWidth</key>
