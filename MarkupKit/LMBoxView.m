@@ -14,17 +14,16 @@
 
 #import "LMBoxView.h"
 
-#define DEFAULT_ALIGNMENT LMBoxViewAlignmentFill
 #define DEFAULT_SPACING 8
 
 @implementation LMBoxView
 
 #define INIT {\
-    _alignment = DEFAULT_ALIGNMENT;\
+    _alignment = alignment;\
     _spacing = DEFAULT_SPACING;\
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame alignment:(LMBoxViewAlignment)alignment
 {
     self = [super initWithFrame:frame];
 
@@ -33,7 +32,7 @@
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)decoder
+- (id)initWithCoder:(NSCoder *)decoder alignment:(LMBoxViewAlignment)alignment
 {
     self = [super initWithCoder:decoder];
 

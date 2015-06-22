@@ -16,32 +16,9 @@
 
 @implementation LMLayerView
 
-- (CGSize)intrinsicContentSize
-{
-    CGSize size = {0, 0};
-
-    for (UIView * subview in [self arrangedSubviews]) {
-        CGSize subviewSize = [subview intrinsicContentSize];
-
-        if (subviewSize.width != UIViewNoIntrinsicMetric) {
-            size.width = MAX(size.width, subviewSize.width);
-        }
-
-        if (subviewSize.height != UIViewNoIntrinsicMetric) {
-            size.height = MAX(size.height, subviewSize.height);
-        }
-    }
-
-    UIEdgeInsets layoutMargins = [self layoutMargins];
-
-    size.width += layoutMargins.left + layoutMargins.right;
-    size.height += layoutMargins.top + layoutMargins.bottom;
-
-    return size;
-}
-
 - (void)layoutSubviews
 {
+    // Ensure that subviews resize
     for (UIView * subview in [self arrangedSubviews]) {
         [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];

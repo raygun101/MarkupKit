@@ -9,7 +9,7 @@ For example, the following markup declares an instance of `UILabel` and sets the
 
 The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
-Note that MarkupKit requires iOS 8 or later.
+MarkupKit requires iOS 8 or later.
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent instances of `UIView` subclasses, and XML attributes represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
@@ -451,26 +451,16 @@ The `alignment` property specifies how content should be aligned within a box vi
 
 `LMBoxViewAlignmentTop`, `LMBoxViewAlignmentBottom`, and `LMBoxViewAlignmentBaseline` apply to `LMRowView` instances, which align content vertically within a row. 
 
-`LMBoxViewAlignmentLeft`, `LMBoxViewAlignmentRight`, `LMBoxViewAlignmentLeading`, and `LMBoxViewAlignmentTrailing` apply to `LMColumnView` instances, which align content horizontally. `LMBoxViewAlignmentLeading` and `LMBoxViewAlignmentTrailing` are relative to the text direction used by the system language. For left-to-right languages, "leading" refers to the left edge and trailing to the right. For right-to-left languages, "leading" refers to the right edge and trailing to the left.
-
-`LMBoxViewAlignmentCenter` and `LMBoxViewAlignmentFill` apply to both row and column views. The default value for both box view types is `LMBoxViewAlignmentFill`.
+`LMBoxViewAlignmentLeft`, `LMBoxViewAlignmentRight`, `LMBoxViewAlignmentLeading`, and `LMBoxViewAlignmentTrailing` apply to `LMColumnView` instances, which align content horizontally. `LMBoxViewAlignmentLeading` and `LMBoxViewAlignmentTrailing` are relative to the text direction used by the system language. For left-to-right languages, "leading" refers to the left edge and trailing to the right. For right-to-left languages, "leading" refers to the right edge and trailing to the left. `LMBoxViewAlignmentCenter` and `LMBoxViewAlignmentFill` apply to both row and column views. 
 
 The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
 
 See _LMBoxView.h_ for more information.
 
 ### LMRowView
-The `LMRowView` class arranges its subviews in a horizontal line. For example, the following markup creates a row view containing three labels:
+The `LMRowView` class arranges its subviews in a horizontal line. The default `alignment` value for row views is `LMBoxViewAlignmentBaseline`. 
 
-    <LMRowView>
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
-    </LMRowView>
-
-Because the default alignment is "fill", the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), effectively ensuring that all subviews are the same height. 
-
-This markup declares a row view containing three labels, all with different font sizes:
+For example, the following markup creates a row view containing three labels, all with different font sizes:
 
     <LMRowView alignment="baseline">
         <UILabel text="One" font="Helvetica 12"/>
@@ -478,10 +468,12 @@ This markup declares a row view containing three labels, all with different font
         <UILabel text="Three" font="Helvetica 48"/>
     </LMRowView>
     
-Because the `alignment` property is set to "baseline", the baselines of all three labels will line up when the view is shown.
+Because the default alignment is "baseline", the baselines of all three labels will line up when the view is shown.
 
 ### LMColumnView
-The `LMColumnView` class arranges its subviews in a vertical line. For example, the following markup creates a column view containing three labels:
+The `LMColumnView` class arranges its subviews in a vertical line. The default `alignment` value for column views is `LMBoxViewAlignmentFill`.
+
+For example, the following markup creates a column view containing three labels:
 
     <LMColumnView>
         <UILabel text="One"/>
@@ -493,10 +485,27 @@ Because the default alignment is "fill", the left and right edges of each subvie
 
 `LMBoxViewAlignmentFill` also enables subview content to wrap. For example, if the column view contains a long label and the `numberOfLines` property of the label is set to 0, the label will wrap to as many lines as needed to display the text:
 
-    <LMColumnView horizontalAlignment="fill">
+    <LMColumnView>
         <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
             numberOfLines="0"/>
     </LMColumnView>
+
+This also applies to row views nested within column views; however, to enable wrapping, the alignment of the row view must also be set to "fill". 
+
+For example, all of the labels produced by the following markup will wrap as needed:
+
+    <LMColumnView>
+        <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
+            numberOfLines="0"/>
+
+        <LMRowView alignment="fill">
+            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
+                numberOfLines="0"/>
+            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
+                numberOfLines="0"/>
+        </LMRowView>
+    </LMColumnView>
+
 
 ### View Weights
 MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:

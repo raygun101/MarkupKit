@@ -15,7 +15,19 @@
 #import "LMRowView.h"
 #import "UIView+Markup.h"
 
+#define DEFAULT_ALIGNMENT LMBoxViewAlignmentCenter
+
 @implementation LMRowView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    return [super initWithFrame:frame alignment:DEFAULT_ALIGNMENT];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder
+{
+    return [super initWithCoder:decoder alignment:DEFAULT_ALIGNMENT];
+}
 
 - (void)setAlignment:(LMBoxViewAlignment)alignment
 {
@@ -28,45 +40,50 @@
     [super setAlignment:alignment];
 }
 
-
 - (CGSize)intrinsicContentSize
 {
-    CGSize size = {0, 0};
+    CGSize size;
+    if ([self alignment] == LMBoxViewAlignmentFill) {
+        size = [super intrinsicContentSize];
+    } else {
+        size = CGSizeMake(0, 0);
 
-    NSArray *arrangedSubviews = [self arrangedSubviews];
+        NSArray *arrangedSubviews = [self arrangedSubviews];
 
-    for (UIView * subview in arrangedSubviews) {
-        CGSize subviewSize = [subview intrinsicContentSize];
+        for (UIView * subview in arrangedSubviews) {
+            CGSize subviewSize = [subview intrinsicContentSize];
 
-        if (subviewSize.width != UIViewNoIntrinsicMetric) {
-            size.width += subviewSize.width;
+            if (subviewSize.width != UIViewNoIntrinsicMetric) {
+                size.width += subviewSize.width;
+            }
+
+            if (subviewSize.height != UIViewNoIntrinsicMetric) {
+                size.height = MAX(size.height, subviewSize.height);
+            }
         }
 
-        if (subviewSize.height != UIViewNoIntrinsicMetric) {
-            size.height = MAX(size.height, subviewSize.height);
-        }
+        UIEdgeInsets layoutMargins = [self layoutMargins];
+
+        size.width += layoutMargins.left + layoutMargins.right;
+        size.height += layoutMargins.top + layoutMargins.bottom + ([arrangedSubviews count] - 1) * [self spacing];
     }
-
-    UIEdgeInsets layoutMargins = [self layoutMargins];
-
-    size.width += layoutMargins.left + layoutMargins.right;
-    size.height += layoutMargins.top + layoutMargins.bottom + ([arrangedSubviews count] - 1) * [self spacing];
 
     return size;
 }
 
 - (void)layoutSubviews
 {
-    if ([self alignment] == LMBoxViewAlignmentFill) {
-        for (UIView * subview in [self arrangedSubviews]) {
-            if (!isnan([subview weight])) {
-                [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-                [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-            }
+    // Ensure that subviews resize according to weight
+    UILayoutPriority verticalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
 
-            [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-            [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
-        }
+    for (UIView * subview in [self arrangedSubviews]) {
+        [subview setContentCompressionResistancePriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
+        [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
+
+        UILayoutPriority horizontalPriority = isnan([subview weight]) ? UILayoutPriorityRequired : UILayoutPriorityDefaultLow;
+
+        [subview setContentCompressionResistancePriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
+        [subview setContentHuggingPriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
     }
 
     [super layoutSubviews];
