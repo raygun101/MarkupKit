@@ -71,7 +71,6 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
-    // TODO Use different values for hugging/compression resistance?
     UILayoutPriority horizontalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
 
     for (UIView * subview in [self arrangedSubviews]) {
