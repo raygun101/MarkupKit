@@ -15,19 +15,7 @@
 #import "LMColumnView.h"
 #import "UIView+Markup.h"
 
-#define DEFAULT_ALIGNMENT LMBoxViewAlignmentFill
-
 @implementation LMColumnView
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    return [super initWithFrame:frame alignment:DEFAULT_ALIGNMENT];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder
-{
-    return [super initWithCoder:decoder alignment:DEFAULT_ALIGNMENT];
-}
 
 - (void)setAlignment:(LMBoxViewAlignment)alignment
 {
@@ -75,6 +63,7 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
+    // TODO Use different values for hugging/compression resistance?
     UILayoutPriority horizontalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
 
     for (UIView * subview in [self arrangedSubviews]) {
