@@ -61,4 +61,9 @@ typedef NS_ENUM(NSInteger, LMBoxViewAlignment) {
  */
 @property (nonatomic) CGFloat spacing;
 
+/**
+ * Specifies that subviews should be pinned along the box view's axis.
+ */
+@property (nonatomic) BOOL pin;
+
 @end
