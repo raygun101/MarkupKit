@@ -37,9 +37,17 @@
     } else {
         size = CGSizeMake(0, 0);
 
+        CGFloat spacing = [self spacing];
+
         NSArray *arrangedSubviews = [self arrangedSubviews];
 
-        for (UIView * subview in arrangedSubviews) {
+        for (NSUInteger i = 0, n = [arrangedSubviews count]; i < n; i++) {
+            if (i > 0) {
+                size.height += spacing;
+            }
+
+            UIView *subview = [arrangedSubviews objectAtIndex:i];
+
             CGSize subviewSize = [subview intrinsicContentSize];
 
             if (subviewSize.width != UIViewNoIntrinsicMetric) {
@@ -54,7 +62,7 @@
         UIEdgeInsets layoutMargins = [self layoutMargins];
 
         size.width += layoutMargins.left + layoutMargins.right;
-        size.height += layoutMargins.top + layoutMargins.bottom + ([arrangedSubviews count] - 1) * [self spacing];
+        size.height += layoutMargins.top + layoutMargins.bottom;
     }
 
     return size;
