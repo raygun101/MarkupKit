@@ -14,7 +14,15 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMScrollView fitToWidth="true">
-    <UILabel id="label" numberOfLines="0" lineBreakMode="byWordWrapping"/>
-</LMScrollView>
+<LMLayerView>
+    <LMScrollView fitToWidth="true">
+        <UILabel id="label" numberOfLines="0" lineBreakMode="byWordWrapping"/>
+    </LMScrollView>
 
+    <LMColumnView pin="true">
+        <LMColumnView weight="1"/>
+        <LMColumnView layoutMargins="20">
+            <UIButton style="customButton" backgroundColor="#00aa00" normalTitle="Press Me!"/>
+        </LMColumnView>
+    </LMColumnView>
+</LMLayerView>
