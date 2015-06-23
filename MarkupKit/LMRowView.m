@@ -15,19 +15,7 @@
 #import "LMRowView.h"
 #import "UIView+Markup.h"
 
-#define DEFAULT_ALIGNMENT LMBoxViewAlignmentCenter
-
 @implementation LMRowView
-
-- (instancetype)initWithFrame:(CGRect)frame
-{
-    return [super initWithFrame:frame alignment:DEFAULT_ALIGNMENT];
-}
-
-- (id)initWithCoder:(NSCoder *)decoder
-{
-    return [super initWithCoder:decoder alignment:DEFAULT_ALIGNMENT];
-}
 
 - (void)setAlignment:(LMBoxViewAlignment)alignment
 {
@@ -64,8 +52,8 @@
 
         UIEdgeInsets layoutMargins = [self layoutMargins];
 
-        size.width += layoutMargins.left + layoutMargins.right;
-        size.height += layoutMargins.top + layoutMargins.bottom + ([arrangedSubviews count] - 1) * [self spacing];
+        size.width += layoutMargins.left + layoutMargins.right + ([arrangedSubviews count] - 1) * [self spacing];
+        size.height += layoutMargins.top + layoutMargins.bottom;
     }
 
     return size;
@@ -74,6 +62,7 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
+    // TODO Use different values for hugging/compression resistance?
     UILayoutPriority verticalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
 
     for (UIView * subview in [self arrangedSubviews]) {
