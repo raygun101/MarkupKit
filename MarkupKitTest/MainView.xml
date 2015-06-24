@@ -22,10 +22,10 @@ limitations under the License.
 <?strings Missing?>
 
 <root fitToWidth="true">
-    <LMLayerView layoutMargins="20">
+    <LMLayerView>
         <UIView backgroundColor="#eeeeee"/>
         
-        <LMColumnView alignment="center">
+        <LMColumnView alignment="center" layoutMargins="20">
             <LMRowView class="row.first">
                 <UILabel id="greetingLabel" text="greeting" textColor="#ff00ff"/>
                 <UILabel text="missing.key" textAlignment="right"/>
