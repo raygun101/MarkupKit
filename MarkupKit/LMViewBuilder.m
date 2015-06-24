@@ -283,7 +283,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"bottomRight"]) {
                     contentMode = UIViewContentModeBottomRight;
                 } else {
-                    contentMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:contentMode];
@@ -297,7 +297,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"dimmed"]) {
                     tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
                 } else {
-                    tintAdjustmentMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:tintAdjustmentMode];
@@ -313,7 +313,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"fill"]) {
                     controlContentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
                 } else {
-                    controlContentHorizontalAlignment = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:controlContentHorizontalAlignment];
@@ -329,7 +329,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"fill"]) {
                     controlContentVerticalAlignment = UIControlContentVerticalAlignmentFill;
                 } else {
-                    controlContentVerticalAlignment = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:controlContentVerticalAlignment];
@@ -349,7 +349,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"byTruncatingMiddle"]) {
                     lineBreakMode = NSLineBreakByTruncatingMiddle;
                 } else {
-                    lineBreakMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:lineBreakMode];
@@ -367,7 +367,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"natural"]) {
                     textAlignment = NSTextAlignmentNatural;
                 } else {
-                    textAlignment = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:textAlignment];
@@ -383,7 +383,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"roundedRect"]) {
                     textBorderStyle = UITextBorderStyleRoundedRect;
                 } else {
-                    textBorderStyle = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:textBorderStyle];
@@ -399,7 +399,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"always"]) {
                     textFieldViewMode = UITextFieldViewModeAlways;
                 } else {
-                    textFieldViewMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:textFieldViewMode];
@@ -415,7 +415,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"allCharacters"]) {
                     textAutocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
                 } else {
-                    textAutocapitalizationType = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -432,7 +432,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"no"]) {
                     textAutocorrectionType = UITextAutocorrectionTypeNo;
                 } else {
-                    textAutocorrectionType = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -449,7 +449,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"no"]) {
                     textSpellCheckingType = UITextSpellCheckingTypeNo;
                 } else {
-                    textSpellCheckingType = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -468,7 +468,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"alert"]) {
                     keyboardAppearance = UIKeyboardAppearanceAlert;
                 } else {
-                    keyboardAppearance = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -501,7 +501,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"webSearch"]) {
                     keyboardType = UIKeyboardTypeWebSearch;
                 } else {
-                    keyboardType = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -534,7 +534,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"emergencyCall"]) {
                     returnKeyType = UIReturnKeyEmergencyCall;
                 } else {
-                    returnKeyType = -1;
+                    continue;
                 }
 
                 // Property is not KVC-compliant
@@ -552,7 +552,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"countDownTimer"]) {
                     datePickerMode = UIDatePickerModeCountDownTimer;
                 } else {
-                    datePickerMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:datePickerMode];
@@ -565,7 +565,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"gray"]) {
                     activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
                 } else {
-                    activityIndicatorViewStyle = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:activityIndicatorViewStyle];
@@ -578,7 +578,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"singleLineEtched"]) {
                     tableViewCellSeparatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
                 } else {
-                    tableViewCellSeparatorStyle = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:tableViewCellSeparatorStyle];
@@ -596,7 +596,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"detailButton"]) {
                     tableViewCellAccessoryType = UITableViewCellAccessoryDetailButton;
                 } else {
-                    tableViewCellAccessoryType = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:tableViewCellAccessoryType];
@@ -622,7 +622,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                         } else if ([component isEqual:@"calendarEvent"]) {
                             dataDetectorTypes |= UIDataDetectorTypeCalendarEvent;
                         } else {
-                            dataDetectorTypes |= -1;
+                            continue;
                         }
                     }
                 }
@@ -636,7 +636,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"column"]) {
                     webPaginationBreakingMode = UIWebPaginationBreakingModeColumn;
                 } else {
-                    webPaginationBreakingMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:webPaginationBreakingMode];
@@ -654,7 +654,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"rightToLeft"]) {
                     webPaginationMode = UIWebPaginationModeRightToLeft;
                 } else {
-                    webPaginationMode = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:webPaginationMode];
@@ -680,7 +680,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"fill"]) {
                     boxViewAlignment = LMBoxViewAlignmentFill;
                 } else {
-                    boxViewAlignment = -1;
+                    continue;
                 }
 
                 value = [NSNumber numberWithInt:boxViewAlignment];
