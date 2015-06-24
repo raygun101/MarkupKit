@@ -35,19 +35,32 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to layer view edges
+    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
+    if ([self layoutMarginsRelativeArrangement]) {
+        topAttribute = NSLayoutAttributeTopMargin;
+        bottomAttribute = NSLayoutAttributeBottomMargin;
+        leftAttribute = NSLayoutAttributeLeftMargin;
+        rightAttribute = NSLayoutAttributeRightMargin;
+    } else {
+        topAttribute = NSLayoutAttributeTop;
+        bottomAttribute = NSLayoutAttributeBottom;
+        leftAttribute = NSLayoutAttributeLeft;
+        rightAttribute = NSLayoutAttributeRight;
+    }
+
     for (UIView *subview in [self arrangedSubviews]) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
             multiplier:1 constant:0]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:0]];
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeftMargin
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
             multiplier:1 constant:0]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRightMargin
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
             multiplier:1 constant:0]];
     }
 

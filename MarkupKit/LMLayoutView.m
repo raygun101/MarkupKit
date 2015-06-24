@@ -30,6 +30,7 @@
 
 #define INIT {\
     _arrangedSubviews = [NSMutableArray new];\
+    _layoutMarginsRelativeArrangement = YES;\
     [self setLayoutMargins:DEFAULT_LAYOUT_MARGINS];\
 }
 
@@ -71,6 +72,14 @@
 - (void)removeArrangedSubview:(UIView *)view
 {
     [_arrangedSubviews removeObject:view];
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setLayoutMarginsRelativeArrangement:(BOOL)layoutMarginsRelativeArrangement
+{
+    _layoutMarginsRelativeArrangement = layoutMarginsRelativeArrangement;
 
     [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
