@@ -427,6 +427,12 @@ These methods manage the list of the layout view's "arranged subviews", which ar
 
     @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
 
+Additionally, `LMLayoutView` provides the following property:
+
+    @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
+
+This value specifies that subviews will be arranged relative to the view's layout margins. The default value is `true`. However, in some cases, `UIKit` provides default non-overridable values for a view's margins. In these cases, setting this flag to `false` instructs the view to ignore margins altogether and align subviews to the layout view's edges directly. 
+    
 `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` so that layout views can be easily constructed in markup. Additionally, layout views can be nested to create complex layouts that automatically adjust to orientation or screen size changes. 
 
 All three layout view types are discussed in more detail in the following sections. See _LMLayoutView.h_ for more information.

@@ -36,4 +36,9 @@
     return [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 }
 
+- (UITableViewCell *)tableViewCell
+{
+    return self;
+}
+
 @end

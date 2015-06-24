@@ -62,6 +62,12 @@
 @property (nonatomic) CGFloat layoutMarginRight;
 
 /**
+ * Returns the table view cell that contains this view, or <tt>nil</tt> if this
+ * view is not a descendant of a table view cell.
+ */
+- (UITableViewCell *)tableViewCell;
+
+/**
  * Appends a sub-element view from markup.
  */
 - (void)appendMarkupElementView:(UIView *)view;

@@ -13,6 +13,7 @@
 //
 
 #import "LMLayoutView.h"
+#import "UIView+Markup.h"
 
 #define DEFAULT_LAYOUT_MARGINS UIEdgeInsetsZero
 
@@ -107,7 +108,7 @@
 - (void)setNeedsUpdateConstraints
 {
     if (_constraints != nil) {
-        [self removeConstraints:_constraints];
+        [[self constraintRoot] removeConstraints:_constraints];
 
         _constraints = nil;
     }
@@ -118,14 +119,23 @@
 - (void)updateConstraints
 {
     if (_constraints == nil) {
+        UIView *constraintRoot = [self constraintRoot];
+
         _constraints = [self createConstraints];
 
         if (_constraints != nil) {
-            [self addConstraints:_constraints];
+            [constraintRoot addConstraints:_constraints];
         }
     }
 
     [super updateConstraints];
+}
+
+- (UIView *)constraintRoot
+{
+    UITableViewCell *tableViewCell = [self tableViewCell];
+
+    return (tableViewCell == nil) ? self : [tableViewCell contentView];
 }
 
 - (NSArray *)createConstraints
