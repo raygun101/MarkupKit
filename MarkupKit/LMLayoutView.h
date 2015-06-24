@@ -46,4 +46,9 @@
  */
 - (void)removeArrangedSubview:(UIView *)view;
 
+/**
+ * Specifies that subviews will be arranged relative to the view's layout margins.
+ */
+@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
+
 @end

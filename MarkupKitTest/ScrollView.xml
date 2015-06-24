@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView>
+<LMLayerView layoutMarginsRelativeArrangement="false">
     <LMScrollView fitToWidth="true">
         <UILabel id="label" numberOfLines="0" lineBreakMode="byWordWrapping"/>
     </LMScrollView>
