@@ -17,6 +17,8 @@
 
 #define DEFAULT_LAYOUT_MARGINS UIEdgeInsetsZero
 
+#define HIDDEN_KEY "hidden"
+
 @implementation LMLayoutView
 {
     NSMutableArray *_arrangedSubviews;
@@ -60,22 +62,49 @@
 
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index
 {
-    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
-    
-    [self addSubview:view];
-    
-    [_arrangedSubviews insertObject:view atIndex:index];
+    if ([_arrangedSubviews indexOfObject:view] == NSNotFound) {
+        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    [self invalidateIntrinsicContentSize];
-    [self setNeedsUpdateConstraints];
+        [self addSubview:view];
+
+        [_arrangedSubviews insertObject:view atIndex:index];
+
+        [view addObserver:self forKeyPath:@HIDDEN_KEY options:0 context:nil];
+
+        [self invalidateIntrinsicContentSize];
+        [self setNeedsUpdateConstraints];
+    } else {
+        [NSException raise:NSInvalidArgumentException format:@"View is already an arranged subview."];
+    }
 }
 
 - (void)removeArrangedSubview:(UIView *)view
 {
-    [_arrangedSubviews removeObject:view];
+    NSUInteger index = [_arrangedSubviews indexOfObject:view];
 
-    [self invalidateIntrinsicContentSize];
-    [self setNeedsUpdateConstraints];
+    if (index != NSNotFound) {
+        [view removeObserver:self forKeyPath:@HIDDEN_KEY];
+
+        [_arrangedSubviews removeObjectAtIndex:index];
+
+        [self invalidateIntrinsicContentSize];
+        [self setNeedsUpdateConstraints];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if ([keyPath isEqual:@HIDDEN_KEY]) {
+        [self invalidateIntrinsicContentSize];
+        [self setNeedsUpdateConstraints];
+    }
+}
+
+- (void)willRemoveSubview:(UIView *)subview
+{
+    [self removeArrangedSubview:subview];
+
+    [super willRemoveSubview:subview];
 }
 
 - (void)setLayoutMarginsRelativeArrangement:(BOOL)layoutMarginsRelativeArrangement
@@ -84,20 +113,6 @@
 
     [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
-}
-
-- (void)willRemoveSubview:(UIView *)subview
-{
-    NSUInteger index = [_arrangedSubviews indexOfObject:subview];
-
-    if (index != NSNotFound) {
-        [_arrangedSubviews removeObjectAtIndex:index];
-
-        [self invalidateIntrinsicContentSize];
-        [self setNeedsUpdateConstraints];
-    }
-
-    [super willRemoveSubview:subview];
 }
 
 - (UIView *)viewForBaselineLayout

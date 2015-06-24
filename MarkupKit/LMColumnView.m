@@ -39,14 +39,16 @@
 
         CGFloat spacing = [self spacing];
 
-        NSArray *arrangedSubviews = [self arrangedSubviews];
+        NSUInteger i = 0;
 
-        for (NSUInteger i = 0, n = [arrangedSubviews count]; i < n; i++) {
+        for (UIView *subview in [self arrangedSubviews]) {
+            if ([subview isHidden]) {
+                continue;
+            }
+
             if (i > 0) {
                 size.height += spacing;
             }
-
-            UIView *subview = [arrangedSubviews objectAtIndex:i];
 
             CGSize subviewSize = [subview intrinsicContentSize];
 
@@ -57,6 +59,8 @@
             if (subviewSize.height != UIViewNoIntrinsicMetric) {
                 size.height += subviewSize.height;
             }
+
+            i++;
         }
 
         if ([self layoutMarginsRelativeArrangement]) {
@@ -116,6 +120,10 @@
     UIView *previousWeightedSubview = nil;
 
     for (UIView *subview in [self arrangedSubviews]) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         // Align to siblings
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
