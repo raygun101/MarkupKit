@@ -48,6 +48,7 @@
 
 /**
  * Specifies that subviews will be arranged relative to the view's layout margins.
+ * The default value is <tt>YES</tt>.
  */
 @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 
