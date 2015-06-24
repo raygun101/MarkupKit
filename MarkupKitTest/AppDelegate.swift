@@ -22,12 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window!.backgroundColor = UIColor.whiteColor()
 
-        /*
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         window!.rootViewController = mainStoryboard.instantiateInitialViewController() as? UIViewController
-        */
 
+        /*
         window!.rootViewController = ScrollViewController()
+        */
 
         window!.frame = UIScreen.mainScreen().bounds
         window!.makeKeyAndVisible()

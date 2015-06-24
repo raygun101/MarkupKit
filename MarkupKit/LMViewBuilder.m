@@ -150,7 +150,8 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
             template = value;
         } else if ([key isEqual:LMViewBuilderOutletKey]) {
             outlet = value;
-        } else if ([key hasPrefix:LMViewBuilderActionPrefix] && [key length] > [LMViewBuilderActionPrefix length]) {
+        } else if ([key hasPrefix:LMViewBuilderActionPrefix] && [key length] > [LMViewBuilderActionPrefix length]
+            && ![key isEqual:@"onTintColor"]) {
             [actions setObject:value forKey:key];
         } else {
             [properties setObject:value forKey:key];
@@ -420,7 +421,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setAutocapitalizationType:textAutocapitalizationType];
 
-                return;
+                continue;
             } else if ([key isEqual:@"autocorrectionType"]) {
                 // Translate to auto-correction type
                 UITextAutocorrectionType textAutocorrectionType;
@@ -437,7 +438,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setAutocorrectionType:textAutocorrectionType];
 
-                return;
+                continue;
             } else if ([key isEqual:@"spellCheckingType"]) {
                 // Translate to spell checking type
                 UITextSpellCheckingType textSpellCheckingType;
@@ -454,7 +455,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setSpellCheckingType:textSpellCheckingType];
 
-                return;
+                continue;
             } else if ([key isEqual:@"keyboardAppearance"]) {
                 // Translate to keyboard appearance
                 UIKeyboardAppearance keyboardAppearance;
@@ -473,7 +474,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setKeyboardAppearance:keyboardAppearance];
 
-                return;
+                continue;
             } else if ([key isEqual:@"keyboardType"]) {
                 // Translate to keyboard type
                 UIKeyboardType keyboardType;
@@ -506,7 +507,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setKeyboardType:keyboardType];
 
-                return;
+                continue;
             } else if ([key isEqual:@"returnKeyType"]) {
                 // Translate to return key type
                 UIReturnKeyType returnKeyType;
@@ -539,7 +540,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 // Property is not KVC-compliant
                 [(UIView<UITextInputTraits> *)_view setReturnKeyType:returnKeyType];
 
-                return;
+                continue;
             } else if ([key isEqual:@"datePickerMode"]) {
                 UIDatePickerMode datePickerMode;
                 if ([value isEqual:@"time"]) {
@@ -685,17 +686,29 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 value = [NSNumber numberWithInt:boxViewAlignment];
             } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Parse color specification
+                UIColor *color = nil;
+
                 if ([value hasPrefix:LMViewBuilderHexValuePrefix]) {
-                    int red, green, blue;
-                    sscanf([value UTF8String], "#%02X%02X%02X", &red, &green, &blue);
-
-                    value = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:1.0];
-
-                    if ([key hasPrefix:@"layer"]) {
-                        value = (id)[value CGColor];
+                    if ([value length] < 9) {
+                        value = [NSString stringWithFormat:@"%@ff", value];
                     }
+
+                    if ([value length] == 9) {
+                        int red, green, blue, alpha;
+                        sscanf([value UTF8String], "#%02X%02X%02X%02X", &red, &green, &blue, &alpha);
+
+                        color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
+                    }
+                }
+
+                if (color == nil) {
+                    continue;
+                }
+
+                if ([key hasPrefix:@"layer"]) {
+                    value = (id)[color CGColor];
                 } else {
-                    [NSException raise:NSInvalidArgumentException format:@"\"%@\" is not a valid color.", value];
+                    value = color;
                 }
             } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Parse font specification
@@ -712,16 +725,22 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 } else if ([value isEqual:@"caption2"]) {
                     value = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
                 } else {
+                    UIFont *font = nil;
+
                     NSArray *components = [value componentsSeparatedByString:@" "];
 
                     if ([components count] == 2) {
                         NSString *fontName = [components objectAtIndex:0];
                         CGFloat fontSize = [[components objectAtIndex:1] floatValue];
 
-                        value = [UIFont fontWithName:fontName size:fontSize];
-                    } else {
-                        [NSException raise:NSInvalidArgumentException format:@"\"%@\" is not a valid font.", value];
+                        font = [UIFont fontWithName:fontName size:fontSize];
                     }
+
+                    if (font == nil) {
+                        continue;
+                    }
+
+                    value = font;
                 }
             } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Load named image
@@ -730,11 +749,11 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Translate to layout priority
                 UILayoutPriority layoutPriority;
-                if ([value isEqualToString:@"required"]) {
+                if ([value isEqual:@"required"]) {
                     layoutPriority = UILayoutPriorityRequired;
-                } else if ([value isEqualToString:@"high"]) {
+                } else if ([value isEqual:@"high"]) {
                     layoutPriority = UILayoutPriorityDefaultHigh;
-                } else if ([value isEqualToString:@"low"]) {
+                } else if ([value isEqual:@"low"]) {
                     layoutPriority = UILayoutPriorityDefaultLow;
                 } else {
                     layoutPriority = [value floatValue];
