@@ -45,8 +45,8 @@ limitations under the License.
                 <UILabel text="hijk" font="Helvetica 24"/>
             </LMRowView>
 
-            <LMRowView alignment="center" backgroundColor="#aaffaa">
-                <UISwitch on="false" onValueChanged="handleSwitchValueChanged:"/>
+            <LMRowView alignment="center">
+                <UISwitch on="false" onTintColor="#22446688" onValueChanged="handleSwitchValueChanged:"/>
             </LMRowView>
 
             <LMRowView alignment="top" layoutMargins="12" backgroundColor="#ffffff">
