@@ -130,11 +130,6 @@
     [self setLayoutMargins:layoutMargins];
 }
 
-- (UITableViewCell *)tableViewCell
-{
-    return [[self superview] tableViewCell];
-}
-
 - (void)appendMarkupElementView:(UIView *)view
 {
     // No-op

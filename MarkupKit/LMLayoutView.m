@@ -123,7 +123,7 @@
 - (void)setNeedsUpdateConstraints
 {
     if (_constraints != nil) {
-        [[self constraintRoot] removeConstraints:_constraints];
+        [NSLayoutConstraint deactivateConstraints:_constraints];
 
         _constraints = nil;
     }
@@ -134,23 +134,14 @@
 - (void)updateConstraints
 {
     if (_constraints == nil) {
-        UIView *constraintRoot = [self constraintRoot];
-
         _constraints = [self createConstraints];
 
         if (_constraints != nil) {
-            [constraintRoot addConstraints:_constraints];
+            [NSLayoutConstraint activateConstraints:_constraints];
         }
     }
 
     [super updateConstraints];
-}
-
-- (UIView *)constraintRoot
-{
-    UITableViewCell *tableViewCell = [self tableViewCell];
-
-    return (tableViewCell == nil) ? self : [tableViewCell contentView];
 }
 
 - (NSArray *)createConstraints
