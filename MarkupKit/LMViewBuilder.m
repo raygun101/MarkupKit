@@ -26,8 +26,6 @@ static NSString * const LMViewBuilderTemplateKey = @"class";
 static NSString * const LMViewBuilderOutletKey = @"id";
 static NSString * const LMViewBuilderActionPrefix = @"on";
 
-static NSString * const LMViewBuilderHexValuePrefix = @"#";
-
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
 @end
@@ -46,16 +44,80 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
 {
-    LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
+    UIView *view = nil;
 
     NSURL *url = [[NSBundle mainBundle] URLForResource:name withExtension:@"xml"];
 
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
-        
-    [parser setDelegate:viewBuilder];
-    [parser parse];
+    if (url != nil) {
+        LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
 
-    return [viewBuilder view];
+        NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
+
+        [parser setDelegate:viewBuilder];
+        [parser parse];
+
+        view = [viewBuilder view];
+    }
+
+    return view;
+}
+
++ (UIColor *)colorValue:(NSString *)value
+{
+    UIColor *color = nil;
+
+    if ([value hasPrefix:@"#"]) {
+        if ([value length] < 9) {
+            value = [NSString stringWithFormat:@"%@ff", value];
+        }
+
+        if ([value length] == 9) {
+            int red, green, blue, alpha;
+            sscanf([value UTF8String], "#%02X%02X%02X%02X", &red, &green, &blue, &alpha);
+
+            color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
+        }
+    }
+
+    return color;
+}
+
++ (UIFont *)fontValue:(NSString *)value
+{
+    UIFont *font = nil;
+
+    if ([value isEqual:@"headline"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    } else if ([value isEqual:@"subheadline"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    } else if ([value isEqual:@"body"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    } else if ([value isEqual:@"footnote"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+    } else if ([value isEqual:@"caption1"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    } else if ([value isEqual:@"caption2"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+    } else {
+        NSArray *components = [value componentsSeparatedByString:@" "];
+
+        if ([components count] == 2) {
+            NSString *fontName = [components objectAtIndex:0];
+            CGFloat fontSize = [[components objectAtIndex:1] floatValue];
+
+            if ([fontName isEqual:@"System"]) {
+                font = [UIFont systemFontOfSize:fontSize];
+            } else if ([fontName isEqual:@"System-Bold"]) {
+                font = [UIFont boldSystemFontOfSize:fontSize];
+            } else if ([fontName isEqual:@"System-Italic"]) {
+                font = [UIFont italicSystemFontOfSize:fontSize];
+            } else {
+                font = [UIFont fontWithName:fontName size:fontSize];
+            }
+        }
+    }
+
+    return font;
 }
 
 - (instancetype)init
@@ -686,20 +748,7 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 value = [NSNumber numberWithInt:boxViewAlignment];
             } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Parse color specification
-                UIColor *color = nil;
-
-                if ([value hasPrefix:LMViewBuilderHexValuePrefix]) {
-                    if ([value length] < 9) {
-                        value = [NSString stringWithFormat:@"%@ff", value];
-                    }
-
-                    if ([value length] == 9) {
-                        int red, green, blue, alpha;
-                        sscanf([value UTF8String], "#%02X%02X%02X%02X", &red, &green, &blue, &alpha);
-
-                        color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
-                    }
-                }
+                UIColor *color = [LMViewBuilder colorValue:value];
 
                 if (color == nil) {
                     continue;
@@ -712,36 +761,13 @@ static NSString * const LMViewBuilderHexValuePrefix = @"#";
                 }
             } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Parse font specification
-                if ([value isEqual:@"headline"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-                } else if ([value isEqual:@"subheadline"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-                } else if ([value isEqual:@"body"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-                } else if ([value isEqual:@"footnote"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-                } else if ([value isEqual:@"caption1"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
-                } else if ([value isEqual:@"caption2"]) {
-                    value = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
-                } else {
-                    UIFont *font = nil;
+                UIFont *font = [LMViewBuilder fontValue:value];
 
-                    NSArray *components = [value componentsSeparatedByString:@" "];
-
-                    if ([components count] == 2) {
-                        NSString *fontName = [components objectAtIndex:0];
-                        CGFloat fontSize = [[components objectAtIndex:1] floatValue];
-
-                        font = [UIFont fontWithName:fontName size:fontSize];
-                    }
-
-                    if (font == nil) {
-                        continue;
-                    }
-
-                    value = font;
+                if (font == nil) {
+                    continue;
                 }
+
+                value = font;
             } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
                 // Load named image
                 value = [UIImage imageNamed:value];

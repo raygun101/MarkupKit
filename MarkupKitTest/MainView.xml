@@ -28,7 +28,7 @@ limitations under the License.
         <LMColumnView alignment="center" layoutMargins="20">
             <LMRowView class="row.first">
                 <UILabel id="greetingLabel" text="greeting" textColor="#ff00ff"/>
-                <UILabel text="missing.key" textAlignment="right"/>
+                <UILabel text="missing.key" textAlignment="right" font="System 22"/>
             </LMRowView>
 
             <LMRowView class="row.second">
