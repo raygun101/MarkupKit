@@ -30,4 +30,22 @@
  */
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
 
+/**
+ * Decodes a color value.
+ *
+ * @param value The encoded color value.
+ *
+ * @return The decoded color value.
+ */
++ (UIColor *)colorValue:(NSString *)value;
+
+/**
+ * Decodes a font value.
+ *
+ * @param value The encoded font value.
+ *
+ * @return The decoded font value.
+ */
++ (UIFont *)fontValue:(NSString *)value;
+
 @end

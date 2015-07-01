@@ -84,6 +84,8 @@ Fonts in MarkupKit can be specified in two ways:
 * As an explicitly named font, using the full name of the font, followed by a space and the font size; for example, "HelveticaNeue-Medium 24"
 * As a dynamic font, using the name of the text style; e.g. "headline"
 
+The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
+
 The value of any attribute whose name equals "font" or ends with "Font" is converted to an instance of `UIFont` using the given font name and size or the given text style before the property value is set.
 
 For example, the following markup creates a `UILabel` that reads "This is Helvetica 24 text" and sets its font to 24-point Helvetica:
@@ -246,7 +248,7 @@ The remaining sections introduce the classes included with the MarkupKit framewo
 Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
 ## LMViewBuilder
-`LMViewBuilder` is the class that is actually responsible for loading a MarkupKit document. It defines a single method that returns the deserialized view hierarchy:
+`LMViewBuilder` is the class that is actually responsible for loading a MarkupKit document. It defines the following class method, which, given a document name, owner, and optional root view, returns a deserialized view hierarchy: 
 
     + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
 
@@ -300,6 +302,11 @@ The `root` argument is also commonly used when implementing custom table view ce
 
         return self;
     }
+
+Additionally, `LMViewBuilder` defines the following two class methods, which it uses to decode color and font values:
+
+    + (UIColor *)colorValue:(NSString *)value;
+    + (UIFont *)fontValue:(NSString *)value;
 
 ## LMTableView and LMTableViewCell
 The `LMTableView` and `LMTableViewCell` classes allow the structure and content of a table view to be defined in markup, rather than in code via a data source and delegate. `LMTableView` is a subclass of `UITableView` that acts as its own data source, serving cells from a statically-defined collection of table view sections. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for defining custom cell content in markup. It serves as a host for a single "content element view" that represents the actual content of the cell. 
