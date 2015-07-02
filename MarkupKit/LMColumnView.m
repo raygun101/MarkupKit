@@ -32,7 +32,7 @@
 - (CGSize)intrinsicContentSize
 {
     CGSize size;
-    if ([self alignment] == LMBoxViewAlignmentFill && [self pin]) {
+    if ([self alignment] == LMBoxViewAlignmentFill) {
         size = [super intrinsicContentSize];
     } else {
         size = CGSizeMake(0, 0);
@@ -183,7 +183,7 @@
     }
 
     // Align final view to bottom edge
-    if ([self pin] && previousSubview != nil) {
+    if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:0]];

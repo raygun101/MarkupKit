@@ -451,7 +451,6 @@ The `LMRowView` and `LMColumnView` classes lay out subviews in either a horizont
 
     @property (nonatomic) LMBoxViewAlignment alignment;
     @property (nonatomic) CGFloat spacing;
-    @property (nonatomic) BOOL pin;
 
 The `alignment` property specifies how content should be aligned within a box view. It must be one of the following values, defined by the `LMBoxViewAlignment` enumeration:
 
@@ -473,7 +472,7 @@ The `alignment` property specifies how content should be aligned within a box vi
 
 The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
 
-The `pin` property specifies that subviews should be pinned along the box view's axis. It is used in conjunction with the `weight` property MarkupKit adds to the `UIView` class. This is discussed in more detail below.
+Subviews are always pinned along the box view's primary axis. This ensures that there is no ambiguity regarding a subview's placement and allows the autolayout system to correctly calculate the view's size and position.
 
 See _LMBoxView.h_ for more information.
 
@@ -524,37 +523,35 @@ MarkupKit adds the following property to the UIView class that is used by both `
 
 A view's weight specifies the amount of excess space the view would like to be given within its superview (once the sizes of all unweighted views have been determined) and is relative to all other weights specified within the superview. For row views, weight applies to the excess horizontal space, and for column views to the excess vertical space.
 
-Weights are used in conjunction with the `pin` property of `UIBoxView`, which causes the view's content to be pinned along its axis. Weights are only effective when the `pin` property is set to `true`. 
-
 For example, since it has a weight of "1", the label in the following example will be given the entire vertical space of the column view:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UILabel weight="1" text="Hello, World!"/>
     </LMColumnView>
     
 Since weights are relative, the following example will produce identical output:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UILabel weight="100" text="Hello, World!"/>
     </LMColumnView>
 
 In this example, each label will be given 50% of the height of the column view:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UILabel weight="0.5" text="Hello"/>
         <UILabel weight="0.5" text="World"/>
     </LMColumnView>
     
 Again, since weights are relative, the following markup will produce identical results:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UILabel weight="1" text="Hello"/>
         <UILabel weight="1" text="World"/>
     </LMColumnView>
 
 Here, the first label will be given 1/6 of the available space, the second 1/3, and the third 1/2:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UILabel weight="1" text="One"/>
         <UILabel weight="2" text="Two"/>
         <UILabel weight="3" text="Three"/>
@@ -564,7 +561,7 @@ Weights in `LMRowView` are handled identically, but in the horizontal direction.
 
 A common use for weights is to add flexible space around a view. For example, the following markup centers a label vertically within a column:
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <UIView weight="1"/>
         <UILabel text="Hello, World!"/>
         <UIView weight="1"/>
@@ -572,34 +569,11 @@ A common use for weights is to add flexible space around a view. For example, th
 
 Similarly, the following markup centers a label horizontally within a row:
 
-    <LMRowView pin="true">
+    <LMRowView>
         <UIView weight="1"/>
         <UILabel text="Hello, World!"/>
         <UIView weight="1"/>
     </LMRowView>
-
-When used in conjunction with `LMBoxViewAlignmentFill`, pinning also enables subview content to wrap. For example, if the column view contains a long label and the `numberOfLines` property of the label is set to 0, the label will wrap to as many lines as needed to display the text:
-
-    <LMColumnView pin="true">
-        <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
-            numberOfLines="0"/>
-    </LMColumnView>
-
-This also applies to row views nested within column views. For example, all of the labels in the following example will wrap as needed:
-
-    <LMColumnView pin="true">
-        <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
-            numberOfLines="0"/>
-
-        <LMRowView pin="true">
-            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
-                numberOfLines="0"/>
-            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
-                numberOfLines="0"/>
-        </LMRowView>
-    </LMColumnView>
-
-Note that the alignment of the row view must also be configured to fill and pin to enable wrapping.
 
 ## LMLayerView
 The `LMLayerView` class is arguably the simplest layout view. It simply arranges its subviews in layers, like a stack of transparencies. 
@@ -621,7 +595,7 @@ For example, the following markup creates a layer view containing a scroll view 
                 numberOfLines="0" lineBreakMode="byWordWrapping"/>
         </LMScrollView>
 
-        <LMColumnView pin="true">
+        <LMColumnView>
             <LMColumnView weight="1"/>
             <LMColumnView layoutMargins="20">
                 <UIButton style="customButton" normalTitle="Press Me!"

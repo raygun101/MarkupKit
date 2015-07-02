@@ -34,7 +34,7 @@ limitations under the License.
     </LMTableViewCell>
 
     <LMTableViewCell layoutMargins="12" accessoryType="detailButton">
-        <LMRowView pin="true" alignment="baseline">
+        <LMRowView alignment="baseline">
             <UITextField weight="1" placeholder="Type a measurement"/>
             <UILabel text="cm"/>
         </LMRowView>
@@ -46,7 +46,7 @@ limitations under the License.
     </LMTableViewCell>
 
     <LMTableViewCell accessoryType="checkmark" layoutMargins="0">
-        <LMRowView pin="true">
+        <LMRowView>
             <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 numberOfLines="0"/>
             <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
