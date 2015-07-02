@@ -825,7 +825,11 @@ static NSString * const LMViewBuilderActionPrefix = @"on";
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)error
 {
-    [NSException raise:NSGenericException format:@"A parse error occurred."];
+    NSDictionary *userInfo = [error userInfo];
+
+    [NSException raise:NSGenericException format:@"A parse error occurred at line %d, column %d.",
+        [[userInfo objectForKey:@"NSXMLParserErrorLineNumber"] intValue],
+        [[userInfo objectForKey:@"NSXMLParserErrorColumn"] intValue]];
 }
 
 @end
