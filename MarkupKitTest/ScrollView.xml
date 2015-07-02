@@ -19,7 +19,7 @@ limitations under the License.
         <UILabel id="label" numberOfLines="0" lineBreakMode="byWordWrapping"/>
     </LMScrollView>
 
-    <LMColumnView pin="true">
+    <LMColumnView>
         <LMColumnView weight="1"/>
         <LMColumnView layoutMargins="20">
             <UIButton style="customButton" backgroundColor="#00aa00" normalTitle="Press Me!"/>

@@ -31,7 +31,7 @@
 - (CGSize)intrinsicContentSize
 {
     CGSize size;
-    if ([self alignment] == LMBoxViewAlignmentFill && [self pin]) {
+    if ([self alignment] == LMBoxViewAlignmentFill) {
         size = [super intrinsicContentSize];
     } else {
         size = CGSizeMake(0, 0);
@@ -184,7 +184,7 @@
     }
 
     // Align final view to trailing edge
-    if ([self pin] && previousSubview != nil) {
+    if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
             multiplier:1 constant:0]];
