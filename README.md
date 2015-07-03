@@ -48,7 +48,7 @@ MarkupKit uses `setValue:forKeyPath:` to apply property values, so it is possibl
         normalTitle="Press Me!" 
         titleLabel.font="Helvetica-Bold 32"/>
 
-With the exception of the `on` property itself, attributes whose names begin with "on" represent control events. The value of these attributes represents the name of the event handler, or "action", that is triggered when the event is fired. For example, the following markup declares an instance of `UISwitch` with an action handler that will be triggered when the switch's value changes:
+With the exception of a few properties whose names begin with "on" (including the `on` property itself), attributes whose names begin with "on" represent control events. The value of these attributes represents the name of the event handler, or "action", that is triggered when the event is fired. For example, the following markup declares an instance of `UISwitch` with an action handler that will be triggered when the switch's value changes:
 
     <UISwitch onValueChanged="handleSwitchValueChanged:"/>
 
@@ -243,6 +243,7 @@ The remaining sections introduce the classes included with the MarkupKit framewo
 * `LMTableView` and `LMTableViewCell` - table view types that simplify the definition of static table view content
 * `LMScrollView` - scroll view that automatically adapts to the size of its content
 * `LMRowView` and `LMColumnView` - layout views that arrange subviews in either a horizontal or vertical line, respectively
+* `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
 
 Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
@@ -441,7 +442,9 @@ Additionally, `LMLayoutView` provides the following property:
 This value specifies that subviews will be arranged relative to the view's layout margins. The default value is `true`. However, in some cases, `UIKit` provides default non-overridable values for a view's margins. In these cases, setting this flag to `false` instructs the view to ignore margins altogether and align subviews to the layout view's edges directly. 
 
 Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
-    
+
+Layout views do not consume touch events. Touches that occur within a layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. This allows layout views to be "stacked", and is discussed in more detail later.
+
 `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` so that layout views can be easily constructed in markup. Additionally, layout views can be nested to create complex layouts that automatically adjust to orientation or screen size changes. 
 
 All three layout view types are discussed in more detail in the following sections. See _LMLayoutView.h_ for more information.
@@ -575,6 +578,17 @@ Similarly, the following markup centers a label horizontally within a row:
         <UIView weight="1"/>
     </LMRowView>
 
+## LMSpacer 
+Because spacer views are so common, MarkupKit provides a `UIView` subclass called `LMSpacer` for conveniently creating flexible space between other views. `LMSpacer` has a default weight of 1, so the previous example could be rewritten as follows, eliminating the "weight" attribute and improving readability:
+
+    <LMRowView>
+        <LMSpacer/>
+        <UILabel text="Hello, World!"/>
+        <LMSpacer/>
+    </LMRowView>
+
+Like layout views, spacer views do not consume touch events.
+ 
 ## LMLayerView
 The `LMLayerView` class is arguably the simplest layout view. It simply arranges its subviews in layers, like a stack of transparencies. 
 
@@ -585,7 +599,7 @@ For example, the following markup declares an instance of `LMLayerView` with two
         <UILabel text="Hello, World!" textAlignment="center"/>
     </LMLayerView>
 
-However, layer views are not limited to defining background images. Because layout views do not consume touch events, layer views can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying views. 
+However, layer views are not limited to defining background images. Because layout and spacer views do not consume touch events, layer views can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying views. 
 
 For example, the following markup creates a layer view containing a scroll view and a column view. The column view contains a button that is aligned to the bottom of the window and floats over the scroll view. Because column views do not consume touch events, the user can still interact with the scroll view by touching anywhere except the button:
 
@@ -596,7 +610,7 @@ For example, the following markup creates a layer view containing a scroll view 
         </LMScrollView>
 
         <LMColumnView>
-            <LMColumnView weight="1"/>
+            <LMSpacer/>
             <LMColumnView layoutMargins="20">
                 <UIButton style="customButton" normalTitle="Press Me!"
                     backgroundColor="#00aa00"/>

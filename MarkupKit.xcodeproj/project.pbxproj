@@ -33,6 +33,8 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B070921ADEBEB000A92FCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B070901ADEBEB000A92FCF /* LaunchScreen.xib */; };
@@ -128,6 +130,8 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
+		379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSpacer.m; sourceTree = "<group>"; };
 		37B070631ADEBE3F00A92FCF /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B070671ADEBE3F00A92FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B070681ADEBE3F00A92FCF /* MarkupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkupKit.h; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 				3742F00B1B34D28C00B31987 /* LMColumnView.m */,
 				3742F00E1B34D29300B31987 /* LMRowView.h */,
 				3742F00F1B34D29300B31987 /* LMRowView.m */,
+				379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */,
+				379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */,
 				3742F0121B34D2C800B31987 /* LMLayerView.h */,
 				3742F0131B34D2C800B31987 /* LMLayerView.m */,
 				3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */,
@@ -360,6 +366,7 @@
 				3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
 				3742F0101B34D29300B31987 /* LMRowView.h in Headers */,
+				379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
 			);
@@ -540,6 +547,7 @@
 				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
 				3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */,
 				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
+				379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */,
 				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
 				3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */,
 			);

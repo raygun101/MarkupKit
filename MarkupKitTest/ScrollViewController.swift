@@ -16,7 +16,8 @@ import UIKit
 import MarkupKit
 
 class ScrollViewController: UIViewController {
-    @IBOutlet var label: UILabel!
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ScrollView", owner: self, root: nil)
@@ -28,6 +29,7 @@ class ScrollViewController: UIViewController {
         let textPath = NSBundle.mainBundle().pathForResource("sample", ofType: "txt")
         let text = NSString(contentsOfFile: textPath!, encoding: NSASCIIStringEncoding, error: nil)
 
-        label.text = text as String?
+        label1.text = text as String?
+        label2.text = text as String?
     }
 }
