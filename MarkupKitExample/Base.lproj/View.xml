@@ -19,9 +19,9 @@ limitations under the License.
 <?strings View?>
 
 <root layoutMargins="20">
-    <UIView weight="1"/>
+    <LMSpacer/>
     <UILabel class="label.hello" text="hello"/>
     <UIImageView image="World" contentMode="scaleAspectFit"/>
     <UILabel class="label.from" text="from"/>
-    <UIView weight="1"/>
+    <LMSpacer/>
 </root>

@@ -16,7 +16,10 @@ limitations under the License.
 
 <LMLayerView layoutMarginsRelativeArrangement="false">
     <LMScrollView fitToWidth="true">
-        <UILabel id="label" numberOfLines="0" lineBreakMode="byWordWrapping"/>
+        <LMColumnView>
+            <UILabel id="label1" numberOfLines="0" lineBreakMode="byWordWrapping"/>
+            <UILabel id="label2" numberOfLines="0" lineBreakMode="byWordWrapping"/>
+        </LMColumnView>
     </LMScrollView>
 
     <LMColumnView>
