@@ -330,34 +330,47 @@ For example, the following markup declares a plain `LMTableView` containing thre
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `header` processing instruction can be used to assign a title to the default section, or to create additional sections. The following example creates a "grouped" table view with two sections: 
+The `sectionHeaderTitle` processing instruction can be used to assign a title to the default section, or to create additional sections. The following example creates a "grouped" table view with two sections: 
 
     <LMTableView style="groupedTableView">
-        <?header Section 1?>
+        <?sectionHeaderTitle Section 1?>
         <UITableViewCell textLabel.text="Row 1a"/>
         <UITableViewCell textLabel.text="Row 1b"/>
         <UITableViewCell textLabel.text="Row 1c"/>
 
-        <?header Section 2?>
+        <?sectionHeaderTitle Section 2?>
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-The `footer` processing instruction can be used to set a footer title for the current section:
+The `sectionFooterTitle` processing instruction can be used to set a footer title for the current section:
 
     <LMTableView style="groupedTableView">
-        <?header Section 1?>
+        <?sectionHeaderTitle Section 1?>
         <UITableViewCell textLabel.text="Row 1a"/>
         <UITableViewCell textLabel.text="Row 1b"/>
         <UITableViewCell textLabel.text="Row 1c"/>
         <?footer Section 1 End?>
 
-        <?header Section 2?>
+        <?sectionHeaderTitle Section 2?>
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
-        <?footer Section 2 End?>
+        <?sectionFooterTitle Section 2 End?>
+    </LMTableView>
+
+The `sectionBreak` processing instruction can be used to insert a new section with no header title:
+
+    <LMTableView style="groupedTableView">
+        <UITableViewCell textLabel.text="Row 1a"/>
+        <UITableViewCell textLabel.text="Row 1b"/>
+        <UITableViewCell textLabel.text="Row 1c"/>
+
+        <?sectionBreak?>
+        <UITableViewCell textLabel.text="Row 2a"/>
+        <UITableViewCell textLabel.text="Row 2b"/>
+        <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
 Use of the `LMTableView` class is not limited to markup. `LMTableView` cells and sections can also be managed programmatically. See _LMTableView.h_ for more information.
@@ -518,6 +531,21 @@ The labels in this column view will be given their intrinsic sizes and will be l
         <UILabel text="Two"/>
         <UILabel text="Three"/>
     </LMColumnView>
+
+`LMColumnView` defines two additional properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
+
+    @property (nonatomic) CGFloat topSpacing;
+    @property (nonatomic) CGFloat bottomSpacing;
+    
+These properties can be used to ensure that the column view's content is not obscured by another user interface element such as the status bar or a navigation bar. 
+
+For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top spacing to the length of the controller's top layout guide, ensuring that the first subview is positioned below the guide:
+
+    override func viewWillLayoutSubviews() {
+        columnView.topSpacing = topLayoutGuide.length
+    }
+
+Bottom spacing can be set similarly using the controller's bottom layout guide.
 
 ### View Weights
 MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:

@@ -17,6 +17,22 @@
 
 @implementation LMColumnView
 
+- (void)setTopSpacing:(CGFloat)topSpacing
+{
+    _topSpacing = topSpacing;
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setBottomSpacing:(CGFloat)bottomSpacing
+{
+    _bottomSpacing = bottomSpacing;
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
+}
+
 - (void)setAlignment:(LMBoxViewAlignment)alignment
 {
     NSAssert(alignment == LMBoxViewAlignmentLeft
@@ -69,6 +85,8 @@
             size.width += layoutMargins.left + layoutMargins.right;
             size.height += layoutMargins.top + layoutMargins.bottom;
         }
+
+        size.height += _topSpacing + _bottomSpacing;
     }
 
     return size;
@@ -128,7 +146,7 @@
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:_topSpacing]];
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
@@ -186,7 +204,7 @@
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-            multiplier:1 constant:0]];
+            multiplier:1 constant:_bottomSpacing]];
     }
 
     return constraints;

@@ -14,8 +14,10 @@
 
 #import "LMTableView.h"
 
-static NSString * const LMTableViewHeaderTarget = @"header";
-static NSString * const LMTableViewFooterTarget = @"footer";
+static NSString * const LMTableViewSectionBreakTarget = @"sectionBreak";
+
+static NSString * const LMTableViewSectionHeaderTitleTarget = @"sectionHeaderTitle";
+static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTitle";
 
 #define DEFAULT_ESTIMATED_ROW_HEIGHT 2
 
@@ -153,16 +155,16 @@ static NSString * const LMTableViewFooterTarget = @"footer";
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
-    if ([data length] > 0) {
-        data = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
-    } else {
-        data = nil;
-    }
+    if ([target isEqual:LMTableViewSectionBreakTarget]) {
+        [self insertSection:[self numberOfSectionsInTableView:self]];
+    } else if ([target isEqual:LMTableViewSectionHeaderTitleTarget]) {
+        NSString *headerTitle = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
 
-    if ([target isEqual:LMTableViewHeaderTarget]) {
-        [self insertSection:[self numberOfSectionsInTableView:self] withHeaderTitle:data footerTitle:nil];
-    } else if ([target isEqual:LMTableViewFooterTarget]) {
-        [self setFooterTitle:data forSection:[self numberOfSectionsInTableView:self] - 1];
+        [self insertSection:[self numberOfSectionsInTableView:self] withHeaderTitle:headerTitle footerTitle:nil];
+    } else if ([target isEqual:LMTableViewSectionFooterTitleTarget]) {
+        NSString *footerTitle = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
+
+        [self setFooterTitle:footerTitle forSection:[self numberOfSectionsInTableView:self] - 1];
     }
 }
 

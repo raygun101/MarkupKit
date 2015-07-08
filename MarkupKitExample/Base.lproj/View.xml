@@ -18,7 +18,7 @@ limitations under the License.
 
 <?strings View?>
 
-<root layoutMargins="20">
+<root layoutMarginsRelativeArrangement="false">
     <LMSpacer/>
     <UILabel class="label.hello" text="hello"/>
     <UIImageView image="World" contentMode="scaleAspectFit"/>

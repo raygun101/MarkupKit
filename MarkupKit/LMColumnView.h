@@ -19,4 +19,14 @@
  */
 @interface LMColumnView : LMBoxView
 
+/**
+ * The amount of spacing before the first view.
+ */
+@property (nonatomic) CGFloat topSpacing;
+
+/**
+ * The amount of spacing after the last view.
+ */
+@property (nonatomic) CGFloat bottomSpacing;
+
 @end
