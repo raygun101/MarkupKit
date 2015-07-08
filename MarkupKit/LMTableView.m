@@ -140,19 +140,6 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
     return [self footerTitleForSection:section];
 }
 
-- (void)appendMarkupElementView:(UIView *)view
-{
-    NSInteger section = [self numberOfSectionsInTableView:self] - 1;
-
-    if (section < 0) {
-        [self insertSection:++section];
-    }
-
-    NSInteger row = [self tableView:self numberOfRowsInSection:section];
-
-    [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-}
-
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:LMTableViewSectionBreakTarget]) {
@@ -166,6 +153,19 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
 
         [self setFooterTitle:footerTitle forSection:[self numberOfSectionsInTableView:self] - 1];
     }
+}
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    NSInteger section = [self numberOfSectionsInTableView:self] - 1;
+
+    if (section < 0) {
+        [self insertSection:++section];
+    }
+
+    NSInteger row = [self tableView:self numberOfRowsInSection:section];
+
+    [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
 }
 
 @end
