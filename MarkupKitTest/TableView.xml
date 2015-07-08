@@ -18,17 +18,16 @@ limitations under the License.
     <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png"/>
-    <?footer Section 1 End?>
+    <?sectionFooterTitle Section 1 End?>
 
-    <?header section2.start?>
+    <?sectionHeaderTitle section2.start?>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Disclosure Indicator" accessoryType="disclosureIndicator"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Disclosure Button" accessoryType="detailDisclosureButton"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Checkmark" accessoryType="checkmark"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Button" accessoryType="detailButton"/>
-    <?footer?>
-    <?footer Section 2 End?>
+    <?sectionFooterTitle Section 2 End?>
 
-    <?header Section 3 Start?>
+    <?sectionBreak?>
     <LMTableViewCell layoutMargins="12" accessoryType="detailButton">
         <UITextField placeholder="Type something"/>
     </LMTableViewCell>
@@ -54,7 +53,7 @@ limitations under the License.
         </LMRowView>
     </LMTableViewCell>
 
-    <?header Section 4 Start?>
+    <?sectionHeaderTitle Section 4 Start?>
     <LMTableViewCell>
         <UIDatePicker datePickerMode="date"/>
     </LMTableViewCell>

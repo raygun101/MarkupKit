@@ -15,8 +15,10 @@ limitations under the License.
 -->
 
 <LMColumnView layoutMarginsRelativeArrangement="false">
-    <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         numberOfLines="0"/>
+
+    <LMSpacer/>
 
     <LMRowView>
         <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

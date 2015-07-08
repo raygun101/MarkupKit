@@ -19,4 +19,10 @@ class GridViewController: UIViewController {
     override func loadView() {
         view = LMViewBuilder.viewWithName("GridView", owner: self, root: nil)
     }
+
+    override func viewWillLayoutSubviews() {
+        var columnView = view as! LMColumnView
+
+        columnView.topSpacing = topLayoutGuide.length
+    }
 }
