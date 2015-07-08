@@ -130,12 +130,12 @@
     [self setLayoutMargins:layoutMargins];
 }
 
-- (void)appendMarkupElementView:(UIView *)view
+- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     // No-op
 }
 
-- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+- (void)appendMarkupElementView:(UIView *)view
 {
     // No-op
 }

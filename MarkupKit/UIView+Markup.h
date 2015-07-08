@@ -62,13 +62,13 @@
 @property (nonatomic) CGFloat layoutMarginRight;
 
 /**
- * Appends a sub-element view from markup.
- */
-- (void)appendMarkupElementView:(UIView *)view;
-
-/**
  * Processes a markup instruction.
  */
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
+
+/**
+ * Appends a sub-element view from markup.
+ */
+- (void)appendMarkupElementView:(UIView *)view;
 
 @end
