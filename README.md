@@ -330,34 +330,46 @@ For example, the following markup declares a plain `LMTableView` containing thre
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `sectionHeaderTitle` processing instruction can be used to assign a title to the default section, or to create additional sections. The following example creates a "grouped" table view with two sections: 
+The `sectionHeaderView` processing instruction can be used to assign a header view to the default section, or to create additional sections. The view element immediately following the PI is used as the header view for the section. The following example creates a "grouped" table view with two sections: 
 
     <LMTableView style="groupedTableView">
-        <?sectionHeaderTitle Section 1?>
+        <?sectionHeaderView?>
+        <UILabel text="Section 1"/>
+
         <UITableViewCell textLabel.text="Row 1a"/>
         <UITableViewCell textLabel.text="Row 1b"/>
         <UITableViewCell textLabel.text="Row 1c"/>
 
-        <?sectionHeaderTitle Section 2?>
+        <?sectionHeaderView?>
+        <UILabel text="Section 2"/>
+
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-The `sectionFooterTitle` processing instruction can be used to set a footer title for the current section:
+The `sectionFooterView` processing instruction can be used to set a footer view for the current section. The view element immediately following the PI is used as the footer view for the section:
 
     <LMTableView style="groupedTableView">
-        <?sectionHeaderTitle Section 1?>
+        <?sectionHeaderView?>
+        <UILabel text="Section 1 Start"/>
+
         <UITableViewCell textLabel.text="Row 1a"/>
         <UITableViewCell textLabel.text="Row 1b"/>
         <UITableViewCell textLabel.text="Row 1c"/>
-        <?footer Section 1 End?>
 
-        <?sectionHeaderTitle Section 2?>
+        <?sectionFooterView?>
+        <UILabel text="Section 1 End"/>
+
+        <?sectionHeaderView?>
+        <UILabel text="Section 2 Start"/>
+
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
-        <?sectionFooterTitle Section 2 End?>
+
+        <?sectionFooterView?>
+        <UILabel text="Section 2 End"/>
     </LMTableView>
 
 The `sectionBreak` processing instruction can be used to insert a new section with no header title:
@@ -368,10 +380,20 @@ The `sectionBreak` processing instruction can be used to insert a new section wi
         <UITableViewCell textLabel.text="Row 1c"/>
 
         <?sectionBreak?>
+
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
+
+Note that, in order to support the static declaration of content, `LMTableView` acts as its own data source and delegate. However, an application-specific delegate may still be set on an `LMTableView` instance to handle row selection events. `LMTableView` will propagate the following `UITableViewDelegate` calls to the custom delegate:
+
+* `tableView:willSelectRowAtIndexPath:`
+* `tableView:didSelectRowAtIndexPath:`
+* `tableView:willDeselectRowAtIndexPath:`
+* `tableView:didDeselectRowAtIndexPath:`
+
+Also note that `LMTableView` sets the `estimatedRowHeight`, `estimatedSectionHeaderHeight`, and `estimatedSectionFooterHeight` properties to enable self-sizing content by default. It is not necessary to set these properties manually to enable self-sizing content.
 
 Use of the `LMTableView` class is not limited to markup. `LMTableView` cells and sections can also be managed programmatically. See _LMTableView.h_ for more information.
 
@@ -395,8 +417,6 @@ Since `LMTableViewCell` ultimately inherits from `UIView`, it is possible to spe
             <UILabel text="Hello, World!"/>
         </LMTableViewCell>
     </LMTableView>
-
-Note that `LMTableViewCell` instances are self-sizing. However, to enable this behavior, the `estimatedRowHeight` property of the table view that contains the cells must be set to a non-zero value. `LMTableView` enables self-sizing cell behavior by default.
 
 Finally, as discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content and behavior is expressed in markup rather than in code. 
 
