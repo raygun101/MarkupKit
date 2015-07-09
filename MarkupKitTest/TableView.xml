@@ -15,24 +15,44 @@ limitations under the License.
 -->
 
 <LMTableView style="groupedTableView">
+    <?sectionHeaderView?>
+    <LMRowView layoutMargins="12">
+        <UILabel text="Section 1 Start" font="System 14" textColor="#808080"/>
+    </LMRowView>
+
     <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png"/>
-    <?sectionFooterTitle Section 1 End?>
 
-    <?sectionHeaderTitle section2.start?>
+    <?sectionFooterView?>
+    <LMRowView layoutMargins="12">
+        <UILabel text="Section 1 End" font="System 14" textColor="#808080"/>
+    </LMRowView>
+
+    <?sectionHeaderView?>
+    <LMRowView layoutMargins="12">
+        <UILabel weight="1" text="section2.start" font="System 14" textColor="#808080"/>
+        <UIButton style="systemButton" normalTitle="Press Me!" titleLabel.font="System 12"/>
+    </LMRowView>
+
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Disclosure Indicator" accessoryType="disclosureIndicator"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Disclosure Button" accessoryType="detailDisclosureButton"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Checkmark" accessoryType="checkmark"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Button" accessoryType="detailButton"/>
-    <?sectionFooterTitle Section 2 End?>
+
+    <?sectionFooterView?>
+    <LMRowView layoutMargins="12">
+        <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            numberOfLines="0"
+            font="System 13" textColor="#808080"/>
+    </LMRowView>
 
     <?sectionBreak?>
-    <LMTableViewCell layoutMargins="12" accessoryType="detailButton">
+    <LMTableViewCell accessoryType="detailButton" layoutMarginTop="12" layoutMarginBottom="12">
         <UITextField placeholder="Type something"/>
     </LMTableViewCell>
 
-    <LMTableViewCell layoutMargins="12" accessoryType="detailButton">
+    <LMTableViewCell accessoryType="detailButton" layoutMarginTop="12" layoutMarginBottom="12">
         <LMRowView alignment="baseline">
             <UITextField weight="1" placeholder="Type a measurement"/>
             <UILabel text="cm"/>
@@ -44,7 +64,7 @@ limitations under the License.
             numberOfLines="0"/>
     </LMTableViewCell>
 
-    <LMTableViewCell accessoryType="checkmark" layoutMargins="0">
+    <LMTableViewCell accessoryType="checkmark">
         <LMRowView>
             <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 numberOfLines="0"/>
@@ -53,7 +73,11 @@ limitations under the License.
         </LMRowView>
     </LMTableViewCell>
 
-    <?sectionHeaderTitle Section 4 Start?>
+    <?sectionHeaderView?>
+    <LMRowView layoutMargins="12">
+        <UILabel weight="1" text="Section 4 Start" font="System 14" textColor="#808080"/>
+    </LMRowView>
+
     <LMTableViewCell>
         <UIDatePicker datePickerMode="date"/>
     </LMTableViewCell>

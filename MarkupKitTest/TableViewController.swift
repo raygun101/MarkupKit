@@ -34,6 +34,12 @@ class TableViewController: UIViewController {
         stepperValueChanged(stepper)
     }
 
+    override func viewWillLayoutSubviews() {
+        var tableView = view as! UITableView
+
+        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0)
+    }
+
     func stepperValueChanged(sender: UIStepper) {
         slider.value = Float(sender.value)
 
