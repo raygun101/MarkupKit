@@ -15,36 +15,47 @@
 #import "LMTableView.h"
 
 static NSString * const LMTableViewSectionBreakTarget = @"sectionBreak";
+static NSString * const LMTableViewSectionHeaderViewTarget = @"sectionHeaderView";
+static NSString * const LMTableViewSectionFooterViewTarget = @"sectionFooterView";
 
-static NSString * const LMTableViewSectionHeaderTitleTarget = @"sectionHeaderTitle";
-static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTitle";
+#define ESTIMATED_HEIGHT 2
 
-#define DEFAULT_ESTIMATED_ROW_HEIGHT 2
+typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
+    LMTableViewElementDispositionNone,
+    LMTableViewElementDispositionSectionHeaderView,
+    LMTableViewElementDispositionSectionFooterView
+};
 
 @interface LMTableViewSection : NSObject
 
-- (instancetype)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
-
-@property NSString *headerTitle;
-@property NSString *footerTitle;
+@property UIView *headerView;
+@property UIView *footerView;
 
 @property (nonatomic, readonly) NSMutableArray *rows;
 
 @end
 
-@interface LMTableView () <UITableViewDataSource>
+@interface LMTableView () <UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation LMTableView
 {
+    __weak id<UITableViewDelegate> _delegate;
+
     NSMutableArray *_sections;
+
+    LMTableViewElementDisposition _elementDisposition;
 }
 
 #define INIT {\
     _sections = [NSMutableArray new];\
-    [self setEstimatedRowHeight:DEFAULT_ESTIMATED_ROW_HEIGHT];\
+    _elementDisposition = LMTableViewElementDispositionNone;\
+    [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
+    [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
+    [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
     [super setDataSource:self];\
+    [super setDelegate:self];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
@@ -70,14 +81,14 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
     [NSException raise:NSGenericException format:@"Cannot set data source of static table view."];
 }
 
+- (void)setDelegate:(id<UITableViewDelegate>)delegate
+{
+    _delegate = delegate;
+}
+
 - (void)insertSection:(NSInteger)section
 {
     [_sections insertObject:[[LMTableViewSection alloc] init] atIndex:section];
-}
-
-- (void)insertSection:(NSInteger)section withHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
-{
-    [_sections insertObject:[[LMTableViewSection alloc] initWithHeaderTitle:headerTitle footerTitle:footerTitle] atIndex:section];
 }
 
 - (void)deleteSection:(NSInteger)section
@@ -85,24 +96,24 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
     [_sections removeObjectAtIndex:section];
 }
 
-- (NSString *)headerTitleForSection:(NSInteger)section
+- (UIView *)viewForHeaderInSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] headerTitle];
+    return [(LMTableViewSection *)[_sections objectAtIndex:section] headerView];
 }
 
-- (void)setHeaderTitle:(NSString *)headerTitle forSection:(NSInteger)section
+- (void)setView:(UIView *)view forHeaderInSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setHeaderTitle:headerTitle];
+    [(LMTableViewSection *)[_sections objectAtIndex:section] setHeaderView:view];
 }
 
-- (NSString *)footerTitleForSection:(NSInteger)section
+- (UIView *)viewForFooterInSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] footerTitle];
+    return [(LMTableViewSection *)[_sections objectAtIndex:section] footerView];
 }
 
-- (void)setFooterTitle:(NSString *)footerTitle forSection:(NSInteger)section
+- (void)setView:(UIView *)footerView forFooterInSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterTitle:footerTitle];
+    [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterView:footerView];
 }
 
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -130,28 +141,58 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
     return [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self headerTitleForSection:section];
+    if ([_delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
+        indexPath = [_delegate tableView:tableView willSelectRowAtIndexPath:indexPath];
+    }
+
+    return indexPath;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self footerTitleForSection:section];
+    if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
+
+- (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)]) {
+        indexPath = [_delegate tableView:tableView willDeselectRowAtIndexPath:indexPath];
+    }
+
+    return indexPath;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
+        [_delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
+    }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return [self viewForHeaderInSection:section];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [self viewForFooterInSection:section];
 }
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:LMTableViewSectionBreakTarget]) {
         [self insertSection:[self numberOfSectionsInTableView:self]];
-    } else if ([target isEqual:LMTableViewSectionHeaderTitleTarget]) {
-        NSString *headerTitle = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
+    } else if ([target isEqual:LMTableViewSectionHeaderViewTarget]) {
+        [self insertSection:[self numberOfSectionsInTableView:self]];
 
-        [self insertSection:[self numberOfSectionsInTableView:self] withHeaderTitle:headerTitle footerTitle:nil];
-    } else if ([target isEqual:LMTableViewSectionFooterTitleTarget]) {
-        NSString *footerTitle = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
-
-        [self setFooterTitle:footerTitle forSection:[self numberOfSectionsInTableView:self] - 1];
+        _elementDisposition = LMTableViewElementDispositionSectionHeaderView;
+    } else if ([target isEqual:LMTableViewSectionFooterViewTarget]) {
+        _elementDisposition = LMTableViewElementDispositionSectionFooterView;
     }
 }
 
@@ -159,13 +200,37 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
 {
     NSInteger section = [self numberOfSectionsInTableView:self] - 1;
 
-    if (section < 0) {
-        [self insertSection:++section];
+    switch (_elementDisposition) {
+        case LMTableViewElementDispositionNone: {
+            if (section < 0) {
+                [self insertSection:++section];
+            }
+
+            NSInteger row = [self tableView:self numberOfRowsInSection:section];
+
+            [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+
+            break;
+        }
+
+        case LMTableViewElementDispositionSectionHeaderView: {
+            [(LMTableViewSection *)[_sections objectAtIndex:section] setHeaderView:view];
+
+            break;
+        }
+
+        case LMTableViewElementDispositionSectionFooterView: {
+            [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterView:view];
+
+            break;
+        }
+
+        default: {
+            [NSException raise:NSInternalInconsistencyException format:@"Unexpected element disposition."];
+        }
     }
 
-    NSInteger row = [self tableView:self numberOfRowsInSection:section];
-
-    [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+    _elementDisposition = LMTableViewElementDispositionNone;
 }
 
 @end
@@ -174,18 +239,10 @@ static NSString * const LMTableViewSectionFooterTitleTarget = @"sectionFooterTit
 
 - (instancetype)init
 {
-    return [self initWithHeaderTitle:nil footerTitle:nil];
-}
-
-- (instancetype)initWithHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle
-{
     self = [super init];
 
     if (self) {
         _rows = [NSMutableArray new];
-
-        _headerTitle = headerTitle;
-        _footerTitle = footerTitle;
     }
 
     return self;

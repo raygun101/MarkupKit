@@ -27,15 +27,6 @@
 - (void)insertSection:(NSInteger)section;
 
 /**
- * Inserts a new section.
- *
- * @param section The index at which the section will be inserted.
- * @param headerTitle The header title of the new section, or <tt>nil</tt> for no header title.
- * @param footerTitle The footer title of the new section, or <tt>nil</tt> for no footer title.
- */
-- (void)insertSection:(NSInteger)section withHeaderTitle:(NSString *)headerTitle footerTitle:(NSString *)footerTitle;
-
-/**
  * Deletes an existing section.
  *
  * @param section The index of the section to delete.
@@ -43,34 +34,38 @@
 - (void)deleteSection:(NSInteger)section;
 
 /**
- * Returns the header title of a section.
+ * Returns the header view for a section.
  *
  * @param section The section index.
+ *
+ * @return The header view for the section.
  */
-- (NSString *)headerTitleForSection:(NSInteger)section;
+- (UIView *)viewForHeaderInSection:(NSInteger)section;
 
 /**
- * Sets the header title of a section.
+ * Sets the header view for a section.
  * 
- * @param headerTitle The header title.
+ * @param view The header view.
  * @param section The section index.
  */
-- (void)setHeaderTitle:(NSString *)headerTitle forSection:(NSInteger)section;
+- (void)setView:(UIView *)view forHeaderInSection:(NSInteger)section;
 
 /**
- * Returns the footer title of a section.
+ * Returns the footer view for a section.
  *
  * @param section The section index.
+ *
+ * @return The footer view for the section.
  */
-- (NSString *)footerTitleForSection:(NSInteger)section;
+- (UIView *)viewForFooterInSection:(NSInteger)section;
 
 /**
- * Sets the footer title of a section.
+ * Sets the footer view for a section.
  * 
- * @param footerTitle The footer title.
+ * @param view The footer view.
  * @param section The section index.
  */
-- (void)setFooterTitle:(NSString *)footerTitle forSection:(NSInteger)section;
+- (void)setView:(UIView *)footerView forFooterInSection:(NSInteger)section;
 
 /**
  * Inserts a new row into the table view.
