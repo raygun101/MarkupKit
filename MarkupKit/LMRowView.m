@@ -13,6 +13,7 @@
 //
 
 #import "LMRowView.h"
+#import "LMColumnView.h"
 #import "UIView+Markup.h"
 
 @implementation LMRowView
@@ -75,17 +76,33 @@
 
 - (void)layoutSubviews
 {
-    // Ensure that subviews resize according to weight
+    // Ensure that subviews resize according to weight or alignment
     UILayoutPriority verticalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
+
+    UIView *superview = [self superview];
+
+    UILayoutPriority unweightedHorizontalContentHuggingPriority;
+    if ([superview isKindOfClass:[LMColumnView self]] && [(LMColumnView *)superview alignToGrid]) {
+        unweightedHorizontalContentHuggingPriority = UILayoutPriorityDefaultLow;
+    } else {
+        unweightedHorizontalContentHuggingPriority = UILayoutPriorityRequired;
+    }
 
     for (UIView * subview in [self arrangedSubviews]) {
         [subview setContentCompressionResistancePriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
 
-        UILayoutPriority horizontalPriority = isnan([subview weight]) ? UILayoutPriorityRequired : UILayoutPriorityDefaultLow;
+        UILayoutPriority horizontalCompressionResistancePriority, horizontalContentHuggingPriority;
+        if (isnan([subview weight])) {
+            horizontalCompressionResistancePriority = UILayoutPriorityRequired;
+            horizontalContentHuggingPriority = unweightedHorizontalContentHuggingPriority;
+        } else {
+            horizontalCompressionResistancePriority = UILayoutPriorityDefaultLow;
+            horizontalContentHuggingPriority = UILayoutPriorityDefaultLow;
+        }
 
-        [subview setContentCompressionResistancePriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
-        [subview setContentHuggingPriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
+        [subview setContentCompressionResistancePriority:horizontalCompressionResistancePriority forAxis:UILayoutConstraintAxisHorizontal];
+        [subview setContentHuggingPriority:horizontalContentHuggingPriority forAxis:UILayoutConstraintAxisHorizontal];
     }
 
     [super layoutSubviews];

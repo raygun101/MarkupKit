@@ -20,6 +20,11 @@
 @interface LMColumnView : LMBoxView
 
 /**
+ * Specifies that nested subviews should be vertically aligned.
+ */
+@property (nonatomic) BOOL alignToGrid;
+
+/**
  * The amount of spacing before the first view.
  */
 @property (nonatomic) CGFloat topSpacing;
