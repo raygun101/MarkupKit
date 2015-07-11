@@ -13,9 +13,17 @@
 //
 
 #import "LMColumnView.h"
+#import "LMRowView.h"
 #import "UIView+Markup.h"
 
 @implementation LMColumnView
+
+- (void)setAlignToGrid:(BOOL)alignToGrid
+{
+    _alignToGrid = alignToGrid;
+
+    [self setNeedsUpdateConstraints];
+}
 
 - (void)setTopSpacing:(CGFloat)topSpacing
 {
@@ -195,6 +203,21 @@
                 multiplier:1 constant:0]];
         } else {
             [NSException raise:NSInternalInconsistencyException format:@"Unexpected horizontal alignment."];
+        }
+
+        // Align subviews
+        if ([self alignToGrid] && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
+            NSArray *nestedSubviews = [(LMRowView *)subview arrangedSubviews];
+            NSArray *previousNestedSubviews = [(LMRowView *)previousSubview arrangedSubviews];
+
+            for (NSUInteger i = 0, n = MIN([nestedSubviews count], [previousNestedSubviews count]); i < n; i++) {
+                UIView *nestedSubview = [nestedSubviews objectAtIndex:i];
+                UIView *previousNestedSubview = [previousNestedSubviews objectAtIndex:i];
+
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:nestedSubview attribute:NSLayoutAttributeWidth
+                    relatedBy:NSLayoutRelationEqual toItem:previousNestedSubview attribute:NSLayoutAttributeWidth
+                    multiplier:1 constant:0]];
+            }
         }
 
         previousSubview = subview;

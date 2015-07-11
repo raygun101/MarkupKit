@@ -157,7 +157,7 @@ this markup would produce a table view containing two rows reading "Hello, World
         </LMTableViewCell>
     </LMTableView>
 
-Multiple `strings` PIs may be specified in a MarkupKit document. The values from all of the named string tables are merged into a single collection of localized string values available to the document. If the same value is defined by multiple tables (including the default, _Localizable.strings_), the most recently-defined value takes precedence.
+Multiple `strings` PIs may be specified in a single document. The values from all of the named string tables are merged into a single collection of localized string values available to the document. If the same value is defined by multiple tables (including the default, _Localizable.strings_), the most recently-defined value takes precedence.
 
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` must be created by calling the `buttonWithType:` method of the `UIButton` class. Similarly, `UITableView` instances are initialized by calling `initWithFrame:style` on the table view instance, not the no-arg `init` method that is invoked by `new`.
@@ -181,12 +181,14 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties MyStyles?>
 
-Templates are applied to individual class instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the class instance. Note that nested properties such as "titleLabel.font" are supported by property templates.
+Templates are applied to class instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the class instance. Nested properties such as "titleLabel.font" are supported by property templates.
 
-For example, assuming that _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values:
+For example, assuming that _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (JSON syntax is used in this example simply for clarity):
 
-    "font": "Helvetica 24"
-    "textAlignment": "center"
+    "label.hello": {
+        "font": "Helvetica 24"
+        "textAlignment": "center"
+    }
     
 the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally-centered text:
 
@@ -194,7 +196,7 @@ the following markup would produce a label reading "Hello, World!" in 24-point H
 
 Although attribute values in XML are always specified as strings, the property values in a template definition can be any supported type; for example, if a property accepts a numeric type, the value can be defined as a Number in the property list. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
-Like `strings` processing instructions, multiple `properties` PIs may be specified in a MarkupKit document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists, the contents of the templates are merged into a single template. As with strings, the most recently-defined values take precedence.
+Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists, the contents of the templates are merged into a single template. As with strings, the most recently-defined values take precedence.
 
 ### Outlets
 Views defined in markup are not particularly useful on their own. The reserved "id" attribute can be used to give a name to a view instance. Assigning a view an ID defines an "outlet" for the view and makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing application code to interact with it. Specifically, it calls `setValue:forKey` on the owner object to set the outlet value. See the _Key-Value Programming Guide_ for more information.
@@ -222,7 +224,7 @@ Note that the `IBOutlet` annotation used by Interface Builder to tag outlets is 
 ### Actions
 Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventTouchUpInside` event when a button instance is tapped.
 
-While it would be possible for an application to register for events programmatically using outlets, MarkupKit provides a more convenient alternative. An attribute whose name begins with "on" (but is not equal to "on") is considered a control event. The value of the attribute represents the name of the action that will be triggered when the event is fired. The name of the attribute is simply the "on" prefix followed by the name of the control event, minus the "UIControlEvent" prefix.
+While it would be possible for an application to register for events programmatically using outlets, MarkupKit provides a more convenient alternative. An attribute whose name begins with "on" (but is not equal to "on") is considered a control event. The value of the attribute represents the name of the action that will be triggered when the event is fired. The name of the attribute is simply the "on" prefix followed by the name of the event, minus the "UIControlEvent" prefix.
 
 For example, the following markup declares an instance of `UIButton` that calls the `handleButtonTouchUpInside:` method of the document's owner when the button is tapped:
 
@@ -310,7 +312,7 @@ Additionally, `LMViewBuilder` defines the following two class methods, which it 
     + (UIFont *)fontValue:(NSString *)value;
 
 ## LMTableView and LMTableViewCell
-The `LMTableView` and `LMTableViewCell` classes allow the structure and content of a table view to be defined in markup, rather than in code via a data source and delegate. `LMTableView` is a subclass of `UITableView` that acts as its own data source, serving cells from a statically-defined collection of table view sections. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for defining custom cell content in markup. It serves as a host for a single "content element view" that represents the actual content of the cell. 
+The `LMTableView` and `LMTableViewCell` classes allow the structure and content of a table view to be defined in markup, rather than in code via a data source and delegate. `LMTableView` is a subclass of `UITableView` that acts as its own data source/delegate, serving cells from a statically-defined collection of table view sections. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for defining custom cell content in markup. It serves as a host for a single "content element view" that represents the actual content of the cell. 
 
 MarkupKit provides extensions to the standard `UITableView` and `UITableViewCell` classes that allow them to be used in markup as well. These are discussed in more detail below.
 
@@ -552,7 +554,32 @@ The labels in this column view will be given their intrinsic sizes and will be l
         <UILabel text="Three"/>
     </LMColumnView>
 
-`LMColumnView` defines two additional properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
+`LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, or table: 
+
+    @property (nonatomic) BOOL alignToGrid;
+
+For example, the following markup would produce a table containing three rows:
+
+    <LMColumnView alignToGrid="true">
+        <LMRowView>
+            <UILabel text="First row"/>
+            <UILabel weight="1" text="This is row number one."/>
+        </LMRowView>
+
+        <LMRowView>
+            <UILabel text="Second row"/>
+            <UILabel weight="1" text="This is row number two."/>
+        </LMRowView>
+
+        <LMRowView>
+            <UILabel text="Third row"/>
+            <UILabel weight="1" text="This is row number three."/>
+        </LMRowView>
+    </LMColumnView>
+
+Note that, when `alignToGrid` is set to `true`, the contents of the column view must be `LMRowView` instances containing the cells for each row.
+
+Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
 
     @property (nonatomic) CGFloat topSpacing;
     @property (nonatomic) CGFloat bottomSpacing;
