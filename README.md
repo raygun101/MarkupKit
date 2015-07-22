@@ -7,6 +7,11 @@ For example, the following markup declares an instance of `UILabel` and sets the
 
     <UILabel text="Hello, World!"/>
 
+The output produced by this markup is identical to the output of the following code:
+
+    let label = UILabel()
+    label.text = "Hello, World!"
+
 The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
 MarkupKit requires iOS 8 or later.
