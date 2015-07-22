@@ -1,5 +1,5 @@
 # Overview
-MarkupKit is a framework for simplifying development of Cocoa Touch applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
+MarkupKit is a framework for simplifying development of iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
 
 Building an interface in markup makes it easy to visualize the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
 
@@ -162,7 +162,7 @@ Multiple `strings` PIs may be specified in a single document. The values from al
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` must be created by calling the `buttonWithType:` method of the `UIButton` class. Similarly, `UITableView` instances are initialized by calling `initWithFrame:style` on the table view instance, not the no-arg `init` method that is invoked by `new`.
 
-MarkupKit doesn't know anything about methods - only instances and properties/events. To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is considered the name of a "factory method", a no-arg method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
+MarkupKit doesn't know anything about methods - only instances and properties/events. To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is considered the name of a "factory method", a zero-argument method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
 
 For example, the following markup creates an instance of a "system"-style `UIButton` by calling the `systemButton` method MarkupKit adds to the `UIButton` class:
 
@@ -183,7 +183,7 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
 Templates are applied to class instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the class instance. Nested properties such as "titleLabel.font" are supported by property templates.
 
-For example, assuming that _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (JSON syntax is used in this example simply for clarity):
+For example, assuming that _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (abbreviated for clarity):
 
     "label.hello": {
         "font": "Helvetica 24"
