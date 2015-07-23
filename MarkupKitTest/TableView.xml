@@ -16,35 +16,37 @@ limitations under the License.
 
 <LMTableView style="groupedTableView">
     <?sectionHeaderView?>
-    <LMRowView layoutMargins="12">
-        <UILabel text="Section 1 Start" font="System 14" textColor="#808080"/>
-    </LMRowView>
+    <UITableViewCell textLabel.text="Section 1 Start" textLabel.font="System 14" textLabel.textColor="#808080"/>
 
     <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png"/>
     <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png"/>
 
     <?sectionFooterView?>
-    <LMRowView layoutMargins="12">
-        <UILabel text="Section 1 End" font="System 14" textColor="#808080"/>
-    </LMRowView>
+    <UITableViewCell textLabel.text="Section 1 End" textLabel.font="System 14" textLabel.textColor="#808080"/>
 
     <?sectionHeaderView?>
-    <LMRowView layoutMargins="12">
-        <UILabel weight="1" text="section2.start" font="System 14" textColor="#808080"/>
+    <UITableViewCell textLabel.text="section2.start" textLabel.font="System 14" textLabel.textColor="#808080">
         <UIButton style="systemButton" normalTitle="Press Me!" titleLabel.font="System 12"/>
-    </LMRowView>
+    </UITableViewCell>
 
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Disclosure Indicator" accessoryType="disclosureIndicator"/>
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Disclosure Button" accessoryType="detailDisclosureButton"/>
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Checkmark" accessoryType="checkmark"/>
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Detail Button" accessoryType="detailButton"/>
+    <UITableViewCell textLabel.text="Disclosure Indicator" accessoryType="disclosureIndicator"/>
+    <UITableViewCell textLabel.text="Detail Disclosure Button" accessoryType="detailDisclosureButton"/>
+    <UITableViewCell textLabel.text="Checkmark" accessoryType="checkmark"/>
+    <UITableViewCell textLabel.text="Detail Button" accessoryType="detailButton"/>
+
+    <UITableViewCell textLabel.text="Switch">
+        <UISwitch/>
+    </UITableViewCell>
+
+    <UITableViewCell textLabel.text="Stepper">
+        <UIStepper/>
+    </UITableViewCell>
 
     <?sectionFooterView?>
-    <LMRowView layoutMargins="12">
+    <LMRowView layoutMargins="16">
         <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            numberOfLines="0"
-            font="System 13" textColor="#808080"/>
+            numberOfLines="0" font="System 13" textColor="#808080"/>
     </LMRowView>
 
     <?sectionBreak?>
@@ -74,7 +76,7 @@ limitations under the License.
     </LMTableViewCell>
 
     <?sectionHeaderView?>
-    <LMRowView layoutMargins="12">
+    <LMRowView layoutMargins="16">
         <UILabel weight="1" text="Section 4 Start" font="System 14" textColor="#808080"/>
     </LMRowView>
 

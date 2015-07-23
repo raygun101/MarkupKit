@@ -36,4 +36,11 @@
     return [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 }
 
+- (void)appendMarkupElementView:(UIView *)view
+{
+    [self setAccessoryView:view];
+
+    [view sizeToFit];
+}
+
 @end

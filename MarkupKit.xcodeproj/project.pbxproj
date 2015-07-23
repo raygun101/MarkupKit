@@ -284,10 +284,16 @@
 			isa = PBXGroup;
 			children = (
 				372418D81ADF33230067CDF0 /* AppDelegate.swift */,
+				3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */,
 				372418DC1ADF33590067CDF0 /* MainViewController.swift */,
+				372418E51ADF34600067CDF0 /* MainView.xml */,
+				3B09976B1B21DBAD001BF85C /* MainView.strings */,
 				372418DD1ADF33590067CDF0 /* ScrollViewController.swift */,
+				372418E71ADF34600067CDF0 /* ScrollView.xml */,
 				3BA2146B1B075A580077AC61 /* TableViewController.swift */,
+				3BA214631B07571C0077AC61 /* TableView.xml */,
 				37D6B1A91B38C9D000C259DA /* GridViewController.swift */,
+				37D6B1A71B38C9C700C259DA /* GridView.xml */,
 				37B0708E1ADEBEB000A92FCF /* Images.xcassets */,
 				37B070901ADEBEB000A92FCF /* LaunchScreen.xib */,
 				37B070851ADEBEB000A92FCF /* Supporting Files */,
@@ -300,19 +306,13 @@
 			children = (
 				37B070861ADEBEB000A92FCF /* Info.plist */,
 				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
-				3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */,
-				372418E51ADF34600067CDF0 /* MainView.xml */,
-				3B09976B1B21DBAD001BF85C /* MainView.strings */,
 				372418E21ADF34600067CDF0 /* waterfall.jpg */,
 				372418E81ADF34600067CDF0 /* Styles1.plist */,
 				3B1F7B3F1B2253D10066D21E /* Styles2.plist */,
-				372418E71ADF34600067CDF0 /* ScrollView.xml */,
 				372418E61ADF34600067CDF0 /* sample.txt */,
-				3BA214631B07571C0077AC61 /* TableView.xml */,
 				3BA214651B0759B50077AC61 /* chevy.png */,
 				3BA214661B0759B50077AC61 /* mini.png */,
 				3BA214671B0759B50077AC61 /* vw.png */,
-				37D6B1A71B38C9C700C259DA /* GridView.xml */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
