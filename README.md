@@ -413,7 +413,7 @@ Use of the `LMTableView` class is not limited to markup. `LMTableView` cells and
         </LMTableViewCell>
     </LMTableView>
 
-The date picker will be automatically sized to fill the width and height of the cell.
+The date picker will be set as the cell's content element view and will be automatically sized to fill the width and height of the cell.
 
 `UITableViewCell` defines several factory methods that are inherited by `LMTableViewCell` and are discussed in more detail below. However, these are used primarily to create instances of the default cell view types and are not commonly used in conjunction with custom cell content.
 
@@ -793,9 +793,18 @@ For example, the following markup declares an instance of `LMTableView` that con
             detailTextLabel.text="This is the third row."/>
     </LMTableView>
 
-While it is possible to use the factory methods to declare instances of custom `UITableViewCell` subclasses, this is not common. It is preferable to simply declare such classes by name. For example:
+Note that, while it is possible to use the factory methods to declare instances of custom `UITableViewCell` subclasses, this is not generally recommended. It is preferable to simply declare such classes by name. For example:
 
     <MyCustomTableViewCell .../>
+
+#### Accessory Views
+MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCell` that sets the given view as the cell's accessory view, enabling the declaration of accessory views in markup. For example, the following markup creates a cell that has a `UISwitch` as an accessory view:
+
+    <UITableViewCell textLabel.text="This is a switch">
+        <UISwitch id="switch"/>
+    </UITableViewCell>
+
+Note that `LMTableViewCell` overrides `appendMarkupElementView:` to set the cell's content element view. As a result, a view specified as a child of an `LMTableViewCell` will be sized to occupy the entire contents of the cell, not just the accessory area.
 
 ### UIProgressView
 Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
