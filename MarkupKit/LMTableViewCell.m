@@ -21,6 +21,11 @@
     NSArray *_layoutConstraints;
 }
 
++ (BOOL)requiresConstraintBasedLayout
+{
+    return YES;
+}
+
 - (void)layoutSubviews
 {
     if (_contentElementView != nil) {
@@ -74,6 +79,7 @@
 
     _contentElementView = view;
 
+    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 

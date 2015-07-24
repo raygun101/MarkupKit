@@ -32,10 +32,10 @@
         [self addSubview:_contentView];
 
         [_contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
-
-        [self invalidateIntrinsicContentSize];
-        [self setNeedsUpdateConstraints];
     }
+
+    [self invalidateIntrinsicContentSize];
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)setFitToWidth:(BOOL)fitToWidth
