@@ -14,6 +14,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * View that provides flexible space between other views.
+ */
 @interface LMSpacer : UIView
 
 @end
