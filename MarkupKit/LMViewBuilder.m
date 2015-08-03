@@ -662,6 +662,20 @@ static NSString * const LMViewBuilderActionPrefix = @"on";
                 }
 
                 value = [NSNumber numberWithInt:tableViewCellAccessoryType];
+            } else if ([key isEqual:@"selectionStyle"]) {
+                // Translate to table view cell selection style
+                UITableViewCellSelectionStyle tableViewCellSelectionStyle;
+                if ([value isEqual:@"none"]) {
+                    tableViewCellSelectionStyle = UITableViewCellSelectionStyleNone;
+                } else if ([value isEqual:@"blue"]) {
+                    tableViewCellSelectionStyle = UITableViewCellSelectionStyleBlue;
+                } else if ([value isEqual:@"gray"]) {
+                    tableViewCellSelectionStyle = UITableViewCellSelectionStyleGray;
+                } else if ([value isEqual:@"default"]) {
+                    tableViewCellSelectionStyle = UITableViewCellSelectionStyleDefault;
+                } else {
+                    continue;
+                }
             } else if ([key isEqual:@"dataDetectorTypes"]) {
                 // Translate to data detector types
                 UIDataDetectorTypes dataDetectorTypes;
