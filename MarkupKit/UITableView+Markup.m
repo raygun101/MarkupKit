@@ -26,4 +26,9 @@
     return [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
 }
 
+- (NSString *)nameForSection:(NSInteger)section
+{
+    return nil;
+}
+
 @end

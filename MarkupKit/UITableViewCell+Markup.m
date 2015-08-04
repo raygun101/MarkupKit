@@ -12,7 +12,8 @@
 // limitations under the License.
 //
 
-#import "UITableView+Markup.h"
+#import <objc/message.h>
+#import "UITableViewCell+Markup.h"
 
 @implementation UITableViewCell (Markup)
 
@@ -34,6 +35,16 @@
 + (UITableViewCell *)subtitleTableViewCell
 {
     return [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+}
+
+- (id)value
+{
+    return objc_getAssociatedObject(self, @selector(value));
+}
+
+- (void)setValue:(id)value
+{
+    objc_setAssociatedObject(self, @selector(value), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (void)appendMarkupElementView:(UIView *)view
