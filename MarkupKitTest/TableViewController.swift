@@ -15,7 +15,7 @@
 import UIKit
 import MarkupKit
 
-class TableViewController: UIViewController {
+class TableViewController: UITableViewController {
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var slider: UISlider!
     @IBOutlet var pageControl: UIPageControl!
@@ -28,6 +28,8 @@ class TableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+
         slider.minimumValue = Float(stepper.minimumValue)
         slider.maximumValue = Float(stepper.maximumValue)
 
@@ -35,9 +37,15 @@ class TableViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
-        var tableView = view as! UITableView
-
         tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0)
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let sectionName = tableView.nameForSection(indexPath.section) {
+            if (sectionName == "cars") {
+                println("User selected \(tableView.cellForRowAtIndexPath(indexPath)!.value)")
+            }
+        }
     }
 
     func stepperValueChanged(sender: UIStepper) {

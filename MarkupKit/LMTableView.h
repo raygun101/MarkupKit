@@ -34,6 +34,14 @@
 - (void)deleteSection:(NSInteger)section;
 
 /**
+ * Sets the name of a section.
+ *
+ * @param name The section name.
+ * @param section The section index.
+ */
+- (void)setName:(NSString *)name forSection:(NSInteger)section;
+
+/**
  * Returns the header view for a section.
  *
  * @param section The section index.

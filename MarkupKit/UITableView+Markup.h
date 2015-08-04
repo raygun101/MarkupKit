@@ -26,4 +26,13 @@
  */
 + (UITableView *)groupedTableView;
 
+/**
+ * Returns the name of a section.
+ (
+ * @param section The section index.
+ *
+ * @return The name of the section.
+ */
+- (NSString *)nameForSection:(NSInteger)section;
+
 @end

@@ -36,4 +36,9 @@
  */
 + (UITableViewCell *)subtitleTableViewCell;
 
+/**
+ * The cell's value.
+ */
+@property (nonatomic) id value;
+
 @end

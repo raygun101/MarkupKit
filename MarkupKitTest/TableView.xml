@@ -15,15 +15,18 @@ limitations under the License.
 -->
 
 <LMTableView style="groupedTableView">
+    <?sectionName cars?>
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Section 1 Start" textLabel.font="System 14" textLabel.textColor="#808080"/>
 
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png"/>
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png"/>
-    <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="VW Beetle" imageView.image="vw.png" value="vw"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Mini Cooper" imageView.image="mini.png" value="mini"/>
+    <UITableViewCell style="defaultTableViewCell" textLabel.text="Chevy Pickup" imageView.image="chevy.png" value="chevy"/>
 
     <?sectionFooterView?>
     <UITableViewCell textLabel.text="Section 1 End" textLabel.font="System 14" textLabel.textColor="#808080"/>
+
+    <?sectionBreak?>
 
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="section2.start" textLabel.font="System 14" textLabel.textColor="#808080">
@@ -35,11 +38,11 @@ limitations under the License.
     <UITableViewCell textLabel.text="Checkmark" accessoryType="checkmark"/>
     <UITableViewCell textLabel.text="Detail Button" accessoryType="detailButton"/>
 
-    <UITableViewCell textLabel.text="Switch">
+    <UITableViewCell textLabel.text="Switch" selectionStyle="none">
         <UISwitch/>
     </UITableViewCell>
 
-    <UITableViewCell textLabel.text="Stepper">
+    <UITableViewCell textLabel.text="Stepper" selectionStyle="none">
         <UIStepper/>
     </UITableViewCell>
 
@@ -50,6 +53,7 @@ limitations under the License.
     </LMRowView>
 
     <?sectionBreak?>
+
     <LMTableViewCell accessoryType="detailButton" layoutMarginTop="12" layoutMarginBottom="12">
         <UITextField placeholder="Type something"/>
     </LMTableViewCell>
@@ -75,6 +79,8 @@ limitations under the License.
         </LMRowView>
     </LMTableViewCell>
 
+    <?sectionBreak?>
+    
     <?sectionHeaderView?>
     <LMRowView layoutMargins="16">
         <UILabel weight="1" text="Section 4 Start" font="System 14" textColor="#808080"/>
