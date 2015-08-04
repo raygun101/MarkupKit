@@ -329,7 +329,7 @@ MarkupKit provides extensions to the standard `UITableView` and `UITableViewCell
 
 These methods support the declaration of styled table view instances in markup and are discussed in more detail later.
 
-For example, the following markup declares a plain `LMTableView` containing three rows labeled "Row 1", "Row 2", and "Row 3". All of the rows appear in a single unlabeled section, which is created by default:
+For example, the following markup declares a plain `LMTableView` containing three rows labeled "Row 1", "Row 2", and "Row 3". All of the rows appear in a single section, which is created by default:
 
     <LMTableView style="plainTableView">
         <UITableViewCell textLabel.text="Row 1"/>
@@ -337,49 +337,36 @@ For example, the following markup declares a plain `LMTableView` containing thre
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `sectionHeaderView` processing instruction can be used to assign a header view to the default section, or to create additional sections. The view element immediately following the PI is used as the header view for the section. The following example creates a "grouped" table view with two sections: 
+The `sectionHeaderView` processing instruction can be used to assign a header view to the current section. The view element immediately following the PI is used as the header view for the section. For example, the following markup adds a section header view to the table view shown in the previous example:
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
-        <UILabel text="Section 1"/>
+        <UITableViewCell textLabel.text="Section 1"/>
 
-        <UITableViewCell textLabel.text="Row 1a"/>
-        <UITableViewCell textLabel.text="Row 1b"/>
-        <UITableViewCell textLabel.text="Row 1c"/>
-
-        <?sectionHeaderView?>
-        <UILabel text="Section 2"/>
-
-        <UITableViewCell textLabel.text="Row 2a"/>
-        <UITableViewCell textLabel.text="Row 2b"/>
-        <UITableViewCell textLabel.text="Row 2c"/>
+        <UITableViewCell textLabel.text="Row 1"/>
+        <UITableViewCell textLabel.text="Row 1"/>
+        <UITableViewCell textLabel.text="Row 1"/>
     </LMTableView>
+
+Note that, although this example uses an instance of `UITableViewCell` as a section header, header views are not limited to table view cells. Any `UIView` subclass can be used as a section header view.
 
 The `sectionFooterView` processing instruction can be used to set a footer view for the current section. The view element immediately following the PI is used as the footer view for the section:
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
-        <UILabel text="Section 1 Start"/>
+        <UITableViewCell textLabel.text="Section 1 Start"/>
 
-        <UITableViewCell textLabel.text="Row 1a"/>
-        <UITableViewCell textLabel.text="Row 1b"/>
-        <UITableViewCell textLabel.text="Row 1c"/>
-
-        <?sectionFooterView?>
-        <UILabel text="Section 1 End"/>
-
-        <?sectionHeaderView?>
-        <UILabel text="Section 2 Start"/>
-
-        <UITableViewCell textLabel.text="Row 2a"/>
-        <UITableViewCell textLabel.text="Row 2b"/>
-        <UITableViewCell textLabel.text="Row 2c"/>
+        <UITableViewCell textLabel.text="Row 1"/>
+        <UITableViewCell textLabel.text="Row 1"/>
+        <UITableViewCell textLabel.text="Row 1"/>
 
         <?sectionFooterView?>
-        <UILabel text="Section 2 End"/>
+        <UITableViewCell textLabel.text="Section 1 End"/>
     </LMTableView>
 
-The `sectionBreak` processing instruction can be used to insert a new section with no header title:
+As with header views, footers views are not limited to instances of `UITableViewCell`; any `UIView` subclass can be used as a footer.
+
+The `sectionBreak` processing instruction can be used to insert a new section. The following markup creates a table view containing two sections:
 
     <LMTableView style="groupedTableView">
         <UITableViewCell textLabel.text="Row 1a"/>
@@ -388,6 +375,24 @@ The `sectionBreak` processing instruction can be used to insert a new section wi
 
         <?sectionBreak?>
 
+        <UITableViewCell textLabel.text="Row 2a"/>
+        <UITableViewCell textLabel.text="Row 2b"/>
+        <UITableViewCell textLabel.text="Row 2c"/>
+    </LMTableView>
+
+Header and footer views can be used in conjunction with `sectionBreak` PIs to create headers and footers for individual sections.
+
+Finally, the `sectionName` PI can be used to assign a name to a section. This allows sections to be identified in code by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
+
+    <LMTableView style="groupedTableView">
+        <?sectionName firstSection?>
+        <UITableViewCell textLabel.text="Row 1a"/>
+        <UITableViewCell textLabel.text="Row 1b"/>
+        <UITableViewCell textLabel.text="Row 1c"/>
+
+        <?sectionBreak?>
+
+        <?sectionName secondSection?>
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
@@ -770,6 +775,12 @@ As shown in previous examples, these factory methods are used to create instance
     <UITableView id="tableView" style="plainTableView"/>
 
 Note that `UITableView` can only be used to declare table views whose contents will be defined programmatically. For example, the table view in the previous example is given an ID so its owner can assign a data source or delegate to it after the document has been loaded. For static table view content, `LMTableView` should be used instead.
+
+MarkuptKit adds the following additional instance method to `UITableView`:
+
+    - (NSString *)nameForSection:(NSInteger)section;
+
+The default implementation does nothing. However, it is overridden by `LMTableView` to return the name of the given section, if set. The method is added to `UITableView` so casting is not required when using an `LMTableView` with `UITableViewController`, whose `tableView` property returns an instance of `UITableView`.
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
