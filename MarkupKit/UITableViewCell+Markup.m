@@ -47,6 +47,19 @@
     objc_setAssociatedObject(self, @selector(value), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (BOOL)checked
+{
+    NSNumber *checked = objc_getAssociatedObject(self, @selector(checked));
+
+    return (checked == nil) ? NO : [checked boolValue];
+}
+
+- (void)setChecked:(BOOL)checked
+{
+    objc_setAssociatedObject(self, @selector(checked), checked ? nil : [NSNumber numberWithBool:checked],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (void)appendMarkupElementView:(UIView *)view
 {
     [self setAccessoryView:view];

@@ -15,6 +15,20 @@
 #import <UIKit/UIKit.h>
 
 /**
+ * Table view selection modes.
+ */
+typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
+    /** Default selection mode. */
+    LMTableViewSelectionModeDefault,
+
+    /** Single-checkmark selection mode. */
+    LMTableViewSelectionModeSingleCheckmark,
+
+    /** Multiple-checkmark selection mode. */
+    LMTableViewSelectionModeMultipleCheckmarks
+};
+
+/**
  * Table view that presents a collection of statically-defined content. 
  */
 @interface LMTableView : UITableView
@@ -40,6 +54,23 @@
  * @param section The section index.
  */
 - (void)setName:(NSString *)name forSection:(NSInteger)section;
+
+/**
+ * Returns the selection mode for a section.
+ *
+ * @param section The section index.
+ *
+ * @return The section's selection mode.
+ */
+- (LMTableViewSelectionMode)selectionModeForSection:(NSInteger)section;
+
+/**
+ * Sets the selection mode for a section.
+ *
+ * @param name The selection mode.
+ * @param section The section index.
+ */
+- (void)setSelectionMode:(LMTableViewSelectionMode)selectionMode forSection:(NSInteger)section;
 
 /**
  * Returns the header view for a section.

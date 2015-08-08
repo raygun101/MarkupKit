@@ -16,12 +16,30 @@ limitations under the License.
 
 <?properties Styles?>
 
-<?strings View?>
+<LMTableView style="groupedTableView">
+    <!-- Power -->
+    <UITableViewCell textLabel.text="power">
+        <UISwitch onValueChanged="togglePower:"/>
+    </UITableViewCell>
 
-<root layoutMarginsRelativeArrangement="false">
-    <LMSpacer/>
-    <UILabel class="label.hello" text="hello"/>
-    <UIImageView image="World" contentMode="scaleAspectFit"/>
-    <UILabel class="label.from" text="from"/>
-    <LMSpacer/>
-</root>
+    <!-- Temperature -->
+    <?sectionBreak?>
+    <?sectionHeaderView?>
+    <UITableViewCell class="cell.header" textLabel.text="temperature"/>
+
+    <UITableViewCell id="temperatureCell">
+        <UIStepper id="temperatureStepper" minimumValue="32" maximumValue="96" onValueChanged="updateTemperature:"/>
+    </UITableViewCell>
+
+    <!-- Speed -->
+    <?sectionBreak?>
+    <?sectionName speed?>
+    <?sectionSelectionMode singleCheckmark?>
+    
+    <?sectionHeaderView?>
+    <UITableViewCell class="cell.header" textLabel.text="fanSpeed"/>
+
+    <UITableViewCell id="highSpeedCell" textLabel.text="high" value="high"/>
+    <UITableViewCell id="mediumSpeedCell" textLabel.text="medium" value="medium"/>
+    <UITableViewCell id="lowSpeedCell" textLabel.text="low" value="low"/>
+</LMTableView>

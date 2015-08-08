@@ -17,6 +17,7 @@
 static NSString * const LMTableViewSectionBreakTarget = @"sectionBreak";
 
 static NSString * const LMTableViewSectionNameTarget = @"sectionName";
+static NSString * const LMTableViewSectionSelectionModeTarget = @"sectionSelectionMode";
 
 static NSString * const LMTableViewSectionHeaderViewTarget = @"sectionHeaderView";
 static NSString * const LMTableViewSectionFooterViewTarget = @"sectionFooterView";
@@ -32,6 +33,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 @interface LMTableViewSection : NSObject
 
 @property NSString* name;
+@property LMTableViewSelectionMode selectionMode;
 
 @property UIView *headerView;
 @property UIView *footerView;
@@ -112,6 +114,16 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     [(LMTableViewSection *)[_sections objectAtIndex:section] setName:name];
 }
 
+- (LMTableViewSelectionMode)selectionModeForSection:(NSInteger)section
+{
+    return [(LMTableViewSection *)[_sections objectAtIndex:section] selectionMode];
+}
+
+- (void)setSelectionMode:(LMTableViewSelectionMode)selectionMode forSection:(NSInteger)section
+{
+    [(LMTableViewSection *)[_sections objectAtIndex:section] setSelectionMode:selectionMode];
+}
+
 - (UIView *)viewForHeaderInSection:(NSInteger)section
 {
     return [(LMTableViewSection *)[_sections objectAtIndex:section] headerView];
@@ -168,6 +180,28 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    LMTableViewSelectionMode selectionMode = [self selectionModeForSection:[indexPath section]];
+
+    if (selectionMode != LMTableViewSelectionModeDefault) {
+        switch ([self selectionModeForSection:[indexPath section]]) {
+            case LMTableViewSelectionModeSingleCheckmark: {
+                // TODO
+                break;
+            }
+
+            case LMTableViewSelectionModeMultipleCheckmarks: {
+                // TODO
+                break;
+            }
+
+            default: {
+                [NSException raise:NSInternalInconsistencyException format:@"Unexpected selection mode."];
+            }
+        }
+
+        [self deselectRowAtIndexPath:indexPath animated:YES];
+    }
+
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
         [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }
@@ -205,6 +239,19 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
         [self insertSection:[self numberOfSectionsInTableView:self]];
     } else if ([target isEqual:LMTableViewSectionNameTarget]) {
         [self setName:data forSection:[self numberOfSectionsInTableView:self] - 1];
+    } else if ([target isEqual:LMTableViewSectionSelectionModeTarget]) {
+        LMTableViewSelectionMode selectionMode;
+        if ([data isEqual:@"default"]) {
+            selectionMode = LMTableViewSelectionModeDefault;
+        } else if ([data isEqual:@"singleCheckmark"]) {
+            selectionMode = LMTableViewSelectionModeSingleCheckmark;
+        } else if ([data isEqual:@"multipleCheckmarks"]) {
+            selectionMode = LMTableViewSelectionModeMultipleCheckmarks;
+        } else {
+            return;
+        }
+
+        [self setSelectionMode: selectionMode forSection:[self numberOfSectionsInTableView:self] - 1];
     } else if ([target isEqual:LMTableViewSectionHeaderViewTarget]) {
         _elementDisposition = LMTableViewElementDispositionSectionHeaderView;
     } else if ([target isEqual:LMTableViewSectionFooterViewTarget]) {
@@ -254,6 +301,8 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     self = [super init];
 
     if (self) {
+        _selectionMode = LMTableViewSelectionModeDefault;
+        
         _rows = [NSMutableArray new];
     }
 

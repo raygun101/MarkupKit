@@ -15,11 +15,69 @@
 import UIKit
 import MarkupKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+    var temperatureCell: UITableViewCell!
+    var temperatureStepper: UIStepper!
+
+    var highSpeedCell: UITableViewCell!
+    var mediumSpeedCell: UITableViewCell!
+    var lowSpeedCell: UITableViewCell!
+
+    var selectedSpeedCell: UITableViewCell?
+
+    static let speedSectionName = "speed"
+
+    override func loadView() {
+        view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LMViewBuilder.viewWithName("View", owner: self, root: view)
+        title = NSBundle.mainBundle().localizedStringForKey("title", value: nil, table: nil)
+
+        tableView.delegate = self
+
+        // Set initial temperature
+        temperatureStepper.value = 70
+
+        updateTemperature(temperatureStepper)
+
+        // Set initial fan speed
+        selectSpeed(highSpeedCell)
+    }
+
+    func togglePower(sender: UISwitch) {
+        // TODO Update unit power
+    }
+
+    func updateTemperature(sender: UIStepper) {
+        temperatureCell.textLabel!.text = "\(Int(sender.value))° F"
+
+        // TODO Update unit temperature
+    }
+
+    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        // TODO Return nil if this is not the speed section
+        return indexPath;
+    }
+
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if let sectionName = tableView.nameForSection(indexPath.section) {
+            if (sectionName == ViewController.speedSectionName) {
+                selectSpeed(tableView.cellForRowAtIndexPath(indexPath)!)
+            }
+        }
+    }
+
+    func selectSpeed(speedCell: UITableViewCell) {
+        selectedSpeedCell?.accessoryType = UITableViewCellAccessoryType.None
+
+        speedCell.accessoryType = UITableViewCellAccessoryType.Checkmark
+
+        selectedSpeedCell = speedCell
+
+        // TODO Update unit fan speed
     }
 }
 

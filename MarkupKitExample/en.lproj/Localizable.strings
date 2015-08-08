@@ -1,1 +1,10 @@
-"hello" = "Hello, World!";
+"title" = "Air Conditioner Remote";
+
+"power" = "Power";
+
+"temperature" = "Temperature";
+
+"fanSpeed" = "Fan Speed";
+"high" = "High";
+"medium" = "Medium";
+"low" = "Low";
