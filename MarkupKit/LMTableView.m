@@ -144,6 +144,11 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterView:footerView];
 }
 
+- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self tableView:self cellForRowAtIndexPath:indexPath];
+}
+
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows] insertObject:cell atIndex:indexPath.row];

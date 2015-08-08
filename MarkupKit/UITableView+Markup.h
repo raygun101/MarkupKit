@@ -28,11 +28,30 @@
 
 /**
  * Returns the name of a section.
- (
+ *
  * @param section The section index.
  *
- * @return The name of the section.
+ * @return The section's name.
  */
 - (NSString *)nameForSection:(NSInteger)section;
+
+/**
+ * Returns the index of the section whose name matches the given name.
+ *
+ * @param name The section name.
+ *
+ * @return The section index, or <code>NSNotFound</code> if a matching section was not found.
+ */
+- (NSInteger)sectionWithName:(NSString *)name;
+
+/**
+ * Returns the index of the row in the given section whose cell value matches the given value.
+ *
+ * @param value The cell value.
+ * @param section The section index.
+ * 
+ * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
+ */
+- (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
 
 @end
