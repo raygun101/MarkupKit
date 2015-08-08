@@ -19,13 +19,7 @@ class ViewController: UITableViewController {
     var temperatureCell: UITableViewCell!
     var temperatureStepper: UIStepper!
 
-    var highSpeedCell: UITableViewCell!
-    var mediumSpeedCell: UITableViewCell!
-    var lowSpeedCell: UITableViewCell!
-
-    var selectedSpeedCell: UITableViewCell?
-
-    static let speedSectionName = "speed"
+    static let FanSpeedSectionName = "fanSpeed"
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
@@ -38,13 +32,17 @@ class ViewController: UITableViewController {
 
         tableView.delegate = self
 
-        // Set initial temperature
+        // TODO Set initial temperature
         temperatureStepper.value = 70
 
         updateTemperature(temperatureStepper)
 
-        // Set initial fan speed
-        selectSpeed(highSpeedCell)
+        // TODO Set initial fan speed
+        let fanSpeedSection = tableView.sectionWithName(ViewController.FanSpeedSectionName)
+        let highSpeedRow = tableView.rowForCellWithValue("high", inSection: fanSpeedSection)
+
+        // TODO 
+        // tableView.cellForRowAtIndexPath(NSIndexPath(forRow: highSpeedRow, inSection: fanSpeedSection))!.checked = true
     }
 
     func togglePower(sender: UISwitch) {
@@ -52,32 +50,19 @@ class ViewController: UITableViewController {
     }
 
     func updateTemperature(sender: UIStepper) {
-        temperatureCell.textLabel!.text = "\(Int(sender.value))° F"
+        let temperature = Int(sender.value)
+
+        temperatureCell.textLabel!.text = "\(temperature)° F"
 
         // TODO Update unit temperature
     }
 
-    override func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
-        // TODO Return nil if this is not the speed section
-        return indexPath;
-    }
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let sectionName = tableView.nameForSection(indexPath.section) {
-            if (sectionName == ViewController.speedSectionName) {
-                selectSpeed(tableView.cellForRowAtIndexPath(indexPath)!)
+            if (sectionName == ViewController.FanSpeedSectionName) {
+                // TODO Update unit fan speed
             }
         }
-    }
-
-    func selectSpeed(speedCell: UITableViewCell) {
-        selectedSpeedCell?.accessoryType = UITableViewCellAccessoryType.None
-
-        speedCell.accessoryType = UITableViewCellAccessoryType.Checkmark
-
-        selectedSpeedCell = speedCell
-
-        // TODO Update unit fan speed
     }
 }
 
