@@ -13,6 +13,7 @@
 //
 
 #import "LMTableView.h"
+#import "UITableViewCell+Markup.h"
 
 static NSString * const LMTableViewSectionBreakTarget = @"sectionBreak";
 
@@ -171,7 +172,13 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
+
+    if ([cell checked]) {
+        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+    }
+
+    return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -185,17 +192,35 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    LMTableViewSelectionMode selectionMode = [self selectionModeForSection:[indexPath section]];
+    // TODO Access section array directly so we don't need to create index path instances?
+    
+    NSInteger section = [indexPath section];
+
+    LMTableViewSelectionMode selectionMode = [self selectionModeForSection:section];
 
     if (selectionMode != LMTableViewSelectionModeDefault) {
-        switch ([self selectionModeForSection:[indexPath section]]) {
+        switch (selectionMode) {
             case LMTableViewSelectionModeSingleCheckmark: {
-                // TODO
+                // Uncheck all cells except for current selection
+                NSInteger row = [indexPath row];
+
+                for (NSInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
+                    UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+                    
+                    if (i == row) {
+                        [cell setChecked:YES];
+                        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
+                    } else {
+                        [cell setChecked:NO];
+                        [cell setAccessoryType:UITableViewCellAccessoryNone];
+                    }
+                }
+
                 break;
             }
 
             case LMTableViewSelectionModeMultipleCheckmarks: {
-                // TODO
+                // TODO Toggle check state of current selection
                 break;
             }
 

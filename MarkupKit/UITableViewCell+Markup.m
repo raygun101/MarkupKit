@@ -57,7 +57,7 @@
 
 - (void)setChecked:(BOOL)checked
 {
-    objc_setAssociatedObject(self, @selector(checked), checked ? nil : [NSNumber numberWithBool:checked],
+    objc_setAssociatedObject(self, @selector(checked), checked ? [NSNumber numberWithBool:checked] : nil,
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
