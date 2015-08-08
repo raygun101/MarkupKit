@@ -32,17 +32,18 @@ class ViewController: UITableViewController {
 
         tableView.delegate = self
 
-        // TODO Set initial temperature
+        // Set initial temperature
+        // TODO Get value from unit
         temperatureStepper.value = 70
 
         updateTemperature(temperatureStepper)
 
-        // TODO Set initial fan speed
+        // Set initial fan speed
+        // TODO Get value from unit
         let fanSpeedSection = tableView.sectionWithName(ViewController.FanSpeedSectionName)
         let highSpeedRow = tableView.rowForCellWithValue("high", inSection: fanSpeedSection)
 
-        // TODO 
-        // tableView.cellForRowAtIndexPath(NSIndexPath(forRow: highSpeedRow, inSection: fanSpeedSection))!.checked = true
+        tableView.cellForRowAtIndexPath(NSIndexPath(forRow: highSpeedRow, inSection: fanSpeedSection))!.checked = true
     }
 
     func togglePower(sender: UISwitch) {

@@ -27,14 +27,14 @@ limitations under the License.
         
         <LMColumnView alignment="center" layoutMargins="20">
             <LMRowView class="row.first">
-                <UILabel id="greetingLabel" text="greeting" textColor="#ff00ff"/>
-                <UILabel text="missing.key" textAlignment="right" font="System 22"/>
+                <UILabel id="greetingLabel" text="@greeting" textColor="#ff00ff"/>
+                <UILabel text="@missing.key" textAlignment="right" font="System 22"/>
             </LMRowView>
 
             <LMRowView class="row.second">
                 <UILabel text="12345" font="Helvetica-Bold 32"/>
                 <LMSpacer/>
-                <UIButton style="systemButton" normalTitle="prompt"
+                <UIButton style="systemButton" normalTitle="@prompt"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
                     onTouchUpInside="handleButtonTouchUpInside:"/>
             </LMRowView>
@@ -50,11 +50,11 @@ limitations under the License.
             </LMRowView>
 
             <LMRowView alignment="top" layoutMargins="12" backgroundColor="#ffffff">
-                <UITextField placeholder="text" clearButtonMode="whileEditing" keyboardType="numberPad"/>
+                <UITextField placeholder="@text" clearButtonMode="whileEditing" keyboardType="numberPad"/>
             </LMRowView>
             
             <LMRowView alignment="bottom" layoutMargins="12" backgroundColor="#ffffff">
-                <UITextField placeholder="password" clearButtonMode="whileEditing" secureTextEntry="true"/>
+                <UITextField placeholder="@password" clearButtonMode="whileEditing" secureTextEntry="true"/>
             </LMRowView>
 
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"

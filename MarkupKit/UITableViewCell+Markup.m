@@ -12,8 +12,9 @@
 // limitations under the License.
 //
 
-#import <objc/message.h>
 #import "UITableViewCell+Markup.h"
+
+#import <objc/message.h>
 
 @implementation UITableViewCell (Markup)
 
