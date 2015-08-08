@@ -126,7 +126,7 @@ For example, the following markup creates an instance of `LMTableViewCell` with 
 MarkupKit also adds properties to `UIView` that allow layout margin components to be specified individually. This is discussed in more detail later.
 
 ### Localization
-Localization is performed automatically by MarkupKit. If an attribute does not fall into any of the previous categories, MarkupKit attempts to look up a localized version of the attribute's value before setting the property value.
+If an attribute does not fall into any of the previous categories and its value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property.
 
 For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
@@ -134,13 +134,13 @@ For example, if an application has defined a localized greeting in _Localizable.
 
 the following markup will produce an instance of `UILabel` with the value of its `text` property set to "Hello, World!":
 
-    <UILabel text="hello"/>
+    <UILabel text="@hello"/>
 
 By default, MarkupKit will attempt to localize strings by calling `localizedStringForKey:value:table:` on the application's main bundle with a `nil` value for the `table` argument. The attribute's value is passed as both the `key` and the `value` arguments, so values that do not have localized versions appear exactly as they are specified in markup. 
 
 For example, assuming that an application does not provide a localized value for "goodbye", the following markup would create an instance of `UILabel` containing the literal text "goodbye":
 
-    <UILabel text="goodbye"/>
+    <UILabel text="@goodbye"/>
 
 In addition to the global values defined in _Localizable.strings_, the `strings` processing instruction can be used to define a set of local string values that are only visible to the current document. 
 
@@ -154,11 +154,11 @@ this markup would produce a table view containing two rows reading "Hello, World
     
     <LMTableView>
         <LMTableViewCell>
-            <UILabel text="hello"/>
+            <UILabel text="@hello"/>
         </LMTableViewCell>
         
         <LMTableViewCell>
-            <UILabel text="goodbye"/>
+            <UILabel text="@goodbye"/>
         </LMTableViewCell>
     </LMTableView>
 
@@ -776,11 +776,13 @@ As shown in previous examples, these factory methods are used to create instance
 
 Note that `UITableView` can only be used to declare table views whose contents will be defined programmatically. For example, the table view in the previous example is given an ID so its owner can assign a data source or delegate to it after the document has been loaded. For static table view content, `LMTableView` should be used instead.
 
-MarkuptKit adds the following additional instance method to `UITableView`:
+MarkuptKit also adds the following instance methods to `UITableView`:
 
     - (NSString *)nameForSection:(NSInteger)section;
+    - (NSInteger)sectionWithName:(NSString *)name;
+    - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
 
-The default implementation does nothing. However, it is overridden by `LMTableView` to return the name of the given section, if set. The method is added to `UITableView` so casting is not required when using an `LMTableView` with `UITableViewController`, whose `tableView` property returns an instance of `UITableView`.
+The first method returns the name that is associated with a given section. The default implementation returns `nil`. However, it is overridden by `LMTableView` to return the name of the given section, when set. The second method returns the index of a named section, and the third returns the index of a row within a given section whose cell has the given value. All three methods are added to `UITableView` so casting is not required when using an `LMTableView` with `UITableViewController`, whose `tableView` property returns an instance of `UITableView`.
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
