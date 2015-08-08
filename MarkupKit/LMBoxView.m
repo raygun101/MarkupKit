@@ -57,4 +57,37 @@
     [self setNeedsUpdateConstraints];
 }
 
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"alignment"]) {
+        // Translate to box view alignment
+        LMBoxViewAlignment boxViewAlignment;
+        if ([value isEqual:@"top"]) {
+            boxViewAlignment = LMBoxViewAlignmentTop;
+        } else if ([value isEqual:@"bottom"]) {
+            boxViewAlignment = LMBoxViewAlignmentBottom;
+        } else if ([value isEqual:@"left"]) {
+            boxViewAlignment = LMBoxViewAlignmentLeft;
+        } else if ([value isEqual:@"right"]) {
+            boxViewAlignment = LMBoxViewAlignmentRight;
+        } else if ([value isEqual:@"leading"]) {
+            boxViewAlignment = LMBoxViewAlignmentLeading;
+        } else if ([value isEqual:@"trailing"]) {
+            boxViewAlignment = LMBoxViewAlignmentTrailing;
+        } else if ([value isEqual:@"center"]) {
+            boxViewAlignment = LMBoxViewAlignmentCenter;
+        } else if ([value isEqual:@"baseline"]) {
+            boxViewAlignment = LMBoxViewAlignmentBaseline;
+        } else if ([value isEqual:@"fill"]) {
+            boxViewAlignment = LMBoxViewAlignmentFill;
+        } else {
+            boxViewAlignment = [value intValue];
+        }
+
+        value = [NSNumber numberWithInt:boxViewAlignment];
+    }
+
+    [super setValue:value forKey:key];
+}
+
 @end

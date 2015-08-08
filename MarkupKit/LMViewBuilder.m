@@ -737,36 +737,10 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:webPaginationMode];
-        } else if ([key isEqual:@"alignment"]) {
-            // Translate to stack view alignment
-            LMBoxViewAlignment boxViewAlignment;
-            if ([value isEqual:@"top"]) {
-                boxViewAlignment = LMBoxViewAlignmentTop;
-            } else if ([value isEqual:@"bottom"]) {
-                boxViewAlignment = LMBoxViewAlignmentBottom;
-            } else if ([value isEqual:@"left"]) {
-                boxViewAlignment = LMBoxViewAlignmentLeft;
-            } else if ([value isEqual:@"right"]) {
-                boxViewAlignment = LMBoxViewAlignmentRight;
-            } else if ([value isEqual:@"leading"]) {
-                boxViewAlignment = LMBoxViewAlignmentLeading;
-            } else if ([value isEqual:@"trailing"]) {
-                boxViewAlignment = LMBoxViewAlignmentTrailing;
-            } else if ([value isEqual:@"center"]) {
-                boxViewAlignment = LMBoxViewAlignmentCenter;
-            } else if ([value isEqual:@"baseline"]) {
-                boxViewAlignment = LMBoxViewAlignmentBaseline;
-            } else if ([value isEqual:@"fill"]) {
-                boxViewAlignment = LMBoxViewAlignmentFill;
-            } else {
-                continue;
-            }
-
-            value = [NSNumber numberWithInt:boxViewAlignment];
         } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
             // Parse color specification
             UIColor *color;
-            if ([value isKindOfClass:[NSString class]]) {
+            if ([value isKindOfClass:[NSString self]]) {
                 color = [LMViewBuilder colorValue:value];
             } else {
                 color = nil;
@@ -784,7 +758,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
         } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
             // Parse font specification
             UIFont *font;
-            if ([value isKindOfClass:[NSString class]]) {
+            if ([value isKindOfClass:[NSString self]]) {
                 font = [LMViewBuilder fontValue:value];
             } else {
                 font = nil;
@@ -798,7 +772,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
         } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
             // Load named image
             UIImage *image;
-            if ([value isKindOfClass:[NSString class]]) {
+            if ([value isKindOfClass:[NSString self]]) {
                 image = [UIImage imageNamed:value];
             } else {
                 image = nil;
@@ -829,7 +803,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             CGFloat inset = [value floatValue];
 
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-        } else if ([value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
+        } else if ([value isKindOfClass:[NSString self]] && [value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
             // Get localized value
             value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
 
