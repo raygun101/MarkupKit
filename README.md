@@ -126,9 +126,7 @@ For example, the following markup creates an instance of `LMTableViewCell` with 
 MarkupKit also adds properties to `UIView` that allow layout margin components to be specified individually. This is discussed in more detail later.
 
 ### Localization
-If an attribute does not fall into any of the previous categories and its value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property.
-
-For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
+If an attribute does not fall into any of the previous categories and its value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
     "hello" = "Hello, World!";
 

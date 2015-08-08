@@ -33,13 +33,12 @@ class ViewController: UITableViewController {
         tableView.delegate = self
 
         // Set initial temperature
-        // TODO Get value from unit
         temperatureStepper.value = 70
 
+        // TODO This causes a message to be needlessly sent to the unit
         updateTemperature(temperatureStepper)
 
         // Set initial fan speed
-        // TODO Get value from unit
         let fanSpeedSection = tableView.sectionWithName(ViewController.FanSpeedSectionName)
         let highSpeedRow = tableView.rowForCellWithValue("high", inSection: fanSpeedSection)
 
@@ -47,7 +46,9 @@ class ViewController: UITableViewController {
     }
 
     func togglePower(sender: UISwitch) {
-        // TODO Update unit power
+        var power = sender.on ? "on" : "off"
+
+        println("Setting unit power to \(power)");
     }
 
     func updateTemperature(sender: UIStepper) {
@@ -55,13 +56,15 @@ class ViewController: UITableViewController {
 
         temperatureCell.textLabel!.text = "\(temperature)° F"
 
-        // TODO Update unit temperature
+        println("Setting unit temperature to \(temperature) degrees");
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let sectionName = tableView.nameForSection(indexPath.section) {
             if (sectionName == ViewController.FanSpeedSectionName) {
-                // TODO Update unit fan speed
+                var cell = tableView.cellForRowAtIndexPath(indexPath)!
+
+                println("Setting unit fan speed to \(cell.value)");
             }
         }
     }
