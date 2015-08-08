@@ -29,7 +29,7 @@ limitations under the License.
     <?sectionBreak?>
 
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="section2.start" textLabel.font="System 14" textLabel.textColor="#808080">
+    <UITableViewCell textLabel.text="@section2.start" textLabel.font="System 14" textLabel.textColor="#808080">
         <UIButton style="systemButton" normalTitle="Press Me!" titleLabel.font="System 12"/>
     </UITableViewCell>
 
