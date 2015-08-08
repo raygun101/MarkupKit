@@ -41,4 +41,9 @@
  */
 @property (nonatomic) id value;
 
+/**
+ * The cell's checked state.
+ */
+@property (nonatomic) BOOL checked;
+
 @end
