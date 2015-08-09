@@ -54,4 +54,15 @@
     return (row < n) ? row : NSNotFound;
 }
 
+- (NSInteger)rowForCheckedCellInSection:(NSInteger)section
+{
+    NSInteger row = 0, n = [self numberOfRowsInSection:section];
+
+    while (row < n && ![[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]] checked]) {
+        row++;
+    }
+
+    return (row < n) ? row : NSNotFound;
+}
+
 @end

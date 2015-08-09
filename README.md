@@ -380,7 +380,7 @@ The `sectionBreak` processing instruction can be used to insert a new section. T
 
 Header and footer views can be used in conjunction with `sectionBreak` PIs to create headers and footers for individual sections.
 
-Finally, the `sectionName` PI can be used to assign a name to a section. This allows sections to be identified in code by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
+The `sectionName` PI can be used to assign a name to a section. This allows sections to be identified in code by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -395,6 +395,19 @@ Finally, the `sectionName` PI can be used to assign a name to a section. This al
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
+
+Finally, the `sectionSelectionMode` PI can be used to set the selection mode for a section. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior; the application is responsible for managing selection state. The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
+
+For example, the following markup creates a table view section that allows a user to select a color:
+
+    <LMTableView style="groupedTableView">
+        <?sectionSelectionMode singleCheckmark?>
+        <UITableViewCell textLabel.text="Red" value="#ff0000"/>
+        <UITableViewCell textLabel.text="Green" value="#00ff00"/>
+        <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
+    </LMTableView>
+
+The `value` property is added by the MarkupKit extensions to the `UITableViewCell` class. Selection state can be managed via several methods MarkupKit adds to the `UITableView` class. This is discussed in more detail later.
 
 Note that, in order to support the static declaration of content, `LMTableView` acts as its own data source and delegate. However, an application-specific delegate may still be set on an `LMTableView` instance to handle row selection events. `LMTableView` will propagate the following `UITableViewDelegate` calls to the custom delegate:
 
@@ -774,13 +787,14 @@ As shown in previous examples, these factory methods are used to create instance
 
 Note that `UITableView` can only be used to declare table views whose contents will be defined programmatically. For example, the table view in the previous example is given an ID so its owner can assign a data source or delegate to it after the document has been loaded. For static table view content, `LMTableView` should be used instead.
 
-MarkuptKit also adds the following instance methods to `UITableView`:
+MarkuptKit also adds the following instance methods to the `UITableView` class. The methods are added to `UITableView` so casting is not required when using an `LMTableView` with `UITableViewController`, whose `tableView` property returns an instance of `UITableView`:
 
     - (NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
     - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
+    - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
-The first method returns the name that is associated with a given section. The default implementation returns `nil`. However, it is overridden by `LMTableView` to return the name of the given section, when set. The second method returns the index of a named section, and the third returns the index of a row within a given section whose cell has the given value. All three methods are added to `UITableView` so casting is not required when using an `LMTableView` with `UITableViewController`, whose `tableView` property returns an instance of `UITableView`.
+The first method returns the name that is associated with a given section. The default implementation returns `nil`. However, it is overridden by `LMTableView` to return the name of the given section, when set. The second method returns the index of a named section. The third and fourth methods return the index of a row within a given section whose cell has the given value or checked state, respectively. 
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
@@ -807,6 +821,13 @@ For example, the following markup declares an instance of `LMTableView` that con
 Note that, while it is possible to use the factory methods to declare instances of custom `UITableViewCell` subclasses, this is not generally recommended. It is preferable to simply declare such classes by name. For example:
 
     <MyCustomTableViewCell .../>
+
+MarkupKit additionally adds the following properties to `UITableViewCell`:
+
+    @property (nonatomic) id value;
+    @property (nonatomic) BOOL checked;
+    
+The `value` property is used to associate an optional value with the cell. It is used primarily with `LMTableView` checkmark selection modes. Similarly, the `checked` property is used with these modes to indicate the cell's selection state. This property is `true` when the cell is checked and `false` when unchecked.
 
 #### Accessory Views
 MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCell` that sets the given view as the cell's accessory view, enabling the declaration of accessory views in markup. For example, the following markup creates a cell that has a `UISwitch` as an accessory view:
