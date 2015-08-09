@@ -335,7 +335,21 @@ For example, the following markup declares a plain `LMTableView` containing thre
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `sectionHeaderView` processing instruction can be used to assign a header view to the current section. The view element immediately following the PI is used as the header view for the section. For example, the following markup adds a section header view to the table view shown in the previous example:
+The `sectionBreak` processing instruction is used to insert a new section. It corresponds to a call to the `insertSection:` method of `LMTableView`. The following markup creates a grouped table view containing two sections:
+
+    <LMTableView style="groupedTableView">
+        <UITableViewCell textLabel.text="Row 1a"/>
+        <UITableViewCell textLabel.text="Row 1b"/>
+        <UITableViewCell textLabel.text="Row 1c"/>
+
+        <?sectionBreak?>
+
+        <UITableViewCell textLabel.text="Row 2a"/>
+        <UITableViewCell textLabel.text="Row 2b"/>
+        <UITableViewCell textLabel.text="Row 2c"/>
+    </LMTableView>
+
+The `sectionHeaderView` processing instruction assigns a header view to the current section. It corresponds to a call to the `setView:forHeaderInSection:` method of `LMTableView`. The view element immediately following the PI is used as the header view for the section. For example, the following markup adds a section header view to the default section:
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
@@ -348,7 +362,7 @@ The `sectionHeaderView` processing instruction can be used to assign a header vi
 
 Note that, although this example uses an instance of `UITableViewCell` as a section header, header views are not limited to table view cells. Any `UIView` subclass can be used as a section header view.
 
-The `sectionFooterView` processing instruction can be used to set a footer view for the current section. The view element immediately following the PI is used as the footer view for the section:
+The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. The view element immediately following the PI is used as the footer view for the section:
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
@@ -364,23 +378,7 @@ The `sectionFooterView` processing instruction can be used to set a footer view 
 
 As with header views, footers views are not limited to instances of `UITableViewCell`; any `UIView` subclass can be used as a footer.
 
-The `sectionBreak` processing instruction can be used to insert a new section. The following markup creates a table view containing two sections:
-
-    <LMTableView style="groupedTableView">
-        <UITableViewCell textLabel.text="Row 1a"/>
-        <UITableViewCell textLabel.text="Row 1b"/>
-        <UITableViewCell textLabel.text="Row 1c"/>
-
-        <?sectionBreak?>
-
-        <UITableViewCell textLabel.text="Row 2a"/>
-        <UITableViewCell textLabel.text="Row 2b"/>
-        <UITableViewCell textLabel.text="Row 2c"/>
-    </LMTableView>
-
-Header and footer views can be used in conjunction with `sectionBreak` PIs to create headers and footers for individual sections.
-
-The `sectionName` PI can be used to assign a name to a section. This allows sections to be identified in code by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
+The `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified in code by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -396,9 +394,9 @@ The `sectionName` PI can be used to assign a name to a section. This allows sect
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-Finally, the `sectionSelectionMode` PI can be used to set the selection mode for a section. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior; the application is responsible for managing selection state. The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
+Finally, the `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior; the application is responsible for managing selection state. The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
-For example, the following markup creates a table view section that allows a user to select a color:
+For example, the following markup creates a table view that allows a user to select a color:
 
     <LMTableView style="groupedTableView">
         <?sectionSelectionMode singleCheckmark?>
@@ -407,7 +405,9 @@ For example, the following markup creates a table view section that allows a use
         <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     </LMTableView>
 
-The `value` property is added by the MarkupKit extensions to the `UITableViewCell` class. Selection state can be managed via several methods MarkupKit adds to the `UITableView` class. This is discussed in more detail later.
+The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional value with a cell, such as the color values shown in the previous example. 
+
+Selection state is managed via several methods MarkupKit adds to the `UITableView` class whose behavior is provided by `LMTableView`. This is discussed in more detail later.
 
 Note that, in order to support the static declaration of content, `LMTableView` acts as its own data source and delegate. However, an application-specific delegate may still be set on an `LMTableView` instance to handle row selection events. `LMTableView` will propagate the following `UITableViewDelegate` calls to the custom delegate:
 
