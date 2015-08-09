@@ -107,42 +107,42 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (NSString *)nameForSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] name];
+    return [[_sections objectAtIndex:section] name];
 }
 
 - (void)setName:(NSString *)name forSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setName:name];
+    [[_sections objectAtIndex:section] setName:name];
 }
 
 - (LMTableViewSelectionMode)selectionModeForSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] selectionMode];
+    return [[_sections objectAtIndex:section] selectionMode];
 }
 
 - (void)setSelectionMode:(LMTableViewSelectionMode)selectionMode forSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setSelectionMode:selectionMode];
+    [[_sections objectAtIndex:section] setSelectionMode:selectionMode];
 }
 
 - (UIView *)viewForHeaderInSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] headerView];
+    return [[_sections objectAtIndex:section] headerView];
 }
 
 - (void)setView:(UIView *)view forHeaderInSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setHeaderView:view];
+    [[_sections objectAtIndex:section] setHeaderView:view];
 }
 
 - (UIView *)viewForFooterInSection:(NSInteger)section
 {
-    return [(LMTableViewSection *)[_sections objectAtIndex:section] footerView];
+    return [[_sections objectAtIndex:section] footerView];
 }
 
 - (void)setView:(UIView *)footerView forFooterInSection:(NSInteger)section
 {
-    [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterView:footerView];
+    [[_sections objectAtIndex:section] setFooterView:footerView];
 }
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -152,12 +152,12 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows] insertObject:cell atIndex:indexPath.row];
+    [[[_sections objectAtIndex:indexPath.section] rows] insertObject:cell atIndex:indexPath.row];
 }
 
 - (void)deleteCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows] removeObjectAtIndex:indexPath.row];
+    [[[_sections objectAtIndex:indexPath.section] rows] removeObjectAtIndex:indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -167,12 +167,12 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[(LMTableViewSection *)[_sections objectAtIndex:section] rows] count];
+    return [[[_sections objectAtIndex:section] rows] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
+    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -196,8 +196,10 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
         switch (selectionMode) {
             case LMTableViewSelectionModeSingleCheckmark: {
                 // Uncheck all cells except for current selection
-                for (NSInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-                    [[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]] setChecked:(i == row)];
+                NSArray *rows = [[_sections objectAtIndex:section] rows];
+
+                for (NSInteger i = 0, n = [rows count]; i < n; i++) {
+                    [[rows objectAtIndex:i] setChecked:(i == row)];
                 }
 
                 break;
@@ -205,7 +207,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
             case LMTableViewSelectionModeMultipleCheckmarks: {
                 // Toggle check state of current selection
-                UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+                UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:row];
 
                 [cell setChecked:![cell checked]];
 
@@ -291,13 +293,13 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
         }
 
         case LMTableViewElementDispositionSectionHeaderView: {
-            [(LMTableViewSection *)[_sections objectAtIndex:section] setHeaderView:view];
+            [[_sections objectAtIndex:section] setHeaderView:view];
 
             break;
         }
 
         case LMTableViewElementDispositionSectionFooterView: {
-            [(LMTableViewSection *)[_sections objectAtIndex:section] setFooterView:view];
+            [[_sections objectAtIndex:section] setFooterView:view];
 
             break;
         }
