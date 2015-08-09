@@ -50,15 +50,12 @@
 
 - (BOOL)checked
 {
-    NSNumber *checked = objc_getAssociatedObject(self, @selector(checked));
-
-    return (checked == nil) ? NO : [checked boolValue];
+    return ([self accessoryType] == UITableViewCellAccessoryCheckmark);
 }
 
 - (void)setChecked:(BOOL)checked
 {
-    objc_setAssociatedObject(self, @selector(checked), checked ? [NSNumber numberWithBool:checked] : nil,
-        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [self setAccessoryType:checked ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
 }
 
 - (void)appendMarkupElementView:(UIView *)view
