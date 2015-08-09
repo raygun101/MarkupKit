@@ -192,35 +192,33 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO Access section array directly so we don't need to create index path instances?
-    
     NSInteger section = [indexPath section];
 
     LMTableViewSelectionMode selectionMode = [self selectionModeForSection:section];
 
     if (selectionMode != LMTableViewSelectionModeDefault) {
+        NSInteger row = [indexPath row];
+
         switch (selectionMode) {
             case LMTableViewSelectionModeSingleCheckmark: {
                 // Uncheck all cells except for current selection
-                NSInteger row = [indexPath row];
-
                 for (NSInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
                     UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-                    
-                    if (i == row) {
-                        [cell setChecked:YES];
-                        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-                    } else {
-                        [cell setChecked:NO];
-                        [cell setAccessoryType:UITableViewCellAccessoryNone];
-                    }
+
+                    [cell setChecked:(i == row)];
+                    [cell setAccessoryType:[cell checked] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
                 }
 
                 break;
             }
 
             case LMTableViewSelectionModeMultipleCheckmarks: {
-                // TODO Toggle check state of current selection
+                // Toggle check state of current selection
+                UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+
+                [cell setChecked:![cell checked]];
+                [cell setAccessoryType:[cell checked] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
+
                 break;
             }
 

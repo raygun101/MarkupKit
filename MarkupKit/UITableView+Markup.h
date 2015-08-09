@@ -36,7 +36,7 @@
 - (NSString *)nameForSection:(NSInteger)section;
 
 /**
- * Returns the index of the section whose name matches the given name.
+ * Returns the index of the first section whose name matches the given name.
  *
  * @param name The section name.
  *
@@ -45,7 +45,7 @@
 - (NSInteger)sectionWithName:(NSString *)name;
 
 /**
- * Returns the index of the row in the given section whose cell value matches the given value.
+ * Returns the index of the first row in the given section whose cell value matches the given value.
  *
  * @param value The cell value.
  * @param section The section index.
@@ -53,5 +53,14 @@
  * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
  */
 - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
+
+/**
+ * Returns the index of the first row in the given section whose cell is checked.
+ *
+ * @param section The section index.
+ * 
+ * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
+ */
+- (NSInteger)rowForCheckedCellInSection:(NSInteger)section;
 
 @end
