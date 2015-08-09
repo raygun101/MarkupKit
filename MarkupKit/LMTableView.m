@@ -172,13 +172,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
-
-    if ([cell checked]) {
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }
-
-    return cell;
+    return [[(LMTableViewSection *)[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -203,10 +197,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
             case LMTableViewSelectionModeSingleCheckmark: {
                 // Uncheck all cells except for current selection
                 for (NSInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-                    UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-
-                    [cell setChecked:(i == row)];
-                    [cell setAccessoryType:[cell checked] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
+                    [[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]] setChecked:(i == row)];
                 }
 
                 break;
@@ -217,7 +208,6 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
                 UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
 
                 [cell setChecked:![cell checked]];
-                [cell setAccessoryType:[cell checked] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone];
 
                 break;
             }

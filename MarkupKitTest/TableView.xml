@@ -80,6 +80,26 @@ limitations under the License.
     </LMTableViewCell>
 
     <?sectionBreak?>
+    <?sectionSelectionMode singleCheckmark?>
+
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Select a shape" textLabel.font="System 14" textLabel.textColor="#808080"/>
+
+    <UITableViewCell textLabel.text="Square"/>
+    <UITableViewCell textLabel.text="Circle"/>
+    <UITableViewCell textLabel.text="Triangle"/>
+
+    <?sectionBreak?>
+    <?sectionSelectionMode multipleCheckmarks?>
+
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Select colors" textLabel.font="System 14" textLabel.textColor="#808080"/>
+
+    <UITableViewCell textLabel.text="Red"/>
+    <UITableViewCell textLabel.text="Green"/>
+    <UITableViewCell textLabel.text="Blue"/>
+
+    <?sectionBreak?>
     
     <?sectionHeaderView?>
     <LMRowView layoutMargins="16">
