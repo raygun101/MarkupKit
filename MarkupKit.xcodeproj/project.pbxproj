@@ -38,9 +38,6 @@
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B070921ADEBEB000A92FCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B070901ADEBEB000A92FCF /* LaunchScreen.xib */; };
-		37B070A51ADEBF0800A92FCF /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
-		37C0276A1B2775A400B3131D /* MarkupKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		37C0276C1B2775B600B3131D /* MarkupKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37D6B1A81B38C9C700C259DA /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D6B1A71B38C9C700C259DA /* GridView.xml */; };
 		37D6B1AA1B38C9D000C259DA /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D6B1A91B38C9D000C259DA /* GridViewController.swift */; };
 		3B09976C1B21DBAD001BF85C /* MainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B09976B1B21DBAD001BF85C /* MainView.strings */; };
@@ -69,33 +66,83 @@
 		3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */; };
 		3BAD2D5D1B30E8FB00DDB6CD /* LMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */; };
+		3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C381B78E9990086A3F9 /* AppDelegate.swift */; };
+		3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C3A1B78E9990086A3F9 /* ViewController.swift */; };
+		3BB70C431B78E9990086A3F9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */; };
+		3BB70C561B78E9E90086A3F9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
+		3BB70C571B78E9E90086A3F9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BB70C5B1B78EA270086A3F9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
+		3BB70C5C1B78EA270086A3F9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BB70C601B78EA2F0086A3F9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
+		3BB70C611B78EA300086A3F9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3BB70C661B78EC630086A3F9 /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C651B78EC630086A3F9 /* View.xml */; };
+		3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */; };
+		3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */; };
+		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
+		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
 		3BBBB72D1B7537020093F300 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BBBB72C1B7537020093F300 /* Styles.plist */; };
 		3BE9875F1B21F6DB009E5E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9875E1B21F6DB009E5E6E /* AppDelegate.swift */; };
 		3BE987611B21F6DB009E5E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE987601B21F6DB009E5E6E /* ViewController.swift */; };
 		3BE987691B21F6DB009E5E6E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE987671B21F6DB009E5E6E /* LaunchScreen.xib */; };
-		3BE9877F1B21F7A0009E5E6E /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
 		3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF6E061B307F4F00FE62DD /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3BB70C581B78E9E90086A3F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
+			remoteInfo = MarkupKit;
+		};
+		3BB70C5D1B78EA270086A3F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
+			remoteInfo = MarkupKit;
+		};
+		3BB70C621B78EA300086A3F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
+			remoteInfo = MarkupKit;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		37C027691B27759500B3131D /* CopyFiles */ = {
+		3BB70C5A1B78E9E90086A3F9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				37C0276A1B2775A400B3131D /* MarkupKit.framework in CopyFiles */,
+				3BB70C571B78E9E90086A3F9 /* MarkupKit.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		37C0276B1B2775AF00B3131D /* CopyFiles */ = {
+		3BB70C5F1B78EA270086A3F9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				37C0276C1B2775B600B3131D /* MarkupKit.framework in CopyFiles */,
+				3BB70C5C1B78EA270086A3F9 /* MarkupKit.framework in Embed Frameworks */,
 			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB70C641B78EA300086A3F9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3BB70C611B78EA300086A3F9 /* MarkupKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -164,6 +211,16 @@
 		3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableView.m; sourceTree = "<group>"; };
 		3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewCell.h; sourceTree = "<group>"; };
 		3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewCell.m; sourceTree = "<group>"; };
+		3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BB70C371B78E9990086A3F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BB70C381B78E9990086A3F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3BB70C3A1B78E9990086A3F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3BB70C421B78E9990086A3F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3BB70C651B78EC630086A3F9 /* View.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = View.xml; sourceTree = "<group>"; };
+		3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
+		3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadioButtonView.xml; sourceTree = "<group>"; };
+		3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxViewController.swift; sourceTree = "<group>"; };
+		3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CheckboxView.xml; sourceTree = "<group>"; };
 		3BBBB72C1B7537020093F300 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		3BBBB72E1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3BBBB72F1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -187,7 +244,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37B070A51ADEBF0800A92FCF /* MarkupKit.framework in Frameworks */,
+				3BB70C5B1B78EA270086A3F9 /* MarkupKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB70C311B78E9980086A3F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB70C561B78E9E90086A3F9 /* MarkupKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +260,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BE9877F1B21F7A0009E5E6E /* MarkupKit.framework in Frameworks */,
+				3BB70C601B78EA2F0086A3F9 /* MarkupKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +273,7 @@
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
 				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
 				3BE9875B1B21F6DB009E5E6E /* MarkupKitExample */,
+				3BB70C351B78E9990086A3F9 /* MarkupKitDemos */,
 				37B070641ADEBE3F00A92FCF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -218,6 +284,7 @@
 				37B070631ADEBE3F00A92FCF /* MarkupKit.framework */,
 				37B070831ADEBEB000A92FCF /* MarkupKitTest.app */,
 				3BE9875A1B21F6DB009E5E6E /* MarkupKitExample.app */,
+				3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -310,6 +377,30 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3BB70C351B78E9990086A3F9 /* MarkupKitDemos */ = {
+			isa = PBXGroup;
+			children = (
+				3BB70C381B78E9990086A3F9 /* AppDelegate.swift */,
+				3BB70C3A1B78E9990086A3F9 /* ViewController.swift */,
+				3BB70C651B78EC630086A3F9 /* View.xml */,
+				3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */,
+				3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */,
+				3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */,
+				3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */,
+				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
+				3BB70C361B78E9990086A3F9 /* Supporting Files */,
+			);
+			path = MarkupKitDemos;
+			sourceTree = "<group>";
+		};
+		3BB70C361B78E9990086A3F9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3BB70C371B78E9990086A3F9 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		3BE9875B1B21F6DB009E5E6E /* MarkupKitExample */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,15 +481,35 @@
 				37B0707F1ADEBEB000A92FCF /* Sources */,
 				37B070801ADEBEB000A92FCF /* Frameworks */,
 				37B070811ADEBEB000A92FCF /* Resources */,
-				37C027691B27759500B3131D /* CopyFiles */,
+				3BB70C5F1B78EA270086A3F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3BB70C5E1B78EA270086A3F9 /* PBXTargetDependency */,
 			);
 			name = MarkupKitTest;
 			productName = MarkupKitTest;
 			productReference = 37B070831ADEBEB000A92FCF /* MarkupKitTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3BB70C331B78E9980086A3F9 /* MarkupKitDemos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitDemos" */;
+			buildPhases = (
+				3BB70C301B78E9980086A3F9 /* Sources */,
+				3BB70C311B78E9980086A3F9 /* Frameworks */,
+				3BB70C321B78E9980086A3F9 /* Resources */,
+				3BB70C5A1B78E9E90086A3F9 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3BB70C591B78E9E90086A3F9 /* PBXTargetDependency */,
+			);
+			name = MarkupKitDemos;
+			productName = MarkupKitDemos;
+			productReference = 3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */;
 			productType = "com.apple.product-type.application";
 		};
 		3BE987591B21F6DB009E5E6E /* MarkupKitExample */ = {
@@ -408,11 +519,12 @@
 				3BE987561B21F6DB009E5E6E /* Sources */,
 				3BE987571B21F6DB009E5E6E /* Frameworks */,
 				3BE987581B21F6DB009E5E6E /* Resources */,
-				37C0276B1B2775AF00B3131D /* CopyFiles */,
+				3BB70C641B78EA300086A3F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3BB70C631B78EA300086A3F9 /* PBXTargetDependency */,
 			);
 			name = MarkupKitExample;
 			productName = MarkupKitExample;
@@ -431,20 +543,20 @@
 				TargetAttributes = {
 					37B070621ADEBE3F00A92FCF = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = FBUU23VBFN;
 					};
 					37B070821ADEBEB000A92FCF = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = FBUU23VBFN;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
 						};
 					};
+					3BB70C331B78E9980086A3F9 = {
+						CreatedOnToolsVersion = 6.4;
+					};
 					3BE987591B21F6DB009E5E6E = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = FBUU23VBFN;
 					};
 				};
 			};
@@ -465,6 +577,7 @@
 				37B070621ADEBE3F00A92FCF /* MarkupKit */,
 				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
 				3BE987591B21F6DB009E5E6E /* MarkupKitExample */,
+				3BB70C331B78E9980086A3F9 /* MarkupKitDemos */,
 			);
 		};
 /* End PBXProject section */
@@ -497,6 +610,17 @@
 				3BA214681B0759B50077AC61 /* chevy.png in Resources */,
 				372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */,
 				372418EE1ADF34600067CDF0 /* ScrollView.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BB70C321B78E9980086A3F9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
+				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
+				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
+				3BB70C431B78E9990086A3F9 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +676,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3BB70C301B78E9980086A3F9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
+				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
+				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BE987561B21F6DB009E5E6E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -562,6 +697,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BB70C591B78E9E90086A3F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
+			targetProxy = 3BB70C581B78E9E90086A3F9 /* PBXContainerItemProxy */;
+		};
+		3BB70C5E1B78EA270086A3F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
+			targetProxy = 3BB70C5D1B78EA270086A3F9 /* PBXContainerItemProxy */;
+		};
+		3BB70C631B78EA300086A3F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
+			targetProxy = 3BB70C621B78EA300086A3F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		37B070901ADEBEB000A92FCF /* LaunchScreen.xib */ = {
@@ -603,6 +756,14 @@
 				3B84BE341B2227CB000CB78F /* Base */,
 			);
 			name = Styles.plist;
+			sourceTree = "<group>";
+		};
+		3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3BB70C421B78E9990086A3F9 /* Base */,
+			);
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 		3BE987671B21F6DB009E5E6E /* LaunchScreen.xib */ = {
@@ -751,7 +912,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -769,8 +929,36 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = MarkupKitTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3BB70C501B78E9990086A3F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3BB70C511B78E9990086A3F9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -781,7 +969,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -798,7 +985,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = MarkupKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -834,6 +1020,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitDemos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BB70C501B78E9990086A3F9 /* Debug */,
+				3BB70C511B78E9990086A3F9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		3BE9877A1B21F6DB009E5E6E /* Build configuration list for PBXNativeTarget "MarkupKitExample" */ = {
 			isa = XCConfigurationList;
