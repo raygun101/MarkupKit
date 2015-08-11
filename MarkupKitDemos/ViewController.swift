@@ -40,6 +40,8 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(CheckboxViewController(), animated: true)
         } else if (value == "colorPicker") {
             navigationController?.pushViewController(ColorPickerViewController(), animated: true)
+        } else if (value == "customCellView") {
+            navigationController?.pushViewController(CustomCellViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
