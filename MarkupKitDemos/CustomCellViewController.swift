@@ -20,6 +20,8 @@ class CustomCellViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Custom Cell View"
+        
         // Configure table view
         tableView.registerClass(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.self.description())
         tableView.estimatedRowHeight = 2
@@ -55,12 +57,28 @@ class CustomCellViewController: UITableViewController {
             pharmacy["city"] as! String, pharmacy["state"] as! String,
             pharmacy["zipCode"] as! String)
 
-        // TODO Format the phone and fax numbers
-        cell.phoneLabel.text = pharmacy["phone"] as? String
-        cell.faxLabel.text = pharmacy["fax"] as? String
+        let phoneNumberFormatter = PhoneNumberFormatter()
+
+        let phone = pharmacy["phone"] as? NSString
+        cell.phoneLabel.text = (phone == nil) ? nil : phoneNumberFormatter.stringForObjectValue(phone!)
+
+        let fax = pharmacy["fax"] as? NSString
+        cell.faxLabel.text = (fax == nil) ? nil : phoneNumberFormatter.stringForObjectValue(fax!)
 
         cell.emailLabel.text = pharmacy["email"] as? String
 
         return cell
+    }
+}
+
+class PhoneNumberFormatter: NSFormatter {
+    override func stringForObjectValue(obj: AnyObject) -> String? {
+        var val = obj as! NSString
+
+        return String(format:"(%@) %@-%@",
+            val.substringWithRange(NSMakeRange(0, 3)),
+            val.substringWithRange(NSMakeRange(3, 3)),
+            val.substringWithRange(NSMakeRange(6, 4))
+        )
     }
 }
