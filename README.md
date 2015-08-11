@@ -19,7 +19,7 @@ MarkupKit requires iOS 8 or later.
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent instances of `UIView` subclasses, and XML attributes represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
 
-For example, the following markup produces an instance of `LMTableViewCell`, a custom subclass of `UITableViewCell`, containing a `UIImageView`. The `image` property of the image view is set to an image named "world.png":
+For example, the following markup produces an instance of `LMTableViewCell`, a MarkupKit-provided subclass of `UITableViewCell`, containing a `UIImageView`. The `image` property of the image view is set to an image named "world.png":
 
     <LMTableViewCell>
         <UIImageView image="world.png"/>
@@ -38,7 +38,7 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
 This method is called on the superview of every view defined in the document except for the root (which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
-For example, `LMTableView` overrides this method to call `insertCell:forRowAtIndexPath:` on itself, and  `LMScrollView` overrides it to call `setContentView:`. Other classes that support sub-elements provide similar overrides.
+For example, `LMTableView` (a MarkupKit-provided subclass of `UITableView`) overrides this method to call `insertCell:forRowAtIndexPath:` on itself, and  `LMScrollView` overrides it to call `setContentView:`. Other classes that support sub-elements provide similar overrides.
 
 ## Attributes
 XML attributes in a MarkupKit document generally represent either view properties or actions associated with a view. For example, the following markup declares an instance of `UISwitch` and sets the value of its `on` property to `true`:
