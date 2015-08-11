@@ -19,4 +19,5 @@ limitations under the License.
     <UITableViewCell textLabel.text="Radio Buttons" accessoryType="disclosureIndicator" value="radioButtons"/>
     <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
     <UITableViewCell textLabel.text="Color Picker" accessoryType="disclosureIndicator" value="colorPicker"/>
+    <UITableViewCell textLabel.text="Custom Cell View" accessoryType="disclosureIndicator" value="customCellView"/>
 </LMTableView>

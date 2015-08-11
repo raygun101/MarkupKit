@@ -85,6 +85,11 @@
 		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
 		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
 		3BBBB72D1B7537020093F300 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BBBB72C1B7537020093F300 /* Styles.plist */; };
+		3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE776171B7A7354006AA761 /* CustomCellViewController.swift */; };
+		3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE776191B7A73DD006AA761 /* pharmacies.json */; };
+		3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */; };
+		3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */; };
+		3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE7761F1B7A7A8E006AA761 /* Images.xcassets */; };
 		3BE9875F1B21F6DB009E5E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9875E1B21F6DB009E5E6E /* AppDelegate.swift */; };
 		3BE987611B21F6DB009E5E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE987601B21F6DB009E5E6E /* ViewController.swift */; };
 		3BE987691B21F6DB009E5E6E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE987671B21F6DB009E5E6E /* LaunchScreen.xib */; };
@@ -234,6 +239,11 @@
 		3BBBB72C1B7537020093F300 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		3BBBB72E1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3BBBB72F1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3BE776171B7A7354006AA761 /* CustomCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
+		3BE776191B7A73DD006AA761 /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pharmacies.json; sourceTree = "<group>"; };
+		3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyCell.swift; sourceTree = "<group>"; };
+		3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PharmacyCell.xml; sourceTree = "<group>"; };
+		3BE7761F1B7A7A8E006AA761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BE9875A1B21F6DB009E5E6E /* MarkupKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BE9875D1B21F6DB009E5E6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE9875E1B21F6DB009E5E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -403,6 +413,10 @@
 				3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */,
 				3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */,
 				3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */,
+				3BE776171B7A7354006AA761 /* CustomCellViewController.swift */,
+				3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */,
+				3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */,
+				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C361B78E9990086A3F9 /* Supporting Files */,
 			);
@@ -415,6 +429,7 @@
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
 				3B8251AB1B7A21C50032DAD7 /* Localizable.strings */,
 				3B8251AD1B7A21D00032DAD7 /* Styles.plist */,
+				3BE776191B7A73DD006AA761 /* pharmacies.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -636,8 +651,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
+				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
+				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
+				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
@@ -703,6 +721,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
+				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
+				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
