@@ -84,6 +84,8 @@
 		3BE9875F1B21F6DB009E5E6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9875E1B21F6DB009E5E6E /* AppDelegate.swift */; };
 		3BE987611B21F6DB009E5E6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE987601B21F6DB009E5E6E /* ViewController.swift */; };
 		3BE987691B21F6DB009E5E6E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE987671B21F6DB009E5E6E /* LaunchScreen.xib */; };
+		3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */; };
+		3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */; };
 		3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF6E061B307F4F00FE62DD /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -229,6 +231,8 @@
 		3BE9875E1B21F6DB009E5E6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BE987601B21F6DB009E5E6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		3BE987681B21F6DB009E5E6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorPickerView.xml; sourceTree = "<group>"; };
 		3BFF6E051B307F4F00FE62DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -387,6 +391,8 @@
 				3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */,
 				3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */,
 				3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */,
+				3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */,
+				3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C361B78E9990086A3F9 /* Supporting Files */,
 			);
@@ -617,6 +623,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
@@ -680,6 +687,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
@@ -1028,6 +1036,7 @@
 				3BB70C511B78E9990086A3F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3BE9877A1B21F6DB009E5E6E /* Build configuration list for PBXNativeTarget "MarkupKitExample" */ = {
 			isa = XCConfigurationList;

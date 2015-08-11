@@ -17,7 +17,41 @@ import MarkupKit
 
 class RadioButtonViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("RadioButtonView", owner: self, root: nil)
+        view = loadViewFromMarkup()
+    }
+
+    func loadViewFromMarkup() -> UIView {
+        return LMViewBuilder.viewWithName("RadioButtonView", owner: self, root: nil)
+    }
+
+    func loadViewProgrammatically() -> UIView {
+        var tableView = LMTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.Grouped)
+
+        tableView.setSelectionMode(LMTableViewSelectionMode.SingleCheckmark, forSection: 0)
+
+        var smallCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        smallCell.textLabel!.text = "Small"
+
+        tableView.insertCell(smallCell, forRowAtIndexPath: NSIndexPath(forRow: 0, inSection: 0))
+
+        var mediumCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        mediumCell.textLabel!.text = "Medium"
+
+        tableView.insertCell(mediumCell, forRowAtIndexPath: NSIndexPath(forRow: 1, inSection: 0))
+
+        var largeCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        largeCell.textLabel!.text = "Large"
+
+        largeCell.checked = true
+
+        tableView.insertCell(largeCell, forRowAtIndexPath: NSIndexPath(forRow: 2, inSection: 0))
+
+        var extraLargeCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: nil)
+        extraLargeCell.textLabel!.text = "Extra-Large"
+
+        tableView.insertCell(extraLargeCell, forRowAtIndexPath: NSIndexPath(forRow: 3, inSection: 0))
+
+        return tableView
     }
 
     override func viewDidLoad() {

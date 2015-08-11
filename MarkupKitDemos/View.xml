@@ -17,4 +17,5 @@ limitations under the License.
 <LMTableView style="plainTableView" estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
     <UITableViewCell textLabel.text="Radio Buttons" accessoryType="disclosureIndicator" value="radioButtons"/>
     <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
+    <UITableViewCell textLabel.text="Color Picker" accessoryType="disclosureIndicator" value="colorPicker"/>
 </LMTableView>
