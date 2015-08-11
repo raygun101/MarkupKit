@@ -15,32 +15,25 @@
 import UIKit
 import MarkupKit
 
-class ViewController: UITableViewController {
+class ColorPickerViewController: UITableViewController {
+    var selectedColorCell: UITableViewCell!
+
     override func loadView() {
-        view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ColorPickerView", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "MarkupKit Demos"
+        title = "Color Picker"
 
         tableView.delegate = self
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        let value = cell!.value as! String
+        var cell = tableView.cellForRowAtIndexPath(indexPath)
+        var value = cell?.value as! String
 
-        if (value == "radioButtons") {
-            navigationController?.pushViewController(RadioButtonViewController(), animated: true)
-        } else if (value == "checkboxes") {
-            navigationController?.pushViewController(CheckboxViewController(), animated: true)
-        } else if (value == "colorPicker") {
-            navigationController?.pushViewController(ColorPickerViewController(), animated: true)
-        } else {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        }
+        selectedColorCell.backgroundColor = LMViewBuilder.colorValue(value)
     }
 }
-
