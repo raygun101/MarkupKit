@@ -14,9 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView style="plainTableView" estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
-    <UITableViewCell textLabel.text="Markup Example" accessoryType="disclosureIndicator" value="introduction"/>
-    <UITableViewCell textLabel.text="Radio Buttons" accessoryType="disclosureIndicator" value="radioButtons"/>
-    <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
-    <UITableViewCell textLabel.text="Color Picker" accessoryType="disclosureIndicator" value="colorPicker"/>
-</LMTableView>
+<?properties Styles?>
+
+<LMColumnView layoutMargins="16" backgroundColor="#ffffff">
+    <LMRowView layoutMargins="12" backgroundColor="#eeeeee">
+        <UITextField id="nameField" placeholder="@name"/>
+    </LMRowView>
+
+    <UIButton style="systemButton" normalTitle="@sayHello" onTouchUpInside="showGreeting"/>
+
+    <UILabel id="greetingLabel" class="label.greeting"/>
+
+    <LMSpacer/>
+</LMColumnView>

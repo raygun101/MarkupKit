@@ -52,6 +52,10 @@
 		3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */; };
 		3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */; };
+		3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */; };
+		3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */; };
+		3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AB1B7A21C50032DAD7 /* Localizable.strings */; };
+		3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AD1B7A21D00032DAD7 /* Styles.plist */; };
 		3B84BE201B22230F000CB78F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE221B22230F000CB78F /* InfoPlist.strings */; };
 		3B84BE261B2223B7000CB78F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE281B2223B7000CB78F /* Localizable.strings */; };
 		3B84BE2C1B222534000CB78F /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE2E1B222534000CB78F /* View.xml */; };
@@ -199,6 +203,10 @@
 		3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMScrollView.m; sourceTree = "<group>"; };
 		3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Markup.h"; sourceTree = "<group>"; };
 		3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Markup.m"; sourceTree = "<group>"; };
+		3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
+		3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IntroductionView.xml; sourceTree = "<group>"; };
+		3B8251AB1B7A21C50032DAD7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		3B8251AD1B7A21D00032DAD7 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		3B84BE211B22230F000CB78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B84BE271B2223B7000CB78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B84BE2D1B222534000CB78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/View.xml; sourceTree = "<group>"; };
@@ -387,6 +395,8 @@
 				3BB70C381B78E9990086A3F9 /* AppDelegate.swift */,
 				3BB70C3A1B78E9990086A3F9 /* ViewController.swift */,
 				3BB70C651B78EC630086A3F9 /* View.xml */,
+				3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */,
+				3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */,
 				3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */,
 				3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */,
 				3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */,
@@ -403,6 +413,8 @@
 			isa = PBXGroup;
 			children = (
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
+				3B8251AB1B7A21C50032DAD7 /* Localizable.strings */,
+				3B8251AD1B7A21D00032DAD7 /* Styles.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -625,8 +637,11 @@
 			files = (
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
+				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
+				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
+				3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */,
 				3BB70C431B78E9990086A3F9 /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,6 +706,7 @@
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
