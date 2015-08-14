@@ -804,6 +804,12 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             CGFloat inset = [value floatValue];
 
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
+        } else if ([value isEqual:@"true"] || [value isEqual:@"YES"]) {
+            // Value is true
+            value = [NSNumber numberWithBool:YES];
+        } else if ([value isEqual:@"false"] || [value isEqual:@"NO"]) {
+            // Value is false
+            value = [NSNumber numberWithBool:NO];
         } else if ([value isKindOfClass:[NSString self]] && [value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
             // Get localized value
             value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
@@ -815,17 +821,6 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = localizedValue;
-        } else {
-            // On 32-bit systems, BOOL is defined as a char; need to explicitly convert to boolean
-            objc_property_t property = class_getProperty([_view class], [key UTF8String]);
-
-            if (property != NULL) {
-                const char *attributes = property_getAttributes(property);
-
-                if (attributes[1] == 'c') {
-                    value = [NSNumber numberWithBool:[value boolValue]];
-                }
-            }
         }
 
         [_view setValue:value forKeyPath:key];
