@@ -13,8 +13,9 @@
 //
 
 #import "LMViewBuilder.h"
-#import "LMBoxView.h"
 #import "UIView+Markup.h"
+
+#import <objc/message.h>
 
 static NSString * const LMViewBuilderPropertiesTarget = @"properties";
 static NSString * const LMViewBuilderStringsTarget = @"strings";
@@ -814,6 +815,17 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = localizedValue;
+        } else {
+            // On 32-bit systems, BOOL is defined as a char; need to explicitly convert to boolean
+            objc_property_t property = class_getProperty([_view class], [key UTF8String]);
+
+            if (property != NULL) {
+                const char *attributes = property_getAttributes(property);
+
+                if (attributes[1] == 'c') {
+                    value = [NSNumber numberWithBool:[value boolValue]];
+                }
+            }
         }
 
         [_view setValue:value forKeyPath:key];
