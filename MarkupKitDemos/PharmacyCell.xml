@@ -22,8 +22,7 @@ limitations under the License.
         </LMRowView>
 
         <UILabel id="addressLabel" numberOfLines="0" font="System 14"/>
-cd
-cd 
+
         <LMColumnView spacing="4">
             <LMRowView>
                 <UIImageView image="IMG_Icon_Pharmacy_Phone"/>
