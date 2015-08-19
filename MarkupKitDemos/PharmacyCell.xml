@@ -22,19 +22,20 @@ limitations under the License.
         </LMRowView>
 
         <UILabel id="addressLabel" numberOfLines="0" font="System 14"/>
-
+cd
+cd 
         <LMColumnView spacing="4">
             <LMRowView>
-                <UIImageView image="IMG_Icon_Pharmacy_Phone" contentMode="scaleAspectFit"/>
-                <UILabel id="phoneLabel" weight="1" font="System 12"/>
+                <UIImageView image="IMG_Icon_Pharmacy_Phone"/>
+                <UILabel id="phoneLabel" font="System 12"/>
             </LMRowView>
             <LMRowView>
-                <UIImageView image="IMG_Icon_Pharmacy_Fax" contentMode="scaleAspectFit"/>
-                <UILabel id="faxLabel" weight="1" font="System 12"/>
+                <UIImageView image="IMG_Icon_Pharmacy_Fax"/>
+                <UILabel id="faxLabel" font="System 12"/>
             </LMRowView>
             <LMRowView>
-                <UIImageView image="IMG_Icon_Pharmacy_Email" contentMode="scaleAspectFit"/>
-                <UILabel id="emailLabel" weight="1" font="System 12"/>
+                <UIImageView image="IMG_Icon_Pharmacy_Email"/>
+                <UILabel id="emailLabel" font="System 12"/>
             </LMRowView>
         </LMColumnView>
     </LMColumnView>
