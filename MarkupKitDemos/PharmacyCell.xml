@@ -26,15 +26,15 @@ limitations under the License.
         <LMColumnView spacing="4">
             <LMRowView>
                 <UIImageView image="IMG_Icon_Pharmacy_Phone"/>
-                <UILabel id="phoneLabel" font="System 12"/>
+                <UILabel id="phoneLabel" weight="1" font="System 12"/>
             </LMRowView>
             <LMRowView>
                 <UIImageView image="IMG_Icon_Pharmacy_Fax"/>
-                <UILabel id="faxLabel" font="System 12"/>
+                <UILabel id="faxLabel" weight="1" font="System 12"/>
             </LMRowView>
             <LMRowView>
                 <UIImageView image="IMG_Icon_Pharmacy_Email"/>
-                <UILabel id="emailLabel" font="System 12"/>
+                <UILabel id="emailLabel" weight="1" font="System 12"/>
             </LMRowView>
         </LMColumnView>
     </LMColumnView>

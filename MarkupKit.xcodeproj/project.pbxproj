@@ -48,6 +48,8 @@
 		3B4D1F2C1B041F0900CB61A9 /* CALayer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */; };
 		3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B5A12491B19EDFC00E28F37 /* UIProgressView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */; };
+		3B5CE0061B87AC5000163D8D /* NSString+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5CE0041B87AC5000163D8D /* NSString+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5CE0051B87AC5000163D8D /* NSString+Markup.m */; };
 		3B5FFE041B309E0D00E8EC39 /* LMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */; };
 		3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -204,6 +206,8 @@
 		3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Markup.m"; sourceTree = "<group>"; };
 		3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+Markup.h"; sourceTree = "<group>"; };
 		3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIProgressView+Markup.m"; sourceTree = "<group>"; };
+		3B5CE0041B87AC5000163D8D /* NSString+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Markup.h"; sourceTree = "<group>"; };
+		3B5CE0051B87AC5000163D8D /* NSString+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Markup.m"; sourceTree = "<group>"; };
 		3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMScrollView.h; sourceTree = "<group>"; };
 		3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMScrollView.m; sourceTree = "<group>"; };
 		3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Markup.h"; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 				3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */,
 				3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */,
 				3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */,
+				3B5CE0041B87AC5000163D8D /* NSString+Markup.h */,
+				3B5CE0051B87AC5000163D8D /* NSString+Markup.m */,
 				3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */,
 				3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */,
 				3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */,
@@ -469,6 +475,7 @@
 				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
 				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
 				3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */,
+				3B5CE0061B87AC5000163D8D /* NSString+Markup.h in Headers */,
 				3742F0101B34D29300B31987 /* LMRowView.h in Headers */,
 				3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */,
 				379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */,
@@ -692,6 +699,7 @@
 				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
 				379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */,
 				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
+				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
 				3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */,
 				3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */,

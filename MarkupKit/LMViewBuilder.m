@@ -804,12 +804,6 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             CGFloat inset = [value floatValue];
 
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-        } else if ([value isEqual:@"true"] || [value isEqual:@"YES"]) {
-            // Value is true
-            value = [NSNumber numberWithBool:YES];
-        } else if ([value isEqual:@"false"] || [value isEqual:@"NO"]) {
-            // Value is false
-            value = [NSNumber numberWithBool:NO];
         } else if ([value isKindOfClass:[NSString self]] && [value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
             // Get localized value
             value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
