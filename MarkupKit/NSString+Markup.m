@@ -28,7 +28,7 @@
 
 - (long)longValue
 {
-    return [[NSNumber numberWithLongLong:[self longLongValue]] longValue];
+    return [[NSNumber numberWithInteger:[self integerValue]] longValue];
 }
 
 @end
