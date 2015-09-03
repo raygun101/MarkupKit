@@ -14,6 +14,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * Table view cell that hosts custom cell content defined in markup.
+ */
 @interface LMTableViewCell : UITableViewCell
 
 @end
