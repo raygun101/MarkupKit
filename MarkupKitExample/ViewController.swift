@@ -35,8 +35,7 @@ class ViewController: UITableViewController {
         // Set initial temperature
         temperatureStepper.value = 70
 
-        // TODO This causes a message to be needlessly sent to the unit
-        updateTemperature(temperatureStepper)
+        updateTemperatureLabel()
 
         // Set initial fan speed
         let fanSpeedSection = tableView.sectionWithName(ViewController.FanSpeedSectionName)
@@ -54,9 +53,13 @@ class ViewController: UITableViewController {
     func updateTemperature(sender: UIStepper) {
         let temperature = Int(sender.value)
 
-        temperatureCell.textLabel!.text = "\(temperature)° F"
+        updateTemperatureLabel()
 
         println("Setting unit temperature to \(temperature) degrees");
+    }
+
+    func updateTemperatureLabel() {
+        temperatureCell.textLabel!.text = "\(Int(temperatureStepper.value))° F"
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
