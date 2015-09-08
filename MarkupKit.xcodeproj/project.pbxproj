@@ -15,6 +15,9 @@
 		372418ED1ADF34600067CDF0 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 372418E61ADF34600067CDF0 /* sample.txt */; };
 		372418EE1ADF34600067CDF0 /* ScrollView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E71ADF34600067CDF0 /* ScrollView.xml */; };
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
+		372420071B9F22A1006A9B86 /* WebRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; };
+		372420081B9F22A5006A9B86 /* WebRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; };
+		372420091B9F22A5006A9B86 /* WebRPC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
 		3742F0081B34D28500B31987 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0061B34D28500B31987 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,7 +64,6 @@
 		3B84BE201B22230F000CB78F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE221B22230F000CB78F /* InfoPlist.strings */; };
 		3B84BE261B2223B7000CB78F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE281B2223B7000CB78F /* Localizable.strings */; };
 		3B84BE2C1B222534000CB78F /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE2E1B222534000CB78F /* View.xml */; };
-		3B84BE331B2227CB000CB78F /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B84BE351B2227CB000CB78F /* Styles.plist */; };
 		3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */; };
 		3BA214641B07571C0077AC61 /* TableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BA214631B07571C0077AC61 /* TableView.xml */; };
 		3BA214681B0759B50077AC61 /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BA214651B0759B50077AC61 /* chevy.png */; };
@@ -154,6 +156,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3BB70C611B78EA300086A3F9 /* MarkupKit.framework in Embed Frameworks */,
+				372420091B9F22A5006A9B86 /* WebRPC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -169,6 +172,7 @@
 		372418E61ADF34600067CDF0 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		372418E71ADF34600067CDF0 /* ScrollView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollView.xml; sourceTree = "<group>"; };
 		372418E81ADF34600067CDF0 /* Styles1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles1.plist; sourceTree = "<group>"; };
+		372420061B9F22A1006A9B86 /* WebRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRPC.framework; sourceTree = "<group>"; };
 		3742F0021B34D27B00B31987 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
 		3742F0031B34D27B00B31987 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayoutView.m; sourceTree = "<group>"; };
 		3742F0061B34D28500B31987 /* LMBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBoxView.h; sourceTree = "<group>"; };
@@ -219,7 +223,6 @@
 		3B84BE211B22230F000CB78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3B84BE271B2223B7000CB78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3B84BE2D1B222534000CB78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = Base; path = Base.lproj/View.xml; sourceTree = "<group>"; };
-		3B84BE341B2227CB000CB78F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Styles.plist; sourceTree = "<group>"; };
 		3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3BA214631B07571C0077AC61 /* TableView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = TableView.xml; sourceTree = "<group>"; };
 		3BA214651B0759B50077AC61 /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
@@ -263,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				372420071B9F22A1006A9B86 /* WebRPC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB70C601B78EA2F0086A3F9 /* MarkupKit.framework in Frameworks */,
+				372420081B9F22A5006A9B86 /* WebRPC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +301,7 @@
 		37B070591ADEBE3F00A92FCF = {
 			isa = PBXGroup;
 			children = (
+				372420061B9F22A1006A9B86 /* WebRPC.framework */,
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
 				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
 				3BE9875B1B21F6DB009E5E6E /* MarkupKitExample */,
@@ -459,7 +465,6 @@
 				3B84BE221B22230F000CB78F /* InfoPlist.strings */,
 				3BBBB72C1B7537020093F300 /* Styles.plist */,
 				3B84BE281B2223B7000CB78F /* Localizable.strings */,
-				3B84BE351B2227CB000CB78F /* Styles.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -681,7 +686,6 @@
 				3BBBB72D1B7537020093F300 /* Styles.plist in Resources */,
 				3B84BE2C1B222534000CB78F /* View.xml in Resources */,
 				3B84BE201B22230F000CB78F /* InfoPlist.strings in Resources */,
-				3B84BE331B2227CB000CB78F /* Styles.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,14 +805,6 @@
 				3B84BE2D1B222534000CB78F /* Base */,
 			);
 			name = View.xml;
-			sourceTree = "<group>";
-		};
-		3B84BE351B2227CB000CB78F /* Styles.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B84BE341B2227CB000CB78F /* Base */,
-			);
-			name = Styles.plist;
 			sourceTree = "<group>";
 		};
 		3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */ = {
@@ -935,6 +931,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -951,6 +951,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1022,6 +1026,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1038,6 +1046,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MarkupKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

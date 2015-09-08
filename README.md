@@ -1,5 +1,5 @@
 # Overview
-MarkupKit is a framework for simplifying development of iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
+MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
 
 Building an interface in markup makes it easy to visualize the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
 

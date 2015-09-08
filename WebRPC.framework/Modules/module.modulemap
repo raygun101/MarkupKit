@@ -1,0 +1,6 @@
+framework module WebRPC {
+  umbrella header "WebRPC.h"
+
+  export *
+  module * { export * }
+}
