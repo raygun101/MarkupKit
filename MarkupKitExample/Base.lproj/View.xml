@@ -19,7 +19,7 @@ limitations under the License.
 <LMTableView style="groupedTableView">
     <!-- Power -->
     <UITableViewCell textLabel.text="@power" selectionStyle="none">
-        <UISwitch onValueChanged="togglePower:"/>
+        <UISwitch id="onSwitch" onValueChanged="togglePower:"/>
     </UITableViewCell>
 
     <!-- Temperature -->
@@ -31,7 +31,7 @@ limitations under the License.
         <UIStepper id="temperatureStepper" minimumValue="32" maximumValue="96" onValueChanged="updateTemperature:"/>
     </UITableViewCell>
 
-    <!-- Speed -->
+    <!-- Fan Speed -->
     <?sectionBreak?>
     <?sectionName fanSpeed?>
     <?sectionSelectionMode singleCheckmark?>
@@ -39,7 +39,7 @@ limitations under the License.
     <?sectionHeaderView?>
     <UITableViewCell class="cell.header" textLabel.text="@fanSpeed"/>
 
-    <UITableViewCell textLabel.text="@high" value="high"/>
-    <UITableViewCell textLabel.text="@medium" value="medium"/>
-    <UITableViewCell textLabel.text="@low" value="low"/>
+    <UITableViewCell textLabel.text="@low"/>
+    <UITableViewCell textLabel.text="@medium"/>
+    <UITableViewCell textLabel.text="@high"/>
 </LMTableView>

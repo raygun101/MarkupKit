@@ -14,10 +14,14 @@
 
 import UIKit
 import MarkupKit
+import WebRPC
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, NSURLSessionDataDelegate {
+    var onSwitch: UISwitch!
     var temperatureCell: UITableViewCell!
     var temperatureStepper: UIStepper!
+
+    var service: WSWebRPCService!
 
     static let FanSpeedSectionName = "fanSpeed"
 
@@ -32,30 +36,69 @@ class ViewController: UITableViewController {
 
         tableView.delegate = self
 
-        // Set initial temperature
-        temperatureStepper.value = 70
+        // Initialize service
+        let credential = NSURLCredential(user: "tomcat", password: "tomcat", persistence: NSURLCredentialPersistence.ForSession);
+        let protectionSpace = NSURLProtectionSpace(host: "localhost", port: 8443, `protocol`: "https", realm: "tomcat",
+            authenticationMethod: NSURLAuthenticationMethodHTTPBasic)
 
-        updateTemperatureLabel()
+        NSURLCredentialStorage.sharedCredentialStorage().setDefaultCredential(credential, forProtectionSpace: protectionSpace)
 
-        // Set initial fan speed
-        let fanSpeedSection = tableView.sectionWithName(ViewController.FanSpeedSectionName)
-        let highSpeedRow = tableView.rowForCellWithValue("high", inSection: fanSpeedSection)
+        let configuration = NSURLSessionConfiguration.defaultSessionConfiguration()
+        configuration.requestCachePolicy = NSURLRequestCachePolicy.ReloadIgnoringLocalAndRemoteCacheData
 
-        tableView.cellForRowAtIndexPath(NSIndexPath(forRow: highSpeedRow, inSection: fanSpeedSection))!.checked = true
+        let delegateQueue = NSOperationQueue()
+        delegateQueue.maxConcurrentOperationCount = 1
+
+        let session = NSURLSession(configuration: configuration, delegate: self, delegateQueue: delegateQueue)
+        let baseURL = NSURL(string: "https://localhost:8443/webrpc-test-server/ac/")
+
+        service = WSWebRPCService(session: session, baseURL: baseURL!)
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        service.invoke("getStatus") {(result, error) in
+            if (error == nil) {
+                let status = result as! NSDictionary
+
+                // Update power
+                self.onSwitch.on = status["on"] as! Bool
+
+                // Update temperature
+                self.temperatureStepper.value = status["temperature"] as! Double
+
+                self.updateTemperatureLabel()
+
+                // Update fan speed
+                let fanSpeed = status["fanSpeed"] as! Int
+                let fanSpeedSection = self.tableView.sectionWithName(ViewController.FanSpeedSectionName)
+
+                self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: fanSpeed - 1, inSection: fanSpeedSection))!.checked = true
+            } else {
+                self.handleServiceError(error);
+            }
+        }
     }
 
     func togglePower(sender: UISwitch) {
-        var power = sender.on ? "on" : "off"
+        let on = sender.on ? "true" : "false";
 
-        println("Setting unit power to \(power)");
+        service.invoke("setOn", withArguments: ["on": on]) {(result, error) in
+            if (error != nil) {
+                self.handleServiceError(error);
+            }
+        }
     }
 
     func updateTemperature(sender: UIStepper) {
         let temperature = Int(sender.value)
 
-        updateTemperatureLabel()
+        service.invoke("setTemperature", withArguments: ["temperature": temperature]) {(result, error) in
+            if (error != nil) {
+                self.handleServiceError(error);
+            }
+        }
 
-        println("Setting unit temperature to \(temperature) degrees");
+        updateTemperatureLabel()
     }
 
     func updateTemperatureLabel() {
@@ -65,11 +108,36 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let sectionName = tableView.nameForSection(indexPath.section) {
             if (sectionName == ViewController.FanSpeedSectionName) {
-                var cell = tableView.cellForRowAtIndexPath(indexPath)!
+                let fanSpeed = indexPath.row + 1
 
-                println("Setting unit fan speed to \(cell.value)");
+                service.invoke("setFanSpeed", withArguments: ["fanSpeed": fanSpeed]) {(result, error) in
+                    if (error != nil) {
+                        self.handleServiceError(error);
+                    }
+                }
             }
         }
     }
-}
 
+    func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge,
+        completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+        // Allow self-signed certificate
+        if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
+            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, NSURLCredential(forTrust: challenge.protectionSpace.serverTrust))
+        } else {
+            completionHandler(NSURLSessionAuthChallengeDisposition.PerformDefaultHandling, nil)
+        }
+    }
+
+    func handleServiceError(error: NSError) {
+        let mainBundle = NSBundle.mainBundle()
+
+        let alertController = UIAlertController(title: mainBundle.localizedStringForKey("serviceErrorTitle", value: nil, table: nil),
+            message: mainBundle.localizedStringForKey("serviceErrorMessage", value: nil, table: nil),
+            preferredStyle: .Alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+}

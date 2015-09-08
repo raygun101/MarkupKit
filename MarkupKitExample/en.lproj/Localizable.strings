@@ -8,3 +8,6 @@
 "high" = "High";
 "medium" = "Medium";
 "low" = "Low";
+
+"serviceErrorTitle" = "Error";
+"serviceErrorMessage" = "An error occurred while communicating with the unit.";
