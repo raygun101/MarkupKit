@@ -80,9 +80,7 @@ class ViewController: UITableViewController, NSURLSessionDataDelegate {
     }
 
     func togglePower(sender: UISwitch) {
-        let on = sender.on ? "true" : "false";
-
-        service.invoke("setOn", withArguments: ["on": on]) {(result, error) in
+        service.invoke("setOn", withArguments: ["on": sender.on]) {(result, error) in
             if (error != nil) {
                 self.handleServiceError(error);
             }
