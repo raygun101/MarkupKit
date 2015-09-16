@@ -36,7 +36,11 @@
 {
     NSInteger section = 0, n = [self numberOfSections];
 
-    while (section < n && ![[self nameForSection:section] isEqual:name]) {
+    while (section < n) {
+        if ([[self nameForSection:section] isEqual:name]) {
+            break;
+        }
+
         section++;
     }
 
@@ -47,7 +51,13 @@
 {
     NSInteger row = 0, n = [self numberOfRowsInSection:section];
 
-    while (row < n && ![[[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]] value] isEqual:value]) {
+    while (row < n) {
+        UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+
+        if ([[cell value] isEqual:value]) {
+            break;
+        }
+
         row++;
     }
 
@@ -58,7 +68,13 @@
 {
     NSInteger row = 0, n = [self numberOfRowsInSection:section];
 
-    while (row < n && ![[self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]] checked]) {
+    while (row < n) {
+        UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
+
+        if ([cell checked]) {
+            break;
+        }
+
         row++;
     }
 

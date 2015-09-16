@@ -15,7 +15,6 @@
 		372418ED1ADF34600067CDF0 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 372418E61ADF34600067CDF0 /* sample.txt */; };
 		372418EE1ADF34600067CDF0 /* ScrollView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E71ADF34600067CDF0 /* ScrollView.xml */; };
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
-		372420071B9F22A1006A9B86 /* WebRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; };
 		372420081B9F22A5006A9B86 /* WebRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; };
 		372420091B9F22A5006A9B86 /* WebRPC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 372420061B9F22A1006A9B86 /* WebRPC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -266,7 +265,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				372420071B9F22A1006A9B86 /* WebRPC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,8 +580,9 @@
 		37B0705A1ADEBE3F00A92FCF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0630;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Greg Brown";
 				TargetAttributes = {
 					37B070621ADEBE3F00A92FCF = {
@@ -857,6 +856,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -938,6 +938,7 @@
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -958,6 +959,7 @@
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -975,6 +977,7 @@
 				);
 				INFOPLIST_FILE = MarkupKitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -988,6 +991,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MarkupKitTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1004,6 +1008,7 @@
 				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1017,6 +1022,7 @@
 				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1036,6 +1042,7 @@
 				);
 				INFOPLIST_FILE = MarkupKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1052,6 +1059,7 @@
 				);
 				INFOPLIST_FILE = MarkupKitExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "vellum.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

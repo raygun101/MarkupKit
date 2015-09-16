@@ -21,7 +21,7 @@ class GridViewController: UIViewController {
     }
 
     override func viewWillLayoutSubviews() {
-        var columnView = view as! LMColumnView
+        let columnView = view as! LMColumnView
 
         columnView.topSpacing = topLayoutGuide.length
     }

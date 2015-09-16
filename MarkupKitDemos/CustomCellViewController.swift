@@ -30,7 +30,7 @@ class CustomCellViewController: UITableViewController {
         let path = NSBundle.mainBundle().pathForResource("pharmacies", ofType: "json")
         let data = NSData(contentsOfFile: path!)
 
-        pharmacies = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.allZeros, error: nil) as! [[String: AnyObject]]
+        pharmacies = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions())) as! [[String: AnyObject]]
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,7 +43,7 @@ class CustomCellViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get pharmacy data
-        var index = indexPath.row
+        let index = indexPath.row
         var pharmacy = pharmacies.objectAtIndex(index) as! [String: AnyObject]
 
         // Configure cell with pharmacy data
@@ -73,7 +73,7 @@ class CustomCellViewController: UITableViewController {
 
 class PhoneNumberFormatter: NSFormatter {
     override func stringForObjectValue(obj: AnyObject) -> String? {
-        var val = obj as! NSString
+        let val = obj as! NSString
 
         return String(format:"(%@) %@-%@",
             val.substringWithRange(NSMakeRange(0, 3)),

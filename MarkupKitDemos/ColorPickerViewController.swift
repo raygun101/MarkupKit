@@ -31,8 +31,8 @@ class ColorPickerViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        var cell = tableView.cellForRowAtIndexPath(indexPath)
-        var value = cell?.value as! String
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let value = cell?.value as! String
 
         selectedColorCell.backgroundColor = LMViewBuilder.colorValue(value)
     }

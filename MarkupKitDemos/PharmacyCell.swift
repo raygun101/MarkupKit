@@ -29,7 +29,7 @@ class PharmacyCell: LMTableViewCell {
         LMViewBuilder.viewWithName("PharmacyCell", owner: self, root: self)
     }
 
-    required init(coder decoder: NSCoder) {
+    required init?(coder decoder: NSCoder) {
         super.init(coder: decoder);
     }
 }
