@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.backgroundColor = UIColor.whiteColor()
 
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        window!.rootViewController = mainStoryboard.instantiateInitialViewController() as? UIViewController
+        window!.rootViewController = mainStoryboard.instantiateInitialViewController()
 
         /*
         window!.rootViewController = ScrollViewController()

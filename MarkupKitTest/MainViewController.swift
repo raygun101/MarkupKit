@@ -29,11 +29,11 @@ class MainViewController: UIViewController {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
 
         alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel) {(action) in
-            println("User tapped Cancel")
+            print("User tapped Cancel")
         })
 
         alertController.addAction(UIAlertAction(title: "OK", style: .Default) {(action) in
-            println("User tapped OK")
+            print("User tapped OK")
         })
 
         self.presentViewController(alertController, animated: true, completion: nil)
@@ -44,6 +44,6 @@ class MainViewController: UIViewController {
     }
 
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        println("The user clicked button \(buttonIndex)")
+        print("The user clicked button \(buttonIndex)")
     }
 }

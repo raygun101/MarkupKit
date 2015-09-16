@@ -118,10 +118,10 @@ class ViewController: UITableViewController, NSURLSessionDataDelegate {
     }
 
     func URLSession(session: NSURLSession, didReceiveChallenge challenge: NSURLAuthenticationChallenge,
-        completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential!) -> Void) {
+        completionHandler: (NSURLSessionAuthChallengeDisposition, NSURLCredential?) -> Void) {
         // Allow self-signed certificate
         if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, NSURLCredential(forTrust: challenge.protectionSpace.serverTrust))
+            completionHandler(NSURLSessionAuthChallengeDisposition.UseCredential, NSURLCredential(forTrust: challenge.protectionSpace.serverTrust!))
         } else {
             completionHandler(NSURLSessionAuthChallengeDisposition.PerformDefaultHandling, nil)
         }

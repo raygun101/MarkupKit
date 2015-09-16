@@ -20,7 +20,7 @@ class IntroductionViewController: UIViewController {
     var greetingLabel: UILabel!
 
     override func loadView() {
-        var rootView = LMLayerView()
+        let rootView = LMLayerView()
 
         rootView.addArrangedSubview(LMViewBuilder.viewWithName("IntroductionView", owner: self, root: nil))
         rootView.layoutMarginsRelativeArrangement = false
@@ -37,7 +37,7 @@ class IntroductionViewController: UIViewController {
     }
 
     func showGreeting() {
-        let name = nameField.text
+        let name = nameField.text!
         let mainBundle = NSBundle.mainBundle()
 
         let greeting: String;

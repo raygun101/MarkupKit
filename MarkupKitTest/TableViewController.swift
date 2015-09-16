@@ -43,7 +43,7 @@ class TableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let sectionName = tableView.nameForSection(indexPath.section) {
             if (sectionName == "cars") {
-                println("User selected \(tableView.cellForRowAtIndexPath(indexPath)!.value)")
+                print("User selected \(tableView.cellForRowAtIndexPath(indexPath)!.value)")
             }
         }
     }
@@ -61,7 +61,7 @@ class TableViewController: UITableViewController {
     }
 
     func updateState() {
-        var value = slider.value
+        let value = slider.value
 
         pageControl.currentPage = Int(value * 10)
         progressView.progress = value
