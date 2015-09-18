@@ -15,72 +15,36 @@
 #import "LMTableViewCell.h"
 
 @implementation LMTableViewCell
-{
-    UIView *_contentElementView;
-
-    NSArray *_layoutConstraints;
-}
-
-+ (BOOL)requiresConstraintBasedLayout
-{
-    return YES;
-}
-
-- (void)layoutSubviews
-{
-    if (_contentElementView != nil) {
-        [_contentElementView setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-        [_contentElementView setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    }
-
-    [super layoutSubviews];
-}
-
-- (void)updateConstraints
-{
-    if (_layoutConstraints == nil) {
-        NSMutableArray *layoutConstraints = nil;
-
-        if (_contentElementView != nil) {
-            layoutConstraints = [NSMutableArray new];
-
-            UIView *contentView = [self contentView];
-
-            // Align content element view edges to content view edges
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentElementView attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTopMargin
-                multiplier:1 constant:0]];
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentElementView attribute:NSLayoutAttributeBottom
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottomMargin
-                multiplier:1 constant:0]];
-
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentElementView attribute:NSLayoutAttributeLeft
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeftMargin
-                multiplier:1 constant:0]];
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentElementView attribute:NSLayoutAttributeRight
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeRightMargin
-                multiplier:1 constant:0]];
-
-            // Add constraints
-            [contentView addConstraints:layoutConstraints];
-        }
-
-        _layoutConstraints = layoutConstraints;
-    }
-
-    [super updateConstraints];
-}
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    [[self contentView] addSubview:view];
-
     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    _contentElementView = view;
+    [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [view setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
-    [self invalidateIntrinsicContentSize];
-    [self setNeedsUpdateConstraints];
+    UIView *contentView = [self contentView];
+
+    [contentView addSubview:view];
+
+    // Pin text field to cell edges
+    NSMutableArray *layoutConstraints = [NSMutableArray new];
+
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTopMargin
+        multiplier:1 constant:0]];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottomMargin
+        multiplier:1 constant:0]];
+
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeftMargin
+        multiplier:1 constant:0]];
+    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeRightMargin
+        multiplier:1 constant:0]];
+
+    [contentView addConstraints:layoutConstraints];
 }
 
 @end
