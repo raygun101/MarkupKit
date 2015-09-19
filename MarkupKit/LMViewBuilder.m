@@ -738,6 +738,60 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:webPaginationMode];
+        } else if ([key isEqual:@"axis"]) {
+            // Translate to layout constraint axis
+            UILayoutConstraintAxis layoutConstraintAxis;
+            if ([value isEqual:@"horizontal"]) {
+                layoutConstraintAxis = UILayoutConstraintAxisHorizontal;
+            } else if ([value isEqual:@"vertical"]) {
+                layoutConstraintAxis = UILayoutConstraintAxisVertical;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:layoutConstraintAxis];
+        } else if ([key isEqual:@"alignment"]) {
+            // Translate to stack view alignment
+            UIStackViewAlignment stackViewAlignment;
+            if ([value isEqual:@"fill"]) {
+                stackViewAlignment = UIStackViewAlignmentFill;
+            } else if ([value isEqual:@"leading"]) {
+                stackViewAlignment = UIStackViewAlignmentLeading;
+            } else if ([value isEqual:@"top"]) {
+                stackViewAlignment = UIStackViewAlignmentTop;
+            } else if ([value isEqual:@"firstBaseline"]) {
+                stackViewAlignment = UIStackViewAlignmentFirstBaseline;
+            } else if ([value isEqual:@"center"]) {
+                stackViewAlignment = UIStackViewAlignmentCenter;
+            } else if ([value isEqual:@"trailing"]) {
+                stackViewAlignment = UIStackViewAlignmentTrailing;
+            } else if ([value isEqual:@"bottom"]) {
+                stackViewAlignment = UIStackViewAlignmentBottom;
+            } else if ([value isEqual:@"lastBaseline"]) {
+                stackViewAlignment = UIStackViewAlignmentLastBaseline;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:stackViewAlignment];
+        } else if ([key isEqual:@"distribution"]) {
+            // Translate to stack view distribution
+            UIStackViewDistribution stackViewDistribution;
+            if ([value isEqual:@"fill"]) {
+                stackViewDistribution = UIStackViewDistributionFill;
+            } else if ([value isEqual:@"fillEqually"]) {
+                stackViewDistribution = UIStackViewDistributionFillEqually;
+            } else if ([value isEqual:@"fillProportionally"]) {
+                stackViewDistribution = UIStackViewDistributionFillProportionally;
+            } else if ([value isEqual:@"equalSpacing"]) {
+                stackViewDistribution = UIStackViewDistributionEqualSpacing;
+            } else if ([value isEqual:@"equalCentering"]) {
+                stackViewDistribution = UIStackViewDistributionEqualSpacing;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:stackViewDistribution];
         } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
             // Parse color specification
             UIColor *color;
