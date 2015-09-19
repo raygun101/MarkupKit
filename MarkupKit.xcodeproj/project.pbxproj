@@ -35,6 +35,8 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; settings = {ASSET_TAGS = (); }; };
 		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -190,6 +192,8 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
+		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
 		379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSpacer.m; sourceTree = "<group>"; };
 		37B070631ADEBE3F00A92FCF /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -347,18 +351,20 @@
 				3B5CE0051B87AC5000163D8D /* NSString+Markup.m */,
 				3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */,
 				3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */,
+				3757B7D01ADEC11B0002E16C /* UIView+Markup.h */,
+				3757B7D11ADEC11B0002E16C /* UIView+Markup.m */,
 				3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */,
 				3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */,
 				3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */,
 				3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */,
 				3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */,
 				3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */,
+				378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */,
+				378004F01BAD89BB003777C1 /* UIStackView+Markup.m */,
 				3757B7D81ADEC1550002E16C /* UITableView+Markup.h */,
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
 				3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */,
-				3757B7D01ADEC11B0002E16C /* UIView+Markup.h */,
-				3757B7D11ADEC11B0002E16C /* UIView+Markup.m */,
 				37B070661ADEBE3F00A92FCF /* Supporting Files */,
 			);
 			path = MarkupKit;
@@ -490,6 +496,7 @@
 				3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */,
 				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
+				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
@@ -704,6 +711,7 @@
 				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
 				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
+				378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */,
 				3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */,
 				3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */,
 				3B4D1F2C1B041F0900CB61A9 /* CALayer+Markup.m in Sources */,
