@@ -39,6 +39,17 @@ limitations under the License.
                     onTouchUpInside="handleButtonTouchUpInside:"/>
             </LMRowView>
 
+            <UIButton style="customButton" normalTitle="@prompt"
+                normalTitleColor="#222222"
+                titleLabel.font="System 16"
+                layer.backgroundColor="#ffffff"
+                layer.borderColor="#808080"
+                layer.borderWidth="0.5"
+                layer.cornerRadius="6"
+                contentEdgeInsets="16"
+                clipsToBounds="true"
+                onTouchUpInside="handleButtonTouchUpInside:"/>
+
             <LMRowView alignment="baseline" backgroundColor="#ff00ff">
                 <UILabel text="abcd" font="Helvetica 16"/>
                 <UILabel text="efg" font="Helvetica 32" backgroundColor="#ffff00"/>

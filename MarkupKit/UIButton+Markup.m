@@ -246,4 +246,60 @@
     [self setBackgroundImage:backgroundImage forState:UIControlStateSelected];
 }
 
+- (CGFloat)contentEdgeInsetTop
+{
+    return [self contentEdgeInsets].top;
+}
+
+- (void)setContentEdgeInsetTop:(CGFloat)top
+{
+    UIEdgeInsets contentEdgeInsets = [self contentEdgeInsets];
+
+    contentEdgeInsets.top = top;
+
+    [self setContentEdgeInsets:contentEdgeInsets];
+}
+
+- (CGFloat)contentEdgeInsetLeft
+{
+    return [self contentEdgeInsets].left;
+}
+
+- (void)setContentEdgeInsetLeft:(CGFloat)left
+{
+    UIEdgeInsets contentEdgeInsets = [self contentEdgeInsets];
+
+    contentEdgeInsets.left = left;
+
+    [self setContentEdgeInsets:contentEdgeInsets];
+}
+
+- (CGFloat)contentEdgeInsetBottom
+{
+    return [self contentEdgeInsets].bottom;
+}
+
+- (void)setContentEdgeInsetBottom:(CGFloat)bottom
+{
+    UIEdgeInsets contentEdgeInsets = [self contentEdgeInsets];
+
+    contentEdgeInsets.bottom = bottom;
+
+    [self setContentEdgeInsets:contentEdgeInsets];
+}
+
+- (CGFloat)contentEdgeInsetRight
+{
+    return [self contentEdgeInsets].right;
+}
+
+- (void)setContentEdgeInsetRight:(CGFloat)right
+{
+    UIEdgeInsets contentEdgeInsets = [self contentEdgeInsets];
+
+    contentEdgeInsets.right = right;
+
+    [self setContentEdgeInsets:contentEdgeInsets];
+}
+
 @end

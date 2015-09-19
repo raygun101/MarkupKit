@@ -146,4 +146,24 @@
  */
 @property (nonatomic) UIImage *selectedBackgroundImage;
 
+/**
+ * The top content edge inset.
+ */
+@property (nonatomic) CGFloat contentEdgeInsetTop;
+
+/**
+ * The left content edge inset.
+ */
+@property (nonatomic) CGFloat contentEdgeInsetLeft;
+
+/**
+ * The bottom content edge inset.
+ */
+@property (nonatomic) CGFloat contentEdgeInsetBottom;
+
+/**
+ * The right content edge inset.
+ */
+@property (nonatomic) CGFloat contentEdgeInsetRight;
+
 @end

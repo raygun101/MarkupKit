@@ -750,7 +750,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:layoutConstraintAxis];
-        } else if ([key isEqual:@"alignment"]) {
+        } else if ([key isEqual:@"alignment"] && [_view isKindOfClass:[UIStackView class]]) {
             // Translate to stack view alignment
             UIStackViewAlignment stackViewAlignment;
             if ([value isEqual:@"fill"]) {
@@ -853,7 +853,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithFloat:layoutPriority];
-        } else if ([key isEqual:@"layoutMargins"]) {
+        } else if ([key isEqual:@"layoutMargins"] || [key isEqual:@"contentEdgeInsets"]) {
             // Create edge insets from value
             CGFloat inset = [value floatValue];
 
