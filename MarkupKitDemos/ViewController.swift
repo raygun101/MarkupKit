@@ -42,6 +42,10 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(ColorPickerViewController(), animated: true)
         } else if (value == "customCellView") {
             navigationController?.pushViewController(CustomCellViewController(), animated: true)
+        } else if (value == "layoutView") {
+            navigationController?.pushViewController(LayoutViewController(), animated: true)
+        } else if (value == "stackView") {
+            navigationController?.pushViewController(StackViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

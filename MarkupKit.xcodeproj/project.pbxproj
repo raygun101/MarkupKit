@@ -44,6 +44,10 @@
 		37B070921ADEBEB000A92FCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B070901ADEBEB000A92FCF /* LaunchScreen.xib */; };
 		37D6B1A81B38C9C700C259DA /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D6B1A71B38C9C700C259DA /* GridView.xml */; };
 		37D6B1AA1B38C9D000C259DA /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D6B1A91B38C9D000C259DA /* GridViewController.swift */; };
+		37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37C71BAED55B00C92E2D /* LayoutView.xml */; settings = {ASSET_TAGS = (); }; };
+		37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C91BAED77D00C92E2D /* StackViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37CB1BAED79100C92E2D /* StackView.xml */; settings = {ASSET_TAGS = (); }; };
 		3B09976C1B21DBAD001BF85C /* MainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B09976B1B21DBAD001BF85C /* MainView.strings */; };
 		3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */; };
 		3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -205,6 +209,10 @@
 		37B070911ADEBEB000A92FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		37D6B1A71B38C9C700C259DA /* GridView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridView.xml; sourceTree = "<group>"; };
 		37D6B1A91B38C9D000C259DA /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
+		37EA37C71BAED55B00C92E2D /* LayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutView.xml; sourceTree = "<group>"; };
+		37EA37C91BAED77D00C92E2D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		37EA37CB1BAED79100C92E2D /* StackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StackView.xml; sourceTree = "<group>"; };
 		3B09976B1B21DBAD001BF85C /* MainView.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MainView.strings; sourceTree = "<group>"; };
 		3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Markup.h"; sourceTree = "<group>"; };
 		3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Markup.m"; sourceTree = "<group>"; };
@@ -355,10 +363,10 @@
 				3757B7D11ADEC11B0002E16C /* UIView+Markup.m */,
 				3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */,
 				3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */,
-				3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */,
-				3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */,
 				3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */,
 				3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */,
+				3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */,
+				3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */,
 				378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */,
 				378004F01BAD89BB003777C1 /* UIStackView+Markup.m */,
 				3757B7D81ADEC1550002E16C /* UITableView+Markup.h */,
@@ -432,6 +440,10 @@
 				3BE776171B7A7354006AA761 /* CustomCellViewController.swift */,
 				3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */,
 				3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */,
+				37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */,
+				37EA37C71BAED55B00C92E2D /* LayoutView.xml */,
+				37EA37C91BAED77D00C92E2D /* StackViewController.swift */,
+				37EA37CB1BAED79100C92E2D /* StackView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C361B78E9990086A3F9 /* Supporting Files */,
@@ -669,8 +681,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
+				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
@@ -744,8 +758,10 @@
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
+				37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
 			);
