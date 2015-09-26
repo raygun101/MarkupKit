@@ -111,7 +111,7 @@ For example, the following markup creates an instance of `UIImageView` and sets 
     
 The image is loaded as described in the documentation for `imageNamed:`.
 
-### Layout Margins
+### Layout Margins and Content Edge Insets
 
 `UIView` allows a developer to specify the amount of space that should be reserved around all subviews when laying out the user interface. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
@@ -122,8 +122,12 @@ For example, the following markup creates an instance of `LMTableViewCell` with 
     <LMTableViewCell layoutMargins="20">
         ...
     </LMTableViewCell>
-    
-MarkupKit also adds properties to `UIView` that allow layout margin components to be specified individually. This is discussed in more detail later.
+
+A button's content edge insets can also be specified using this shorthand. For example:
+
+    <UIButton normalTitle="Click Me!" contentEdgeInsets="12"/>
+
+Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow layout margin and content edge inset components to be specified individually. This is discussed in more detail later.
 
 ### Localization
 If an attribute does not fall into any of the previous categories and its value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
@@ -775,6 +779,17 @@ For example, the following markup creates a system button with a normal title of
 
     <UIButton style="systemButton" normalTitle="Press Me!" highlightedTitle="Let Go!"/>
 
+Finally, MarkupKit adds the following properties that allow a button's content edge insets to be set individually:
+
+    @property (nonatomic) CGFloat contentEdgeInsetTop;
+    @property (nonatomic) CGFloat contentEdgeInsetLeft;
+    @property (nonatomic) CGFloat contentEdgeInsetBottom;
+    @property (nonatomic) CGFloat contentEdgeInsetRight;
+
+For example:
+
+    <UIButton normalTitle="Click Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
+
 ### UITableView
 Instances of `UITableView` are created programmatically using the `initWithFrame:style:` method of `UITableView`. MarkupKit adds the following factory methods to `UITableView` to allow table views to be declared in markup:
 
@@ -864,6 +879,16 @@ Similarly, the `segmentImage` PI can be used to add a segment image to a segment
     </UISegmentedControl>
     
 In both examples, the `updateActivityIndicatorState:` method of the document's owner will be called when the control's value changes.
+
+### UIStackView
+MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` that simply calls `addArrangedSubview:` on itself. This allows stack view content to be specified in markup; for example:
+
+    <UIStackView axis="horizontal">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+        <LMSpacer/>
+    </UIStackView>
 
 ### CALayer
 The `layer` property of `UIView` returns a `CALayer` instance that can be used to configure properties of the view. However, the `shadowOffset` property of `CALayer` is a `CGSize`. Since structs are not supported in XML, MarkupKit adds the following methods to `CALayer` to allow the layer's shadow offset width and height to be configured independently:
