@@ -15,7 +15,31 @@ limitations under the License.
 -->
 
 <LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
-    <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        numberOfLines="0"/>
+    <UILabel text="Labels" font="System-Bold 16"/>
+
+    <LMRowView layoutMargins="12">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+        <LMSpacer/>
+    </LMRowView>
+
+    <UILabel text="Image Views" font="System-Bold 16"/>
+
+    <LMRowView layoutMargins="12">
+        <UIImageView image="vw.png"/>
+        <UIImageView image="mini.png"/>
+        <UIImageView image="chevy.png"/>
+        <LMSpacer/>
+    </LMRowView>
+
+    <UILabel text="Text Fields" font="System-Bold 16"/>
+
+    <LMRowView layoutMargins="12">
+        <UITextField weight="4" placeholder="City" backgroundColor="#ededed"/>
+        <UITextField weight="2" placeholder="State" backgroundColor="#ededed"/>
+        <UITextField weight="2" placeholder="Zip" backgroundColor="#ededed"/>
+    </LMRowView>
+
     <LMSpacer/>
 </LMColumnView>

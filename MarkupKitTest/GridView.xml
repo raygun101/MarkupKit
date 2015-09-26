@@ -21,17 +21,20 @@ limitations under the License.
     <LMColumnView alignToGrid="true">
         <LMRowView>
             <UILabel text="abc def" textAlignment="right"/>
-            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                numberOfLines="0"/>
         </LMRowView>
 
         <LMRowView>
             <UILabel text="ghijkl mno pqr" textAlignment="right"/>
-            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                numberOfLines="0"/>
         </LMRowView>
 
         <LMRowView>
             <UILabel text="abc def" textAlignment="right"/>
-            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                numberOfLines="0"/>
         </LMRowView>
     </LMColumnView>
 

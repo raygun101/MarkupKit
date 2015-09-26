@@ -314,8 +314,12 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 
 - (void)setPropertyValues:(NSDictionary *)properties
 {
-    for (NSString *key in properties) {
-        id value = [properties objectForKey:key];
+    for (NSString *path in properties) {
+        id value = [properties objectForKey:path];
+
+        NSRange keyDelimiterRange = [path rangeOfString:@"." options:NSBackwardsSearch];
+
+        NSString *key = (keyDelimiterRange.location == NSNotFound) ? path : [path substringFromIndex:keyDelimiterRange.location + 1];
 
         if ([key isEqual:@"contentMode"]) {
             // Translate to content mode
@@ -805,7 +809,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
                 continue;
             }
 
-            if ([key hasPrefix:@"layer"]) {
+            if ([path hasPrefix:@"layer"]) {
                 value = (id)[color CGColor];
             } else {
                 value = color;
@@ -871,7 +875,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             value = localizedValue;
         }
 
-        [_view setValue:value forKeyPath:key];
+        [_view setValue:value forKeyPath:path];
     }
 }
 

@@ -77,8 +77,6 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight or alignment
-    UILayoutPriority verticalPriority = ([self alignment] == LMBoxViewAlignmentFill) ? UILayoutPriorityDefaultLow : UILayoutPriorityDefaultHigh;
-
     UIView *superview = [self superview];
 
     UILayoutPriority unweightedHorizontalContentHuggingPriority;
@@ -89,8 +87,8 @@
     }
 
     for (UIView * subview in [self arrangedSubviews]) {
-        [subview setContentCompressionResistancePriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
-        [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
+        [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
         UILayoutPriority horizontalCompressionResistancePriority, horizontalContentHuggingPriority;
         if (isnan([subview weight])) {
