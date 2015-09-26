@@ -14,8 +14,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<UIStackView axis="vertical" layoutMarginsRelativeArrangement="false">
-    <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        numberOfLines="0"/>
+<UIStackView axis="vertical" spacing="8">
+    <UILabel text="Labels" font="System-Bold 16"/>
+
+    <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+        <LMSpacer/>
+    </UIStackView>
+
+    <UILabel text="Image Views" font="System-Bold 16"/>
+
+    <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UIImageView image="vw.png"/>
+        <UIImageView image="mini.png"/>
+        <UIImageView image="chevy.png"/>
+        <LMSpacer/>
+    </UIStackView>
+
+    <UILabel text="Text Fields" font="System-Bold 16"/>
+
+    <UIStackView axis="horizontal" distribution="fillProportionally" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UITextField placeholder="City" backgroundColor="#ededed"/>
+        <UITextField placeholder="State" backgroundColor="#ededed"/>
+        <UITextField placeholder="Zip" backgroundColor="#ededed"/>
+    </UIStackView>
+
     <LMSpacer/>
 </UIStackView>
