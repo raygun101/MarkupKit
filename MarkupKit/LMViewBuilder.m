@@ -869,7 +869,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             NSString *localizedValue = [_strings objectForKey:value];
 
             if (localizedValue == nil) {
-                localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:value table:nil];
+                localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
             }
 
             value = localizedValue;

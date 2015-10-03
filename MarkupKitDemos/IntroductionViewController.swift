@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class IntroductionViewController: UIViewController {
-    var nameField: UITextField!
-    var greetingLabel: UILabel!
+    weak var nameField: UITextField!
+    weak var greetingLabel: UILabel!
 
     override func loadView() {
         let rootView = LMLayerView()
