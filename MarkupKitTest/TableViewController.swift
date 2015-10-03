@@ -16,10 +16,10 @@ import UIKit
 import MarkupKit
 
 class TableViewController: UITableViewController {
-    @IBOutlet var stepper: UIStepper!
-    @IBOutlet var slider: UISlider!
-    @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var progressView: UIProgressView!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var progressView: UIProgressView!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("TableView", owner: self, root: nil)

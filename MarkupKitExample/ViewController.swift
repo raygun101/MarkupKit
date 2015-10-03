@@ -17,9 +17,9 @@ import MarkupKit
 import WebRPC
 
 class ViewController: UITableViewController, NSURLSessionDataDelegate {
-    var onSwitch: UISwitch!
-    var temperatureCell: UITableViewCell!
-    var temperatureStepper: UIStepper!
+    weak var onSwitch: UISwitch!
+    weak var temperatureCell: UITableViewCell!
+    weak var temperatureStepper: UIStepper!
 
     var service: WSWebRPCService!
 

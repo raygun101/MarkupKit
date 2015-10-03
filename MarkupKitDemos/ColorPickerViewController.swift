@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 class ColorPickerViewController: UITableViewController {
-    var selectedColorCell: UITableViewCell!
+    weak var selectedColorCell: UITableViewCell!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ColorPickerView", owner: self, root: nil)

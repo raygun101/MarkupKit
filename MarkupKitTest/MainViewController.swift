@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class MainViewController: UIViewController {
-    @IBOutlet var greetingLabel: UILabel!
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet weak var greetingLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
