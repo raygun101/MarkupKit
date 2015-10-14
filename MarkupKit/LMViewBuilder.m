@@ -742,6 +742,32 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:webPaginationMode];
+        } else if ([key isEqual:@"barStyle"]) {
+            // Translate to bar style
+            UIBarStyle barStyle;
+            if ([value isEqual:@"default"]) {
+                barStyle = UIBarStyleDefault;
+            } else if ([value isEqual:@"black"]) {
+                barStyle = UIBarStyleBlack;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:barStyle];
+        } else if ([key isEqual:@"searchBarStyle"]) {
+            // Translate to search bar style
+            UISearchBarStyle searchBarStyle;
+            if ([value isEqual:@"default"]) {
+                searchBarStyle = UISearchBarStyleDefault;
+            } else if ([value isEqual:@"prominent"]) {
+                searchBarStyle = UISearchBarStyleProminent;
+            } else if ([value isEqual:@"minimal"]) {
+                searchBarStyle = UISearchBarStyleMinimal;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:searchBarStyle];
         } else if ([key isEqual:@"axis"]) {
             // Translate to layout constraint axis
             UILayoutConstraintAxis layoutConstraintAxis;
