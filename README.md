@@ -75,7 +75,6 @@ Note that values are translated to enum types based on the attribute's name, not
     <UILabel text="whileEditing"/>
 
 ### Colors
-
 Colors in MarkupKit are represented by their hexadecimal value preceded by a hash symbol; e.g. `#ededed`. The value of any attribute whose name equals "color" or ends with "Color" is considered a color and is converted from its hexadecmial representation to an instance of `UIColor` before the property value is set.
 
 For example, the following markup creates an instance of `UILabel` that reads "A Red Label" and sets its text color to red:
@@ -83,7 +82,6 @@ For example, the following markup creates an instance of `UILabel` that reads "A
     <UILabel text="A Red Label" textColor="#ff0000"/>
 
 ### Fonts
-
 Fonts in MarkupKit can be specified in two ways:
 
 * As an explicitly named font, using the full name of the font, followed by a space and the font size; for example, "HelveticaNeue-Medium 24"
@@ -102,7 +100,6 @@ This markup creates a `UILabel` that reads "This is headline text" and sets its 
     <UILabel text="This is headline text" font="headline"/>
 
 ### Images
-
 The value of any attribute whose name is "image" or ends with "Image" is considered an image and is converted to an instance of `UIImage` before the property value is set. The value specified in markup is considered the name of the image and is used to load the image from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
 
 For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
@@ -112,7 +109,6 @@ For example, the following markup creates an instance of `UIImageView` and sets 
 The image is loaded as described in the documentation for `imageNamed:`.
 
 ### Layout Margins and Content Edge Insets
-
 `UIView` allows a developer to specify the amount of space that should be reserved around all subviews when laying out the user interface. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
 Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. For the "layoutMargins" attribute, a single numeric value may be specified, which will be applied to all of the edge inset structure's components (`top`, `left`, `bottom`, and `right`).
@@ -130,7 +126,7 @@ A button's content edge insets can also be specified using this shorthand. For e
 Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow layout margin and content edge inset components to be specified individually. This is discussed in more detail later.
 
 ### Localization
-If an attribute does not fall into any of the previous categories and its value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
+If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
     "hello" = "Hello, World!";
 
@@ -138,9 +134,7 @@ the following markup will produce an instance of `UILabel` with the value of its
 
     <UILabel text="@hello"/>
 
-By default, MarkupKit will attempt to localize strings by calling `localizedStringForKey:value:table:` on the application's main bundle with a `nil` value for the `table` argument. The attribute's value is passed as both the `key` and the `value` arguments, so values that do not have localized versions appear exactly as they are specified in markup. 
-
-For example, assuming that an application does not provide a localized value for "goodbye", the following markup would create an instance of `UILabel` containing the literal text "goodbye":
+If a localized value is not found, the key will be used instead. For example, if the application does not provide a localized value for "goodbye", the following markup would create an instance of `UILabel` containing the literal text "goodbye":
 
     <UILabel text="@goodbye"/>
 
@@ -243,7 +237,9 @@ Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface 
 ## Processing Instructions
 In addition to the document-wide `strings` and `properties` PIs mentioned earlier, MarkupKit also supports view-specific processing instructions. These allow developers to provide additional information to the view that can't be easily specified as an attribute value or subview. 
 
-MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. The `LMTableView` class overrides this method to support section header and footer declarations. An extension to `UISegmentedControl` overrides it to support segment title and image declarations. Both classes are discussed in more detail below.
+MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, the `LMTableView` class overrides this method to support section header and footer declarations, and an extension to `UISegmentedControl` overrides it to support segment title and image declarations.
+
+Note that, if the content component of a processing instruction begins with "@", its value will be localized before `processMarkupInstruction:data:` is called.
 
 # MarkupKit Classes
 The remaining sections introduce the classes included with the MarkupKit framework:
