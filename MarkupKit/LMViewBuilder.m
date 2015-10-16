@@ -160,7 +160,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             [self loadStrings:data];
         }
     } else {
-        [[_views lastObject] processMarkupInstruction:target data:data];
+        [[_views lastObject] processMarkupInstruction:target data:[self localizeValue:data]];
     }
 }
 
@@ -219,7 +219,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             && ![key isEqual:@"onTintColor"]) {
             [actions setObject:value forKey:key];
         } else {
-            [properties setObject:value forKey:key];
+            [properties setObject:[self localizeValue:value] forKey:key];
         }
     }
 
@@ -260,6 +260,23 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 
     // Push onto view stack
     [_views addObject:_view];
+}
+
+- (NSString *)localizeValue:(NSString *)value
+{
+    if ([value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
+        value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
+
+        NSString *localizedValue = [_strings objectForKey:value];
+
+        if (localizedValue == nil) {
+            localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
+        }
+
+        value = localizedValue;
+    }
+
+    return value;
 }
 
 - (void)addActionHandlers:(NSDictionary *)actions
@@ -888,17 +905,6 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             CGFloat inset = [value floatValue];
 
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-        } else if ([value isKindOfClass:[NSString self]] && [value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
-            // Get localized value
-            value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
-
-            NSString *localizedValue = [_strings objectForKey:value];
-
-            if (localizedValue == nil) {
-                localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-            }
-
-            value = localizedValue;
         }
 
         [_view setValue:value forKeyPath:path];

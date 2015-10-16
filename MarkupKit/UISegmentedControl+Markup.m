@@ -24,13 +24,9 @@ static NSString * const LMSegmentImageTarget = @"segmentImage";
     NSUInteger index = [self numberOfSegments];
 
     if ([target isEqual:LMSegmentTitleTarget]) {
-        NSString *title = [[NSBundle mainBundle] localizedStringForKey:data value:data table:nil];
-
-        [self insertSegmentWithTitle:title atIndex:index animated:NO];
+        [self insertSegmentWithTitle:data atIndex:index animated:NO];
     } else if ([target isEqual:LMSegmentImageTarget]) {
-        UIImage *image = [UIImage imageNamed:data];
-
-        [self insertSegmentWithImage:image atIndex:index animated:NO];
+        [self insertSegmentWithImage:[UIImage imageNamed:data] atIndex:index animated:NO];
     }
 }
 
