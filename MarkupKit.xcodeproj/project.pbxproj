@@ -97,6 +97,8 @@
 		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
 		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
 		3BBBB72D1B7537020093F300 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BBBB72C1B7537020093F300 /* Styles.plist */; };
+		3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ASSET_TAGS = (); }; };
+		3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */; settings = {ASSET_TAGS = (); }; };
 		3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE776171B7A7354006AA761 /* CustomCellViewController.swift */; };
 		3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE776191B7A73DD006AA761 /* pharmacies.json */; };
 		3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */; };
@@ -263,6 +265,8 @@
 		3BBBB72C1B7537020093F300 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		3BBBB72E1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3BBBB72F1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIVisualEffectView+Markup.h"; sourceTree = "<group>"; };
+		3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
 		3BE776171B7A7354006AA761 /* CustomCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		3BE776191B7A73DD006AA761 /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pharmacies.json; sourceTree = "<group>"; };
 		3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyCell.swift; sourceTree = "<group>"; };
@@ -379,6 +383,8 @@
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
 				3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */,
+				3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */,
+				3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */,
 				37B070661ADEBE3F00A92FCF /* Supporting Files */,
 			);
 			path = MarkupKit;
@@ -518,6 +524,7 @@
 				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
 				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
+				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
@@ -735,6 +742,7 @@
 				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
 				379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */,
 				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
+				3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */,
 				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
 				378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */,
