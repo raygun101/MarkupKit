@@ -97,7 +97,7 @@
 		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
 		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
 		3BBBB72D1B7537020093F300 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BBBB72C1B7537020093F300 /* Styles.plist */; };
-		3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ASSET_TAGS = (); }; };
+		3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */; settings = {ASSET_TAGS = (); }; };
 		3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE776171B7A7354006AA761 /* CustomCellViewController.swift */; };
 		3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE776191B7A73DD006AA761 /* pharmacies.json */; };
