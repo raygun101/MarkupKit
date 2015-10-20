@@ -25,6 +25,8 @@ class ViewController: UITableViewController {
 
         title = "MarkupKit Demos"
 
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+
         tableView.delegate = self
     }
 
@@ -46,6 +48,8 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(LayoutViewController(), animated: true)
         } else if (value == "stackView") {
             navigationController?.pushViewController(StackViewController(), animated: true)
+        } else if (value == "effectView") {
+            navigationController?.pushViewController(EffectViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
