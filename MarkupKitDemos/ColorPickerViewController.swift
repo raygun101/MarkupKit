@@ -16,24 +16,13 @@ import UIKit
 import MarkupKit
 
 class ColorPickerViewController: UITableViewController {
-    weak var selectedColorCell: UITableViewCell!
-
     override func loadView() {
         view = LMViewBuilder.viewWithName("ColorPickerView", owner: self, root: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        tableView.layoutIfNeeded()
 
-        title = "Color Picker"
-
-        tableView.delegate = self
-    }
-
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        let value = cell?.value as! String
-
-        selectedColorCell.backgroundColor = LMViewBuilder.colorValue(value)
+        preferredContentSize = tableView.contentSize
     }
 }
