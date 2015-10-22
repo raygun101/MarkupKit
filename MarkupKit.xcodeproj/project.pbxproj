@@ -67,6 +67,7 @@
 		3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A31BD67C5100209282 /* EffectView.xml */; settings = {ASSET_TAGS = (); }; };
 		3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */; };
+		3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */; };
 		3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */; };
 		3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AB1B7A21C50032DAD7 /* Localizable.strings */; };
@@ -239,6 +240,7 @@
 		3B6FC6A31BD67C5100209282 /* EffectView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EffectView.xml; sourceTree = "<group>"; };
 		3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Markup.h"; sourceTree = "<group>"; };
 		3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Markup.m"; sourceTree = "<group>"; };
+		3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IntroductionView.xml; sourceTree = "<group>"; };
 		3B8251AB1B7A21C50032DAD7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -451,6 +453,7 @@
 				3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */,
 				3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */,
 				3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */,
+				3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */,
 				3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */,
 				3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */,
 				3BE776171B7A7354006AA761 /* CustomCellViewController.swift */,
@@ -782,6 +785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
+				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,

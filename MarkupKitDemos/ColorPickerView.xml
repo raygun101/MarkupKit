@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView style="groupedTableView">
+<LMTableView style="plainTableView" estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
     <?sectionSelectionMode singleCheckmark?>
 
     <UITableViewCell textLabel.text="Red" value="#ff0000"/>
@@ -22,8 +22,4 @@ limitations under the License.
     <UITableViewCell textLabel.text="Green" value="#00ff00"/>
     <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     <UITableViewCell textLabel.text="Purple" value="#ff00ff"/>
-
-    <?sectionBreak?>
-
-    <UITableViewCell id="selectedColorCell" textLabel.text="Selected Color"/>
 </LMTableView>
