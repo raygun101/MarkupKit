@@ -14,7 +14,7 @@ The output produced by this markup is identical to the output of the following c
 
 The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires iOS 8 or later.
+MarkupKit requires iOS 8 or later. It can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases).
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent instances of `UIView` subclasses, and XML attributes represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
