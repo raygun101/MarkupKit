@@ -18,6 +18,58 @@
 
 @implementation UIView (Markup)
 
+- (CGFloat)width
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setWidth:(CGFloat)width
+{
+    NSAssert(isnan(width) || width > 0, @"Invalid width.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
+
+    [constraint setActive:NO];
+
+    if (!isnan(width)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
+            relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:width];
+    }
+
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(width), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)height
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setHeight:(CGFloat)height
+{
+    NSAssert(isnan(height) || height > 0, @"Invalid height.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
+
+    [constraint setActive:NO];
+
+    if (!isnan(height)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
+            relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:height];
+    }
+
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(height), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (CGFloat)weight
 {
     NSNumber *weight = objc_getAssociatedObject(self, @selector(weight));
