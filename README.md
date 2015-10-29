@@ -715,25 +715,29 @@ For example, the following markup creates a layer view containing a scroll view 
     </LMLayerView>
 
 ## UIKit Extensions
-MarkupKit extends several UIKit classes to adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
-
-Note that this section only describes classes that require extensions in order to work with markup. Types or features that are already markup-compliant are not discussed.
+MarkupKit extends several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
 
 ### UIView
-In addition to the `appendMarkupElementView:` and `processMarkupInstruction:data:` methods added to `UIView` to support markup processing, MarkupKit also adds the following properties to allow the view's layout margin components to be set individually:
+MarkupKit adds a `weight` property to `UIView` that is used by row and column views to determine how to allocate excess space within a container:
+
+    @property (nonatomic) CGFloat weight;
+
+The `width` and `height` properties are used to assign a fixed value for a given dimension:
+
+    @property (nonatomic) CGFloat width;
+    @property (nonatomic) CGFloat height;
+
+The following properties allow a view's layout margin components to be set individually:
 
     @property (nonatomic) CGFloat layoutMarginTop;
     @property (nonatomic) CGFloat layoutMarginLeft;
     @property (nonatomic) CGFloat layoutMarginBottom;
     @property (nonatomic) CGFloat layoutMarginRight;
-    
-For example, the following markup creates a `LMTableViewCell` instance with a top layout margin of 16 pixels:
 
-    <LMTableViewCell layoutMarginTop="16">
-    ...
-    </LMTableViewCell>
+Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
-The other layout margin components retain their default values.
+    - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
+    - (void)appendMarkupElementView:(UIView *)view;
 
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons be declared in markup:
