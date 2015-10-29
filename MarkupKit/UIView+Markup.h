@@ -17,6 +17,16 @@
 @interface UIView (Markup)
 
 /**
+ * The view's width.
+ */
+@property (nonatomic) CGFloat width;
+
+/**
+ * The view's height.
+ */
+@property (nonatomic) CGFloat height;
+
+/**
  * The view's weight.
  */
 @property (nonatomic) CGFloat weight;
