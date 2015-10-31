@@ -35,6 +35,8 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		3772207B1BE5314600552F7E /* UIViewController+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 377220791BE5314600552F7E /* UIViewController+Markup.m */; };
+		3772207C1BE5314600552F7E /* UIViewController+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3772207A1BE5314600552F7E /* UIViewController+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -204,6 +206,8 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		377220791BE5314600552F7E /* UIViewController+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Markup.m"; sourceTree = "<group>"; };
+		3772207A1BE5314600552F7E /* UIViewController+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Markup.h"; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
@@ -377,6 +381,8 @@
 				3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */,
 				3757B7D01ADEC11B0002E16C /* UIView+Markup.h */,
 				3757B7D11ADEC11B0002E16C /* UIView+Markup.m */,
+				3772207A1BE5314600552F7E /* UIViewController+Markup.h */,
+				377220791BE5314600552F7E /* UIViewController+Markup.m */,
 				3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */,
 				3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */,
 				3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */,
@@ -535,6 +541,7 @@
 				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
 				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
+				3772207C1BE5314600552F7E /* UIViewController+Markup.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
 			);
@@ -747,6 +754,7 @@
 			files = (
 				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
 				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
+				3772207B1BE5314600552F7E /* UIViewController+Markup.m in Sources */,
 				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
 				3742F0111B34D29300B31987 /* LMRowView.m in Sources */,
 				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
