@@ -73,11 +73,16 @@
 
 /**
  * Processes a markup instruction.
+ *
+ * @param target The markup instruction's target.
+ * @param data The markup instruction's data.
  */
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
 
 /**
- * Appends a sub-element view from markup.
+ * Appends a markup element view.
+ *
+ * @param view The view to append.
  */
 - (void)appendMarkupElementView:(UIView *)view;
 
