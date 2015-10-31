@@ -739,6 +739,13 @@ Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` meth
     - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
     - (void)appendMarkupElementView:(UIView *)view;
 
+### UIViewController
+MarkupKit adds a single method to `UIViewController`:
+
+    - (void)presentationComplete:(UIViewController *)viewController cancelled:BOOL;
+
+This method represents an alternative to defining a custom controller delegate. It can be called by a presented view controller to notify the presenting view controller that the presented controller can be dismissed.
+
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons be declared in markup:
 
