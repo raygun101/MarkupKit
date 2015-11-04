@@ -5,12 +5,16 @@ Building an interface in markup makes it easy to visualize the resulting output 
 
 For example, the following markup declares an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
-    <UILabel text="Hello, World!"/>
+```xml
+<UILabel text="Hello, World!"/>
+```
 
 The output produced by this markup is identical to the output of the following Swift code:
 
-    let label = UILabel()
-    label.text = "Hello, World!"
+```swift
+let label = UILabel()
+label.text = "Hello, World!"
+```
 
 This document introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -26,7 +30,9 @@ View instances are typically constructed by invoking the `new` method on the nam
 
 MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
 
-    - (void)appendMarkupElementView:(UIView *)view;
+```objc
+- (void)appendMarkupElementView:(UIView *)view;
+```
 
 This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
