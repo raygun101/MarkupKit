@@ -63,14 +63,14 @@ Note that values are translated to enum types based on the attribute's name, not
     <UILabel text="whileEditing"/>
 
 ### Colors
-The value of any attribute whose name equals "color" or ends with "Color" is considered a color and is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit are represented by a hexadecimal RGB[A] value preceded by a hash symbol; e.g. "#ededed".
+The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit are represented by a hexadecimal RGB[A] value preceded by a hash symbol; e.g. "#ededed".
 
 For example, the following markup creates a `UILabel` that reads "A Red Label" and sets its text color to red:
 
     <UILabel text="A Red Label" textColor="#ff0000"/>
 
 ### Fonts
-The value of any attribute whose name equals "font" or ends with "Font" is considered a font and is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
+The value of any attribute whose name equals "font" or ends with "Font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
 
 * As an explicitly named font, using the full name of the font, followed by a space and the font size; for example, "HelveticaNeue-Medium 24"
 * As a dynamic font, using the name of the text style; e.g. "headline"
@@ -86,7 +86,7 @@ This markup creates a `UILabel` that reads "This is headline text" and sets its 
     <UILabel text="This is headline text" font="headline"/>
 
 ### Images
-The value of any attribute whose name is "image" or ends with "Image" is considered an image and is converted to an instance of `UIImage` before the property value is set. The attribute value is used to load the image from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
+The value of any attribute whose name is "image" or ends with "Image" is converted to an instance of `UIImage` before the property value is set. The image is loaded from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
 
 For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
 
