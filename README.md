@@ -79,7 +79,7 @@ For example, the following markup creates a `UILabel` that reads "A Red Label" a
 
 ```xml
 <UILabel text="A Red Label" textColor="#ff0000"/>
-```xml
+```
 
 ### Fonts
 The value of any attribute whose name equals "font" or ends with "Font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
@@ -134,7 +134,7 @@ Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow la
 ### Localization
 If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
-```
+```properties
 "hello" = "Hello, World!";
 ```
 
@@ -154,7 +154,7 @@ This allows developers to easily identify missing string resources at runtime.
 
 In addition to the global values defined in _Localizable.strings_, the `strings` processing instruction can be used to define a set of local string values that are only visible to the current document. For example, if the application additionally provides the following localized value in a file named _MyStrings.strings_:
     
-```
+```properties
 "goodbye" = "Goodbye!";
 ```
 
