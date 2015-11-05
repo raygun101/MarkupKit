@@ -11,7 +11,7 @@ For example, the following markup declares an instance of `UILabel` and sets the
 
 The output produced by this markup is identical to the output of the following Swift code:
 
-```swift
+```
 let label = UILabel()
 label.text = "Hello, World!"
 ```
@@ -30,7 +30,7 @@ View instances are typically constructed by invoking the `new` method on the nam
 
 MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
 
-```obj-c
+```
 - (void)appendMarkupElementView:(UIView *)view;
 ```
 
@@ -134,7 +134,7 @@ Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow la
 ### Localization
 If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
-```properties
+```
 "hello" = "Hello, World!";
 ```
 
@@ -154,7 +154,7 @@ This allows developers to easily identify missing string resources at runtime.
 
 In addition to the global values defined in _Localizable.strings_, the `strings` processing instruction can be used to define a set of local string values that are only visible to the current document. For example, if the application additionally provides the following localized value in a file named _MyStrings.strings_:
     
-```properties
+```
 "goodbye" = "Goodbye!";
 ```
 
@@ -208,7 +208,7 @@ Templates are applied to view instances using the reserved "class" attribute. Th
 
 For example, if _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (abbreviated for clarity):
 
-```json
+```
 "label.hello": {
     "font": "Helvetica 24"
     "textAlignment": "center"
@@ -240,13 +240,13 @@ For example, the following markup declares a table view containing a `UITextFiel
 
 The owning class might declare an outlet for the text field in Objective-C like this:
 
-```obj-c
+```
 @property (nonatomic) UITextField *textField;
 ```
 
 or in Swift, like this:
 
-```swift
+```
 var textField: UITextField!
 ```
 
@@ -289,7 +289,7 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 ## LMViewBuilder
 `LMViewBuilder` is the class that is actually responsible for loading a MarkupKit document. It defines the following class method, which, given a document name, owner, and optional root view, returns a deserialized view hierarchy: 
 
-```objc
+```
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
 ```
 
@@ -317,7 +317,7 @@ will produce exactly the same output as this:
 
 The `root` argument is typically used when a document's root view is defined by an external source. For example, a view controller that is instantiated programmatically typically creates its own view instance in `loadView`. It defines the view entirely in markup, passing a `nil` value for `root`:
 
-```objc
+```
 - (void)loadView
 {
     [self setView:[LMViewBuilder viewWithName:@"MyView" owner:self root:nil]];
@@ -326,7 +326,7 @@ The `root` argument is typically used when a document's root view is defined by 
 
 However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of the controller's `view` property as the `root` argument:
 
-```objc
+```
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -339,7 +339,7 @@ This allows the navigational structure of the application (i.e. segues) to be de
 
 The `root` argument is also commonly used when implementing custom table view cells. In this case, the cell passes itself as both the owner and the root when loading the view: 
 
-```objc
+```
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -354,7 +354,7 @@ The `root` argument is also commonly used when implementing custom table view ce
 
 `LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values:
 
-```objc
+```
 + (UIColor *)colorValue:(NSString *)value;
 + (UIFont *)fontValue:(NSString *)value;
 ```
@@ -371,7 +371,7 @@ MarkupKit also provides extensions to the standard `UITableView` and `UITableVie
 ### LMTableView
 The `LMTableView` class supports the definition of statically-defined table content. It inherits the following factory methods from `UITableView`, which are used to create new table view instances in markup:
 
-```objc
+```
 + (LMTableView *)plainTableView;
 + (LMTableView *)groupedTableView;
 ```
@@ -470,7 +470,7 @@ The `value` property is defined by the MarkupKit extensions to the `UITableViewC
 
 Selection state is managed via several methods that `LMTableView` inherits from the MarkupKit extensions to `UITableView`. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`; however, they can also be used by other custom `UITableView` subclasses:
 
-```objc
+```
 - (NSString *)nameForSection:(NSInteger)section;
 - (NSInteger)sectionWithName:(NSString *)name;
 - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
@@ -517,7 +517,7 @@ Since `LMTableViewCell` ultimately inherits from `UIView`, it is possible to spe
 
 Finally, as discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content and behavior is expressed in markup rather than in code:
 
-```objc
+```
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -537,7 +537,7 @@ The `LMScrollView` class extends the standard `UIScrollView` class to simplify t
 
 The scrollable content is specified via the `contentView` property. `LMScrollView` additionally defines the following two properties, which determine how the content is presented:
 
-```objc
+```
 @property (nonatomic) BOOL fitToWidth;
 @property (nonatomic) BOOL fitToHeight;
 ```
@@ -576,7 +576,7 @@ These classes use layout constraints internally, but abstract the details away f
 
 All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
     
-```objc
+```
 - (void)addArrangedSubview:(UIView *)view;
 - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
 - (void)removeArrangedSubview:(UIView *)view;
@@ -584,13 +584,13 @@ All layout view types extend the abstract `LMLayoutView` class, which defines th
 
 These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. A read-only property that returns the current list of arranged subviews is also provided:
 
-```objc
+```
 @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
 ```
 
 `LMLayoutView` additionally defines the following property:
 
-```objc
+```
 @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 ```
 
@@ -607,7 +607,7 @@ All three layout view types are discussed in more detail in the following sectio
 ## LMRowView and LMColumnView
 The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following properties:
 
-```objc
+```
 @property (nonatomic) LMBoxViewAlignment alignment;
 @property (nonatomic) CGFloat spacing;
 ```
@@ -713,7 +713,7 @@ Note that, when `alignToGrid` is set to `true`, the contents of the column view 
 
 Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
 
-```objc
+```
 @property (nonatomic) CGFloat topSpacing;
 @property (nonatomic) CGFloat bottomSpacing;
 ```
@@ -722,7 +722,7 @@ These properties can be used to ensure that the column view's content is not obs
 
 For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top spacing to the length of the controller's top layout guide, ensuring that the first subview is positioned below the guide:
 
-```swift
+```
 override func viewWillLayoutSubviews() {
     columnView.topSpacing = topLayoutGuide.length
 }
@@ -733,7 +733,7 @@ Bottom spacing can be set similarly using the controller's bottom layout guide.
 ### View Weights
 MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:
 
-```objc
+```
 @property (nonatomic) CGFloat weight;
 ```
 
@@ -855,20 +855,20 @@ MarkupKit extends several UIKit classes to enhance their behavior or adapt them 
 ### UIView
 MarkupKit adds a `weight` property to `UIView` that is used by row and column views to determine how to allocate excess space within a container:
 
-```objc
+```
 @property (nonatomic) CGFloat weight;
 ```
 
 It also adds `width` and `height` properties, which are used to assign a fixed value for a given dimension:
 
-```objc
+```
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 ```
 
 The following properties are added to allow a view's layout margin components to be set individually:
 
-```objc
+```
 @property (nonatomic) CGFloat layoutMarginTop;
 @property (nonatomic) CGFloat layoutMarginLeft;
 @property (nonatomic) CGFloat layoutMarginBottom;
@@ -877,7 +877,7 @@ The following properties are added to allow a view's layout margin components to
 
 Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
-```objc
+```
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
 - (void)appendMarkupElementView:(UIView *)view;
 ```
@@ -885,7 +885,7 @@ Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` meth
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons be declared in markup:
 
-```objc
+```
 + (UIButton *)customButton;
 + (UIButton *)systemButton;
 + (UIButton *)detailDisclosureButton;
@@ -896,7 +896,7 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
 
 Button content including "title", "title color", "title shadow color", "image", and "background image" is set for button states including "normal", "highlighted", "disabled", and "selected" using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
-```objc
+```
 @property (nonatomic) NSString *normalTitle;
 @property (nonatomic) UIColor *normalTitleColor;
 @property (nonatomic) UIColor *normalTitleShadowColor;
@@ -930,7 +930,7 @@ For example, the following markup creates a system button with a normal title of
 
 Finally, MarkupKit adds the following properties that allow a button's content edge insets to be set individually:
 
-```objc
+```
 @property (nonatomic) CGFloat contentEdgeInsetTop;
 @property (nonatomic) CGFloat contentEdgeInsetLeft;
 @property (nonatomic) CGFloat contentEdgeInsetBottom;
@@ -946,7 +946,7 @@ For example:
 ### UITableView
 Instances of `UITableView` are created programmatically using the `initWithFrame:style:` method of `UITableView`. MarkupKit adds the following factory methods to `UITableView` to allow table views to be declared in markup:
 
-```objc
+```
 + (UITableView *)plainTableView;
 + (UITableView *)groupedTableView;
 ```
@@ -961,7 +961,7 @@ Note that a `UITableView` element can only be used to declare table views whose 
 
 MarkuptKit also adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` simply so casting is not required when using an `LMTableView` instance with `UITableViewController`:
 
-```objc
+```
 - (NSString *)nameForSection:(NSInteger)section;
 - (NSInteger)sectionWithName:(NSString *)name;
 - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
@@ -971,7 +971,7 @@ MarkuptKit also adds the following instance methods to the `UITableView` class. 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
 
-```objc
+```
 + (UITableViewCell *)defaultTableViewCell;
 + (UITableViewCell *)value1TableViewCell;
 + (UITableViewCell *)value2TableViewCell;
@@ -996,7 +996,7 @@ Note that, while it is possible to use the factory methods to declare instances 
 
 MarkupKit additionally adds the following properties to `UITableViewCell`:
 
-```objc
+```
 @property (nonatomic) id value;
 @property (nonatomic) BOOL checked;
 ```
@@ -1017,7 +1017,7 @@ Note that `LMTableViewCell` overrides `appendMarkupElementView:` to set the cell
 ### UIProgressView
 Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
 
-```objc
+```
 + (UIProgressView *)defaultProgressView;
 + (UIProgressView *)barProgressView;
 ```
@@ -1064,7 +1064,7 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` 
 ### UIVisualEffectView
 Instances of `UIVisualEffectView` are created using the `initWithEffect:` method, which takes a `UIVisualEffect` instance as an argument. MarkupKit adds the following factory methods to `UIVisualEffectView` to facilitate construction of `UIVisualEffectView` in markup:
 
-```objc
+```
 + (UIVisualEffectView *)extraLightBlurEffectView;
 + (UIVisualEffectView *)lightBlurEffectView;
 + (UIVisualEffectView *)darkBlurEffectView;
@@ -1073,7 +1073,7 @@ Instances of `UIVisualEffectView` are created using the `initWithEffect:` method
 ### CALayer
 The `layer` property of `UIView` returns a `CALayer` instance that can be used to configure properties of the view. However, the `shadowOffset` property of `CALayer` is a `CGSize`. Since structs are not supported in XML, MarkupKit adds the following methods to `CALayer` to allow the layer's shadow offset width and height to be configured independently:
 
-```objc
+```
 @property (nonatomic) CGFloat shadowOffsetWidth;
 @property (nonatomic) CGFloat shadowOffsetHeight;
 ```
