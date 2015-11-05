@@ -30,7 +30,7 @@ View instances are typically constructed by invoking the `new` method on the nam
 
 MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
 
-```objc
+```obj-c
 - (void)appendMarkupElementView:(UIView *)view;
 ```
 
@@ -208,7 +208,7 @@ Templates are applied to view instances using the reserved "class" attribute. Th
 
 For example, if _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (abbreviated for clarity):
 
-```
+```json
 "label.hello": {
     "font": "Helvetica 24"
     "textAlignment": "center"
@@ -240,7 +240,7 @@ For example, the following markup declares a table view containing a `UITextFiel
 
 The owning class might declare an outlet for the text field in Objective-C like this:
 
-```objc
+```obj-c
 @property (nonatomic) UITextField *textField;
 ```
 
