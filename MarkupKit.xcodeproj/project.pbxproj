@@ -406,8 +406,7 @@
 				37D36AC61BB1DDCE008E36FD /* mini.png */,
 				37D36AC71BB1DDCE008E36FD /* vw.png */,
 			);
-			name = MarkupKitExamples;
-			path = MarkupKitDemos;
+			path = MarkupKitExamples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -880,7 +879,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
@@ -894,7 +893,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
