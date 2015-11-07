@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
     <LMScrollView fitToWidth="true">
         <LMColumnView>
             <UILabel id="label1" numberOfLines="0" lineBreakMode="byWordWrapping"/>
@@ -25,7 +25,15 @@ limitations under the License.
     <LMColumnView>
         <LMColumnView weight="1"/>
         <LMColumnView layoutMargins="20">
-            <UIButton style="customButton" backgroundColor="#00aa00" normalTitle="Press Me!"/>
+            <UIButton style="customButton" normalTitle="Press Me!"
+                normalTitleColor="#222222"
+                titleLabel.font="System 16"
+                layer.backgroundColor="#ffffff"
+                layer.borderColor="#808080"
+                layer.borderWidth="0.5"
+                layer.cornerRadius="6"
+                contentEdgeInsets="16"
+                clipsToBounds="true"/>
         </LMColumnView>
     </LMColumnView>
 </LMLayerView>

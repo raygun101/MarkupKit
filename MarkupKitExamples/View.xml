@@ -23,4 +23,6 @@ limitations under the License.
     <UITableViewCell textLabel.text="Layout View" accessoryType="disclosureIndicator" value="layoutView"/>
     <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
     <UITableViewCell textLabel.text="Effect View" accessoryType="disclosureIndicator" value="effectView"/>
+    <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
+    <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
 </LMTableView>

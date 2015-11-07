@@ -50,6 +50,10 @@ class ViewController: UITableViewController {
             navigationController?.pushViewController(StackViewController(), animated: true)
         } else if (value == "effectView") {
             navigationController?.pushViewController(EffectViewController(), animated: true)
+        } else if (value == "scrollView") {
+            navigationController?.pushViewController(ScrollViewController(), animated: true)
+        } else if (value == "gridView") {
+            navigationController?.pushViewController(GridViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

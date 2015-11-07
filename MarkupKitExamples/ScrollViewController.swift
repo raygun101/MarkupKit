@@ -26,6 +26,8 @@ class ScrollViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "Scroll View"
+        
         let textPath = NSBundle.mainBundle().pathForResource("sample", ofType: "txt")
         let text = try? NSString(contentsOfFile: textPath!, encoding: NSASCIIStringEncoding)
 
