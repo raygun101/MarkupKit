@@ -224,7 +224,7 @@
 		3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableView.m; sourceTree = "<group>"; };
 		3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewCell.h; sourceTree = "<group>"; };
 		3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewCell.m; sourceTree = "<group>"; };
-		3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemos.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BB70C371B78E9990086A3F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BB70C381B78E9990086A3F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB70C3A1B78E9990086A3F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 			children = (
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
 				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
-				3BB70C351B78E9990086A3F9 /* MarkupKitDemos */,
+				3BB70C351B78E9990086A3F9 /* MarkupKitExamples */,
 				37B070641ADEBE3F00A92FCF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			children = (
 				37B070631ADEBE3F00A92FCF /* MarkupKit.framework */,
 				37B070831ADEBEB000A92FCF /* MarkupKitTest.app */,
-				3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */,
+				3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -372,7 +372,7 @@
 			path = MarkupKitTest;
 			sourceTree = "<group>";
 		};
-		3BB70C351B78E9990086A3F9 /* MarkupKitDemos */ = {
+		3BB70C351B78E9990086A3F9 /* MarkupKitExamples */ = {
 			isa = PBXGroup;
 			children = (
 				3BB70C381B78E9990086A3F9 /* AppDelegate.swift */,
@@ -406,6 +406,7 @@
 				37D36AC61BB1DDCE008E36FD /* mini.png */,
 				37D36AC71BB1DDCE008E36FD /* vw.png */,
 			);
+			name = MarkupKitExamples;
 			path = MarkupKitDemos;
 			sourceTree = "<group>";
 		};
@@ -480,9 +481,9 @@
 			productReference = 37B070831ADEBEB000A92FCF /* MarkupKitTest.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3BB70C331B78E9980086A3F9 /* MarkupKitDemos */ = {
+		3BB70C331B78E9980086A3F9 /* MarkupKitExamples */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitDemos" */;
+			buildConfigurationList = 3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitExamples" */;
 			buildPhases = (
 				3BB70C301B78E9980086A3F9 /* Sources */,
 				3BB70C311B78E9980086A3F9 /* Frameworks */,
@@ -494,9 +495,9 @@
 			dependencies = (
 				3BB70C591B78E9E90086A3F9 /* PBXTargetDependency */,
 			);
-			name = MarkupKitDemos;
+			name = MarkupKitExamples;
 			productName = MarkupKitDemos;
-			productReference = 3BB70C341B78E9980086A3F9 /* MarkupKitDemos.app */;
+			productReference = 3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -543,7 +544,7 @@
 			targets = (
 				37B070621ADEBE3F00A92FCF /* MarkupKit */,
 				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
-				3BB70C331B78E9980086A3F9 /* MarkupKitDemos */,
+				3BB70C331B78E9980086A3F9 /* MarkupKitExamples */,
 			);
 		};
 /* End PBXProject section */
@@ -882,7 +883,7 @@
 				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitDemos;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -896,7 +897,7 @@
 				INFOPLIST_FILE = MarkupKitDemos/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitDemos;
+				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -931,7 +932,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitDemos" */ = {
+		3BB70C541B78E9990086A3F9 /* Build configuration list for PBXNativeTarget "MarkupKitExamples" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BB70C501B78E9990086A3F9 /* Debug */,
