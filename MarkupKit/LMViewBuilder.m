@@ -89,7 +89,13 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 {
     UIFont *font = nil;
 
-    if ([value isEqual:@"headline"]) {
+    if ([value isEqual:@"title1"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+    } else if ([value isEqual:@"title2"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
+    } else if ([value isEqual:@"title3"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+    } else if ([value isEqual:@"headline"]) {
         font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
     } else if ([value isEqual:@"subheadline"]) {
         font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
