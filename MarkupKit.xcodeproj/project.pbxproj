@@ -37,6 +37,8 @@
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B070921ADEBEB000A92FCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B070901ADEBEB000A92FCF /* LaunchScreen.xib */; };
+		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
+		37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */; };
 		37C806C11BEE37D000196FD6 /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridView.xml */; };
 		37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C806BD1BEE37D000196FD6 /* GridViewController.swift */; };
 		37C806C31BEE37D000196FD6 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BE1BEE37D000196FD6 /* sample.txt */; };
@@ -176,6 +178,8 @@
 		37B070861ADEBEB000A92FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B0708E1ADEBEB000A92FCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		37B070911ADEBEB000A92FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
+		37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionView.xml; sourceTree = "<group>"; };
 		37C806BC1BEE37D000196FD6 /* GridView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridView.xml; sourceTree = "<group>"; };
 		37C806BD1BEE37D000196FD6 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		37C806BE1BEE37D000196FD6 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
@@ -380,6 +384,8 @@
 				37C806BF1BEE37D000196FD6 /* ScrollView.xml */,
 				37C806BD1BEE37D000196FD6 /* GridViewController.swift */,
 				37C806BC1BEE37D000196FD6 /* GridView.xml */,
+				37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */,
+				37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -574,6 +580,7 @@
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
+				37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */,
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
@@ -638,6 +645,7 @@
 				3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */,
 				37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
 				37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,

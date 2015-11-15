@@ -49,6 +49,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 @implementation LMTableView
 {
+    __weak id<UITableViewDataSource> _dataSource;
     __weak id<UITableViewDelegate> _delegate;
 
     NSMutableArray *_sections;
@@ -87,7 +88,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)setDataSource:(id<UITableViewDataSource>)dataSource
 {
-    [NSException raise:NSGenericException format:@"Cannot set data source of static table view."];
+    _dataSource = dataSource;
 }
 
 - (void)setDelegate:(id<UITableViewDelegate>)delegate
@@ -145,9 +146,14 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     [[_sections objectAtIndex:section] setFooterView:footerView];
 }
 
+- (NSInteger)numberOfRowsInSection:(NSInteger)section
+{
+    return [[[_sections objectAtIndex:section] rows] count];
+}
+
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self tableView:self cellForRowAtIndexPath:indexPath];
+    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
 }
 
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,12 +173,26 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [[[_sections objectAtIndex:section] rows] count];
+    NSInteger n;
+    if ([_dataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
+        n = [_dataSource tableView:tableView numberOfRowsInSection:section];
+    } else {
+        n = [self numberOfRowsInSection:section];
+    }
+
+    return n;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
+    UITableViewCell *cell;
+    if ([_dataSource respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
+        cell = [_dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
+    } else {
+        cell = [self cellForRowAtIndexPath:indexPath];
+    }
+
+    return cell;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
