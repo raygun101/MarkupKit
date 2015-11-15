@@ -35,25 +35,27 @@ class ViewController: UITableViewController {
         let value = cell!.value as! String
 
         if (value == "introduction") {
-            navigationController?.pushViewController(IntroductionViewController(), animated: true)
+            navigationController!.pushViewController(IntroductionViewController(), animated: true)
         } else if (value == "radioButtons") {
-            navigationController?.pushViewController(RadioButtonViewController(), animated: true)
+            navigationController!.pushViewController(RadioButtonViewController(), animated: true)
         } else if (value == "checkboxes") {
-            navigationController?.pushViewController(CheckboxViewController(), animated: true)
+            navigationController!.pushViewController(CheckboxViewController(), animated: true)
         } else if (value == "colorPicker") {
-            navigationController?.pushViewController(SelectionViewController(), animated: true)
+            navigationController!.pushViewController(SelectionViewController(), animated: true)
         } else if (value == "customCellView") {
-            navigationController?.pushViewController(CustomCellViewController(), animated: true)
+            navigationController!.pushViewController(CustomCellViewController(), animated: true)
         } else if (value == "layoutView") {
-            navigationController?.pushViewController(LayoutViewController(), animated: true)
+            navigationController!.pushViewController(LayoutViewController(), animated: true)
         } else if (value == "stackView") {
-            navigationController?.pushViewController(StackViewController(), animated: true)
+            navigationController!.pushViewController(StackViewController(), animated: true)
         } else if (value == "effectView") {
-            navigationController?.pushViewController(EffectViewController(), animated: true)
+            navigationController!.pushViewController(EffectViewController(), animated: true)
         } else if (value == "scrollView") {
-            navigationController?.pushViewController(ScrollViewController(), animated: true)
+            navigationController!.pushViewController(ScrollViewController(), animated: true)
         } else if (value == "gridView") {
-            navigationController?.pushViewController(GridViewController(), animated: true)
+            navigationController!.pushViewController(GridViewController(), animated: true)
+        } else if (value == "customSectionView") {
+            navigationController!.pushViewController(CustomSectionViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
