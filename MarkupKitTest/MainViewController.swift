@@ -19,10 +19,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var greetingLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
 
+    var properties: [String: AnyObject]!
+    var strings: [String: String]!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         LMViewBuilder.viewWithName("MainView", owner: self, root: view)
+
+        print((properties["row.first"] as! [String: AnyObject])["backgroundColor"]!)
+        print(strings["text"]!)
     }
 
     @IBAction func handleButtonTouchUpInside(sender: UIButton) {

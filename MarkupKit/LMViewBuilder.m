@@ -925,9 +925,20 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 
     [_views removeLastObject];
 
-    // Add to superview
     if ([_views count] > 0) {
+        // Add to superview
         [(UIView *)[_views lastObject] appendMarkupElementView:_view];
+    } else {
+        // Inject properties and strings into owner
+        @try {
+            [_owner setValue:_properties forKey:LMViewBuilderPropertiesTarget];
+            [_owner setValue:_strings forKey:LMViewBuilderStringsTarget];
+        }
+        @catch (NSException *exception) {
+            if (![[exception name] isEqual:NSUndefinedKeyException]) {
+                @throw exception;
+            }
+        }
     }
 }
 
