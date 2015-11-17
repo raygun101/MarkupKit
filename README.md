@@ -200,9 +200,9 @@ or in Swift, like this:
 
     var textField: UITextField!
 
-In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. 
+In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is also supported by MarkupKit, but is not required.
 
-Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is also supported by MarkupKit, but is not required.
+If the document's owner defines a property named `strings`, this property will be automatically populated with the final collection of localized string values, represented by an instance of `NSDictionary`. Similarly, if the owner defines a property named `properties`, this property will be populated with the final collection of property template values, also an instance of `NSDictionary`. 
 
 ### Actions
 Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventTouchUpInside` event when a button instance is tapped.
@@ -399,7 +399,39 @@ The first method, `nameForSection:`, returns the name that is associated with a 
 
 The second method, `sectionWithName:`, returns the index of a named section. The third and fourth methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
 
-Note that, in order to support the static declaration of content, `LMTableView` acts as its own data source and delegate. However, an application-specific delegate may still be set on an `LMTableView` instance to handle row selection events. `LMTableView` propagates the following `UITableViewDelegate` calls to the custom delegate:
+#### Custom Data Source/Delegate Implementations
+In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMTableView` instance to override the default behavior. This allows the data source to provide some table content dynamically while relying on the table view to manage static content. 
+
+`LMTableView` propagates the following `UITableViewDataSource` calls to a custom data source:
+
+* `tableView:numberOfRowsInSection:`
+* `tableView:cellForRowAtIndexPath:`
+
+For sections that are not handled, implementing classes should delegate to the given table view instance. For example:
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let n: Int
+        if (section == 0) {
+            // custom behavior
+        } else {
+            n = tableView.numberOfRowsInSection(section)
+        }
+
+        return n
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        if (indexPath.section == 0) {
+            // custom behavior
+        } else {
+            cell = tableView.cellForRowAtIndexPath(indexPath)!
+        }
+
+        return cell
+    }
+
+Additionally, an application-specific delegate may be set on an `LMTableView` instance to handle row selection events. `LMTableView` propagates the following `UITableViewDelegate` calls to a custom delegate:
 
 * `tableView:willSelectRowAtIndexPath:`
 * `tableView:didSelectRowAtIndexPath:`
