@@ -106,6 +106,11 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     [_sections removeObjectAtIndex:section];
 }
 
+- (NSInteger)numberOfSections
+{
+    return [_sections count];
+}
+
 - (NSString *)nameForSection:(NSInteger)section
 {
     return [[_sections objectAtIndex:section] name];
@@ -168,7 +173,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [_sections count];
+    return [self numberOfSections];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
