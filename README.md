@@ -12,7 +12,7 @@ The output produced by this markup is identical to the output of the following S
     let label = UILabel()
     label.text = "Hello, World!"
 
-This document introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
+This document introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed. For additional information, including examples, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 MarkupKit requires iOS 8 or later. It can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases).
 
