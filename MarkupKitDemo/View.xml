@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<?properties Styles?>
+
+<LMTableView style="groupedTableView">
+    <!-- Button -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Button" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIButton style="systemButton" normalTitle="Press Me" onTouchUpInside="showGreeting"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Switch -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Switch" class="cell.header"/>
+
+    <UITableViewCell textLabel.text="On/Off" selectionStyle="none">
+        <UISwitch/>
+    </UITableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Text Fields -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Text Fields" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UITextField placeholder="Text"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell selectionStyle="none">
+        <UITextField placeholder="Number" keyboardType="numberPad"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell selectionStyle="none">
+        <UITextField placeholder="Email Address" keyboardType="emailAddress"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell selectionStyle="none">
+        <UITextField placeholder="Password" secureTextEntry="true"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Image View -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Image View" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="213"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Radio Buttons -->
+    <?sectionSelectionMode singleCheckmark?>
+
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Radio Buttons" class="cell.header"/>
+
+    <UITableViewCell textLabel.text="Small"/>
+    <UITableViewCell textLabel.text="Medium"/>
+    <UITableViewCell textLabel.text="Large" checked="true"/>
+    <UITableViewCell textLabel.text="Extra-Large"/>
+
+    <?sectionBreak?>
+
+    <!-- Checkboxes -->
+    <?sectionSelectionMode multipleCheckmarks?>
+
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Checkboxes" class="cell.header"/>
+
+    <UITableViewCell textLabel.text="Dog"/>
+    <UITableViewCell textLabel.text="Cat" checked="true"/>
+    <UITableViewCell textLabel.text="Fish"/>
+    <UITableViewCell textLabel.text="Rabbit"/>
+    <UITableViewCell textLabel.text="Turtle" checked="true"/>
+
+    <?sectionBreak?>
+
+    <!-- Date Picker -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Date Picker" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIDatePicker datePickerMode="date"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Stepper -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Stepper" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <LMRowView>
+            <LMSpacer/>
+            <UIStepper id="stepper" minimumValue="0" maximumValue="1" stepValue="0.1" value="0.5" onValueChanged="stepperValueChanged:"/>
+            <LMSpacer/>
+        </LMRowView>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Slider -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Slider" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UISlider id="slider" onValueChanged="sliderValueChanged:"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Page Control -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Page Control" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="#ff0000" currentPageIndicatorTintColor="#00ff00"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Progress View -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Progress View" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIProgressView id="progressView" style="defaultProgressView"/>
+    </LMTableViewCell>
+</LMTableView>
