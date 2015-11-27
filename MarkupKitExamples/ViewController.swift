@@ -23,7 +23,7 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "MarkupKit Demos"
+        title = "MarkupKit Examples"
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
 
