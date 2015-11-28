@@ -19,132 +19,132 @@
 /**
  * Creates a custom button.
  */
-+ (UIButton *)customButton;
++ (null_unspecified UIButton *)customButton;
 
 /**
  * Creates a system button.
  */
-+ (UIButton *)systemButton;
++ (null_unspecified UIButton *)systemButton;
 
 /**
  * Creates a detail disclosure button.
  */
-+ (UIButton *)detailDisclosureButton;
++ (null_unspecified UIButton *)detailDisclosureButton;
 
 /**
  * Creates a light info button.
  */
-+ (UIButton *)infoLightButton;
++ (null_unspecified UIButton *)infoLightButton;
 
 /**
  * Creates a dark info button.
  */
-+ (UIButton *)infoDarkButton;
++ (null_unspecified UIButton *)infoDarkButton;
 
 /**
  * Creates an "add contact" button.
  */
-+ (UIButton *)contactAddButton;
++ (null_unspecified UIButton *)contactAddButton;
 
 /**
  * The button's normal title.
  */
-@property (nonatomic) NSString *normalTitle;
+@property (nonatomic, nullable) NSString *normalTitle;
 
 /**
  * The button's normal title color.
  */
-@property (nonatomic) UIColor *normalTitleColor;
+@property (nonatomic, nullable) UIColor *normalTitleColor;
 
 /**
  * The button's normal title shadow color.
  */
-@property (nonatomic) UIColor *normalTitleShadowColor;
+@property (nonatomic, nullable) UIColor *normalTitleShadowColor;
 
 /**
  * The button's normal image.
  */
-@property (nonatomic) UIImage *normalImage;
+@property (nonatomic, nullable) UIImage *normalImage;
 
 /**
  * The button's normal background image.
  */
-@property (nonatomic) UIImage *normalBackgroundImage;
+@property (nonatomic, nullable) UIImage *normalBackgroundImage;
 
 /**
  * The button's highlighted title.
  */
-@property (nonatomic) NSString *highlightedTitle;
+@property (nonatomic, nullable) NSString *highlightedTitle;
 
 /**
  * The button's highlighted title color.
  */
-@property (nonatomic) UIColor *highlightedTitleColor;
+@property (nonatomic, nullable) UIColor *highlightedTitleColor;
 
 /**
  * The button's highlighted title shadow color.
  */
-@property (nonatomic) UIColor *highlightedTitleShadowColor;
+@property (nonatomic, nullable) UIColor *highlightedTitleShadowColor;
 
 /**
  * The button's highlighted image.
  */
-@property (nonatomic) UIImage *highlightedImage;
+@property (nonatomic, nullable) UIImage *highlightedImage;
 
 /**
  * The button's highlighted background image.
  */
-@property (nonatomic) UIImage *highlightedBackgroundImage;
+@property (nonatomic, nullable) UIImage *highlightedBackgroundImage;
 
 /**
  * The button's disabled title.
  */
-@property (nonatomic) NSString *disabledTitle;
+@property (nonatomic, nullable) NSString *disabledTitle;
 
 /**
  * The button's disabled title color.
  */
-@property (nonatomic) UIColor *disabledTitleColor;
+@property (nonatomic, nullable) UIColor *disabledTitleColor;
 
 /**
  * The button's disabled title shadow color.
  */
-@property (nonatomic) UIColor *disabledTitleShadowColor;
+@property (nonatomic, nullable) UIColor *disabledTitleShadowColor;
 
 /**
  * The button's disabled image.
  */
-@property (nonatomic) UIImage *disabledImage;
+@property (nonatomic, nullable) UIImage *disabledImage;
 
 /**
  * The button's disabled background image.
  */
-@property (nonatomic) UIImage *disabledBackgroundImage;
+@property (nonatomic, nullable) UIImage *disabledBackgroundImage;
 
 /**
  * The button's selected title.
  */
-@property (nonatomic) NSString *selectedTitle;
+@property (nonatomic, nullable) NSString *selectedTitle;
 
 /**
  * The button's selected title color.
  */
-@property (nonatomic) UIColor *selectedTitleColor;
+@property (nonatomic, nullable) UIColor *selectedTitleColor;
 
 /**
  * The button's selected title shadow color.
  */
-@property (nonatomic) UIColor *selectedTitleShadowColor;
+@property (nonatomic, nullable) UIColor *selectedTitleShadowColor;
 
 /**
  * The button's selected image.
  */
-@property (nonatomic) UIImage *selectedImage;
+@property (nonatomic, nullable) UIImage *selectedImage;
 
 /**
  * The button's selected background image.
  */
-@property (nonatomic) UIImage *selectedBackgroundImage;
+@property (nonatomic, nullable) UIImage *selectedBackgroundImage;
 
 /**
  * The top content edge inset.

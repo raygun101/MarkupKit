@@ -19,27 +19,27 @@
 /**
  * Creates a default table view cell.
  */
-+ (UITableViewCell *)defaultTableViewCell;
++ (null_unspecified UITableViewCell *)defaultTableViewCell;
 
 /**
  * Creates a "value 1" table view cell.
  */
-+ (UITableViewCell *)value1TableViewCell;
++ (null_unspecified UITableViewCell *)value1TableViewCell;
 
 /**
  * Creates a "value 2" table view cell.
  */
-+ (UITableViewCell *)value2TableViewCell;
++ (null_unspecified UITableViewCell *)value2TableViewCell;
 
 /**
  * Creates a subtitled table view cell.
  */
-+ (UITableViewCell *)subtitleTableViewCell;
++ (null_unspecified UITableViewCell *)subtitleTableViewCell;
 
 /**
  * The cell's value.
  */
-@property (nonatomic) id value;
+@property (nonatomic, nullable) id value;
 
 /**
  * The cell's checked state.
