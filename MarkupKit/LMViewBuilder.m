@@ -129,213 +129,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     return font;
 }
 
-- (instancetype)init
-{
-    return nil;
-}
-
-- (instancetype)initWithOwner:(id)owner root:(UIView *)root
-{
-    self = [super init];
-
-    if (self) {
-        _owner = owner;
-        _root = root;
-
-        _properties = [NSMutableDictionary new];
-        _strings = [NSMutableDictionary new];
-
-        _views = [NSMutableArray new];
-        _view = nil;
-    }
-
-    return self;
-}
-
-- (UIView *)view
-{
-    return _view;
-}
-
-- (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
-{
-    if ([_views count] == 0) {
-        if ([target isEqual:LMViewBuilderPropertiesTarget]) {
-            [self loadProperties:data];
-        } else if ([target isEqual:LMViewBuilderStringsTarget]) {
-            [self loadStrings:data];
-        }
-    } else {
-        [[_views lastObject] processMarkupInstruction:target data:[self localizeValue:data]];
-    }
-}
-
-- (void)loadProperties:(NSString *)name
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
-
-    if (path != nil) {
-        NSDictionary *properties = [NSDictionary dictionaryWithContentsOfFile:path];
-
-        for (NSString *key in properties) {
-            NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
-
-            if (template == nil) {
-                template = [NSMutableDictionary new];
-
-                [_properties setObject:template forKey:key];
-            }
-
-            [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
-        }
-    }
-}
-
-- (void)loadStrings:(NSString *)name
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"strings" inDirectory:nil];
-
-    if (path != nil) {
-        NSDictionary *strings = [NSDictionary dictionaryWithContentsOfFile:path];
-
-        [_strings addEntriesFromDictionary:strings];
-    }
-}
-
-- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
-    namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
-    attributes:(NSDictionary *)attributes
-{
-    NSString *factory = nil;
-    NSString *template = nil;
-    NSString *outlet = nil;
-    NSMutableDictionary *actions = [NSMutableDictionary new];
-    NSMutableDictionary *properties = [NSMutableDictionary new];
-
-    for (NSString *key in attributes) {
-        NSString *value = [attributes objectForKey:key];
-
-        if ([key isEqual:LMViewBuilderFactoryKey]) {
-            factory = value;
-        } else if ([key isEqual:LMViewBuilderTemplateKey]) {
-            template = value;
-        } else if ([key isEqual:LMViewBuilderOutletKey]) {
-            outlet = value;
-        } else if ([key hasPrefix:LMViewBuilderActionPrefix] && [key length] > [LMViewBuilderActionPrefix length]
-            && ![key isEqual:@"onTintColor"]) {
-            [actions setObject:value forKey:key];
-        } else {
-            [properties setObject:[self localizeValue:value] forKey:key];
-        }
-    }
-
-    // Create view
-    if ([elementName isEqual:LMViewBuilderRootTag] && _view == nil) {
-        _view = _root;
-    } else {
-        Class type = NSClassFromString(elementName);
-
-        if (factory != nil) {
-            SEL selector = NSSelectorFromString(factory);
-            IMP method = [type methodForSelector:selector];
-            id (*function)(id, SEL) = (void *)method;
-
-            _view = function(type, selector);
-        } else {
-            _view = [type new];
-        }
-    }
-
-    if (_view == nil) {
-        [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
-    }
-
-    // Set outlet value
-    if (outlet != nil) {
-        [_owner setValue:_view forKey:outlet];
-    }
-
-    // Apply template properties
-    if (template != nil) {
-        [self setPropertyValues:[_properties objectForKey:template]];
-    }
-
-    // Add action handlers and set property values
-    [self addActionHandlers:actions];
-    [self setPropertyValues:properties];
-
-    // Push onto view stack
-    [_views addObject:_view];
-}
-
-- (NSString *)localizeValue:(NSString *)value
-{
-    if ([value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
-        value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
-
-        NSString *localizedValue = [_strings objectForKey:value];
-
-        if (localizedValue == nil) {
-            localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-        }
-
-        value = localizedValue;
-    }
-
-    return value;
-}
-
-- (void)addActionHandlers:(NSDictionary *)actions
-{
-    for (NSString *key in actions) {
-        id value = [actions objectForKey:key];
-
-        NSString *event = [key substringFromIndex:[LMViewBuilderActionPrefix length]];
-
-        UIControlEvents controlEvent;
-        if ([event isEqual:@"TouchDown"]) {
-            controlEvent = UIControlEventTouchDown;
-        } else if ([event isEqual:@"TouchDownRepeat"]) {
-            controlEvent = UIControlEventTouchDownRepeat;
-        } else if ([event isEqual:@"TouchDragInside"]) {
-            controlEvent = UIControlEventTouchDragInside;
-        } else if ([event isEqual:@"TouchDragOutside"]) {
-            controlEvent = UIControlEventTouchDragOutside;
-        } else if ([event isEqual:@"TouchDragEnter"]) {
-            controlEvent = UIControlEventTouchDragEnter;
-        } else if ([event isEqual:@"TouchDragExit"]) {
-            controlEvent = UIControlEventTouchDragExit;
-        } else if ([event isEqual:@"TouchUpInside"]) {
-            controlEvent = UIControlEventTouchUpInside;
-        } else if ([event isEqual:@"TouchUpOutside"]) {
-            controlEvent = UIControlEventTouchUpOutside;
-        } else if ([event isEqual:@"TouchCancel"]) {
-            controlEvent = UIControlEventTouchCancel;
-        } else if ([event isEqual:@"ValueChanged"]) {
-            controlEvent = UIControlEventValueChanged;
-        } else if ([event isEqual:@"EditingDidBegin"]) {
-            controlEvent = UIControlEventEditingDidBegin;
-        } else if ([event isEqual:@"EditingChanged"]) {
-            controlEvent = UIControlEventEditingChanged;
-        } else if ([event isEqual:@"EditingDidEnd"]) {
-            controlEvent = UIControlEventEditingDidEnd;
-        } else if ([event isEqual:@"EditingDidEndOnExit"]) {
-            controlEvent = UIControlEventEditingDidEndOnExit;
-        } else if ([event isEqual:@"AllTouchEvents"]) {
-            controlEvent = UIControlEventAllTouchEvents;
-        } else if ([event isEqual:@"AllEditingEvents"]) {
-            controlEvent = UIControlEventAllEditingEvents;
-        } else if ([event isEqual:@"AllEvents"]) {
-            controlEvent = UIControlEventAllEvents;
-        } else {
-            controlEvent = 0;
-        }
-
-        [(UIControl *)_view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
-    }
-}
-
-- (void)setPropertyValues:(NSDictionary *)properties
++ (void)setPropertyValues:(NSDictionary *)properties forView:(UIView *)view
 {
     for (NSString *path in properties) {
         id value = [properties objectForKey:path];
@@ -510,7 +304,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setAutocapitalizationType:textAutocapitalizationType];
+            [(UIView<UITextInputTraits> *)view setAutocapitalizationType:textAutocapitalizationType];
 
             continue;
         } else if ([key isEqual:@"autocorrectionType"]) {
@@ -527,7 +321,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setAutocorrectionType:textAutocorrectionType];
+            [(UIView<UITextInputTraits> *)view setAutocorrectionType:textAutocorrectionType];
 
             continue;
         } else if ([key isEqual:@"spellCheckingType"]) {
@@ -544,7 +338,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setSpellCheckingType:textSpellCheckingType];
+            [(UIView<UITextInputTraits> *)view setSpellCheckingType:textSpellCheckingType];
 
             continue;
         } else if ([key isEqual:@"keyboardAppearance"]) {
@@ -563,7 +357,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setKeyboardAppearance:keyboardAppearance];
+            [(UIView<UITextInputTraits> *)view setKeyboardAppearance:keyboardAppearance];
 
             continue;
         } else if ([key isEqual:@"keyboardType"]) {
@@ -596,7 +390,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setKeyboardType:keyboardType];
+            [(UIView<UITextInputTraits> *)view setKeyboardType:keyboardType];
 
             continue;
         } else if ([key isEqual:@"returnKeyType"]) {
@@ -629,7 +423,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)_view setReturnKeyType:returnKeyType];
+            [(UIView<UITextInputTraits> *)view setReturnKeyType:returnKeyType];
 
             continue;
         } else if ([key isEqual:@"datePickerMode"]) {
@@ -803,7 +597,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:layoutConstraintAxis];
-        } else if ([key isEqual:@"alignment"] && [_view isKindOfClass:[UIStackView class]]) {
+        } else if ([key isEqual:@"alignment"] && [view isKindOfClass:[UIStackView class]]) {
             // Translate to stack view alignment
             UIStackViewAlignment stackViewAlignment;
             if ([value isEqual:@"fill"]) {
@@ -913,7 +707,214 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         }
 
-        [_view setValue:value forKeyPath:path];
+        [view setValue:value forKeyPath:path];
+    }
+}
+
+- (instancetype)init
+{
+    return nil;
+}
+
+- (instancetype)initWithOwner:(id)owner root:(UIView *)root
+{
+    self = [super init];
+
+    if (self) {
+        _owner = owner;
+        _root = root;
+
+        _properties = [NSMutableDictionary new];
+        _strings = [NSMutableDictionary new];
+
+        _views = [NSMutableArray new];
+        _view = nil;
+    }
+
+    return self;
+}
+
+- (UIView *)view
+{
+    return _view;
+}
+
+- (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
+{
+    if ([_views count] == 0) {
+        if ([target isEqual:LMViewBuilderPropertiesTarget]) {
+            [self loadProperties:data];
+        } else if ([target isEqual:LMViewBuilderStringsTarget]) {
+            [self loadStrings:data];
+        }
+    } else {
+        [[_views lastObject] processMarkupInstruction:target data:[self localizeValue:data]];
+    }
+}
+
+- (void)loadProperties:(NSString *)name
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
+
+    if (path != nil) {
+        NSDictionary *properties = [NSDictionary dictionaryWithContentsOfFile:path];
+
+        for (NSString *key in properties) {
+            NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
+
+            if (template == nil) {
+                template = [NSMutableDictionary new];
+
+                [_properties setObject:template forKey:key];
+            }
+
+            [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
+        }
+    }
+}
+
+- (void)loadStrings:(NSString *)name
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"strings" inDirectory:nil];
+
+    if (path != nil) {
+        NSDictionary *strings = [NSDictionary dictionaryWithContentsOfFile:path];
+
+        [_strings addEntriesFromDictionary:strings];
+    }
+}
+
+- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
+    namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
+    attributes:(NSDictionary *)attributes
+{
+    NSString *factory = nil;
+    NSString *template = nil;
+    NSString *outlet = nil;
+    NSMutableDictionary *actions = [NSMutableDictionary new];
+    NSMutableDictionary *properties = [NSMutableDictionary new];
+
+    for (NSString *key in attributes) {
+        NSString *value = [attributes objectForKey:key];
+
+        if ([key isEqual:LMViewBuilderFactoryKey]) {
+            factory = value;
+        } else if ([key isEqual:LMViewBuilderTemplateKey]) {
+            template = value;
+        } else if ([key isEqual:LMViewBuilderOutletKey]) {
+            outlet = value;
+        } else if ([key hasPrefix:LMViewBuilderActionPrefix] && [key length] > [LMViewBuilderActionPrefix length]
+            && ![key isEqual:@"onTintColor"]) {
+            [actions setObject:value forKey:key];
+        } else {
+            [properties setObject:[self localizeValue:value] forKey:key];
+        }
+    }
+
+    // Create view
+    if ([elementName isEqual:LMViewBuilderRootTag] && _view == nil) {
+        _view = _root;
+    } else {
+        Class type = NSClassFromString(elementName);
+
+        if (factory != nil) {
+            SEL selector = NSSelectorFromString(factory);
+            IMP method = [type methodForSelector:selector];
+            id (*function)(id, SEL) = (void *)method;
+
+            _view = function(type, selector);
+        } else {
+            _view = [type new];
+        }
+    }
+
+    if (_view == nil) {
+        [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
+    }
+
+    // Set outlet value
+    if (outlet != nil) {
+        [_owner setValue:_view forKey:outlet];
+    }
+
+    // Apply template properties
+    if (template != nil) {
+        [LMViewBuilder setPropertyValues:[_properties objectForKey:template] forView:_view];
+    }
+
+    // Add action handlers and set property values
+    [self addActionHandlers:actions];
+
+    [LMViewBuilder setPropertyValues:properties forView:_view];
+
+    // Push onto view stack
+    [_views addObject:_view];
+}
+
+- (NSString *)localizeValue:(NSString *)value
+{
+    if ([value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
+        value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
+
+        NSString *localizedValue = [_strings objectForKey:value];
+
+        if (localizedValue == nil) {
+            localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
+        }
+
+        value = localizedValue;
+    }
+
+    return value;
+}
+
+- (void)addActionHandlers:(NSDictionary *)actions
+{
+    for (NSString *key in actions) {
+        id value = [actions objectForKey:key];
+
+        NSString *event = [key substringFromIndex:[LMViewBuilderActionPrefix length]];
+
+        UIControlEvents controlEvent;
+        if ([event isEqual:@"TouchDown"]) {
+            controlEvent = UIControlEventTouchDown;
+        } else if ([event isEqual:@"TouchDownRepeat"]) {
+            controlEvent = UIControlEventTouchDownRepeat;
+        } else if ([event isEqual:@"TouchDragInside"]) {
+            controlEvent = UIControlEventTouchDragInside;
+        } else if ([event isEqual:@"TouchDragOutside"]) {
+            controlEvent = UIControlEventTouchDragOutside;
+        } else if ([event isEqual:@"TouchDragEnter"]) {
+            controlEvent = UIControlEventTouchDragEnter;
+        } else if ([event isEqual:@"TouchDragExit"]) {
+            controlEvent = UIControlEventTouchDragExit;
+        } else if ([event isEqual:@"TouchUpInside"]) {
+            controlEvent = UIControlEventTouchUpInside;
+        } else if ([event isEqual:@"TouchUpOutside"]) {
+            controlEvent = UIControlEventTouchUpOutside;
+        } else if ([event isEqual:@"TouchCancel"]) {
+            controlEvent = UIControlEventTouchCancel;
+        } else if ([event isEqual:@"ValueChanged"]) {
+            controlEvent = UIControlEventValueChanged;
+        } else if ([event isEqual:@"EditingDidBegin"]) {
+            controlEvent = UIControlEventEditingDidBegin;
+        } else if ([event isEqual:@"EditingChanged"]) {
+            controlEvent = UIControlEventEditingChanged;
+        } else if ([event isEqual:@"EditingDidEnd"]) {
+            controlEvent = UIControlEventEditingDidEnd;
+        } else if ([event isEqual:@"EditingDidEndOnExit"]) {
+            controlEvent = UIControlEventEditingDidEndOnExit;
+        } else if ([event isEqual:@"AllTouchEvents"]) {
+            controlEvent = UIControlEventAllTouchEvents;
+        } else if ([event isEqual:@"AllEditingEvents"]) {
+            controlEvent = UIControlEventAllEditingEvents;
+        } else if ([event isEqual:@"AllEvents"]) {
+            controlEvent = UIControlEventAllEvents;
+        } else {
+            controlEvent = 0;
+        }
+
+        [(UIControl *)_view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
     }
 }
 
