@@ -19,12 +19,12 @@
 /**
  * Creates a plain table view.
  */
-+ (UITableView *)plainTableView;
++ (null_unspecified UITableView *)plainTableView;
 
 /**
  * Creates a grouped table view.
  */
-+ (UITableView *)groupedTableView;
++ (null_unspecified UITableView *)groupedTableView;
 
 /**
  * Returns the name of a section.
@@ -33,7 +33,7 @@
  *
  * @return The section's name.
  */
-- (NSString *)nameForSection:(NSInteger)section;
+- (nullable NSString *)nameForSection:(NSInteger)section;
 
 /**
  * Returns the index of the first section whose name matches the given name.
@@ -42,7 +42,7 @@
  *
  * @return The section index, or <code>NSNotFound</code> if a matching section was not found.
  */
-- (NSInteger)sectionWithName:(NSString *)name;
+- (NSInteger)sectionWithName:(null_unspecified NSString *)name;
 
 /**
  * Returns the index of the first row in the given section whose cell value matches the given value.
@@ -52,7 +52,7 @@
  * 
  * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
  */
-- (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
+- (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
 
 /**
  * Returns the index of the first row in the given section whose cell is checked.

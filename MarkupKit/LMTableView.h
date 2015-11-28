@@ -53,7 +53,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  * @param name The section name.
  * @param section The section index.
  */
-- (void)setName:(NSString *)name forSection:(NSInteger)section;
+- (void)setName:(nullable NSString *)name forSection:(NSInteger)section;
 
 /**
  * Returns the selection mode for a section.
@@ -79,7 +79,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  *
  * @return The header view for the section.
  */
-- (UIView *)viewForHeaderInSection:(NSInteger)section;
+- (nullable UIView *)viewForHeaderInSection:(NSInteger)section;
 
 /**
  * Sets the header view for a section.
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  * @param view The header view.
  * @param section The section index.
  */
-- (void)setView:(UIView *)view forHeaderInSection:(NSInteger)section;
+- (void)setView:(nullable UIView *)view forHeaderInSection:(NSInteger)section;
 
 /**
  * Returns the footer view for a section.
@@ -96,7 +96,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  *
  * @return The footer view for the section.
  */
-- (UIView *)viewForFooterInSection:(NSInteger)section;
+- (nullable UIView *)viewForFooterInSection:(NSInteger)section;
 
 /**
  * Sets the footer view for a section.
@@ -104,7 +104,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  * @param view The footer view.
  * @param section The section index.
  */
-- (void)setView:(UIView *)footerView forFooterInSection:(NSInteger)section;
+- (void)setView:(nullable UIView *)footerView forFooterInSection:(NSInteger)section;
 
 /**
  * Inserts a new row into the table view.
@@ -112,13 +112,13 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  * @param cell The cell representing the row to insert.
  * @param indexPath The index path at which the row will be inserted.
  */
-- (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)insertCell:(null_unspecified UITableViewCell *)cell forRowAtIndexPath:(null_unspecified NSIndexPath *)indexPath;
 
 /**
  * Deletes an existing row from the table view.
  *
  * @param indexPath The index path of the row to delete.
  */
-- (void)deleteCellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)deleteCellForRowAtIndexPath:(null_unspecified NSIndexPath *)indexPath;
 
 @end
