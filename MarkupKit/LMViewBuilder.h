@@ -48,4 +48,12 @@
  */
 + (UIFont *)fontValue:(NSString *)value;
 
+/**
+ * Applies a set of property values to a view.
+ *
+ * @param properties The property values to apply.
+ * @param view The view whose property values will be set.
+ */
++ (void)setPropertyValues:(NSDictionary *)properties forView:(UIView *)view;
+
 @end
