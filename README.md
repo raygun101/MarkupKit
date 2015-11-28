@@ -295,6 +295,12 @@ The `root` argument is also commonly used when implementing custom table view ce
 
 These methods may also be called by application code to translate MarkupKit-encoded color and font values to `UIColor` and `UIFont` instances, respectively.
 
+Finally, `LMViewBuilder` provides the following method, which is used to apply a set of property values to a view:
+
+    + (void)setPropertyValues:(NSDictionary *)properties forView:(UIView *)view;
+
+`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values of dynamically-generated views.
+
 See _LMViewBuilder.h_ for more information.
 
 ## LMTableView and LMTableViewCell
