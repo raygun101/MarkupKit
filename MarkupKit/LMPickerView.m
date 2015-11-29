@@ -14,6 +14,13 @@
 
 #import "LMPickerView.h"
 
+@interface LMPickerViewComponent : NSObject
+
+@property NSString* name;
+@property (nonatomic, readonly) NSMutableArray *rows;
+
+@end
+
 @interface LMPickerView () <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end
@@ -64,6 +71,17 @@
 }
 
 - (void)deleteComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (NSString *)nameForComponent:(NSInteger)component
+{
+    // TODO
+    return nil;
+}
+
+- (void)setName:(nullable NSString *)name forComponent:(NSInteger)component
 {
     // TODO
 }
