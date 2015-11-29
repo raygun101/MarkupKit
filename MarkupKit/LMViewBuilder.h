@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param properties The property values to apply.
  * @param view The view whose property values will be set.
  */
-+ (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view;
++ (void)applyPropertyValues:(NSDictionary<NSString *, id> *)properties toView:(UIView *)view;
 
 @end
 

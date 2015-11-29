@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * The list of subviews arranged by the layout view.
  */
-@property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
+@property (nonatomic, readonly, copy) NSArray<UIView *> *arrangedSubviews;
 
 /**
  * Adds an arranged subview.
