@@ -14,6 +14,8 @@
 
 #import "LMLayoutView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Box view alignment options.
  */
@@ -62,3 +64,5 @@ typedef NS_ENUM(NSInteger, LMBoxViewAlignment) {
 @property (nonatomic) CGFloat spacing;
 
 @end
+
+NS_ASSUME_NONNULL_END

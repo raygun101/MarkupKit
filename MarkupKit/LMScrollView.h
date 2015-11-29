@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Scroll view that automatically adapts to the size of its content.
  */
@@ -35,3 +37,5 @@
 @property (nonatomic) BOOL fitToHeight;
 
 @end
+
+NS_ASSUME_NONNULL_END

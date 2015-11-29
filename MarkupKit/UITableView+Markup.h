@@ -14,17 +14,19 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UITableView (Markup)
 
 /**
  * Creates a plain table view.
  */
-+ (null_unspecified UITableView *)plainTableView;
++ (UITableView *)plainTableView;
 
 /**
  * Creates a grouped table view.
  */
-+ (null_unspecified UITableView *)groupedTableView;
++ (UITableView *)groupedTableView;
 
 /**
  * Returns the name of a section.
@@ -42,7 +44,7 @@
  *
  * @return The section index, or <code>NSNotFound</code> if a matching section was not found.
  */
-- (NSInteger)sectionWithName:(null_unspecified NSString *)name;
+- (NSInteger)sectionWithName:(NSString *)name;
 
 /**
  * Returns the index of the first row in the given section whose cell value matches the given value.
@@ -64,3 +66,5 @@
 - (NSInteger)rowForCheckedCellInSection:(NSInteger)section;
 
 @end
+
+NS_ASSUME_NONNULL_END

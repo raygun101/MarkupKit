@@ -14,9 +14,13 @@
 
 #import "LMBoxView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Layout view that arranges subviews horizontally in a row.
  */
 @interface LMRowView : LMBoxView
 
 @end
+
+NS_ASSUME_NONNULL_END

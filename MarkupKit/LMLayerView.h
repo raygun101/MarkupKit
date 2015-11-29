@@ -14,9 +14,13 @@
 
 #import "LMLayoutView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Layout view that arranges subviews in layers.
  */
 @interface LMLayerView : LMLayoutView
 
 @end
+
+NS_ASSUME_NONNULL_END
