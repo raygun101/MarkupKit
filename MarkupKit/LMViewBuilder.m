@@ -129,7 +129,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     return font;
 }
 
-+ (void)setPropertyValues:(NSDictionary *)properties forView:(UIView *)view
++ (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view
 {
     for (NSString *path in properties) {
         id value = [properties objectForKey:path];
@@ -839,13 +839,13 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 
     // Apply template properties
     if (template != nil) {
-        [LMViewBuilder setPropertyValues:[_properties objectForKey:template] forView:_view];
+        [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:_view];
     }
 
     // Add action handlers and set property values
     [self addActionHandlers:actions];
 
-    [LMViewBuilder setPropertyValues:properties forView:_view];
+    [LMViewBuilder applyPropertyValues:properties toView:_view];
 
     // Push onto view stack
     [_views addObject:_view];
