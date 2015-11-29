@@ -27,6 +27,7 @@
 #define INIT {\
     [super setDataSource:self];\
     [super setDelegate:self];\
+    [self insertComponent:0];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -57,6 +58,16 @@
     _delegate = delegate;
 }
 
+- (void)insertComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (void)deleteComponent:(NSInteger)component
+{
+    // TODO
+}
+
 - (NSInteger)numberOfComponents
 {
     // TODO
@@ -67,6 +78,22 @@
 {
     // TODO
     return 0;
+}
+
+- (void)insertView:(UIView *)cell forRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (void)deleteViewForRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (UIView *)viewForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // TODO
+    return nil;
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -95,8 +122,13 @@
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
 {
-    // TODO
-    return nil;
+    if ([_delegate respondsToSelector:@selector(pickerView:viewForRow:forComponent:reusingView:)]) {
+        view = [_delegate pickerView:pickerView viewForRow:row forComponent:component reusingView:view];
+    } else {
+        view = [self viewForRow:row forComponent:component];
+    }
+
+    return view;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -113,7 +145,7 @@
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    // TODO
+    // TODO Insert view into current component
 }
 
 @end

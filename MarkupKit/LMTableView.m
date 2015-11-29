@@ -151,16 +151,6 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     [[_sections objectAtIndex:section] setFooterView:footerView];
 }
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section
-{
-    return [[[_sections objectAtIndex:section] rows] count];
-}
-
-- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
-}
-
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [[[_sections objectAtIndex:indexPath.section] rows] insertObject:cell atIndex:indexPath.row];
@@ -169,6 +159,16 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 - (void)deleteCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [[[_sections objectAtIndex:indexPath.section] rows] removeObjectAtIndex:indexPath.row];
+}
+
+- (NSInteger)numberOfRowsInSection:(NSInteger)section
+{
+    return [[[_sections objectAtIndex:section] rows] count];
+}
+
+- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
