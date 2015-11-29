@@ -183,6 +183,16 @@
     [self setLayoutMargins:layoutMargins];
 }
 
+- (id)value
+{
+    return objc_getAssociatedObject(self, @selector(value));
+}
+
+- (void)setValue:(id)value
+{
+    objc_setAssociatedObject(self, @selector(value), value, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     // No-op

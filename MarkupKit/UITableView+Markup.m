@@ -13,6 +13,7 @@
 //
 
 #import "UITableView+Markup.h"
+#import "UIView+Markup.h"
 #import "UITableViewCell+Markup.h"
 
 @implementation UITableView (Markup)
