@@ -237,7 +237,7 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 ## LMViewBuilder
 `LMViewBuilder` is the class that is actually responsible for loading a MarkupKit document. It defines the following class method, which, given a document name, owner, and optional root view, returns a deserialized view hierarchy: 
 
-    + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
+    + (UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
 
 The `name` parameter represents the name of the view to load. It is the file name of the XML document containing the view, minus the _.xml_ extension.
 
@@ -392,13 +392,13 @@ For example, the following markup creates a table view that allows a user to sel
         <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     </LMTableView>
 
-The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional value with a cell, such as the color values shown in the previous example. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row.
+The `value` property is defined by the MarkupKit extensions to the `UIView` class. It is used to associate an optional value with a view, such as the color values shown in the previous example. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row.
 
 Selection state is managed via several methods that `LMTableView` inherits from the MarkupKit extensions to `UITableView`. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`; however, they can also be used by other custom `UITableView` subclasses:
 
-    - (NSString *)nameForSection:(NSInteger)section;
+    - (nullable NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
-    - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
+    - (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
     - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
 The first method, `nameForSection:`, returns the name that is associated with a given section. The default implementation of this method returns `nil`. However, it is overridden by `LMTableView` to return the name of the given section, when set. 
@@ -769,6 +769,10 @@ The following properties are added to allow a view's layout margin components to
     @property (nonatomic) CGFloat layoutMarginBottom;
     @property (nonatomic) CGFloat layoutMarginRight;
 
+The `value` property is used to associate an optional value with the cell. It is similar to the `tag` property but is not limited to integer values:
+
+    @property (nonatomic, nullable) id value;
+
 Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
     - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
@@ -786,29 +790,29 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
 
 Button content including "title", "title color", "title shadow color", "image", and "background image" is set for button states including "normal", "highlighted", "disabled", and "selected" using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
-    @property (nonatomic) NSString *normalTitle;
-    @property (nonatomic) UIColor *normalTitleColor;
-    @property (nonatomic) UIColor *normalTitleShadowColor;
-    @property (nonatomic) UIImage *normalImage;
-    @property (nonatomic) UIImage *normalBackgroundImage;
+    @property (nonatomic, nullable) NSString *normalTitle;
+    @property (nonatomic, nullable) UIColor *normalTitleColor;
+    @property (nonatomic, nullable) UIColor *normalTitleShadowColor;
+    @property (nonatomic, nullable) UIImage *normalImage;
+    @property (nonatomic, nullable) UIImage *normalBackgroundImage;
 
-    @property (nonatomic) NSString *highlightedTitle;
-    @property (nonatomic) UIColor *highlightedTitleColor;
-    @property (nonatomic) UIColor *highlightedTitleShadowColor;
-    @property (nonatomic) UIImage *highlightedImage;
-    @property (nonatomic) UIImage *highlightedBackgroundImage;
+    @property (nonatomic, nullable) NSString *highlightedTitle;
+    @property (nonatomic, nullable) UIColor *highlightedTitleColor;
+    @property (nonatomic, nullable) UIColor *highlightedTitleShadowColor;
+    @property (nonatomic, nullable) UIImage *highlightedImage;
+    @property (nonatomic, nullable) UIImage *highlightedBackgroundImage;
 
-    @property (nonatomic) NSString *disabledTitle;
-    @property (nonatomic) UIColor *disabledTitleColor;
-    @property (nonatomic) UIColor *disabledTitleShadowColor;
-    @property (nonatomic) UIImage *disabledImage;
-    @property (nonatomic) UIImage *disabledBackgroundImage;
+    @property (nonatomic, nullable) NSString *disabledTitle;
+    @property (nonatomic, nullable) UIColor *disabledTitleColor;
+    @property (nonatomic, nullable) UIColor *disabledTitleShadowColor;
+    @property (nonatomic, nullable) UIImage *disabledImage;
+    @property (nonatomic, nullable) UIImage *disabledBackgroundImage;
 
-    @property (nonatomic) NSString *selectedTitle;
-    @property (nonatomic) UIColor *selectedTitleColor;
-    @property (nonatomic) UIColor *selectedTitleShadowColor;
-    @property (nonatomic) UIImage *selectedImage;
-    @property (nonatomic) UIImage *selectedBackgroundImage;
+    @property (nonatomic, nullable) NSString *selectedTitle;
+    @property (nonatomic, nullable) UIColor *selectedTitleColor;
+    @property (nonatomic, nullable) UIColor *selectedTitleShadowColor;
+    @property (nonatomic, nullable) UIImage *selectedImage;
+    @property (nonatomic, nullable) UIImage *selectedBackgroundImage;
 
 For example, the following markup creates a system button with a normal title of "Press Me!" and a highlighted title of "Let Go!":
 
@@ -864,12 +868,11 @@ Note that, while it is possible to use the factory methods to declare instances 
 
     <MyCustomTableViewCell .../>
 
-MarkupKit additionally adds the following properties to `UITableViewCell`:
+MarkupKit additionally adds the following property to `UITableViewCell`:
 
-    @property (nonatomic) id value;
     @property (nonatomic) BOOL checked;
     
-The `value` property is used to associate an optional value with the cell. It is used primarily with `LMTableView` checkmark selection modes. Similarly, the `checked` property is used with these modes to indicate the cell's selection state. This property is `true` when the cell is checked and `false` when unchecked.
+It is used primarily with `LMTableView` checkmark selection modes. This property is set to `true` when the cell is checked and `false` when unchecked.
 
 #### Accessory Views
 MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCell` that sets the given view as the cell's accessory view, enabling the declaration of accessory views in markup. For example, the following markup creates a cell that has a `UISwitch` as an accessory view:
