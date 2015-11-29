@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3709BCFD1C0B57610099B8F2 /* LMPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3709BD001C0B57610099B8F2 /* LMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709BCFE1C0B57610099B8F2 /* LMPickerView.m */; };
 		372418D91ADF33230067CDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372418D81ADF33230067CDF0 /* AppDelegate.swift */; };
 		372418E01ADF335A0067CDF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372418DC1ADF33590067CDF0 /* MainViewController.swift */; };
 		372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 372418E21ADF34600067CDF0 /* waterfall.jpg */; };
@@ -171,6 +173,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3709BCFD1C0B57610099B8F2 /* LMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPickerView.h; sourceTree = "<group>"; };
+		3709BCFE1C0B57610099B8F2 /* LMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPickerView.m; sourceTree = "<group>"; };
 		372418D81ADF33230067CDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		372418DC1ADF33590067CDF0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372418E21ADF34600067CDF0 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 				3742F0131B34D2C800B31987 /* LMLayerView.m */,
 				379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */,
 				379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */,
+				3709BCFD1C0B57610099B8F2 /* LMPickerView.h */,
+				3709BCFE1C0B57610099B8F2 /* LMPickerView.m */,
 				3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */,
 				3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */,
 				3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */,
@@ -486,6 +492,7 @@
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
 				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
 				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
+				3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
@@ -719,6 +726,7 @@
 				3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */,
 				3B5A12491B19EDFC00E28F37 /* UIProgressView+Markup.m in Sources */,
 				3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */,
+				3709BD001C0B57610099B8F2 /* LMPickerView.m in Sources */,
 				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
 				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
 				3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */,
