@@ -14,27 +14,29 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UITableViewCell (Markup)
 
 /**
  * Creates a default table view cell.
  */
-+ (null_unspecified UITableViewCell *)defaultTableViewCell;
++ (UITableViewCell *)defaultTableViewCell;
 
 /**
  * Creates a "value 1" table view cell.
  */
-+ (null_unspecified UITableViewCell *)value1TableViewCell;
++ (UITableViewCell *)value1TableViewCell;
 
 /**
  * Creates a "value 2" table view cell.
  */
-+ (null_unspecified UITableViewCell *)value2TableViewCell;
++ (UITableViewCell *)value2TableViewCell;
 
 /**
  * Creates a subtitled table view cell.
  */
-+ (null_unspecified UITableViewCell *)subtitleTableViewCell;
++ (UITableViewCell *)subtitleTableViewCell;
 
 /**
  * The cell's value.
@@ -47,3 +49,5 @@
 @property (nonatomic) BOOL checked;
 
 @end
+
+NS_ASSUME_NONNULL_END

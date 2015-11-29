@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIVisualEffectView (Markup)
 
 /**
@@ -32,3 +34,5 @@
 + (UIVisualEffectView *)darkBlurEffectView;
 
 @end
+
+NS_ASSUME_NONNULL_END

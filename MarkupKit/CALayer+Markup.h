@@ -14,6 +14,8 @@
 
 #import <QuartzCore/QuartzCore.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface CALayer (Markup)
 
 /**
@@ -27,3 +29,5 @@
 @property (nonatomic) CGFloat shadowOffsetHeight;
 
 @end
+
+NS_ASSUME_NONNULL_END

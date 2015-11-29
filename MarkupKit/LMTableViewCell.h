@@ -14,9 +14,13 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Table view cell that hosts custom cell content defined in markup.
  */
 @interface LMTableViewCell : UITableViewCell
 
 @end
+
+NS_ASSUME_NONNULL_END

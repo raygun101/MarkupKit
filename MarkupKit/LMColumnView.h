@@ -14,6 +14,8 @@
 
 #import "LMBoxView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Box view that arranges subviews vertically in a column.
  */
@@ -35,3 +37,5 @@
 @property (nonatomic) CGFloat bottomSpacing;
 
 @end
+
+NS_ASSUME_NONNULL_END

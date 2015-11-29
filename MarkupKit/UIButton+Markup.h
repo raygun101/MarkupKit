@@ -14,37 +14,39 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIButton (Markup)
 
 /**
  * Creates a custom button.
  */
-+ (null_unspecified UIButton *)customButton;
++ (UIButton *)customButton;
 
 /**
  * Creates a system button.
  */
-+ (null_unspecified UIButton *)systemButton;
++ (UIButton *)systemButton;
 
 /**
  * Creates a detail disclosure button.
  */
-+ (null_unspecified UIButton *)detailDisclosureButton;
++ (UIButton *)detailDisclosureButton;
 
 /**
  * Creates a light info button.
  */
-+ (null_unspecified UIButton *)infoLightButton;
++ (UIButton *)infoLightButton;
 
 /**
  * Creates a dark info button.
  */
-+ (null_unspecified UIButton *)infoDarkButton;
++ (UIButton *)infoDarkButton;
 
 /**
  * Creates an "add contact" button.
  */
-+ (null_unspecified UIButton *)contactAddButton;
++ (UIButton *)contactAddButton;
 
 /**
  * The button's normal title.
@@ -167,3 +169,5 @@
 @property (nonatomic) CGFloat contentEdgeInsetRight;
 
 @end
+
+NS_ASSUME_NONNULL_END

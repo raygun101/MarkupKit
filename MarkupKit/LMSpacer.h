@@ -14,9 +14,13 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * View that provides flexible space between other views.
  */
 @interface LMSpacer : UIView
 
 @end
+
+NS_ASSUME_NONNULL_END

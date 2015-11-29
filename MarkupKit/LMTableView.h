@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Table view selection modes.
  */
@@ -112,13 +114,15 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
  * @param cell The cell representing the row to insert.
  * @param indexPath The index path at which the row will be inserted.
  */
-- (void)insertCell:(null_unspecified UITableViewCell *)cell forRowAtIndexPath:(null_unspecified NSIndexPath *)indexPath;
+- (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath;
 
 /**
  * Deletes an existing row from the table view.
  *
  * @param indexPath The index path of the row to delete.
  */
-- (void)deleteCellForRowAtIndexPath:(null_unspecified NSIndexPath *)indexPath;
+- (void)deleteCellForRowAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
  * Class that reads a view hierarchy from markup.
  */
@@ -23,12 +25,12 @@
  * Loads a named view.
  *
  * @param name The name of the view to load.
- * @param owner The view's owner.
+ * @param owner The view's owner, or <tt>nil</tt> for no owner.
  * @param root The root view, or <tt>nil</tt> for no root view.
  *
  * @return The named view, or <tt>nil</tt> if the view could not be loaded.
  */
-+ (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root;
++ (UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
 
 /**
  * Decodes a color value.
@@ -57,3 +59,5 @@
 + (void)setPropertyValues:(NSDictionary *)properties forView:(UIView *)view;
 
 @end
+
+NS_ASSUME_NONNULL_END
