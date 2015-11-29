@@ -33,6 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteComponent:(NSInteger)component;
 
 /**
+ * Sets the name of a component.
+ *
+ * @param name The component name.
+ * @param component The component index.
+ */
+- (void)setName:(nullable NSString *)name forComponent:(NSInteger)component;
+
+/**
  * Inserts a new row into the picker view.
  *
  * @param view The view representing the row to insert.
