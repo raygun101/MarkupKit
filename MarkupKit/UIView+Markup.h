@@ -74,11 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat layoutMarginRight;
 
 /**
- * An optional value associated with the view.
- */
-@property (nonatomic, nullable) id value;
-
-/**
  * Processes a markup instruction.
  *
  * @param target The markup instruction's target.

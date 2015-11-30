@@ -17,7 +17,7 @@
 @interface LMPickerViewComponent : NSObject
 
 @property NSString* name;
-@property (nonatomic, readonly) NSMutableArray *rows;
+@property (nonatomic, readonly) NSMutableArray *titles;
 
 @end
 
@@ -98,21 +98,10 @@
     return 0;
 }
 
-- (void)insertView:(UIView *)cell forRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    // TODO
-}
+// TODO - (void)insertRow:inComponent:withTitle:value:
+// TODO - (void)deleteRow:inComponent:
 
-- (void)deleteViewForRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    // TODO
-}
-
-- (UIView *)viewForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    // TODO
-    return nil;
-}
+// TODO - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component:
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

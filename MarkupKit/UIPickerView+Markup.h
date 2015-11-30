@@ -36,15 +36,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)componentWithName:(NSString *)name;
 
+// TODO - (nullable id)valueForRow:(NSInteger)row forComponent:(NSInteger)component:
+
 /**
- * Returns the index of the first row in the given component whose view value matches the given value.
+ * Returns the index of the first row in the given component whose value matches the given value.
  *
- * @param value The view value.
+ * @param value The value.
  * @param component The component index.
  * 
  * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
  */
-- (NSInteger)rowForViewWithValue:(nullable id)value inComponent:(NSInteger)component;
+- (NSInteger)rowWithValue:(nullable id)value forComponent:(NSInteger)component;
 
 @end
 

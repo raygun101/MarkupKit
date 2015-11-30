@@ -40,22 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setName:(nullable NSString *)name forComponent:(NSInteger)component;
 
-/**
- * Inserts a new row into the picker view.
- *
- * @param view The view representing the row to insert.
- * @param row The index of the row to insert.
- * @param component The component in which the row will be inserted.
- */
-- (void)insertView:(UIView *)cell forRow:(NSInteger)row inComponent:(NSInteger)component;
+// TODO - (void)insertRow:inComponent:withTitle:(NSString *) value:(nullable id)
+// TODO - (void)deleteRow:inComponent
 
-/**
- * Deletes an existing row from the picker view.
- *
- * @param row The index of the row to delete.
- * @param component The component from which the row will be deleted.
- */
-- (void)deleteViewForRow:(NSInteger)row inComponent:(NSInteger)component;
+// TODO - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component:
 
 @end
 

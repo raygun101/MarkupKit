@@ -1,7 +1,7 @@
 # Overview
 MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
 
-Building an interface in markup makes it easy to visualize the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
+Building an interface in markup makes it easy to visualiz`e the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
 
 For example, the following markup declares an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
@@ -392,7 +392,7 @@ For example, the following markup creates a table view that allows a user to sel
         <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     </LMTableView>
 
-The `value` property is defined by the MarkupKit extensions to the `UIView` class. It is used to associate an optional value with a view, such as the color values shown in the previous example. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row.
+The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional value with a cell, such as the color values shown in the previous example. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row.
 
 Selection state is managed via several methods that `LMTableView` inherits from the MarkupKit extensions to `UITableView`. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`; however, they can also be used by other custom `UITableView` subclasses:
 
@@ -769,10 +769,6 @@ The following properties are added to allow a view's layout margin components to
     @property (nonatomic) CGFloat layoutMarginBottom;
     @property (nonatomic) CGFloat layoutMarginRight;
 
-The `value` property is used to associate an optional value with the cell. It is similar to the `tag` property but is not limited to integer values:
-
-    @property (nonatomic, nullable) id value;
-
 Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
     - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
@@ -868,11 +864,14 @@ Note that, while it is possible to use the factory methods to declare instances 
 
     <MyCustomTableViewCell .../>
 
-MarkupKit additionally adds the following property to `UITableViewCell`:
+MarkupKit additionally adds the following properties to `UITableViewCell`:
 
+    @property (nonatomic, nullable) id value;
     @property (nonatomic) BOOL checked;
-    
-It is used primarily with `LMTableView` checkmark selection modes. This property is set to `true` when the cell is checked and `false` when unchecked.
+
+The `value` property is used to associate an optional value with the cell. It is similar to the `tag` property of a `UIView` but is not limited to integer values. 
+
+The `checked` property is used primarily with `LMTableView` checkmark selection modes. This property is set to `true` when the cell is checked and `false` when it is unchecked.
 
 #### Accessory Views
 MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCell` that sets the given view as the cell's accessory view, enabling the declaration of accessory views in markup. For example, the following markup creates a cell that has a `UISwitch` as an accessory view:
