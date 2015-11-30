@@ -37,16 +37,21 @@
     return (component < n) ? component : NSNotFound;
 }
 
-- (NSInteger)rowForViewWithValue:(id)value inComponent:(NSInteger)component
+// TODO - (nullable id)valueForRow:(NSInteger)row forComponent:(NSInteger)component:
+
+- (NSInteger)rowWithValue:(id)value forComponent:(NSInteger)component
 {
     NSInteger row = 0, n = [self numberOfRowsInComponent:component];
 
     while (row < n) {
+        // TODO Call valueForRow:forComponent:
+        /*
         UIView *view = [self viewForRow:row forComponent:component];
 
         if ([[view value] isEqual:value]) {
             break;
         }
+        */
 
         row++;
     }

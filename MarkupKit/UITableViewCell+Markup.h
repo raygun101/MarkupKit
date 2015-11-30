@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 + (UITableViewCell *)subtitleTableViewCell;
 
 /**
+ * An optional value associated with the cell.
+ */
+@property (nonatomic, nullable) id value;
+
+/**
  * The cell's checked state.
  */
 @property (nonatomic) BOOL checked;
