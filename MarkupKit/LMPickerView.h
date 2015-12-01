@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param title The row title.
  * @param value The row value.
  */
-- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(nullable id)value;
+- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(nullable NSString *)title value:(nullable id)value;
 
 /**
  * Deletes an existing row from the picker view.
@@ -59,21 +59,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteRow:(NSInteger)row inComponent:(NSInteger)component;
 
 /**
- * Returns the title for the given row and component.
- *
- * @param row The row index.
- * @param component The component index.
- */
-- (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
-
-/**
  * Sets the title for the given row and component.
  * 
  * @param title The row title.
  * @param row The row index.
  * @param component The component index.
  */
-- (void)setTitle:(NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component;
+- (void)setTitle:(nullable NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component;
 
 /**
  * Sets the value for the given row and component.

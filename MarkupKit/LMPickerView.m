@@ -14,7 +14,7 @@
 
 #import "LMPickerView.h"
 
-static NSString * const kComponentBreakTarget = @"componentBreak";
+static NSString * const kComponentSeparatorTarget = @"componentSeparator";
 
 static NSString * const kComponentNameTarget = @"componentName";
 
@@ -24,6 +24,9 @@ static NSString * const kRowTitleTarget = @"rowTitle";
 
 @property (nonatomic) NSString* title;
 @property (nonatomic) id value;
+
+- (instancetype)init;
+- (instancetype)initWithTitle:(NSString *)title value:(id)value;
 
 @end
 
@@ -83,67 +86,62 @@ static NSString * const kRowTitleTarget = @"rowTitle";
 
 - (void)insertComponent:(NSInteger)component
 {
-    // TODO
+    [_components insertObject:[LMPickerViewComponent new] atIndex:component];
 }
 
 - (void)deleteComponent:(NSInteger)component
 {
-    // TODO
+    [_components removeObjectAtIndex:component];
 }
 
 - (NSString *)nameForComponent:(NSInteger)component
 {
-    // TODO
-    return nil;
+    return [[_components objectAtIndex:component] name];
 }
 
 - (void)setName:(NSString *)name forComponent:(NSInteger)component
 {
-    // TODO
+    [[_components objectAtIndex:component] setName:name];
 }
 
 - (NSInteger)numberOfComponents
 {
-    // TODO
-    return 0;
+    return [_components count];
 }
 
 - (NSInteger)numberOfRowsInComponent:(NSInteger)component
 {
-    // TODO
-    return 0;
+    return [[[_components objectAtIndex:component] rows] count];
 }
 
 - (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(id)value
 {
-    // TODO
+    [[[_components objectAtIndex:component] rows] insertObject:[[LMPickerViewRow alloc] initWithTitle:title value:value] atIndex:row];
 }
 
 - (void)deleteRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    // TODO
+    [[[_components objectAtIndex:component] rows] removeObjectAtIndex:row];
 }
 
 - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    // TODO
-    return nil;
+    return [(LMPickerViewRow *)[[[_components objectAtIndex:component] rows] objectAtIndex:row] title];
 }
 
 - (void)setTitle:(NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    // TODO
+    [(LMPickerViewRow *)[[[_components objectAtIndex:component] rows] objectAtIndex:row] setTitle:title];
 }
 
 - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    // TODO
-    return nil;
+    return [(LMPickerViewRow *)[[[_components objectAtIndex:component] rows] objectAtIndex:row] value];
 }
 
 - (void)setValue:(id)value forRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    // TODO
+    [(LMPickerViewRow *)[[[_components objectAtIndex:component] rows] objectAtIndex:row] setValue:value];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
@@ -170,15 +168,16 @@ static NSString * const kRowTitleTarget = @"rowTitle";
     return n;
 }
 
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if ([_delegate respondsToSelector:@selector(pickerView:viewForRow:forComponent:reusingView:)]) {
-        view = [_delegate pickerView:pickerView viewForRow:row forComponent:component reusingView:view];
+    NSString *title;
+    if ([_delegate respondsToSelector:@selector(pickerView:titleForRow:forComponent:)]) {
+        title = [_delegate pickerView:pickerView titleForRow:row forComponent:component];
     } else {
-        view = [self viewForRow:row forComponent:component];
+        title = [self titleForRow:row forComponent:component];
     }
 
-    return view;
+    return title;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -190,17 +189,52 @@ static NSString * const kRowTitleTarget = @"rowTitle";
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
-    // TODO
-}
+    if ([target isEqual:kComponentSeparatorTarget]) {
+        [self insertComponent:[self numberOfComponents]];
+    } else if ([target isEqual:kComponentNameTarget]) {
+        [self setName:data forComponent:[self numberOfComponents] - 1];
+    } else if ([target isEqual:kRowTitleTarget]) {
+        NSRange range = [data rangeOfString:@";" options:NSBackwardsSearch];
 
-- (void)appendMarkupElementView:(UIView *)view
-{
-    // TODO Insert view into current component
+        NSString *title, *value;
+        if (range.location == NSNotFound) {
+            title = data;
+            value = nil;
+        } else {
+            title = [data substringToIndex:range.location];
+            value = [data substringFromIndex:range.location + 1];
+        }
+
+        NSInteger component = [self numberOfComponents] - 1;
+
+        NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+
+        [self insertRow:[self numberOfRowsInComponent:component] inComponent:component
+            withTitle:[title stringByTrimmingCharactersInSet:whitespaceCharacterSet]
+            value:[value stringByTrimmingCharactersInSet:whitespaceCharacterSet]];
+    }
 }
 
 @end
 
 @implementation LMPickerViewRow
+
+- (instancetype)init
+{
+    return [self initWithTitle:nil value:nil];
+}
+
+- (instancetype)initWithTitle:(NSString *)title value:(id)value
+{
+    self = [super init];
+
+    if (self) {
+        _title = title;
+        _value = value;
+    }
+
+    return self;
+}
 
 @end
 

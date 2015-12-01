@@ -56,6 +56,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(GridViewController(), animated: true)
         } else if (value == "customSectionView") {
             navigationController!.pushViewController(CustomSectionViewController(), animated: true)
+        } else if (value == "customComponentView") {
+            navigationController!.pushViewController(CustomComponentViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

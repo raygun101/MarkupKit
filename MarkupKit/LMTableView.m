@@ -168,7 +168,7 @@ typedef enum {
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[_sections objectAtIndex:indexPath.section] rows]objectAtIndex:indexPath.row];
+    return [[[_sections objectAtIndex:indexPath.section] rows] objectAtIndex:indexPath.row];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -281,9 +281,9 @@ typedef enum {
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:kSectionBreakTarget]) {
-        [self insertSection:[self numberOfSectionsInTableView:self]];
+        [self insertSection:[self numberOfSections]];
     } else if ([target isEqual:kSectionNameTarget]) {
-        [self setName:data forSection:[self numberOfSectionsInTableView:self] - 1];
+        [self setName:data forSection:[self numberOfSections] - 1];
     } else if ([target isEqual:kSectionSelectionModeTarget]) {
         LMTableViewSelectionMode selectionMode;
         if ([data isEqual:@"default"]) {
@@ -296,7 +296,7 @@ typedef enum {
             return;
         }
 
-        [self setSelectionMode: selectionMode forSection:[self numberOfSectionsInTableView:self] - 1];
+        [self setSelectionMode: selectionMode forSection:[self numberOfSections] - 1];
     } else if ([target isEqual:kSectionHeaderViewTarget]) {
         _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
@@ -306,7 +306,7 @@ typedef enum {
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    NSInteger section = [self numberOfSectionsInTableView:self] - 1;
+    NSInteger section = [self numberOfSections] - 1;
 
     switch (_elementDisposition) {
         case kElementDefault: {

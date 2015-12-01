@@ -33,6 +33,10 @@ class CustomSectionViewController: UITableViewController {
         tableView.dataSource = self
     }
 
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return tableView.numberOfSections
+    }
+
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (tableView.nameForSection(section) == CustomSectionViewController.DynamicSectionName) {

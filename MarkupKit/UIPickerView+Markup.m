@@ -36,6 +36,11 @@
     return (component < n) ? component : NSNotFound;
 }
 
+- (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return nil;
+}
+
 - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return nil;

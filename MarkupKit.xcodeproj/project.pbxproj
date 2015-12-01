@@ -38,6 +38,8 @@
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
+		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
+		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
 		37AC282C1C08B49C00BC8C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC282B1C08B49C00BC8C87 /* ViewController.swift */; };
 		37AC28311C08B49C00BC8C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AC28301C08B49C00BC8C87 /* Assets.xcassets */; };
@@ -206,6 +208,8 @@
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
 		379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSpacer.m; sourceTree = "<group>"; };
+		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
+		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AC28291C08B49C00BC8C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37AC282B1C08B49C00BC8C87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -459,6 +463,8 @@
 				37C806BC1BEE37D000196FD6 /* GridView.xml */,
 				37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */,
 				37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */,
+				37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */,
+				37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -677,6 +683,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
+				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				37C806C11BEE37D000196FD6 /* GridView.xml in Resources */,
 				37C806C31BEE37D000196FD6 /* sample.txt in Resources */,
@@ -757,6 +764,7 @@
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
+				37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */,
 				37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
