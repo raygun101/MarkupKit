@@ -106,6 +106,32 @@ limitations under the License.
 
     <?sectionBreak?>
 
+    <!-- Custom Picker -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Custom Picker" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <LMPickerView>
+            <?componentName sizes?>
+
+            <?rowTitle Small; S?>
+            <?rowTitle Medium; M?>
+            <?rowTitle Large; L?>
+            <?rowTitle Extra-Large; XL?>
+
+            <?componentSeparator?>
+
+            <?componentName pets?>
+            <?rowTitle Dog?>
+            <?rowTitle Cat?>
+            <?rowTitle Fish?>
+            <?rowTitle Rabbit?>
+            <?rowTitle Turtle?>
+        </LMPickerView>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
     <!-- Stepper -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Stepper" class="cell.header"/>
