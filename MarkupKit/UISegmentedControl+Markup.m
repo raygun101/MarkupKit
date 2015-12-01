@@ -14,8 +14,8 @@
 
 #import "UISegmentedControl+Markup.h"
 
-static NSString * const LMSegmentTitleTarget = @"segmentTitle";
-static NSString * const LMSegmentImageTarget = @"segmentImage";
+static NSString * const kSegmentTitleTarget = @"segmentTitle";
+static NSString * const kSegmentImageTarget = @"segmentImage";
 
 @implementation UISegmentedControl (Markup)
 
@@ -23,9 +23,9 @@ static NSString * const LMSegmentImageTarget = @"segmentImage";
 {
     NSUInteger index = [self numberOfSegments];
 
-    if ([target isEqual:LMSegmentTitleTarget]) {
+    if ([target isEqual:kSegmentTitleTarget]) {
         [self insertSegmentWithTitle:data atIndex:index animated:NO];
-    } else if ([target isEqual:LMSegmentImageTarget]) {
+    } else if ([target isEqual:kSegmentImageTarget]) {
         [self insertSegmentWithImage:[UIImage imageNamed:data] atIndex:index animated:NO];
     }
 }

@@ -25,11 +25,11 @@ static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
 
 #define ESTIMATED_HEIGHT 2
 
-typedef NS_ENUM(NSInteger, LMElementDisposition) {
-    LMElementDispositionNone,
-    LMElementDispositionSectionHeaderView,
-    LMElementDispositionSectionFooterView
-};
+typedef enum {
+    kElementDefault,
+    kElementSectionHeaderView,
+    kElementSectionFooterView
+} __ElementDisposition;
 
 @interface LMTableViewSection : NSObject
 
@@ -54,12 +54,12 @@ typedef NS_ENUM(NSInteger, LMElementDisposition) {
 
     NSMutableArray *_sections;
 
-    LMElementDisposition _elementDisposition;
+    __ElementDisposition _elementDisposition;
 }
 
 #define INIT {\
     _sections = [NSMutableArray new];\
-    _elementDisposition = LMElementDispositionNone;\
+    _elementDisposition = kElementDefault;\
     [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
     [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
     [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
@@ -298,9 +298,9 @@ typedef NS_ENUM(NSInteger, LMElementDisposition) {
 
         [self setSelectionMode: selectionMode forSection:[self numberOfSectionsInTableView:self] - 1];
     } else if ([target isEqual:kSectionHeaderViewTarget]) {
-        _elementDisposition = LMElementDispositionSectionHeaderView;
+        _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
-        _elementDisposition = LMElementDispositionSectionFooterView;
+        _elementDisposition = kElementSectionFooterView;
     }
 }
 
@@ -309,7 +309,7 @@ typedef NS_ENUM(NSInteger, LMElementDisposition) {
     NSInteger section = [self numberOfSectionsInTableView:self] - 1;
 
     switch (_elementDisposition) {
-        case LMElementDispositionNone: {
+        case kElementDefault: {
             NSInteger row = [self tableView:self numberOfRowsInSection:section];
 
             [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
@@ -317,13 +317,13 @@ typedef NS_ENUM(NSInteger, LMElementDisposition) {
             break;
         }
 
-        case LMElementDispositionSectionHeaderView: {
+        case kElementSectionHeaderView: {
             [[_sections objectAtIndex:section] setHeaderView:view];
 
             break;
         }
 
-        case LMElementDispositionSectionFooterView: {
+        case kElementSectionFooterView: {
             [[_sections objectAtIndex:section] setFooterView:view];
 
             break;
@@ -334,7 +334,7 @@ typedef NS_ENUM(NSInteger, LMElementDisposition) {
         }
     }
 
-    _elementDisposition = LMElementDispositionNone;
+    _elementDisposition = kElementDefault;
 }
 
 @end
