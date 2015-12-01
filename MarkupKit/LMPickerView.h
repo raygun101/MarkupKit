@@ -40,10 +40,49 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)setName:(nullable NSString *)name forComponent:(NSInteger)component;
 
-// TODO - (void)insertRow:inComponent:withTitle:(NSString *) value:(nullable id)
-// TODO - (void)deleteRow:inComponent
+/**
+ * Inserts a new row into the picker view.
+ *
+ * @param row The index of the row to insert.
+ * @param component The component in which the row will be inserted.
+ * @param title The row title.
+ * @param value The row value.
+ */
+- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(nullable id)value;
 
-// TODO - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component:
+/**
+ * Deletes an existing row from the picker view.
+ *
+ * @param row The index of the row to delete.
+ * @param component The component from which the row will be deleted.
+ */
+- (void)deleteRow:(NSInteger)row inComponent:(NSInteger)component;
+
+/**
+ * Returns the title for the given row and component.
+ *
+ * @param row The row index.
+ * @param component The component index.
+ */
+- (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+
+/**
+ * Sets the title for the given row and component.
+ * 
+ * @param title The row title.
+ * @param row The row index.
+ * @param component The component index.
+ */
+- (void)setTitle:(NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component;
+
+/**
+ * Sets the value for the given row and component.
+ * 
+ * @param value The row value.
+ * @param row The row index.
+ * @param component The component index.
+ */
+- (void)setValue:(nullable id)value forRow:(NSInteger)row forComponent:(NSInteger)component;
 
 @end
 

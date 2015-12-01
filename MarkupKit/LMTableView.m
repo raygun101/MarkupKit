@@ -15,29 +15,29 @@
 #import "LMTableView.h"
 #import "UITableViewCell+Markup.h"
 
-static NSString * const LMTableViewSectionBreakTarget = @"sectionBreak";
+static NSString * const kSectionBreakTarget = @"sectionBreak";
 
-static NSString * const LMTableViewSectionNameTarget = @"sectionName";
-static NSString * const LMTableViewSectionSelectionModeTarget = @"sectionSelectionMode";
+static NSString * const kSectionNameTarget = @"sectionName";
+static NSString * const kSectionSelectionModeTarget = @"sectionSelectionMode";
 
-static NSString * const LMTableViewSectionHeaderViewTarget = @"sectionHeaderView";
-static NSString * const LMTableViewSectionFooterViewTarget = @"sectionFooterView";
+static NSString * const kSectionHeaderViewTarget = @"sectionHeaderView";
+static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
 
 #define ESTIMATED_HEIGHT 2
 
-typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
-    LMTableViewElementDispositionNone,
-    LMTableViewElementDispositionSectionHeaderView,
-    LMTableViewElementDispositionSectionFooterView
+typedef NS_ENUM(NSInteger, LMElementDisposition) {
+    LMElementDispositionNone,
+    LMElementDispositionSectionHeaderView,
+    LMElementDispositionSectionFooterView
 };
 
 @interface LMTableViewSection : NSObject
 
-@property NSString* name;
-@property LMTableViewSelectionMode selectionMode;
+@property (nonatomic) NSString* name;
+@property (nonatomic) LMTableViewSelectionMode selectionMode;
 
-@property UIView *headerView;
-@property UIView *footerView;
+@property (nonatomic) UIView *headerView;
+@property (nonatomic) UIView *footerView;
 
 @property (nonatomic, readonly) NSMutableArray *rows;
 
@@ -54,12 +54,12 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
     NSMutableArray *_sections;
 
-    LMTableViewElementDisposition _elementDisposition;
+    LMElementDisposition _elementDisposition;
 }
 
 #define INIT {\
     _sections = [NSMutableArray new];\
-    _elementDisposition = LMTableViewElementDispositionNone;\
+    _elementDisposition = LMElementDispositionNone;\
     [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
     [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
     [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
@@ -280,11 +280,11 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
-    if ([target isEqual:LMTableViewSectionBreakTarget]) {
+    if ([target isEqual:kSectionBreakTarget]) {
         [self insertSection:[self numberOfSectionsInTableView:self]];
-    } else if ([target isEqual:LMTableViewSectionNameTarget]) {
+    } else if ([target isEqual:kSectionNameTarget]) {
         [self setName:data forSection:[self numberOfSectionsInTableView:self] - 1];
-    } else if ([target isEqual:LMTableViewSectionSelectionModeTarget]) {
+    } else if ([target isEqual:kSectionSelectionModeTarget]) {
         LMTableViewSelectionMode selectionMode;
         if ([data isEqual:@"default"]) {
             selectionMode = LMTableViewSelectionModeDefault;
@@ -297,10 +297,10 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
         }
 
         [self setSelectionMode: selectionMode forSection:[self numberOfSectionsInTableView:self] - 1];
-    } else if ([target isEqual:LMTableViewSectionHeaderViewTarget]) {
-        _elementDisposition = LMTableViewElementDispositionSectionHeaderView;
-    } else if ([target isEqual:LMTableViewSectionFooterViewTarget]) {
-        _elementDisposition = LMTableViewElementDispositionSectionFooterView;
+    } else if ([target isEqual:kSectionHeaderViewTarget]) {
+        _elementDisposition = LMElementDispositionSectionHeaderView;
+    } else if ([target isEqual:kSectionFooterViewTarget]) {
+        _elementDisposition = LMElementDispositionSectionFooterView;
     }
 }
 
@@ -309,7 +309,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
     NSInteger section = [self numberOfSectionsInTableView:self] - 1;
 
     switch (_elementDisposition) {
-        case LMTableViewElementDispositionNone: {
+        case LMElementDispositionNone: {
             NSInteger row = [self tableView:self numberOfRowsInSection:section];
 
             [self insertCell:(UITableViewCell *)view forRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
@@ -317,13 +317,13 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
             break;
         }
 
-        case LMTableViewElementDispositionSectionHeaderView: {
+        case LMElementDispositionSectionHeaderView: {
             [[_sections objectAtIndex:section] setHeaderView:view];
 
             break;
         }
 
-        case LMTableViewElementDispositionSectionFooterView: {
+        case LMElementDispositionSectionFooterView: {
             [[_sections objectAtIndex:section] setFooterView:view];
 
             break;
@@ -334,7 +334,7 @@ typedef NS_ENUM(NSInteger, LMTableViewElementDisposition) {
         }
     }
 
-    _elementDisposition = LMTableViewElementDispositionNone;
+    _elementDisposition = LMElementDispositionNone;
 }
 
 @end
