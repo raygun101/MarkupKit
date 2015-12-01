@@ -24,6 +24,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
+    <?sectionName dynamic?>
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Dynamic Section" textLabel.textColor="#808080"/>
 </LMTableView>

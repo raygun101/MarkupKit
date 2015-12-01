@@ -16,6 +16,7 @@ import UIKit
 import MarkupKit
 
 class CustomSectionViewController: UITableViewController {
+    static let DynamicSectionName = "dynamic"
     static let CellIdentifier = "cell"
 
     override func loadView() {
@@ -34,7 +35,7 @@ class CustomSectionViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (section == 1) {
+        if (tableView.nameForSection(section) == CustomSectionViewController.DynamicSectionName) {
             n = 3
         } else {
             n = tableView.numberOfRowsInSection(section)
@@ -45,7 +46,7 @@ class CustomSectionViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (indexPath.section == 1) {
+        if (tableView.nameForSection(indexPath.section) == CustomSectionViewController.DynamicSectionName) {
             cell = tableView.dequeueReusableCellWithIdentifier(CustomSectionViewController.CellIdentifier)!
             
             cell.textLabel!.text = String(indexPath.row + 1)

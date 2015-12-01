@@ -17,17 +17,17 @@
 
 #import <objc/message.h>
 
-static NSString * const LMViewBuilderPropertiesTarget = @"properties";
-static NSString * const LMViewBuilderStringsTarget = @"strings";
+static NSString * const kPropertiesTarget = @"properties";
+static NSString * const kStringsTarget = @"strings";
 
-static NSString * const LMViewBuilderRootTag = @"root";
-static NSString * const LMViewBuilderFactoryKey = @"style";
-static NSString * const LMViewBuilderTemplateKey = @"class";
+static NSString * const kRootTag = @"root";
+static NSString * const kFactoryKey = @"style";
+static NSString * const kTemplateKey = @"class";
 
-static NSString * const LMViewBuilderOutletKey = @"id";
-static NSString * const LMViewBuilderActionPrefix = @"on";
+static NSString * const kOutletKey = @"id";
+static NSString * const kActionPrefix = @"on";
 
-static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
+static NSString * const kLocalizedStringPrefix = @"@";
 
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
@@ -742,9 +742,9 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
 {
     if ([_views count] == 0) {
-        if ([target isEqual:LMViewBuilderPropertiesTarget]) {
+        if ([target isEqual:kPropertiesTarget]) {
             [self loadProperties:data];
-        } else if ([target isEqual:LMViewBuilderStringsTarget]) {
+        } else if ([target isEqual:kStringsTarget]) {
             [self loadStrings:data];
         }
     } else {
@@ -797,13 +797,13 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     for (NSString *key in attributes) {
         NSString *value = [attributes objectForKey:key];
 
-        if ([key isEqual:LMViewBuilderFactoryKey]) {
+        if ([key isEqual:kFactoryKey]) {
             factory = value;
-        } else if ([key isEqual:LMViewBuilderTemplateKey]) {
+        } else if ([key isEqual:kTemplateKey]) {
             template = value;
-        } else if ([key isEqual:LMViewBuilderOutletKey]) {
+        } else if ([key isEqual:kOutletKey]) {
             outlet = value;
-        } else if ([key hasPrefix:LMViewBuilderActionPrefix] && [key length] > [LMViewBuilderActionPrefix length]
+        } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
             && ![key isEqual:@"onTintColor"]) {
             [actions setObject:value forKey:key];
         } else {
@@ -812,7 +812,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     }
 
     // Create view
-    if ([elementName isEqual:LMViewBuilderRootTag] && _view == nil) {
+    if ([elementName isEqual:kRootTag] && _view == nil) {
         _view = _root;
     } else {
         Class type = NSClassFromString(elementName);
@@ -853,8 +853,8 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
 
 - (NSString *)localizeValue:(NSString *)value
 {
-    if ([value hasPrefix:LMViewBuilderLocalizedStringPrefix]) {
-        value = [value substringFromIndex:[LMViewBuilderLocalizedStringPrefix length]];
+    if ([value hasPrefix:kLocalizedStringPrefix]) {
+        value = [value substringFromIndex:[kLocalizedStringPrefix length]];
 
         NSString *localizedValue = [_strings objectForKey:value];
 
@@ -873,7 +873,7 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     for (NSString *key in actions) {
         id value = [actions objectForKey:key];
 
-        NSString *event = [key substringFromIndex:[LMViewBuilderActionPrefix length]];
+        NSString *event = [key substringFromIndex:[kActionPrefix length]];
 
         UIControlEvents controlEvent;
         if ([event isEqual:@"TouchDown"]) {
@@ -932,8 +932,8 @@ static NSString * const LMViewBuilderLocalizedStringPrefix = @"@";
     } else {
         // Inject properties and strings into owner
         @try {
-            [_owner setValue:_properties forKey:LMViewBuilderPropertiesTarget];
-            [_owner setValue:_strings forKey:LMViewBuilderStringsTarget];
+            [_owner setValue:_properties forKey:kPropertiesTarget];
+            [_owner setValue:_strings forKey:kStringsTarget];
         }
         @catch (NSException *exception) {
             if (![[exception name] isEqual:NSUndefinedKeyException]) {

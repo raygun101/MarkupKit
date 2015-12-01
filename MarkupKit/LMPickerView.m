@@ -14,10 +14,23 @@
 
 #import "LMPickerView.h"
 
+static NSString * const kComponentBreakTarget = @"componentBreak";
+
+static NSString * const kComponentNameTarget = @"componentName";
+
+static NSString * const kRowTitleTarget = @"rowTitle";
+
+@interface LMPickerViewRow : NSObject
+
+@property (nonatomic) NSString* title;
+@property (nonatomic) id value;
+
+@end
+
 @interface LMPickerViewComponent : NSObject
 
-@property NSString* name;
-@property (nonatomic, readonly) NSMutableArray *titles;
+@property (nonatomic) NSString* name;
+@property (nonatomic, readonly) NSMutableArray *rows;
 
 @end
 
@@ -29,9 +42,12 @@
 {
     __weak id<UIPickerViewDataSource> _dataSource;
     __weak id<UIPickerViewDelegate> _delegate;
+
+    NSMutableArray *_components;
 }
 
 #define INIT {\
+    _components = [NSMutableArray new];\
     [super setDataSource:self];\
     [super setDelegate:self];\
     [self insertComponent:0];\
@@ -81,7 +97,7 @@
     return nil;
 }
 
-- (void)setName:(nullable NSString *)name forComponent:(NSInteger)component
+- (void)setName:(NSString *)name forComponent:(NSInteger)component
 {
     // TODO
 }
@@ -98,10 +114,37 @@
     return 0;
 }
 
-// TODO - (void)insertRow:inComponent:withTitle:value:
-// TODO - (void)deleteRow:inComponent:
+- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(id)value
+{
+    // TODO
+}
 
-// TODO - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component:
+- (void)deleteRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // TODO
+    return nil;
+}
+
+- (void)setTitle:(NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // TODO
+}
+
+- (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // TODO
+    return nil;
+}
+
+- (void)setValue:(id)value forRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    // TODO
+}
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -156,3 +199,23 @@
 }
 
 @end
+
+@implementation LMPickerViewRow
+
+@end
+
+@implementation LMPickerViewComponent
+
+- (instancetype)init
+{
+    self = [super init];
+
+    if (self) {
+        _rows = [NSMutableArray new];
+    }
+
+    return self;
+}
+
+@end
+

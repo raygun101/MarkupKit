@@ -13,7 +13,6 @@
 //
 
 #import "UIPickerView+Markup.h"
-#import "UIView+Markup.h"
 
 @implementation UIPickerView (Markup)
 
@@ -37,21 +36,19 @@
     return (component < n) ? component : NSNotFound;
 }
 
-// TODO - (nullable id)valueForRow:(NSInteger)row forComponent:(NSInteger)component:
+- (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return nil;
+}
 
-- (NSInteger)rowWithValue:(id)value forComponent:(NSInteger)component
+- (NSInteger)rowWithValue:(id)value inComponent:(NSInteger)component
 {
     NSInteger row = 0, n = [self numberOfRowsInComponent:component];
 
     while (row < n) {
-        // TODO Call valueForRow:forComponent:
-        /*
-        UIView *view = [self viewForRow:row forComponent:component];
-
-        if ([[view value] isEqual:value]) {
+        if ([value isEqual:[self valueForRow:row forComponent:component]]) {
             break;
         }
-        */
 
         row++;
     }
