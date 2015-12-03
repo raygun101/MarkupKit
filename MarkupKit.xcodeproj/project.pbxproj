@@ -38,6 +38,16 @@
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
+		37A9FC161C107D9200A09102 /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC141C107D9200A09102 /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37A9FC171C107D9200A09102 /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC151C107D9200A09102 /* LMGradientView.m */; };
+		37A9FC1A1C10837D00A09102 /* LMLinearGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC181C10837D00A09102 /* LMLinearGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37A9FC1B1C10837D00A09102 /* LMLinearGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC191C10837D00A09102 /* LMLinearGradientView.m */; };
+		37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC1C1C10838C00A09102 /* LMRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */; };
+		37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */; };
+		37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */; };
+		37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC241C108D6B00A09102 /* LinearGradientView.xml */; };
+		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
 		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
@@ -208,6 +218,16 @@
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
 		379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSpacer.m; sourceTree = "<group>"; };
+		37A9FC141C107D9200A09102 /* LMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMGradientView.h; sourceTree = "<group>"; };
+		37A9FC151C107D9200A09102 /* LMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMGradientView.m; sourceTree = "<group>"; };
+		37A9FC181C10837D00A09102 /* LMLinearGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLinearGradientView.h; sourceTree = "<group>"; };
+		37A9FC191C10837D00A09102 /* LMLinearGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLinearGradientView.m; sourceTree = "<group>"; };
+		37A9FC1C1C10838C00A09102 /* LMRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRadialGradientView.h; sourceTree = "<group>"; };
+		37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRadialGradientView.m; sourceTree = "<group>"; };
+		37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientViewController.swift; sourceTree = "<group>"; };
+		37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientViewController.swift; sourceTree = "<group>"; };
+		37A9FC241C108D6B00A09102 /* LinearGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LinearGradientView.xml; sourceTree = "<group>"; };
+		37A9FC261C108D7900A09102 /* RadialGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientView.xml; sourceTree = "<group>"; };
 		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
 		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +397,12 @@
 				3742F0131B34D2C800B31987 /* LMLayerView.m */,
 				379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */,
 				379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */,
+				37A9FC141C107D9200A09102 /* LMGradientView.h */,
+				37A9FC151C107D9200A09102 /* LMGradientView.m */,
+				37A9FC181C10837D00A09102 /* LMLinearGradientView.h */,
+				37A9FC191C10837D00A09102 /* LMLinearGradientView.m */,
+				37A9FC1C1C10838C00A09102 /* LMRadialGradientView.h */,
+				37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */,
 				3709BCFD1C0B57610099B8F2 /* LMPickerView.h */,
 				3709BCFE1C0B57610099B8F2 /* LMPickerView.m */,
 				3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */,
@@ -465,6 +491,10 @@
 				37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */,
 				37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */,
 				37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */,
+				37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */,
+				37A9FC241C108D6B00A09102 /* LinearGradientView.xml */,
+				37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */,
+				37A9FC261C108D7900A09102 /* RadialGradientView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -496,17 +526,20 @@
 				379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */,
 				3B5FFE041B309E0D00E8EC39 /* LMScrollView.h in Headers */,
 				3BAD2D591B30E7CA00DDB6CD /* LMTableView.h in Headers */,
+				37A9FC1A1C10837D00A09102 /* LMLinearGradientView.h in Headers */,
 				3BAD2D5D1B30E8FB00DDB6CD /* LMTableViewCell.h in Headers */,
 				37F1B8B91C0BAF3900C9F603 /* UIPickerView+Markup.h in Headers */,
 				3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */,
 				3B4D1F2A1B041EF400CB61A9 /* CALayer+Markup.h in Headers */,
 				3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */,
 				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
+				37A9FC161C107D9200A09102 /* LMGradientView.h in Headers */,
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
 				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
 				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
 				3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
+				37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
 			);
@@ -693,12 +726,14 @@
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
+				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
 				37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */,
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
+				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
 				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
@@ -724,7 +759,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
+				37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */,
 				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
+				37A9FC171C107D9200A09102 /* LMGradientView.m in Sources */,
 				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
 				3742F0111B34D29300B31987 /* LMRowView.m in Sources */,
 				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
@@ -744,6 +781,7 @@
 				3709BD001C0B57610099B8F2 /* LMPickerView.m in Sources */,
 				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
 				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
+				37A9FC1B1C10837D00A09102 /* LMLinearGradientView.m in Sources */,
 				3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -762,9 +800,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
+				37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */,
 				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
 				37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */,
+				37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */,
 				37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,

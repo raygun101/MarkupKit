@@ -27,4 +27,6 @@ limitations under the License.
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
     <UITableViewCell textLabel.text="Custom Section View" accessoryType="disclosureIndicator" value="customSectionView"/>
     <UITableViewCell textLabel.text="Custom Component View" accessoryType="disclosureIndicator" value="customComponentView"/>
+    <UITableViewCell textLabel.text="Linear Gradient View" accessoryType="disclosureIndicator" value="linearGradientView"/>
+    <UITableViewCell textLabel.text="Radial Gradient View" accessoryType="disclosureIndicator" value="radialGradientView"/>
 </LMTableView>
