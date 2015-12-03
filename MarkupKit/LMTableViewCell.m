@@ -28,23 +28,23 @@
     [contentView addSubview:view];
 
     // Pin text field to cell edges
-    NSMutableArray *layoutConstraints = [NSMutableArray new];
+    NSMutableArray *constraints = [NSMutableArray new];
 
-    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
         relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTopMargin
         multiplier:1 constant:0]];
-    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
         relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottomMargin
         multiplier:1 constant:0]];
 
-    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
         relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeftMargin
         multiplier:1 constant:0]];
-    [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
         relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeRightMargin
         multiplier:1 constant:0]];
 
-    [contentView addConstraints:layoutConstraints];
+    [NSLayoutConstraint activateConstraints:constraints];
 }
 
 @end

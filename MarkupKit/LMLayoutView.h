@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LMLayoutView : UIView
 
 /**
- * The list of subviews arranged by the layout view.
+ * The list of subviews whose sizes and positions are managed by the layout view.
  */
 @property (nonatomic, readonly, copy) NSArray<UIView *> *arrangedSubviews;
 
