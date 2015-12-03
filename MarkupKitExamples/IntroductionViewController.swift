@@ -31,7 +31,7 @@ class IntroductionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Markup Example"
+        title = "Introduction Example"
 
         edgesForExtendedLayout = UIRectEdge.None
     }

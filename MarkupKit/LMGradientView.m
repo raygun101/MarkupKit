@@ -77,31 +77,33 @@
 
 - (void)drawRect:(CGRect)rect
 {
-    if (_gradient == nil) {
-        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    if (_colors != nil) {
+        if (_gradient == nil) {
+            CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 
-        NSMutableArray *colors = [[NSMutableArray alloc] initWithCapacity:[_colors count]];
+            NSMutableArray *colors = [[NSMutableArray alloc] initWithCapacity:[_colors count]];
 
-        for (UIColor *color in _colors) {
-            [colors addObject:(id)[color CGColor]];
-        }
-
-        if (_locations == nil) {
-            _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, nil);
-        } else {
-            CGFloat locations[[_locations count]];
-
-            int i = 0;
-
-            for (NSNumber *location in _locations) {
-                locations[i++] = [location floatValue];
+            for (UIColor *color in _colors) {
+                [colors addObject:(id)[color CGColor]];
             }
 
-            _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
-        }
-    }
+            if (_locations == nil) {
+                _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, nil);
+            } else {
+                CGFloat locations[[_locations count]];
 
-    [self drawGradient:_gradient inRect:rect];
+                int i = 0;
+
+                for (NSNumber *location in _locations) {
+                    locations[i++] = [location floatValue];
+                }
+
+                _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+            }
+        }
+
+        [self drawGradient:_gradient inRect:rect];
+    }
 }
 
 - (void)drawGradient:(CGGradientRef)gradient inRect:(CGRect)rect {

@@ -48,6 +48,8 @@
 		37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */; };
 		37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC241C108D6B00A09102 /* LinearGradientView.xml */; };
 		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
+		37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC281C10C81300A09102 /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC291C10C81300A09102 /* LMPageView.m */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
 		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
@@ -228,6 +230,8 @@
 		37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientViewController.swift; sourceTree = "<group>"; };
 		37A9FC241C108D6B00A09102 /* LinearGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LinearGradientView.xml; sourceTree = "<group>"; };
 		37A9FC261C108D7900A09102 /* RadialGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientView.xml; sourceTree = "<group>"; };
+		37A9FC281C10C81300A09102 /* LMPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPageView.h; sourceTree = "<group>"; };
+		37A9FC291C10C81300A09102 /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPageView.m; sourceTree = "<group>"; };
 		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
 		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -407,6 +411,8 @@
 				3709BCFE1C0B57610099B8F2 /* LMPickerView.m */,
 				3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */,
 				3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */,
+				37A9FC281C10C81300A09102 /* LMPageView.h */,
+				37A9FC291C10C81300A09102 /* LMPageView.m */,
 				3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */,
 				3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */,
 				3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */,
@@ -516,6 +522,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */,
 				37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */,
 				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
 				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
@@ -768,6 +775,7 @@
 				379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */,
 				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
 				3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */,
+				37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */,
 				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
 				378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */,

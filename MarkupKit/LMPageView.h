@@ -16,20 +16,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * Abstract base class for gradient views.
- */
-@interface LMGradientView : UIView
+@interface LMPageView : UIScrollView
 
-/**
- * The gradient colors.
- */
-@property (nonatomic, nullable, copy) NSArray<UIColor *> *colors;
-
-/**
- * The gradient locations.
- */
-@property (nonatomic, nullable, copy) NSArray<NSNumber *> *locations;
+// TODO
 
 @end
 
