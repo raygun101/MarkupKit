@@ -12,25 +12,10 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import "LMPageView.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation LMPageView
 
-/**
- * Abstract base class for gradient views.
- */
-@interface LMGradientView : UIView
-
-/**
- * The gradient colors.
- */
-@property (nonatomic, nullable, copy) NSArray<UIColor *> *colors;
-
-/**
- * The gradient locations.
- */
-@property (nonatomic, nullable, copy) NSArray<NSNumber *> *locations;
+// TODO
 
 @end
-
-NS_ASSUME_NONNULL_END
