@@ -14,8 +14,24 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMPageView backgroundColor="#ffffff">
-    <UIImageView image="chevy.png" contentMode="center"/>
-    <UIImageView image="mini.png" contentMode="center"/>
-    <UIImageView image="vw.png" contentMode="center"/>
-</LMPageView>
+<LMLayerView layoutMarginsRelativeArrangement="false">
+    <LMPageView id="pageView" backgroundColor="#ffffff">
+        <LMColumnView layoutMargins="40" backgroundColor="#ff0000">
+            <UIImageView image="chevy.png" contentMode="center" backgroundColor="#ffffff"/>
+        </LMColumnView>
+
+        <LMColumnView layoutMargins="40" backgroundColor="#00ff00">
+            <UIImageView image="mini.png" contentMode="center" backgroundColor="#ffffff"/>
+        </LMColumnView>
+
+        <LMColumnView layoutMargins="40" backgroundColor="#0000ff">
+            <UIImageView image="vw.png" contentMode="center" backgroundColor="#ffffff"/>
+        </LMColumnView>
+    </LMPageView>
+
+    <LMColumnView>
+        <LMSpacer/>
+        <UIPageControl id="pageControl" numberOfPages="3"/>
+    </LMColumnView>
+</LMLayerView>
+

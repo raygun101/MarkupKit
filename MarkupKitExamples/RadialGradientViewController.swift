@@ -24,5 +24,7 @@ class RadialGradientViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Radial Gradient View"
+        
+        edgesForExtendedLayout = UIRectEdge.None
     }
 }

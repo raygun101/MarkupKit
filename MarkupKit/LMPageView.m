@@ -51,6 +51,11 @@
     return self;
 }
 
+- (NSInteger)currentPage
+{
+    return (NSInteger)[self contentOffset].x / [self frame].size.width;
+}
+
 - (void)addPage:(UIView *)page
 {
     [self insertPage:page atIndex:[_pages count]];

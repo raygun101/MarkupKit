@@ -15,7 +15,10 @@
 import UIKit
 import MarkupKit
 
-class PageViewController: UIViewController {
+class PageViewController: UIViewController, UIScrollViewDelegate {
+    var pageView: LMPageView!
+    var pageControl: UIPageControl!
+
     override func loadView() {
         view = LMViewBuilder.viewWithName("PageView", owner: self, root: nil)
     }
@@ -24,6 +27,14 @@ class PageViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Page View"
+
+        edgesForExtendedLayout = UIRectEdge.None
+
+        pageView.delegate = self
+    }
+
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        pageControl.currentPage = pageView.currentPage
     }
 }
 
