@@ -24,5 +24,7 @@ class GridViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Grid View"
+        
+        edgesForExtendedLayout = UIRectEdge.None
     }
 }

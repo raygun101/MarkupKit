@@ -24,5 +24,7 @@ class LinearGradientViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Linear Gradient View"
+        
+        edgesForExtendedLayout = UIRectEdge.None
     }
 }

@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSArray<UIView *> *pages;
 
 /**
+ * The index of the current page.
+ */
+@property (nonatomic, readonly) NSInteger currentPage;
+
+/**
  * Adds a page.
  * 
  * @param page The page to add.
