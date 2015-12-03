@@ -83,7 +83,10 @@
 }
 
 - (void)drawGradient:(CGGradientRef)gradient inRect:(CGRect)rect {
-    // TODO
+    CGPoint startPoint = CGPointMake(_startPoint.x * rect.size.width, _startPoint.y * rect.size.height);
+    CGPoint endPoint = CGPointMake(_endPoint.x * rect.size.width, _endPoint.y * rect.size.height);
+
+    CGContextDrawLinearGradient(UIGraphicsGetCurrentContext(), gradient, startPoint, endPoint, 0);
 }
 
 @end
