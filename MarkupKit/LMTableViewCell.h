@@ -21,6 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface LMTableViewCell : UITableViewCell
 
+/**
+ * Specifies that the cell's content will be arranged relative to the cell's layout margins.
+ * The default value is <tt>YES</tt>.
+ */
+@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
+
 @end
 
 NS_ASSUME_NONNULL_END
