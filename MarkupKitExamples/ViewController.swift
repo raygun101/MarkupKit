@@ -58,6 +58,10 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(CustomSectionViewController(), animated: true)
         } else if (value == "customComponentView") {
             navigationController!.pushViewController(CustomComponentViewController(), animated: true)
+        } else if (value == "linearGradientView") {
+            navigationController!.pushViewController(LinearGradientViewController(), animated: true)
+        } else if (value == "radialGradientView") {
+            navigationController!.pushViewController(RadialGradientViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
