@@ -50,6 +50,8 @@
 		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
 		37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC281C10C81300A09102 /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC291C10C81300A09102 /* LMPageView.m */; };
+		37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC2C1C10DF1200A09102 /* PageViewController.swift */; };
+		37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC2E1C10DF2200A09102 /* PageView.xml */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
 		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
@@ -232,6 +234,8 @@
 		37A9FC261C108D7900A09102 /* RadialGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientView.xml; sourceTree = "<group>"; };
 		37A9FC281C10C81300A09102 /* LMPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPageView.h; sourceTree = "<group>"; };
 		37A9FC291C10C81300A09102 /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPageView.m; sourceTree = "<group>"; };
+		37A9FC2C1C10DF1200A09102 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		37A9FC2E1C10DF2200A09102 /* PageView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageView.xml; sourceTree = "<group>"; };
 		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
 		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -501,6 +505,8 @@
 				37A9FC241C108D6B00A09102 /* LinearGradientView.xml */,
 				37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */,
 				37A9FC261C108D7900A09102 /* RadialGradientView.xml */,
+				37A9FC2C1C10DF1200A09102 /* PageViewController.swift */,
+				37A9FC2E1C10DF2200A09102 /* PageView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				3BB70C411B78E9990086A3F9 /* LaunchScreen.xib */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -722,6 +728,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
 				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
@@ -821,6 +828,7 @@
 				3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */,
 				37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */,
 				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
 				37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
