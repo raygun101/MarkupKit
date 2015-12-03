@@ -13,10 +13,16 @@
 //
 
 #import "LMGradientView.h"
+#import "LMViewBuilder.h"
 
 @implementation LMGradientView
 {
     CGGradientRef _gradient;
+}
+
+- (void)dealloc
+{
+    CGGradientRelease(_gradient);
 }
 
 - (void)setColors:(NSArray *)colors
@@ -37,15 +43,33 @@
 {
     [super setNeedsDisplay];
 
+    CGGradientRelease(_gradient);
+
     _gradient = nil;
 }
 
 - (void)setValue:(id)value forKey:(NSString *)key
 {
-    if ([key isEqual:@"colors"]) {
-        // TODO Split on comma and convert components to UIColor instances
-    } else if ([key isEqual:@"locations"]) {
-        // TODO Split on comma and convert components to NSNumber instancs
+    if ([key isEqual:@"colors"] && [value isKindOfClass:[NSString self]]) {
+        NSArray *components = [value componentsSeparatedByString:@","];
+
+        NSMutableArray *colors = [[NSMutableArray alloc] initWithCapacity:[components count]];
+
+        for (NSString *component in components) {
+            [colors addObject:[LMViewBuilder colorValue:[component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]]]];
+        }
+
+        value = colors;
+    } else if ([key isEqual:@"locations"] && [value isKindOfClass:[NSString self]]) {
+        NSArray *components = [value componentsSeparatedByString:@","];
+
+        NSMutableArray *locations = [[NSMutableArray alloc] initWithCapacity:[components count]];
+
+        for (NSString *component in components) {
+            [locations addObject:[NSNumber numberWithFloat:[component floatValue]]];
+        }
+
+        value = locations;
     }
 
     [super setValue:value forKey:key];
@@ -54,7 +78,27 @@
 - (void)drawRect:(CGRect)rect
 {
     if (_gradient == nil) {
-        // TODO Recreate gradient
+        CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+
+        NSMutableArray *colors = [[NSMutableArray alloc] initWithCapacity:[_colors count]];
+
+        for (UIColor *color in _colors) {
+            [colors addObject:(id)[color CGColor]];
+        }
+
+        if (_locations == nil) {
+            _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, nil);
+        } else {
+            CGFloat locations[[_locations count]];
+
+            int i = 0;
+
+            for (NSNumber *location in _locations) {
+                locations[i++] = [location floatValue];
+            }
+
+            _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
+        }
     }
 
     [self drawGradient:_gradient inRect:rect];
