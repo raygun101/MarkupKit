@@ -100,7 +100,7 @@ limitations under the License.
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Date Picker" class="cell.header"/>
 
-    <LMTableViewCell selectionStyle="none">
+    <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <UIDatePicker datePickerMode="date"/>
     </LMTableViewCell>
 
@@ -110,7 +110,7 @@ limitations under the License.
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Custom Picker" class="cell.header"/>
 
-    <LMTableViewCell selectionStyle="none">
+    <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <LMPickerView>
             <?componentName sizes?>
 
