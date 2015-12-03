@@ -16,7 +16,7 @@
 
 @implementation LMScrollView
 {
-    NSArray *_layoutConstraints;
+    NSArray *_constraints;
 }
 
 + (BOOL)requiresConstraintBasedLayout
@@ -71,10 +71,10 @@
 
 - (void)setNeedsUpdateConstraints
 {
-    if (_layoutConstraints != nil) {
-        [self removeConstraints:_layoutConstraints];
+    if (_constraints != nil) {
+        [self removeConstraints:_constraints];
 
-        _layoutConstraints = nil;
+        _constraints = nil;
     }
 
     [super setNeedsUpdateConstraints];
@@ -82,45 +82,44 @@
 
 - (void)updateConstraints
 {
-    if (_layoutConstraints == nil) {
-        NSMutableArray *layoutConstraints = nil;
-
+    if (_constraints == nil) {
         if (_contentView != nil) {
-            layoutConstraints = [NSMutableArray new];
+            NSMutableArray *constraints = [NSMutableArray new];
 
             // Align content view edges to scroll view edges
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeTop
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
                 multiplier:1 constant:0]];
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeBottom
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeBottom
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
                 multiplier:1 constant:0]];
 
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeLeft
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeLeft
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft
                 multiplier:1 constant:0]];
-            [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeRight
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeRight
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight
                 multiplier:1 constant:0]];
 
             // Match content view width/height to scroll view width/height
             if (_fitToWidth) {
-                [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeWidth
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeWidth
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth
                     multiplier:1 constant:0]];
             }
 
             if (_fitToHeight) {
-                [layoutConstraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeHeight
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:_contentView attribute:NSLayoutAttributeHeight
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight
                     multiplier:1 constant:0]];
             }
 
-            // Add constraints
-            [self addConstraints:layoutConstraints];
+            _constraints = constraints;
         }
 
-        _layoutConstraints = layoutConstraints;
+        if (_constraints != nil) {
+            [NSLayoutConstraint activateConstraints:_constraints];
+        }
     }
 
     [super updateConstraints];
