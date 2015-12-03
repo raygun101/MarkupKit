@@ -28,6 +28,9 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
+    [super setPagingEnabled:YES];\
+    [super setShowsHorizontalScrollIndicator:NO];\
+    [super setShowsVerticalScrollIndicator:NO];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -105,7 +108,47 @@
         if ([_pages count] > 0) {
             NSMutableArray *constraints = [NSMutableArray new];
 
-            // TODO Create constraints
+            UIView *previousPage = nil;
+
+            for (UIView *page in _pages) {
+                // Align to siblings
+                if (previousPage == nil) {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeLeft
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft
+                        multiplier:1 constant:0]];
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeLeft
+                        relatedBy:NSLayoutRelationEqual toItem:previousPage attribute:NSLayoutAttributeRight
+                        multiplier:1 constant:0]];
+                }
+
+                // Align to parent
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeTop
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
+                    multiplier:1 constant:0]];
+
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeBottom
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
+                    multiplier:1 constant:0]];
+
+                // Match page width/height to page view width/height
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeWidth
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeWidth
+                    multiplier:1 constant:0]];
+
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:page attribute:NSLayoutAttributeHeight
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight
+                    multiplier:1 constant:0]];
+
+                previousPage = page;
+            }
+
+            // Align final view to trailing edge
+            if (previousPage != nil) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:previousPage attribute:NSLayoutAttributeRight
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight
+                    multiplier:1 constant:0]];
+            }
 
             _constraints = constraints;
         }
