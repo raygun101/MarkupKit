@@ -12,9 +12,11 @@ The output produced by this markup is identical to the output of the following S
     let label = UILabel()
     label.text = "Hello, World!"
 
-This document introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed. For additional information, including examples, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
+This document introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires iOS 8 or later. It can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases).
+MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
+
+For examples and additional information, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent `UIView` instances, and XML attributes typically represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
@@ -166,12 +168,21 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
 Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties such as "titleLabel.font" are supported.
 
-For example, if _MyStyles.plist_ defines a dictionary named "label.hello" that contains the following values (abbreviated for clarity):
+For example, if _MyStyles.plist_ is defined as follows:
 
-    "label.hello": {
-        "font": "Helvetica 24"
-        "textAlignment": "center"
-    }
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+    	<key>label.hello</key>
+    	<dict>
+    		<key>font</key>
+    		<string>Helvetica 24</string>
+    		<key>textAlignment</key>
+    		<string>center</string>
+    	</dict>
+    </dict>
+    </plist>
     
 the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally-centered text:
 
@@ -226,11 +237,14 @@ Note that, if the data component of a processing instruction begins with "@", it
 The remaining sections of this document discuss the classes included with the MarkupKit framework:
 
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by an iOS application
-* `LMTableView` and `LMTableViewCell` - table view types that simplify the definition of static table view content
-* `LMScrollView` - scroll view that automatically adapts to the size of its content
+* `LMTableView` and `LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
+* `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
+* `LMScrollView` - `UIScrollView` subclass that automatically adapts to the size of its content
+* `LMPageView` - `UIScrollView` subclass that facilitates the declaration of paged content
 * `LMRowView` and `LMColumnView` - layout views that arrange subviews in a horizontal or vertical line, respectively
 * `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
+* `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
 
 Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -365,7 +379,7 @@ The `sectionFooterView` processing instruction assigns a footer view to the curr
 
 As with header views, footers views are not limited to instances of `UITableViewCell`; any `UIView` subclass can be used as a footer.
 
-The `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, allowing sections to be added or re-ordered without breaking controller code. For example:
+The `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -410,10 +424,11 @@ In order to support static content declaration, `LMTableView` acts as its own da
 
 `LMTableView` propagates the following `UITableViewDataSource` calls to a custom data source:
 
+* `numberOfSectionsInTableView:`
 * `tableView:numberOfRowsInSection:`
 * `tableView:cellForRowAtIndexPath:`
 
-For sections that are not handled, implementing classes should delegate to the given table view instance. For example:
+In general, it is not necessary to override `numberOfSectionsInTableView:`. However, for sections that are not handled, implementing classes should delegate to the given table view instance. For example:
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
@@ -482,6 +497,107 @@ Finally, as discussed earlier, `LMTableViewCell` can also be used as the base cl
 
 See _LMTableViewCell.h_ for more information.
 
+## LMPickerView
+`LMPickerView` is a subclass of `UIPickerView` that acts as its own data source and delegate, serving content from a statically-defined collection of row and component titles. For example, the following markup declares a picker view containing four rows reprenting size options:
+
+    <LMPickerView>
+        <?rowTitle Small?>
+        <?rowTitle Medium?>
+        <?rowTitle Large?>
+        <?rowTitle Extra-Large?>
+    </LMPickerView>
+
+The `rowTitle` processing instruction corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The PI data is used as the row title. An optional value to associate with the row can be specified as follows:
+
+    <LMPickerView>
+        <?rowTitle Small; S?>
+        <?rowTitle Medium; M?>
+        <?rowTitle Large; L?>
+        <?rowTitle Extra-Large; XL?>
+    </LMPickerView>
+
+The `componentSeparator` processing instruction is used to insert a new component into the picker view. It corresponds to a call to the `insertComponent:` method. The following markup declares a picker view containing two components> The first component contains a set of size options, and the second contains color options:
+
+    <LMPickerView>
+        <?rowTitle Small; S?>
+        <?rowTitle Medium; M?>
+        <?rowTitle Large; L?>
+        <?rowTitle Extra-Large; XL?>
+
+        <?componentSeparator?>
+
+        <?rowTitle Red; #ff0000?>
+        <?rowTitle Yellow; #ffff00?>
+        <?rowTitle Green; #00ff00?>
+        <?rowTitle Blue; #0000ff?>
+        <?rowTitle Purple; #ff00ff?>
+    </LMPickerView>
+
+Finally, the `componentName` processing instruction is used to assign a name to a component. It corresponds to a call to the `setName:forComponent:` method of `LMPickerView`. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+
+    <LMPickerView>
+        <?componentName sizes?>
+
+        <?rowTitle Small; S?>
+        <?rowTitle Medium; M?>
+        <?rowTitle Large; L?>
+        <?rowTitle Extra-Large; XL?>
+
+        <?componentSeparator?>
+
+        <?componentName colors?>
+        <?rowTitle Red; #ff0000?>
+        <?rowTitle Yellow; #ffff00?>
+        <?rowTitle Green; #00ff00?>
+        <?rowTitle Blue; #0000ff?>
+        <?rowTitle Purple; #ff00ff?>
+    </LMPickerView>
+
+#### Custom Data Source/Delegate Implementations
+In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMPickerView` instance to override the default behavior. This allows the data source to provide some picker content dynamically while relying on the picker view to manage static content. 
+
+`LMPickerView` propagates the following `UIPickerViewDataSource` calls to a custom data source:
+
+* `numberOfComponentsInPickerView:`
+* `pickerView:numberOfRowsInComponent:`
+* `pickerView:titleForRow:forComponent`
+
+Since picker view data sources are required to implement `numberOfComponentsInPickerView:`, the implementing class should generally delegate to the given picker view instance:
+
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return pickerView.numberOfComponents
+    }
+
+For components that are not handled, implementing classes should delegate to the picker view. For example:
+
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let n: Int
+        if (component == 0) {
+            // Custom behavior
+        } else {
+            n = pickerView.numberOfRowsInComponent(component)
+        }
+
+        return n
+    }
+
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let title: String
+        if (component == 0) {
+            // Custom behavior
+        } else {
+            title = pickerView.titleForRow(row, forComponent:component)!
+        }
+
+        return title
+    }
+
+Additionally, an application-specific delegate may be set on an `LMPickerView` instance to handle row selection events. `LMPickerView` propagates the following `LMPickerViewDelegate` call to a custom delegate:
+
+* `pickerView:didSelectRow:inComponent:`
+
+See _LMPickerView.h_ for more information.
+
 ## LMScrollView
 The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of a scroll view's content in markup. It presents a single scrollable content view, optionally allowing the user to scroll in one or both directions.
 
@@ -506,6 +622,23 @@ When `fitToWidth` is set to `true`, the scroll view will ensure that the width o
 Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
 
 See _LMScrollView.h_ for more information.
+
+## LMPageView
+The `LMPageView` class extends the standard `UIScrollView` class to enable the declaration of paged scroll view content. By default, an `LMPageView` instance enables paging on itself and disables scrolling.  
+
+For example, the following markup declares a page view containing three pages. Pages appear in the order in which they are declared:
+
+    <LMPageView>
+        <UILabel text="Page 1" textAlignment="center"/>
+        <UILabel text="Page 2" textAlignment="center"/>
+        <UILabel text="Page 3" textAlignment="center"/>
+    </LMPageView>
+
+Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view. `LMPageView` provides a `currentPage` property that can be used to easily synchronize its own page index with the index shown by the page control.
+
+Layer views are discussed in more detail later.
+
+See _LMPageView.h_ for more information.
 
 ## LMLayoutView
 Autolayout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using autolayout generally has little or no hard-coded positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
@@ -593,6 +726,8 @@ This markup creates a row view containing three labels, all with different font 
     
 Because the alignment is set to "baseline", the labels will be given their intrinsic sizes, and the baselines of all three labels will line up.
 
+See _LMRowView.h_ for more information.
+
 ### LMColumnView
 The `LMColumnView` class arranges its subviews in a vertical line. For example, the following markup creates a column view containing three labels:
 
@@ -651,6 +786,8 @@ For example, a view controller class might override the `viewWillLayoutSubviews`
     }
 
 Bottom spacing can be set similarly using the controller's bottom layout guide.
+
+See _LMColumnView.h_ for more information.
 
 ### View Weights
 MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:
@@ -722,6 +859,8 @@ Because spacer views are so common, MarkupKit provides a dedicated `UIView` subc
 
 Like layout views, spacer views do not consume touch events, so they will not interfere with any user interface elements that appear underneath them.
  
+See _LMSpacerView.h_ for more information.
+ 
 ## LMLayerView
 The `LMLayerView` class is arguably the simplest layout view. It simply arranges its subviews in layers, like a stack of transparencies. 
 
@@ -748,6 +887,63 @@ For example, the following markup creates a layer view containing a scroll view 
             </LMColumnView>
         </LMColumnView>
     </LMLayerView>
+
+See _LMLayerView.h_ for more information.
+
+## LMGradientView
+`LMGradientView` is the base class for views that facilitate the declaration of gradient effects. The gradient is automatically sized to fill the entire view.
+
+`LMGradientView` defines the following properties: 
+
+    @property (nonatomic, nullable, copy) NSArray *colors;
+    @property (nonatomic, nullable, copy) NSArray *locations;
+
+The first property is an array representing the colors displayed by the gradient. The second is an optional array representing the gradient's stop locations. If unspecified, the colors will be evenly distributed across the gradient.
+
+Gradient views are commonly used as a background in a layer view. Two types of gradient views are currently supported:
+
+* `LMLinearGradientView` - displays a linear gradient effect
+* `LMRadialGradientView` - displays a radial gradient effect
+
+Each is discussed in more detail below.
+
+See _LMGradientView.h_ for more information.
+
+### LMLinearGradientView
+The `LMLinearGradientView` class displays a linear gradient effect. It adds the following properties to the to the `colors` and `locations` properties defined by the base class:
+
+    @property (nonatomic) CGFloat startX;
+    @property (nonatomic) CGFloat startY;
+    @property (nonatomic) CGPoint startPoint;
+    
+    @property (nonatomic) CGFloat endX;
+    @property (nonatomic) CGFloat endY;
+    @property (nonatomic) CGPoint endPoint;
+
+The start point defines the starting location of the gradient, and the end point defines the ending location. Coordinate values are relative to the view's size and range from 0.0 to 1.0. The default value of `startPoint` is `{0.5, 0.0}`, and the default value of `endPoint` is `{0.5, 1.0}`, producing a vertical linear gradient.
+
+For example, the following markup creates a linear gradient view whose color values cycle through red, green, and blue, with stops at 0.0, 0.5, and 1.0:
+
+    <LMLinearGradientView colors="#ff0000, #00ff00, #0000ff" locations="0.0, 0.5, 1.0"/>
+    
+See _LMLinearGradientView.h_ for more information.
+
+### LMRadialGradientView
+The `LMRadialGradientView ` class displays a radial gradient effect. It adds the following properties to the to the `colors` and `locations` properties defined by the base class:
+
+    @property (nonatomic) CGFloat centerX;
+    @property (nonatomic) CGFloat centerY;
+    @property (nonatomic) CGPoint centerPoint;
+    
+    @property (nonatomic) CGFloat radius;
+
+The center point defines the position of the of the gradient's center. Coordinate values are relative to the view's size and range from 0.0 to 1.0. The default value is `{0.5, 0.5}`. The radius defines the extent of the gradient and is also relative to the view's size; its default value is 0.5.
+
+For example, the following markup creates a radial gradient view whose color values cycle through red, green, and blue, with stops at 0.0, 0.5, and 1.0:
+
+    <LMRadialGradientView colors="#ff0000, #00ff00, #0000ff" locations="0.0, 0.5, 1.0"/>
+
+See _LMRadialGradientView.h_ for more information.
 
 ## UIKit Extensions
 MarkupKit extends several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
@@ -881,6 +1077,15 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCe
     </UITableViewCell>
 
 Note that `LMTableViewCell` overrides `appendMarkupElementView:` to set the cell's content element view. As a result, a view specified as a child of an `LMTableViewCell` will be sized to occupy the entire contents of the cell, not just the accessory area.
+
+### UIPickerView
+MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
+
+    - (NSString *)nameForComponent:(NSInteger)component;
+    - (NSInteger)componentWithName:(NSString *)name;
+    - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+    - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
+    - (NSInteger)rowWithValue:(id)value inComponent:(NSInteger)component;
 
 ### UIProgressView
 Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
