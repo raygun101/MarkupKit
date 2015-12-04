@@ -96,6 +96,25 @@ limitations under the License.
 
     <?sectionBreak?>
 
+    <!-- Segmented Control -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Segmented Control" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <LMRowView>
+            <LMSpacer/>
+                <UISegmentedControl>
+                    <?segmentTitle Small?>
+                    <?segmentTitle Medium?>
+                    <?segmentTitle Large?>
+                    <?segmentTitle Extra-Large?>
+                </UISegmentedControl>
+            <LMSpacer/>
+        </LMRowView>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
     <!-- Date Picker -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Date Picker" class="cell.header"/>

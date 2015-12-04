@@ -173,7 +173,14 @@ typedef enum {
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self numberOfSections];
+    NSInteger n;
+    if ([_dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+        n = [_dataSource numberOfSectionsInTableView:tableView];
+    } else {
+        n = [self numberOfSections];
+    }
+
+    return n;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
