@@ -64,6 +64,8 @@
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B070921ADEBEB000A92FCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 37B070901ADEBEB000A92FCF /* LaunchScreen.xib */; };
+		37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
 		37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */; };
 		37C806C11BEE37D000196FD6 /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridView.xml */; };
@@ -252,6 +254,8 @@
 		37B070861ADEBEB000A92FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B0708E1ADEBEB000A92FCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		37B070911ADEBEB000A92FCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Markup.h"; sourceTree = "<group>"; };
+		37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
 		37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionView.xml; sourceTree = "<group>"; };
 		37C806BC1BEE37D000196FD6 /* GridView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridView.xml; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 				3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */,
 				378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */,
 				378004F01BAD89BB003777C1 /* UIStackView+Markup.m */,
+				37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */,
+				37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */,
 				3757B7D81ADEC1550002E16C /* UITableView+Markup.h */,
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
@@ -530,6 +536,7 @@
 			files = (
 				37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */,
 				37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */,
+				37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */,
 				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
 				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
 				3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */,
@@ -772,6 +779,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */,
 				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
 				37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */,
 				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
