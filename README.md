@@ -313,7 +313,7 @@ Finally, `LMViewBuilder` provides the following method, which is used to apply a
 
     + (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view;
 
-`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values of dynamically-generated views.
+`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values for dynamically-generated views.
 
 See _LMViewBuilder.h_ for more information.
 
@@ -511,7 +511,7 @@ See _LMTableViewCell.h_ for more information.
         <?rowTitle Extra-Large?>
     </LMPickerView>
 
-The `rowTitle` processing instruction corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The PI data is used as the row title. An optional value to associate with the row can be specified as follows:
+The `rowTitle` processing instruction corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The PI's data is used as the row title. An optional value to associate with the row can be specified as follows:
 
     <LMPickerView>
         <?rowTitle Small; S?>
@@ -520,7 +520,7 @@ The `rowTitle` processing instruction corresponds to a call to the `insertRow:in
         <?rowTitle Extra-Large; XL?>
     </LMPickerView>
 
-The `componentSeparator` processing instruction is used to insert a new component into the picker view. It corresponds to a call to the `insertComponent:` method. The following markup declares a picker view containing two components> The first component contains a set of size options, and the second contains color options:
+The `componentSeparator` processing instruction is used to insert a new component into the picker view. It corresponds to a call to the `insertComponent:` method. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
 
     <LMPickerView>
         <?rowTitle Small; S?>
@@ -912,8 +912,6 @@ Gradient views are commonly used as a background in a layer view. Two types of g
 * `LMRadialGradientView` - displays a radial gradient effect
 
 Each is discussed in more detail below.
-
-See _LMGradientView.h_ for more information.
 
 ### LMLinearGradientView
 The `LMLinearGradientView` class displays a linear gradient effect. It adds the following properties to the to the `colors` and `locations` properties defined by the base class:
