@@ -14,37 +14,11 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface LMPageView : UIScrollView
+@interface UIScrollView (Markup)
 
 /**
- * The list of pages managed by the page view.
+ * The index of the current page.
  */
-@property (nonatomic, readonly, copy) NSArray<UIView *> *pages;
-
-/**
- * Adds a page.
- * 
- * @param page The page to add.
- */
-- (void)addPage:(UIView *)page;
-
-/**
- * Inserts a page.
- *
- * @param page The page to insert.
- * @param index The index at which to insert the page.
- */
-- (void)insertPage:(UIView *)page atIndex:(NSUInteger)index;
-
-/**
- * Removes a page.
- *
- * @param page The page to remove.
- */
-- (void)removePage:(UIView *)page;
+@property (nonatomic, readonly) NSInteger currentPage;
 
 @end
-
-NS_ASSUME_NONNULL_END

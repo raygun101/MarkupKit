@@ -428,7 +428,11 @@ In order to support static content declaration, `LMTableView` acts as its own da
 * `tableView:numberOfRowsInSection:`
 * `tableView:cellForRowAtIndexPath:`
 
-In general, it is not necessary to override `numberOfSectionsInTableView:`. However, for sections that are not handled, implementing classes should delegate to the given table view instance. For example:
+The implementing class should delegate to the given table view instance as needed:
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return tableView.numberOfSections
+    }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
@@ -562,14 +566,12 @@ In order to support static content declaration, `LMPickerView` acts as its own d
 * `pickerView:numberOfRowsInComponent:`
 * `pickerView:titleForRow:forComponent`
 
-Since picker view data sources are required to implement `numberOfComponentsInPickerView:`, the implementing class should generally delegate to the given picker view instance:
+The implementing class should delegate to the given picker view instance as needed:
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return pickerView.numberOfComponents
     }
-
-For components that are not handled, implementing classes should delegate to the picker view. For example:
-
+    
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
         if (component == 0) {
@@ -634,7 +636,11 @@ For example, the following markup declares a page view containing three pages. P
         <UILabel text="Page 3" textAlignment="center"/>
     </LMPageView>
 
-Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view. `LMPageView` provides a `currentPage` property that can be used to easily synchronize its own page index with the index shown by the page control.
+Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view. MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
+
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        pageControl.currentPage = scrollView.currentPage
+    }
 
 Layer views are discussed in more detail later.
 
@@ -1021,6 +1027,59 @@ For example:
 
     <UIButton normalTitle="Click Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
 
+### UISegmentedControl
+Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupInstruction:data:` to allow segmented control content to be configured in markup. The `segmentTitle` progressing instruction can be used to add a segment title to a segmented control:
+
+    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
+        <?segmentTitle Yes?>
+        <?segmentTitle No?>
+    </UISegmentedControl>
+
+Similarly, the `segmentImage` PI can be used to add a segment image to a segmented control:
+
+    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
+        <?segmentImage yes.png?>
+        <?segmentImage no.png?>
+    </UISegmentedControl>
+    
+In both examples, the `updateActivityIndicatorState:` method of the document's owner will be called when the control's value changes.
+
+### UIPickerView
+MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
+
+    - (NSString *)nameForComponent:(NSInteger)component;
+    - (NSInteger)componentWithName:(NSString *)name;
+    - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
+    - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
+    - (NSInteger)rowWithValue:(id)value inComponent:(NSInteger)component;
+
+### UIProgressView
+Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
+
+    + (UIProgressView *)defaultProgressView;
+    + (UIProgressView *)barProgressView;
+
+For example, the following markup declares an instance of a default-style `UIProgressView`. It is given an ID so its owner can programmatically update its progress value later:
+
+    <UIProgressView id="progressView" style="defaultProgressView"/>
+
+### UIStackView
+MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` that simply calls `addArrangedSubview:` on itself. This allows stack view content to be specified in markup; for example:
+
+    <UIStackView axis="horizontal">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+        <LMSpacer/>
+    </UIStackView>
+
+### UIScrollView
+MarkuKit adds the following property to `UIScrollView` to help simplify interaction with paged scroll views. 
+
+    @property (nonatomic, readonly) NSInteger currentPage;
+
+If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
+
 ### UITableView
 Instances of `UITableView` are created programmatically using the `initWithFrame:style:` method of `UITableView`. MarkupKit adds the following factory methods to `UITableView` to allow table views to be declared in markup:
 
@@ -1077,52 +1136,6 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCe
     </UITableViewCell>
 
 Note that `LMTableViewCell` overrides `appendMarkupElementView:` to set the cell's content element view. As a result, a view specified as a child of an `LMTableViewCell` will be sized to occupy the entire contents of the cell, not just the accessory area.
-
-### UIPickerView
-MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
-
-    - (NSString *)nameForComponent:(NSInteger)component;
-    - (NSInteger)componentWithName:(NSString *)name;
-    - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
-    - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
-    - (NSInteger)rowWithValue:(id)value inComponent:(NSInteger)component;
-
-### UIProgressView
-Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:
-
-    + (UIProgressView *)defaultProgressView;
-    + (UIProgressView *)barProgressView;
-
-For example, the following markup declares an instance of a default-style `UIProgressView`. It is given an ID so its owner can programmatically update its progress value later:
-
-    <UIProgressView id="progressView" style="defaultProgressView"/>
-
-### UISegmentedControl
-Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupInstruction:data:` to allow segmented control content to be configured in markup. The `segmentTitle` progressing instruction can be used to add a segment title to a segmented control:
-
-    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
-        <?segmentTitle Yes?>
-        <?segmentTitle No?>
-    </UISegmentedControl>
-
-Similarly, the `segmentImage` PI can be used to add a segment image to a segmented control:
-
-    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
-        <?segmentImage yes.png?>
-        <?segmentImage no.png?>
-    </UISegmentedControl>
-    
-In both examples, the `updateActivityIndicatorState:` method of the document's owner will be called when the control's value changes.
-
-### UIStackView
-MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` that simply calls `addArrangedSubview:` on itself. This allows stack view content to be specified in markup; for example:
-
-    <UIStackView axis="horizontal">
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
-        <LMSpacer/>
-    </UIStackView>
 
 ### UIVisualEffectView
 Instances of `UIVisualEffectView` are created using the `initWithEffect:` method, which takes a `UIVisualEffect` instance as an argument. MarkupKit adds the following factory methods to `UIVisualEffectView` to facilitate construction of `UIVisualEffectView` in markup:
