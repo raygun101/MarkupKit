@@ -21,6 +21,9 @@ class ViewController: UITableViewController {
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var footerSwitch: UISwitch!
 
+    // Properties
+    var rows: [[String: AnyObject]]!
+
     // Constants
     let dynamicSectionName = "dynamic"
 
@@ -30,12 +33,19 @@ class ViewController: UITableViewController {
 
         tableView.dataSource = self
         tableView.delegate = self
+
+        let path = NSBundle.mainBundle().pathForResource("rows", ofType: "json")
+        let data = NSData(contentsOfFile: path!)
+
+        rows = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)) as! [[String: AnyObject]]
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Lorem Ipsum"
+
+        tableView.registerClass(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
     }
 
     // Button press handler
@@ -55,7 +65,7 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (tableView.nameForSection(section) == dynamicSectionName) {
-            n = 0
+            n = rows.count
         } else {
             n = tableView.numberOfRowsInSection(section)
         }
@@ -66,7 +76,14 @@ class ViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
-            cell = UITableViewCell() // TODO
+            let row = rows[indexPath.row]
+
+            let customCell = tableView.dequeueReusableCellWithIdentifier(CustomCell.self.description()) as! CustomCell
+
+            customCell.headingLabel.text = row["heading"] as? String
+            customCell.detailLabel.text = row["detail"] as? String
+
+            cell = customCell
         } else {
             cell = tableView.cellForRowAtIndexPath(indexPath)!
         }
