@@ -48,7 +48,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
 
-        self.view.backgroundColor = LMViewBuilder.colorValue(cell!.value as! String)
+        view.backgroundColor = LMViewBuilder.colorValue(cell!.value as! String)
 
         dismissViewControllerAnimated(true, completion: nil)
     }

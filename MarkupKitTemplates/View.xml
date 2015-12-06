@@ -14,6 +14,36 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties Styles?>
+
 <LMTableView style="groupedTableView">
-    <!-- TODO -->
+    <!-- Static content -->
+    <?sectionHeaderView?>
+    <UITableViewCell class="cell.header" textLabel.text="Static Content"/>
+
+    <LMTableViewCell class="cell.input">
+        <UITextField id="textField1" placeholder="Text Field 1"/>
+    </LMTableViewCell>
+
+    <LMTableViewCell id="textField2" class="cell.input">
+        <UITextField placeholder="Text Field 2"/>
+    </LMTableViewCell>
+
+    <?sectionFooterView?>
+    <UITableViewCell class="cell.footer" textLabel.text="Switch">
+        <UISwitch id="footerSwitch"/>
+    </UITableViewCell>
+
+    <?sectionBreak?>
+    <LMTableViewCell selectionStyle="none">
+        <UIButton style="systemButton" normalTitle="Button" onTouchUpInside="buttonPressed"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Dynamic content -->
+    <?sectionName dynamic?>
+
+    <?sectionHeaderView?>
+    <UITableViewCell class="cell.header" textLabel.text="Dynamic Content"/>
 </LMTableView>
