@@ -15,6 +15,9 @@
 import UIKit
 import MarkupKit
 
+/**
+ * Detail view template.
+ */
 class DetailViewController: UIViewController {
     // Outlets
     @IBOutlet weak var headingLabel: UILabel!

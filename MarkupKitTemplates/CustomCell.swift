@@ -15,6 +15,9 @@
 import UIKit
 import MarkupKit
 
+/**
+ * Custom table view cell template.
+ */
 class CustomCell: LMTableViewCell {
     // Outlets
     @IBOutlet weak var headingLabel: UILabel!
