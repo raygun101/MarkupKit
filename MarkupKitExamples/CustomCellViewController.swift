@@ -15,7 +15,7 @@
 import UIKit
 
 class CustomCellViewController: UITableViewController {
-    var pharmacies: NSArray!
+    var pharmacies: [[String: AnyObject]]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,8 @@ class CustomCellViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // Get pharmacy data
         let index = indexPath.row
-        var pharmacy = pharmacies.objectAtIndex(index) as! [String: AnyObject]
+        
+        let pharmacy = pharmacies[index]
 
         // Configure cell with pharmacy data
         let cell = tableView.dequeueReusableCellWithIdentifier(PharmacyCell.self.description()) as! PharmacyCell
