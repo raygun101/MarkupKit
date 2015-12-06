@@ -15,6 +15,9 @@
 import UIKit
 import MarkupKit
 
+/**
+ * Table view controller template.
+ */
 class ViewController: UITableViewController {
     // Outlets
     @IBOutlet weak var textField1: UITextField!
