@@ -45,7 +45,7 @@ class ViewController: UITableViewController {
 
         alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
 
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     func stepperValueChanged(sender: UIStepper) {

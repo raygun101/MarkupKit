@@ -42,7 +42,7 @@ class MainViewController: UIViewController {
             print("User tapped OK")
         })
 
-        self.presentViewController(alertController, animated: true, completion: nil)
+        presentViewController(alertController, animated: true, completion: nil)
     }
 
     @IBAction func handleSwitchValueChanged(sender: UISwitch) {

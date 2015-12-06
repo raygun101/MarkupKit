@@ -16,27 +16,69 @@ import UIKit
 import MarkupKit
 
 class ViewController: UITableViewController {
+    // Outlets
+    @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var footerSwitch: UISwitch!
+
+    // Constants
+    let dynamicSectionName = "dynamic"
+
+    // View initialization
     override func loadView() {
         view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
         tableView.dataSource = self
         tableView.delegate = self
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "Lorem Ipsum"
+    }
+
+    // Button press handler
+    func buttonPressed() {
+        let alertController = UIAlertController(title: "Alert", message: "Lorem ipsum dolor sit amet.", preferredStyle: .Alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
+
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    // Data source
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return tableView.numberOfSections
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView.numberOfRowsInSection(section)
+        let n: Int
+        if (tableView.nameForSection(section) == dynamicSectionName) {
+            n = 0
+        } else {
+            n = tableView.numberOfRowsInSection(section)
+        }
+
+        return n
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.cellForRowAtIndexPath(indexPath)!
+        let cell: UITableViewCell
+        if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
+            cell = UITableViewCell() // TODO
+        } else {
+            cell = tableView.cellForRowAtIndexPath(indexPath)!
+        }
+
+        return cell
+    }
+
+    // Delegate
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
+            // TODO
+        }
     }
 }
 
