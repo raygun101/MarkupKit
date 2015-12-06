@@ -94,7 +94,16 @@ class ViewController: UITableViewController {
     // Delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
-            // TODO
+            let row = rows[indexPath.row]
+
+            let detailViewController = DetailViewController()
+
+            detailViewController.loadView()
+
+            detailViewController.headingLabel.text = row["heading"] as? String
+            detailViewController.detailLabel.text = row["detail"] as? String
+
+            presentViewController(detailViewController, animated: true, completion: nil)
         }
     }
 }
