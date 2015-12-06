@@ -14,9 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties Styles?>
+
 <root accessoryType="disclosureIndicator">
     <LMColumnView>
-        <UILabel id="headingLabel" textColor="#444444" font="headline" numberOfLines="0" />
-        <UILabel id="detailLabel" textColor="#666666" font="subheadline" numberOfLines="1" />
+        <UILabel id="headingLabel" class="label.heading"/>
+        <UILabel id="detailLabel" class="label.detail"/>
     </LMColumnView>
 </root>
