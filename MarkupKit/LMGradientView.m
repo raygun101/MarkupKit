@@ -100,6 +100,8 @@
 
                 _gradient = CGGradientCreateWithColors(colorSpace, (__bridge CFArrayRef)colors, locations);
             }
+
+            CGColorSpaceRelease(colorSpace);
         }
 
         CGContextRef context = UIGraphicsGetCurrentContext();
