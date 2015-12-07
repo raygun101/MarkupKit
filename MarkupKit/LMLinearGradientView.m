@@ -82,11 +82,13 @@
     [self setNeedsDisplay];
 }
 
-- (void)drawGradient:(CGGradientRef)gradient inRect:(CGRect)rect {
-    CGPoint startPoint = CGPointMake(_startPoint.x * rect.size.width, _startPoint.y * rect.size.height);
-    CGPoint endPoint = CGPointMake(_endPoint.x * rect.size.width, _endPoint.y * rect.size.height);
+- (void)drawGradient:(CGGradientRef)gradient withContext:(CGContextRef)context {
+    CGSize size = [self frame].size;
 
-    CGContextDrawLinearGradient(UIGraphicsGetCurrentContext(), gradient, startPoint, endPoint, 0);
+    CGPoint startPoint = CGPointMake(_startPoint.x * size.width, _startPoint.y * size.height);
+    CGPoint endPoint = CGPointMake(_endPoint.x * size.width, _endPoint.y * size.height);
+
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
 }
 
 @end

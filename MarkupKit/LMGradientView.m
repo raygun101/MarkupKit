@@ -102,11 +102,19 @@
             }
         }
 
-        [self drawGradient:_gradient inRect:rect];
+        CGContextRef context = UIGraphicsGetCurrentContext();
+
+        CGContextSaveGState(context);
+        CGContextAddRect(context, rect);
+        CGContextClip(context);
+
+        [self drawGradient:_gradient withContext:context];
+
+        CGContextRestoreGState(context);
     }
 }
 
-- (void)drawGradient:(CGGradientRef)gradient inRect:(CGRect)rect {
+- (void)drawGradient:(CGGradientRef)gradient withContext:(CGContextRef)context {
     // No-op
 }
 
