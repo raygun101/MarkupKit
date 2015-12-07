@@ -62,11 +62,13 @@
     [self setNeedsDisplay];
 }
 
-- (void)drawGradient:(CGGradientRef)gradient inRect:(CGRect)rect {
-    CGPoint centerPoint = CGPointMake(_centerPoint.x * rect.size.width, _centerPoint.y * rect.size.height);
-    CGFloat radius = _radius * MIN(rect.size.width, rect.size.height);
+- (void)drawGradient:(CGGradientRef)gradient withContext:(CGContextRef)context {
+    CGSize size = [self frame].size;
 
-    CGContextDrawRadialGradient(UIGraphicsGetCurrentContext(), gradient, centerPoint, 0, centerPoint, radius,
+    CGPoint centerPoint = CGPointMake(_centerPoint.x * size.width, _centerPoint.y * size.height);
+    CGFloat radius = _radius * MIN(size.width, size.height);
+
+    CGContextDrawRadialGradient(context, gradient, centerPoint, 0, centerPoint, radius,
         kCGGradientDrawsBeforeStartLocation | kCGGradientDrawsAfterEndLocation);
 }
 
