@@ -942,7 +942,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
     if ([_views count] > 0) {
         // Add to superview
         if (view != [NSNull null]) {
-            [[_views lastObject] appendMarkupElementView:view];
+            id superview = [_views lastObject];
+            
+            if (superview != [NSNull null]) {
+                [superview appendMarkupElementView:view];
+            }
         }
     } else {
         // Inject properties and strings into owner

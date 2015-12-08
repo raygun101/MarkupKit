@@ -31,6 +31,11 @@ limitations under the License.
                 <UILabel text="@missing.key" textAlignment="right" font="System 22"/>
             </LMRowView>
 
+            <foo>
+                <bar/>
+                <UILabel text="I'm not here"/>
+            </foo>
+
             <LMRowView class="row.second">
                 <UILabel text="12345" font="Helvetica-Bold 32"/>
                 <LMSpacer/>
