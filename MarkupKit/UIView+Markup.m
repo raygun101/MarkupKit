@@ -188,6 +188,11 @@
     // No-op
 }
 
+- (void)processMarkupElement:(NSString *)elementName attributes:(NSDictionary *)attributes
+{
+    // No-op
+}
+
 - (void)appendMarkupElementView:(UIView *)view
 {
     // No-op

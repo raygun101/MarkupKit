@@ -20,7 +20,7 @@
 static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kStringsTarget = @"strings";
 
-static NSString * const kRootTag = @"root";
+static NSString * const kRootElementName = @"root";
 static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 
@@ -743,44 +743,34 @@ static NSString * const kLocalizedStringPrefix = @"@";
 {
     if ([_views count] == 0) {
         if ([target isEqual:kPropertiesTarget]) {
-            [self loadProperties:data];
+            NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
+
+            if (path != nil) {
+                NSDictionary *properties = [NSDictionary dictionaryWithContentsOfFile:path];
+
+                for (NSString *key in properties) {
+                    NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
+
+                    if (template == nil) {
+                        template = [NSMutableDictionary new];
+
+                        [_properties setObject:template forKey:key];
+                    }
+
+                    [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
+                }
+            }
         } else if ([target isEqual:kStringsTarget]) {
-            [self loadStrings:data];
+            NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"strings" inDirectory:nil];
+
+            if (path != nil) {
+                NSDictionary *strings = [NSDictionary dictionaryWithContentsOfFile:path];
+
+                [_strings addEntriesFromDictionary:strings];
+            }
         }
     } else {
-        [[_views lastObject] processMarkupInstruction:target data:[self localizeValue:data]];
-    }
-}
-
-- (void)loadProperties:(NSString *)name
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"plist"];
-
-    if (path != nil) {
-        NSDictionary *properties = [NSDictionary dictionaryWithContentsOfFile:path];
-
-        for (NSString *key in properties) {
-            NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
-
-            if (template == nil) {
-                template = [NSMutableDictionary new];
-
-                [_properties setObject:template forKey:key];
-            }
-
-            [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
-        }
-    }
-}
-
-- (void)loadStrings:(NSString *)name
-{
-    NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"strings" inDirectory:nil];
-
-    if (path != nil) {
-        NSDictionary *strings = [NSDictionary dictionaryWithContentsOfFile:path];
-
-        [_strings addEntriesFromDictionary:strings];
+        [[_views lastObject] processMarkupInstruction:target data:data];
     }
 }
 
@@ -807,12 +797,24 @@ static NSString * const kLocalizedStringPrefix = @"@";
             && ![key isEqual:@"onTintColor"]) {
             [actions setObject:value forKey:key];
         } else {
-            [properties setObject:[self localizeValue:value] forKey:key];
+            if ([value hasPrefix:kLocalizedStringPrefix]) {
+                value = [value substringFromIndex:[kLocalizedStringPrefix length]];
+
+                NSString *localizedValue = [_strings objectForKey:value];
+
+                if (localizedValue == nil) {
+                    localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
+                }
+
+                value = localizedValue;
+            }
+
+            [properties setObject:value forKey:key];
         }
     }
 
     // Create view
-    if ([elementName isEqual:kRootTag] && _view == nil) {
+    if ([elementName isEqual:kRootElementName] && _view == nil) {
         _view = _root;
     } else {
         Class type = NSClassFromString(elementName);
@@ -837,42 +839,16 @@ static NSString * const kLocalizedStringPrefix = @"@";
         [_owner setValue:_view forKey:outlet];
     }
 
-    // Apply template properties
+    // Apply properties
     if (template != nil) {
         [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:_view];
     }
 
-    // Add action handlers and set property values
-    [self addActionHandlers:actions];
-
     [LMViewBuilder applyPropertyValues:properties toView:_view];
 
-    // Push onto view stack
-    [_views addObject:_view];
-}
-
-- (NSString *)localizeValue:(NSString *)value
-{
-    if ([value hasPrefix:kLocalizedStringPrefix]) {
-        value = [value substringFromIndex:[kLocalizedStringPrefix length]];
-
-        NSString *localizedValue = [_strings objectForKey:value];
-
-        if (localizedValue == nil) {
-            localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-        }
-
-        value = localizedValue;
-    }
-
-    return value;
-}
-
-- (void)addActionHandlers:(NSDictionary *)actions
-{
+    // Add action handlers
     for (NSString *key in actions) {
-        id value = [actions objectForKey:key];
-
+        NSString *value = [actions objectForKey:key];
         NSString *event = [key substringFromIndex:[kActionPrefix length]];
 
         UIControlEvents controlEvent;
@@ -916,6 +892,9 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
         [(UIControl *)_view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
     }
+
+    // Push onto view stack
+    [_views addObject:_view];
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
@@ -928,7 +907,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     if ([_views count] > 0) {
         // Add to superview
-        [(UIView *)[_views lastObject] appendMarkupElementView:_view];
+        [[_views lastObject] appendMarkupElementView:_view];
     } else {
         // Inject properties and strings into owner
         @try {
