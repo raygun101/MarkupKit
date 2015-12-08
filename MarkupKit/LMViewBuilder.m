@@ -42,7 +42,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
     NSMutableDictionary *_strings;
 
     NSMutableArray *_views;
-    UIView *_view;
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -59,7 +58,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         [parser setDelegate:viewBuilder];
         [parser parse];
 
-        view = [viewBuilder view];
+        view = [viewBuilder root];
     }
 
     return view;
@@ -728,15 +727,14 @@ static NSString * const kLocalizedStringPrefix = @"@";
         _strings = [NSMutableDictionary new];
 
         _views = [NSMutableArray new];
-        _view = nil;
     }
 
     return self;
 }
 
-- (UIView *)view
+- (UIView *)root
 {
-    return _view;
+    return _root;
 }
 
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
@@ -815,7 +813,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     // Create view
     UIView *view;
-    if ([elementName isEqual:kRootElementName] && _view == nil) {
+    if ([elementName isEqual:kRootElementName] && [_views count] == 0) {
         view = _root;
     } else {
         Class type = NSClassFromString(elementName);
@@ -849,49 +847,50 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     // Add action handlers
     for (NSString *key in actions) {
-        NSString *value = [actions objectForKey:key];
-        NSString *event = [key substringFromIndex:[kActionPrefix length]];
+        NSString *name = [key substringFromIndex:[kActionPrefix length]];
 
         UIControlEvents controlEvent;
-        if ([event isEqual:@"TouchDown"]) {
+        if ([name isEqual:@"TouchDown"]) {
             controlEvent = UIControlEventTouchDown;
-        } else if ([event isEqual:@"TouchDownRepeat"]) {
+        } else if ([name isEqual:@"TouchDownRepeat"]) {
             controlEvent = UIControlEventTouchDownRepeat;
-        } else if ([event isEqual:@"TouchDragInside"]) {
+        } else if ([name isEqual:@"TouchDragInside"]) {
             controlEvent = UIControlEventTouchDragInside;
-        } else if ([event isEqual:@"TouchDragOutside"]) {
+        } else if ([name isEqual:@"TouchDragOutside"]) {
             controlEvent = UIControlEventTouchDragOutside;
-        } else if ([event isEqual:@"TouchDragEnter"]) {
+        } else if ([name isEqual:@"TouchDragEnter"]) {
             controlEvent = UIControlEventTouchDragEnter;
-        } else if ([event isEqual:@"TouchDragExit"]) {
+        } else if ([name isEqual:@"TouchDragExit"]) {
             controlEvent = UIControlEventTouchDragExit;
-        } else if ([event isEqual:@"TouchUpInside"]) {
+        } else if ([name isEqual:@"TouchUpInside"]) {
             controlEvent = UIControlEventTouchUpInside;
-        } else if ([event isEqual:@"TouchUpOutside"]) {
+        } else if ([name isEqual:@"TouchUpOutside"]) {
             controlEvent = UIControlEventTouchUpOutside;
-        } else if ([event isEqual:@"TouchCancel"]) {
+        } else if ([name isEqual:@"TouchCancel"]) {
             controlEvent = UIControlEventTouchCancel;
-        } else if ([event isEqual:@"ValueChanged"]) {
+        } else if ([name isEqual:@"ValueChanged"]) {
             controlEvent = UIControlEventValueChanged;
-        } else if ([event isEqual:@"EditingDidBegin"]) {
+        } else if ([name isEqual:@"EditingDidBegin"]) {
             controlEvent = UIControlEventEditingDidBegin;
-        } else if ([event isEqual:@"EditingChanged"]) {
+        } else if ([name isEqual:@"EditingChanged"]) {
             controlEvent = UIControlEventEditingChanged;
-        } else if ([event isEqual:@"EditingDidEnd"]) {
+        } else if ([name isEqual:@"EditingDidEnd"]) {
             controlEvent = UIControlEventEditingDidEnd;
-        } else if ([event isEqual:@"EditingDidEndOnExit"]) {
+        } else if ([name isEqual:@"EditingDidEndOnExit"]) {
             controlEvent = UIControlEventEditingDidEndOnExit;
-        } else if ([event isEqual:@"AllTouchEvents"]) {
+        } else if ([name isEqual:@"AllTouchEvents"]) {
             controlEvent = UIControlEventAllTouchEvents;
-        } else if ([event isEqual:@"AllEditingEvents"]) {
+        } else if ([name isEqual:@"AllEditingEvents"]) {
             controlEvent = UIControlEventAllEditingEvents;
-        } else if ([event isEqual:@"AllEvents"]) {
+        } else if ([name isEqual:@"AllEvents"]) {
             controlEvent = UIControlEventAllEvents;
         } else {
             controlEvent = 0;
         }
 
-        [(UIControl *)view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
+        SEL action = NSSelectorFromString([actions objectForKey:key]);
+        
+        [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvent];
     }
 
     // Push onto view stack
@@ -921,7 +920,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
         }
 
-        _view = view;
+        _root = view;
     }
 }
 
