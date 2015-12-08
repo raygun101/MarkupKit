@@ -17,10 +17,9 @@ limitations under the License.
 <LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ededed">
     <LMPickerView id="pickerView" backgroundColor="#ffffff">
         <?componentName static?>
-
-        <?rowTitle One?>
-        <?rowTitle Two?>
-        <?rowTitle Three?>
+        <row title="One"/>
+        <row title="Two"/>
+        <row title="Three"/>
 
         <?componentSeparator?>
 

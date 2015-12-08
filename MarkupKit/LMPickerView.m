@@ -18,7 +18,9 @@ static NSString * const kComponentSeparatorTarget = @"componentSeparator";
 
 static NSString * const kComponentNameTarget = @"componentName";
 
-static NSString * const kRowTitleTarget = @"rowTitle";
+static NSString * const kRowTag = @"row";
+static NSString * const kRowTitleKey = @"title";
+static NSString * const kRowValueKey = @"value";
 
 @interface LMPickerViewRow : NSObject
 
@@ -193,25 +195,20 @@ static NSString * const kRowTitleTarget = @"rowTitle";
         [self insertComponent:[self numberOfComponents]];
     } else if ([target isEqual:kComponentNameTarget]) {
         [self setName:data forComponent:[self numberOfComponents] - 1];
-    } else if ([target isEqual:kRowTitleTarget]) {
-        NSRange range = [data rangeOfString:@";" options:NSBackwardsSearch];
+    }
+}
 
-        NSString *title, *value;
-        if (range.location == NSNotFound) {
-            title = data;
-            value = nil;
-        } else {
-            title = [data substringToIndex:range.location];
-            value = [data substringFromIndex:range.location + 1];
-        }
-
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
+{
+    if ([tag isEqual:kRowTag]) {
         NSInteger component = [self numberOfComponents] - 1;
 
-        NSCharacterSet *whitespaceCharacterSet = [NSCharacterSet whitespaceCharacterSet];
+        NSString *title = [properties objectForKey:kRowTitleKey];
 
-        [self insertRow:[self numberOfRowsInComponent:component] inComponent:component
-            withTitle:[title stringByTrimmingCharactersInSet:whitespaceCharacterSet]
-            value:[value stringByTrimmingCharactersInSet:whitespaceCharacterSet]];
+        if (title != nil) {
+            [self insertRow:[self numberOfRowsInComponent:component] inComponent:component
+                withTitle:title value:[properties objectForKey:kRowValueKey]];
+        }
     }
 }
 
