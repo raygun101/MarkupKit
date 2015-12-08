@@ -814,8 +814,9 @@ static NSString * const kLocalizedStringPrefix = @"@";
     }
 
     // Create view
+    UIView *view;
     if ([elementName isEqual:kRootElementName] && _view == nil) {
-        _view = _root;
+        view = _root;
     } else {
         Class type = NSClassFromString(elementName);
 
@@ -824,27 +825,27 @@ static NSString * const kLocalizedStringPrefix = @"@";
             IMP method = [type methodForSelector:selector];
             id (*function)(id, SEL) = (void *)method;
 
-            _view = function(type, selector);
+            view = function(type, selector);
         } else {
-            _view = [type new];
+            view = [type new];
         }
     }
 
-    if (_view == nil) {
+    if (view == nil) {
         [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
     }
 
     // Set outlet value
     if (outlet != nil) {
-        [_owner setValue:_view forKey:outlet];
+        [_owner setValue:view forKey:outlet];
     }
 
     // Apply properties
     if (template != nil) {
-        [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:_view];
+        [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:view];
     }
 
-    [LMViewBuilder applyPropertyValues:properties toView:_view];
+    [LMViewBuilder applyPropertyValues:properties toView:view];
 
     // Add action handlers
     for (NSString *key in actions) {
@@ -890,24 +891,24 @@ static NSString * const kLocalizedStringPrefix = @"@";
             controlEvent = 0;
         }
 
-        [(UIControl *)_view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
+        [(UIControl *)view addTarget:_owner action:NSSelectorFromString(value) forControlEvents:controlEvent];
     }
 
     // Push onto view stack
-    [_views addObject:_view];
+    [_views addObject:view];
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     // Pop from view stack
-    _view = [_views lastObject];
+    UIView *view = [_views lastObject];
 
     [_views removeLastObject];
 
     if ([_views count] > 0) {
         // Add to superview
-        [[_views lastObject] appendMarkupElementView:_view];
+        [[_views lastObject] appendMarkupElementView:view];
     } else {
         // Inject properties and strings into owner
         @try {
@@ -919,6 +920,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 @throw exception;
             }
         }
+
+        _view = view;
     }
 }
 
