@@ -813,10 +813,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     // Create view
     UIView *view;
-    if ([elementName isEqual:kRootElementName] && [_views count] == 0) {
+    if ([_views count] == 0 && [elementName isEqual:kRootElementName]) {
+        if (_root == nil) {
+            [NSException raise:NSGenericException format:@"Root view is not defined."];
+        }
+
         view = _root;
     } else {
         Class type = NSClassFromString(elementName);
+
+        if (![type isSubclassOfClass:[UIView self]]) {
+            [NSException raise:NSGenericException format:@"<%@> is not a valid element type.", elementName];
+        }
 
         if (factory != nil) {
             SEL selector = NSSelectorFromString(factory);
@@ -827,10 +835,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
         } else {
             view = [type new];
         }
-    }
 
-    if (view == nil) {
-        [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
+        if (view == nil) {
+            [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
+        }
     }
 
     // Set outlet value
@@ -849,48 +857,48 @@ static NSString * const kLocalizedStringPrefix = @"@";
     for (NSString *key in actions) {
         NSString *name = [key substringFromIndex:[kActionPrefix length]];
 
-        UIControlEvents controlEvent;
+        UIControlEvents controlEvents;
         if ([name isEqual:@"TouchDown"]) {
-            controlEvent = UIControlEventTouchDown;
+            controlEvents = UIControlEventTouchDown;
         } else if ([name isEqual:@"TouchDownRepeat"]) {
-            controlEvent = UIControlEventTouchDownRepeat;
+            controlEvents = UIControlEventTouchDownRepeat;
         } else if ([name isEqual:@"TouchDragInside"]) {
-            controlEvent = UIControlEventTouchDragInside;
+            controlEvents = UIControlEventTouchDragInside;
         } else if ([name isEqual:@"TouchDragOutside"]) {
-            controlEvent = UIControlEventTouchDragOutside;
+            controlEvents = UIControlEventTouchDragOutside;
         } else if ([name isEqual:@"TouchDragEnter"]) {
-            controlEvent = UIControlEventTouchDragEnter;
+            controlEvents = UIControlEventTouchDragEnter;
         } else if ([name isEqual:@"TouchDragExit"]) {
-            controlEvent = UIControlEventTouchDragExit;
+            controlEvents = UIControlEventTouchDragExit;
         } else if ([name isEqual:@"TouchUpInside"]) {
-            controlEvent = UIControlEventTouchUpInside;
+            controlEvents = UIControlEventTouchUpInside;
         } else if ([name isEqual:@"TouchUpOutside"]) {
-            controlEvent = UIControlEventTouchUpOutside;
+            controlEvents = UIControlEventTouchUpOutside;
         } else if ([name isEqual:@"TouchCancel"]) {
-            controlEvent = UIControlEventTouchCancel;
+            controlEvents = UIControlEventTouchCancel;
         } else if ([name isEqual:@"ValueChanged"]) {
-            controlEvent = UIControlEventValueChanged;
+            controlEvents = UIControlEventValueChanged;
         } else if ([name isEqual:@"EditingDidBegin"]) {
-            controlEvent = UIControlEventEditingDidBegin;
+            controlEvents = UIControlEventEditingDidBegin;
         } else if ([name isEqual:@"EditingChanged"]) {
-            controlEvent = UIControlEventEditingChanged;
+            controlEvents = UIControlEventEditingChanged;
         } else if ([name isEqual:@"EditingDidEnd"]) {
-            controlEvent = UIControlEventEditingDidEnd;
+            controlEvents = UIControlEventEditingDidEnd;
         } else if ([name isEqual:@"EditingDidEndOnExit"]) {
-            controlEvent = UIControlEventEditingDidEndOnExit;
+            controlEvents = UIControlEventEditingDidEndOnExit;
         } else if ([name isEqual:@"AllTouchEvents"]) {
-            controlEvent = UIControlEventAllTouchEvents;
+            controlEvents = UIControlEventAllTouchEvents;
         } else if ([name isEqual:@"AllEditingEvents"]) {
-            controlEvent = UIControlEventAllEditingEvents;
+            controlEvents = UIControlEventAllEditingEvents;
         } else if ([name isEqual:@"AllEvents"]) {
-            controlEvent = UIControlEventAllEvents;
+            controlEvents = UIControlEventAllEvents;
         } else {
-            controlEvent = 0;
+            controlEvents = 0;
         }
 
         SEL action = NSSelectorFromString([actions objectForKey:key]);
         
-        [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvent];
+        [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvents];
     }
 
     // Push onto view stack
