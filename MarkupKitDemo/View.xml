@@ -104,10 +104,10 @@ limitations under the License.
         <LMRowView>
             <LMSpacer/>
                 <UISegmentedControl>
-                    <?segmentTitle Small?>
-                    <?segmentTitle Medium?>
-                    <?segmentTitle Large?>
-                    <?segmentTitle Extra-Large?>
+                    <segment title="Small"/>
+                    <segment title="Medium"/>
+                    <segment title="Large"/>
+                    <segment title="Extra-Large"/>
                 </UISegmentedControl>
             <LMSpacer/>
         </LMRowView>

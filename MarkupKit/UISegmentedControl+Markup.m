@@ -14,19 +14,28 @@
 
 #import "UISegmentedControl+Markup.h"
 
-static NSString * const kSegmentTitleTarget = @"segmentTitle";
-static NSString * const kSegmentImageTarget = @"segmentImage";
+static NSString * const kSegmentTag = @"segment";
+static NSString * const kSegmentTitleKey = @"title";
+static NSString * const kSegmentImageKey = @"image";
 
 @implementation UISegmentedControl (Markup)
 
-- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
-    NSUInteger index = [self numberOfSegments];
+    if ([tag isEqual:kSegmentTag]) {
+        NSUInteger index = [self numberOfSegments];
 
-    if ([target isEqual:kSegmentTitleTarget]) {
-        [self insertSegmentWithTitle:data atIndex:index animated:NO];
-    } else if ([target isEqual:kSegmentImageTarget]) {
-        [self insertSegmentWithImage:[UIImage imageNamed:data] atIndex:index animated:NO];
+        NSString *title = [properties objectForKey:kSegmentTitleKey];
+
+        if (title != nil) {
+            [self insertSegmentWithTitle:title atIndex:index animated:NO];
+        } else {
+            NSString *image = [properties objectForKey:kSegmentImageKey];
+
+            if (image != nil) {
+                [self insertSegmentWithTitle:image atIndex:index animated:NO];
+            }
+        }
     }
 }
 

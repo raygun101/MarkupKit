@@ -188,7 +188,7 @@
     // No-op
 }
 
-- (void)processMarkupElement:(NSString *)elementName attributes:(NSDictionary *)attributes
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
     // No-op
 }

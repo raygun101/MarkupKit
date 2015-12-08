@@ -20,7 +20,7 @@
 static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kStringsTarget = @"strings";
 
-static NSString * const kRootElementName = @"root";
+static NSString * const kRootTag = @"root";
 static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 
@@ -741,6 +741,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 {
     if ([_views count] == 0) {
         if ([target isEqual:kPropertiesTarget]) {
+            // Load properties
             NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
 
             if (path != nil) {
@@ -759,6 +760,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 }
             }
         } else if ([target isEqual:kStringsTarget]) {
+            // Load strings
             NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"strings" inDirectory:nil];
 
             if (path != nil) {
@@ -768,6 +770,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
         }
     } else {
+        // Notify view
         id view = [_views lastObject];
 
         if (view != [NSNull null]) {
@@ -780,8 +783,44 @@ static NSString * const kLocalizedStringPrefix = @"@";
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
 {
+    NSString *factory = nil;
+    NSString *template = nil;
+    NSString *outlet = nil;
+    NSMutableDictionary *actions = [NSMutableDictionary new];
+    NSMutableDictionary *properties = [NSMutableDictionary new];
+
+    for (NSString *key in attributes) {
+        NSString *value = [attributes objectForKey:key];
+
+        if ([key isEqual:kFactoryKey]) {
+            factory = value;
+        } else if ([key isEqual:kTemplateKey]) {
+            template = value;
+        } else if ([key isEqual:kOutletKey]) {
+            outlet = value;
+        } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
+            && ![key isEqual:@"onTintColor"]) {
+            [actions setObject:value forKey:key];
+        } else {
+            if ([value hasPrefix:kLocalizedStringPrefix]) {
+                value = [value substringFromIndex:[kLocalizedStringPrefix length]];
+
+                NSString *localizedValue = [_strings objectForKey:value];
+
+                if (localizedValue == nil) {
+                    localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
+                }
+
+                value = localizedValue;
+            }
+
+            [properties setObject:value forKey:key];
+        }
+    }
+
+    // Determine element type
     Class type;
-    if ([_views count] == 0 && [elementName isEqual:kRootElementName]) {
+    if ([_views count] == 0 && [elementName isEqual:kRootTag]) {
         if (_root == nil) {
             [NSException raise:NSGenericException format:@"Root view is not defined."];
         }
@@ -792,53 +831,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
     }
 
     if (type == nil) {
-        // Process untyped element
+        // Notify view
         if ([_views count] > 0) {
             id view = [_views lastObject];
 
             if (view != [NSNull null]) {
-                [view processMarkupElement:elementName attributes:attributes];
+                [view processMarkupElement:elementName properties:properties];
             }
         }
 
         [_views addObject:[NSNull null]];
     } else {
         // Create view
-        NSString *factory = nil;
-        NSString *template = nil;
-        NSString *outlet = nil;
-        NSMutableDictionary *actions = [NSMutableDictionary new];
-        NSMutableDictionary *properties = [NSMutableDictionary new];
-
-        for (NSString *key in attributes) {
-            NSString *value = [attributes objectForKey:key];
-
-            if ([key isEqual:kFactoryKey]) {
-                factory = value;
-            } else if ([key isEqual:kTemplateKey]) {
-                template = value;
-            } else if ([key isEqual:kOutletKey]) {
-                outlet = value;
-            } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
-                && ![key isEqual:@"onTintColor"]) {
-                [actions setObject:value forKey:key];
-            } else {
-                if ([value hasPrefix:kLocalizedStringPrefix]) {
-                    value = [value substringFromIndex:[kLocalizedStringPrefix length]];
-
-                    NSString *localizedValue = [_strings objectForKey:value];
-
-                    if (localizedValue == nil) {
-                        localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-                    }
-
-                    value = localizedValue;
-                }
-
-                [properties setObject:value forKey:key];
-            }
-        }
-
         UIView *view;
         if ([_views count] == 0 && _root != nil) {
             view = _root;
