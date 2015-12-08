@@ -768,7 +768,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
         }
     } else {
-        [[_views lastObject] processMarkupInstruction:target data:data];
+        id view = [_views lastObject];
+
+        if (view != [NSNull null]) {
+            [[_views lastObject] processMarkupInstruction:target data:data];
+        }
     }
 }
 
@@ -776,146 +780,166 @@ static NSString * const kLocalizedStringPrefix = @"@";
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
 {
-    NSString *factory = nil;
-    NSString *template = nil;
-    NSString *outlet = nil;
-    NSMutableDictionary *actions = [NSMutableDictionary new];
-    NSMutableDictionary *properties = [NSMutableDictionary new];
-
-    for (NSString *key in attributes) {
-        NSString *value = [attributes objectForKey:key];
-
-        if ([key isEqual:kFactoryKey]) {
-            factory = value;
-        } else if ([key isEqual:kTemplateKey]) {
-            template = value;
-        } else if ([key isEqual:kOutletKey]) {
-            outlet = value;
-        } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
-            && ![key isEqual:@"onTintColor"]) {
-            [actions setObject:value forKey:key];
-        } else {
-            if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [value substringFromIndex:[kLocalizedStringPrefix length]];
-
-                NSString *localizedValue = [_strings objectForKey:value];
-
-                if (localizedValue == nil) {
-                    localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-                }
-
-                value = localizedValue;
-            }
-
-            [properties setObject:value forKey:key];
-        }
-    }
-
-    // Create view
-    UIView *view;
+    Class type;
     if ([_views count] == 0 && [elementName isEqual:kRootElementName]) {
         if (_root == nil) {
             [NSException raise:NSGenericException format:@"Root view is not defined."];
         }
 
-        view = _root;
+        type = [_root class];
     } else {
-        Class type = NSClassFromString(elementName);
+        type = NSClassFromString(elementName);
+    }
 
-        if (![type isSubclassOfClass:[UIView self]]) {
-            [NSException raise:NSGenericException format:@"<%@> is not a valid element type.", elementName];
+    if (type == nil) {
+        // Process untyped element
+        if ([_views count] > 0) {
+            id view = [_views lastObject];
+
+            if (view != [NSNull null]) {
+                [view processMarkupElement:elementName attributes:attributes];
+            }
         }
 
-        if (factory != nil) {
-            SEL selector = NSSelectorFromString(factory);
-            IMP method = [type methodForSelector:selector];
-            id (*function)(id, SEL) = (void *)method;
+        [_views addObject:[NSNull null]];
+    } else {
+        // Create view
+        NSString *factory = nil;
+        NSString *template = nil;
+        NSString *outlet = nil;
+        NSMutableDictionary *actions = [NSMutableDictionary new];
+        NSMutableDictionary *properties = [NSMutableDictionary new];
 
-            view = function(type, selector);
+        for (NSString *key in attributes) {
+            NSString *value = [attributes objectForKey:key];
+
+            if ([key isEqual:kFactoryKey]) {
+                factory = value;
+            } else if ([key isEqual:kTemplateKey]) {
+                template = value;
+            } else if ([key isEqual:kOutletKey]) {
+                outlet = value;
+            } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
+                && ![key isEqual:@"onTintColor"]) {
+                [actions setObject:value forKey:key];
+            } else {
+                if ([value hasPrefix:kLocalizedStringPrefix]) {
+                    value = [value substringFromIndex:[kLocalizedStringPrefix length]];
+
+                    NSString *localizedValue = [_strings objectForKey:value];
+
+                    if (localizedValue == nil) {
+                        localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
+                    }
+
+                    value = localizedValue;
+                }
+
+                [properties setObject:value forKey:key];
+            }
+        }
+
+        UIView *view;
+        if ([_views count] == 0 && _root != nil) {
+            view = _root;
         } else {
-            view = [type new];
+            if (![type isSubclassOfClass:[UIView self]]) {
+                [NSException raise:NSGenericException format:@"<%@> is not a valid element type.", elementName];
+            }
+
+            if (factory != nil) {
+                SEL selector = NSSelectorFromString(factory);
+                IMP method = [type methodForSelector:selector];
+                id (*function)(id, SEL) = (void *)method;
+
+                view = function(type, selector);
+            } else {
+                view = [type new];
+            }
+
+            if (view == nil) {
+                [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
+            }
         }
 
-        if (view == nil) {
-            [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
-        }
-    }
-
-    // Set outlet value
-    if (outlet != nil) {
-        [_owner setValue:view forKey:outlet];
-    }
-
-    // Apply properties
-    if (template != nil) {
-        [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:view];
-    }
-
-    [LMViewBuilder applyPropertyValues:properties toView:view];
-
-    // Add action handlers
-    for (NSString *key in actions) {
-        NSString *name = [key substringFromIndex:[kActionPrefix length]];
-
-        UIControlEvents controlEvents;
-        if ([name isEqual:@"TouchDown"]) {
-            controlEvents = UIControlEventTouchDown;
-        } else if ([name isEqual:@"TouchDownRepeat"]) {
-            controlEvents = UIControlEventTouchDownRepeat;
-        } else if ([name isEqual:@"TouchDragInside"]) {
-            controlEvents = UIControlEventTouchDragInside;
-        } else if ([name isEqual:@"TouchDragOutside"]) {
-            controlEvents = UIControlEventTouchDragOutside;
-        } else if ([name isEqual:@"TouchDragEnter"]) {
-            controlEvents = UIControlEventTouchDragEnter;
-        } else if ([name isEqual:@"TouchDragExit"]) {
-            controlEvents = UIControlEventTouchDragExit;
-        } else if ([name isEqual:@"TouchUpInside"]) {
-            controlEvents = UIControlEventTouchUpInside;
-        } else if ([name isEqual:@"TouchUpOutside"]) {
-            controlEvents = UIControlEventTouchUpOutside;
-        } else if ([name isEqual:@"TouchCancel"]) {
-            controlEvents = UIControlEventTouchCancel;
-        } else if ([name isEqual:@"ValueChanged"]) {
-            controlEvents = UIControlEventValueChanged;
-        } else if ([name isEqual:@"EditingDidBegin"]) {
-            controlEvents = UIControlEventEditingDidBegin;
-        } else if ([name isEqual:@"EditingChanged"]) {
-            controlEvents = UIControlEventEditingChanged;
-        } else if ([name isEqual:@"EditingDidEnd"]) {
-            controlEvents = UIControlEventEditingDidEnd;
-        } else if ([name isEqual:@"EditingDidEndOnExit"]) {
-            controlEvents = UIControlEventEditingDidEndOnExit;
-        } else if ([name isEqual:@"AllTouchEvents"]) {
-            controlEvents = UIControlEventAllTouchEvents;
-        } else if ([name isEqual:@"AllEditingEvents"]) {
-            controlEvents = UIControlEventAllEditingEvents;
-        } else if ([name isEqual:@"AllEvents"]) {
-            controlEvents = UIControlEventAllEvents;
-        } else {
-            controlEvents = 0;
+        // Set outlet value
+        if (outlet != nil) {
+            [_owner setValue:view forKey:outlet];
         }
 
-        SEL action = NSSelectorFromString([actions objectForKey:key]);
-        
-        [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvents];
-    }
+        // Apply properties
+        if (template != nil) {
+            [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:view];
+        }
 
-    // Push onto view stack
-    [_views addObject:view];
+        [LMViewBuilder applyPropertyValues:properties toView:view];
+
+        // Add action handlers
+        for (NSString *key in actions) {
+            NSString *name = [key substringFromIndex:[kActionPrefix length]];
+
+            UIControlEvents controlEvents;
+            if ([name isEqual:@"TouchDown"]) {
+                controlEvents = UIControlEventTouchDown;
+            } else if ([name isEqual:@"TouchDownRepeat"]) {
+                controlEvents = UIControlEventTouchDownRepeat;
+            } else if ([name isEqual:@"TouchDragInside"]) {
+                controlEvents = UIControlEventTouchDragInside;
+            } else if ([name isEqual:@"TouchDragOutside"]) {
+                controlEvents = UIControlEventTouchDragOutside;
+            } else if ([name isEqual:@"TouchDragEnter"]) {
+                controlEvents = UIControlEventTouchDragEnter;
+            } else if ([name isEqual:@"TouchDragExit"]) {
+                controlEvents = UIControlEventTouchDragExit;
+            } else if ([name isEqual:@"TouchUpInside"]) {
+                controlEvents = UIControlEventTouchUpInside;
+            } else if ([name isEqual:@"TouchUpOutside"]) {
+                controlEvents = UIControlEventTouchUpOutside;
+            } else if ([name isEqual:@"TouchCancel"]) {
+                controlEvents = UIControlEventTouchCancel;
+            } else if ([name isEqual:@"ValueChanged"]) {
+                controlEvents = UIControlEventValueChanged;
+            } else if ([name isEqual:@"EditingDidBegin"]) {
+                controlEvents = UIControlEventEditingDidBegin;
+            } else if ([name isEqual:@"EditingChanged"]) {
+                controlEvents = UIControlEventEditingChanged;
+            } else if ([name isEqual:@"EditingDidEnd"]) {
+                controlEvents = UIControlEventEditingDidEnd;
+            } else if ([name isEqual:@"EditingDidEndOnExit"]) {
+                controlEvents = UIControlEventEditingDidEndOnExit;
+            } else if ([name isEqual:@"AllTouchEvents"]) {
+                controlEvents = UIControlEventAllTouchEvents;
+            } else if ([name isEqual:@"AllEditingEvents"]) {
+                controlEvents = UIControlEventAllEditingEvents;
+            } else if ([name isEqual:@"AllEvents"]) {
+                controlEvents = UIControlEventAllEvents;
+            } else {
+                controlEvents = 0;
+            }
+
+            SEL action = NSSelectorFromString([actions objectForKey:key]);
+            
+            [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvents];
+        }
+
+        // Push onto view stack
+        [_views addObject:view];
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
     // Pop from view stack
-    UIView *view = [_views lastObject];
+    id view = [_views lastObject];
 
     [_views removeLastObject];
 
     if ([_views count] > 0) {
         // Add to superview
-        [[_views lastObject] appendMarkupElementView:view];
+        if (view != [NSNull null]) {
+            [[_views lastObject] appendMarkupElementView:view];
+        }
     } else {
         // Inject properties and strings into owner
         @try {
@@ -928,7 +952,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
         }
 
-        _root = view;
+        // Set root view
+        if (view != [NSNull null]) {
+            _root = view;
+        }
     }
 }
 
