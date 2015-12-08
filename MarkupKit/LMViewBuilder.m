@@ -771,7 +771,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         id view = [_views lastObject];
 
         if (view != [NSNull null]) {
-            [[_views lastObject] processMarkupInstruction:target data:data];
+            [view processMarkupInstruction:target data:data];
         }
     }
 }
