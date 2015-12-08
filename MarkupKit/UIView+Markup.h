@@ -82,6 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
 
 /**
+ * Processes a markup element.
+ * @param elementName The element's name.
+ * @param attributes The element's attributes.
+ */
+- (void)processMarkupElement:(NSString *)elementName attributes:(NSDictionary *)attributes;
+
+/**
  * Appends a markup element view.
  *
  * @param view The view to append.
