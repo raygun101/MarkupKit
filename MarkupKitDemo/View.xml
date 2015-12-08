@@ -132,20 +132,19 @@ limitations under the License.
     <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <LMPickerView>
             <?componentName sizes?>
-
-            <?rowTitle Small; S?>
-            <?rowTitle Medium; M?>
-            <?rowTitle Large; L?>
-            <?rowTitle Extra-Large; XL?>
+            <row title="Small" value="S"/>
+            <row title="Medium" value="M"/>
+            <row title="Large" value="L"/>
+            <row title="Extra-Large" value="XL"/>
 
             <?componentSeparator?>
 
             <?componentName pets?>
-            <?rowTitle Dog?>
-            <?rowTitle Cat?>
-            <?rowTitle Fish?>
-            <?rowTitle Rabbit?>
-            <?rowTitle Turtle?>
+            <row title="Dog"/>
+            <row title="Cat"/>
+            <row title="Fish"/>
+            <row title="Rabbit"/>
+            <row title="Turtle"/>
         </LMPickerView>
     </LMTableViewCell>
 
