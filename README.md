@@ -19,10 +19,10 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 For examples and additional information, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 # Document Structure
-MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements represent `UIView` instances, and XML attributes typically represent properties of or actions associated with those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
+MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
 
 ## Elements
-XML elements in a MarkupKit document represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. 
+XML elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. 
 
 View instances are typically constructed by invoking the `new` method on the named view type. However, in some cases it is necessary to invoke a "factory" method to create the instance. This is discussed in more detail later.
 
@@ -33,6 +33,23 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
 For example, `LMTableView` (a MarkupKit-provided subclass of `UITableView`) overrides this method to call `insertCell:forRowAtIndexPath:` on itself, and  `LMScrollView` overrides it to call `setContentView:`. Other classes that support sub-elements provide similar overrides.
+
+Elements may also represent untyped data. For example, the content of a `UISegmentedControl` is specified by its `insertSegmentWithImage:atIndex:animated:` or `insertSegmentWithTitle:atIndex:animated:` methods rather than via subviews. In MarkupKit, this is represented as follows:
+
+    <UISegmentedControl>
+        <segment title="Small"/>
+        <segment title="Medium"/>
+        <segment title="Large"/>
+        <segment title="Extra-Large"/>
+    </UISegmentedControl>
+
+Each `<segment>` element corresponds to a call to the following method, which is also added to `UIView`:
+
+    - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
+
+This method would be called for each `<segment>` element in the above example. The element's name, "segment", would be passed in the `tag` argument, and a key/value pair representing the segment's title would be included in the dictionary passed as the `properties` argument.
+
+Like `appendMarkupElementView:`, the default implementation of this method does nothing. `UIView` subclasses must override it to provide view-specific behavior. 
 
 ## Attributes
 XML attributes in a MarkupKit document typically represent properties of or actions associated with a view. For example, the following markup declares an instance of `UISwitch` whose `on` property is set to `true`:
@@ -230,8 +247,6 @@ Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface 
 In addition to the document-wide `strings` and `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value or subview. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section headers and footers, and an extension to `UISegmentedControl` overrides it to support segment title and image declarations. Both are discussed in more detail later.
-
-Note that, if the data component of a processing instruction begins with "@", its value will be localized before `processMarkupInstruction:data:` is called.
 
 # MarkupKit Classes
 The remaining sections of this document discuss the classes included with the MarkupKit framework:
@@ -505,56 +520,55 @@ See _LMTableViewCell.h_ for more information.
 `LMPickerView` is a subclass of `UIPickerView` that acts as its own data source and delegate, serving content from a statically-defined collection of row and component titles. For example, the following markup declares a picker view containing four rows reprenting size options:
 
     <LMPickerView>
-        <?rowTitle Small?>
-        <?rowTitle Medium?>
-        <?rowTitle Large?>
-        <?rowTitle Extra-Large?>
+        <row title="Small"/>
+        <row title="Medium"/>
+        <row title="Large"/>
+        <row title="Extra-Large"/>
     </LMPickerView>
 
-The `rowTitle` processing instruction corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The PI's data is used as the row title. An optional value to associate with the row can be specified as follows:
+The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the "title" attribute is used as the row title. An optional value to associate with the row can be specified as follows:
 
     <LMPickerView>
-        <?rowTitle Small; S?>
-        <?rowTitle Medium; M?>
-        <?rowTitle Large; L?>
-        <?rowTitle Extra-Large; XL?>
+        <row title="Small" value="S"/>
+        <row title="Medium" value="M"/>
+        <row title="Large" value="L"/>
+        <row title="Extra-Large" value="XL"/>
     </LMPickerView>
 
 The `componentSeparator` processing instruction is used to insert a new component into the picker view. It corresponds to a call to the `insertComponent:` method. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
 
     <LMPickerView>
-        <?rowTitle Small; S?>
-        <?rowTitle Medium; M?>
-        <?rowTitle Large; L?>
-        <?rowTitle Extra-Large; XL?>
+        <row title="Small" value="S"/>
+        <row title="Medium" value="M"/>
+        <row title="Large" value="L"/>
+        <row title="Extra-Large" value="XL"/>
 
         <?componentSeparator?>
 
-        <?rowTitle Red; #ff0000?>
-        <?rowTitle Yellow; #ffff00?>
-        <?rowTitle Green; #00ff00?>
-        <?rowTitle Blue; #0000ff?>
-        <?rowTitle Purple; #ff00ff?>
+        <row title="Red" value="#ff0000"/>
+        <row title="Yellow" value="#ffff00"/>
+        <row title="Green" value="#00ff00"/>
+        <row title="Blue" value="#0000ff"/>
+        <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
 Finally, the `componentName` processing instruction is used to assign a name to a component. It corresponds to a call to the `setName:forComponent:` method of `LMPickerView`. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
     <LMPickerView>
         <?componentName sizes?>
-
-        <?rowTitle Small; S?>
-        <?rowTitle Medium; M?>
-        <?rowTitle Large; L?>
-        <?rowTitle Extra-Large; XL?>
+        <row title="Small" value="S"/>
+        <row title="Medium" value="M"/>
+        <row title="Large" value="L"/>
+        <row title="Extra-Large" value="XL"/>
 
         <?componentSeparator?>
 
         <?componentName colors?>
-        <?rowTitle Red; #ff0000?>
-        <?rowTitle Yellow; #ffff00?>
-        <?rowTitle Green; #00ff00?>
-        <?rowTitle Blue; #0000ff?>
-        <?rowTitle Purple; #ff00ff?>
+        <row title="Red" value="#ff0000"/>
+        <row title="Yellow" value="#ffff00"/>
+        <row title="Green" value="#00ff00"/>
+        <row title="Blue" value="#0000ff"/>
+        <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
 #### Custom Data Source/Delegate Implementations
@@ -1026,21 +1040,19 @@ For example:
     <UIButton normalTitle="Click Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
 
 ### UISegmentedControl
-Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupInstruction:data:` to allow segmented control content to be configured in markup. The `segmentTitle` progressing instruction can be used to add a segment title to a segmented control:
+Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. MarkupKit overrides the `processMarkupElement:properties:` method to allow segmented control content to be configured in markup. The `segment` element is used to add a segment to a segmented control. The "title" attribute can be used to specify a the segment's title:
 
-    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
-        <?segmentTitle Yes?>
-        <?segmentTitle No?>
+    <UISegmentedControl>
+        <segment title="Yes"/>
+        <segment title="No"/>
     </UISegmentedControl>
 
-Similarly, the `segmentImage` PI can be used to add a segment image to a segmented control:
+Similarly, the `image` attribute can be used to specify an image for a segment:
 
-    <UISegmentedControl onValueChanged="updateActivityIndicatorState:">
-        <?segmentImage yes.png?>
-        <?segmentImage no.png?>
+    <UISegmentedControl>
+        <segment image="yes.png"/>
+        <segment image no.png"/>
     </UISegmentedControl>
-    
-In both examples, the `updateActivityIndicatorState:` method of the document's owner will be called when the control's value changes.
 
 ### UIPickerView
 MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
