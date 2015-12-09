@@ -244,9 +244,9 @@ For example, the following markup declares an instance of `UIButton` that calls 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
 
 ## Processing Instructions
-In addition to the document-wide `strings` and `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value or subview. 
+In addition to the document-wide `strings` and `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
 
-MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section headers and footers, and an extension to `UISegmentedControl` overrides it to support segment title and image declarations. Both are discussed in more detail later.
+MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer view declarations and section breaks. These processing instructions and others are discussed in more detail later.
 
 # MarkupKit Classes
 The remaining sections of this document discuss the classes included with the MarkupKit framework:
