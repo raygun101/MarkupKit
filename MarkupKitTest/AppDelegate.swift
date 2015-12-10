@@ -25,10 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         window!.rootViewController = mainStoryboard.instantiateInitialViewController()
 
-        /*
-        window!.rootViewController = ScrollViewController()
-        */
-
         window!.frame = UIScreen.mainScreen().bounds
         window!.makeKeyAndVisible()
 

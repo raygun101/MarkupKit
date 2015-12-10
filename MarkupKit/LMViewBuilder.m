@@ -773,7 +773,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         // Notify view
         id view = [_views lastObject];
 
-        if (view != [NSNull null]) {
+        if ([view isKindOfClass:[UIView self]]) {
             [view processMarkupInstruction:target data:data];
         }
     }
@@ -835,7 +835,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         if ([_views count] > 0) {
             id view = [_views lastObject];
 
-            if (view != [NSNull null]) {
+            if ([view isKindOfClass:[UIView self]]) {
                 [view processMarkupElement:elementName properties:properties];
             }
         }
@@ -941,10 +941,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     if ([_views count] > 0) {
         // Add to superview
-        if (view != [NSNull null]) {
+        if ([view isKindOfClass:[UIView self]]) {
             id superview = [_views lastObject];
             
-            if (superview != [NSNull null]) {
+            if ([superview isKindOfClass:[UIView self]]) {
                 [superview appendMarkupElementView:view];
             }
         }
@@ -961,7 +961,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         }
 
         // Set root view
-        if (view != [NSNull null]) {
+        if ([view isKindOfClass:[UIView self]]) {
             _root = view;
         }
     }
