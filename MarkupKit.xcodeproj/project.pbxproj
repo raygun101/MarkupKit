@@ -1053,7 +1053,7 @@
 				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitTemplates;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1068,7 +1068,7 @@
 				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitTemplates;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1083,7 +1083,7 @@
 				INFOPLIST_FILE = MarkupKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1098,7 +1098,7 @@
 				INFOPLIST_FILE = MarkupKitDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1207,7 +1207,7 @@
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKit;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1228,7 +1228,7 @@
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKit;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 			};
@@ -1248,7 +1248,7 @@
 				INFOPLIST_FILE = MarkupKitTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1264,7 +1264,7 @@
 				INFOPLIST_FILE = MarkupKitTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitTest;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1282,7 +1282,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -1297,7 +1297,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.gkbrown.MarkupKitExamples;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
