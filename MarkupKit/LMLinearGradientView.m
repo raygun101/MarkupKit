@@ -16,7 +16,7 @@
 
 @implementation LMLinearGradientView
 
--(instancetype)init
+- (instancetype)init
 {
     self = [super init];
 

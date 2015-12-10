@@ -15,7 +15,12 @@
 import UIKit
 import MarkupKit
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UIPickerViewDelegate {
+    weak var dateTextField: UITextField!
+
+    weak var sizeTextField: UITextField!
+    weak var sizePickerView: LMPickerView!
+
     weak var stepper: UIStepper!
     weak var slider: UISlider!
     weak var pageControl: UIPageControl!
@@ -29,6 +34,8 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
 
         tableView.delegate = self
+        
+        sizePickerView.delegate = self
 
         slider.minimumValue = Float(stepper.minimumValue)
         slider.maximumValue = Float(stepper.maximumValue)
@@ -38,6 +45,20 @@ class ViewController: UITableViewController {
 
     override func viewWillLayoutSubviews() {
         tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0)
+    }
+
+    func updateDateTextField(datePicker: UIDatePicker) {
+        let dateFormatter = NSDateFormatter()
+
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        dateTextField.text = dateFormatter.stringFromDate(datePicker.date)
+    }
+
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if (pickerView == sizePickerView) {
+            sizeTextField.text = pickerView.titleForRow(row, forComponent: component)
+        }
     }
 
     func showGreeting() {

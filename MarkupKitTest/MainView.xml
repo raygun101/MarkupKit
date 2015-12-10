@@ -70,7 +70,13 @@ limitations under the License.
             </LMRowView>
             
             <LMRowView alignment="bottom" layoutMargins="12" backgroundColor="#ffffff">
-                <UITextField placeholder="@password" clearButtonMode="whileEditing" secureTextEntry="true"/>
+                <UITextField placeholder="@password" secureTextEntry="true" leftViewMode="always" rightViewMode="unlessEditing">
+                    <?leftView?>
+                    <UIImageView image="Left"/>
+
+                    <?rightView?>
+                    <UIImageView image="Right"/>
+                </UITextField>
             </LMRowView>
 
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"
