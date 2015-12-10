@@ -16,7 +16,7 @@
 
 @implementation LMRadialGradientView
 
--(instancetype)init
+- (instancetype)init
 {
     self = [super init];
 

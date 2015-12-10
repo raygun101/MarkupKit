@@ -1054,6 +1054,20 @@ Similarly, the `image` attribute can be used to specify an image for a segment:
         <segment image no.png"/>
     </UISegmentedControl>
 
+### UITextField
+MarkupKit adds support for the following processing instructions to `UITextField` to allow the text field's associated views to be configured in markup:
+
+    <?leftView?>
+    <?rightView?>
+    <?inputView?>
+
+For example, the following markup declares a text field with an associated `UIDatePicker` as an input view:
+
+    <UITextField placeholer="Date">
+        <?inputView?>
+        <UIDatePicker datePickerMode="date"/>
+    </UITextField>
+
 ### UIPickerView
 MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
 

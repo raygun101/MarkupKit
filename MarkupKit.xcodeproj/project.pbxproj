@@ -90,6 +90,8 @@
 		37D36AC91BB1DDCE008E36FD /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC61BB1DDCE008E36FD /* mini.png */; };
 		37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC71BB1DDCE008E36FD /* vw.png */; };
 		37D8043C1C138E2F00D97DCC /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D8043B1C138E2F00D97DCC /* View.xml */; };
+		37D9478A1C19B7BC00D323C4 /* UITextField+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D947881C19B7BC00D323C4 /* UITextField+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37D9478B1C19B7BC00D323C4 /* UITextField+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D947891C19B7BC00D323C4 /* UITextField+Markup.m */; };
 		37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */; };
 		37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37C71BAED55B00C92E2D /* LayoutView.xml */; };
 		37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C91BAED77D00C92E2D /* StackViewController.swift */; };
@@ -311,6 +313,8 @@
 		37D36AC61BB1DDCE008E36FD /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
 		37D36AC71BB1DDCE008E36FD /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
 		37D8043B1C138E2F00D97DCC /* View.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = View.xml; sourceTree = "<group>"; };
+		37D947881C19B7BC00D323C4 /* UITextField+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Markup.h"; sourceTree = "<group>"; };
+		37D947891C19B7BC00D323C4 /* UITextField+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Markup.m"; sourceTree = "<group>"; };
 		37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		37EA37C71BAED55B00C92E2D /* LayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutView.xml; sourceTree = "<group>"; };
 		37EA37C91BAED77D00C92E2D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 				3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */,
 				3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */,
 				3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */,
+				37D947881C19B7BC00D323C4 /* UITextField+Markup.h */,
+				37D947891C19B7BC00D323C4 /* UITextField+Markup.m */,
 				37F1B8B71C0BAF3900C9F603 /* UIPickerView+Markup.h */,
 				37F1B8B81C0BAF3900C9F603 /* UIPickerView+Markup.m */,
 				3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */,
@@ -632,6 +638,7 @@
 				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
 				3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */,
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
+				37D9478A1C19B7BC00D323C4 /* UITextField+Markup.h in Headers */,
 				37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
@@ -901,6 +908,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */,
+				37D9478B1C19B7BC00D323C4 /* UITextField+Markup.m in Sources */,
 				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
 				37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */,
 				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
