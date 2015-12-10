@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param title The row title.
  * @param value The row value.
  */
-- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(nullable NSString *)title value:(nullable id)value;
+- (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(nullable id)value;
 
 /**
  * Deletes an existing row from the picker view.
