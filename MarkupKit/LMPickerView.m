@@ -24,7 +24,7 @@ static NSString * const kRowValueKey = @"value";
 
 @interface LMPickerViewRow : NSObject
 
-@property (nonatomic) NSString* title;
+@property (nonatomic) NSString *title;
 @property (nonatomic) id value;
 
 - (instancetype)init;
