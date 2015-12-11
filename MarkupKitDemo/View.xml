@@ -37,6 +37,16 @@ limitations under the License.
 
     <?sectionBreak?>
 
+    <!-- Image View -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Image View" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="213"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
     <!-- Text Fields -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Text Fields" class="cell.header"/>
@@ -74,16 +84,6 @@ limitations under the License.
                 <row title="Extra-Large" value="XL"/>
             </LMPickerView>
         </UITextField>
-    </LMTableViewCell>
-
-    <?sectionBreak?>
-
-    <!-- Image View -->
-    <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Image View" class="cell.header"/>
-
-    <LMTableViewCell selectionStyle="none">
-        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="213"/>
     </LMTableViewCell>
 
     <?sectionBreak?>
