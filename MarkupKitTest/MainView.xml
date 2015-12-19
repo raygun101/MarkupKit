@@ -25,9 +25,10 @@ limitations under the License.
     <LMLayerView>
         <UIView backgroundColor="#eeeeee"/>
         
-        <LMColumnView alignment="center" layoutMargins="20">
+        <LMColumnView layoutMargins="20">
             <LMRowView class="row.first">
                 <UILabel id="greetingLabel" text="@greeting" textColor="#ff00ff"/>
+                <LMSpacer/>
                 <UILabel text="@missing.key" textAlignment="right" font="System 22"/>
             </LMRowView>
 
@@ -55,21 +56,33 @@ limitations under the License.
                 clipsToBounds="true"
                 onTouchUpInside="handleButtonTouchUpInside:"/>
 
-            <LMRowView alignment="baseline" backgroundColor="#ff00ff">
+            <LMRowView alignToBaseline="true" backgroundColor="#ff00ff">
+                <LMSpacer/>
                 <UILabel text="abcd" font="Helvetica 16"/>
                 <UILabel text="efg" font="Helvetica 32" backgroundColor="#ffff00"/>
                 <UILabel text="hijk" font="Helvetica 24"/>
+                <LMSpacer/>
             </LMRowView>
 
-            <LMRowView alignment="center">
+            <LMRowView layoutMargins="12" backgroundColor="#ffff00">
+                <LMSpacer/>
+                <UILabel text="abcd" font="Helvetica 16"/>
+                <UILabel width="45" text="efg hijk lmnop" font="Helvetica 16" numberOfLines="0" backgroundColor="#00ffff"/>
+                <LMSpacer/>
+            </LMRowView>
+
+            <LMRowView>
+                <LMSpacer/>
                 <UISwitch on="false" onTintColor="#22446688" onValueChanged="handleSwitchValueChanged:"/>
             </LMRowView>
 
-            <LMRowView alignment="top" layoutMargins="12" backgroundColor="#ffffff">
+            <LMRowView layoutMargins="12" backgroundColor="#ffffff">
+                <LMSpacer/>
                 <UITextField placeholder="@text" clearButtonMode="whileEditing" keyboardType="numberPad"/>
+                <LMSpacer/>
             </LMRowView>
             
-            <LMRowView alignment="bottom" layoutMargins="12" backgroundColor="#ffffff">
+            <LMRowView layoutMargins="12" backgroundColor="#ffffff">
                 <UITextField placeholder="@password" secureTextEntry="true" leftViewMode="always" rightViewMode="unlessEditing">
                     <?leftView?>
                     <UIImageView image="Left"/>

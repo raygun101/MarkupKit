@@ -17,46 +17,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Box view alignment options.
- */
-typedef NS_ENUM(NSInteger, LMBoxViewAlignment) {
-    /** Top layout alignment. */
-	LMBoxViewAlignmentTop,
-
-    /** Bottom layout alignment. */
-	LMBoxViewAlignmentBottom,
-
-    /** Left layout alignment. */
-	LMBoxViewAlignmentLeft,
-
-    /** Right layout alignment. */
-	LMBoxViewAlignmentRight,
-
-    /** Leading layout alignment. */
-	LMBoxViewAlignmentLeading,
-
-    /** Trailing layout alignment. */
-	LMBoxViewAlignmentTrailing,
-
-    /** Center layout alignment. */
-	LMBoxViewAlignmentCenter,
-
-    /** Baseline layout alignment. */
-	LMBoxViewAlignmentBaseline,
-
-    /** Fill layout alignment. */
-	LMBoxViewAlignmentFill
-};
-
-/**
  * Abstract base class for box views.
  */
 @interface LMBoxView : LMLayoutView
-
-/**
- * Defines how subviews are aligned.
- */
-@property (nonatomic) LMBoxViewAlignment alignment;
 
 /**
  * The amount of spacing between successive subviews.
