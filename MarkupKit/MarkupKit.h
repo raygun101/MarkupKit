@@ -44,6 +44,7 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/UITextField+Markup.h>
 #import <MarkupKit/UIPickerView+Markup.h>
 #import <MarkupKit/UIProgressView+Markup.h>
+#import <MarkupKit/UIToolbar+Markup.h>
 #import <MarkupKit/UIStackView+Markup.h>
 #import <MarkupKit/UIScrollView+Markup.h>
 #import <MarkupKit/UITableView+Markup.h>

@@ -19,11 +19,13 @@
 static NSString * const kLeftViewTarget = @"leftView";
 static NSString * const kRightViewTarget = @"rightView";
 static NSString * const kInputViewTarget = @"inputView";
+static NSString * const kInputAccessoryViewTarget = @"inputAccessoryView";
 
 typedef enum {
     kElementLeftView,
     kElementRightView,
-    kElementInputView
+    kElementInputView,
+    kElementInputAccessoryView
 } __ElementDisposition;
 
 #define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
@@ -39,6 +41,8 @@ typedef enum {
         elementDisposition = kElementRightView;
     } else if ([target isEqual:kInputViewTarget]) {
         elementDisposition = kElementInputView;
+    } else if ([target isEqual:kInputAccessoryViewTarget]) {
+        elementDisposition = kElementInputAccessoryView;
     } else {
         return;
     }
@@ -70,6 +74,12 @@ typedef enum {
 
             case kElementInputView: {
                 [self setInputView:view];
+                
+                break;
+            }
+
+            case kElementInputAccessoryView: {
+                [self setInputAccessoryView:view];
                 
                 break;
             }
