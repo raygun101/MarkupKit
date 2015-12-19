@@ -24,28 +24,23 @@ static NSString * const kItemImageKey = @"image";
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
     if ([tag isEqual:kItemTag]) {
-        NSMutableArray *items = (NSMutableArray *)[self items];
+        NSMutableArray *items = [NSMutableArray arrayWithArray:[self items]];
 
-        if (items == nil) {
-            items = [NSMutableArray new];
-        }
-
-        NSString *action = [properties objectForKey:kItemActionKey];
+        SEL action = NSSelectorFromString([properties objectForKey:kItemActionKey]);
 
         NSString *title = [properties objectForKey:kItemTitleKey];
 
         UIBarButtonItem *item = nil;
 
-        // TODO Does NSSelectorFromString(nil) return nil?
         if (title != nil) {
             item = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain
-                target:nil action:NSSelectorFromString(action)];
+                target:nil action:action];
         } else {
             NSString *image = [properties objectForKey:kItemImageKey];
 
             if (image != nil) {
                 item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:image] style:UIBarButtonItemStylePlain
-                    target:nil action:NSSelectorFromString(action)];
+                    target:nil action:action];
             }
         }
 

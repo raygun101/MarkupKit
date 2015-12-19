@@ -86,6 +86,17 @@ limitations under the License.
         </UITextField>
     </LMTableViewCell>
 
+    <LMTableViewCell selectionStyle="none">
+        <UITextField placeholder="Accessory">
+            <?inputAccessoryView?>
+            <UIToolbar>
+                <item title="One"/>
+                <item title="Two"/>
+                <item title="Three"/>
+            </UIToolbar>
+        </UITextField>
+    </LMTableViewCell>
+
     <?sectionBreak?>
 
     <!-- Radio Buttons -->
