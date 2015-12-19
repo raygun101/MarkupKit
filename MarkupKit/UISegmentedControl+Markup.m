@@ -33,7 +33,7 @@ static NSString * const kSegmentImageKey = @"image";
             NSString *image = [properties objectForKey:kSegmentImageKey];
 
             if (image != nil) {
-                [self insertSegmentWithTitle:image atIndex:index animated:NO];
+                [self insertSegmentWithImage:[UIImage imageNamed:image] atIndex:index animated:NO];
             }
         }
     }
