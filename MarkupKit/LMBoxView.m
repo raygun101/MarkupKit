@@ -14,13 +14,11 @@
 
 #import "LMBoxView.h"
 
-#define DEFAULT_ALIGNMENT LMBoxViewAlignmentFill
 #define DEFAULT_SPACING 8
 
 @implementation LMBoxView
 
 #define INIT {\
-    _alignment = DEFAULT_ALIGNMENT;\
     _spacing = DEFAULT_SPACING;\
 }
 
@@ -42,52 +40,12 @@
     return self;
 }
 
-- (void)setAlignment:(LMBoxViewAlignment)alignment
-{
-    _alignment = alignment;
-
-    [self setNeedsUpdateConstraints];
-}
-
 - (void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
 
     [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
-}
-
-- (void)setValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqual:@"alignment"]) {
-        // Translate to box view alignment
-        LMBoxViewAlignment boxViewAlignment;
-        if ([value isEqual:@"top"]) {
-            boxViewAlignment = LMBoxViewAlignmentTop;
-        } else if ([value isEqual:@"bottom"]) {
-            boxViewAlignment = LMBoxViewAlignmentBottom;
-        } else if ([value isEqual:@"left"]) {
-            boxViewAlignment = LMBoxViewAlignmentLeft;
-        } else if ([value isEqual:@"right"]) {
-            boxViewAlignment = LMBoxViewAlignmentRight;
-        } else if ([value isEqual:@"leading"]) {
-            boxViewAlignment = LMBoxViewAlignmentLeading;
-        } else if ([value isEqual:@"trailing"]) {
-            boxViewAlignment = LMBoxViewAlignmentTrailing;
-        } else if ([value isEqual:@"center"]) {
-            boxViewAlignment = LMBoxViewAlignmentCenter;
-        } else if ([value isEqual:@"baseline"]) {
-            boxViewAlignment = LMBoxViewAlignmentBaseline;
-        } else if ([value isEqual:@"fill"]) {
-            boxViewAlignment = LMBoxViewAlignmentFill;
-        } else {
-            boxViewAlignment = [value intValue];
-        }
-
-        value = [NSNumber numberWithInt:boxViewAlignment];
-    }
-
-    [super setValue:value forKey:key];
 }
 
 @end

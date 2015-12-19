@@ -25,7 +25,7 @@ limitations under the License.
                 numberOfLines="0"/>
         </LMRowView>
 
-        <LMRowView>
+        <LMRowView alignToBaseline="true">
             <UILabel text="ghijkl mno pqr" textAlignment="right"/>
             <UILabel weight="1" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
                 numberOfLines="0"/>

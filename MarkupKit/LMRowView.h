@@ -21,6 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface LMRowView : LMBoxView
 
+/**
+ * Specifies that subviews should be baseline-aligned.
+ */
+@property (nonatomic) BOOL alignToBaseline;
+
 @end
 
 NS_ASSUME_NONNULL_END

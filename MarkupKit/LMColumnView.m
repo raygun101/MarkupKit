@@ -41,65 +41,6 @@
     [self setNeedsUpdateConstraints];
 }
 
-- (void)setAlignment:(LMBoxViewAlignment)alignment
-{
-    NSAssert(alignment == LMBoxViewAlignmentLeft
-        || alignment == LMBoxViewAlignmentRight
-        || alignment == LMBoxViewAlignmentLeading
-        || alignment == LMBoxViewAlignmentTrailing
-        || alignment == LMBoxViewAlignmentCenter
-        || alignment == LMBoxViewAlignmentFill, @"Invalid alignment.");
-
-    [super setAlignment:alignment];
-}
-
-- (CGSize)intrinsicContentSize
-{
-    CGSize size;
-    if ([self alignment] == LMBoxViewAlignmentFill) {
-        size = [super intrinsicContentSize];
-    } else {
-        size = CGSizeMake(0, 0);
-
-        CGFloat spacing = [self spacing];
-
-        NSUInteger i = 0;
-
-        for (UIView *subview in [self arrangedSubviews]) {
-            if ([subview isHidden]) {
-                continue;
-            }
-
-            if (i > 0) {
-                size.height += spacing;
-            }
-
-            CGSize subviewSize = [subview intrinsicContentSize];
-
-            if (subviewSize.width != UIViewNoIntrinsicMetric) {
-                size.width = MAX(size.width, subviewSize.width);
-            }
-
-            if (subviewSize.height != UIViewNoIntrinsicMetric) {
-                size.height += subviewSize.height;
-            }
-
-            i++;
-        }
-
-        if ([self layoutMarginsRelativeArrangement]) {
-            UIEdgeInsets layoutMargins = [self layoutMargins];
-
-            size.width += layoutMargins.left + layoutMargins.right;
-            size.height += layoutMargins.top + layoutMargins.bottom;
-        }
-
-        size.height += _topSpacing + _bottomSpacing;
-    }
-
-    return size;
-}
-
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
@@ -120,7 +61,6 @@
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    LMBoxViewAlignment alignment = [self alignment];
     CGFloat spacing = [self spacing];
 
     NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute, leadingAttribute, trailingAttribute;
@@ -172,39 +112,15 @@
         }
 
         // Align to parent
-        if (alignment == LMBoxViewAlignmentLeft) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
-                multiplier:1 constant:0]];
-        } else if (alignment == LMBoxViewAlignmentRight) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-                multiplier:1 constant:0]];
-        } else if (alignment == LMBoxViewAlignmentLeading) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
-                multiplier:1 constant:0]];
-        } else if (alignment == LMBoxViewAlignmentTrailing) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
-                multiplier:1 constant:0]];
-        } else if (alignment == LMBoxViewAlignmentCenter) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX
-                multiplier:1 constant:0]];
-        } else if (alignment == LMBoxViewAlignmentFill) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
-                multiplier:1 constant:0]];
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-                multiplier:1 constant:0]];
-        } else {
-            [NSException raise:NSInternalInconsistencyException format:@"Unexpected horizontal alignment."];
-        }
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
+            multiplier:1 constant:0]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
+            multiplier:1 constant:0]];
 
         // Align subviews
-        if ([self alignToGrid] && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
+        if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
             NSArray *nestedSubviews = [(LMRowView *)subview arrangedSubviews];
             NSArray *previousNestedSubviews = [(LMRowView *)previousSubview arrangedSubviews];
 

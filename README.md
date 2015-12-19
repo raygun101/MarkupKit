@@ -696,37 +696,18 @@ Layout views do not consume touch events. Touches that occur within a layout vie
 All three layout view types are discussed in more detail in the following sections. See _LMLayoutView.h_ for more information.
 
 ## LMRowView and LMColumnView
-The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following properties:
+The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following property:
 
-    @property (nonatomic) LMBoxViewAlignment alignment;
     @property (nonatomic) CGFloat spacing;
 
-The `alignment` property specifies how content should be aligned within a box view. It must be one of the following values, defined by the `LMBoxViewAlignment` enumeration:
+This property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
 
-* `LMBoxViewAlignmentTop` 
-* `LMBoxViewAlignmentBottom` 
-* `LMBoxViewAlignmentLeft` 
-* `LMBoxViewAlignmentRight` 
-* `LMBoxViewAlignmentLeading` 
-* `LMBoxViewAlignmentTrailing` 
-* `LMBoxViewAlignmentCenter` 
-* `LMBoxViewAlignmentBaseline` 
-* `LMBoxViewAlignmentFill` 
-
-`LMBoxViewAlignmentTop`, `LMBoxViewAlignmentBottom`, and `LMBoxViewAlignmentBaseline` apply to `LMRowView` instances, which align content vertically within a row. `LMBoxViewAlignmentLeft`, `LMBoxViewAlignmentRight`, `LMBoxViewAlignmentLeading`, and `LMBoxViewAlignmentTrailing` apply to `LMColumnView` instances, which align content horizontally. 
-
-`LMBoxViewAlignmentLeading` and `LMBoxViewAlignmentTrailing` are relative to the text direction used by the system language. For left-to-right languages, "leading" refers to the left edge and trailing to the right. For right-to-left languages, "leading" refers to the right edge and trailing to the left. 
-
-`LMBoxViewAlignmentCenter` and `LMBoxViewAlignmentFill` apply to both row and column views. The default alignment for both view types is`LMBoxViewAlignmentFill`.
-
-The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
-
-Subviews are always pinned along the box view's primary axis. This ensures that there is no ambiguity regarding a subview's placement and allows the autolayout system to correctly calculate the view's size and position.
+Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the autolayout system to correctly calculate the view's size and position.
 
 See _LMBoxView.h_ for more information.
 
 ### LMRowView
-The `LMRowView` class arranges its subviews in a horizontal line. For example, the following markup creates a row view containing three labels:
+The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
 
     <LMRowView>
         <UILabel text="One"/>
@@ -734,22 +715,26 @@ The `LMRowView` class arranges its subviews in a horizontal line. For example, t
         <UILabel text="Three"/>
     </LMRowView>
 
-Because the default alignment setting is "fill", the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. 
+The top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. 
+
+`LMRowView ` defines the following additional property, which specifies that subviews should be baseline-aligned: 
+
+    @property (nonatomic) BOOL alignToBaseline;
 
 This markup creates a row view containing three labels, all with different font sizes:
 
-    <LMRowView alignment="baseline">
+    <LMRowView alignToBaseline="true">
         <UILabel text="One" font="Helvetica 12"/>
         <UILabel text="Two" font="Helvetica 24"/>
         <UILabel text="Three" font="Helvetica 48"/>
     </LMRowView>
     
-Because the alignment is set to "baseline", the labels will be given their intrinsic sizes, and the baselines of all three labels will line up.
+Because `alignToBaseline` is set to `true`, the baselines of all three labels will line up.
 
 See _LMRowView.h_ for more information.
 
 ### LMColumnView
-The `LMColumnView` class arranges its subviews in a vertical line. For example, the following markup creates a column view containing three labels:
+The `LMColumnView` class arranges its subviews in a vertical line. Subviews are laid out from top to bottom in the order in which they are declared. For example, the following markup creates a column view containing three labels:
 
     <LMColumnView>
         <UILabel text="One"/>
@@ -757,21 +742,15 @@ The `LMColumnView` class arranges its subviews in a vertical line. For example, 
         <UILabel text="Three"/>
     </LMColumnView>
 
-Because the default alignment setting is "fill", the left and right edges of each subview will be pinned to the left and right edges of the row (excluding layout margins), ensuring that all of the labels are the same width.
+The left and right edges of each subview will be pinned to the left and right edges of the row (excluding layout margins), ensuring that all of the labels are the same width.
 
-The labels in this column view will be given their intrinsic sizes and will be left-aligned within the column view:
-
-    <LMColumnView alignment="left">
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
-    </LMColumnView>
-
-`LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, or table: 
+`LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like a spreadsheet: 
 
     @property (nonatomic) BOOL alignToGrid;
 
-For example, the following markup would produce a table containing three rows:
+When this property is set to `true`, the sub-elements of the column view must be `LMRowView` instances containing the cells for each row.
+
+For example, the following markup would produce a table containing three rows arranged in two columns:
 
     <LMColumnView alignToGrid="true">
         <LMRowView>
@@ -789,8 +768,6 @@ For example, the following markup would produce a table containing three rows:
             <UILabel weight="1" text="This is row number three."/>
         </LMRowView>
     </LMColumnView>
-
-Note that, when `alignToGrid` is set to `true`, the contents of the column view must be `LMRowView` instances containing the cells for each row.
 
 Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
 
