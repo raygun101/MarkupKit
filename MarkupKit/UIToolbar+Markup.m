@@ -15,9 +15,12 @@
 #import "UIToolbar+Markup.h"
 
 static NSString * const kItemTag = @"item";
-static NSString * const kItemActionKey = @"action";
+
+static NSString * const kItemTypeKey = @"type";
 static NSString * const kItemTitleKey = @"title";
 static NSString * const kItemImageKey = @"image";
+
+static NSString * const kItemActionKey = @"action";
 
 @implementation UIToolbar (Markup)
 
@@ -26,7 +29,11 @@ static NSString * const kItemImageKey = @"image";
     if ([tag isEqual:kItemTag]) {
         NSMutableArray *items = [NSMutableArray arrayWithArray:[self items]];
 
+        // TODO Test actions
+        
         SEL action = NSSelectorFromString([properties objectForKey:kItemActionKey]);
+
+        // TODO Check for type first
 
         NSString *title = [properties objectForKey:kItemTitleKey];
 
@@ -49,6 +56,7 @@ static NSString * const kItemImageKey = @"image";
         }
 
         [self setItems:items];
+        [self sizeToFit];
     }
 }
 
