@@ -88,6 +88,10 @@
 		37C806C31BEE37D000196FD6 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BE1BEE37D000196FD6 /* sample.txt */; };
 		37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BF1BEE37D000196FD6 /* ScrollView.xml */; };
 		37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C806C01BEE37D000196FD6 /* ScrollViewController.swift */; };
+		37D0723D1C26E7C2006BFA76 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */; };
+		37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */; };
+		37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */; };
+		37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */; };
 		37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC51BB1DDCE008E36FD /* chevy.png */; };
 		37D36AC91BB1DDCE008E36FD /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC61BB1DDCE008E36FD /* mini.png */; };
 		37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC71BB1DDCE008E36FD /* vw.png */; };
@@ -313,6 +317,10 @@
 		37C806BE1BEE37D000196FD6 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		37C806BF1BEE37D000196FD6 /* ScrollView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollView.xml; sourceTree = "<group>"; };
 		37C806C01BEE37D000196FD6 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassViewController.swift; sourceTree = "<group>"; };
+		37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassView.xml; sourceTree = "<group>"; };
+		37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassView~horizontal.xml"; sourceTree = "<group>"; };
+		37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassView~vertical.xml"; sourceTree = "<group>"; };
 		37D36AC51BB1DDCE008E36FD /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
 		37D36AC61BB1DDCE008E36FD /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
 		37D36AC71BB1DDCE008E36FD /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
@@ -598,6 +606,10 @@
 				37A9FC261C108D7900A09102 /* RadialGradientView.xml */,
 				37A9FC2C1C10DF1200A09102 /* PageViewController.swift */,
 				37A9FC2E1C10DF2200A09102 /* PageView.xml */,
+				37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */,
+				37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */,
+				37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */,
+				37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -861,18 +873,21 @@
 			files = (
 				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
+				37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */,
 				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				37C806C11BEE37D000196FD6 /* GridView.xml in Resources */,
 				37C806C31BEE37D000196FD6 /* sample.txt in Resources */,
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
 				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
+				37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */,
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
 				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
+				37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
@@ -963,6 +978,7 @@
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
+				37D0723D1C26E7C2006BFA76 /* SizeClassViewController.swift in Sources */,
 				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,

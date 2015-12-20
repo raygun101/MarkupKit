@@ -64,6 +64,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(RadialGradientViewController(), animated: true)
         } else if (value == "pageView") {
             navigationController!.pushViewController(PageViewController(), animated: true)
+        } else if (value == "sizeClassView") {
+            navigationController!.pushViewController(SizeClassViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
