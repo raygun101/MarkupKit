@@ -1024,11 +1024,11 @@ Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitl
         <segment title="No"/>
     </UISegmentedControl>
 
-Similarly, the `image` attribute can be used to specify an image for a segment:
+Similarly, the "image" attribute can be used to specify an image for a segment:
 
     <UISegmentedControl>
         <segment image="yes.png"/>
-        <segment image no.png"/>
+        <segment image="no.png"/>
     </UISegmentedControl>
 
 ### UITextField
@@ -1037,6 +1037,7 @@ MarkupKit adds support for the following processing instructions to `UITextField
     <?leftView?>
     <?rightView?>
     <?inputView?>
+    <?inputAccessoryView?>
 
 For example, the following markup declares a text field with an associated `UIDatePicker` as an input view:
 
@@ -1063,6 +1064,50 @@ Instances of `UIProgressView` are created programmatically using the `initWithPr
 For example, the following markup declares an instance of a default-style `UIProgressView`. It is given an ID so its owner can programmatically update its progress value later:
 
     <UIProgressView id="progressView" style="defaultProgressView"/>
+
+### UIToolbar
+Toolbars are populated using the `items` property of `UIToobar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. The `items` element is used to add an item to a toolbar. The "title" attribute can be used to specify a the items's title:
+
+    <UIToobar>
+        <item title="OK"/>
+        <item title="Cancel"/>
+    </UIToobar>
+
+Similarly, the "image" attribute can be used to specify an image for an item:
+
+    <UIToobar>
+        <item image="ok.png"/>
+        <item image="cancel.png"/>
+    </UIToobar>
+
+Finally, the "type" attribute can be used to create a system-type toolbar item; for example:
+
+    <UIToobar>
+        <item type="flexibleSpace"/>
+        <item type="play"/>
+        <item type="pause"/>
+        <item type="rewind"/>
+        <item type="fastForward"/>        
+        <item type="flexibleSpace"/>
+    </UIToobar>
+    
+The "action" attribute can be used to associate an action with a toolbar item. The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler:
+
+    <UIToolbar>
+        <item type="cancel" action="cancel:"/>        
+        <item type="flexibleSpace"/>
+        <item type="done" action="done:"/>        
+    </UIToolbar>
+    
+Action handlers are typically defined in the controller class. For example:
+
+    func cancel(sender: UIBarButtonItem) {
+        // ...
+    }
+
+    func done(sender: UIBarButtonItem) {
+        // ...
+    }
 
 ### UIStackView
 MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` that simply calls `addArrangedSubview:` on itself. This allows stack view content to be specified in markup; for example:
