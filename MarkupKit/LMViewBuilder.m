@@ -17,6 +17,14 @@
 
 #import <objc/message.h>
 
+static NSString * const kNormalSizeClass = @"normal";
+static NSString * const kHorizontalSizeClass = @"horizontal";
+static NSString * const kVerticalSizeClass = @"vertical";
+static NSString * const kMinimalSizeClass = @"minimal";
+
+static NSString * const kSizeClassFormat = @"%@~%@";
+static NSString * const kFileExtension = @"xml";
+
 static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kStringsTarget = @"strings";
 
@@ -46,9 +54,35 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
 {
-    UIView *view = nil;
+    NSBundle *mainBundle = [NSBundle mainBundle];
 
-    NSURL *url = [[NSBundle mainBundle] URLForResource:name withExtension:@"xml"];
+    NSURL *url = nil;
+
+    if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
+        UITraitCollection *traitCollection = [owner traitCollection];
+
+        UIUserInterfaceSizeClass horizontalSizeClass = [traitCollection horizontalSizeClass];
+        UIUserInterfaceSizeClass verticalSizeClass = [traitCollection verticalSizeClass];
+
+        NSString *sizeClass;
+        if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+            sizeClass = kNormalSizeClass;
+        } else if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+            sizeClass = kHorizontalSizeClass;
+        } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+            sizeClass = kVerticalSizeClass;
+        } else {
+            sizeClass = kMinimalSizeClass;
+        }
+
+        url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:kFileExtension];
+    }
+
+    if (url == nil) {
+        url = [mainBundle URLForResource:name withExtension:kFileExtension];
+    }
+
+    UIView *view = nil;
 
     if (url != nil) {
         LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
