@@ -90,6 +90,10 @@ limitations under the License.
         <UITextField placeholder="Accessory">
             <?inputAccessoryView?>
             <UIToolbar>
+                <item type="cancel"/>
+                
+                <item type="flexibleSpace"/>
+
                 <item title="One"/>
                 <item title="Two"/>
                 <item title="Three"/>
