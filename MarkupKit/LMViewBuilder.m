@@ -383,8 +383,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 keyboardAppearance = UIKeyboardAppearanceDark;
             } else if ([value isEqual:@"light"]) {
                 keyboardAppearance = UIKeyboardAppearanceLight;
-            } else if ([value isEqual:@"alert"]) {
-                keyboardAppearance = UIKeyboardAppearanceAlert;
             } else {
                 continue;
             }
