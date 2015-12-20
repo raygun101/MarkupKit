@@ -141,7 +141,7 @@
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-            multiplier:1 constant:_bottomSpacing]];
+            multiplier:1 constant:-_bottomSpacing]];
     }
 
     return constraints;
