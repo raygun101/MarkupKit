@@ -87,16 +87,16 @@ limitations under the License.
     </LMTableViewCell>
 
     <LMTableViewCell selectionStyle="none">
-        <UITextField placeholder="Accessory">
+        <UITextField id="accessoryTextField" placeholder="Accessory">
             <?inputAccessoryView?>
             <UIToolbar>
-                <item type="cancel"/>
+                <item type="cancel" action="cancelEdit"/>
                 
                 <item type="flexibleSpace"/>
 
-                <item title="One"/>
-                <item title="Two"/>
-                <item title="Three"/>
+                <item title="One" action="updateText:"/>
+                <item title="Two" action="updateText:"/>
+                <item title="Three" action="updateText:"/>
             </UIToolbar>
         </UITextField>
     </LMTableViewCell>
