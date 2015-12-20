@@ -21,6 +21,8 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
     weak var sizeTextField: UITextField!
     weak var sizePickerView: LMPickerView!
 
+    weak var accessoryTextField: UITextField!
+
     weak var stepper: UIStepper!
     weak var slider: UISlider!
     weak var pageControl: UIPageControl!
@@ -67,6 +69,16 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
 
         presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    func cancelEdit() {
+        accessoryTextField.resignFirstResponder()
+    }
+
+    func updateText(sender: UIBarButtonItem) {
+        accessoryTextField.text = sender.title
+
+        accessoryTextField.resignFirstResponder()
     }
 
     func stepperValueChanged(sender: UIStepper) {
