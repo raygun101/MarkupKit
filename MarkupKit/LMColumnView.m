@@ -44,7 +44,7 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
-    for (UIView * subview in [self arrangedSubviews]) {
+    for (UIView * subview in _arrangedSubviews) {
         [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
@@ -83,7 +83,7 @@
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
-    for (UIView *subview in [self arrangedSubviews]) {
+    for (UIView *subview in _arrangedSubviews) {
         if ([subview isHidden]) {
             continue;
         }
@@ -121,8 +121,8 @@
 
         // Align subviews
         if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
-            NSArray *nestedSubviews = [(LMRowView *)subview arrangedSubviews];
-            NSArray *previousNestedSubviews = [(LMRowView *)previousSubview arrangedSubviews];
+            NSArray *nestedSubviews = ((LMLayoutView *)subview)->_arrangedSubviews;
+            NSArray *previousNestedSubviews = ((LMLayoutView *)previousSubview)->_arrangedSubviews;
 
             for (NSUInteger i = 0, n = MIN([nestedSubviews count], [previousNestedSubviews count]); i < n; i++) {
                 UIView *nestedSubview = [nestedSubviews objectAtIndex:i];

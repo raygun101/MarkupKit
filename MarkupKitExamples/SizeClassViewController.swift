@@ -20,6 +20,14 @@ class SizeClassViewController: UIViewController {
         view = LMViewBuilder.viewWithName("SizeClassView", owner: self, root: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        title = "Size Classes"
+
+        edgesForExtendedLayout = UIRectEdge.None
+    }
+
     override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 

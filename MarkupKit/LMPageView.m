@@ -51,6 +51,11 @@
     return self;
 }
 
+- (NSArray *)pages
+{
+    return [_pages copy];
+}
+
 - (void)addPage:(UIView *)page
 {
     [self insertPage:page atIndex:[_pages count]];
