@@ -35,7 +35,7 @@
 
         NSUInteger i = 0;
 
-        for (UIView *subview in [self arrangedSubviews]) {
+        for (UIView *subview in _arrangedSubviews) {
             if ([subview isHidden]) {
                 continue;
             }
@@ -89,7 +89,7 @@
         unweightedHorizontalContentHuggingPriority = UILayoutPriorityRequired;
     }
 
-    for (UIView * subview in [self arrangedSubviews]) {
+    for (UIView * subview in _arrangedSubviews) {
         [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
@@ -135,7 +135,7 @@
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
-    for (UIView *subview in [self arrangedSubviews]) {
+    for (UIView *subview in _arrangedSubviews) {
         if ([subview isHidden]) {
             continue;
         }

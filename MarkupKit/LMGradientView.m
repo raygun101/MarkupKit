@@ -27,14 +27,14 @@
 
 - (void)setColors:(NSArray *)colors
 {
-    _colors = colors;
+    _colors = [colors copy];
 
     [self setNeedsDisplay];
 }
 
 - (void)setLocations:(NSArray *)locations
 {
-    _locations = locations;
+    _locations = [locations copy];
 
     [self setNeedsDisplay];
 }

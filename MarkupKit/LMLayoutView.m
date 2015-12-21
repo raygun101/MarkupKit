@@ -21,8 +21,6 @@
 
 @implementation LMLayoutView
 {
-    NSMutableArray *_arrangedSubviews;
-
     NSArray *_constraints;
 }
 
@@ -53,6 +51,11 @@
     if (self) INIT
 
     return self;
+}
+
+- (NSArray *)arrangedSubviews
+{
+    return [_arrangedSubviews copy];
 }
 
 - (void)addArrangedSubview:(UIView *)view

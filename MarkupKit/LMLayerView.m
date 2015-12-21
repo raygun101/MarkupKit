@@ -19,7 +19,7 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize
-    for (UIView * subview in [self arrangedSubviews]) {
+    for (UIView * subview in _arrangedSubviews) {
         [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         
@@ -48,7 +48,7 @@
         rightAttribute = NSLayoutAttributeRight;
     }
 
-    for (UIView *subview in [self arrangedSubviews]) {
+    for (UIView *subview in _arrangedSubviews) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
             relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
             multiplier:1 constant:0]];

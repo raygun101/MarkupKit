@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  * Abstract base class for layout views.
  */
 @interface LMLayoutView : UIView
+{
+    NSMutableArray *_arrangedSubviews;
+}
 
 /**
  * The list of subviews whose sizes and positions are managed by the layout view.
