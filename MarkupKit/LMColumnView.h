@@ -22,17 +22,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LMColumnView : LMBoxView
 
 /**
- * Specifies that nested subviews should be vertically aligned.
+ * Specifies that nested subviews should be vertically aligned. The default value
+ * is <code>NO</code>.
  */
 @property (nonatomic) BOOL alignToGrid;
 
 /**
- * The amount of spacing before the first view.
+ * The amount of spacing before the first view. The default is 0.
  */
 @property (nonatomic) CGFloat topSpacing;
 
 /**
- * The amount of spacing after the last view.
+ * The amount of spacing after the last view. The default is 0.
  */
 @property (nonatomic) CGFloat bottomSpacing;
 
