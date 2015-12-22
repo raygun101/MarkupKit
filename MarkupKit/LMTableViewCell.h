@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Specifies that the cell's content will be arranged relative to the cell's layout margins.
- * The default value is <tt>YES</tt>.
+ * The default value is <code>YES</code>.
  */
 @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 

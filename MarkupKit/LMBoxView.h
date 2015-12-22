@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LMBoxView : LMLayoutView
 
 /**
- * The amount of spacing between successive subviews.
+ * The amount of spacing between successive subviews. The default is 8.
  */
 @property (nonatomic) CGFloat spacing;
 

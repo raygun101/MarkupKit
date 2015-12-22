@@ -25,10 +25,10 @@ NS_ASSUME_NONNULL_BEGIN
  * Loads a named view.
  *
  * @param name The name of the view to load.
- * @param owner The view's owner, or <tt>nil</tt> for no owner.
- * @param root The root view, or <tt>nil</tt> for no root view.
+ * @param owner The view's owner, or <code>nil</code> for no owner.
+ * @param root The root view, or <code>nil</code> for no root view.
  *
- * @return The named view, or <tt>nil</tt> if the view could not be loaded.
+ * @return The named view, or <code>nil</code> if the view could not be loaded.
  */
 + (UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
 

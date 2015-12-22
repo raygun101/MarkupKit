@@ -53,7 +53,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  * Specifies that subviews will be arranged relative to the view's layout margins.
- * The default value is <tt>YES</tt>.
+ * The default value is <code>YES</code>.
  */
 @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 

@@ -19,17 +19,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Markup)
 
 /**
- * The view's width.
+ * The view's width, or <code>NaN</code> for no explicit width.
  */
 @property (nonatomic) CGFloat width;
 
 /**
- * The view's height.
+ * The view's height, or <code>NaN</code> for no explicit height.
  */
 @property (nonatomic) CGFloat height;
 
 /**
- * The view's weight.
+ * The view's weight, or <code>NaN</code> for no weight.
  */
 @property (nonatomic) CGFloat weight;
 
