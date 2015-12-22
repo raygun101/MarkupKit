@@ -796,9 +796,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"strings" inDirectory:nil];
 
             if (path != nil) {
-                NSDictionary *strings = [NSDictionary dictionaryWithContentsOfFile:path];
-
-                [_strings addEntriesFromDictionary:strings];
+                [_strings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
             }
         }
     } else {
