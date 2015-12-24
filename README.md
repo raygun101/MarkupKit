@@ -1050,7 +1050,7 @@ MarkupKit adds support for the following processing instructions to `UITextField
 
 For example, the following markup declares a text field with an associated `UIDatePicker` as an input view:
 
-    <UITextField placeholer="Date">
+    <UITextField placeholder="Date">
         <?inputView?>
         <UIDatePicker datePickerMode="date"/>
     </UITextField>
