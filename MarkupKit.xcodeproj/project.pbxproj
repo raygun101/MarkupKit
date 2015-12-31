@@ -42,6 +42,8 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
+		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		378CA4AE1C138B5100D72195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CA4AD1C138B5100D72195 /* AppDelegate.swift */; };
@@ -267,6 +269,8 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTemplates.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -610,6 +614,8 @@
 				37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */,
 				37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */,
 				37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */,
+				377294F91C35732A00A19C58 /* FormViewController.swift */,
+				377294FB1C35732E00A19C58 /* FormView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -888,6 +894,7 @@
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
 				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
 				37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */,
+				377294FC1C35732E00A19C58 /* FormView.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
@@ -983,6 +990,7 @@
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
+				377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
 				37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */,
 				37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */,

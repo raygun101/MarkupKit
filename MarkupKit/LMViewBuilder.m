@@ -731,7 +731,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithFloat:layoutPriority];
-        } else if ([key isEqual:@"layoutMargins"] || [key isEqual:@"contentEdgeInsets"]) {
+        } else if ([key isEqual:@"layoutMargins"] || [key isEqual:@"contentEdgeInsets"] || [key isEqual:@"textContainerInset"]) {
             // Create edge insets from value
             CGFloat inset = [value floatValue];
 
