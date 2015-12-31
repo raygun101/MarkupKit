@@ -25,64 +25,6 @@
     [self setNeedsUpdateConstraints];
 }
 
-- (CGSize)intrinsicContentSize
-{
-    CGSize size;
-    if (_alignToBaseline) {
-        size = CGSizeMake(0, 0);
-
-        CGFloat spacing = [self spacing];
-
-        NSUInteger i = 0;
-
-        for (UIView *subview in _arrangedSubviews) {
-            if ([subview isHidden]) {
-                continue;
-            }
-
-            if (i > 0) {
-                size.width += spacing;
-            }
-
-            CGFloat width = [subview width];
-
-            CGSize subviewSize;
-            if (isnan(width)) {
-                subviewSize = [subview intrinsicContentSize];
-            } else {
-                subviewSize = [subview sizeThatFits:CGSizeMake(width, CGFLOAT_MAX)];
-            }
-
-            if (subviewSize.width != UIViewNoIntrinsicMetric) {
-                size.width += subviewSize.width;
-            }
-
-            CGFloat height = [subview height];
-
-            if (isnan(height)) {
-                height = subviewSize.height;
-            }
-
-            if (height != UIViewNoIntrinsicMetric) {
-                size.height = MAX(size.height, height);
-            }
-
-            i++;
-        }
-
-        if ([self layoutMarginsRelativeArrangement]) {
-            UIEdgeInsets layoutMargins = [self layoutMargins];
-
-            size.width += layoutMargins.left + layoutMargins.right;
-            size.height += layoutMargins.top + layoutMargins.bottom;
-        }
-    } else {
-        size = [super intrinsicContentSize];
-    }
-
-    return size;
-}
-
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
@@ -177,6 +119,10 @@
 
         // Align to parent
         if (_alignToBaseline) {
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
+                multiplier:1 constant:0]];
+
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                 relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
                 multiplier:1 constant:0]];
@@ -184,6 +130,7 @@
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
                 multiplier:1 constant:0]];
+
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
                 multiplier:1 constant:0]];
