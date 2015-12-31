@@ -107,7 +107,7 @@ For example, the following markup creates an instance of `UIImageView` and sets 
 
     <UIImageView image="background.png"/>
 
-### Layout Margins and Content Edge Insets
+### Edge Insets
 The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
 Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. For the "layoutMargins" attribute, a single numeric value may be specified that will be applied to all of the structure's components.
@@ -118,10 +118,12 @@ For example, the following markup creates an instance of `LMTableViewCell` whose
         ...
     </LMTableViewCell>
 
-A button's content edge insets can also be specified using this shorthand. For example:
+A button's content edge insets and a text view's text container inset can also be specified using this shorthand. For example:
 
     <UIButton normalTitle="Click Me!" contentEdgeInsets="12"/>
 
+    <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>
+    
 Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow layout margin and content edge inset components to be specified individually. This is discussed in more detail later.
 
 ### Localization

@@ -66,6 +66,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(PageViewController(), animated: true)
         } else if (value == "sizeClassView") {
             navigationController!.pushViewController(SizeClassViewController(), animated: true)
+        } else if (value == "formView") {
+            navigationController!.pushViewController(FormViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

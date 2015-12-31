@@ -31,4 +31,5 @@ limitations under the License.
     <UITableViewCell textLabel.text="Radial Gradient View" accessoryType="disclosureIndicator" value="radialGradientView"/>
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>
     <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
+    <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
 </LMTableView>

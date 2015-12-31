@@ -57,8 +57,14 @@
                 size.width += subviewSize.width;
             }
 
-            if (subviewSize.height != UIViewNoIntrinsicMetric) {
-                size.height = MAX(size.height, subviewSize.height);
+            CGFloat height = [subview height];
+
+            if (isnan(height)) {
+                height = subviewSize.height;
+            }
+
+            if (height != UIViewNoIntrinsicMetric) {
+                size.height = MAX(size.height, height);
             }
 
             i++;
