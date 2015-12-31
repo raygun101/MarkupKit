@@ -17,18 +17,5 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow()
-        window!.backgroundColor = UIColor.whiteColor()
-
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        window!.rootViewController = mainStoryboard.instantiateInitialViewController()
-
-        window!.frame = UIScreen.mainScreen().bounds
-        window!.makeKeyAndVisible()
-
-        return true
-    }
 }
 
