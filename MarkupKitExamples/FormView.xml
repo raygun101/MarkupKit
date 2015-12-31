@@ -22,12 +22,16 @@ limitations under the License.
         </LMRowView>
 
         <LMRowView alignToBaseline="true">
-            <UILabel text="Location" font="body"/>
+            <UILabel text="Address" font="body"/>
 
-            <LMRowView alignToBaseline="true">
-                <UITextField weight="3" placeholder="City" font="System 14" borderStyle="roundedRect"/>
-                <UITextField weight="1" placeholder="State" font="System 14" borderStyle="roundedRect"/>
-            </LMRowView>
+            <LMColumnView>
+                <UITextField placeholder="Street" font="System 14" borderStyle="roundedRect"/>
+
+                <LMRowView alignToBaseline="true">
+                    <UITextField weight="3" placeholder="City" font="System 14" borderStyle="roundedRect"/>
+                    <UITextField weight="1" placeholder="State" font="System 14" borderStyle="roundedRect"/>
+                </LMRowView>
+            </LMColumnView>
         </LMRowView>
 
         <LMRowView>
