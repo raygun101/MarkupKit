@@ -120,23 +120,17 @@
 
 - (UIView *)viewForBaselineLayout
 {
-    UIView *first = [_arrangedSubviews firstObject];
-
-    return (first == nil) ? [super viewForBaselineLayout] : [first viewForBaselineLayout];
+    return ([_arrangedSubviews count] == 0) ? [super viewForBaselineLayout] : [[_arrangedSubviews firstObject] viewForBaselineLayout];
 }
 
 - (UIView *)viewForFirstBaselineLayout
 {
-    UIView *first = [_arrangedSubviews firstObject];
-
-    return (first == nil) ? [super viewForFirstBaselineLayout] : [first viewForFirstBaselineLayout];
+    return ([_arrangedSubviews count] == 0) ? [super viewForFirstBaselineLayout] : [[_arrangedSubviews firstObject] viewForFirstBaselineLayout];
 }
 
 - (UIView *)viewForLastBaselineLayout
 {
-    UIView *last = [_arrangedSubviews lastObject];
-
-    return (last == nil) ? [super viewForLastBaselineLayout] : [last viewForLastBaselineLayout];
+    return [self viewForFirstBaselineLayout];
 }
 
 - (void)setNeedsUpdateConstraints
