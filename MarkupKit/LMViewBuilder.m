@@ -777,8 +777,17 @@ static NSString * const kLocalizedStringPrefix = @"@";
             NSDictionary *properties = nil;
 
             if ([data hasPrefix:@"{"]) {
+                NSError *error = nil;
+
                 properties = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-                    options:0 error:nil];
+                    options:0 error:&error];
+
+                if (error != nil) {
+                    NSDictionary *userInfo = [error userInfo];
+
+                    [NSException raise:NSGenericException format:@"Error reading properties: \"%@\"",
+                        [userInfo objectForKey:@"NSDebugDescription"]];
+                }
             } else {
                 NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
 
