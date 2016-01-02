@@ -14,22 +14,28 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties {
+    "textfield": {
+        "font": "System 14", "borderStyle": "roundedRect"
+    }
+}?>
+
 <LMScrollView fitToWidth="true" backgroundColor="#ffffff">
     <LMColumnView alignToGrid="true" layoutMargins="20">
         <LMRowView alignToBaseline="true">
             <UILabel text="Name" font="body"/>
-            <UITextField font="System 14" borderStyle="roundedRect"/>
+            <UITextField class="textfield"/>
         </LMRowView>
 
         <LMRowView alignToBaseline="true">
             <UILabel text="Address" font="body"/>
 
             <LMColumnView>
-                <UITextField placeholder="Street" font="System 14" borderStyle="roundedRect"/>
+                <UITextField placeholder="Street" class="textfield"/>
 
                 <LMRowView alignToBaseline="true">
-                    <UITextField weight="3" placeholder="City" font="System 14" borderStyle="roundedRect"/>
-                    <UITextField weight="1" placeholder="State" font="System 14" borderStyle="roundedRect"/>
+                    <UITextField weight="3" placeholder="City" class="textfield"/>
+                    <UITextField weight="1" placeholder="State" class="textfield"/>
                 </LMRowView>
             </LMColumnView>
         </LMRowView>

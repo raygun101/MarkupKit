@@ -774,22 +774,29 @@ static NSString * const kLocalizedStringPrefix = @"@";
     if ([_views count] == 0) {
         if ([target isEqual:kPropertiesTarget]) {
             // Load properties
-            NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
+            NSDictionary *properties = nil;
 
-            if (path != nil) {
-                NSDictionary *properties = [NSDictionary dictionaryWithContentsOfFile:path];
+            if ([data hasPrefix:@"{"]) {
+                properties = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                    options:0 error:nil];
+            } else {
+                NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
 
-                for (NSString *key in properties) {
-                    NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
-
-                    if (template == nil) {
-                        template = [NSMutableDictionary new];
-
-                        [_properties setObject:template forKey:key];
-                    }
-
-                    [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
+                if (path != nil) {
+                    properties = [NSDictionary dictionaryWithContentsOfFile:path];
                 }
+            }
+
+            for (NSString *key in properties) {
+                NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
+
+                if (template == nil) {
+                    template = [NSMutableDictionary new];
+
+                    [_properties setObject:template forKey:key];
+                }
+
+                [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
             }
         } else if ([target isEqual:kStringsTarget]) {
             // Load strings
