@@ -20,18 +20,13 @@ class IntroductionViewController: UIViewController {
     weak var greetingLabel: UILabel!
 
     override func loadView() {
-        let rootView = LMLayerView()
-
-        rootView.addArrangedSubview(LMViewBuilder.viewWithName("IntroductionView", owner: self, root: nil))
-        rootView.layoutMarginsRelativeArrangement = false
-
-        view = rootView
+        view = LMViewBuilder.viewWithName("IntroductionView", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Introduction Example"
+        title = "Introduction"
 
         edgesForExtendedLayout = UIRectEdge.None
     }
