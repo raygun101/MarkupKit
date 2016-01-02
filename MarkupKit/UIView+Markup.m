@@ -27,7 +27,7 @@
 
 - (void)setWidth:(CGFloat)width
 {
-    NSAssert(isnan(width) || width > 0, @"Invalid width.");
+    NSAssert(isnan(width) || width >= 0, @"Invalid width.");
 
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
 
@@ -45,6 +45,60 @@
     objc_setAssociatedObject(self, @selector(width), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (CGFloat)minimumWidth
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumWidth));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setMinimumWidth:(CGFloat)minimumWidth
+{
+    NSAssert(isnan(minimumWidth) || minimumWidth >= 0, @"Invalid minimum width.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumWidth));
+
+    [constraint setActive:NO];
+
+    if (!isnan(minimumWidth)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
+            relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:minimumWidth];
+    }
+
+    [constraint setPriority:UILayoutPriorityRequired];
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(minimumWidth), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)maximumWidth
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumWidth));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setMaximumWidth:(CGFloat)maximumWidth
+{
+    NSAssert(isnan(maximumWidth) || maximumWidth >= 0, @"Invalid maximum width.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumWidth));
+
+    [constraint setActive:NO];
+
+    if (!isnan(maximumWidth)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
+            relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:maximumWidth];
+    }
+
+    [constraint setPriority:UILayoutPriorityRequired];
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(maximumWidth), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (CGFloat)height
 {
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
@@ -54,7 +108,7 @@
 
 - (void)setHeight:(CGFloat)height
 {
-    NSAssert(isnan(height) || height > 0, @"Invalid height.");
+    NSAssert(isnan(height) || height >= 0, @"Invalid height.");
 
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
 
@@ -70,6 +124,60 @@
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(height), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)minimumHeight
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumHeight));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setMinimumHeight:(CGFloat)minimumHeight
+{
+    NSAssert(isnan(minimumHeight) || minimumHeight >= 0, @"Invalid minimum height.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumHeight));
+
+    [constraint setActive:NO];
+
+    if (!isnan(minimumHeight)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
+            relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:minimumHeight];
+    }
+
+    [constraint setPriority:UILayoutPriorityRequired];
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(minimumHeight), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)maximumHeight
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumHeight));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setMaximumHeight:(CGFloat)maximumHeight
+{
+    NSAssert(isnan(maximumHeight) || maximumHeight >= 0, @"Invalid maximum height.");
+
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumHeight));
+
+    [constraint setActive:NO];
+
+    if (!isnan(maximumHeight)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
+            relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
+            multiplier:1 constant:maximumHeight];
+    }
+
+    [constraint setPriority:UILayoutPriorityRequired];
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(maximumHeight), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (CGFloat)weight
