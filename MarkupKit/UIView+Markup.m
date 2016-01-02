@@ -39,6 +39,7 @@
             multiplier:1 constant:width];
     }
 
+    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(width), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -65,6 +66,7 @@
             multiplier:1 constant:height];
     }
 
+    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(height), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
