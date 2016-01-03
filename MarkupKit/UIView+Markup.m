@@ -39,7 +39,6 @@
             multiplier:1 constant:width];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(width), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -66,7 +65,6 @@
             multiplier:1 constant:minimumWidth];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(minimumWidth), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -93,7 +91,6 @@
             multiplier:1 constant:maximumWidth];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(maximumWidth), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -120,7 +117,6 @@
             multiplier:1 constant:height];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(height), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -147,7 +143,6 @@
             multiplier:1 constant:minimumHeight];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(minimumHeight), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -174,7 +169,6 @@
             multiplier:1 constant:maximumHeight];
     }
 
-    [constraint setPriority:UILayoutPriorityRequired];
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(maximumHeight), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
