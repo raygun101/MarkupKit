@@ -71,6 +71,13 @@ limitations under the License.
                 <LMSpacer/>
             </LMRowView>
 
+            <LMRowView backgroundColor="#ededed">
+                <UILabel text="abdcdefg" textAlignment="center" backgroundColor="#000066" textColor="#ffffff" minimumHeight="40"/>
+                <UILabel text="hijklmnop" textAlignment="center" backgroundColor="#000066" textColor="#ffffff" minimumWidth="20" maximumWidth="40"/>
+                <UILabel text="qrs tuv wx y z" textAlignment="center" backgroundColor="#000066" textColor="#ffffff" maximumWidth="80"/>
+                <LMSpacer/>
+            </LMRowView>
+
             <LMRowView>
                 <LMSpacer/>
                 <UISwitch on="false" onTintColor="#22446688" onValueChanged="handleSwitchValueChanged:"/>
