@@ -32,4 +32,5 @@ limitations under the License.
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>
     <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
     <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
+    <UITableViewCell textLabel.text="Auto Layout Cookbook" accessoryType="disclosureIndicator" value="autoLayoutCookbook"/>
 </LMTableView>
