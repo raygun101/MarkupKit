@@ -50,6 +50,10 @@
 		3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */; };
 		3781C9011C399A7D00F324A4 /* SimpleLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */; };
 		3781C9031C399A8B00F324A4 /* SimpleLayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */; };
+		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
+		3781C9071C399CC500F324A4 /* NestedStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackView.xml */; };
+		3781C9091C399CD000F324A4 /* NestedLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9081C399CD000F324A4 /* NestedLayoutViewController.swift */; };
+		3781C90B1C399CDF00F324A4 /* NestedLayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C90A1C399CDF00F324A4 /* NestedLayoutView.xml */; };
 		378CA4AE1C138B5100D72195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CA4AD1C138B5100D72195 /* AppDelegate.swift */; };
 		378CA4B01C138B5100D72195 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CA4AF1C138B5100D72195 /* ViewController.swift */; };
 		378CA4B51C138B5100D72195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4B41C138B5100D72195 /* Assets.xcassets */; };
@@ -281,6 +285,10 @@
 		3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackView.xml; sourceTree = "<group>"; };
 		3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLayoutViewController.swift; sourceTree = "<group>"; };
 		3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleLayoutView.xml; sourceTree = "<group>"; };
+		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
+		3781C9061C399CC500F324A4 /* NestedStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackView.xml; sourceTree = "<group>"; };
+		3781C9081C399CD000F324A4 /* NestedLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedLayoutViewController.swift; sourceTree = "<group>"; };
+		3781C90A1C399CDF00F324A4 /* NestedLayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedLayoutView.xml; sourceTree = "<group>"; };
 		378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTemplates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CA4AD1C138B5100D72195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378CA4AF1C138B5100D72195 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -628,6 +636,10 @@
 				3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */,
 				3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */,
 				3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */,
+				3781C9041C399CB600F324A4 /* NestedStackViewController.swift */,
+				3781C9061C399CC500F324A4 /* NestedStackView.xml */,
+				3781C9081C399CD000F324A4 /* NestedLayoutViewController.swift */,
+				3781C90A1C399CDF00F324A4 /* NestedLayoutView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -895,12 +907,14 @@
 				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
 				37C806C11BEE37D000196FD6 /* GridView.xml in Resources */,
+				3781C9071C399CC500F324A4 /* NestedStackView.xml in Resources */,
 				37C806C31BEE37D000196FD6 /* sample.txt in Resources */,
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
 				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
 				37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */,
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
+				3781C90B1C399CDF00F324A4 /* NestedLayoutView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
 				3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
@@ -997,6 +1011,7 @@
 			files = (
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
 				3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */,
+				3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
@@ -1016,6 +1031,7 @@
 				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
 				37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */,
 				37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */,
+				3781C9091C399CD000F324A4 /* NestedLayoutViewController.swift in Sources */,
 				37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */,
 				37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */,
 			);

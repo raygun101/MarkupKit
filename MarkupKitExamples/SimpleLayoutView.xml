@@ -14,8 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
-    <LMColumnView layoutMargins="20">
+<LMLayerView backgroundColor="#ffffff">
+    <LMColumnView layoutMarginTop="20" layoutMarginBottom="20">
         <UILabel text="Flowers" textAlignment="center"/>
         <UIImageView image="flowers" contentMode="scaleAspectFit" weight="1"/>
         <UIButton style="systemButton" normalTitle="Edit"/>

@@ -15,15 +15,15 @@
 import UIKit
 import MarkupKit
 
-class SimpleLayoutViewController: UIViewController {
+class NestedLayoutViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("SimpleLayoutView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("NestedLayoutView", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Simple Layout View"
+        title = "Nested Layout Views"
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
             target: nil, action: nil)
@@ -34,6 +34,6 @@ class SimpleLayoutViewController: UIViewController {
     }
 
     func next() {
-        navigationController!.pushViewController(NestedStackViewController(), animated: true)
+        // TODO
     }
 }
