@@ -34,6 +34,6 @@ class SimpleStackViewController: UIViewController {
     }
 
     func next() {
-        navigationController!.pushViewController(SimpleLayoutViewController(), animated: true)
+        navigationController!.pushViewController(NestedStackViewController(), animated: true)
     }
 }
