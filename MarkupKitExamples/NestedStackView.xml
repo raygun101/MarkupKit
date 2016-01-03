@@ -17,12 +17,6 @@ limitations under the License.
 <LMLayerView backgroundColor="#ffffff">
     <UIStackView axis="vertical" layoutMarginTop="20" layoutMarginBottom="20" spacing="8"
         layoutMarginsRelativeArrangement="true">
-        <UILabel text="Flowers" textAlignment="center"/>
-        <UIImageView image="flowers" contentMode="scaleAspectFit"
-            horizontalContentHuggingPriority="250"
-            verticalContentHuggingPriority="249"
-            horizontalContentCompressionResistancePriority="750"
-            verticalContentCompressionResistancePriority="749"/>
-        <UIButton style="systemButton" normalTitle="Edit"/>
+        <!-- TODO -->
     </UIStackView>
 </LMLayerView>
