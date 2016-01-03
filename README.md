@@ -179,11 +179,15 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates are defined in property list (or _.plist_) files. Each template is represented by a dictionary defined at the top level of the property list. The dictionary's contents represent the property values that will be set when the template is applied.
+Property templates may either be external or inline. External templates are defined in property list (or _.plist_) files. Inline templates are specified using JavaScript Object Notation (JSON) embedded within the markup document iteself. Each template is represented by a dictionary defined at the top level of the property list or JSON document. The dictionary's contents represent the property values that will be set when the template is applied.
 
 Templates are added to a MarkupKit document using the `properties` processing instruction. For example, the following PI imports all templates defined by _MyStyles.plist_ into the current document:
 
     <?properties MyStyles?>
+    
+The inline form adds all of the templates specified within the curly braces to the document:
+
+    <?properties {...}?>
 
 Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties such as "titleLabel.font" are supported.
 
@@ -207,9 +211,15 @@ the following markup would produce a label reading "Hello, World!" in 24-point H
 
     <UILabel class="label.hello" text="Hello, World!"/>
 
-Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a Number in the property list. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
+This inline template specification would produce identical results:
 
-Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists, the contents of the templates are merged into a single template. As with strings, the most recently-defined values take precedence.
+    <?properties {
+        "label.hello: {"font": "Helvetica 24", "textAlignment": "center"}
+    }?>
+    
+Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the property list or JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
+
+Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. As with strings, the most recently-defined values take precedence.
 
 ### Outlets
 Views defined in markup are not particularly useful on their own. The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
@@ -955,14 +965,19 @@ See _LMRadialGradientView.h_ for more information.
 MarkupKit extends several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
 
 ### UIView
-MarkupKit adds a `weight` property to `UIView` that is used by row and column views to determine how to allocate excess space within a container:
-
-    @property (nonatomic) CGFloat weight;
-
-It also adds `width` and `height` properties, which are used to assign a fixed value for a given dimension:
+MarkupKit adds the following properties to `UIView`, which are used to define fixed or bounded values for a given dimension:
 
     @property (nonatomic) CGFloat width;
+    @property (nonatomic) CGFloat minimumWidth;
+    @property (nonatomic) CGFloat maximumWidth;
+    
     @property (nonatomic) CGFloat height;
+    @property (nonatomic) CGFloat minimumHeight;
+    @property (nonatomic) CGFloat maximumHeight;
+    
+It also adds a `weight` property to `UIView` that is used by row and column views to determine how to allocate excess space within a container:
+
+    @property (nonatomic) CGFloat weight;
 
 The following properties are added to allow a view's layout margin components to be set individually:
 
