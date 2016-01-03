@@ -53,6 +53,6 @@ class NestedStackViewController: UIViewController {
     }
 
     func next() {
-        // TODO
+        navigationController!.pushViewController(EqualWidthViewController(), animated: true)
     }
 }

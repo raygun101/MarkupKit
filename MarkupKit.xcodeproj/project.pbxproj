@@ -42,6 +42,12 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthView.xml */; };
+		375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthView.xml */; };
+		375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */; };
+		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
+		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
+		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -273,6 +279,12 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		375FCE271C39B7F400B91718 /* EqualWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthView.xml; sourceTree = "<group>"; };
+		375FCE291C39B80100B91718 /* DifferentWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthView.xml; sourceTree = "<group>"; };
+		375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthView.xml; sourceTree = "<group>"; };
+		375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidthViewController.swift; sourceTree = "<group>"; };
+		375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentWidthViewController.swift; sourceTree = "<group>"; };
+		375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
@@ -628,6 +640,12 @@
 				3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */,
 				3781C9041C399CB600F324A4 /* NestedStackViewController.swift */,
 				3781C9061C399CC500F324A4 /* NestedStackView.xml */,
+				375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */,
+				375FCE271C39B7F400B91718 /* EqualWidthView.xml */,
+				375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */,
+				375FCE291C39B80100B91718 /* DifferentWidthView.xml */,
+				375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */,
+				375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -903,16 +921,19 @@
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
+				375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */,
 				3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
 				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
 				37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */,
+				375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */,
 				377294FC1C35732E00A19C58 /* FormView.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
 				37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */,
+				375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */,
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
@@ -1001,9 +1022,12 @@
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
+				375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */,
 				37D0723D1C26E7C2006BFA76 /* SizeClassViewController.swift in Sources */,
 				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
+				375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
+				375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
 				377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */,
