@@ -16,6 +16,12 @@ import UIKit
 import MarkupKit
 
 class NestedStackViewController: UIViewController {
+    var imageView: UIImageView!
+
+    var firstNameTextField: UITextField!
+    var middleNameTextField: UITextField!
+    var lastNameTextField: UITextField!
+
     override func loadView() {
         view = LMViewBuilder.viewWithName("NestedStackView", owner: self, root: nil)
     }
@@ -31,6 +37,19 @@ class NestedStackViewController: UIViewController {
             target: self, action: "next")
 
         edgesForExtendedLayout = UIRectEdge.None
+
+        // Create custom constraints
+        NSLayoutConstraint.activateConstraints([
+            // Image view aspect ratio
+            NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal,
+                toItem: imageView, attribute: NSLayoutAttribute.Height, multiplier: 1.0, constant: 0),
+
+            // Equal text field widths
+            NSLayoutConstraint(item: middleNameTextField, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal,
+                toItem: firstNameTextField, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0),
+            NSLayoutConstraint(item: lastNameTextField, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal,
+                toItem: middleNameTextField, attribute: NSLayoutAttribute.Width, multiplier: 1.0, constant: 0)
+        ])
     }
 
     func next() {

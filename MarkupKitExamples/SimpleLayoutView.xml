@@ -16,7 +16,7 @@ limitations under the License.
 
 <LMLayerView backgroundColor="#ffffff">
     <LMColumnView layoutMarginTop="20" layoutMarginBottom="20">
-        <UILabel text="Flowers" textAlignment="center"/>
+        <UILabel text="Flowers" font="body" textAlignment="center"/>
         <UIImageView image="flowers" contentMode="scaleAspectFit" weight="1"/>
         <UIButton style="systemButton" normalTitle="Edit"/>
     </LMColumnView>

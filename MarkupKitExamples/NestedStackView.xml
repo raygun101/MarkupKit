@@ -15,8 +15,58 @@ limitations under the License.
 -->
 
 <LMLayerView backgroundColor="#ffffff">
-    <UIStackView axis="vertical" layoutMarginTop="20" layoutMarginBottom="20" spacing="8"
-        layoutMarginsRelativeArrangement="true">
-        <!-- TODO -->
+    <!-- Root Stack -->
+    <UIStackView axis="vertical" layoutMarginsRelativeArrangement="true" layoutMarginTop="20" layoutMarginBottom="20" spacing="8">
+        <!-- Upper Stack -->
+        <UIStackView axis="horizontal" spacing="8">
+            <!-- Image View -->
+            <UIImageView id="imageView" image="square_flowers"
+                horizontalContentCompressionResistancePriority="48"
+                verticalContentCompressionResistancePriority="48"/>
+
+            <!-- Name Rows Stack -->
+            <UIStackView axis="vertical" spacing="8">
+                <!-- First Name Stack -->
+                <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
+                    <UILabel text="First" font="body"
+                        horizontalContentHuggingPriority="251"
+                        verticalContentHuggingPriority="251"/>
+                    <UITextField id="firstNameTextField" placeholder="Enter First Name" font="System 14" borderStyle="roundedRect"
+                        horizontalContentHuggingPriority="48"
+                        horizontalContentCompressionResistancePriority="749"/>
+                </UIStackView>
+
+                <!-- Middle Name Stack -->
+                <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
+                    <UILabel text="Middle" font="body"
+                        horizontalContentHuggingPriority="251"
+                        verticalContentHuggingPriority="251"/>
+                    <UITextField id="middleNameTextField" placeholder="Enter Middle Name" font="System 14" borderStyle="roundedRect"
+                        horizontalContentHuggingPriority="48"
+                        horizontalContentCompressionResistancePriority="749"/>
+                </UIStackView>
+
+                <!-- Last Name Stack -->
+                <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
+                    <UILabel text="Last" font="body"
+                        horizontalContentHuggingPriority="251"
+                        verticalContentHuggingPriority="251"/>
+                    <UITextField id="lastNameTextField" placeholder="Enter Last Name" font="System 14" borderStyle="roundedRect"
+                        horizontalContentHuggingPriority="48"
+                        horizontalContentCompressionResistancePriority="749"/>
+                </UIStackView>
+            </UIStackView>
+        </UIStackView>
+
+        <!-- Text View -->
+        <UITextView text="Notes:" font="body" backgroundColor="#aaaaaa"
+            verticalContentHuggingPriority="249"/>
+
+        <!-- Button Stack -->
+        <UIStackView axis="horizontal" alignment="firstBaseline" distribution="fillEqually" spacing="8">
+            <UIButton style="systemButton" normalTitle="Save"/>
+            <UIButton style="systemButton" normalTitle="Cancel"/>
+            <UIButton style="systemButton" normalTitle="Clear"/>
+        </UIStackView>
     </UIStackView>
 </LMLayerView>
