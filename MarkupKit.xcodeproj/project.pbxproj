@@ -46,6 +46,10 @@
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
+		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
+		3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */; };
+		3781C9011C399A7D00F324A4 /* SimpleLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */; };
+		3781C9031C399A8B00F324A4 /* SimpleLayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */; };
 		378CA4AE1C138B5100D72195 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CA4AD1C138B5100D72195 /* AppDelegate.swift */; };
 		378CA4B01C138B5100D72195 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378CA4AF1C138B5100D72195 /* ViewController.swift */; };
 		378CA4B51C138B5100D72195 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4B41C138B5100D72195 /* Assets.xcassets */; };
@@ -273,6 +277,10 @@
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
+		3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
+		3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackView.xml; sourceTree = "<group>"; };
+		3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleLayoutViewController.swift; sourceTree = "<group>"; };
+		3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleLayoutView.xml; sourceTree = "<group>"; };
 		378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTemplates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CA4AD1C138B5100D72195 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		378CA4AF1C138B5100D72195 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -616,6 +624,10 @@
 				37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */,
 				377294F91C35732A00A19C58 /* FormViewController.swift */,
 				377294FB1C35732E00A19C58 /* FormView.xml */,
+				3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */,
+				3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */,
+				3781C9001C399A7D00F324A4 /* SimpleLayoutViewController.swift */,
+				3781C9021C399A8B00F324A4 /* SimpleLayoutView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -890,6 +902,7 @@
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
+				3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
 				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
@@ -904,6 +917,7 @@
 				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
 				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
+				3781C9031C399A8B00F324A4 /* SimpleLayoutView.xml in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
 				3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */,
 			);
@@ -982,11 +996,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
+				3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
 				37D0723D1C26E7C2006BFA76 /* SizeClassViewController.swift in Sources */,
 				3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */,
+				3781C9011C399A7D00F324A4 /* SimpleLayoutViewController.swift in Sources */,
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,

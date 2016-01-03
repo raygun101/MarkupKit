@@ -68,6 +68,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(SizeClassViewController(), animated: true)
         } else if (value == "formView") {
             navigationController!.pushViewController(FormViewController(), animated: true)
+        } else if (value == "autoLayoutCookbook") {
+            navigationController!.pushViewController(SimpleStackViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

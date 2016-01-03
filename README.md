@@ -682,9 +682,9 @@ Layer views are discussed in more detail later.
 See _LMPageView.h_ for more information.
 
 ## LMLayoutView
-Autolayout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using autolayout generally has little or no hard-coded positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
+Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
 
-Autolayout in iOS (as well as Mac OS X) is implemented primarily via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be fairly cumbersome to work with. MarkupKit provides several classes that simplify the process of adding autolayout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
+Auto layout in iOS (as well as Mac OS X) is implemented primarily via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be fairly cumbersome to work with. MarkupKit provides several classes that simplify the process of adding auto layout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
 
 * `LMRowView` - view that arranges subviews in a horizontal line
 * `LMColumnView` - view that arranges subviews in a vertical line
@@ -723,7 +723,7 @@ The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or v
 
 This property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
 
-Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the autolayout system to correctly calculate the view's size and position.
+Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position.
 
 See _LMBoxView.h_ for more information.
 
