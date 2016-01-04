@@ -16,8 +16,8 @@ limitations under the License.
 
 <LMLayerView backgroundColor="#ffffff">
     <LMRowView layoutMarginTop="20" layoutMarginBottom="20">
-        <UIView weight="1" minimumWidth="150" backgroundColor="#4057f6"/>
-        <UIView weight="2" backgroundColor="#ce2c13"/>
+        <UIView id="blueView" minimumWidth="150" backgroundColor="#4057f6"/>
+        <UIView id="redView" backgroundColor="#ce2c13"/>
     </LMRowView>
 </LMLayerView>
 

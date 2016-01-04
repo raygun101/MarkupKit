@@ -16,6 +16,9 @@ import UIKit
 import MarkupKit
 
 class ComplexWidthViewController: UIViewController {
+    var blueView: UIView!
+    var redView: UIView!
+
     override func loadView() {
         view = LMViewBuilder.viewWithName("ComplexWidthView", owner: self, root: nil)
     }
@@ -25,6 +28,22 @@ class ComplexWidthViewController: UIViewController {
 
         title = "Complex Width Views"
 
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain,
+            target: self, action: "done")
+
         edgesForExtendedLayout = UIRectEdge.None
+
+        // 2x width constraint
+        let widthConstraint = NSLayoutConstraint(item: redView, attribute: NSLayoutAttribute.Width,
+            relatedBy: NSLayoutRelation.Equal, toItem: blueView, attribute: NSLayoutAttribute.Width,
+            multiplier: 2.0, constant: 0)
+
+        widthConstraint.priority = UILayoutPriorityDefaultHigh
+
+        widthConstraint.active = true
+    }
+
+    func done() {
+        navigationController!.popToRootViewControllerAnimated(true)
     }
 }

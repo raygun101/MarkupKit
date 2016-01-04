@@ -28,12 +28,13 @@ limitations under the License.
             <UIButton style="customButton" normalTitle="Press Me!"
                 normalTitleColor="#222222"
                 titleLabel.font="System 16"
-                layer.backgroundColor="#ffffff"
+                layer.backgroundColor="#ededed"
                 layer.borderColor="#808080"
                 layer.borderWidth="0.5"
                 layer.cornerRadius="6"
                 contentEdgeInsets="16"
-                clipsToBounds="true"/>
+                clipsToBounds="true"
+                onTouchUpInside="showGreeting"/>
         </LMColumnView>
     </LMColumnView>
 </LMLayerView>
