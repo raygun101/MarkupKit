@@ -34,4 +34,12 @@ class ScrollViewController: UIViewController {
         label1.text = text as String?
         label2.text = text as String?
     }
+
+    func showGreeting() {
+        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+
+        presentViewController(alertController, animated: true, completion: nil)
+    }
 }
