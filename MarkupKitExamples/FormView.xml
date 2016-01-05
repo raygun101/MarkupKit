@@ -15,6 +15,9 @@ limitations under the License.
 -->
 
 <?properties {
+    "label": {
+        "font": "body"
+    },
     "textfield": {
         "font": "System 14", "borderStyle": "roundedRect"
     }
@@ -23,14 +26,13 @@ limitations under the License.
 <LMScrollView fitToWidth="true" backgroundColor="#ffffff">
     <LMColumnView alignToGrid="true" layoutMargins="20">
         <LMRowView alignToBaseline="true">
-            <UILabel text="Name" font="body"/>
-            <UITextField class="textfield"/>
+            <UILabel text="Name" class="label"/>
+            <UITextField class="textfield" weight="1"/>
         </LMRowView>
 
         <LMRowView alignToBaseline="true">
-            <UILabel text="Address" font="body"/>
-
-            <LMColumnView>
+            <UILabel text="Address" class="label"/>
+            <LMColumnView weight="1">
                 <UITextField placeholder="Street" class="textfield"/>
 
                 <LMRowView alignToBaseline="true">
@@ -41,12 +43,11 @@ limitations under the License.
         </LMRowView>
 
         <LMRowView>
-            <UILabel text="Notes" font="body"/>
+            <UILabel text="Notes" class="label"/>
             <UITextView height="240" font="System 14"
                 textContainerInset="7" textContainer.lineFragmentPadding="0"
-                layer.borderWidth="0.5" layer.borderColor="#cdcdcd" layer.cornerRadius="6"/>
+                layer.borderWidth="0.5" layer.borderColor="#cdcdcd" layer.cornerRadius="6"
+                weight="1"/>
         </LMRowView>
-
-        <LMSpacer/>
     </LMColumnView>
 </LMScrollView>
