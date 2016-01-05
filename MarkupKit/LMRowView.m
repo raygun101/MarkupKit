@@ -32,7 +32,7 @@
 
     UILayoutPriority unweightedHorizontalContentHuggingPriority;
     if ([superview isKindOfClass:[LMColumnView self]] && [(LMColumnView *)superview alignToGrid]) {
-        unweightedHorizontalContentHuggingPriority = UILayoutPriorityDefaultLow;
+        unweightedHorizontalContentHuggingPriority = UILayoutPriorityDefaultHigh;
     } else {
         unweightedHorizontalContentHuggingPriority = UILayoutPriorityRequired;
     }
