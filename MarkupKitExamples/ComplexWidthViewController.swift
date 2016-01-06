@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class ComplexWidthViewController: UIViewController {
-    var blueView: UIView!
-    var redView: UIView!
+    weak var blueView: UIView!
+    weak var redView: UIView!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ComplexWidthView", owner: self, root: nil)
