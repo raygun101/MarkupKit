@@ -70,6 +70,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(FormViewController(), animated: true)
         } else if (value == "autoLayoutCookbook") {
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
+        } else if (value == "periodicTable") {
+            navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

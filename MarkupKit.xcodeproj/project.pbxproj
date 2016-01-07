@@ -20,6 +20,8 @@
 		372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 372418E21ADF34600067CDF0 /* waterfall.jpg */; };
 		372418EC1ADF34600067CDF0 /* MainView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E51ADF34600067CDF0 /* MainView.xml */; };
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
+		373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */; };
+		373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */; };
 		3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
 		3742F0081B34D28500B31987 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0061B34D28500B31987 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -257,6 +259,8 @@
 		372418E21ADF34600067CDF0 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
 		372418E51ADF34600067CDF0 /* MainView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MainView.xml; sourceTree = "<group>"; };
 		372418E81ADF34600067CDF0 /* Styles1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles1.plist; sourceTree = "<group>"; };
+		373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
+		373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PeriodicTableView.xml; sourceTree = "<group>"; };
 		3742F0021B34D27B00B31987 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
 		3742F0031B34D27B00B31987 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayoutView.m; sourceTree = "<group>"; };
 		3742F0061B34D28500B31987 /* LMBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBoxView.h; sourceTree = "<group>"; };
@@ -646,6 +650,8 @@
 				375FCE291C39B80100B91718 /* DifferentWidthView.xml */,
 				375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */,
 				375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */,
+				373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */,
+				373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -908,6 +914,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
+				373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */,
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
 				37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */,
 				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
@@ -1037,6 +1044,7 @@
 				3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */,
 				37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */,
 				37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */,
+				373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */,
 				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
 				37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */,
 				37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */,
