@@ -17,6 +17,14 @@ limitations under the License.
 <?properties Styles1?>
 <?properties Styles2?>
 <?properties Missing?>
+<?properties {
+    "large": {
+        "font": "Helvetica-Bold 32"
+    },
+    "blue": {
+        "textColor": "#0000ff"
+    }
+}?>
 
 <?strings MainView?>
 <?strings Missing?>
@@ -38,7 +46,7 @@ limitations under the License.
             </foo>
 
             <LMRowView class="row.second">
-                <UILabel text="12345" font="Helvetica-Bold 32"/>
+                <UILabel text="12345" class="large, blue"/>
                 <LMSpacer/>
                 <UIButton style="systemButton" normalTitle="@prompt"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
