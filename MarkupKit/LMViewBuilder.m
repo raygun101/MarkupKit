@@ -545,13 +545,15 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 dataDetectorTypes = 0;
 
                 for (NSString *component in components) {
-                    if ([component isEqual:@"phoneNumber"]) {
+                    NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+                    if ([name isEqual:@"phoneNumber"]) {
                         dataDetectorTypes |= UIDataDetectorTypePhoneNumber;
-                    } else if ([component isEqual:@"link"]) {
+                    } else if ([name isEqual:@"link"]) {
                         dataDetectorTypes |= UIDataDetectorTypeLink;
-                    } else if ([component isEqual:@"address"]) {
+                    } else if ([name isEqual:@"address"]) {
                         dataDetectorTypes |= UIDataDetectorTypeAddress;
-                    } else if ([component isEqual:@"calendarEvent"]) {
+                    } else if ([name isEqual:@"calendarEvent"]) {
                         dataDetectorTypes |= UIDataDetectorTypeCalendarEvent;
                     } else {
                         continue;
@@ -917,11 +919,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
             [_owner setValue:view forKey:outlet];
         }
 
-        // Apply properties
+        // Apply template properties
         if (template != nil) {
-            [LMViewBuilder applyPropertyValues:[_properties objectForKey:template] toView:view];
+            NSArray *components = [template componentsSeparatedByString:@","];
+
+            for (NSString *component in components) {
+                NSString *key = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+                [LMViewBuilder applyPropertyValues:[_properties objectForKey:key] toView:view];
+            }
         }
 
+        // Apply instance properties
         [LMViewBuilder applyPropertyValues:properties toView:view];
 
         // Add action handlers
