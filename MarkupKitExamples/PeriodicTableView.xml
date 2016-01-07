@@ -15,22 +15,63 @@ limitations under the License.
 -->
 
 <?properties {
+    "table": {
+        "spacing": 4,
+        "layoutMargins": 8
+    },
+    "row": {
+        "spacing": 4
+    },
     "cell": {
         "width": 48,
         "height": 48,
         "font": "System 18",
+        "textColor": "#0c47a7",
         "textAlignment": "center"
     },
     "element": {
         "layer.borderWidth": 0.5,
-        "layer.borderColor": "#999999",
+        "layer.borderColor": "#8d1af6"
+    },
+    "alkali-metal": {
+        "backgroundColor": "#ff6268"
+    },
+    "alkaline-earth-metal": {
+        "backgroundColor": "#ffddb2"
+    },
+    "lanthanide": {
+        "backgroundColor": "#ffbffb"
+    },
+    "actinide": {
+        "backgroundColor": "#ff98c9"
+    },
+    "transition-metal": {
+        "backgroundColor": "#ffbfc1"
+    },
+    "post-transition-metal": {
+        "backgroundColor": "#cccccc"
+    },
+    "metalloid": {
+        "backgroundColor": "#cbcc9e"
+    },
+    "polyatomic-nonmetal": {
+        "backgroundColor": "#9cffc8"
+    },
+    "diatomic-nonmetal": {
+        "backgroundColor": "#e5ff9c"
+    },
+    "noble-gas": {
+        "backgroundColor": "#beffff"
+    },
+    "unknown": {
+        "backgroundColor": "#e8e8e8"
     }
 }?>
 
 <LMScrollView backgroundColor="#ffffff">
-    <LMColumnView layoutMargins="8">
-        <LMRowView>
-            <UILabel class="cell, element" text="H"/>
+    <LMColumnView class="table">
+        <LMRowView class="row">
+            <UILabel class="cell, element, diatomic-nonmetal" text="H"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
@@ -47,11 +88,11 @@ limitations under the License.
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
-            <UILabel class="cell, element" text="He"/>
+            <UILabel class="cell, element, noble-gas" text="He"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="Li"/>
-            <UILabel class="cell, element" text="Be"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="Li"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Be"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
@@ -62,16 +103,16 @@ limitations under the License.
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
-            <UILabel class="cell, element" text="B"/>
-            <UILabel class="cell, element" text="C"/>
-            <UILabel class="cell, element" text="N"/>
-            <UILabel class="cell, element" text="O"/>
-            <UILabel class="cell, element" text="F"/>
-            <UILabel class="cell, element" text="Ne"/>
+            <UILabel class="cell, element, metalloid" text="B"/>
+            <UILabel class="cell, element, polyatomic-nonmetal" text="C"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="N"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="O"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="F"/>
+            <UILabel class="cell, element, noble-gas" text="Ne"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="Na"/>
-            <UILabel class="cell, element" text="Mg"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="Na"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Mg"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
@@ -82,130 +123,130 @@ limitations under the License.
             <UILabel class="cell"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
-            <UILabel class="cell, element" text="Al"/>
-            <UILabel class="cell, element" text="Si"/>
-            <UILabel class="cell, element" text="P"/>
-            <UILabel class="cell, element" text="S"/>
-            <UILabel class="cell, element" text="Cl"/>
-            <UILabel class="cell, element" text="Ar"/>
+            <UILabel class="cell, element, post-transition-metal" text="Al"/>
+            <UILabel class="cell, element, metalloid" text="Si"/>
+            <UILabel class="cell, element, polyatomic-nonmetal" text="P"/>
+            <UILabel class="cell, element, polyatomic-nonmetal" text="S"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="Cl"/>
+            <UILabel class="cell, element, noble-gas" text="Ar"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="K"/>
-            <UILabel class="cell, element" text="Ca"/>
-            <UILabel class="cell, element" text="Sc"/>
-            <UILabel class="cell, element" text="Ti"/>
-            <UILabel class="cell, element" text="V"/>
-            <UILabel class="cell, element" text="Cr"/>
-            <UILabel class="cell, element" text="Mn"/>
-            <UILabel class="cell, element" text="Fe"/>
-            <UILabel class="cell, element" text="Co"/>
-            <UILabel class="cell, element" text="Ni"/>
-            <UILabel class="cell, element" text="Cu"/>
-            <UILabel class="cell, element" text="Zn"/>
-            <UILabel class="cell, element" text="Ga"/>
-            <UILabel class="cell, element" text="Ge"/>
-            <UILabel class="cell, element" text="As"/>
-            <UILabel class="cell, element" text="Se"/>
-            <UILabel class="cell, element" text="Br"/>
-            <UILabel class="cell, element" text="Kr"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="K"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Ca"/>
+            <UILabel class="cell, element, transition-metal" text="Sc"/>
+            <UILabel class="cell, element, transition-metal" text="Ti"/>
+            <UILabel class="cell, element, transition-metal" text="V"/>
+            <UILabel class="cell, element, transition-metal" text="Cr"/>
+            <UILabel class="cell, element, transition-metal" text="Mn"/>
+            <UILabel class="cell, element, transition-metal" text="Fe"/>
+            <UILabel class="cell, element, transition-metal" text="Co"/>
+            <UILabel class="cell, element, transition-metal" text="Ni"/>
+            <UILabel class="cell, element, transition-metal" text="Cu"/>
+            <UILabel class="cell, element, transition-metal" text="Zn"/>
+            <UILabel class="cell, element, post-transition-metal" text="Ga"/>
+            <UILabel class="cell, element, metalloid" text="Ge"/>
+            <UILabel class="cell, element, metalloid" text="As"/>
+            <UILabel class="cell, element, polyatomic-nonmetal" text="Se"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="Br"/>
+            <UILabel class="cell, element, noble-gas" text="Kr"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="Rb"/>
-            <UILabel class="cell, element" text="Sr"/>
-            <UILabel class="cell, element" text="Y"/>
-            <UILabel class="cell, element" text="Zr"/>
-            <UILabel class="cell, element" text="Nb"/>
-            <UILabel class="cell, element" text="Mo"/>
-            <UILabel class="cell, element" text="Tc"/>
-            <UILabel class="cell, element" text="Ru"/>
-            <UILabel class="cell, element" text="Rh"/>
-            <UILabel class="cell, element" text="Pd"/>
-            <UILabel class="cell, element" text="Ag"/>
-            <UILabel class="cell, element" text="Cd"/>
-            <UILabel class="cell, element" text="In"/>
-            <UILabel class="cell, element" text="Sn"/>
-            <UILabel class="cell, element" text="Sb"/>
-            <UILabel class="cell, element" text="Te"/>
-            <UILabel class="cell, element" text="I"/>
-            <UILabel class="cell, element" text="Xe"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="Rb"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Sr"/>
+            <UILabel class="cell, element, transition-metal" text="Y"/>
+            <UILabel class="cell, element, transition-metal" text="Zr"/>
+            <UILabel class="cell, element, transition-metal" text="Nb"/>
+            <UILabel class="cell, element, transition-metal" text="Mo"/>
+            <UILabel class="cell, element, transition-metal" text="Tc"/>
+            <UILabel class="cell, element, transition-metal" text="Ru"/>
+            <UILabel class="cell, element, transition-metal" text="Rh"/>
+            <UILabel class="cell, element, transition-metal" text="Pd"/>
+            <UILabel class="cell, element, transition-metal" text="Ag"/>
+            <UILabel class="cell, element, transition-metal" text="Cd"/>
+            <UILabel class="cell, element, post-transition-metal" text="In"/>
+            <UILabel class="cell, element, post-transition-metal" text="Sn"/>
+            <UILabel class="cell, element, metalloid" text="Sb"/>
+            <UILabel class="cell, element, metalloid" text="Te"/>
+            <UILabel class="cell, element, diatomic-nonmetal" text="I"/>
+            <UILabel class="cell, element, noble-gas" text="Xe"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="Cs"/>
-            <UILabel class="cell, element" text="Ba"/>
-            <UILabel class="cell, element" text="Lu"/>
-            <UILabel class="cell, element" text="Hf"/>
-            <UILabel class="cell, element" text="Ta"/>
-            <UILabel class="cell, element" text="W"/>
-            <UILabel class="cell, element" text="Re"/>
-            <UILabel class="cell, element" text="Os"/>
-            <UILabel class="cell, element" text="Ir"/>
-            <UILabel class="cell, element" text="Pt"/>
-            <UILabel class="cell, element" text="Au"/>
-            <UILabel class="cell, element" text="Hg"/>
-            <UILabel class="cell, element" text="Tl"/>
-            <UILabel class="cell, element" text="Pb"/>
-            <UILabel class="cell, element" text="Bi"/>
-            <UILabel class="cell, element" text="Po"/>
-            <UILabel class="cell, element" text="At"/>
-            <UILabel class="cell, element" text="Rn"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="Cs"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Ba"/>
+            <UILabel class="cell, element, lanthanide" text="Lu"/>
+            <UILabel class="cell, element, transition-metal" text="Hf"/>
+            <UILabel class="cell, element, transition-metal" text="Ta"/>
+            <UILabel class="cell, element, transition-metal" text="W"/>
+            <UILabel class="cell, element, transition-metal" text="Re"/>
+            <UILabel class="cell, element, transition-metal" text="Os"/>
+            <UILabel class="cell, element, transition-metal" text="Ir"/>
+            <UILabel class="cell, element, transition-metal" text="Pt"/>
+            <UILabel class="cell, element, transition-metal" text="Au"/>
+            <UILabel class="cell, element, transition-metal" text="Hg"/>
+            <UILabel class="cell, element, post-transition-metal" text="Tl"/>
+            <UILabel class="cell, element, post-transition-metal" text="Pb"/>
+            <UILabel class="cell, element, post-transition-metal" text="Bi"/>
+            <UILabel class="cell, element, post-transition-metal" text="Po"/>
+            <UILabel class="cell, element, metalloid" text="At"/>
+            <UILabel class="cell, element, noble-gas" text="Rn"/>
         </LMRowView>
-        <LMRowView>
-            <UILabel class="cell, element" text="Fr"/>
-            <UILabel class="cell, element" text="Ra"/>
-            <UILabel class="cell, element" text="Lr"/>
-            <UILabel class="cell, element" text="Rf"/>
-            <UILabel class="cell, element" text="Db"/>
-            <UILabel class="cell, element" text="Sg"/>
-            <UILabel class="cell, element" text="Bh"/>
-            <UILabel class="cell, element" text="Hs"/>
-            <UILabel class="cell, element" text="Mt"/>
-            <UILabel class="cell, element" text="Ds"/>
-            <UILabel class="cell, element" text="Rg"/>
-            <UILabel class="cell, element" text="Cn"/>
-            <UILabel class="cell, element" text="Uut"/>
-            <UILabel class="cell, element" text="Fl"/>
-            <UILabel class="cell, element" text="Uup"/>
-            <UILabel class="cell, element" text="Lv"/>
-            <UILabel class="cell, element" text="Uus"/>
-            <UILabel class="cell, element" text="Uuo"/>
+        <LMRowView class="row">
+            <UILabel class="cell, element, alkali-metal" text="Fr"/>
+            <UILabel class="cell, element, alkaline-earth-metal" text="Ra"/>
+            <UILabel class="cell, element, actinide" text="Lr"/>
+            <UILabel class="cell, element, transition-metal" text="Rf"/>
+            <UILabel class="cell, element, transition-metal" text="Db"/>
+            <UILabel class="cell, element, transition-metal" text="Sg"/>
+            <UILabel class="cell, element, transition-metal" text="Bh"/>
+            <UILabel class="cell, element, transition-metal" text="Hs"/>
+            <UILabel class="cell, element, unknown" text="Mt"/>
+            <UILabel class="cell, element, unknown" text="Ds"/>
+            <UILabel class="cell, element, unknown" text="Rg"/>
+            <UILabel class="cell, element, transition-metal" text="Cn"/>
+            <UILabel class="cell, element, unknown" text="Uut"/>
+            <UILabel class="cell, element, post-transition-metal" text="Fl"/>
+            <UILabel class="cell, element, unknown" text="Uup"/>
+            <UILabel class="cell, element, unknown" text="Lv"/>
+            <UILabel class="cell, element, unknown" text="Uus"/>
+            <UILabel class="cell, element, unknown" text="Uuo"/>
         </LMRowView>
-        <LMRowView>
+        <LMRowView class="row">
             <UILabel class="cell"/>
             <UILabel class="cell"/>
-            <UILabel class="cell, element" text="La"/>
-            <UILabel class="cell, element" text="Ce"/>
-            <UILabel class="cell, element" text="Pr"/>
-            <UILabel class="cell, element" text="Nd"/>
-            <UILabel class="cell, element" text="Pm"/>
-            <UILabel class="cell, element" text="Sm"/>
-            <UILabel class="cell, element" text="Eu"/>
-            <UILabel class="cell, element" text="Gd"/>
-            <UILabel class="cell, element" text="Tb"/>
-            <UILabel class="cell, element" text="Dy"/>
-            <UILabel class="cell, element" text="Ho"/>
-            <UILabel class="cell, element" text="Er"/>
-            <UILabel class="cell, element" text="Tm"/>
-            <UILabel class="cell, element" text="Yb"/>
+            <UILabel class="cell, element, lanthanide" text="La"/>
+            <UILabel class="cell, element, lanthanide" text="Ce"/>
+            <UILabel class="cell, element, lanthanide" text="Pr"/>
+            <UILabel class="cell, element, lanthanide" text="Nd"/>
+            <UILabel class="cell, element, lanthanide" text="Pm"/>
+            <UILabel class="cell, element, lanthanide" text="Sm"/>
+            <UILabel class="cell, element, lanthanide" text="Eu"/>
+            <UILabel class="cell, element, lanthanide" text="Gd"/>
+            <UILabel class="cell, element, lanthanide" text="Tb"/>
+            <UILabel class="cell, element, lanthanide" text="Dy"/>
+            <UILabel class="cell, element, lanthanide" text="Ho"/>
+            <UILabel class="cell, element, lanthanide" text="Er"/>
+            <UILabel class="cell, element, lanthanide" text="Tm"/>
+            <UILabel class="cell, element, lanthanide" text="Yb"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
         </LMRowView>
-        <LMRowView>
+        <LMRowView class="row">
             <UILabel class="cell"/>
             <UILabel class="cell"/>
-            <UILabel class="cell, element" text="Ac"/>
-            <UILabel class="cell, element" text="Th"/>
-            <UILabel class="cell, element" text="Pa"/>
-            <UILabel class="cell, element" text="U"/>
-            <UILabel class="cell, element" text="Np"/>
-            <UILabel class="cell, element" text="Pu"/>
-            <UILabel class="cell, element" text="Am"/>
-            <UILabel class="cell, element" text="Cm"/>
-            <UILabel class="cell, element" text="Bk"/>
-            <UILabel class="cell, element" text="Cf"/>
-            <UILabel class="cell, element" text="Es"/>
-            <UILabel class="cell, element" text="Fm"/>
-            <UILabel class="cell, element" text="Md"/>
-            <UILabel class="cell, element" text="No"/>
+            <UILabel class="cell, element, actinide" text="Ac"/>
+            <UILabel class="cell, element, actinide" text="Th"/>
+            <UILabel class="cell, element, actinide" text="Pa"/>
+            <UILabel class="cell, element, actinide" text="U"/>
+            <UILabel class="cell, element, actinide" text="Np"/>
+            <UILabel class="cell, element, actinide" text="Pu"/>
+            <UILabel class="cell, element, actinide" text="Am"/>
+            <UILabel class="cell, element, actinide" text="Cm"/>
+            <UILabel class="cell, element, actinide" text="Bk"/>
+            <UILabel class="cell, element, actinide" text="Cf"/>
+            <UILabel class="cell, element, actinide" text="Es"/>
+            <UILabel class="cell, element, actinide" text="Fm"/>
+            <UILabel class="cell, element, actinide" text="Md"/>
+            <UILabel class="cell, element, actinide" text="No"/>
             <UILabel class="cell"/>
             <UILabel class="cell"/>
         </LMRowView>
