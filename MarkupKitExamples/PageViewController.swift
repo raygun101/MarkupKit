@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class PageViewController: UIViewController, UIScrollViewDelegate {
-    var pageView: LMPageView!
-    var pageControl: UIPageControl!
+    weak var pageView: LMPageView!
+    weak var pageControl: UIPageControl!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("PageView", owner: self, root: nil)

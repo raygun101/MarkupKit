@@ -18,8 +18,8 @@ import MarkupKit
 class CustomComponentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     static let DynamicComponentName = "dynamic"
 
-    var pickerView: UIPickerView!
-    var label: UILabel!
+    weak var pickerView: UIPickerView!
+    weak var label: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("CustomComponentView", owner: self, root: nil)

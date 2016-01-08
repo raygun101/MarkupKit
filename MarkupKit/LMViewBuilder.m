@@ -724,10 +724,12 @@ static NSString * const kLocalizedStringPrefix = @"@";
             UILayoutPriority layoutPriority;
             if ([value isEqual:@"required"]) {
                 layoutPriority = UILayoutPriorityRequired;
-            } else if ([value isEqual:@"high"]) {
+            } else if ([value isEqual:@"defaultHigh"]) {
                 layoutPriority = UILayoutPriorityDefaultHigh;
-            } else if ([value isEqual:@"low"]) {
+            } else if ([value isEqual:@"defaultLow"]) {
                 layoutPriority = UILayoutPriorityDefaultLow;
+            } else if ([value isEqual:@"fittingSizeLevel"]) {
+                layoutPriority = UILayoutPriorityFittingSizeLevel;
             } else {
                 layoutPriority = [value floatValue];
             }
