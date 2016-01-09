@@ -35,6 +35,8 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        title = "MarkupKit Demo"
+        
         tableView.delegate = self
         
         sizePickerView.delegate = self
