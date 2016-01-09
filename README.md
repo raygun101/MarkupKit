@@ -216,6 +216,10 @@ This inline template specification would produce identical results:
     <?properties {
         "label.hello: {"font": "Helvetica 24", "textAlignment": "center"}
     }?>
+
+Multiple templates can be specified using a comma-separated list; for example:
+
+    <UILabel class="bold, red" text="Bold Red Label"/>
     
 Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the property list or JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
