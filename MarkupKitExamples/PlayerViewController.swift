@@ -30,20 +30,23 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         title = "Player View"
 
         edgesForExtendedLayout = UIRectEdge.None
-
-        playerView.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
-        playerView.layer.player = AVPlayer(URL: NSBundle.mainBundle().URLForResource("sample", withExtension: "mp4")!)
-
         playButton.enabled = false
+
+        playerView.delegate = self
+
+        playerView.layer.player = AVPlayer(URL: NSBundle.mainBundle().URLForResource("sample", withExtension: "mp4")!)
+        playerView.layer.videoGravity = AVLayerVideoGravityResizeAspectFill
     }
 
     override func viewWillDisappear(animated: Bool) {
+        playButton.enabled = false
+
         playerView.layer.player?.pause()
 
-        playButton.enabled = false
+        playerView.delegate = nil
     }
 
     func playerView(playerView: LMPlayerView, isReadyForDisplay readyForDisplay: Bool) {
