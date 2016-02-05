@@ -12,21 +12,27 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+import UIKit
+import MarkupKit
 
-NS_ASSUME_NONNULL_BEGIN
+class ColorCell: LMCollectionViewCell {
+    var indexLabel: UILabel!
+    var colorView: UIView!
+    var valueLabel: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
 
-/**
- * Table view cell that hosts custom content defined in markup.
- */
-@interface LMTableViewCell : UITableViewCell
+        LMViewBuilder.viewWithName("ColorCell", owner: self, root: self)
+    }
 
-/**
- * Specifies that the cell's content will be arranged relative to the cell's layout margins.
- * The default value is <code>YES</code>.
- */
-@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder);
+    }
 
-@end
-
-NS_ASSUME_NONNULL_END
+    override func prepareForReuse() {
+        indexLabel.text = nil
+        colorView.backgroundColor = nil
+        valueLabel.text = nil
+    }
+}

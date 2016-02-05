@@ -20,11 +20,11 @@ class RadioButtonViewController: UITableViewController {
         view = loadViewFromMarkup()
     }
 
-    func loadViewFromMarkup() -> UIView {
+    func loadViewFromMarkup() -> UIView? {
         return LMViewBuilder.viewWithName("RadioButtonView", owner: self, root: nil)
     }
 
-    func loadViewProgrammatically() -> UIView {
+    func loadViewProgrammatically() -> UIView? {
         let tableView = LMTableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableViewStyle.Grouped)
 
         tableView.setSelectionMode(LMTableViewSelectionMode.SingleCheckmark, forSection: 0)

@@ -17,7 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Collection view cell that hosts custom cell content defined in markup.
+ * Collection view cell that hosts custom content defined in markup.
  */
 @interface LMCollectionViewCell : UICollectionViewCell
 

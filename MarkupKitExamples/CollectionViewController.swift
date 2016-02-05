@@ -16,8 +16,15 @@ import UIKit
 import MarkupKit
 
 class CollectionViewController: UICollectionViewController {
+    let colors = [
+        "#ffffff", "#c0c0c0", "#808080", "#000000",
+        "#ff0000", "#800000", "#ffff00", "#808080",
+        "#00ff00", "#008000", "#00ffff", "#008080",
+        "#0000ff", "#000080", "#ff00ff", "#800080"
+    ];
+
     override func loadView() {
-        view = LMViewBuilder.viewWithName("CollectionView", owner: self, root: nil)
+        collectionView = LMViewBuilder.viewWithName("CollectionView", owner: self, root: nil) as? UICollectionView
     }
 
     override func viewDidLoad() {
@@ -26,5 +33,28 @@ class CollectionViewController: UICollectionViewController {
         title = "Collection View"
 
         edgesForExtendedLayout = UIRectEdge.None
+
+        collectionView?.registerClass(ColorCell.self, forCellWithReuseIdentifier: ColorCell.self.description())
+    }
+
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return colors.count
+    }
+    
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ColorCell.self.description(), forIndexPath: indexPath) as! ColorCell
+
+        let index = indexPath.item
+        let color = colors[index]
+
+        cell.indexLabel.text = String(index)
+        cell.colorView.backgroundColor = LMViewBuilder.colorValue(color)
+        cell.valueLabel.text = color
+
+        return cell;
     }
 }

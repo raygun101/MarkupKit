@@ -56,6 +56,8 @@
 		37604CC21C65146C00046146 /* LMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37604CC01C65146C00046146 /* LMCollectionViewCell.m */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
+		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
+		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
@@ -303,6 +305,8 @@
 		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
+		3779F9841C6520A20070A29C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		3779F9861C6520B70070A29C /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
@@ -676,6 +680,8 @@
 				373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */,
 				37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */,
 				37B1523C1C64E1700010BBD4 /* CollectionView.xml */,
+				3779F9841C6520A20070A29C /* ColorCell.swift */,
+				3779F9861C6520B70070A29C /* ColorCell.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -940,6 +946,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3779F9871C6520B70070A29C /* ColorCell.xml in Resources */,
 				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
 				373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */,
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
@@ -1075,6 +1082,7 @@
 				37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */,
 				3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */,
 				37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */,
+				3779F9851C6520A30070A29C /* ColorCell.swift in Sources */,
 				37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */,
 				373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */,
 				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
