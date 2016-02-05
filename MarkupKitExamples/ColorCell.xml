@@ -14,7 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<UICollectionView style="flowLayoutCollectionView"
-    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-    collectionViewLayout.sectionInset="12"
-    backgroundColor="#ffffff"/>
+<root layoutMargins="8" backgroundColor="#eeeeee">
+    <LMColumnView>
+        <UILabel id="indexLabel" textAlignment="center" font="body"/>
+
+        <UIView id="colorView" weight="1"/>
+
+        <UILabel id="valueLabel" textAlignment="center" font="caption1"/>
+    </LMColumnView>
+</root>

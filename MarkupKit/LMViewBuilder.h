@@ -30,25 +30,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @return The named view, or <code>nil</code> if the view could not be loaded.
  */
-+ (UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
++ (nullable UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
 
 /**
  * Decodes a color value.
  *
  * @param value The encoded color value.
  *
- * @return The decoded color value.
+ * @return The decoded color value, or <code>nil</code> if the color could not be decoded.
  */
-+ (UIColor *)colorValue:(NSString *)value;
++ (nullable UIColor *)colorValue:(NSString *)value;
 
 /**
  * Decodes a font value.
  *
  * @param value The encoded font value.
  *
- * @return The decoded font value.
+ * @return The decoded font value, or <code>nil</code> if the font could not be decoded.
  */
-+ (UIFont *)fontValue:(NSString *)value;
++ (nullable UIFont *)fontValue:(NSString *)value;
 
 /**
  * Applies a set of property values to a view.
