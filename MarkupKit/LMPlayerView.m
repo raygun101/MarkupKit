@@ -41,6 +41,11 @@ static NSString * const kReadyForDisplayProperty = @"readyForDisplay";
     return self;
 }
 
+- (void)dealloc
+{
+    [[self layer] removeObserver:self forKeyPath:kReadyForDisplayProperty];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:kReadyForDisplayProperty]) {
