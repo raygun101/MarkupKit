@@ -30,7 +30,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (readonly, nonatomic) AVPlayerLayer *layer;
 
-@property (nonatomic) id<LMPlayerViewDelegate> delegate;
+/**
+ * The player view delegate.
+ */
+@property (weak, nonatomic) id<LMPlayerViewDelegate> delegate;
 
 @end
 
