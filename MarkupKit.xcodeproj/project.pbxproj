@@ -58,6 +58,11 @@
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
 		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
+		3779F98A1C652E530070A29C /* LMPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3779F9881C652E530070A29C /* LMPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3779F98B1C652E530070A29C /* LMPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9891C652E530070A29C /* LMPlayerView.m */; };
+		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
+		3779F98F1C652EB90070A29C /* PlayerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerView.xml */; };
+		3779F9911C652EC70070A29C /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9901C652EC70070A29C /* sample.mp4 */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
@@ -307,6 +312,11 @@
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
 		3779F9841C6520A20070A29C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3779F9861C6520B70070A29C /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
+		3779F9881C652E530070A29C /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPlayerView.h; sourceTree = "<group>"; };
+		3779F9891C652E530070A29C /* LMPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPlayerView.m; sourceTree = "<group>"; };
+		3779F98C1C652EB30070A29C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		3779F98E1C652EB90070A29C /* PlayerView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerView.xml; sourceTree = "<group>"; };
+		3779F9901C652EC70070A29C /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
@@ -564,6 +574,8 @@
 				3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */,
 				3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */,
 				3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */,
+				3779F9881C652E530070A29C /* LMPlayerView.h */,
+				3779F9891C652E530070A29C /* LMPlayerView.m */,
 				3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */,
 				3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */,
 				3B5CE0041B87AC5000163D8D /* NSString+Markup.h */,
@@ -682,6 +694,8 @@
 				37B1523C1C64E1700010BBD4 /* CollectionView.xml */,
 				3779F9841C6520A20070A29C /* ColorCell.swift */,
 				3779F9861C6520B70070A29C /* ColorCell.xml */,
+				3779F98C1C652EB30070A29C /* PlayerViewController.swift */,
+				3779F98E1C652EB90070A29C /* PlayerView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -692,6 +706,7 @@
 				37D36AC61BB1DDCE008E36FD /* mini.png */,
 				37D36AC71BB1DDCE008E36FD /* vw.png */,
 				37C806BE1BEE37D000196FD6 /* sample.txt */,
+				3779F9901C652EC70070A29C /* sample.mp4 */,
 			);
 			path = MarkupKitExamples;
 			sourceTree = "<group>";
@@ -734,6 +749,7 @@
 				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
 				37D9478A1C19B7BC00D323C4 /* UITextField+Markup.h in Headers */,
 				37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */,
+				3779F98A1C652E530070A29C /* LMPlayerView.h in Headers */,
 				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
 				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
 			);
@@ -949,6 +965,7 @@
 				3779F9871C6520B70070A29C /* ColorCell.xml in Resources */,
 				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
 				373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */,
+				3779F98F1C652EB90070A29C /* PlayerView.xml in Resources */,
 				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
 				37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */,
 				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
@@ -976,6 +993,7 @@
 				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
 				37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */,
 				375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */,
+				3779F9911C652EC70070A29C /* sample.mp4 in Resources */,
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
@@ -1014,6 +1032,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */,
+				3779F98B1C652E530070A29C /* LMPlayerView.m in Sources */,
 				37D9478B1C19B7BC00D323C4 /* UITextField+Markup.m in Sources */,
 				374AB81D1C25B61F00EE35ED /* UIToolbar+Markup.m in Sources */,
 				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
@@ -1088,6 +1107,7 @@
 				37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */,
 				37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */,
 				37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */,
+				3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */,
 				37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */,
 				37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */,
 			);

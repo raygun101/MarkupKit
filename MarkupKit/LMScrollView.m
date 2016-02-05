@@ -64,11 +64,6 @@
     [super willRemoveSubview:subview];
 }
 
-- (CGSize)intrinsicContentSize
-{
-    return (_contentView == nil) ? CGSizeMake(0, 0): [_contentView intrinsicContentSize];
-}
-
 - (void)setNeedsUpdateConstraints
 {
     if (_constraints != nil) {
