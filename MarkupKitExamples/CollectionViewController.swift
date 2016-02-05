@@ -12,12 +12,19 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+import UIKit
+import MarkupKit
 
-NS_ASSUME_NONNULL_BEGIN
+class CollectionViewController: UICollectionViewController {
+    override func loadView() {
+        view = LMViewBuilder.viewWithName("CollectionView", owner: self, root: nil)
+    }
 
-@interface UITextField (Markup)
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-@end
+        title = "Collection View"
 
-NS_ASSUME_NONNULL_END
+        edgesForExtendedLayout = UIRectEdge.None
+    }
+}

@@ -16,7 +16,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextField (Markup)
+/**
+ * Collection view cell that hosts custom cell content defined in markup.
+ */
+@interface LMCollectionViewCell : UICollectionViewCell
+
+/**
+ * Specifies that the cell's content will be arranged relative to the cell's layout margins.
+ * The default value is <code>YES</code>.
+ */
+@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 
 @end
 

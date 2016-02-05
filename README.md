@@ -110,7 +110,7 @@ For example, the following markup creates an instance of `UIImageView` and sets 
 ### Edge Insets
 The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
-Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. For the "layoutMargins" attribute, a single numeric value may be specified that will be applied to all of the structure's components.
+Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components.
 
 For example, the following markup creates an instance of `LMTableViewCell` whose `top`, `left`, `bottom`, and `right` layout margins are set to 20:
 
@@ -118,13 +118,15 @@ For example, the following markup creates an instance of `LMTableViewCell` whose
         ...
     </LMTableViewCell>
 
-A button's content edge insets and a text view's text container inset can also be specified using this shorthand. For example:
+Edge inset properties of several other view types can also be specified using this shorthand. For example:
 
     <UIButton normalTitle="Click Me!" contentEdgeInsets="12"/>
 
     <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>
     
-Additionally, MarkupKit adds properties to `UIView` and `UIButton` that allow layout margin and content edge inset components to be specified individually. This is discussed in more detail later.
+    <UICollectionView style="flowLayoutCollectionView" sectionInset="10"/>
+    
+Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually. This is discussed in more detail later.
 
 ### Localization
 If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
@@ -1155,6 +1157,9 @@ MarkuKit adds the following property to `UIScrollView` to help simplify interact
     @property (nonatomic, readonly) NSInteger currentPage;
 
 If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
+
+### UICollectionView
+TODO
 
 ### UITableView
 Instances of `UITableView` are created programmatically using the `initWithFrame:style:` method of `UITableView`. MarkupKit adds the following factory methods to `UITableView` to allow table views to be declared in markup:
