@@ -305,7 +305,9 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:textBorderStyle];
-        } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
+        } else if ([key isEqual:@"clearButtonMode"]
+            || [key isEqual:@"leftViewMode"]
+            || [key isEqual:@"rightViewMode"]) {
             // Translate to text field view mode
             UITextFieldViewMode textFieldViewMode;
             if ([value isEqual:@"never"]) {
