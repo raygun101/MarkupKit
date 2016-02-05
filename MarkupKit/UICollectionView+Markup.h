@@ -16,7 +16,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextField (Markup)
+@interface UICollectionView (Markup)
+
+/**
+ * Creates a flow layout collection view.
+ */
++ (UICollectionView *)flowLayoutCollectionView;
 
 @end
 

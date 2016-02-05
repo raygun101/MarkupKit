@@ -12,12 +12,13 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import "UICollectionView+Markup.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation UICollectionView (Markup)
 
-@interface UITextField (Markup)
++ (UICollectionView *)flowLayoutCollectionView
+{
+    return [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:[UICollectionViewFlowLayout new]];
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

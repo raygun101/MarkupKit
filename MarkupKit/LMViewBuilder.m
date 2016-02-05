@@ -485,6 +485,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:activityIndicatorViewStyle];
+        } else if ([key isEqual:@"scrollDirection"]) {
+            // Translate to collection view scroll direction
+            UICollectionViewScrollDirection collectionViewScrollDirection;
+            if ([value isEqual:@"horizontal"]) {
+                collectionViewScrollDirection = UICollectionViewScrollDirectionHorizontal;
+            } else if ([value isEqual:@"vertical"]) {
+                collectionViewScrollDirection = UICollectionViewScrollDirectionVertical;
+            } else {
+                continue;
+            }
+
+            value = [NSNumber numberWithInt:collectionViewScrollDirection];
         } else if ([key isEqual:@"separatorStyle"]) {
             UITableViewCellSeparatorStyle tableViewCellSeparatorStyle;
             if ([value isEqual:@"none"]) {
@@ -735,7 +747,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithFloat:layoutPriority];
-        } else if ([key isEqual:@"layoutMargins"] || [key isEqual:@"contentEdgeInsets"] || [key isEqual:@"textContainerInset"]) {
+        } else if ([key isEqual:@"layoutMargins"]
+            || [key isEqual:@"contentEdgeInsets"]
+            || [key isEqual:@"textContainerInset"]
+            || [key isEqual:@"sectionInset"]) {
             // Create edge insets from value
             CGFloat inset = [value floatValue];
 

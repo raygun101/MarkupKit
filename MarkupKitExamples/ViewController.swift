@@ -72,6 +72,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
         } else if (value == "periodicTable") {
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
+        } else if (value == "collectionView") {
+            navigationController!.pushViewController(CollectionViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

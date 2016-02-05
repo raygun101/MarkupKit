@@ -44,12 +44,16 @@
 		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
 		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		375CD9431C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		375CD9441C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */; };
 		375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthView.xml */; };
 		375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthView.xml */; };
 		375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */; };
 		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
 		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
+		37604CC11C65146C00046146 /* LMCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37604CBF1C65146C00046146 /* LMCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37604CC21C65146C00046146 /* LMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37604CC01C65146C00046146 /* LMCollectionViewCell.m */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,6 +97,10 @@
 		37AC283F1C08B5D100BC8C87 /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AC283E1C08B5D100BC8C87 /* View.xml */; };
 		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
+		37B152381C64E05F0010BBD4 /* UICollectionView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37B152391C64E05F0010BBD4 /* UICollectionView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */; };
+		37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */; };
+		37B1523D1C64E1700010BBD4 /* CollectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B1523C1C64E1700010BBD4 /* CollectionView.xml */; };
 		37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
@@ -283,12 +291,16 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+Markup.h"; sourceTree = "<group>"; };
+		375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewFlowLayout+Markup.m"; sourceTree = "<group>"; };
 		375FCE271C39B7F400B91718 /* EqualWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthView.xml; sourceTree = "<group>"; };
 		375FCE291C39B80100B91718 /* DifferentWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthView.xml; sourceTree = "<group>"; };
 		375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthView.xml; sourceTree = "<group>"; };
 		375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidthViewController.swift; sourceTree = "<group>"; };
 		375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentWidthViewController.swift; sourceTree = "<group>"; };
 		375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
+		37604CBF1C65146C00046146 /* LMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewCell.h; sourceTree = "<group>"; };
+		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
@@ -336,6 +348,10 @@
 		37B070831ADEBEB000A92FCF /* MarkupKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B070861ADEBEB000A92FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B0708E1ADEBEB000A92FCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Markup.h"; sourceTree = "<group>"; };
+		37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Markup.m"; sourceTree = "<group>"; };
+		37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		37B1523C1C64E1700010BBD4 /* CollectionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollectionView.xml; sourceTree = "<group>"; };
 		37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Markup.h"; sourceTree = "<group>"; };
 		37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
@@ -538,6 +554,8 @@
 				3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */,
 				37A9FC281C10C81300A09102 /* LMPageView.h */,
 				37A9FC291C10C81300A09102 /* LMPageView.m */,
+				37604CBF1C65146C00046146 /* LMCollectionViewCell.h */,
+				37604CC01C65146C00046146 /* LMCollectionViewCell.m */,
 				3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */,
 				3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */,
 				3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */,
@@ -566,6 +584,10 @@
 				378004F01BAD89BB003777C1 /* UIStackView+Markup.m */,
 				37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */,
 				37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */,
+				37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */,
+				37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */,
+				375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */,
+				375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */,
 				3757B7D81ADEC1550002E16C /* UITableView+Markup.h */,
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
@@ -652,6 +674,8 @@
 				375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */,
 				373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */,
 				373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */,
+				37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */,
+				37B1523C1C64E1700010BBD4 /* CollectionView.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -675,10 +699,12 @@
 			files = (
 				37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */,
 				37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */,
+				37B152381C64E05F0010BBD4 /* UICollectionView+Markup.h in Headers */,
 				374AB81C1C25B61F00EE35ED /* UIToolbar+Markup.h in Headers */,
 				37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */,
 				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
 				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
+				375CD9431C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h in Headers */,
 				3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */,
 				3B5CE0061B87AC5000163D8D /* NSString+Markup.h in Headers */,
 				3742F0101B34D29300B31987 /* LMRowView.h in Headers */,
@@ -692,6 +718,7 @@
 				3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */,
 				3B4D1F2A1B041EF400CB61A9 /* CALayer+Markup.h in Headers */,
 				3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */,
+				37604CC11C65146C00046146 /* LMCollectionViewCell.h in Headers */,
 				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
 				37A9FC161C107D9200A09102 /* LMGradientView.h in Headers */,
 				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
@@ -925,6 +952,7 @@
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
 				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
 				37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */,
+				37B1523D1C64E1700010BBD4 /* CollectionView.xml in Resources */,
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
@@ -985,6 +1013,7 @@
 				37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */,
 				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
 				37A9FC171C107D9200A09102 /* LMGradientView.m in Sources */,
+				375CD9441C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m in Sources */,
 				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
 				3742F0111B34D29300B31987 /* LMRowView.m in Sources */,
 				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
@@ -994,6 +1023,7 @@
 				37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */,
 				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
 				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
+				37604CC21C65146C00046146 /* LMCollectionViewCell.m in Sources */,
 				378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */,
 				3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */,
 				37F1B8BA1C0BAF3900C9F603 /* UIPickerView+Markup.m in Sources */,
@@ -1006,6 +1036,7 @@
 				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
 				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
 				37A9FC1B1C10837D00A09102 /* LMLinearGradientView.m in Sources */,
+				37B152391C64E05F0010BBD4 /* UICollectionView+Markup.m in Sources */,
 				3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1058,7 @@
 				3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */,
 				3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */,
 				3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */,
+				37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */,
 				3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */,
 				3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */,
 				375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */,

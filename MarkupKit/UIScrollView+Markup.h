@@ -14,6 +14,8 @@
 
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface UIScrollView (Markup)
 
 /**
@@ -22,3 +24,5 @@
 @property (nonatomic, readonly) NSInteger currentPage;
 
 @end
+
+NS_ASSUME_NONNULL_END
