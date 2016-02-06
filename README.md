@@ -271,6 +271,7 @@ The remaining sections of this document discuss the classes included with the Ma
 
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by an iOS application
 * `LMTableView` and `LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
+* `LMCollectionViewCell` - `UICollectionViewCell` that facilitates declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMScrollView` - `UIScrollView` subclass that automatically adapts to the size of its content
 * `LMPageView` - `UIScrollView` subclass that facilitates the declaration of paged content
@@ -278,6 +279,7 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
 * `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
+* `LMPlayerView` - view that presents an AV player
 
 Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -528,20 +530,46 @@ Since `LMTableViewCell` ultimately inherits from `UIView`, it is possible to spe
         </LMTableViewCell>
     </LMTableView>
 
-Finally, as discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content and behavior is expressed in markup rather than in code:
+Finally, as discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content is expressed in markup rather than in code:
 
-    - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-    {
-        self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    
-        if (self) {
-            [LMViewBuilder viewWithName:@"MyCustomTableViewCell" owner:self root:self];
-        }
-    
-        return self;
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
     }
 
+Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument. Note that attributes can be applied to this element just as if it's type had been declared explicitly:
+
+    <root layoutMargins="12">
+        <LMColumnView>
+            <UILabel id="myCustomLabel"/>
+            ...
+        </LMColumnView>
+    <root>
+
+The child of the root tag represents the cell's content. It can be any valid view, but is often a layout view that is used to automatically size and position the cell's custom content elements. 
+
 See _LMTableViewCell.h_ for more information.
+
+## LMCollectionViewCell
+Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+
+        LMViewBuilder.viewWithName("MyCustomCollectionViewCell", owner: self, root: self)
+    }
+
+As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constraints to its content to enable self-sizing behavior, and also supports the "layoutMargins" attribute it inherits from `UIView`. Again, because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument:
+
+    <root layoutMargins="12">
+        <LMColumnView>
+            <UILabel id="myCustomLabel"/>
+            ...
+        </LMColumnView>
+    <root>
+
+See _LMCollectionViewCell.h_ for more information.
 
 ## LMPickerView
 `LMPickerView` is a subclass of `UIPickerView` that acts as its own data source and delegate, serving content from a statically-defined collection of row and component titles. For example, the following markup declares a picker view containing four rows reprenting size options:
@@ -967,6 +995,11 @@ For example, the following markup creates a radial gradient view whose color val
 
 See _LMRadialGradientView.h_ for more information.
 
+## LMPlayerView
+TODO
+
+See _LMPlayerView.h_ for more information.
+
 ## UIKit Extensions
 MarkupKit extends several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
 
@@ -1159,6 +1192,9 @@ MarkuKit adds the following property to `UIScrollView` to help simplify interact
 If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
 
 ### UICollectionView
+TODO
+
+### UICollectionViewFlowLayout
 TODO
 
 ### UITableView

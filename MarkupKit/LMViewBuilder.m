@@ -305,9 +305,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:textBorderStyle];
-        } else if ([key isEqual:@"clearButtonMode"]
-            || [key isEqual:@"leftViewMode"]
-            || [key isEqual:@"rightViewMode"]) {
+        } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
             // Translate to text field view mode
             UITextFieldViewMode textFieldViewMode;
             if ([value isEqual:@"never"]) {
@@ -749,10 +747,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithFloat:layoutPriority];
-        } else if ([key isEqual:@"layoutMargins"]
-            || [key isEqual:@"contentEdgeInsets"]
-            || [key isEqual:@"textContainerInset"]
-            || [key isEqual:@"sectionInset"]) {
+        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
+            options:NSRegularExpressionSearch].location != NSNotFound) {
             // Create edge insets from value
             CGFloat inset = [value floatValue];
 

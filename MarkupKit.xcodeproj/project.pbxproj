@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3709BCFD1C0B57610099B8F2 /* LMPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3709BD001C0B57610099B8F2 /* LMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709BCFE1C0B57610099B8F2 /* LMPickerView.m */; };
 		3716A2C41C1470590098392F /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3716A2C31C1470590098392F /* Styles.plist */; };
 		3716A2C61C14794A0098392F /* rows.json in Resources */ = {isa = PBXBuildFile; fileRef = 3716A2C51C14794A0098392F /* rows.json */; };
 		3716A2C81C147E0A0098392F /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3716A2C71C147E0A0098392F /* CustomCell.swift */; };
@@ -22,49 +20,21 @@
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
 		373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */; };
 		373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */; };
-		3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
-		3742F0081B34D28500B31987 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0061B34D28500B31987 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3742F0091B34D28500B31987 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0071B34D28500B31987 /* LMBoxView.m */; };
-		3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00A1B34D28C00B31987 /* LMColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00B1B34D28C00B31987 /* LMColumnView.m */; };
-		3742F0101B34D29300B31987 /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00E1B34D29300B31987 /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3742F0111B34D29300B31987 /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00F1B34D29300B31987 /* LMRowView.m */; };
-		3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0121B34D2C800B31987 /* LMLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0131B34D2C800B31987 /* LMLayerView.m */; };
-		374AB81C1C25B61F00EE35ED /* UIToolbar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 374AB81A1C25B61F00EE35ED /* UIToolbar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		374AB81D1C25B61F00EE35ED /* UIToolbar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB81B1C25B61F00EE35ED /* UIToolbar+Markup.m */; };
 		375498351C08BA92008A6895 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 375498341C08BA92008A6895 /* Styles.plist */; };
 		375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 375498361C08BF6F008A6895 /* IMG_0725.jpg */; };
-		3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */; };
-		3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D01ADEC11B0002E16C /* UIView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D11ADEC11B0002E16C /* UIView+Markup.m */; };
-		3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
-		3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
-		375CD9431C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		375CD9441C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */; };
 		375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthView.xml */; };
 		375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthView.xml */; };
 		375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */; };
 		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
 		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
-		37604CC11C65146C00046146 /* LMCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37604CBF1C65146C00046146 /* LMCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37604CC21C65146C00046146 /* LMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37604CC01C65146C00046146 /* LMCollectionViewCell.m */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
 		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
 		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
-		3779F98A1C652E530070A29C /* LMPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3779F9881C652E530070A29C /* LMPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3779F98B1C652E530070A29C /* LMPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9891C652E530070A29C /* LMPlayerView.m */; };
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
 		3779F98F1C652EB90070A29C /* PlayerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerView.xml */; };
 		3779F9911C652EC70070A29C /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9901C652EC70070A29C /* sample.mp4 */; };
-		378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
 		3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
@@ -77,20 +47,77 @@
 		378CA4BE1C138B6000D72195 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
-		379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
-		37A9FC161C107D9200A09102 /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC141C107D9200A09102 /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A9FC171C107D9200A09102 /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC151C107D9200A09102 /* LMGradientView.m */; };
-		37A9FC1A1C10837D00A09102 /* LMLinearGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC181C10837D00A09102 /* LMLinearGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A9FC1B1C10837D00A09102 /* LMLinearGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC191C10837D00A09102 /* LMLinearGradientView.m */; };
-		37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC1C1C10838C00A09102 /* LMRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */; };
+		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
+		379C022D1C6609C900DEB95E /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0071B34D28500B31987 /* LMBoxView.m */; };
+		379C022E1C6609C900DEB95E /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00B1B34D28C00B31987 /* LMColumnView.m */; };
+		379C022F1C6609C900DEB95E /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00F1B34D29300B31987 /* LMRowView.m */; };
+		379C02301C6609C900DEB95E /* LMLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0131B34D2C800B31987 /* LMLayerView.m */; };
+		379C02311C6609C900DEB95E /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */; };
+		379C02321C6609C900DEB95E /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC151C107D9200A09102 /* LMGradientView.m */; };
+		379C02331C6609C900DEB95E /* LMLinearGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC191C10837D00A09102 /* LMLinearGradientView.m */; };
+		379C02341C6609C900DEB95E /* LMRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */; };
+		379C02351C6609C900DEB95E /* LMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3709BCFE1C0B57610099B8F2 /* LMPickerView.m */; };
+		379C02361C6609C900DEB95E /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */; };
+		379C02371C6609C900DEB95E /* LMPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC291C10C81300A09102 /* LMPageView.m */; };
+		379C02381C6609C900DEB95E /* LMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37604CC01C65146C00046146 /* LMCollectionViewCell.m */; };
+		379C02391C6609C900DEB95E /* LMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */; };
+		379C023A1C6609C900DEB95E /* LMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */; };
+		379C023B1C6609C900DEB95E /* LMPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9891C652E530070A29C /* LMPlayerView.m */; };
+		379C023C1C6609C900DEB95E /* LMViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */; };
+		379C023D1C6609C900DEB95E /* NSString+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5CE0051B87AC5000163D8D /* NSString+Markup.m */; };
+		379C023E1C6609C900DEB95E /* CALayer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */; };
+		379C023F1C6609C900DEB95E /* UIView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D11ADEC11B0002E16C /* UIView+Markup.m */; };
+		379C02401C6609C900DEB95E /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */; };
+		379C02411C6609C900DEB95E /* UISegmentedControl+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */; };
+		379C02421C6609C900DEB95E /* UITextField+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D947891C19B7BC00D323C4 /* UITextField+Markup.m */; };
+		379C02431C6609C900DEB95E /* UIPickerView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F1B8B81C0BAF3900C9F603 /* UIPickerView+Markup.m */; };
+		379C02441C6609C900DEB95E /* UIProgressView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */; };
+		379C02451C6609C900DEB95E /* UIToolbar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB81B1C25B61F00EE35ED /* UIToolbar+Markup.m */; };
+		379C02461C6609C900DEB95E /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
+		379C02471C6609C900DEB95E /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */; };
+		379C02481C6609C900DEB95E /* UICollectionView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */; };
+		379C02491C6609C900DEB95E /* UICollectionViewFlowLayout+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */; };
+		379C024A1C6609C900DEB95E /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
+		379C024B1C6609C900DEB95E /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */; };
+		379C024C1C6609C900DEB95E /* UIVisualEffectView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */; };
+		379C024D1C660A0100DEB95E /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C024E1C660A0100DEB95E /* LMLayoutView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0021B34D27B00B31987 /* LMLayoutView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C024F1C660A0100DEB95E /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0061B34D28500B31987 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02501C660A0100DEB95E /* LMColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00A1B34D28C00B31987 /* LMColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02511C660A0100DEB95E /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F00E1B34D29300B31987 /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02521C660A0100DEB95E /* LMLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3742F0121B34D2C800B31987 /* LMLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02531C660A0100DEB95E /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02541C660A0100DEB95E /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC141C107D9200A09102 /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02551C660A0100DEB95E /* LMLinearGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC181C10837D00A09102 /* LMLinearGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02561C660A0100DEB95E /* LMRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC1C1C10838C00A09102 /* LMRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02571C660A0100DEB95E /* LMPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3709BCFD1C0B57610099B8F2 /* LMPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02581C660A0100DEB95E /* LMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02591C660A0100DEB95E /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC281C10C81300A09102 /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025A1C660A0100DEB95E /* LMCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 37604CBF1C65146C00046146 /* LMCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025B1C660A0100DEB95E /* LMTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025C1C660A0100DEB95E /* LMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025D1C660A0100DEB95E /* LMPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3779F9881C652E530070A29C /* LMPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025E1C660A0100DEB95E /* LMViewBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C025F1C660A0100DEB95E /* NSString+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5CE0041B87AC5000163D8D /* NSString+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02601C660A0100DEB95E /* CALayer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02611C660A0100DEB95E /* UIView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D01ADEC11B0002E16C /* UIView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02621C660A0100DEB95E /* UIButton+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D41ADEC13A0002E16C /* UIButton+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02631C660A0100DEB95E /* UISegmentedControl+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02641C660A0200DEB95E /* UITextField+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D947881C19B7BC00D323C4 /* UITextField+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02651C660A0200DEB95E /* UIPickerView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F1B8B71C0BAF3900C9F603 /* UIPickerView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02661C660A0200DEB95E /* UIProgressView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02671C660A0200DEB95E /* UIToolbar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 374AB81A1C25B61F00EE35ED /* UIToolbar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02681C660A0200DEB95E /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C026A1C660A0200DEB95E /* UICollectionView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C026B1C660A0200DEB95E /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */; };
 		37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */; };
 		37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC241C108D6B00A09102 /* LinearGradientView.xml */; };
 		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
-		37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A9FC281C10C81300A09102 /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC291C10C81300A09102 /* LMPageView.m */; };
 		37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC2C1C10DF1200A09102 /* PageViewController.swift */; };
 		37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC2E1C10DF2200A09102 /* PageView.xml */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
@@ -102,14 +129,9 @@
 		37AC28391C08B4BB00BC8C87 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
 		37AC283A1C08B4BB00BC8C87 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37AC283F1C08B5D100BC8C87 /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AC283E1C08B5D100BC8C87 /* View.xml */; };
-		37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B070681ADEBE3F00A92FCF /* MarkupKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
-		37B152381C64E05F0010BBD4 /* UICollectionView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37B152391C64E05F0010BBD4 /* UICollectionView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */; };
 		37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */; };
 		37B1523D1C64E1700010BBD4 /* CollectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B1523C1C64E1700010BBD4 /* CollectionView.xml */; };
-		37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
 		37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */; };
 		37C806C11BEE37D000196FD6 /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridView.xml */; };
@@ -125,40 +147,20 @@
 		37D36AC91BB1DDCE008E36FD /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC61BB1DDCE008E36FD /* mini.png */; };
 		37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC71BB1DDCE008E36FD /* vw.png */; };
 		37D8043C1C138E2F00D97DCC /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D8043B1C138E2F00D97DCC /* View.xml */; };
-		37D9478A1C19B7BC00D323C4 /* UITextField+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37D947881C19B7BC00D323C4 /* UITextField+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37D9478B1C19B7BC00D323C4 /* UITextField+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D947891C19B7BC00D323C4 /* UITextField+Markup.m */; };
 		37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */; };
 		37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37C71BAED55B00C92E2D /* LayoutView.xml */; };
 		37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C91BAED77D00C92E2D /* StackViewController.swift */; };
 		37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37CB1BAED79100C92E2D /* StackView.xml */; };
-		37F1B8B91C0BAF3900C9F603 /* UIPickerView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F1B8B71C0BAF3900C9F603 /* UIPickerView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37F1B8BA1C0BAF3900C9F603 /* UIPickerView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F1B8B81C0BAF3900C9F603 /* UIPickerView+Markup.m */; };
 		3B09976C1B21DBAD001BF85C /* MainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B09976B1B21DBAD001BF85C /* MainView.strings */; };
-		3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */; };
-		3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3B1F7B401B2253D10066D21E /* Styles2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B1F7B3F1B2253D10066D21E /* Styles2.plist */; };
-		3B4D1F2A1B041EF400CB61A9 /* CALayer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B4D1F2C1B041F0900CB61A9 /* CALayer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */; };
-		3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B5A12491B19EDFC00E28F37 /* UIProgressView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5A12471B19EDFC00E28F37 /* UIProgressView+Markup.m */; };
-		3B5CE0061B87AC5000163D8D /* NSString+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5CE0041B87AC5000163D8D /* NSString+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5CE0051B87AC5000163D8D /* NSString+Markup.m */; };
-		3B5FFE041B309E0D00E8EC39 /* LMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */; };
 		3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A11BD67C4600209282 /* EffectViewController.swift */; };
 		3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A31BD67C5100209282 /* EffectView.xml */; };
-		3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */; };
 		3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */; };
 		3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */; };
 		3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */; };
 		3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AB1B7A21C50032DAD7 /* Localizable.strings */; };
 		3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AD1B7A21D00032DAD7 /* Styles.plist */; };
 		3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */; };
-		3BAD2D591B30E7CA00DDB6CD /* LMTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */; };
-		3BAD2D5D1B30E8FB00DDB6CD /* LMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */; };
 		3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C381B78E9990086A3F9 /* AppDelegate.swift */; };
 		3BB70C3B1B78E9990086A3F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C3A1B78E9990086A3F9 /* ViewController.swift */; };
 		3BB70C561B78E9E90086A3F9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
@@ -170,8 +172,6 @@
 		3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */; };
 		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
 		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
-		3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */; };
 		3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE776171B7A7354006AA761 /* CustomCellViewController.swift */; };
 		3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE776191B7A73DD006AA761 /* pharmacies.json */; };
 		3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */; };
@@ -718,40 +718,40 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37A9FC2A1C10C81300A09102 /* LMPageView.h in Headers */,
-				37B070691ADEBE3F00A92FCF /* MarkupKit.h in Headers */,
-				37B152381C64E05F0010BBD4 /* UICollectionView+Markup.h in Headers */,
-				374AB81C1C25B61F00EE35ED /* UIToolbar+Markup.h in Headers */,
-				37B259821C132A9400C4DA90 /* UIScrollView+Markup.h in Headers */,
-				3742F0041B34D27B00B31987 /* LMLayoutView.h in Headers */,
-				3742F0081B34D28500B31987 /* LMBoxView.h in Headers */,
-				375CD9431C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h in Headers */,
-				3742F00C1B34D28D00B31987 /* LMColumnView.h in Headers */,
-				3B5CE0061B87AC5000163D8D /* NSString+Markup.h in Headers */,
-				3742F0101B34D29300B31987 /* LMRowView.h in Headers */,
-				3742F0141B34D2C800B31987 /* LMLayerView.h in Headers */,
-				379BFBCF1B46AD5600C4A9EE /* LMSpacer.h in Headers */,
-				3B5FFE041B309E0D00E8EC39 /* LMScrollView.h in Headers */,
-				3BAD2D591B30E7CA00DDB6CD /* LMTableView.h in Headers */,
-				37A9FC1A1C10837D00A09102 /* LMLinearGradientView.h in Headers */,
-				3BAD2D5D1B30E8FB00DDB6CD /* LMTableViewCell.h in Headers */,
-				37F1B8B91C0BAF3900C9F603 /* UIPickerView+Markup.h in Headers */,
-				3757B7CE1ADEC09A0002E16C /* LMViewBuilder.h in Headers */,
-				3B4D1F2A1B041EF400CB61A9 /* CALayer+Markup.h in Headers */,
-				3757B7D61ADEC13A0002E16C /* UIButton+Markup.h in Headers */,
-				37604CC11C65146C00046146 /* LMCollectionViewCell.h in Headers */,
-				3B5A12481B19EDFC00E28F37 /* UIProgressView+Markup.h in Headers */,
-				37A9FC161C107D9200A09102 /* LMGradientView.h in Headers */,
-				3B1049691B1895A700D8A278 /* UISegmentedControl+Markup.h in Headers */,
-				378004F11BAD89BB003777C1 /* UIStackView+Markup.h in Headers */,
-				3BD5DB911BD5B8CC00D20851 /* UIVisualEffectView+Markup.h in Headers */,
-				3709BCFF1C0B57610099B8F2 /* LMPickerView.h in Headers */,
-				3757B7DA1ADEC1550002E16C /* UITableView+Markup.h in Headers */,
-				37D9478A1C19B7BC00D323C4 /* UITextField+Markup.h in Headers */,
-				37A9FC1E1C10838C00A09102 /* LMRadialGradientView.h in Headers */,
-				3779F98A1C652E530070A29C /* LMPlayerView.h in Headers */,
-				3B7115B01B0424C200E546F3 /* UITableViewCell+Markup.h in Headers */,
-				3757B7D21ADEC11B0002E16C /* UIView+Markup.h in Headers */,
+				379C024D1C660A0100DEB95E /* MarkupKit.h in Headers */,
+				379C024E1C660A0100DEB95E /* LMLayoutView.h in Headers */,
+				379C024F1C660A0100DEB95E /* LMBoxView.h in Headers */,
+				379C02501C660A0100DEB95E /* LMColumnView.h in Headers */,
+				379C02511C660A0100DEB95E /* LMRowView.h in Headers */,
+				379C02521C660A0100DEB95E /* LMLayerView.h in Headers */,
+				379C02531C660A0100DEB95E /* LMSpacer.h in Headers */,
+				379C02541C660A0100DEB95E /* LMGradientView.h in Headers */,
+				379C02551C660A0100DEB95E /* LMLinearGradientView.h in Headers */,
+				379C02561C660A0100DEB95E /* LMRadialGradientView.h in Headers */,
+				379C02571C660A0100DEB95E /* LMPickerView.h in Headers */,
+				379C02581C660A0100DEB95E /* LMScrollView.h in Headers */,
+				379C02591C660A0100DEB95E /* LMPageView.h in Headers */,
+				379C025A1C660A0100DEB95E /* LMCollectionViewCell.h in Headers */,
+				379C025B1C660A0100DEB95E /* LMTableView.h in Headers */,
+				379C025C1C660A0100DEB95E /* LMTableViewCell.h in Headers */,
+				379C025D1C660A0100DEB95E /* LMPlayerView.h in Headers */,
+				379C025E1C660A0100DEB95E /* LMViewBuilder.h in Headers */,
+				379C025F1C660A0100DEB95E /* NSString+Markup.h in Headers */,
+				379C02601C660A0100DEB95E /* CALayer+Markup.h in Headers */,
+				379C02611C660A0100DEB95E /* UIView+Markup.h in Headers */,
+				379C02621C660A0100DEB95E /* UIButton+Markup.h in Headers */,
+				379C02631C660A0100DEB95E /* UISegmentedControl+Markup.h in Headers */,
+				379C02641C660A0200DEB95E /* UITextField+Markup.h in Headers */,
+				379C02651C660A0200DEB95E /* UIPickerView+Markup.h in Headers */,
+				379C02661C660A0200DEB95E /* UIProgressView+Markup.h in Headers */,
+				379C02671C660A0200DEB95E /* UIToolbar+Markup.h in Headers */,
+				379C02681C660A0200DEB95E /* UIStackView+Markup.h in Headers */,
+				379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */,
+				379C026A1C660A0200DEB95E /* UICollectionView+Markup.h in Headers */,
+				379C026B1C660A0200DEB95E /* UICollectionViewFlowLayout+Markup.h in Headers */,
+				379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */,
+				379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */,
+				379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,39 +1031,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37B259831C132A9400C4DA90 /* UIScrollView+Markup.m in Sources */,
-				3779F98B1C652E530070A29C /* LMPlayerView.m in Sources */,
-				37D9478B1C19B7BC00D323C4 /* UITextField+Markup.m in Sources */,
-				374AB81D1C25B61F00EE35ED /* UIToolbar+Markup.m in Sources */,
-				3742F0051B34D27B00B31987 /* LMLayoutView.m in Sources */,
-				37A9FC1F1C10838C00A09102 /* LMRadialGradientView.m in Sources */,
-				3742F0091B34D28500B31987 /* LMBoxView.m in Sources */,
-				37A9FC171C107D9200A09102 /* LMGradientView.m in Sources */,
-				375CD9441C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m in Sources */,
-				3742F00D1B34D28D00B31987 /* LMColumnView.m in Sources */,
-				3742F0111B34D29300B31987 /* LMRowView.m in Sources */,
-				3742F0151B34D2C800B31987 /* LMLayerView.m in Sources */,
-				379BFBD01B46AD5600C4A9EE /* LMSpacer.m in Sources */,
-				3B5FFE051B309E0D00E8EC39 /* LMScrollView.m in Sources */,
-				3BD5DB921BD5B8CC00D20851 /* UIVisualEffectView+Markup.m in Sources */,
-				37A9FC2B1C10C81300A09102 /* LMPageView.m in Sources */,
-				3B5CE0071B87AC5000163D8D /* NSString+Markup.m in Sources */,
-				3BAD2D5A1B30E7CA00DDB6CD /* LMTableView.m in Sources */,
-				37604CC21C65146C00046146 /* LMCollectionViewCell.m in Sources */,
-				378004F21BAD89BB003777C1 /* UIStackView+Markup.m in Sources */,
-				3BAD2D5E1B30E8FB00DDB6CD /* LMTableViewCell.m in Sources */,
-				37F1B8BA1C0BAF3900C9F603 /* UIPickerView+Markup.m in Sources */,
-				3757B7CF1ADEC09A0002E16C /* LMViewBuilder.m in Sources */,
-				3B4D1F2C1B041F0900CB61A9 /* CALayer+Markup.m in Sources */,
-				3757B7D71ADEC13A0002E16C /* UIButton+Markup.m in Sources */,
-				3B5A12491B19EDFC00E28F37 /* UIProgressView+Markup.m in Sources */,
-				3B1049681B1894B000D8A278 /* UISegmentedControl+Markup.m in Sources */,
-				3709BD001C0B57610099B8F2 /* LMPickerView.m in Sources */,
-				3757B7DB1ADEC1550002E16C /* UITableView+Markup.m in Sources */,
-				3B7115B21B0424D300E546F3 /* UITableViewCell+Markup.m in Sources */,
-				37A9FC1B1C10837D00A09102 /* LMLinearGradientView.m in Sources */,
-				37B152391C64E05F0010BBD4 /* UICollectionView+Markup.m in Sources */,
-				3757B7D31ADEC11B0002E16C /* UIView+Markup.m in Sources */,
+				379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */,
+				379C022D1C6609C900DEB95E /* LMBoxView.m in Sources */,
+				379C022E1C6609C900DEB95E /* LMColumnView.m in Sources */,
+				379C022F1C6609C900DEB95E /* LMRowView.m in Sources */,
+				379C02301C6609C900DEB95E /* LMLayerView.m in Sources */,
+				379C02311C6609C900DEB95E /* LMSpacer.m in Sources */,
+				379C02321C6609C900DEB95E /* LMGradientView.m in Sources */,
+				379C02331C6609C900DEB95E /* LMLinearGradientView.m in Sources */,
+				379C02341C6609C900DEB95E /* LMRadialGradientView.m in Sources */,
+				379C02351C6609C900DEB95E /* LMPickerView.m in Sources */,
+				379C02361C6609C900DEB95E /* LMScrollView.m in Sources */,
+				379C02371C6609C900DEB95E /* LMPageView.m in Sources */,
+				379C02381C6609C900DEB95E /* LMCollectionViewCell.m in Sources */,
+				379C02391C6609C900DEB95E /* LMTableView.m in Sources */,
+				379C023A1C6609C900DEB95E /* LMTableViewCell.m in Sources */,
+				379C023B1C6609C900DEB95E /* LMPlayerView.m in Sources */,
+				379C023C1C6609C900DEB95E /* LMViewBuilder.m in Sources */,
+				379C023D1C6609C900DEB95E /* NSString+Markup.m in Sources */,
+				379C023E1C6609C900DEB95E /* CALayer+Markup.m in Sources */,
+				379C023F1C6609C900DEB95E /* UIView+Markup.m in Sources */,
+				379C02401C6609C900DEB95E /* UIButton+Markup.m in Sources */,
+				379C02411C6609C900DEB95E /* UISegmentedControl+Markup.m in Sources */,
+				379C02421C6609C900DEB95E /* UITextField+Markup.m in Sources */,
+				379C02431C6609C900DEB95E /* UIPickerView+Markup.m in Sources */,
+				379C02441C6609C900DEB95E /* UIProgressView+Markup.m in Sources */,
+				379C02451C6609C900DEB95E /* UIToolbar+Markup.m in Sources */,
+				379C02461C6609C900DEB95E /* UIStackView+Markup.m in Sources */,
+				379C02471C6609C900DEB95E /* UIScrollView+Markup.m in Sources */,
+				379C02481C6609C900DEB95E /* UICollectionView+Markup.m in Sources */,
+				379C02491C6609C900DEB95E /* UICollectionViewFlowLayout+Markup.m in Sources */,
+				379C024A1C6609C900DEB95E /* UITableView+Markup.m in Sources */,
+				379C024B1C6609C900DEB95E /* UITableViewCell+Markup.m in Sources */,
+				379C024C1C6609C900DEB95E /* UIVisualEffectView+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1346,6 +1346,7 @@
 				);
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1367,6 +1368,7 @@
 				);
 				INFOPLIST_FILE = MarkupKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
