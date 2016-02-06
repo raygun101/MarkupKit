@@ -996,7 +996,15 @@ For example, the following markup creates a radial gradient view whose color val
 See _LMRadialGradientView.h_ for more information.
 
 ## LMPlayerView
-TODO
+`LMPlayerView` is a `UIView` subclass that presents an AV player. It is essentially just a thin wrapper around the `AVPlayerLayer` instance it uses as a core animation layer. It overrides the `layer` property to return an `AVPlayerLayer` so callers can access the properties and methods of this class without a cast:
+
+    @property (readonly, nonatomic) AVPlayerLayer *layer;
+
+It also defines a delegate protocol, `LMPlayerViewDelegate`, that can be used to obtain state information about the player:
+
+    - (void)playerView:(LMPlayerView *)playerView isReadyForDisplay:(BOOL)readyForDisplay;
+
+This protocol is simply a strongly typed wrapper around the player layer's "readyForDisplay" property, which uses key-value observing to notify listeners of state changes.
 
 See _LMPlayerView.h_ for more information.
 
