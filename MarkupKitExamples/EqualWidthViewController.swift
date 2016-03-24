@@ -28,7 +28,7 @@ class EqualWidthViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
             target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain,
-            target: self, action: "next")
+            target: self, action: #selector(EqualWidthViewController.next))
 
         edgesForExtendedLayout = UIRectEdge.None
     }

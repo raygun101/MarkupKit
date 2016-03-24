@@ -25,7 +25,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
 
         title = "Color Picker"
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Color", style: UIBarButtonItemStyle.Plain, target: self, action: "showColorPicker")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Color", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SelectionViewController.showColorPicker))
 
         colorPickerViewController.modalPresentationStyle = .Popover
         colorPickerViewController.tableView.delegate = self
