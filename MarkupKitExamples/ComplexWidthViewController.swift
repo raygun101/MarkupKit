@@ -29,7 +29,7 @@ class ComplexWidthViewController: UIViewController {
         title = "Complex Width Views"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain,
-            target: self, action: "done")
+            target: self, action: #selector(ComplexWidthViewController.done))
 
         edgesForExtendedLayout = UIRectEdge.None
 
