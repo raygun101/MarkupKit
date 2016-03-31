@@ -53,9 +53,13 @@ class ViewController: UITableViewController {
 
     // Button press handler
     func buttonPressed() {
-        let alertController = UIAlertController(title: "Alert", message: "Lorem ipsum dolor sit amet.", preferredStyle: .Alert)
+        let mainBundle = NSBundle.mainBundle();
 
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
+        let alertController = UIAlertController(title: mainBundle.localizedStringForKey("alert", value: nil, table: nil),
+            message: "Lorem ipsum dolor sit amet.", preferredStyle: .Alert)
+
+        alertController.addAction(UIAlertAction(title: mainBundle.localizedStringForKey("ok", value: nil, table: nil),
+            style: .Default, handler:nil))
 
         presentViewController(alertController, animated: true, completion: nil)
     }
