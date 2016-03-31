@@ -30,6 +30,8 @@
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
+		3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3778C79B1CAD6AC9008A012A /* Localizable.strings */; };
+		3778C79E1CAD6B0F008A012A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3778C7A01CAD6B0F008A012A /* Localizable.strings */; };
 		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
 		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
@@ -158,7 +160,6 @@
 		3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */; };
 		3B8251A81B7A21250032DAD7 /* IntroductionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */; };
 		3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */; };
-		3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AB1B7A21C50032DAD7 /* Localizable.strings */; };
 		3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AD1B7A21D00032DAD7 /* Styles.plist */; };
 		3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */; };
 		3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C381B78E9990086A3F9 /* AppDelegate.swift */; };
@@ -310,6 +311,8 @@
 		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
+		3778C79A1CAD6AC9008A012A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3778C79F1CAD6B0F008A012A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3779F9841C6520A20070A29C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3779F9861C6520B70070A29C /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
 		3779F9881C652E530070A29C /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPlayerView.h; sourceTree = "<group>"; };
@@ -410,7 +413,6 @@
 		3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
 		3B8251A71B7A21250032DAD7 /* IntroductionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroductionViewController.swift; sourceTree = "<group>"; };
 		3B8251A91B7A212F0032DAD7 /* IntroductionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IntroductionView.xml; sourceTree = "<group>"; };
-		3B8251AB1B7A21C50032DAD7 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		3B8251AD1B7A21D00032DAD7 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		3BAD2D571B30E7CA00DDB6CD /* LMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableView.h; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 				378CA4B41C138B5100D72195 /* Assets.xcassets */,
 				378CA4B61C138B5100D72195 /* LaunchScreen.storyboard */,
 				378CA4B91C138B5100D72195 /* Info.plist */,
+				3778C7A01CAD6B0F008A012A /* Localizable.strings */,
 				3716A2C31C1470590098392F /* Styles.plist */,
 				3716A2C51C14794A0098392F /* rows.json */,
 			);
@@ -699,7 +702,7 @@
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
-				3B8251AB1B7A21C50032DAD7 /* Localizable.strings */,
+				3778C79B1CAD6AC9008A012A /* Localizable.strings */,
 				3B8251AD1B7A21D00032DAD7 /* Styles.plist */,
 				3BE776191B7A73DD006AA761 /* pharmacies.json */,
 				37D36AC51BB1DDCE008E36FD /* chevy.png */,
@@ -918,6 +921,7 @@
 				3716A2CE1C1485100098392F /* DetailView.xml in Resources */,
 				37D8043C1C138E2F00D97DCC /* View.xml in Resources */,
 				3716A2C41C1470590098392F /* Styles.plist in Resources */,
+				3778C79E1CAD6B0F008A012A /* Localizable.strings in Resources */,
 				3716A2C61C14794A0098392F /* rows.json in Resources */,
 				378CA4B51C138B5100D72195 /* Assets.xcassets in Resources */,
 			);
@@ -997,7 +1001,7 @@
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
 				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
-				3B8251AC1B7A21C50032DAD7 /* Localizable.strings in Resources */,
+				3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
 				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
 				3B8251AA1B7A212F0032DAD7 /* IntroductionView.xml in Resources */,
@@ -1139,6 +1143,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3778C79B1CAD6AC9008A012A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3778C79A1CAD6AC9008A012A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		3778C7A01CAD6B0F008A012A /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3778C79F1CAD6B0F008A012A /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		378CA4B61C138B5100D72195 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1191,7 +1211,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1206,7 +1226,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
