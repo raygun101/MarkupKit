@@ -17,8 +17,8 @@ import AVFoundation
 import MarkupKit
 
 class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
-    weak var playerView: LMPlayerView!
-    weak var playButton: UIButton!
+    @IBOutlet weak var playerView: LMPlayerView!
+    @IBOutlet weak var playButton: UIButton!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("PlayerView", owner: self, root: nil)
@@ -55,7 +55,7 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         playButton.enabled = true
     }
 
-    func togglePlay() {
+    @IBAction func togglePlay() {
         let player = playerView.layer.player!
 
         if (player.rate > 0) {

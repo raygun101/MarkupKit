@@ -16,11 +16,11 @@ import UIKit
 import MarkupKit
 
 class NestedStackViewController: UIViewController {
-    weak var imageView: UIImageView!
+    @IBOutlet weak var imageView: UIImageView!
 
-    weak var firstNameTextField: UITextField!
-    weak var middleNameTextField: UITextField!
-    weak var lastNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var middleNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("NestedStackView", owner: self, root: nil)

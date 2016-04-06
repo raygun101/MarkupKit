@@ -52,7 +52,7 @@ class ViewController: UITableViewController {
     }
 
     // Button press handler
-    func buttonPressed() {
+    @IBAction func buttonPressed() {
         let mainBundle = NSBundle.mainBundle();
 
         let alertController = UIAlertController(title: mainBundle.localizedStringForKey("alert", value: nil, table: nil),

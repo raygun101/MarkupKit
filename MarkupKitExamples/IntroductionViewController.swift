@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class IntroductionViewController: UIViewController {
-    weak var nameField: UITextField!
-    weak var greetingLabel: UILabel!
+    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var greetingLabel: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("IntroductionView", owner: self, root: nil)
@@ -31,7 +31,7 @@ class IntroductionViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge.None
     }
 
-    func showGreeting() {
+    @IBAction func showGreeting() {
         let name = nameField.text!
         let mainBundle = NSBundle.mainBundle()
 
