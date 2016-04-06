@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class ScrollViewController: UIViewController {
-    weak var label1: UILabel!
-    weak var label2: UILabel!
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ScrollView", owner: self, root: nil)
@@ -35,7 +35,7 @@ class ScrollViewController: UIViewController {
         label2.text = text as String?
     }
 
-    func showGreeting() {
+    @IBAction func showGreeting() {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
 
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))

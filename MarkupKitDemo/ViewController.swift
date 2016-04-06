@@ -16,17 +16,17 @@ import UIKit
 import MarkupKit
 
 class ViewController: UITableViewController, UIPickerViewDelegate {
-    weak var dateTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
 
-    weak var sizeTextField: UITextField!
-    weak var sizePickerView: LMPickerView!
+    @IBOutlet weak var sizeTextField: UITextField!
+    @IBOutlet weak var sizePickerView: LMPickerView!
 
-    weak var accessoryTextField: UITextField!
+    @IBOutlet weak var accessoryTextField: UITextField!
 
-    weak var stepper: UIStepper!
-    weak var slider: UISlider!
-    weak var pageControl: UIPageControl!
-    weak var progressView: UIProgressView!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var progressView: UIProgressView!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
@@ -51,7 +51,15 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0)
     }
 
-    func updateDateTextField(datePicker: UIDatePicker) {
+    @IBAction func showGreeting() {
+        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
+
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+
+    @IBAction func updateDateTextField(datePicker: UIDatePicker) {
         let dateFormatter = NSDateFormatter()
 
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -65,14 +73,6 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         }
     }
 
-    func showGreeting() {
-        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
-
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil))
-
-        presentViewController(alertController, animated: true, completion: nil)
-    }
-
     func cancelEdit() {
         accessoryTextField.resignFirstResponder()
     }
@@ -83,13 +83,13 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         accessoryTextField.resignFirstResponder()
     }
 
-    func stepperValueChanged(sender: UIStepper) {
+    @IBAction func stepperValueChanged(sender: UIStepper) {
         slider.value = Float(sender.value)
 
         updateState()
     }
 
-    func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(sender: UISlider) {
         stepper.value = Double(sender.value)
 
         updateState()

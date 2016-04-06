@@ -16,12 +16,12 @@ import UIKit
 import MarkupKit
 
 class PharmacyCell: LMTableViewCell {
-    weak var nameLabel: UILabel!
-    weak var distanceLabel: UILabel!
-    weak var addressLabel: UILabel!
-    weak var phoneLabel: UILabel!
-    weak var faxLabel: UILabel!
-    weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var faxLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
