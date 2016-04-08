@@ -793,24 +793,31 @@ static NSString * const kLocalizedStringPrefix = @"@";
             // Load properties
             NSDictionary *properties = nil;
 
-            if ([data hasPrefix:@"{"]) {
-                NSError *error = nil;
+            NSError *error = nil;
 
+            if ([data hasPrefix:@"{"]) {
                 properties = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error];
-
-                if (error != nil) {
-                    NSDictionary *userInfo = [error userInfo];
-
-                    [NSException raise:NSGenericException format:@"Error reading properties: \"%@\"",
-                        [userInfo objectForKey:@"NSDebugDescription"]];
-                }
             } else {
                 NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
 
                 if (path != nil) {
                     properties = [NSDictionary dictionaryWithContentsOfFile:path];
+                } else {
+                    path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
+
+                    if (path != nil) {
+                        properties = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
+                            options:0 error:&error];
+                    }
                 }
+            }
+
+            if (error != nil) {
+                NSDictionary *userInfo = [error userInfo];
+
+                [NSException raise:NSGenericException format:@"Error reading properties: \"%@\"",
+                    [userInfo objectForKey:@"NSDebugDescription"]];
             }
 
             for (NSString *key in properties) {

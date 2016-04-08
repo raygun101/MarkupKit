@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
 };
 
 /**
- * Table view that presents a collection of statically-defined content. 
+ * Table view that supports declarative content. 
  */
 @interface LMTableView : UITableView
 
