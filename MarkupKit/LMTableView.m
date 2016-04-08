@@ -60,6 +60,16 @@ typedef enum {
     __ElementDisposition _elementDisposition;
 }
 
++ (UITableView *)plainTableView
+{
+    return [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+}
+
++ (UITableView *)groupedTableView
+{
+    return [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
+}
+
 #define INIT {\
     _sections = [NSMutableArray new];\
     _elementDisposition = kElementDefault;\

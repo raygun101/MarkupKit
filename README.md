@@ -365,7 +365,7 @@ The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of a 
 MarkupKit also provides extensions to the standard `UITableView` and `UITableViewCell` classes that allow them to be used in markup. These are discussed in more detail in a later section.
 
 ### LMTableView
-The `LMTableView` class supports the definition of statically-defined table content. It inherits the following factory methods from `UITableView`, which are used to create new table view instances in markup:
+The `LMTableView` class supports the definition of statically-defined table content. It defines the following factory methods, which are used to create new table view instances in markup:
 
     + (LMTableView *)plainTableView;
     + (LMTableView *)groupedTableView;
@@ -1198,18 +1198,7 @@ MarkuKit adds the following property to `UIScrollView` to help simplify interact
 If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
 
 ### UITableView
-Instances of `UITableView` are created programmatically using the `initWithFrame:style:` method of `UITableView`. MarkupKit adds the following factory methods to `UITableView` to allow table views to be declared in markup:
-
-    + (UITableView *)plainTableView;
-    + (UITableView *)groupedTableView;
-
-These factory methods are used to create instances of `UITableView` in the plain or grouped style, respectively:
-
-    <UITableView id="tableView" style="plainTableView"/>
-
-Note that a `UITableView` element can only be used to declare table views whose contents will be defined programmatically. For example, the table view in the previous example is given an ID so its owner can assign a data source or delegate to it after the document has been loaded. For static table view content, `LMTableView` should be used instead.
-
-MarkuptKit also adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` simply so casting is not required when using an `LMTableView` instance with `UITableViewController`:
+MarkuptKit adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`:
 
     - (NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
