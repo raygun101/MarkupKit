@@ -77,8 +77,6 @@
 		379C02451C6609C900DEB95E /* UIToolbar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 374AB81B1C25B61F00EE35ED /* UIToolbar+Markup.m */; };
 		379C02461C6609C900DEB95E /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378004F01BAD89BB003777C1 /* UIStackView+Markup.m */; };
 		379C02471C6609C900DEB95E /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */; };
-		379C02481C6609C900DEB95E /* UICollectionView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */; };
-		379C02491C6609C900DEB95E /* UICollectionViewFlowLayout+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */; };
 		379C024A1C6609C900DEB95E /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3757B7D91ADEC1550002E16C /* UITableView+Markup.m */; };
 		379C024B1C6609C900DEB95E /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */; };
 		379C024C1C6609C900DEB95E /* UIVisualEffectView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */; };
@@ -111,8 +109,6 @@
 		379C02671C660A0200DEB95E /* UIToolbar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 374AB81A1C25B61F00EE35ED /* UIToolbar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379C02681C660A0200DEB95E /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		379C026A1C660A0200DEB95E /* UICollectionView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		379C026B1C660A0200DEB95E /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3757B7D81ADEC1550002E16C /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,7 +129,6 @@
 		37AC283F1C08B5D100BC8C87 /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AC283E1C08B5D100BC8C87 /* View.xml */; };
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */; };
-		37B1523D1C64E1700010BBD4 /* CollectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B1523C1C64E1700010BBD4 /* CollectionView.xml */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
 		37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */; };
 		37C806C11BEE37D000196FD6 /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridView.xml */; };
@@ -299,8 +294,6 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
-		375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+Markup.h"; sourceTree = "<group>"; };
-		375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewFlowLayout+Markup.m"; sourceTree = "<group>"; };
 		375FCE271C39B7F400B91718 /* EqualWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthView.xml; sourceTree = "<group>"; };
 		375FCE291C39B80100B91718 /* DifferentWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthView.xml; sourceTree = "<group>"; };
 		375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthView.xml; sourceTree = "<group>"; };
@@ -365,10 +358,7 @@
 		37B070831ADEBEB000A92FCF /* MarkupKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B070861ADEBEB000A92FCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B0708E1ADEBEB000A92FCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Markup.h"; sourceTree = "<group>"; };
-		37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Markup.m"; sourceTree = "<group>"; };
 		37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		37B1523C1C64E1700010BBD4 /* CollectionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollectionView.xml; sourceTree = "<group>"; };
 		37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Markup.h"; sourceTree = "<group>"; };
 		37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
@@ -607,10 +597,6 @@
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
 				3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */,
-				37B152361C64E05F0010BBD4 /* UICollectionView+Markup.h */,
-				37B152371C64E05F0010BBD4 /* UICollectionView+Markup.m */,
-				375CD9411C650C9300406BAB /* UICollectionViewFlowLayout+Markup.h */,
-				375CD9421C650C9300406BAB /* UICollectionViewFlowLayout+Markup.m */,
 				3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */,
 				3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */,
 				37B070671ADEBE3F00A92FCF /* Info.plist */,
@@ -694,7 +680,6 @@
 				373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */,
 				373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */,
 				37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */,
-				37B1523C1C64E1700010BBD4 /* CollectionView.xml */,
 				3779F9841C6520A20070A29C /* ColorCell.swift */,
 				3779F9861C6520B70070A29C /* ColorCell.xml */,
 				3779F98C1C652EB30070A29C /* PlayerViewController.swift */,
@@ -752,8 +737,6 @@
 				379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */,
 				379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */,
 				379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */,
-				379C026A1C660A0200DEB95E /* UICollectionView+Markup.h in Headers */,
-				379C026B1C660A0200DEB95E /* UICollectionViewFlowLayout+Markup.h in Headers */,
 				379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -980,7 +963,6 @@
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
 				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
 				37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */,
-				37B1523D1C64E1700010BBD4 /* CollectionView.xml in Resources */,
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
@@ -1065,8 +1047,6 @@
 				379C02471C6609C900DEB95E /* UIScrollView+Markup.m in Sources */,
 				379C024A1C6609C900DEB95E /* UITableView+Markup.m in Sources */,
 				379C024B1C6609C900DEB95E /* UITableViewCell+Markup.m in Sources */,
-				379C02481C6609C900DEB95E /* UICollectionView+Markup.m in Sources */,
-				379C02491C6609C900DEB95E /* UICollectionViewFlowLayout+Markup.m in Sources */,
 				379C024C1C6609C900DEB95E /* UIVisualEffectView+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
