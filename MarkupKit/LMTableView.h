@@ -36,6 +36,16 @@ typedef NS_ENUM(NSInteger, LMTableViewSelectionMode) {
 @interface LMTableView : UITableView
 
 /**
+ * Creates a plain table view.
+ */
++ (UITableView *)plainTableView;
+
+/**
+ * Creates a grouped table view.
+ */
++ (UITableView *)groupedTableView;
+
+/**
  * Inserts a new section.
  *
  * @param section The index at which the section will be inserted.
