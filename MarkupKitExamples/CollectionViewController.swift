@@ -24,7 +24,14 @@ class CollectionViewController: UICollectionViewController {
     ];
 
     override func loadView() {
-        collectionView = LMViewBuilder.viewWithName("CollectionView", owner: self, root: nil) as? UICollectionView
+        let collectionViewLayout = UICollectionViewFlowLayout();
+
+        collectionViewLayout.itemSize = CGSize(width: 80, height: 120)
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+
+        collectionView = UICollectionView(frame: CGRectZero, collectionViewLayout: collectionViewLayout)
+
+        collectionView?.backgroundColor = UIColor.whiteColor()
     }
 
     override func viewDidLoad() {
