@@ -1,0 +1,13 @@
+{
+    "row.first": {
+		"layoutMargins": 6,
+		"layer.borderColor": "#ffff00",
+		"layer.borderWidth": 4
+    },
+
+	"row.second": {
+		"layoutMargins": 6,
+		"layer.borderColor": "#00ffff",
+		"layer.borderWidth": 4
+	}
+}
