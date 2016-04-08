@@ -122,9 +122,7 @@ Edge inset properties of several other view types can also be specified using th
 
     <UIButton normalTitle="Click Me!" contentEdgeInsets="12"/>
 
-    <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>
-    
-    <UICollectionView style="flowLayoutCollectionView" sectionInset="10"/>
+    <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>    
     
 Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually. This is discussed in more detail later.
 
@@ -1255,43 +1253,6 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCe
     </UITableViewCell>
 
 Note that `LMTableViewCell` overrides `appendMarkupElementView:` to set the cell's content element view. As a result, a view specified as a child of an `LMTableViewCell` will be sized to occupy the entire contents of the cell, not just the accessory area.
-
-### UICollectionView
-Instances of `UICollectionView` are created programmatically using the `initWithFrame:collectionViewLayout:` method of `UICollectionView`. MarkupKit adds the following factory method to `UICollectionView` to allow collection views to be declared in markup:
-
-    + (UICollectionView *)flowLayoutCollectionView;
-
-This method is used to create instances of `UICollectionView` that use a collection view flow layout:
-
-    <UICollectionView id="collectionView" style="flowLayoutCollectionView"/>
-
-Custom layouts can be specified by adding an application-specific category to `UICollectionView` that defines additional factory methods.
-
-### UICollectionViewFlowLayout
-MarkupKit adds the following properties to `UICollectionViewFlowLayout` to allow it to be configured in markup:
-
-    @property (nonatomic) CGFloat itemWidth;
-    @property (nonatomic) CGFloat itemHeight;
-
-    @property (nonatomic) CGFloat estimatedItemWidth;
-    @property (nonatomic) CGFloat estimatedItemHeight;
-    
-    @property (nonatomic) CGFloat sectionInsetTop;
-    @property (nonatomic) CGFloat sectionInsetLeft;
-    @property (nonatomic) CGFloat sectionInsetBottom;
-    @property (nonatomic) CGFloat sectionInsetRight;
-
-    @property (nonatomic) CGFloat headerReferenceWidth;
-    @property (nonatomic) CGFloat headerReferenceHeight;
-    
-    @property (nonatomic) CGFloat footerReferenceWidth;
-    @property (nonatomic) CGFloat footerReferenceHeight;
-
-For example:
-
-    <UICollectionView style="flowLayoutCollectionView"
-        collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-        backgroundColor="#ffffff"/>
 
 ### UIVisualEffectView
 Instances of `UIVisualEffectView` are created using the `initWithEffect:` method, which takes a `UIVisualEffect` instance as an argument. MarkupKit adds the following factory methods to `UIVisualEffectView` to facilitate construction of `UIVisualEffectView` in markup:
