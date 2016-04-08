@@ -122,8 +122,6 @@
 		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
 		37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC2C1C10DF1200A09102 /* PageViewController.swift */; };
 		37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC2E1C10DF2200A09102 /* PageView.xml */; };
-		37AB304A1CB7C029009E7E84 /* LMCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37AB30481CB7C029009E7E84 /* LMCollectionView.h */; };
-		37AB304B1CB7C029009E7E84 /* LMCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37AB30491CB7C029009E7E84 /* LMCollectionView.m */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
 		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
@@ -352,8 +350,6 @@
 		37A9FC291C10C81300A09102 /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPageView.m; sourceTree = "<group>"; };
 		37A9FC2C1C10DF1200A09102 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		37A9FC2E1C10DF2200A09102 /* PageView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageView.xml; sourceTree = "<group>"; };
-		37AB30481CB7C029009E7E84 /* LMCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionView.h; sourceTree = "<group>"; };
-		37AB30491CB7C029009E7E84 /* LMCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionView.m; sourceTree = "<group>"; };
 		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
 		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -579,8 +575,6 @@
 				3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */,
 				3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */,
 				3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */,
-				37AB30481CB7C029009E7E84 /* LMCollectionView.h */,
-				37AB30491CB7C029009E7E84 /* LMCollectionView.m */,
 				37604CBF1C65146C00046146 /* LMCollectionViewCell.h */,
 				37604CC01C65146C00046146 /* LMCollectionViewCell.m */,
 				3779F9881C652E530070A29C /* LMPlayerView.h */,
@@ -755,7 +749,6 @@
 				379C02661C660A0200DEB95E /* UIProgressView+Markup.h in Headers */,
 				379C02671C660A0200DEB95E /* UIToolbar+Markup.h in Headers */,
 				379C02681C660A0200DEB95E /* UIStackView+Markup.h in Headers */,
-				37AB304A1CB7C029009E7E84 /* LMCollectionView.h in Headers */,
 				379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */,
 				379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */,
 				379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */,
@@ -1053,7 +1046,6 @@
 				379C02341C6609C900DEB95E /* LMRadialGradientView.m in Sources */,
 				379C02351C6609C900DEB95E /* LMPickerView.m in Sources */,
 				379C02361C6609C900DEB95E /* LMScrollView.m in Sources */,
-				37AB304B1CB7C029009E7E84 /* LMCollectionView.m in Sources */,
 				379C02371C6609C900DEB95E /* LMPageView.m in Sources */,
 				379C02391C6609C900DEB95E /* LMTableView.m in Sources */,
 				379C023A1C6609C900DEB95E /* LMTableViewCell.m in Sources */,
