@@ -23,12 +23,15 @@ static NSString * const kSectionSelectionModeTarget = @"sectionSelectionMode";
 static NSString * const kSectionHeaderViewTarget = @"sectionHeaderView";
 static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
 
+static NSString * const kBackgroundViewTarget = @"backgroundView";
+
 #define ESTIMATED_HEIGHT 2
 
 typedef enum {
     kElementDefault,
     kElementSectionHeaderView,
-    kElementSectionFooterView
+    kElementSectionFooterView,
+    kElementBackgroundView
 } __ElementDisposition;
 
 @interface LMTableViewSection : NSObject
@@ -308,6 +311,8 @@ typedef enum {
         _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
         _elementDisposition = kElementSectionFooterView;
+    } else if ([target isEqual:kBackgroundViewTarget]) {
+        _elementDisposition = kElementBackgroundView;
     }
 }
 
@@ -336,8 +341,10 @@ typedef enum {
             break;
         }
 
-        default: {
-            [NSException raise:NSInternalInconsistencyException format:@"Unexpected element disposition."];
+        case kElementBackgroundView: {
+            [self setBackgroundView:view];
+
+            break;
         }
     }
 
