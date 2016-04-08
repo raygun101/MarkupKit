@@ -22,6 +22,7 @@
 		373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */; };
 		375498351C08BA92008A6895 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 375498341C08BA92008A6895 /* Styles.plist */; };
 		375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 375498361C08BF6F008A6895 /* IMG_0725.jpg */; };
+		375BE3E21CB859A100566793 /* Styles2.json in Resources */ = {isa = PBXBuildFile; fileRef = 375BE3E11CB859A100566793 /* Styles2.json */; };
 		375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthView.xml */; };
 		375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthView.xml */; };
 		375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */; };
@@ -149,7 +150,6 @@
 		37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C91BAED77D00C92E2D /* StackViewController.swift */; };
 		37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37CB1BAED79100C92E2D /* StackView.xml */; };
 		3B09976C1B21DBAD001BF85C /* MainView.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B09976B1B21DBAD001BF85C /* MainView.strings */; };
-		3B1F7B401B2253D10066D21E /* Styles2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B1F7B3F1B2253D10066D21E /* Styles2.plist */; };
 		3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A11BD67C4600209282 /* EffectViewController.swift */; };
 		3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A31BD67C5100209282 /* EffectView.xml */; };
 		3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */; };
@@ -294,6 +294,7 @@
 		3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Markup.m"; sourceTree = "<group>"; };
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
+		375BE3E11CB859A100566793 /* Styles2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles2.json; sourceTree = "<group>"; };
 		375FCE271C39B7F400B91718 /* EqualWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthView.xml; sourceTree = "<group>"; };
 		375FCE291C39B80100B91718 /* DifferentWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthView.xml; sourceTree = "<group>"; };
 		375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthView.xml; sourceTree = "<group>"; };
@@ -387,7 +388,6 @@
 		3B09976B1B21DBAD001BF85C /* MainView.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MainView.strings; sourceTree = "<group>"; };
 		3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Markup.h"; sourceTree = "<group>"; };
 		3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Markup.m"; sourceTree = "<group>"; };
-		3B1F7B3F1B2253D10066D21E /* Styles2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles2.plist; sourceTree = "<group>"; };
 		3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Markup.h"; sourceTree = "<group>"; };
 		3B4D1F2B1B041F0900CB61A9 /* CALayer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Markup.m"; sourceTree = "<group>"; };
 		3B5A12461B19EDFC00E28F37 /* UIProgressView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIProgressView+Markup.h"; sourceTree = "<group>"; };
@@ -617,7 +617,7 @@
 				37B070861ADEBEB000A92FCF /* Info.plist */,
 				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
 				372418E81ADF34600067CDF0 /* Styles1.plist */,
-				3B1F7B3F1B2253D10066D21E /* Styles2.plist */,
+				375BE3E11CB859A100566793 /* Styles2.json */,
 				372418E21ADF34600067CDF0 /* waterfall.jpg */,
 			);
 			path = MarkupKitTest;
@@ -935,8 +935,8 @@
 			files = (
 				378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */,
 				3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */,
+				375BE3E21CB859A100566793 /* Styles2.json in Resources */,
 				3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */,
-				3B1F7B401B2253D10066D21E /* Styles2.plist in Resources */,
 				372418EC1ADF34600067CDF0 /* MainView.xml in Resources */,
 				3B09976C1B21DBAD001BF85C /* MainView.strings in Resources */,
 				372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */,
