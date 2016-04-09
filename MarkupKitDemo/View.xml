@@ -17,9 +17,6 @@ limitations under the License.
 <?properties Styles?>
 
 <LMTableView style="groupedTableView">
-    <?backgroundView?>
-    <LMLinearGradientView colors="#fefefe, #ededed, #fefefe" locations="0.0, 0.5, 1.0"/>
-
     <!-- Button -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Button" class="cell.header"/>
