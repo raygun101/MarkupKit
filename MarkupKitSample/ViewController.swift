@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 /**
- * Table view controller template.
+ * Table view controller.
  */
 class ViewController: UITableViewController {
     // Outlets
@@ -28,7 +28,7 @@ class ViewController: UITableViewController {
     var rows: [[String: AnyObject]]!
 
     // Constants
-    let dynamicSectionName = "dynamic"
+    static let DynamicSectionName = "dynamic"
 
     // View initialization
     override func loadView() {
@@ -71,7 +71,7 @@ class ViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (tableView.nameForSection(section) == dynamicSectionName) {
+        if (tableView.nameForSection(section) == ViewController.DynamicSectionName) {
             n = rows.count
         } else {
             n = tableView.numberOfRowsInSection(section)
@@ -82,7 +82,7 @@ class ViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
+        if (tableView.nameForSection(indexPath.section) == ViewController.DynamicSectionName) {
             let row = rows[indexPath.row]
 
             let customCell = tableView.dequeueReusableCellWithIdentifier(CustomCell.self.description()) as! CustomCell
@@ -100,7 +100,7 @@ class ViewController: UITableViewController {
 
     // Delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (tableView.nameForSection(indexPath.section) == dynamicSectionName) {
+        if (tableView.nameForSection(indexPath.section) == ViewController.DynamicSectionName) {
             let row = rows[indexPath.row]
 
             let detailViewController = DetailViewController()
