@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class MainViewController: UIViewController {
-    @IBOutlet weak var greetingLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet var greetingLabel: UILabel!
+    @IBOutlet var imageView: UIImageView!
 
     var properties: [String: AnyObject]!
     var strings: [String: String]!

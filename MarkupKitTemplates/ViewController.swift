@@ -20,9 +20,9 @@ import MarkupKit
  */
 class ViewController: UITableViewController {
     // Outlets
-    @IBOutlet weak var textField1: UITextField!
-    @IBOutlet weak var textField2: UITextField!
-    @IBOutlet weak var footerSwitch: UISwitch!
+    @IBOutlet var textField1: UITextField!
+    @IBOutlet var textField2: UITextField!
+    @IBOutlet var footerSwitch: UISwitch!
 
     // Properties
     var rows: [[String: AnyObject]]!

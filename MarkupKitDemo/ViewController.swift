@@ -16,17 +16,17 @@ import UIKit
 import MarkupKit
 
 class ViewController: UITableViewController, UIPickerViewDelegate {
-    @IBOutlet weak var dateTextField: UITextField!
+    @IBOutlet var dateTextField: UITextField!
 
-    @IBOutlet weak var sizeTextField: UITextField!
-    @IBOutlet weak var sizePickerView: LMPickerView!
+    @IBOutlet var sizeTextField: UITextField!
+    @IBOutlet var sizePickerView: LMPickerView!
 
-    @IBOutlet weak var accessoryTextField: UITextField!
+    @IBOutlet var accessoryTextField: UITextField!
 
-    @IBOutlet weak var stepper: UIStepper!
-    @IBOutlet weak var slider: UISlider!
-    @IBOutlet weak var pageControl: UIPageControl!
-    @IBOutlet weak var progressView: UIProgressView!
+    @IBOutlet var stepper: UIStepper!
+    @IBOutlet var slider: UISlider!
+    @IBOutlet var pageControl: UIPageControl!
+    @IBOutlet var progressView: UIProgressView!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("View", owner: self, root: nil)

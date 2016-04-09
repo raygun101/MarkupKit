@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class ScrollViewController: UIViewController {
-    @IBOutlet weak var label1: UILabel!
-    @IBOutlet weak var label2: UILabel!
+    @IBOutlet var label1: UILabel!
+    @IBOutlet var label2: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ScrollView", owner: self, root: nil)
