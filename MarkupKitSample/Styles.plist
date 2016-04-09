@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>cell.header</key>
+	<dict>
+		<key>textLabel.font</key>
+		<string>body</string>
+		<key>textLabel.color</key>
+		<string>#808080</string>
+	</dict>
+	<key>cell.footer</key>
+	<dict>
+		<key>textLabel.font</key>
+		<string>subheadline</string>
+		<key>textLabel.color</key>
+		<string>#808080</string>
+	</dict>
+	<key>cell.input</key>
+	<dict>
+		<key>selectionStyle</key>
+		<string>none</string>
+		<key>layoutMarginTop</key>
+		<string>12</string>
+		<key>layoutMarginBottom</key>
+		<string>12</string>
+	</dict>
+	<key>label.heading</key>
+	<dict>
+		<key>font</key>
+		<string>headline</string>
+		<key>textColor</key>
+		<string>#444444</string>
+		<key>numberOfLines</key>
+		<string>0</string>
+	</dict>
+	<key>label.detail</key>
+	<dict>
+		<key>font</key>
+		<string>subheadline</string>
+		<key>textColor</key>
+		<string>#666666</string>
+		<key>numberOfLines</key>
+		<string>1</string>
+	</dict>
+</dict>
+</plist>
