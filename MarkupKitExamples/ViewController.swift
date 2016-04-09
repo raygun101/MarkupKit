@@ -34,9 +34,7 @@ class ViewController: UITableViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath)
         let value = cell!.value as! String
 
-        if (value == "introduction") {
-            navigationController!.pushViewController(IntroductionViewController(), animated: true)
-        } else if (value == "radioButtons") {
+        if (value == "radioButtons") {
             navigationController!.pushViewController(RadioButtonViewController(), animated: true)
         } else if (value == "checkboxes") {
             navigationController!.pushViewController(CheckboxViewController(), animated: true)
