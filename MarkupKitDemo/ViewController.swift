@@ -47,10 +47,6 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         stepperValueChanged(stepper)
     }
 
-    override func viewWillLayoutSubviews() {
-        tableView.contentInset = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0)
-    }
-
     @IBAction func showGreeting() {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
 
