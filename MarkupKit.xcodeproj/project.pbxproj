@@ -20,6 +20,12 @@
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
 		373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */; };
 		373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */; };
+		374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C036A1CB978A600339BB6 /* AppDelegate.swift */; };
+		374C036D1CB978A600339BB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C036C1CB978A600339BB6 /* ViewController.swift */; };
+		374C03721CB978A600339BB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374C03711CB978A600339BB6 /* Assets.xcassets */; };
+		374C03751CB978A600339BB6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 374C03731CB978A600339BB6 /* LaunchScreen.storyboard */; };
+		374C037A1CB978E400339BB6 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
+		374C037B1CB978E400339BB6 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		375498351C08BA92008A6895 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 375498341C08BA92008A6895 /* Styles.plist */; };
 		375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 375498361C08BF6F008A6895 /* IMG_0725.jpg */; };
 		3754E0391CB9510500E8C32D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E0381CB9510500E8C32D /* AppDelegate.swift */; };
@@ -184,6 +190,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		374C037C1CB978E400339BB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
+			remoteInfo = MarkupKit;
+		};
 		3754E04C1CB9526F00E8C32D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
@@ -222,6 +235,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		374C037E1CB978E400339BB6 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				374C037B1CB978E400339BB6 /* MarkupKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3754E04E1CB9526F00E8C32D /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,6 +331,12 @@
 		3742F0131B34D2C800B31987 /* LMLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayerView.m; sourceTree = "<group>"; };
 		374AB81A1C25B61F00EE35ED /* UIToolbar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+Markup.h"; sourceTree = "<group>"; };
 		374AB81B1C25B61F00EE35ED /* UIToolbar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+Markup.m"; sourceTree = "<group>"; };
+		374C03681CB978A600339BB6 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		374C036A1CB978A600339BB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		374C036C1CB978A600339BB6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		374C03711CB978A600339BB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		374C03741CB978A600339BB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		374C03761CB978A600339BB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		375498341C08BA92008A6895 /* Styles.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles.plist; sourceTree = "<group>"; };
 		375498361C08BF6F008A6895 /* IMG_0725.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0725.jpg; sourceTree = "<group>"; };
 		3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -460,6 +490,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		374C03651CB978A600339BB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C037A1CB978E400339BB6 /* MarkupKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3754E0331CB9510500E8C32D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -510,6 +548,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		374C03691CB978A600339BB6 /* MarkupKitSample */ = {
+			isa = PBXGroup;
+			children = (
+				374C036A1CB978A600339BB6 /* AppDelegate.swift */,
+				374C036C1CB978A600339BB6 /* ViewController.swift */,
+				374C03711CB978A600339BB6 /* Assets.xcassets */,
+				374C03731CB978A600339BB6 /* LaunchScreen.storyboard */,
+				374C03761CB978A600339BB6 /* Info.plist */,
+			);
+			path = MarkupKitSample;
+			sourceTree = "<group>";
+		};
 		3754E0371CB9510500E8C32D /* MarkupKitIntroduction */ = {
 			isa = PBXGroup;
 			children = (
@@ -562,11 +612,12 @@
 			isa = PBXGroup;
 			children = (
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
-				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
 				37AC28281C08B49C00BC8C87 /* MarkupKitDemo */,
 				3754E0371CB9510500E8C32D /* MarkupKitIntroduction */,
+				374C03691CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C351B78E9990086A3F9 /* MarkupKitExamples */,
 				378CA4AC1C138B5100D72195 /* MarkupKitTemplates */,
+				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
 				37B070641ADEBE3F00A92FCF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -580,6 +631,7 @@
 				37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */,
 				378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */,
 				3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */,
+				374C03681CB978A600339BB6 /* MarkupKitSample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -793,6 +845,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		374C03671CB978A600339BB6 /* MarkupKitSample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 374C03791CB978A600339BB6 /* Build configuration list for PBXNativeTarget "MarkupKitSample" */;
+			buildPhases = (
+				374C03641CB978A600339BB6 /* Sources */,
+				374C03651CB978A600339BB6 /* Frameworks */,
+				374C03661CB978A600339BB6 /* Resources */,
+				374C037E1CB978E400339BB6 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				374C037D1CB978E400339BB6 /* PBXTargetDependency */,
+			);
+			name = MarkupKitSample;
+			productName = MarkupKitSample;
+			productReference = 374C03681CB978A600339BB6 /* MarkupKitSample.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3754E0351CB9510500E8C32D /* MarkupKitIntroduction */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3754E0471CB9510500E8C32D /* Build configuration list for PBXNativeTarget "MarkupKitIntroduction" */;
@@ -917,6 +988,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Greg Brown";
 				TargetAttributes = {
+					374C03671CB978A600339BB6 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					3754E0351CB9510500E8C32D = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -957,16 +1031,26 @@
 			projectRoot = "";
 			targets = (
 				37B070621ADEBE3F00A92FCF /* MarkupKit */,
-				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
 				37AC28261C08B49C00BC8C87 /* MarkupKitDemo */,
 				3754E0351CB9510500E8C32D /* MarkupKitIntroduction */,
+				374C03671CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C331B78E9980086A3F9 /* MarkupKitExamples */,
 				378CA4AA1C138B5100D72195 /* MarkupKitTemplates */,
+				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		374C03661CB978A600339BB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C03751CB978A600339BB6 /* LaunchScreen.storyboard in Resources */,
+				374C03721CB978A600339BB6 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3754E0341CB9510500E8C32D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1074,6 +1158,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		374C03641CB978A600339BB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				374C036D1CB978A600339BB6 /* ViewController.swift in Sources */,
+				374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3754E0321CB9510500E8C32D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1189,6 +1282,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		374C037D1CB978E400339BB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
+			targetProxy = 374C037C1CB978E400339BB6 /* PBXContainerItemProxy */;
+		};
 		3754E04D1CB9526F00E8C32D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
@@ -1217,6 +1315,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		374C03731CB978A600339BB6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				374C03741CB978A600339BB6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		3754E0411CB9510500E8C32D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1285,6 +1391,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		374C03771CB978A600339BB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MarkupKitSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		374C03781CB978A600339BB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = MarkupKitSample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitSample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		3754E0451CB9510500E8C32D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1579,6 +1715,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		374C03791CB978A600339BB6 /* Build configuration list for PBXNativeTarget "MarkupKitSample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				374C03771CB978A600339BB6 /* Debug */,
+				374C03781CB978A600339BB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		3754E0471CB9510500E8C32D /* Build configuration list for PBXNativeTarget "MarkupKitIntroduction" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
