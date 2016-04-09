@@ -17,8 +17,8 @@ import AVFoundation
 import MarkupKit
 
 class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
-    @IBOutlet weak var playerView: LMPlayerView!
-    @IBOutlet weak var playButton: UIButton!
+    @IBOutlet var playerView: LMPlayerView!
+    @IBOutlet var playButton: UIButton!
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("PlayerView", owner: self, root: nil)

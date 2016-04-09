@@ -20,8 +20,8 @@ import MarkupKit
  */
 class CustomCell: LMTableViewCell {
     // Outlets
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
 
     // Initializers
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {

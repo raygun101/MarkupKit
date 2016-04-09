@@ -20,8 +20,8 @@ import MarkupKit
  */
 class DetailViewController: UIViewController {
     // Outlets
-    @IBOutlet weak var headingLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
 
     // View initialization
     override func loadView() {

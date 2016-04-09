@@ -16,9 +16,9 @@ import UIKit
 import MarkupKit
 
 class ColorCell: LMCollectionViewCell {
-    @IBOutlet weak var indexLabel: UILabel!
-    @IBOutlet weak var colorView: UIView!
-    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet var indexLabel: UILabel!
+    @IBOutlet var colorView: UIView!
+    @IBOutlet var valueLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
