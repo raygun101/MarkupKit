@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 /**
- * Custom table view cell template.
+ * Custom table view cell.
  */
 class CustomCell: LMTableViewCell {
     // Outlets

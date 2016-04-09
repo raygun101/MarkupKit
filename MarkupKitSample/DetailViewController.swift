@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 /**
- * Detail view template.
+ * Detail view.
  */
 class DetailViewController: UIViewController {
     // Outlets
