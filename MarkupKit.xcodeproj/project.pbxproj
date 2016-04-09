@@ -48,8 +48,6 @@
 		3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
 		3781C9071C399CC500F324A4 /* NestedStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackView.xml */; };
-		378CA4BD1C138B6000D72195 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
-		378CA4BE1C138B6000D72195 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
 		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
@@ -200,13 +198,6 @@
 			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
 			remoteInfo = MarkupKit;
 		};
-		378CA4BF1C138B6000D72195 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 37B070621ADEBE3F00A92FCF;
-			remoteInfo = MarkupKit;
-		};
 		37AC283B1C08B4BB00BC8C87 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37B0705A1ADEBE3F00A92FCF /* Project object */;
@@ -249,17 +240,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3754E04B1CB9526F00E8C32D /* MarkupKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		378CA4C11C138B6000D72195 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				378CA4BE1C138B6000D72195 /* MarkupKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,7 +349,6 @@
 		3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackView.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
 		3781C9061C399CC500F324A4 /* NestedStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackView.xml; sourceTree = "<group>"; };
-		378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTemplates.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
@@ -497,14 +476,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		378CA4A81C138B5100D72195 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				378CA4BD1C138B6000D72195 /* MarkupKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		37AC28241C08B49C00BC8C87 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -607,7 +578,6 @@
 				37B070831ADEBEB000A92FCF /* MarkupKitTest.app */,
 				3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */,
 				37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */,
-				378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */,
 				3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */,
 				374C03681CB978A600339BB6 /* MarkupKitSample.app */,
 			);
@@ -861,25 +831,6 @@
 			productReference = 3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */;
 			productType = "com.apple.product-type.application";
 		};
-		378CA4AA1C138B5100D72195 /* MarkupKitTemplates */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 378CA4BC1C138B5100D72195 /* Build configuration list for PBXNativeTarget "MarkupKitTemplates" */;
-			buildPhases = (
-				378CA4A71C138B5100D72195 /* Sources */,
-				378CA4A81C138B5100D72195 /* Frameworks */,
-				378CA4A91C138B5100D72195 /* Resources */,
-				378CA4C11C138B6000D72195 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				378CA4C01C138B6000D72195 /* PBXTargetDependency */,
-			);
-			name = MarkupKitTemplates;
-			productName = MarkupKitTemplates;
-			productReference = 378CA4AB1C138B5100D72195 /* MarkupKitTemplates.app */;
-			productType = "com.apple.product-type.application";
-		};
 		37AC28261C08B49C00BC8C87 /* MarkupKitDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37AC28381C08B49C00BC8C87 /* Build configuration list for PBXNativeTarget "MarkupKitDemo" */;
@@ -972,9 +923,6 @@
 					3754E0351CB9510500E8C32D = {
 						CreatedOnToolsVersion = 7.3;
 					};
-					378CA4AA1C138B5100D72195 = {
-						CreatedOnToolsVersion = 7.1.1;
-					};
 					37AC28261C08B49C00BC8C87 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -1013,7 +961,6 @@
 				3754E0351CB9510500E8C32D /* MarkupKitIntroduction */,
 				374C03671CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C331B78E9980086A3F9 /* MarkupKitExamples */,
-				378CA4AA1C138B5100D72195 /* MarkupKitTemplates */,
 				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
 			);
 		};
@@ -1042,13 +989,6 @@
 				3754E0431CB9510500E8C32D /* LaunchScreen.storyboard in Resources */,
 				3754E0401CB9510500E8C32D /* Assets.xcassets in Resources */,
 				3754E0491CB951B400E8C32D /* View.xml in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		378CA4A91C138B5100D72195 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1151,13 +1091,6 @@
 			files = (
 				3754E03B1CB9510500E8C32D /* ViewController.swift in Sources */,
 				3754E0391CB9510500E8C32D /* AppDelegate.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		378CA4A71C138B5100D72195 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1265,11 +1198,6 @@
 			isa = PBXTargetDependency;
 			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
 			targetProxy = 3754E04C1CB9526F00E8C32D /* PBXContainerItemProxy */;
-		};
-		378CA4C01C138B6000D72195 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 37B070621ADEBE3F00A92FCF /* MarkupKit */;
-			targetProxy = 378CA4BF1C138B6000D72195 /* PBXContainerItemProxy */;
 		};
 		37AC283C1C08B4BB00BC8C87 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1413,36 +1341,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitIntroduction;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		378CA4BA1C138B5100D72195 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		378CA4BB1C138B5100D72195 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEFINES_MODULE = YES;
-				INFOPLIST_FILE = MarkupKitTemplates/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitTemplates;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1695,15 +1593,6 @@
 			buildConfigurations = (
 				3754E0451CB9510500E8C32D /* Debug */,
 				3754E0461CB9510500E8C32D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		378CA4BC1C138B5100D72195 /* Build configuration list for PBXNativeTarget "MarkupKitTemplates" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				378CA4BA1C138B5100D72195 /* Debug */,
-				378CA4BB1C138B5100D72195 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
