@@ -14,12 +14,11 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMColumnView>
     <LMSpacer weight="1"/>
 
     <UILabel id="greetingLabel" textAlignment="center"/>
-
     <UIButton style="systemButton" normalTitle="Say Hello" onTouchUpInside="sayHello"/>
 
-    <LMSpacer weight="2"/>
+<LMSpacer weight="2"/>
 </LMColumnView>
