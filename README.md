@@ -159,7 +159,7 @@ this markup will produce a table view containing two rows reading "Hello, World!
         </LMTableViewCell>
     </LMTableView>
 
-Multiple `strings` PIs may be specified in a single document. The values from all of the named string tables are merged into a single collection of localized string values available to the document. If the same value is defined by multiple tables (including the default, _Localizable.strings_), the most recently-defined value takes precedence.
+Multiple `strings` PIs may be specified in a single document. The values from all of the named string tables are merged into a single collection of localized string values available to the document. If the same value is defined by multiple tables (including the default, _Localizable.strings_), the most recently defined value takes precedence.
 
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
@@ -170,28 +170,24 @@ For example, the following markup creates an instance of a "system"-style `UIBut
 
     <UIButton style="systemButton" normalTitle="Press Me!"/>
 
-Internally, this method calls `buttonWithType:`, passing a value of `UIButtonTypeSystem` for the `buttonType` argument, and returns the newly-created button instance.
+Internally, this method calls `buttonWithType:`, passing a value of `UIButtonTypeSystem` for the `buttonType` argument, and returns the newly created button instance.
 
 The complete set of extensions MarkupKit adds to UIKit types is discussed in more detail later.
 
 ### Template Properties
-Often, when constructing a user interface, the same set of property values are applied repeatedly to instances of a given type. For example, an application designer may want all buttons to have a similar appearance. While it is possible to simply duplicate the property definitions across each button instance, this is repetitive and does not allow the design to be easily modified later - every instance must be located and modified individually, which can be time-consuming and error-prone.
+Often, when constructing a user interface, the same set of property values are applied repeatedly to instances of a given type. For example, an application designer may want all buttons to have a similar appearance. While it is possible to simply duplicate the property definitions across each button instance, this is repetitive and does not allow the design to be easily modified later - every instance must be located and modified individually, which can be time consuming and error prone.
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates may either be external or inline. External templates are defined in property list (or _.plist_) files. Inline templates are specified using JavaScript Object Notation (JSON) embedded within the markup document iteself. Each template is represented by a dictionary defined at the top level of the property list or JSON document. The dictionary's contents represent the property values that will be set when the template is applied.
+Property templates may either be external or inline. External templates are defined in property list (_.plist_) files or [JSON](http://www.json.org) documents. Inline templates are specified as JSON embedded within the markup document iteself. 
 
-Templates are added to a MarkupKit document using the `properties` processing instruction. For example, the following PI imports all templates defined by _MyStyles.plist_ into the current document:
+Each template is represented by a dictionary defined at the top level of the property list or JSON document. The dictionary's contents represent the property values that will be set when the template is applied.
+
+Templates are added to a MarkupKit document using the `properties` processing instruction. For example, the following PI imports all properties defined by the "MyStyles" template into the current document:
 
     <?properties MyStyles?>
     
-The inline form adds all of the templates specified within the curly braces to the document:
-
-    <?properties {...}?>
-
-Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties such as "titleLabel.font" are supported.
-
-For example, if _MyStyles.plist_ is defined as follows:
+The property values must be specified in either _MyStyles.plist_ or _MyStyles.json_; for example:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
@@ -206,24 +202,35 @@ For example, if _MyStyles.plist_ is defined as follows:
     	</dict>
     </dict>
     </plist>
-    
-the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally-centered text:
 
-    <UILabel class="label.hello" text="Hello, World!"/>
+or:
 
-This inline template specification would produce identical results:
+    {
+        "label.hello: {
+            "font": "Helvetica 24", 
+            "textAlignment": "center"
+        }
+    }
+
+Inline templates simply embed a template definition within the markup document itself. They are only visible to the enclosing document:
 
     <?properties {
         "label.hello: {"font": "Helvetica 24", "textAlignment": "center"}
     }?>
 
-Multiple templates can be specified using a comma-separated list; for example:
+Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
+
+For example, given any of the preceding template definitions, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally centered text:
+
+    <UILabel class="label.hello" text="Hello, World!"/>
+
+Multiple templates can be applied to a view using a comma-separated list of class values; for example:
 
     <UILabel class="bold, red" text="Bold Red Label"/>
-    
+
 Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the property list or JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
-Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. As with strings, the most recently-defined values take precedence.
+Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. As with strings, the most recently defined values take precedence.
 
 ### Outlets
 Views defined in markup are not particularly useful on their own. The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
@@ -355,17 +362,17 @@ Finally, `LMViewBuilder` provides the following method, which is used to apply a
 
     + (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view;
 
-`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values for dynamically-generated views.
+`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values for dynamically generated views.
 
 See _LMViewBuilder.h_ for more information.
 
 ## LMTableView and LMTableViewCell
-The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of a table view's content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically-defined collection of table view sections. It is configured to use self-sizing cells by default. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior.
+The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of a table view's content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. It is configured to use self-sizing cells by default. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior.
 
 MarkupKit also provides extensions to the standard `UITableView` and `UITableViewCell` classes that allow them to be used in markup. These are discussed in more detail in a later section.
 
 ### LMTableView
-The `LMTableView` class supports the definition of statically-defined table content. It defines the following factory methods, which are used to create new table view instances in markup:
+The `LMTableView` class supports the definition of statically defined table content. It defines the following factory methods, which are used to create new table view instances in markup:
 
     + (LMTableView *)plainTableView;
     + (LMTableView *)groupedTableView;
@@ -376,6 +383,15 @@ For example, the following markup declares a plain table view containing three r
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 2"/>
         <UITableViewCell textLabel.text="Row 3"/>
+    </LMTableView>
+
+The `backgroundView` processing instruction can be used to assign a background view to a table view. For example, the following markup creates a grouped table view with a linear background gradient:
+
+    <LMTableView style="groupedTableView">
+        <?backgroundView?>
+        <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+        
+        ...
     </LMTableView>
 
 The `sectionBreak` processing instruction is used to insert a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. The following markup creates a grouped table view containing two sections:
