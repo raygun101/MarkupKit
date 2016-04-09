@@ -13,21 +13,24 @@
 //
 
 import UIKit
+import MarkupKit
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    var window: UIWindow?
+/**
+ * Custom table view cell template.
+ */
+class CustomCell: LMTableViewCell {
+    // Outlets
+    @IBOutlet var headingLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow()
+    // Initializers
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        window!.rootViewController = UINavigationController(rootViewController: ViewController())
+        LMViewBuilder.viewWithName("CustomCell", owner: self, root: self)
+    }
 
-        window!.backgroundColor = UIColor.whiteColor()
-        window!.frame = UIScreen.mainScreen().bounds
-
-        window!.makeKeyAndVisible()
-
-        return true
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder);
     }
 }
