@@ -30,8 +30,6 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
 
         title = "Player View"
 
-        edgesForExtendedLayout = UIRectEdge.None
-
         tableView.dataSource = self
     }
 
