@@ -20,5 +20,5 @@ limitations under the License.
     <UILabel id="greetingLabel" textAlignment="center"/>
     <UIButton style="systemButton" normalTitle="Say Hello" onTouchUpInside="sayHello"/>
 
-<LMSpacer weight="2"/>
+    <LMSpacer weight="2"/>
 </LMColumnView>

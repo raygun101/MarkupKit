@@ -65,11 +65,11 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return (playerView.layer.player?.status == AVPlayerStatus.ReadyToPlay) ? tableView.numberOfSections : 0
+        return (playerView.layer.player?.status == .ReadyToPlay) ? tableView.numberOfSections : 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (playerView.layer.player?.status == AVPlayerStatus.ReadyToPlay) ? tableView.numberOfRowsInSection(section) : 0
+        return (playerView.layer.player?.status == .ReadyToPlay) ? tableView.numberOfRowsInSection(section) : 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
