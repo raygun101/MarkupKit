@@ -17,6 +17,7 @@ import AVFoundation
 import MarkupKit
 
 class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
+    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var playerView: LMPlayerView!
     @IBOutlet var playButton: UIButton!
 
@@ -30,9 +31,13 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         title = "Player View"
 
         edgesForExtendedLayout = UIRectEdge.None
+
+        tableView.dataSource = self
     }
 
     override func viewWillAppear(animated: Bool) {
+        activityIndicatorView.startAnimating()
+
         playButton.enabled = false
 
         playerView.delegate = self
@@ -50,9 +55,25 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     }
 
     func playerView(playerView: LMPlayerView, isReadyForDisplay readyForDisplay: Bool) {
+        activityIndicatorView.stopAnimating()
+
+        tableView.reloadData()
+        
         togglePlay()
 
         playButton.enabled = true
+    }
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return (playerView.layer.player?.status == AVPlayerStatus.ReadyToPlay) ? tableView.numberOfSections : 0
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (playerView.layer.player?.status == AVPlayerStatus.ReadyToPlay) ? tableView.numberOfRowsInSection(section) : 0
+    }
+
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        return tableView.cellForRowAtIndexPath(indexPath)!
     }
 
     @IBAction func togglePlay() {
