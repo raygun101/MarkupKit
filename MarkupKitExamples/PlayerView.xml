@@ -15,6 +15,9 @@ limitations under the License.
 -->
 
 <LMTableView style="groupedTableView">
+    <?backgroundView?>
+    <UIActivityIndicatorView id="activityIndicatorView" activityIndicatorViewStyle="gray"/>
+
     <LMTableViewCell>
         <LMPlayerView id="playerView" height="320"/>
     </LMTableViewCell>
