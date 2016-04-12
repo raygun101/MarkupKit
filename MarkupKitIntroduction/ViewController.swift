@@ -22,14 +22,6 @@ class ViewController: UIViewController {
         view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "MarkupKit Introduction"
-
-        edgesForExtendedLayout = UIRectEdge.None
-    }
-
     @IBAction func sayHello() {
         greetingLabel.text = "Hello, World!";
     }
