@@ -38,7 +38,7 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(RadioButtonViewController(), animated: true)
         } else if (value == "checkboxes") {
             navigationController!.pushViewController(CheckboxViewController(), animated: true)
-        } else if (value == "colorPicker") {
+        } else if (value == "selectionView") {
             navigationController!.pushViewController(SelectionViewController(), animated: true)
         } else if (value == "customCellView") {
             navigationController!.pushViewController(CustomCellViewController(), animated: true)
