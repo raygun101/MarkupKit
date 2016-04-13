@@ -16,7 +16,7 @@ This document introduces the MarkupKit framework and provides an overview of its
 
 MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
-For examples and additional information, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). For questions and general feedback, please visit the [discussion forum](https://disqus.com/home/channel/markupkit/).
+For examples and additional information, including a guide to getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). For questions and general feedback, please visit the [discussion forum](https://disqus.com/home/channel/markupkit/).
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
