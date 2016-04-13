@@ -23,7 +23,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
 
         view.backgroundColor = UIColor.whiteColor()
 
-        title = "Color Picker"
+        title = "Selection View"
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Color", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SelectionViewController.showColorPicker))
 
