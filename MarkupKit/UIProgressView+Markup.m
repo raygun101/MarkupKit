@@ -18,12 +18,12 @@
 
 + (UIProgressView *)defaultProgressView
 {
-    return [[self alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+    return [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
 }
 
 + (UIProgressView *)barProgressView
 {
-    return [[self alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
+    return [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
 }
 
 @end

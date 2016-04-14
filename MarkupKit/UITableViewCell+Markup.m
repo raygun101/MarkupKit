@@ -20,22 +20,22 @@
 
 + (UITableViewCell *)defaultTableViewCell
 {
-    return [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 }
 
 + (UITableViewCell *)value1TableViewCell
 {
-    return [[self alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
 }
 
 + (UITableViewCell *)value2TableViewCell
 {
-    return [[self alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil];
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue2 reuseIdentifier:nil];
 }
 
 + (UITableViewCell *)subtitleTableViewCell
 {
-    return [[self alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+    return [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
 }
 
 - (id)value

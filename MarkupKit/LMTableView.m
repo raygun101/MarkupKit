@@ -60,14 +60,14 @@ typedef enum {
     __ElementDisposition _elementDisposition;
 }
 
-+ (UITableView *)plainTableView
++ (LMTableView *)plainTableView
 {
-    return [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
+    return [[LMTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStylePlain];
 }
 
-+ (UITableView *)groupedTableView
++ (LMTableView *)groupedTableView
 {
-    return [[self alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
+    return [[LMTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
 }
 
 #define INIT {\
