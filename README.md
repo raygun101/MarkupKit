@@ -345,39 +345,26 @@ is equivalent to the following:
 
 The `root` argument is typically used when a document's root view is defined by an external source. For example, a view controller that is instantiated programmatically typically creates its own view instance in `loadView`. It defines the view entirely in markup, passing a `nil` value for `root`:
 
-TODO Swift
-
-    - (void)loadView
-    {
-        [self setView:[LMViewBuilder viewWithName:@"MyView" owner:self root:nil]];
+    override func loadView() {
+        view = LMViewBuilder.viewWithName("MyView", owner: self, root: nil)
     }
 
 However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of the controller's `view` property as the `root` argument:
 
-TODO Swift
+    override func viewDidLoad() {
+        super.viewDidLoad()
 
-    - (void)viewDidLoad
-    {
-        [super viewDidLoad];
-
-        [LMViewBuilder viewWithName:@"MyView" owner:self root:[self view]];    
+        LMViewBuilder.viewWithName("MyView", owner: self, root: view)
     }
 
 This allows the navigational structure of the application (i.e. segues) to be defined in a storyboard, but the content of individual views to be defined in markup.
 
 The `root` argument is also commonly used when implementing custom table view cells. In this case, the cell passes itself as both the owner and the root when loading the view: 
 
-TODO Swift
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-    - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-    {
-        self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-
-        if (self) {
-            [LMViewBuilder viewWithName:@"MyCustomTableViewCell" owner:self root:self];
-        }
-
-        return self;
+        LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
     }
 
 `LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values:

@@ -562,8 +562,8 @@
 			isa = PBXGroup;
 			children = (
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
-				37AC28281C08B49C00BC8C87 /* MarkupKitDemo */,
 				3754E0371CB9510500E8C32D /* MarkupKitIntroduction */,
+				37AC28281C08B49C00BC8C87 /* MarkupKitDemo */,
 				374C03691CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C351B78E9990086A3F9 /* MarkupKitExamples */,
 				37B070841ADEBEB000A92FCF /* MarkupKitTest */,
@@ -957,8 +957,8 @@
 			projectRoot = "";
 			targets = (
 				37B070621ADEBE3F00A92FCF /* MarkupKit */,
-				37AC28261C08B49C00BC8C87 /* MarkupKitDemo */,
 				3754E0351CB9510500E8C32D /* MarkupKitIntroduction */,
+				37AC28261C08B49C00BC8C87 /* MarkupKitDemo */,
 				374C03671CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C331B78E9980086A3F9 /* MarkupKitExamples */,
 				37B070821ADEBEB000A92FCF /* MarkupKitTest */,
