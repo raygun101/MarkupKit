@@ -299,8 +299,8 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMTableView` and `LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
 * `LMCollectionViewCell` - `UICollectionViewCell` subclass that facilitates declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
-* `LMScrollView` - `UIScrollView` subclass that automatically adapts to the size of its content
-* `LMPageView` - `UIScrollView` subclass that facilitates the declaration of paged content
+* `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
+* `LMPageView` - subclass of `UIScrollView` that facilitates the declaration of paged content
 * `LMRowView` and `LMColumnView` - layout views that arrange subviews in a horizontal or vertical line, respectively
 * `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
@@ -316,7 +316,7 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 
 The `name` parameter represents the name of the view to load. It is the file name of the XML document containing the view declaration, minus the _.xml_ extension.
 
-The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table view cell classes often specify themselves as the owner.
+The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
 
 If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the owner's size class; for example, _LoginView~horizontal.xml_. Size classes are named as follows:
 
@@ -347,7 +347,7 @@ The `root` argument is typically used when a document's root view is defined by 
         view = LMViewBuilder.viewWithName("MyView", owner: self, root: nil)
     }
 
-However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of the controller's `view` property as the `root` argument:
+However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of its `view` property as the `root` argument:
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -357,7 +357,7 @@ However, a view controller that is defined by a storyboard already has an establ
 
 This allows the navigational structure of the application (i.e. segues) to be defined in a storyboard, but the content of individual views to be defined in markup.
 
-The `root` argument is also commonly used when implementing custom table view cells. In this case, the cell passes itself as both the owner and the root when loading the view: 
+The `root` argument is also commonly used when implementing custom table or collection view view cells. In this case, the cell instance passes itself as both the owner and the root when loading the view: 
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -365,6 +365,7 @@ The `root` argument is also commonly used when implementing custom table view ce
         LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
     }
 
+### Property Handling
 `LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values:
 
     + (UIColor *)colorValue:(NSString *)value;
@@ -391,7 +392,7 @@ The `LMTableView` class supports the definition of statically defined table cont
     + (LMTableView *)plainTableView;
     + (LMTableView *)groupedTableView;
 
-For example, the following markup declares a plain table view containing three rows labeled "Row 1", "Row 2", and "Row 3". All of the rows appear in a single section, which is created by default:
+For example, the following markup declares a plain table view containing three rows:
 
     <LMTableView style="plainTableView">
         <UITableViewCell textLabel.text="Row 1"/>
@@ -399,7 +400,7 @@ For example, the following markup declares a plain table view containing three r
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `backgroundView` processing instruction can be used to assign a background view to a table view. For example, the following markup creates a grouped table view with a linear background gradient:
+The `backgroundView` processing instruction can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear background gradient:
 
     <LMTableView style="groupedTableView">
         <?backgroundView?>
@@ -408,7 +409,7 @@ The `backgroundView` processing instruction can be used to assign a background v
         ...
     </LMTableView>
 
-The `sectionBreak` processing instruction is used to insert a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. The following markup creates a grouped table view containing two sections (the first section is created implicitly):
+The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. The following markup creates a grouped table view containing two sections (the first section is created implicitly):
 
     <LMTableView style="groupedTableView">
         <UITableViewCell textLabel.text="Row 1a"/>
@@ -467,7 +468,7 @@ The `sectionName` processing instruction is used to assign a name to a section. 
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-Finally, the `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior; the application is responsible for managing selection state. The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
+Finally, the `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
 For example, the following markup creates a table view that allows a user to select one of several colors:
 
@@ -487,9 +488,7 @@ Selection state is managed via several methods that `LMTableView` inherits from 
     - (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
     - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
-The first method, `nameForSection:`, returns the name that is associated with a given section. The default implementation of this method returns `nil`. However, it is overridden by `LMTableView` to return the name of the given section, when set. 
-
-The second method, `sectionWithName:`, returns the index of a named section. The third and fourth methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
+The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The third and fourth methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
 
 #### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMTableView` instance to override the default behavior. This allows the data source to provide some table content dynamically while relying on the table view to manage static content. 
@@ -548,7 +547,7 @@ For example, the following markup creates a plain table view whose single cell c
         </LMTableViewCell>
     </LMTableView>
 
-As discussed earlier, `LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content is expressed in markup rather than in code:
+`LMTableViewCell` can also be used as the base class for custom table view cell classes. By overriding `initWithStyle:reuseIdentifier:` and specifying the cell view as the document owner, callers can easily create custom table view cells whose content is expressed in markup rather than in code:
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -565,7 +564,7 @@ Because the initializer passes the cell instance itself as the value of the `roo
         </LMColumnView>
     <root>
 
-The child of the root tag represents the cell's content. It can be any valid view, but is often a layout view that is used to automatically size and position the cell's custom content elements. 
+The child of the root tag represents the cell's content. It can be any valid view, but is often a layout view that is used to automatically size and position the cell's custom content views. 
 
 See _LMTableViewCell.h_ for more information.
 
@@ -578,7 +577,7 @@ Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custo
         LMViewBuilder.viewWithName("MyCustomCollectionViewCell", owner: self, root: self)
     }
 
-As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constraints to its content to enable self-sizing behavior, and also supports the "layoutMargins" attribute it inherits from `UIView`. Again, because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument:
+As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constraints to its content to enable self-sizing behavior. Again, because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomCollectionViewCell.xml_ must include a `<root>` tag to refer to this argument:
 
     <root layoutMargins="12">
         <LMColumnView>
@@ -599,7 +598,9 @@ See _LMCollectionViewCell.h_ for more information.
         <row title="Extra-Large"/>
     </LMPickerView>
 
-The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the "title" attribute is used as the row title. An optional value to associate with the row can be specified as follows:
+The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the "title" attribute is used as the row title. 
+
+An optional value can also be associated with row, as shown below:
 
     <LMPickerView>
         <row title="Small" value="S"/>
@@ -608,7 +609,7 @@ The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:
         <row title="Extra-Large" value="XL"/>
     </LMPickerView>
 
-The `componentSeparator` processing instruction is used to insert a new component into the picker view. It corresponds to a call to the `insertComponent:` method. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
+The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
 
     <LMPickerView>
         <row title="Small" value="S"/>
@@ -625,7 +626,7 @@ The `componentSeparator` processing instruction is used to insert a new componen
         <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
-Finally, the `componentName` processing instruction is used to assign a name to a component. It corresponds to a call to the `setName:forComponent:` method of `LMPickerView`. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+Finally, the `componentName` processing instruction assigns a name to a component. It corresponds to a call to the `setName:forComponent:` method. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
     <LMPickerView>
         <?componentName sizes?>
@@ -723,7 +724,7 @@ For example, the following markup declares a page view containing three pages. P
         <UILabel text="Page 3" textAlignment="center"/>
     </LMPageView>
 
-Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view. MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
+Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view to reflect the current page number. MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
 
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.currentPage
@@ -736,13 +737,13 @@ See _LMPageView.h_ for more information.
 ## LMLayoutView
 Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
 
-Auto layout in iOS (as well as Mac OS X) is implemented primarily via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be fairly cumbersome to work with. MarkupKit provides several classes that simplify the process of adding auto layout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
+Auto layout in iOS is implemented primarily via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be cumbersome to work with. MarkupKit provides several classes that simplify the process of adding auto layout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
 
 * `LMRowView` - view that arranges subviews in a horizontal line
 * `LMColumnView` - view that arranges subviews in a vertical line
 * `LMLayerView` - view that arranges subviews in layers, like a stack of transparencies
 
-These classes use layout constraints internally, but hide the details from the developer. When used in markup, they can help the developer more easily visualize the resulting output. However, they can also be created and manipulated programmatically to provide dynamic layout behavior.
+These classes use layout constraints internally, but hide the details from the developer. When used in markup, they can help the developer more easily visualize the resulting output. They can also be created and manipulated programmatically to provide dynamic layout behavior.
 
 All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
     
