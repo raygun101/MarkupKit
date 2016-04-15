@@ -30,16 +30,14 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
 This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
-For example, `LMColumnView`, a MarkupKit-provided view type that automatically arranges its subviews in a vertical line, overrides this method to call `addArrangedSubview:` on itself. The following markup declares an instance of `LMColumnView` containing a `UIImage` and a `UILabel`:
+For example, `LMColumnView`, a MarkupKit-provided view type that automatically arranges its subviews in a vertical line, overrides this method to call `addArrangedSubview:` on itself. The following markup declares an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. As the markup is processed, the image view and the label will be instantiated and added to the column view via `appendMarkupElementView:`:
 
 	<LMColumnView>
-		<UIImage image="world.png"/>
+		<UIImageView image="world.png"/>
 		<UILabel text="Hello, World!"/>
 	</LMColumnView>
 
-As the markup is processed, the image view and the label will be instantiated and added to the column view via the `appendMarkupElementView:` method.
-
-Elements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method rather than via subviews. In MarkupKit, this is represented as follows:
+Elements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method. In MarkupKit, this is represented as follows:
 
     <UISegmentedControl>
         <segment title="Small"/>
@@ -61,7 +59,7 @@ Attributes in a MarkupKit document typically represent properties of or actions 
 
     <UIButton style="systemButton" normalTitle="Press Me!"/>
 
-Property values are set using key-value coding (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as enumerations, colors, fonts, and images, are handled specifically by MarkupKit and are discussed in more detail below.
+Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as enumerations, colors, fonts, and images, are handled specifically by MarkupKit and are discussed in more detail below.
 
 Internally, MarkupKit calls `setValue:forKeyPath:` to apply property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
 
@@ -78,7 +76,7 @@ A few attributes have special meaning in MarkupKit and do not represent either p
 ### Colors
 The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit are represented by a hexadecimal RGB[A] value preceded by a hash symbol.
 
-For example, the following markup creates a label whose text color is set to `#ff0000`, or red:
+For example, the following markup creates a label whose text color is set to "#ff0000", or bright red:
 
     <UILabel text="A Red Label" textColor="#ff0000"/>
 
@@ -112,7 +110,7 @@ Enumerated types are not automatically handled by KVC. However, MarkupKit provid
 
 Enumeration values in MarkupKit are abbreviated versions of their UIKit counterparts. The attribute value is simply the full name of the enum value minus the leading type name, with a lowercase first character. For example, "whileEditing" in the above example corresponds to the `UITextFieldViewModeWhileEditing` value of the `UITextFieldViewMode` enum. Similarly, "emailAddress" corresponds to the `UIKeyboardTypeEmailAddress` value of the `UIKeyboardType` enum. 
 
-Note that attribute values are converted to enum types based solely on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing", not the `UITextFieldViewModeWhileEditing` enum value:
+Note that attribute values are converted to enum types based solely on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
 
     <UILabel text="whileEditing"/>
 
@@ -202,7 +200,7 @@ The property values must be specified in either _MyStyles.plist_ or _MyStyles.js
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
     <dict>
-    	<key>label.hello</key>
+    	<key>greeting</key>
     	<dict>
     		<key>font</key>
     		<string>Helvetica 24</string>
@@ -215,7 +213,7 @@ The property values must be specified in either _MyStyles.plist_ or _MyStyles.js
 or:
 
     {
-        "label.hello: {
+        "greeting": {
             "font": "Helvetica 24", 
             "textAlignment": "center"
         }
@@ -224,7 +222,7 @@ or:
 Inline templates simply embed a template definition within the markup document itself. They are only visible to the enclosing document:
 
     <?properties {
-        "label.hello: {
+        "greeting": {
             "font": "Helvetica 24", 
             "textAlignment": "center"
         }
@@ -235,9 +233,9 @@ Templates are applied to view instances using the reserved "class" attribute. Th
 
 For example, given any of the preceding template definitions, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally centered text:
 
-    <UILabel class="label.hello" text="Hello, World!"/>
+    <UILabel class="greeting" text="Hello, World!"/>
 
-Multiple templates can be applied to a view using a comma-separated list of class values; for example:
+Multiple templates can be applied to a view using a comma-separated list of template names; for example:
 
     <UILabel class="bold, red" text="Bold Red Label"/>
 
@@ -264,7 +262,7 @@ or in Swift, like this:
 
     var textField: UITextField!
 
-In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is also supported by MarkupKit, but is not required.
+In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is supported by MarkupKit, but is not required.
 
 #### String and Property Template Injection
 If the document's owner defines a property named `strings`, this property will be automatically populated with the final collection of localized string values, represented by an instance of `NSDictionary`. Similarly, if the owner defines a property named `properties`, this property will be populated with the final collection of property template values, also an instance of `NSDictionary`. This allows the owner to access the final set of string and property values as seen by the document.
