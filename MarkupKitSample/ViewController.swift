@@ -32,7 +32,7 @@ class ViewController: UITableViewController {
 
     // View initialization
     override func loadView() {
-        view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
 
         tableView.dataSource = self
         tableView.delegate = self
