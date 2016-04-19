@@ -17,7 +17,7 @@ import MarkupKit
 
 class LinearGradientViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("LinearGradientView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("LinearGradientViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

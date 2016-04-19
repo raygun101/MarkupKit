@@ -17,7 +17,7 @@ import MarkupKit
 
 class FormViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("FormView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("FormViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

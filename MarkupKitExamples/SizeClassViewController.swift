@@ -17,7 +17,7 @@ import MarkupKit
 
 class SizeClassViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("SizeClassView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("SizeClassViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

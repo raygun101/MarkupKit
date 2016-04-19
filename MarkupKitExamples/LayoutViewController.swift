@@ -17,7 +17,7 @@ import MarkupKit
 
 class LayoutViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("LayoutView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("LayoutViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

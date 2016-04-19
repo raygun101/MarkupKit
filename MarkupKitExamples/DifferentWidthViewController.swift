@@ -17,7 +17,7 @@ import MarkupKit
 
 class DifferentWidthViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("DifferentWidthView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("DifferentWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

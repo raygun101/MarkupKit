@@ -17,7 +17,7 @@ import MarkupKit
 
 class ColorPickerViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ColorPickerView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ColorPickerViewController", owner: self, root: nil)
     }
 
     override func viewWillAppear(animated: Bool) {

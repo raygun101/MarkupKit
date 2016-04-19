@@ -22,7 +22,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     @IBOutlet var label: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("CustomComponentView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("CustomComponentViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

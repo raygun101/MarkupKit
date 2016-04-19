@@ -17,7 +17,7 @@ import MarkupKit
 
 class ViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("View", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

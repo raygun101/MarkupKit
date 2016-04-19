@@ -20,7 +20,7 @@ class ComplexWidthViewController: UIViewController {
     @IBOutlet var redView: UIView!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ComplexWidthView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ComplexWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

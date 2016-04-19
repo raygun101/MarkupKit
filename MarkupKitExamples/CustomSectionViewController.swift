@@ -20,7 +20,7 @@ class CustomSectionViewController: UITableViewController {
     static let CellIdentifier = "cell"
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("CustomSectionView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("CustomSectionViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

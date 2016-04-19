@@ -17,7 +17,7 @@ import MarkupKit
 
 class PeriodicTableViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PeriodicTableView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("PeriodicTableViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

@@ -17,7 +17,7 @@ import MarkupKit
 
 class EqualWidthViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("EqualWidthView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("EqualWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
