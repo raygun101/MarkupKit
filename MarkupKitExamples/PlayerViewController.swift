@@ -22,7 +22,7 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     @IBOutlet var playButton: UIButton!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PlayerView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("PlayerViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

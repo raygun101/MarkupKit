@@ -21,7 +21,7 @@ class RadioButtonViewController: UITableViewController {
     }
 
     func loadViewFromMarkup() -> UIView? {
-        return LMViewBuilder.viewWithName("RadioButtonView", owner: self, root: nil)
+        return LMViewBuilder.viewWithName("RadioButtonViewController", owner: self, root: nil)
     }
 
     func loadViewProgrammatically() -> UIView? {

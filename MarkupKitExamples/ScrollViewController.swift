@@ -20,7 +20,7 @@ class ScrollViewController: UIViewController {
     @IBOutlet var label2: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ScrollView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ScrollViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

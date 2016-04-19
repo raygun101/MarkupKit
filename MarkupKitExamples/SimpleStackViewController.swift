@@ -17,7 +17,7 @@ import MarkupKit
 
 class SimpleStackViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("SimpleStackView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("SimpleStackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

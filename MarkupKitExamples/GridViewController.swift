@@ -17,7 +17,7 @@ import MarkupKit
 
 class GridViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("GridView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("GridViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

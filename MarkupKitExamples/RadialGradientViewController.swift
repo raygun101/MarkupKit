@@ -17,7 +17,7 @@ import MarkupKit
 
 class RadialGradientViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("RadialGradientView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("RadialGradientViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

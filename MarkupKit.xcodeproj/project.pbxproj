@@ -13,7 +13,7 @@
 		372418EC1ADF34600067CDF0 /* MainViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E51ADF34600067CDF0 /* MainViewController.xml */; };
 		372418EF1ADF34600067CDF0 /* Styles1.plist in Resources */ = {isa = PBXBuildFile; fileRef = 372418E81ADF34600067CDF0 /* Styles1.plist */; };
 		373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */; };
-		373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */; };
+		373BEC861C3EC03B006EF8B4 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */; };
 		374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C036A1CB978A600339BB6 /* AppDelegate.swift */; };
 		374C036D1CB978A600339BB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C036C1CB978A600339BB6 /* ViewController.swift */; };
 		374C03721CB978A600339BB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374C03711CB978A600339BB6 /* Assets.xcassets */; };
@@ -30,24 +30,24 @@
 		3754E04A1CB9526F00E8C32D /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
 		3754E04B1CB9526F00E8C32D /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		375BE3E21CB859A100566793 /* Styles2.json in Resources */ = {isa = PBXBuildFile; fileRef = 375BE3E11CB859A100566793 /* Styles2.json */; };
-		375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthView.xml */; };
-		375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthView.xml */; };
-		375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */; };
+		375FCE281C39B7F400B91718 /* EqualWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE271C39B7F400B91718 /* EqualWidthViewController.xml */; };
+		375FCE2A1C39B80100B91718 /* DifferentWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE291C39B80100B91718 /* DifferentWidthViewController.xml */; };
+		375FCE2C1C39B80900B91718 /* ComplexWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 375FCE2B1C39B80900B91718 /* ComplexWidthViewController.xml */; };
 		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
 		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
-		377294FC1C35732E00A19C58 /* FormView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormView.xml */; };
+		377294FC1C35732E00A19C58 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormViewController.xml */; };
 		3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3778C79B1CAD6AC9008A012A /* Localizable.strings */; };
 		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
 		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
-		3779F98F1C652EB90070A29C /* PlayerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerView.xml */; };
+		3779F98F1C652EB90070A29C /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerViewController.xml */; };
 		3779F9911C652EC70070A29C /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9901C652EC70070A29C /* sample.mp4 */; };
 		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
-		3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */; };
+		3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
-		3781C9071C399CC500F324A4 /* NestedStackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackView.xml */; };
+		3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackViewController.xml */; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
 		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
@@ -115,12 +115,12 @@
 		379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37A9FC211C108D2200A09102 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */; };
 		37A9FC231C108D5D00A09102 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */; };
-		37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC241C108D6B00A09102 /* LinearGradientView.xml */; };
-		37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientView.xml */; };
+		37A9FC251C108D6B00A09102 /* LinearGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC241C108D6B00A09102 /* LinearGradientViewController.xml */; };
+		37A9FC271C108D7A00A09102 /* RadialGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC261C108D7900A09102 /* RadialGradientViewController.xml */; };
 		37A9FC2D1C10DF1200A09102 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A9FC2C1C10DF1200A09102 /* PageViewController.swift */; };
-		37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC2E1C10DF2200A09102 /* PageView.xml */; };
+		37A9FC2F1C10DF2200A09102 /* PageViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37A9FC2E1C10DF2200A09102 /* PageViewController.xml */; };
 		37AB34D41C0E0D0C00906A5A /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */; };
-		37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */; };
+		37AB34D61C0E0D1B00906A5A /* CustomComponentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37AB34D51C0E0D1B00906A5A /* CustomComponentViewController.xml */; };
 		37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC28291C08B49C00BC8C87 /* AppDelegate.swift */; };
 		37AC282C1C08B49C00BC8C87 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37AC282B1C08B49C00BC8C87 /* ViewController.swift */; };
 		37AC28311C08B49C00BC8C87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37AC28301C08B49C00BC8C87 /* Assets.xcassets */; };
@@ -139,26 +139,26 @@
 		37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B0708E1ADEBEB000A92FCF /* Images.xcassets */; };
 		37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
-		37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */; };
-		37C806C11BEE37D000196FD6 /* GridView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridView.xml */; };
+		37BB39B11BF8C7A200AD4D98 /* CustomSectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionViewController.xml */; };
+		37C806C11BEE37D000196FD6 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridViewController.xml */; };
 		37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C806BD1BEE37D000196FD6 /* GridViewController.swift */; };
 		37C806C31BEE37D000196FD6 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BE1BEE37D000196FD6 /* sample.txt */; };
-		37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BF1BEE37D000196FD6 /* ScrollView.xml */; };
+		37C806C41BEE37D000196FD6 /* ScrollViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BF1BEE37D000196FD6 /* ScrollViewController.xml */; };
 		37C806C51BEE37D000196FD6 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C806C01BEE37D000196FD6 /* ScrollViewController.swift */; };
 		37D0723D1C26E7C2006BFA76 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */; };
-		37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */; };
-		37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */; };
-		37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */; };
+		37D0723F1C26E7CB006BFA76 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D0723E1C26E7CB006BFA76 /* SizeClassViewController.xml */; };
+		37D072411C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072401C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml */; };
+		37D072431C26E7D4006BFA76 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37D072421C26E7D4006BFA76 /* SizeClassViewController~vertical.xml */; };
 		37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC51BB1DDCE008E36FD /* chevy.png */; };
 		37D36AC91BB1DDCE008E36FD /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC61BB1DDCE008E36FD /* mini.png */; };
 		37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC71BB1DDCE008E36FD /* vw.png */; };
 		37EA37C61BAED53D00C92E2D /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */; };
-		37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37C71BAED55B00C92E2D /* LayoutView.xml */; };
+		37EA37C81BAED55B00C92E2D /* LayoutViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37C71BAED55B00C92E2D /* LayoutViewController.xml */; };
 		37EA37CA1BAED77D00C92E2D /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EA37C91BAED77D00C92E2D /* StackViewController.swift */; };
-		37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37CB1BAED79100C92E2D /* StackView.xml */; };
+		37EA37CC1BAED79100C92E2D /* StackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37EA37CB1BAED79100C92E2D /* StackViewController.xml */; };
 		3B09976C1B21DBAD001BF85C /* MainViewController.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3B09976B1B21DBAD001BF85C /* MainViewController.strings */; };
 		3B6FC6A21BD67C4600209282 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A11BD67C4600209282 /* EffectViewController.swift */; };
-		3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A31BD67C5100209282 /* EffectView.xml */; };
+		3B6FC6A41BD67C5100209282 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3B6FC6A31BD67C5100209282 /* EffectViewController.xml */; };
 		3B7CBB061BD7D19500A9B471 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */; };
 		3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B8251AD1B7A21D00032DAD7 /* Styles.plist */; };
 		3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B88C8DA1B1E2D3A00C34E8A /* Main.storyboard */; };
@@ -168,18 +168,18 @@
 		3BB70C571B78E9E90086A3F9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3BB70C5B1B78EA270086A3F9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; };
 		3BB70C5C1B78EA270086A3F9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37B070631ADEBE3F00A92FCF /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		3BB70C661B78EC630086A3F9 /* View.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C651B78EC630086A3F9 /* View.xml */; };
+		3BB70C661B78EC630086A3F9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C651B78EC630086A3F9 /* ViewController.xml */; };
 		3BB70C681B78ECEC0086A3F9 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */; };
-		3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */; };
+		3BB70C6A1B78ECFB0086A3F9 /* RadioButtonViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C691B78ECFB0086A3F9 /* RadioButtonViewController.xml */; };
 		3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */; };
-		3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */; };
+		3BB70C6E1B78EFAC0086A3F9 /* CheckboxViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BB70C6D1B78EFAC0086A3F9 /* CheckboxViewController.xml */; };
 		3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE776171B7A7354006AA761 /* CustomCellViewController.swift */; };
 		3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3BE776191B7A73DD006AA761 /* pharmacies.json */; };
 		3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */; };
 		3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */; };
 		3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BE7761F1B7A7A8E006AA761 /* Images.xcassets */; };
 		3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */; };
-		3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */; };
+		3BF7ECC91B793C5B00A162B4 /* ColorPickerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3BF7ECC81B793C5B00A162B4 /* ColorPickerViewController.xml */; };
 		3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3BFF6E061B307F4F00FE62DD /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
@@ -288,7 +288,7 @@
 		372418E51ADF34600067CDF0 /* MainViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MainViewController.xml; sourceTree = "<group>"; };
 		372418E81ADF34600067CDF0 /* Styles1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Styles1.plist; sourceTree = "<group>"; };
 		373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
-		373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PeriodicTableView.xml; sourceTree = "<group>"; };
+		373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PeriodicTableViewController.xml; sourceTree = "<group>"; };
 		3742F0021B34D27B00B31987 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
 		3742F0031B34D27B00B31987 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayoutView.m; sourceTree = "<group>"; };
 		3742F0061B34D28500B31987 /* LMBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBoxView.h; sourceTree = "<group>"; };
@@ -325,30 +325,30 @@
 		3757B7D81ADEC1550002E16C /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3757B7D91ADEC1550002E16C /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
 		375BE3E11CB859A100566793 /* Styles2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles2.json; sourceTree = "<group>"; };
-		375FCE271C39B7F400B91718 /* EqualWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthView.xml; sourceTree = "<group>"; };
-		375FCE291C39B80100B91718 /* DifferentWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthView.xml; sourceTree = "<group>"; };
-		375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthView.xml; sourceTree = "<group>"; };
+		375FCE271C39B7F400B91718 /* EqualWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthViewController.xml; sourceTree = "<group>"; };
+		375FCE291C39B80100B91718 /* DifferentWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthViewController.xml; sourceTree = "<group>"; };
+		375FCE2B1C39B80900B91718 /* ComplexWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthViewController.xml; sourceTree = "<group>"; };
 		375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidthViewController.swift; sourceTree = "<group>"; };
 		375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentWidthViewController.swift; sourceTree = "<group>"; };
 		375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
 		37604CBF1C65146C00046146 /* LMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewCell.h; sourceTree = "<group>"; };
 		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		377294FB1C35732E00A19C58 /* FormView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormView.xml; sourceTree = "<group>"; };
+		377294FB1C35732E00A19C58 /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormViewController.xml; sourceTree = "<group>"; };
 		3778C79A1CAD6AC9008A012A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3779F9841C6520A20070A29C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3779F9861C6520B70070A29C /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
 		3779F9881C652E530070A29C /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPlayerView.h; sourceTree = "<group>"; };
 		3779F9891C652E530070A29C /* LMPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPlayerView.m; sourceTree = "<group>"; };
 		3779F98C1C652EB30070A29C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		3779F98E1C652EB90070A29C /* PlayerView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerView.xml; sourceTree = "<group>"; };
+		3779F98E1C652EB90070A29C /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerViewController.xml; sourceTree = "<group>"; };
 		3779F9901C652EC70070A29C /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
-		3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackView.xml; sourceTree = "<group>"; };
+		3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
-		3781C9061C399CC500F324A4 /* NestedStackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackView.xml; sourceTree = "<group>"; };
+		3781C9061C399CC500F324A4 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
@@ -361,14 +361,14 @@
 		37A9FC1D1C10838C00A09102 /* LMRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRadialGradientView.m; sourceTree = "<group>"; };
 		37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientViewController.swift; sourceTree = "<group>"; };
 		37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientViewController.swift; sourceTree = "<group>"; };
-		37A9FC241C108D6B00A09102 /* LinearGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LinearGradientView.xml; sourceTree = "<group>"; };
-		37A9FC261C108D7900A09102 /* RadialGradientView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientView.xml; sourceTree = "<group>"; };
+		37A9FC241C108D6B00A09102 /* LinearGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LinearGradientViewController.xml; sourceTree = "<group>"; };
+		37A9FC261C108D7900A09102 /* RadialGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientViewController.xml; sourceTree = "<group>"; };
 		37A9FC281C10C81300A09102 /* LMPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPageView.h; sourceTree = "<group>"; };
 		37A9FC291C10C81300A09102 /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPageView.m; sourceTree = "<group>"; };
 		37A9FC2C1C10DF1200A09102 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		37A9FC2E1C10DF2200A09102 /* PageView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageView.xml; sourceTree = "<group>"; };
+		37A9FC2E1C10DF2200A09102 /* PageViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageViewController.xml; sourceTree = "<group>"; };
 		37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
-		37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentView.xml; sourceTree = "<group>"; };
+		37AB34D51C0E0D1B00906A5A /* CustomComponentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentViewController.xml; sourceTree = "<group>"; };
 		37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37AC28291C08B49C00BC8C87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37AC282B1C08B49C00BC8C87 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -394,25 +394,25 @@
 		37B259801C132A9400C4DA90 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Markup.h"; sourceTree = "<group>"; };
 		37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
-		37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionView.xml; sourceTree = "<group>"; };
-		37C806BC1BEE37D000196FD6 /* GridView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridView.xml; sourceTree = "<group>"; };
+		37BB39B01BF8C7A200AD4D98 /* CustomSectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionViewController.xml; sourceTree = "<group>"; };
+		37C806BC1BEE37D000196FD6 /* GridViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridViewController.xml; sourceTree = "<group>"; };
 		37C806BD1BEE37D000196FD6 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		37C806BE1BEE37D000196FD6 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
-		37C806BF1BEE37D000196FD6 /* ScrollView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollView.xml; sourceTree = "<group>"; };
+		37C806BF1BEE37D000196FD6 /* ScrollViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollViewController.xml; sourceTree = "<group>"; };
 		37C806C01BEE37D000196FD6 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 		37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassViewController.swift; sourceTree = "<group>"; };
-		37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassView.xml; sourceTree = "<group>"; };
-		37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassView~horizontal.xml"; sourceTree = "<group>"; };
-		37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassView~vertical.xml"; sourceTree = "<group>"; };
+		37D0723E1C26E7CB006BFA76 /* SizeClassViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassViewController.xml; sourceTree = "<group>"; };
+		37D072401C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~horizontal.xml"; sourceTree = "<group>"; };
+		37D072421C26E7D4006BFA76 /* SizeClassViewController~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~vertical.xml"; sourceTree = "<group>"; };
 		37D36AC51BB1DDCE008E36FD /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
 		37D36AC61BB1DDCE008E36FD /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
 		37D36AC71BB1DDCE008E36FD /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
 		37D947881C19B7BC00D323C4 /* UITextField+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Markup.h"; sourceTree = "<group>"; };
 		37D947891C19B7BC00D323C4 /* UITextField+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Markup.m"; sourceTree = "<group>"; };
 		37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
-		37EA37C71BAED55B00C92E2D /* LayoutView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutView.xml; sourceTree = "<group>"; };
+		37EA37C71BAED55B00C92E2D /* LayoutViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutViewController.xml; sourceTree = "<group>"; };
 		37EA37C91BAED77D00C92E2D /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		37EA37CB1BAED79100C92E2D /* StackView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StackView.xml; sourceTree = "<group>"; };
+		37EA37CB1BAED79100C92E2D /* StackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StackViewController.xml; sourceTree = "<group>"; };
 		37F1B8B71C0BAF3900C9F603 /* UIPickerView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIPickerView+Markup.h"; sourceTree = "<group>"; };
 		37F1B8B81C0BAF3900C9F603 /* UIPickerView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIPickerView+Markup.m"; sourceTree = "<group>"; };
 		3B09976B1B21DBAD001BF85C /* MainViewController.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MainViewController.strings; sourceTree = "<group>"; };
@@ -427,7 +427,7 @@
 		3B5FFE021B309E0D00E8EC39 /* LMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMScrollView.h; sourceTree = "<group>"; };
 		3B5FFE031B309E0D00E8EC39 /* LMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMScrollView.m; sourceTree = "<group>"; };
 		3B6FC6A11BD67C4600209282 /* EffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectViewController.swift; sourceTree = "<group>"; };
-		3B6FC6A31BD67C5100209282 /* EffectView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EffectView.xml; sourceTree = "<group>"; };
+		3B6FC6A31BD67C5100209282 /* EffectViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EffectViewController.xml; sourceTree = "<group>"; };
 		3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Markup.h"; sourceTree = "<group>"; };
 		3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+Markup.m"; sourceTree = "<group>"; };
 		3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
@@ -441,11 +441,11 @@
 		3BB70C371B78E9990086A3F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BB70C381B78E9990086A3F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BB70C3A1B78E9990086A3F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3BB70C651B78EC630086A3F9 /* View.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = View.xml; sourceTree = "<group>"; };
+		3BB70C651B78EC630086A3F9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
-		3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadioButtonView.xml; sourceTree = "<group>"; };
+		3BB70C691B78ECFB0086A3F9 /* RadioButtonViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadioButtonViewController.xml; sourceTree = "<group>"; };
 		3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxViewController.swift; sourceTree = "<group>"; };
-		3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CheckboxView.xml; sourceTree = "<group>"; };
+		3BB70C6D1B78EFAC0086A3F9 /* CheckboxViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CheckboxViewController.xml; sourceTree = "<group>"; };
 		3BBBB72E1B75376F0093F300 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIVisualEffectView+Markup.h"; sourceTree = "<group>"; };
 		3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PharmacyCell.xml; sourceTree = "<group>"; };
 		3BE7761F1B7A7A8E006AA761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorPickerView.xml; sourceTree = "<group>"; };
+		3BF7ECC81B793C5B00A162B4 /* ColorPickerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorPickerViewController.xml; sourceTree = "<group>"; };
 		3BFF6E051B307F4F00FE62DD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -679,60 +679,60 @@
 			children = (
 				3BB70C381B78E9990086A3F9 /* AppDelegate.swift */,
 				3BB70C3A1B78E9990086A3F9 /* ViewController.swift */,
-				3BB70C651B78EC630086A3F9 /* View.xml */,
+				3BB70C651B78EC630086A3F9 /* ViewController.xml */,
 				3BB70C671B78ECEB0086A3F9 /* RadioButtonViewController.swift */,
-				3BB70C691B78ECFB0086A3F9 /* RadioButtonView.xml */,
+				3BB70C691B78ECFB0086A3F9 /* RadioButtonViewController.xml */,
 				3BB70C6B1B78EF840086A3F9 /* CheckboxViewController.swift */,
-				3BB70C6D1B78EFAC0086A3F9 /* CheckboxView.xml */,
+				3BB70C6D1B78EFAC0086A3F9 /* CheckboxViewController.xml */,
 				3B7CBB051BD7D19500A9B471 /* SelectionViewController.swift */,
 				3BF7ECC61B793C4A00A162B4 /* ColorPickerViewController.swift */,
-				3BF7ECC81B793C5B00A162B4 /* ColorPickerView.xml */,
+				3BF7ECC81B793C5B00A162B4 /* ColorPickerViewController.xml */,
 				3BE776171B7A7354006AA761 /* CustomCellViewController.swift */,
 				3BE7761B1B7A73F7006AA761 /* PharmacyCell.swift */,
 				3BE7761D1B7A7405006AA761 /* PharmacyCell.xml */,
 				37EA37C51BAED53D00C92E2D /* LayoutViewController.swift */,
-				37EA37C71BAED55B00C92E2D /* LayoutView.xml */,
+				37EA37C71BAED55B00C92E2D /* LayoutViewController.xml */,
 				37EA37C91BAED77D00C92E2D /* StackViewController.swift */,
-				37EA37CB1BAED79100C92E2D /* StackView.xml */,
+				37EA37CB1BAED79100C92E2D /* StackViewController.xml */,
 				3B6FC6A11BD67C4600209282 /* EffectViewController.swift */,
-				3B6FC6A31BD67C5100209282 /* EffectView.xml */,
+				3B6FC6A31BD67C5100209282 /* EffectViewController.xml */,
 				37C806C01BEE37D000196FD6 /* ScrollViewController.swift */,
-				37C806BF1BEE37D000196FD6 /* ScrollView.xml */,
+				37C806BF1BEE37D000196FD6 /* ScrollViewController.xml */,
 				37C806BD1BEE37D000196FD6 /* GridViewController.swift */,
-				37C806BC1BEE37D000196FD6 /* GridView.xml */,
+				37C806BC1BEE37D000196FD6 /* GridViewController.xml */,
 				37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */,
-				37BB39B01BF8C7A200AD4D98 /* CustomSectionView.xml */,
+				37BB39B01BF8C7A200AD4D98 /* CustomSectionViewController.xml */,
 				37AB34D31C0E0D0C00906A5A /* CustomComponentViewController.swift */,
-				37AB34D51C0E0D1B00906A5A /* CustomComponentView.xml */,
+				37AB34D51C0E0D1B00906A5A /* CustomComponentViewController.xml */,
 				37A9FC201C108D2200A09102 /* LinearGradientViewController.swift */,
-				37A9FC241C108D6B00A09102 /* LinearGradientView.xml */,
+				37A9FC241C108D6B00A09102 /* LinearGradientViewController.xml */,
 				37A9FC221C108D5D00A09102 /* RadialGradientViewController.swift */,
-				37A9FC261C108D7900A09102 /* RadialGradientView.xml */,
+				37A9FC261C108D7900A09102 /* RadialGradientViewController.xml */,
 				37A9FC2C1C10DF1200A09102 /* PageViewController.swift */,
-				37A9FC2E1C10DF2200A09102 /* PageView.xml */,
+				37A9FC2E1C10DF2200A09102 /* PageViewController.xml */,
 				37D0723C1C26E7C2006BFA76 /* SizeClassViewController.swift */,
-				37D0723E1C26E7CB006BFA76 /* SizeClassView.xml */,
-				37D072401C26E7D0006BFA76 /* SizeClassView~horizontal.xml */,
-				37D072421C26E7D4006BFA76 /* SizeClassView~vertical.xml */,
+				37D0723E1C26E7CB006BFA76 /* SizeClassViewController.xml */,
+				37D072401C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml */,
+				37D072421C26E7D4006BFA76 /* SizeClassViewController~vertical.xml */,
 				377294F91C35732A00A19C58 /* FormViewController.swift */,
-				377294FB1C35732E00A19C58 /* FormView.xml */,
+				377294FB1C35732E00A19C58 /* FormViewController.xml */,
 				3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */,
-				3781C8FE1C39959D00F324A4 /* SimpleStackView.xml */,
+				3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */,
 				3781C9041C399CB600F324A4 /* NestedStackViewController.swift */,
-				3781C9061C399CC500F324A4 /* NestedStackView.xml */,
+				3781C9061C399CC500F324A4 /* NestedStackViewController.xml */,
 				375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */,
-				375FCE271C39B7F400B91718 /* EqualWidthView.xml */,
+				375FCE271C39B7F400B91718 /* EqualWidthViewController.xml */,
 				375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */,
-				375FCE291C39B80100B91718 /* DifferentWidthView.xml */,
+				375FCE291C39B80100B91718 /* DifferentWidthViewController.xml */,
 				375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */,
-				375FCE2B1C39B80900B91718 /* ComplexWidthView.xml */,
+				375FCE2B1C39B80900B91718 /* ComplexWidthViewController.xml */,
 				373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */,
-				373BEC851C3EC03B006EF8B4 /* PeriodicTableView.xml */,
+				373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */,
 				37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */,
 				3779F9841C6520A20070A29C /* ColorCell.swift */,
 				3779F9861C6520B70070A29C /* ColorCell.xml */,
 				3779F98C1C652EB30070A29C /* PlayerViewController.swift */,
-				3779F98E1C652EB90070A29C /* PlayerView.xml */,
+				3779F98E1C652EB90070A29C /* PlayerViewController.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -1032,42 +1032,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				3779F9871C6520B70070A29C /* ColorCell.xml in Resources */,
-				37A9FC2F1C10DF2200A09102 /* PageView.xml in Resources */,
-				373BEC861C3EC03B006EF8B4 /* PeriodicTableView.xml in Resources */,
-				3779F98F1C652EB90070A29C /* PlayerView.xml in Resources */,
-				37EA37CC1BAED79100C92E2D /* StackView.xml in Resources */,
-				37D072411C26E7D0006BFA76 /* SizeClassView~horizontal.xml in Resources */,
-				37AB34D61C0E0D1B00906A5A /* CustomComponentView.xml in Resources */,
-				3BF7ECC91B793C5B00A162B4 /* ColorPickerView.xml in Resources */,
-				37C806C11BEE37D000196FD6 /* GridView.xml in Resources */,
-				3781C9071C399CC500F324A4 /* NestedStackView.xml in Resources */,
+				37A9FC2F1C10DF2200A09102 /* PageViewController.xml in Resources */,
+				373BEC861C3EC03B006EF8B4 /* PeriodicTableViewController.xml in Resources */,
+				3779F98F1C652EB90070A29C /* PlayerViewController.xml in Resources */,
+				37EA37CC1BAED79100C92E2D /* StackViewController.xml in Resources */,
+				37D072411C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml in Resources */,
+				37AB34D61C0E0D1B00906A5A /* CustomComponentViewController.xml in Resources */,
+				3BF7ECC91B793C5B00A162B4 /* ColorPickerViewController.xml in Resources */,
+				37C806C11BEE37D000196FD6 /* GridViewController.xml in Resources */,
+				3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */,
 				37C806C31BEE37D000196FD6 /* sample.txt in Resources */,
 				3BE7761A1B7A73DD006AA761 /* pharmacies.json in Resources */,
-				37EA37C81BAED55B00C92E2D /* LayoutView.xml in Resources */,
-				37D072431C26E7D4006BFA76 /* SizeClassView~vertical.xml in Resources */,
+				37EA37C81BAED55B00C92E2D /* LayoutViewController.xml in Resources */,
+				37D072431C26E7D4006BFA76 /* SizeClassViewController~vertical.xml in Resources */,
 				378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */,
-				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonView.xml in Resources */,
-				37C806C41BEE37D000196FD6 /* ScrollView.xml in Resources */,
-				375FCE2A1C39B80100B91718 /* DifferentWidthView.xml in Resources */,
-				3781C8FF1C39959D00F324A4 /* SimpleStackView.xml in Resources */,
+				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonViewController.xml in Resources */,
+				37C806C41BEE37D000196FD6 /* ScrollViewController.xml in Resources */,
+				375FCE2A1C39B80100B91718 /* DifferentWidthViewController.xml in Resources */,
+				3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */,
 				3B8251AE1B7A21D00032DAD7 /* Styles.plist in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
-				37A9FC271C108D7A00A09102 /* RadialGradientView.xml in Resources */,
-				37D0723F1C26E7CB006BFA76 /* SizeClassView.xml in Resources */,
-				375FCE2C1C39B80900B91718 /* ComplexWidthView.xml in Resources */,
-				377294FC1C35732E00A19C58 /* FormView.xml in Resources */,
+				37A9FC271C108D7A00A09102 /* RadialGradientViewController.xml in Resources */,
+				37D0723F1C26E7CB006BFA76 /* SizeClassViewController.xml in Resources */,
+				375FCE2C1C39B80900B91718 /* ComplexWidthViewController.xml in Resources */,
+				377294FC1C35732E00A19C58 /* FormViewController.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
-				3B6FC6A41BD67C5100209282 /* EffectView.xml in Resources */,
-				37BB39B11BF8C7A200AD4D98 /* CustomSectionView.xml in Resources */,
-				375FCE281C39B7F400B91718 /* EqualWidthView.xml in Resources */,
+				3B6FC6A41BD67C5100209282 /* EffectViewController.xml in Resources */,
+				37BB39B11BF8C7A200AD4D98 /* CustomSectionViewController.xml in Resources */,
+				375FCE281C39B7F400B91718 /* EqualWidthViewController.xml in Resources */,
 				3779F9911C652EC70070A29C /* sample.mp4 in Resources */,
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
-				3BB70C6E1B78EFAC0086A3F9 /* CheckboxView.xml in Resources */,
-				37A9FC251C108D6B00A09102 /* LinearGradientView.xml in Resources */,
+				3BB70C6E1B78EFAC0086A3F9 /* CheckboxViewController.xml in Resources */,
+				37A9FC251C108D6B00A09102 /* LinearGradientViewController.xml in Resources */,
 				3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
-				3BB70C661B78EC630086A3F9 /* View.xml in Resources */,
+				3BB70C661B78EC630086A3F9 /* ViewController.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

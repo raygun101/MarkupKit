@@ -17,7 +17,7 @@ import MarkupKit
 
 class StackViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("StackView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("StackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

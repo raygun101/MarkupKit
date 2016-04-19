@@ -20,7 +20,7 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var pageControl: UIPageControl!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PageView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("PageViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

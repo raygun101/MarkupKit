@@ -23,7 +23,7 @@ class NestedStackViewController: UIViewController {
     @IBOutlet var lastNameTextField: UITextField!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("NestedStackView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("NestedStackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
