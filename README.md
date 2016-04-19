@@ -318,14 +318,14 @@ The `name` parameter represents the name of the view to load. It is the file nam
 
 The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
 
-If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the owner's size class; for example, _LoginView~horizontal.xml_. Size classes are named as follows:
+If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the owner's size class; for example, _LoginViewController~horizontal.xml_. Size classes are named as follows:
 
 * Regular width, regular height - "normal"
 * Regular width, compact height - "horizontal"
 * Compact width, regular height - "vertical"
 * Compact width, compact height - "minimal"
 
-If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginView.xml_).
+If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginViewController.xml_).
 
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.
 
