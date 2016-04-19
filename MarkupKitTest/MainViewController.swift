@@ -25,7 +25,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LMViewBuilder.viewWithName("MainView", owner: self, root: view)
+        LMViewBuilder.viewWithName("MainViewController", owner: self, root: view)
 
         print((properties["row.first"] as! [String: AnyObject])["backgroundColor"]!)
         print(strings["text"]!)

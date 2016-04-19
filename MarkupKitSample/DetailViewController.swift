@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
 
     // View initialization
     override func loadView() {
-        view = LMViewBuilder.viewWithName("DetailView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("DetailViewController", owner: self, root: nil)
     }
 
     override func viewWillLayoutSubviews() {
