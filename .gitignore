@@ -1,5 +1,6 @@
 **/.DS_Store
+build/
 MarkupKit.xcodeproj/xcuserdata/
 MarkupKit.xcodeproj/project.xcworkspace/xcuserdata/
 MarkupKit.framework.tar.gz
-build/
+XcodeTemplates.tar.gz
