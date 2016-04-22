@@ -74,6 +74,10 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(CollectionViewController(), animated: true)
         } else if (value == "playerView") {
             navigationController!.pushViewController(PlayerViewController(), animated: true)
+        } else if (value == "webView") {
+            navigationController!.pushViewController(WebViewController(), animated: true)
+        } else if (value == "mapView") {
+            navigationController!.pushViewController(MapViewController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
