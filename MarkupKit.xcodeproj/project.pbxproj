@@ -44,6 +44,10 @@
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
 		3779F98F1C652EB90070A29C /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerViewController.xml */; };
 		3779F9911C652EC70070A29C /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9901C652EC70070A29C /* sample.mp4 */; };
+		37804AA11CCA5DA000CC17E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */; };
+		37804AA21CCA5DA000CC17E4 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37804AA01CCA5DA000CC17E4 /* WebViewController.xml */; };
+		37804AA51CCA5DB000CC17E4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804AA31CCA5DB000CC17E4 /* MapViewController.swift */; };
+		37804AA61CCA5DB000CC17E4 /* MapViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37804AA41CCA5DB000CC17E4 /* MapViewController.xml */; };
 		3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */; };
 		3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
@@ -345,6 +349,10 @@
 		3779F9901C652EC70070A29C /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
+		37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		37804AA01CCA5DA000CC17E4 /* WebViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WebViewController.xml; sourceTree = "<group>"; };
+		37804AA31CCA5DB000CC17E4 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		37804AA41CCA5DB000CC17E4 /* MapViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MapViewController.xml; sourceTree = "<group>"; };
 		3781C8FC1C39950100F324A4 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
 		3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
@@ -733,6 +741,10 @@
 				3779F9861C6520B70070A29C /* ColorCell.xml */,
 				3779F98C1C652EB30070A29C /* PlayerViewController.swift */,
 				3779F98E1C652EB90070A29C /* PlayerViewController.xml */,
+				37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */,
+				37804AA01CCA5DA000CC17E4 /* WebViewController.xml */,
+				37804AA31CCA5DB000CC17E4 /* MapViewController.swift */,
+				37804AA41CCA5DB000CC17E4 /* MapViewController.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -1038,6 +1050,7 @@
 				37EA37CC1BAED79100C92E2D /* StackViewController.xml in Resources */,
 				37D072411C26E7D0006BFA76 /* SizeClassViewController~horizontal.xml in Resources */,
 				37AB34D61C0E0D1B00906A5A /* CustomComponentViewController.xml in Resources */,
+				37804AA21CCA5DA000CC17E4 /* WebViewController.xml in Resources */,
 				3BF7ECC91B793C5B00A162B4 /* ColorPickerViewController.xml in Resources */,
 				37C806C11BEE37D000196FD6 /* GridViewController.xml in Resources */,
 				3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */,
@@ -1058,6 +1071,7 @@
 				377294FC1C35732E00A19C58 /* FormViewController.xml in Resources */,
 				3BE776201B7A7A8E006AA761 /* Images.xcassets in Resources */,
 				37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */,
+				37804AA61CCA5DB000CC17E4 /* MapViewController.xml in Resources */,
 				3B6FC6A41BD67C5100209282 /* EffectViewController.xml in Resources */,
 				37BB39B11BF8C7A200AD4D98 /* CustomSectionViewController.xml in Resources */,
 				375FCE281C39B7F400B91718 /* EqualWidthViewController.xml in Resources */,
@@ -1154,6 +1168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37804AA51CCA5DB000CC17E4 /* MapViewController.swift in Sources */,
 				3BB70C391B78E9990086A3F9 /* AppDelegate.swift in Sources */,
 				3781C8FD1C39950100F324A4 /* SimpleStackViewController.swift in Sources */,
 				3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */,
@@ -1167,6 +1182,7 @@
 				3BB70C6C1B78EF840086A3F9 /* CheckboxViewController.swift in Sources */,
 				375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
+				37804AA11CCA5DA000CC17E4 /* WebViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,
 				377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */,
 				3BE7761C1B7A73F7006AA761 /* PharmacyCell.swift in Sources */,
