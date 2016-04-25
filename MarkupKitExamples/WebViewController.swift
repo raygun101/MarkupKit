@@ -13,9 +13,13 @@
 //
 
 import UIKit
+import WebKit
 import MarkupKit
 
 class WebViewController: UIViewController {
+    @IBOutlet var webView: WKWebView!
+    @IBOutlet var urlTextField: UITextField!
+    
     override func loadView() {
         view = LMViewBuilder.viewWithName("WebViewController", owner: self, root: nil)
     }
@@ -26,5 +30,44 @@ class WebViewController: UIViewController {
         title = "Web View"
 
         edgesForExtendedLayout = UIRectEdge.None
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
+        
+        defaultNotificationCenter.addObserver(self,
+            selector: #selector(WebViewController.keyboardWillShow(_:)),
+            name: UIKeyboardWillShowNotification,
+            object: nil)
+
+        defaultNotificationCenter.addObserver(self,
+            selector: #selector(WebViewController.keyboardWillHide(_:)),
+            name: UIKeyboardWillHideNotification,
+            object: nil)
+        
+        urlTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
+        
+        defaultNotificationCenter.removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        (view as! LMColumnView).bottomSpacing = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]!.CGRectValue().size.height
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        (view as! LMColumnView).bottomSpacing = 0
+    }
+    
+    @IBAction func loadURL() {
+        webView.loadRequest(NSURLRequest(URL: NSURL(string: urlTextField.text!)!))
     }
 }

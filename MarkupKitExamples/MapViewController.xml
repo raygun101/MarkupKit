@@ -14,8 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView backgroundColor="#ffffff">
-    <!-- 
-    TODO: Declare view content 
-    -->
+<LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+    <LMColumnView layoutMargins="16">
+        <MKMapView id="mapView" weight="1" layer.borderWidth="0.5" layer.borderColor="#c0c0c0"/>
+        
+        <LMRowView>
+            <UITextField id="latitudeTextField" weight="1" placeholder="Latitude" borderStyle="roundedRect"
+                autocorrectionType="no" autocapitalizationType="none"
+                keyboardType="numberPad"/>
+            <UITextField id="longitudeTextField" weight="1" placeholder="Longitude" borderStyle="roundedRect"
+                autocorrectionType="no" autocapitalizationType="none"
+                keyboardType="numberPad"/>
+        </LMRowView>
+        
+        <UIButton style="systemButton" normalTitle="Go" onTouchUpInside="showLocation"/>
+    </LMColumnView>
 </LMColumnView>
