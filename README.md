@@ -1,5 +1,5 @@
 # Overview
-MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or interactively using a visual modeling tool such as Interface Builder.
+MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than programmatically in code or visually using an interactive design tool such as Interface Builder.
 
 Building an interface in markup makes it easy to visualize the resulting output as well as recognize differences between revisions. It is also a metaphor that many developers are comfortable with, thanks to the ubiquity of HTML and the World Wide Web. 
 
@@ -19,7 +19,7 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 For examples and additional information, including a guide to getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). For questions and general feedback, please visit the [discussion forum](https://disqus.com/home/channel/markupkit/).
 
 # Document Structure
-MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of a UIKit application, making it easy to understand the relationships between views. 
+MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
 
 ## Elements
 Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. 
