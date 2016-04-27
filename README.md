@@ -776,7 +776,9 @@ The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or v
 
 This property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
 
-Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position.
+Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position. 
+
+Spacer views can be used to align subviews within a row or column as needed. Some examples are provided later.
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
