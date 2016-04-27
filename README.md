@@ -733,13 +733,13 @@ Layer views are discussed in more detail later.
 See _LMPageView.h_ for more information.
 
 ## LMLayoutView
-Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
+Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded view positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
 
-Auto layout in iOS is implemented primarily via layout constraints, which are instances of the `NSLayoutConstraint` class. While layout constraints are powerful, they can be cumbersome to work with. MarkupKit provides several classes that simplify the process of adding auto layout to an iOS application. They encode specific layout behaviors in `UIView` subclasses whose sole responsibility is managing the arrangement of an application's user interface elements: 
+Auto layout in iOS is implemented primarily via layout constraints, which, while powerful, are not particularly convenient to work with. To simplify the process of adding auto layout to an iOS application, MarkupKit provides the following view classes whose sole responsibility is managing the size and position of their respective subviews:
 
-* `LMRowView` - view that arranges subviews in a horizontal line
-* `LMColumnView` - view that arranges subviews in a vertical line
-* `LMLayerView` - view that arranges subviews in layers, like a stack of transparencies
+* `LMRowView` - arranges subviews in a horizontal line
+* `LMColumnView` - arranges subviews in a vertical line
+* `LMLayerView` - arranges subviews in layers, like a stack of transparencies
 
 These classes use layout constraints internally, but hide the details from the developer. When used in markup, they can help the developer more easily visualize the resulting output. They can also be created and manipulated programmatically to provide dynamic layout behavior.
 
@@ -776,7 +776,7 @@ This property represents the amount of spacing between successive subviews. For 
 
 Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position. 
 
-Spacer views can be used to align subviews within a row or column as needed. Some examples are provided later.
+Spacer views can be used to align subviews within a row or column as needed. Some examples are provided below.
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
@@ -859,11 +859,11 @@ Bottom spacing can be set similarly using the controller's bottom layout guide.
 See _LMColumnView.h_ for more information.
 
 ### View Weights
-MarkupKit adds the following property to the UIView class that is used by both `LMRowView` and `LMColumnView`:
+MarkupKit adds the following property to the `UIView` class that is used by both `LMRowView` and `LMColumnView`:
 
     @property (nonatomic) CGFloat weight;
 
-A view's weight specifies the amount of excess space the view would like to be given within its superview (once the sizes of all unweighted views have been determined) and is relative to all other weights specified within the superview. For row views, weight applies to the excess horizontal space, and for column views to the excess vertical space.
+This value specifies the amount of excess space the view would like to be given within its superview (once the sizes of all unweighted views have been determined) and is relative to all other weights specified within the superview. For row views, weight applies to the excess horizontal space, and for column views to the excess vertical space.
 
 For example, since it has a weight of "1", the label in the following example will be given the entire vertical space of the column view:
 
