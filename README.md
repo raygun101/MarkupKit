@@ -933,7 +933,7 @@ Like layout views, spacer views do not consume touch events, so they will not in
 See _LMSpacerView.h_ for more information.
  
 ## LMLayerView
-The `LMLayerView` class is arguably the simplest layout view. It simply arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view. 
+`LMLayerView` is arguably the simplest layout view. It just arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view. 
 
 For example, the following markup creates a layer view containing two sub-views. The `UIImageView` instance, since it is declared first, appears beneath the `UILabel` instance, effectively creating a background for the label:
 
