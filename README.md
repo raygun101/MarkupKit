@@ -735,7 +735,7 @@ See _LMPageView.h_ for more information.
 ## LMLayoutView
 Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded view positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
 
-Auto layout in iOS is implemented primarily via layout constraints, which, while powerful, are not particularly convenient to work with. To simplify the process of adding auto layout to an iOS application, MarkupKit provides the following view classes whose sole responsibility is managing the size and position of their respective subviews:
+Auto layout in iOS is implemented primarily via layout constraints, which, while powerful, are not particularly convenient to work with. To simplify the process of adding auto layout to an iOS application, MarkupKit provides the following set of view classes, whose sole responsibility is managing the size and position of their respective subviews:
 
 * `LMRowView` - arranges subviews in a horizontal line
 * `LMColumnView` - arranges subviews in a vertical line
@@ -776,7 +776,7 @@ This property represents the amount of spacing between successive subviews. For 
 
 Subviews are always pinned along the box view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position. 
 
-Spacer views can be used to align subviews within a row or column as needed. Some examples are provided below.
+Spacer views can be used to align subviews within a row or column as needed. This is discussed in more detail later.
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
@@ -841,6 +841,8 @@ For example, the following markup would produce a table containing three rows ar
         </LMRowView>
     </LMColumnView>
 
+The `weight` value ensures that the second label in each row is allocated all of the remaining space within the row after the size of the first label has been determined. Weights are discussed in more detail below.
+
 Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
 
     @property (nonatomic) CGFloat topSpacing;
@@ -859,7 +861,7 @@ Bottom spacing can be set similarly using the controller's bottom layout guide.
 See _LMColumnView.h_ for more information.
 
 ### View Weights
-MarkupKit adds the following property to the `UIView` class that is used by both `LMRowView` and `LMColumnView`:
+Often, a row or column view will be given more space than it needs to accommodate the intrinsic sizes of its subviews. MarkupKit adds the following property to `UIView` that is used to determine how the extra space should be allocated:
 
     @property (nonatomic) CGFloat weight;
 
