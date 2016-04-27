@@ -814,15 +814,15 @@ The `LMColumnView` class arranges its subviews in a vertical line. Subviews are 
         <UILabel text="Three"/>
     </LMColumnView>
 
-The left and right edges of each subview will be pinned to the left and right edges of the row (excluding layout margins), ensuring that all of the labels are the same width.
+The left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width.
 
 `LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like a spreadsheet: 
 
     @property (nonatomic) BOOL alignToGrid;
 
-When this property is set to `true`, the sub-elements of the column view must be `LMRowView` instances containing the cells for each row.
+When this property is set to `true`, non-empty subviews of the column view must be `LMRowView` instances containing the cells for each row. Cells in contiguous rows will be resized to match the width of the widest cell in the column.
 
-For example, the following markup would produce a table containing three rows arranged in two columns:
+For example, the following markup would produce a grid containing three rows arranged in two columns:
 
     <LMColumnView alignToGrid="true">
         <LMRowView>
@@ -841,7 +841,7 @@ For example, the following markup would produce a table containing three rows ar
         </LMRowView>
     </LMColumnView>
 
-The `weight` value ensures that the second label in each row is allocated all of the remaining space within the row after the size of the first label has been determined. Weights are discussed in more detail below.
+The `weight` values ensure that the second label in each row is allocated all of the remaining space within the row after the size of the first label has been determined. Weights are discussed in more detail below.
 
 Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
 
@@ -867,26 +867,26 @@ Often, a row or column view will be given more space than it needs to accommodat
 
 This value specifies the amount of excess space the view would like to be given within its superview (once the sizes of all unweighted views have been determined) and is relative to all other weights specified within the superview. For row views, weight applies to the excess horizontal space, and for column views to the excess vertical space.
 
-For example, since it has a weight of "1", the label in the following example will be given the entire vertical space of the column view:
+For example, since it has a weight of "1", the label in the following example will be assigned the entire vertical space of the column view:
 
     <LMColumnView>
         <UILabel weight="1" text="Hello, World!"/>
     </LMColumnView>
     
-Since weights are relative, the following example will produce identical output:
+Since weights are relative, this example will produce identical output:
 
     <LMColumnView>
         <UILabel weight="100" text="Hello, World!"/>
     </LMColumnView>
 
-In this example, each label will be given 50% of the height of the column view:
+In the following example, each label will be given 50% of the height of the column view:
 
     <LMColumnView>
         <UILabel weight="0.5" text="Hello"/>
         <UILabel weight="0.5" text="World"/>
     </LMColumnView>
     
-Again, since weights are relative, the following markup will produce equally sized labels:
+Again, since weights are relative, this markup will also produce equally sized labels:
 
     <LMColumnView>
         <UILabel weight="1" text="Hello"/>
