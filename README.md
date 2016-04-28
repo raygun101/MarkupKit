@@ -741,7 +741,7 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 * `LMColumnView` - arranges subviews in a vertical line
 * `LMLayerView` - arranges subviews in layers, like a stack of transparencies
 
-These classes use layout constraints internally, but hide the details from the developer. When used in markup, they can help the developer more easily visualize the resulting output. They can also be created and manipulated programmatically to provide dynamic layout behavior.
+These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly.
 
 All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
     
