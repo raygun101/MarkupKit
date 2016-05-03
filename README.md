@@ -564,6 +564,12 @@ Because the initializer passes the cell instance itself as the value of the `roo
 
 The child of the root tag represents the cell's content. It can be any valid view, but is often a layout view that is used to automatically size and position the cell's custom content views. 
 
+`LMTableViewCell` also supports the following processing instructions, which can be used to specify the value of various background views:
+
+* `backgroundView` - sets the cell's background view
+* `selectedBackgroundView` - sets the cell's selected background view
+* `multipleSelectionBackgroundView` - sets the cell's multiple selection background view
+
 See _LMTableViewCell.h_ for more information.
 
 ## LMCollectionViewCell
@@ -583,6 +589,11 @@ As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constrai
             ...
         </LMColumnView>
     <root>
+
+`LMCollectionViewCell` also supports the following processing instructions, which can be used to specify the value of various background views:
+
+* `backgroundView` - sets the cell's background view
+* `selectedBackgroundView` - sets the cell's selected background view
 
 See _LMCollectionViewCell.h_ for more information.
 
@@ -802,6 +813,12 @@ This markup creates a row view containing three labels, all with different font 
     </LMRowView>
     
 Because `alignToBaseline` is set to `true`, the baselines of all three labels will line up.
+
+Further, the baseline to which subviews will be aligned can be controlled by the `baseline` property. The default value is "first", meaning that subviews will be aligned to the first baseline. However, it is also possible to align subviews to the last baseline; for example:
+
+    <LMRowView alignToBaseline="true" baseline="last">
+        ...
+    </LMRowView>
 
 See _LMRowView.h_ for more information.
 
