@@ -14,7 +14,19 @@
 
 #import "LMCollectionViewCell.h"
 
+static NSString * const kBackgroundViewTarget = @"backgroundView";
+static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
+
+typedef enum {
+    kElementDefault,
+    kElementBackgroundView,
+    kElementSelectedBackgroundView
+} __ElementDisposition;
+
 @implementation LMCollectionViewCell
+{
+    __ElementDisposition _elementDisposition;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -22,53 +34,81 @@
 
     if (self) {
         _layoutMarginsRelativeArrangement = YES;
+        _elementDisposition = kElementDefault;
     }
 
     return self;
 }
 
+- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+{
+    if ([target isEqual:kBackgroundViewTarget]) {
+        _elementDisposition = kElementBackgroundView;
+    } else if ([target isEqual:kSelectedBackgroundViewTarget]) {
+        _elementDisposition = kElementSelectedBackgroundView;
+    }
+}
+
 - (void)appendMarkupElementView:(UIView *)view
 {
-    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    switch (_elementDisposition) {
+        case kElementDefault: {
+            [view setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
-    [view setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+            [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+            [view setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
-    UIView *contentView = [self contentView];
+            UIView *contentView = [self contentView];
 
-    [contentView addSubview:view];
+            [contentView addSubview:view];
 
-    // Pin text field to cell edges
-    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
-    if ([self layoutMarginsRelativeArrangement]) {
-        topAttribute = NSLayoutAttributeTopMargin;
-        bottomAttribute = NSLayoutAttributeBottomMargin;
-        leftAttribute = NSLayoutAttributeLeftMargin;
-        rightAttribute = NSLayoutAttributeRightMargin;
-    } else {
-        topAttribute = NSLayoutAttributeTop;
-        bottomAttribute = NSLayoutAttributeBottom;
-        leftAttribute = NSLayoutAttributeLeft;
-        rightAttribute = NSLayoutAttributeRight;
+            // Pin text field to cell edges
+            NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
+            if ([self layoutMarginsRelativeArrangement]) {
+                topAttribute = NSLayoutAttributeTopMargin;
+                bottomAttribute = NSLayoutAttributeBottomMargin;
+                leftAttribute = NSLayoutAttributeLeftMargin;
+                rightAttribute = NSLayoutAttributeRightMargin;
+            } else {
+                topAttribute = NSLayoutAttributeTop;
+                bottomAttribute = NSLayoutAttributeBottom;
+                leftAttribute = NSLayoutAttributeLeft;
+                rightAttribute = NSLayoutAttributeRight;
+            }
+
+            NSMutableArray *constraints = [NSMutableArray new];
+
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:topAttribute
+                multiplier:1 constant:0]];
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:bottomAttribute
+                multiplier:1 constant:0]];
+
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:leftAttribute
+                multiplier:1 constant:0]];
+            [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:rightAttribute
+                multiplier:1 constant:0]];
+
+            [NSLayoutConstraint activateConstraints:constraints];
+
+            break;
+        }
+
+        case kElementBackgroundView: {
+            // TODO
+            break;
+        }
+
+        case kElementSelectedBackgroundView: {
+            // TODO
+            break;
+        }
     }
 
-    NSMutableArray *constraints = [NSMutableArray new];
-
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
-        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:topAttribute
-        multiplier:1 constant:0]];
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
-        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:bottomAttribute
-        multiplier:1 constant:0]];
-
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
-        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:leftAttribute
-        multiplier:1 constant:0]];
-    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
-        relatedBy:NSLayoutRelationEqual toItem:contentView attribute:rightAttribute
-        multiplier:1 constant:0]];
-
-    [NSLayoutConstraint activateConstraints:constraints];
+    _elementDisposition = kElementDefault;
 }
 
 @end
