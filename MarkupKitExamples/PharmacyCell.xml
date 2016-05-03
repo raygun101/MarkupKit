@@ -15,6 +15,9 @@ limitations under the License.
 -->
 
 <root>
+    <?selectedBackgroundView?>
+    <UIView backgroundColor="#e6e6fa"/>
+
     <LMColumnView spacing="4" layoutMarginBottom="8">
         <LMRowView alignToBaseline="true" spacing="4">
             <UILabel id="nameLabel" weight="1" font="System-Bold 16"/>

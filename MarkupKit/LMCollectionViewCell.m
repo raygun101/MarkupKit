@@ -98,12 +98,14 @@ typedef enum {
         }
 
         case kElementBackgroundView: {
-            // TODO
+            [self setBackgroundView:view];
+            
             break;
         }
 
         case kElementSelectedBackgroundView: {
-            // TODO
+            [self setSelectedBackgroundView:view];
+
             break;
         }
     }
