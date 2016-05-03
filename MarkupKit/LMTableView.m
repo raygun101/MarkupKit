@@ -73,11 +73,13 @@ typedef enum {
 #define INIT {\
     _sections = [NSMutableArray new];\
     _elementDisposition = kElementDefault;\
-    [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
-    [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
-    [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
     [super setDataSource:self];\
     [super setDelegate:self];\
+    [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
+    if ([self style] == UITableViewStyleGrouped) {\
+        [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
+        [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
+    }\
     [self insertSection:0];\
 }
 
