@@ -25,6 +25,32 @@
     [self setNeedsUpdateConstraints];
 }
 
+- (void)setBaseline:(LMBaseline)baseline
+{
+    _baseline = baseline;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"baseline"]) {
+        // Translate to baseline
+        LMBaseline baseline;
+        if ([value isEqual:@"first"]) {
+            baseline = LMBaselineFirst;
+        } else if ([value isEqual:@"last"]) {
+            baseline = LMBaselineLast;
+        } else {
+            baseline = [value intValue];
+        }
+
+        value = [NSNumber numberWithInt:baseline];
+    }
+
+    [super setValue:value forKey:key];
+}
+
 - (void)layoutSubviews
 {
     // Ensure that subviews resize according to weight
@@ -99,8 +125,25 @@
                 multiplier:1 constant:spacing]];
 
             if (_alignToBaseline) {
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBaseline
-                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBaseline
+                NSLayoutAttribute baselineAttribute;
+                switch (_baseline) {
+                    case LMBaselineFirst: {
+                        baselineAttribute = NSLayoutAttributeFirstBaseline;
+                        break;
+                    }
+
+                    case LMBaselineLast: {
+                        baselineAttribute = NSLayoutAttributeLastBaseline;
+                        break;
+                    }
+
+                    default: {
+                        [NSException raise:NSInternalInconsistencyException format:@"Unexpected baseline."];
+                    }
+                }
+
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:baselineAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:baselineAttribute
                     multiplier:1 constant:0]];
             }
         }

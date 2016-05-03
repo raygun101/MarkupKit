@@ -26,12 +26,12 @@ limitations under the License.
 
     <LMColumnView alignToGrid="true">
         <LMRowView alignToBaseline="true">
-            <UILabel class="cell" textAlignment="right" text="abc def"/>
+            <UILabel class="cell" textAlignment="right" text="First Baseline"/>
             <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
         </LMRowView>
 
-        <LMRowView alignToBaseline="true">
-            <UILabel class="cell" textAlignment="right" text="ghijkl mno pqr"/>
+        <LMRowView alignToBaseline="true" baseline="last">
+            <UILabel class="cell" textAlignment="right" text="Last Baseline"/>
             <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
         </LMRowView>
     </LMColumnView>
