@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView style="plainTableView" estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
+<LMTableView>
     <UITableViewCell textLabel.text="Radio Buttons" accessoryType="disclosureIndicator" value="radioButtons"/>
     <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
     <UITableViewCell textLabel.text="Selection View" accessoryType="disclosureIndicator" value="selectionView"/>
