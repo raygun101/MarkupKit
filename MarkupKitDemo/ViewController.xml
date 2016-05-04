@@ -22,7 +22,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Button" class="cell.header"/>
 
     <LMTableViewCell selectionStyle="none">
-        <UIButton style="systemButton" normalTitle="Press Me" onTouchUpInside="showGreeting"/>
+        <UIButton style="systemButton" title="Press Me" onTouchUpInside="showGreeting"/>
     </LMTableViewCell>
 
     <?sectionBreak?>

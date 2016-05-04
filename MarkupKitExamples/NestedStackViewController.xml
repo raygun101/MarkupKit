@@ -64,9 +64,9 @@ limitations under the License.
 
         <!-- Button stack -->
         <UIStackView axis="horizontal" alignment="firstBaseline" distribution="fillEqually" spacing="8">
-            <UIButton style="systemButton" normalTitle="Save"/>
-            <UIButton style="systemButton" normalTitle="Cancel"/>
-            <UIButton style="systemButton" normalTitle="Clear"/>
+            <UIButton style="systemButton" title="Save"/>
+            <UIButton style="systemButton" title="Cancel"/>
+            <UIButton style="systemButton" title="Clear"/>
         </UIStackView>
     </UIStackView>
 </LMLayerView>
