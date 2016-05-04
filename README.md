@@ -1119,6 +1119,12 @@ Button content including "title", "title color", "title shadow color", "image", 
     @property (nonatomic, nullable) UIImage *selectedImage;
     @property (nonatomic, nullable) UIImage *selectedBackgroundImage;
 
+    @property (nonatomic, nullable) NSString *focusedTitle;
+    @property (nonatomic, nullable) UIColor *focusedTitleColor;
+    @property (nonatomic, nullable) UIColor *focusedTitleShadowColor;
+    @property (nonatomic, nullable) UIImage *focusedImage;
+    @property (nonatomic, nullable) UIImage *focusedBackgroundImage;
+
 For example, the following markup creates a system button with a normal title of "Press Me!" and a highlighted title of "Let Go!":
 
     <UIButton style="systemButton" normalTitle="Press Me!" highlightedTitle="Let Go!"/>
@@ -1150,12 +1156,6 @@ Similarly, the "image" attribute can be used to specify an image for a segment:
         <segment image="yes.png"/>
         <segment image="no.png"/>
     </UISegmentedControl>
-
-### UISlider
-TODO
-
-### UIStepper
-TODO
 
 ### UITextField
 MarkupKit adds support for the following processing instructions to `UITextField` to allow the text field's associated views to be configured in markup:

@@ -149,6 +149,31 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) UIImage *selectedBackgroundImage;
 
 /**
+ * The button's focused title.
+ */
+@property (nonatomic, nullable) NSString *focusedTitle;
+
+/**
+ * The button's focused title color.
+ */
+@property (nonatomic, nullable) UIColor *focusedTitleColor;
+
+/**
+ * The button's focused title shadow color.
+ */
+@property (nonatomic, nullable) UIColor *focusedTitleShadowColor;
+
+/**
+ * The button's focused image.
+ */
+@property (nonatomic, nullable) UIImage *focusedImage;
+
+/**
+ * The button's focused background image.
+ */
+@property (nonatomic, nullable) UIImage *focusedBackgroundImage;
+
+/**
  * The top content edge inset.
  */
 @property (nonatomic) CGFloat contentEdgeInsetTop;
