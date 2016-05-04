@@ -52,10 +52,6 @@
 		3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
 		3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackViewController.xml */; };
-		378729A01CDA6DE000FDC6A3 /* UISlider+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3787299E1CDA6DE000FDC6A3 /* UISlider+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		378729A11CDA6DE000FDC6A3 /* UISlider+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3787299F1CDA6DE000FDC6A3 /* UISlider+Markup.m */; };
-		378729A41CDA6DF200FDC6A3 /* UIStepper+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 378729A21CDA6DF200FDC6A3 /* UIStepper+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		378729A51CDA6DF200FDC6A3 /* UIStepper+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 378729A31CDA6DF200FDC6A3 /* UIStepper+Markup.m */; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
 		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
@@ -361,10 +357,6 @@
 		3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
 		3781C9061C399CC500F324A4 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
-		3787299E1CDA6DE000FDC6A3 /* UISlider+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+Markup.h"; sourceTree = "<group>"; };
-		3787299F1CDA6DE000FDC6A3 /* UISlider+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+Markup.m"; sourceTree = "<group>"; };
-		378729A21CDA6DF200FDC6A3 /* UIStepper+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStepper+Markup.h"; sourceTree = "<group>"; };
-		378729A31CDA6DF200FDC6A3 /* UIStepper+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStepper+Markup.m"; sourceTree = "<group>"; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
@@ -648,10 +640,6 @@
 				3757B7D51ADEC13A0002E16C /* UIButton+Markup.m */,
 				3B1049661B18949C00D8A278 /* UISegmentedControl+Markup.h */,
 				3B1049671B1894B000D8A278 /* UISegmentedControl+Markup.m */,
-				3787299E1CDA6DE000FDC6A3 /* UISlider+Markup.h */,
-				3787299F1CDA6DE000FDC6A3 /* UISlider+Markup.m */,
-				378729A21CDA6DF200FDC6A3 /* UIStepper+Markup.h */,
-				378729A31CDA6DF200FDC6A3 /* UIStepper+Markup.m */,
 				37D947881C19B7BC00D323C4 /* UITextField+Markup.h */,
 				37D947891C19B7BC00D323C4 /* UITextField+Markup.m */,
 				37F1B8B71C0BAF3900C9F603 /* UIPickerView+Markup.h */,
@@ -783,11 +771,9 @@
 				379C024E1C660A0100DEB95E /* LMLayoutView.h in Headers */,
 				379C024F1C660A0100DEB95E /* LMBoxView.h in Headers */,
 				379C02501C660A0100DEB95E /* LMColumnView.h in Headers */,
-				378729A01CDA6DE000FDC6A3 /* UISlider+Markup.h in Headers */,
 				379C02511C660A0100DEB95E /* LMRowView.h in Headers */,
 				379C02521C660A0100DEB95E /* LMLayerView.h in Headers */,
 				379C02531C660A0100DEB95E /* LMSpacer.h in Headers */,
-				378729A41CDA6DF200FDC6A3 /* UIStepper+Markup.h in Headers */,
 				379C02541C660A0100DEB95E /* LMGradientView.h in Headers */,
 				379C02551C660A0100DEB95E /* LMLinearGradientView.h in Headers */,
 				379C02561C660A0100DEB95E /* LMRadialGradientView.h in Headers */,
@@ -1135,7 +1121,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				378729A51CDA6DF200FDC6A3 /* UIStepper+Markup.m in Sources */,
 				379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */,
 				379C022D1C6609C900DEB95E /* LMBoxView.m in Sources */,
 				379C022E1C6609C900DEB95E /* LMColumnView.m in Sources */,
@@ -1144,7 +1129,6 @@
 				379C02311C6609C900DEB95E /* LMSpacer.m in Sources */,
 				379C02321C6609C900DEB95E /* LMGradientView.m in Sources */,
 				379C02331C6609C900DEB95E /* LMLinearGradientView.m in Sources */,
-				378729A11CDA6DE000FDC6A3 /* UISlider+Markup.m in Sources */,
 				379C02341C6609C900DEB95E /* LMRadialGradientView.m in Sources */,
 				379C02351C6609C900DEB95E /* LMPickerView.m in Sources */,
 				379C02361C6609C900DEB95E /* LMScrollView.m in Sources */,

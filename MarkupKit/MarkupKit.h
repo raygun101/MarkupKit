@@ -43,8 +43,6 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/UIView+Markup.h>
 #import <MarkupKit/UIButton+Markup.h>
 #import <MarkupKit/UISegmentedControl+Markup.h>
-#import <MarkupKit/UISlider+Markup.h>
-#import <MarkupKit/UIStepper+Markup.h>
 #import <MarkupKit/UITextField+Markup.h>
 #import <MarkupKit/UIPickerView+Markup.h>
 #import <MarkupKit/UIProgressView+Markup.h>

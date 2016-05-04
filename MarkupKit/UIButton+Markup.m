@@ -246,6 +246,56 @@
     [self setBackgroundImage:backgroundImage forState:UIControlStateSelected];
 }
 
+- (NSString *)focusedTitle
+{
+    return [self titleForState:UIControlStateFocused];
+}
+
+- (void)setFocusedTitle:(NSString *)title
+{
+    [self setTitle:title forState:UIControlStateFocused];
+}
+
+- (UIColor *)focusedTitleColor
+{
+    return [self titleColorForState:UIControlStateFocused];
+}
+
+- (void)setFocusedTitleColor:(UIColor *)titleColor
+{
+    [self setTitleColor:titleColor forState:UIControlStateFocused];
+}
+
+- (UIColor *)focusedTitleShadowColor
+{
+    return [self titleShadowColorForState:UIControlStateFocused];
+}
+
+- (void)setFocusedTitleShadowColor:(UIColor *)titleShadowColor
+{
+    [self setTitleShadowColor:titleShadowColor forState:UIControlStateFocused];
+}
+
+- (UIImage *)focusedImage
+{
+    return [self imageForState:UIControlStateFocused];
+}
+
+- (void)setFocusedImage:(UIImage *)image
+{
+    [self setImage:image forState:UIControlStateFocused];
+}
+
+- (UIImage *)focusedBackgroundImage
+{
+    return [self backgroundImageForState:UIControlStateFocused];
+}
+
+- (void)setFocusedBackgroundImage:(UIImage *)backgroundImage
+{
+    [self setBackgroundImage:backgroundImage forState:UIControlStateFocused];
+}
+
 - (CGFloat)contentEdgeInsetTop
 {
     return [self contentEdgeInsets].top;
