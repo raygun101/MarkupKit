@@ -74,9 +74,14 @@ class MapViewController: UIViewController {
         let latitude = Double(latitudeTextField.text!)
         let longitude = Double(longitudeTextField.text!)
         
-        if (latitude != nil && longitude != nil) {
-            mapView.setRegion(MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!),
-                MapViewController.Radius * 1000, MapViewController.Radius * 1000), animated: true)
+        if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
+            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!),
+                MapViewController.Radius * 1000, MapViewController.Radius * 1000)
+
+            if (region.center.latitude + region.span.latitudeDelta <= 90
+                && region.center.latitude - region.span.latitudeDelta >= -90) {
+                mapView.setRegion(region, animated: true)
+            }
         }
     }
 }
