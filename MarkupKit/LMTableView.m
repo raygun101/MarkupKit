@@ -20,18 +20,23 @@ static NSString * const kSectionBreakTarget = @"sectionBreak";
 static NSString * const kSectionNameTarget = @"sectionName";
 static NSString * const kSectionSelectionModeTarget = @"sectionSelectionMode";
 
+static NSString * const kBackgroundViewTarget = @"backgroundView";
+
+static NSString * const kTableHeaderViewTarget = @"tableHeaderView";
+static NSString * const kTableFooterViewTarget = @"tableFooterView";
+
 static NSString * const kSectionHeaderViewTarget = @"sectionHeaderView";
 static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
-
-static NSString * const kBackgroundViewTarget = @"backgroundView";
 
 #define ESTIMATED_HEIGHT 2
 
 typedef enum {
     kElementDefault,
+    kElementBackgroundView,
+    kElementTableHeaderView,
+    kElementTableFooterView,
     kElementSectionHeaderView,
-    kElementSectionFooterView,
-    kElementBackgroundView
+    kElementSectionFooterView
 } __ElementDisposition;
 
 @interface LMTableViewSection : NSObject
@@ -319,12 +324,16 @@ typedef enum {
         }
 
         [self setSelectionMode: selectionMode forSection:[self numberOfSections] - 1];
+    } else if ([target isEqual:kBackgroundViewTarget]) {
+        _elementDisposition = kElementBackgroundView;
+    } else if ([target isEqual:kTableHeaderViewTarget]) {
+        _elementDisposition = kElementTableHeaderView;
+    } else if ([target isEqual:kTableFooterViewTarget]) {
+        _elementDisposition = kElementTableFooterView;
     } else if ([target isEqual:kSectionHeaderViewTarget]) {
         _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
         _elementDisposition = kElementSectionFooterView;
-    } else if ([target isEqual:kBackgroundViewTarget]) {
-        _elementDisposition = kElementBackgroundView;
     }
 }
 
@@ -341,6 +350,28 @@ typedef enum {
             break;
         }
 
+        case kElementBackgroundView: {
+            [self setBackgroundView:view];
+
+            break;
+        }
+
+        case kElementTableHeaderView: {
+            [self setTableHeaderView:view];
+            
+            [view sizeToFit];
+
+            break;
+        }
+
+        case kElementTableFooterView: {
+            [self setTableFooterView:view];
+
+            [view sizeToFit];
+
+            break;
+        }
+
         case kElementSectionHeaderView: {
             [[_sections objectAtIndex:section] setHeaderView:view];
 
@@ -349,12 +380,6 @@ typedef enum {
 
         case kElementSectionFooterView: {
             [[_sections objectAtIndex:section] setFooterView:view];
-
-            break;
-        }
-
-        case kElementBackgroundView: {
-            [self setBackgroundView:view];
 
             break;
         }
