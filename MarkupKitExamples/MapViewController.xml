@@ -27,6 +27,6 @@ limitations under the License.
                 keyboardType="numberPad"/>
         </LMRowView>
         
-        <UIButton style="systemButton" normalTitle="Go" onTouchUpInside="showLocation"/>
+        <UIButton style="systemButton" title="Go" onTouchUpInside="showLocation"/>
     </LMColumnView>
 </LMColumnView>

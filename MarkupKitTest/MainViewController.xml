@@ -48,14 +48,12 @@ limitations under the License.
             <LMRowView class="row.second">
                 <UILabel text="12345" class="large, blue"/>
                 <LMSpacer/>
-                <UIButton style="systemButton" normalTitle="@prompt"
+                <UIButton style="systemButton" title="@prompt"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
                     onTouchUpInside="handleButtonTouchUpInside:"/>
             </LMRowView>
 
-            <UIButton style="customButton" normalTitle="@prompt"
-                normalTitleColor="#222222"
-                titleLabel.font="System 16"
+            <UIButton style="systemButton" title="@prompt"
                 layer.backgroundColor="#ffffff"
                 layer.borderColor="#808080"
                 layer.borderWidth="0.5"

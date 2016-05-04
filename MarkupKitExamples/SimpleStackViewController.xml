@@ -24,6 +24,6 @@ limitations under the License.
             horizontalContentCompressionResistancePriority="750"
             verticalContentCompressionResistancePriority="749"/>
 
-        <UIButton style="systemButton" normalTitle="Edit"/>
+        <UIButton style="systemButton" title="Edit"/>
     </UIStackView>
 </LMLayerView>

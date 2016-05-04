@@ -36,7 +36,7 @@ limitations under the License.
 
     <?sectionBreak?>
     <LMTableViewCell selectionStyle="none">
-        <UIButton style="systemButton" normalTitle="@button" onTouchUpInside="buttonPressed"/>
+        <UIButton style="systemButton" title="@button" onTouchUpInside="buttonPressed"/>
     </LMTableViewCell>
 
     <?sectionBreak?>

@@ -80,11 +80,11 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         if (player.rate > 0) {
             player.pause()
 
-            playButton.normalTitle = "Play"
+            playButton.title = "Play"
         } else {
             player.play()
 
-            playButton.normalTitle = "Pause"
+            playButton.title = "Pause"
         }
     }
 }

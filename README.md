@@ -53,19 +53,19 @@ The element's name, "segment", would be passed in the `tag` argument, and a key/
 Like `appendMarkupElementView:`, the default implementation of this method does nothing. `UIView` subclasses must override it to provide view-specific behavior. 
 
 ## Attributes
-Attributes in a MarkupKit document typically represent properties of or actions associated with a view. For example, the following markup declares an instance of a system-style `UIButton` whose `normalTitle` property is set to "Press Me!":
+Attributes in a MarkupKit document typically represent properties of or actions associated with a view. For example, the following markup declares an instance of a system-style `UIButton` whose `title` property is set to "Press Me!":
 
-    <UIButton style="systemButton" normalTitle="Press Me!"/>
+    <UIButton style="systemButton" title="Press Me!"/>
 
 Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as enumerations, colors, fonts, and images, are handled specifically by MarkupKit and are discussed in more detail below.
 
 Internally, MarkupKit calls `setValue:forKeyPath:` to apply property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
 
-    <UIButton style="systemButton" normalTitle="Press Me!" titleLabel.font="Helvetica-Bold 32"/>
+    <UIButton style="systemButton" title="Press Me!" titleLabel.font="Helvetica-Bold 32"/>
 
 Attributes whose names begin with "on" generally represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
-    <UIButton style="systemButton" normalTitle="Press Me!" onTouchUpInside="buttonPressed()"/>
+    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="buttonPressed()"/>
 
 Actions are discussed in more detail below.
 
@@ -125,7 +125,7 @@ For example, the following markup creates an instance of `LMTableViewCell` whose
 
 Edge inset properties of several other view types can also be specified using this shorthand. For example:
 
-    <UIButton normalTitle="Click Me!" contentEdgeInsets="12"/>
+    <UIButton title="Click Me!" contentEdgeInsets="12"/>
 
     <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>    
     
@@ -173,7 +173,7 @@ MarkupKit doesn't know anything about methods - only instances and properties/ev
 
 For example, the following markup creates an instance of a "system"-style `UIButton` by calling the `systemButton` method MarkupKit adds to the `UIButton` class:
 
-    <UIButton style="systemButton" normalTitle="Press Me!"/>
+    <UIButton style="systemButton" title="Press Me!"/>
 
 Internally, this method calls `buttonWithType:`, passing a value of `UIButtonTypeSystem` for the `buttonType` argument, and returns the newly created button instance.
 
@@ -272,7 +272,7 @@ While it would be possible for an application to register for events programmati
 
 For example, the following markup declares an instance of `UIButton` that calls the `handleButtonTouchUpInside:` method of the document's owner when the button is tapped:
 
-    <UIButton style="systemButton" normalTitle="Press Me!" onTouchUpInside="handleButtonTouchUpInside:"/>
+    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="handleButtonTouchUpInside:"/>
 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
 
@@ -979,7 +979,7 @@ For example, the following markup creates a layer view containing a scroll view 
         <LMColumnView>
             <LMSpacer/>
             <LMColumnView layoutMargins="20">
-                <UIButton style="customButton" normalTitle="Press Me!" backgroundColor="#00aa00"/>
+                <UIButton style="customButton" title="Press Me!" backgroundColor="#00aa00"/>
             </LMColumnView>
         </LMColumnView>
     </LMLayerView>
@@ -1084,50 +1084,23 @@ Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` meth
     - (void)appendMarkupElementView:(UIView *)view;
 
 ### UIButton
-Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons be declared in markup:
+Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons to be declared in markup:
 
-    + (UIButton *)customButton;
     + (UIButton *)systemButton;
     + (UIButton *)detailDisclosureButton;
     + (UIButton *)infoLightButton;
     + (UIButton *)infoDarkButton;
     + (UIButton *)contactAddButton;
+    + (UIButton *)customButton;
 
-Button content including "title", "title color", "title shadow color", "image", and "background image" is set for button states including "normal", "highlighted", "disabled", and "selected" using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
+Button content is programmatically configured using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
-    @property (nonatomic, nullable) NSString *normalTitle;
-    @property (nonatomic, nullable) UIColor *normalTitleColor;
-    @property (nonatomic, nullable) UIColor *normalTitleShadowColor;
-    @property (nonatomic, nullable) UIImage *normalImage;
-    @property (nonatomic, nullable) UIImage *normalBackgroundImage;
+    @property (nonatomic, nullable) NSString *title;
+    @property (nonatomic, nullable) UIImage *image;
 
-    @property (nonatomic, nullable) NSString *highlightedTitle;
-    @property (nonatomic, nullable) UIColor *highlightedTitleColor;
-    @property (nonatomic, nullable) UIColor *highlightedTitleShadowColor;
-    @property (nonatomic, nullable) UIImage *highlightedImage;
-    @property (nonatomic, nullable) UIImage *highlightedBackgroundImage;
+These properties set the default state for their corresponding values. For example, the following markup creates a system button with a title of "Press Me!":
 
-    @property (nonatomic, nullable) NSString *disabledTitle;
-    @property (nonatomic, nullable) UIColor *disabledTitleColor;
-    @property (nonatomic, nullable) UIColor *disabledTitleShadowColor;
-    @property (nonatomic, nullable) UIImage *disabledImage;
-    @property (nonatomic, nullable) UIImage *disabledBackgroundImage;
-
-    @property (nonatomic, nullable) NSString *selectedTitle;
-    @property (nonatomic, nullable) UIColor *selectedTitleColor;
-    @property (nonatomic, nullable) UIColor *selectedTitleShadowColor;
-    @property (nonatomic, nullable) UIImage *selectedImage;
-    @property (nonatomic, nullable) UIImage *selectedBackgroundImage;
-
-    @property (nonatomic, nullable) NSString *focusedTitle;
-    @property (nonatomic, nullable) UIColor *focusedTitleColor;
-    @property (nonatomic, nullable) UIColor *focusedTitleShadowColor;
-    @property (nonatomic, nullable) UIImage *focusedImage;
-    @property (nonatomic, nullable) UIImage *focusedBackgroundImage;
-
-For example, the following markup creates a system button with a normal title of "Press Me!" and a highlighted title of "Let Go!":
-
-    <UIButton style="systemButton" normalTitle="Press Me!" highlightedTitle="Let Go!"/>
+    <UIButton style="systemButton" title="Press Me!"/>
 
 Finally, MarkupKit adds the following properties that allow a button's content edge insets to be set individually:
 
@@ -1138,7 +1111,7 @@ Finally, MarkupKit adds the following properties that allow a button's content e
 
 For example:
 
-    <UIButton normalTitle="Click Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
+    <UIButton style="systemButton" title="Press Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
 
 ### UISegmentedControl
 Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. The MarkupKit extension to `UISegmentedControl` overrides the `processMarkupElement:properties:` method to allow segmented control content to be configured in markup. 
@@ -1309,8 +1282,10 @@ The `layer` property of `UIView` returns a `CALayer` instance that can be used t
 
 For example, the following markup creates a system button with a shadow opacity of 0.5, radius of 10, and offset height of 3:
 
-    <UIButton style="systemButton" normalTitle="Press Me!" normalTitleColor="#ff0000" backgroundColor="#aa0000"
-        layer.shadowOpacity="0.5" layer.shadowRadius="10" layer.shadowOffsetHeight="3"/>
+    <UIButton style="systemButton" title="Press Me!" 
+        layer.shadowOpacity="0.5" 
+        layer.shadowRadius="10" 
+        layer.shadowOffsetHeight="3"/>
 
 # Further Reading
 For more information, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki) or the [discussion forum](https://disqus.com/home/channel/markupkit/).

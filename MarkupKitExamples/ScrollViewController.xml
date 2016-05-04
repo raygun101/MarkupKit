@@ -25,15 +25,11 @@ limitations under the License.
     <LMColumnView>
         <LMColumnView weight="1"/>
         <LMColumnView layoutMargins="20">
-            <UIButton style="customButton" normalTitle="Press Me!"
-                normalTitleColor="#222222"
-                titleLabel.font="System 16"
-                layer.backgroundColor="#ededed"
+            <UIButton style="systemButton" title="Press Me!"
+                backgroundColor="#ffffff" contentEdgeInsets="16" clipsToBounds="true"
                 layer.borderColor="#808080"
                 layer.borderWidth="0.5"
                 layer.cornerRadius="6"
-                contentEdgeInsets="16"
-                clipsToBounds="true"
                 onTouchUpInside="showGreeting"/>
         </LMColumnView>
     </LMColumnView>
