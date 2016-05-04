@@ -15,18 +15,18 @@ limitations under the License.
 -->
 
 <LMLayerView backgroundColor="#ffffff">
-    <!-- Root Stack -->
+    <!-- Root stack -->
     <UIStackView axis="vertical" layoutMarginsRelativeArrangement="true" layoutMarginTop="20" layoutMarginBottom="20" spacing="8">
-        <!-- Upper Stack -->
+        <!-- Upper stack -->
         <UIStackView axis="horizontal" spacing="8">
-            <!-- Image View -->
+            <!-- Image view -->
             <UIImageView id="imageView" image="square_flowers"
                 horizontalContentCompressionResistancePriority="48"
                 verticalContentCompressionResistancePriority="48"/>
 
-            <!-- Name Rows Stack -->
+            <!-- Name rows stack -->
             <UIStackView axis="vertical" spacing="8">
-                <!-- First Name Stack -->
+                <!-- First name stack -->
                 <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
                     <UILabel text="First" font="body"
                         horizontalContentHuggingPriority="251"
@@ -36,7 +36,7 @@ limitations under the License.
                         horizontalContentCompressionResistancePriority="749"/>
                 </UIStackView>
 
-                <!-- Middle Name Stack -->
+                <!-- Middle name stack -->
                 <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
                     <UILabel text="Middle" font="body"
                         horizontalContentHuggingPriority="251"
@@ -46,7 +46,7 @@ limitations under the License.
                         horizontalContentCompressionResistancePriority="749"/>
                 </UIStackView>
 
-                <!-- Last Name Stack -->
+                <!-- Last name stack -->
                 <UIStackView axis="horizontal" alignment="firstBaseline" spacing="8">
                     <UILabel text="Last" font="body"
                         horizontalContentHuggingPriority="251"
@@ -58,11 +58,11 @@ limitations under the License.
             </UIStackView>
         </UIStackView>
 
-        <!-- Text View -->
+        <!-- Text view -->
         <UITextView text="Notes:" font="body" backgroundColor="#aaaaaa"
             verticalContentHuggingPriority="249"/>
 
-        <!-- Button Stack -->
+        <!-- Button stack -->
         <UIStackView axis="horizontal" alignment="firstBaseline" distribution="fillEqually" spacing="8">
             <UIButton style="systemButton" normalTitle="Save"/>
             <UIButton style="systemButton" normalTitle="Cancel"/>

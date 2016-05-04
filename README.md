@@ -398,7 +398,7 @@ For example, the following markup declares a plain table view containing three r
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `backgroundView` processing instruction can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear background gradient:
+The `backgroundView` processing instruction corresponds to a call to the `setBackgroundView:` method of `UITableView` and can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear background gradient:
 
     <LMTableView style="groupedTableView">
         <?backgroundView?>
@@ -407,7 +407,15 @@ The `backgroundView` processing instruction can be used to assign a background v
         ...
     </LMTableView>
 
-The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. The following markup creates a grouped table view containing two sections (the first section is created implicitly):
+The `tableHeaderView` and `tableFooterView` processing instructions correspond to the `setTableHeaderView:` and `setTableFooterView:` methods of `UITableView`, respectively, and are used to set a table view's header and footer views. For example, the following markup declares a table view containing a search bar as a header view:
+
+    <LMTableView>
+        <?tableHeaderView?>
+        <UISearchBar id="searchBar"/>
+        ...
+    </LMTableView>
+
+The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. This markup creates a grouped table view containing two sections (the first section is created implicitly):
 
     <LMTableView style="groupedTableView">
         <UITableViewCell textLabel.text="Row 1a"/>

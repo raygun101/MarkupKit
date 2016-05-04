@@ -37,7 +37,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Image View -->
+    <!-- Image view -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Image View" class="cell.header"/>
 
@@ -47,7 +47,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Text Fields -->
+    <!-- Text fields -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Text Fields" class="cell.header"/>
 
@@ -103,7 +103,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Radio Buttons -->
+    <!-- Radio buttons -->
     <?sectionSelectionMode singleCheckmark?>
 
     <?sectionHeaderView?>
@@ -130,7 +130,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Segmented Control -->
+    <!-- Segmented control -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Segmented Control" class="cell.header"/>
 
@@ -149,7 +149,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Date Picker -->
+    <!-- Date picker -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Date Picker" class="cell.header"/>
 
@@ -159,7 +159,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Custom Picker -->
+    <!-- Custom picker -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Custom Picker" class="cell.header"/>
 
@@ -208,7 +208,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Page Control -->
+    <!-- Page control -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Page Control" class="cell.header"/>
 
@@ -218,7 +218,7 @@ limitations under the License.
 
     <?sectionBreak?>
 
-    <!-- Progress View -->
+    <!-- Progress view -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Progress View" class="cell.header"/>
 
