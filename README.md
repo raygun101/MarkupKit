@@ -1151,6 +1151,12 @@ Similarly, the "image" attribute can be used to specify an image for a segment:
         <segment image="no.png"/>
     </UISegmentedControl>
 
+### UISlider
+TODO
+
+### UIStepper
+TODO
+
 ### UITextField
 MarkupKit adds support for the following processing instructions to `UITextField` to allow the text field's associated views to be configured in markup:
 
