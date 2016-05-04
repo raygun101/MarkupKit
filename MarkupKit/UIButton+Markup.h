@@ -178,6 +178,46 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic) CGFloat contentEdgeInsetRight;
 
+/**
+ * The top title edge inset.
+ */
+@property (nonatomic) CGFloat titleEdgeInsetTop;
+
+/**
+ * The left title edge inset.
+ */
+@property (nonatomic) CGFloat titleEdgeInsetLeft;
+
+/**
+ * The bottom title edge inset.
+ */
+@property (nonatomic) CGFloat titleEdgeInsetBottom;
+
+/**
+ * The right title edge inset.
+ */
+@property (nonatomic) CGFloat titleEdgeInsetRight;
+
+/**
+ * The top image edge inset.
+ */
+@property (nonatomic) CGFloat imageEdgeInsetTop;
+
+/**
+ * The left image edge inset.
+ */
+@property (nonatomic) CGFloat imageEdgeInsetLeft;
+
+/**
+ * The bottom image edge inset.
+ */
+@property (nonatomic) CGFloat imageEdgeInsetBottom;
+
+/**
+ * The right image edge inset.
+ */
+@property (nonatomic) CGFloat imageEdgeInsetRight;
+
 @end
 
 NS_ASSUME_NONNULL_END
