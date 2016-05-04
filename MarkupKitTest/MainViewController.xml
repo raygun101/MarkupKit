@@ -53,13 +53,13 @@ limitations under the License.
                     onTouchUpInside="handleButtonTouchUpInside:"/>
             </LMRowView>
 
-            <UIButton style="systemButton" title="@prompt"
-                layer.backgroundColor="#ffffff"
+            <UIButton style="systemButton" title="@prompt" image="Right"
+                tintColor="#ff0000" backgroundColor="#ffffff"
+                contentEdgeInsets="16" imageEdgeInsetRight="8"
+                clipsToBounds="true"
                 layer.borderColor="#808080"
                 layer.borderWidth="0.5"
                 layer.cornerRadius="6"
-                contentEdgeInsets="16"
-                clipsToBounds="true"
                 onTouchUpInside="handleButtonTouchUpInside:"/>
 
             <LMRowView alignToBaseline="true" backgroundColor="#ff00ff">

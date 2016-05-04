@@ -1109,9 +1109,21 @@ Finally, MarkupKit adds the following properties that allow a button's content e
     @property (nonatomic) CGFloat contentEdgeInsetBottom;
     @property (nonatomic) CGFloat contentEdgeInsetRight;
 
+    @property (nonatomic) CGFloat titleEdgeInsetTop;
+    @property (nonatomic) CGFloat titleEdgeInsetLeft;
+    @property (nonatomic) CGFloat titleEdgeInsetBottom;
+    @property (nonatomic) CGFloat titleEdgeInsetRight;
+
+    @property (nonatomic) CGFloat imageEdgeInsetTop;
+    @property (nonatomic) CGFloat imageEdgeInsetLeft;
+    @property (nonatomic) CGFloat imageEdgeInsetBottom;
+    @property (nonatomic) CGFloat imageEdgeInsetRight;
+
 For example:
 
-    <UIButton style="systemButton" title="Press Me!" contentEdgeInsetLeft="8" contentEdgeInsetRight="8"/>
+    <UIButton style="systemButton" title="Press Me!" 
+        contentEdgeInsetLeft="8" 
+        contentEdgeInsetRight="8"/>
 
 ### UISegmentedControl
 Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. The MarkupKit extension to `UISegmentedControl` overrides the `processMarkupElement:properties:` method to allow segmented control content to be configured in markup. 

@@ -322,4 +322,116 @@
     [self setContentEdgeInsets:contentEdgeInsets];
 }
 
+- (CGFloat)titleEdgeInsetTop
+{
+    return [self titleEdgeInsets].top;
+}
+
+- (void)setTitleEdgeInsetTop:(CGFloat)top
+{
+    UIEdgeInsets titleEdgeInsets = [self titleEdgeInsets];
+
+    titleEdgeInsets.top = top;
+
+    [self setTitleEdgeInsets:titleEdgeInsets];
+}
+
+- (CGFloat)titleEdgeInsetLeft
+{
+    return [self titleEdgeInsets].left;
+}
+
+- (void)setTitleEdgeInsetLeft:(CGFloat)left
+{
+    UIEdgeInsets titleEdgeInsets = [self titleEdgeInsets];
+
+    titleEdgeInsets.left = left;
+
+    [self setTitleEdgeInsets:titleEdgeInsets];
+}
+
+- (CGFloat)titleEdgeInsetBottom
+{
+    return [self titleEdgeInsets].bottom;
+}
+
+- (void)setTitleEdgeInsetBottom:(CGFloat)bottom
+{
+    UIEdgeInsets titleEdgeInsets = [self titleEdgeInsets];
+
+    titleEdgeInsets.bottom = bottom;
+
+    [self setTitleEdgeInsets:titleEdgeInsets];
+}
+
+- (CGFloat)titleEdgeInsetRight
+{
+    return [self titleEdgeInsets].right;
+}
+
+- (void)setTitleEdgeInsetRight:(CGFloat)right
+{
+    UIEdgeInsets titleEdgeInsets = [self titleEdgeInsets];
+
+    titleEdgeInsets.right = right;
+
+    [self setTitleEdgeInsets:titleEdgeInsets];
+}
+
+- (CGFloat)imageEdgeInsetTop
+{
+    return [self imageEdgeInsets].top;
+}
+
+- (void)setImageEdgeInsetTop:(CGFloat)top
+{
+    UIEdgeInsets imageEdgeInsets = [self imageEdgeInsets];
+
+    imageEdgeInsets.top = top;
+
+    [self setImageEdgeInsets:imageEdgeInsets];
+}
+
+- (CGFloat)imageEdgeInsetLeft
+{
+    return [self imageEdgeInsets].left;
+}
+
+- (void)setImageEdgeInsetLeft:(CGFloat)left
+{
+    UIEdgeInsets imageEdgeInsets = [self imageEdgeInsets];
+
+    imageEdgeInsets.left = left;
+
+    [self setImageEdgeInsets:imageEdgeInsets];
+}
+
+- (CGFloat)imageEdgeInsetBottom
+{
+    return [self imageEdgeInsets].bottom;
+}
+
+- (void)setImageEdgeInsetBottom:(CGFloat)bottom
+{
+    UIEdgeInsets imageEdgeInsets = [self imageEdgeInsets];
+
+    imageEdgeInsets.bottom = bottom;
+
+    [self setImageEdgeInsets:imageEdgeInsets];
+}
+
+- (CGFloat)imageEdgeInsetRight
+{
+    return [self imageEdgeInsets].right;
+}
+
+- (void)setImageEdgeInsetRight:(CGFloat)right
+{
+    UIEdgeInsets imageEdgeInsets = [self imageEdgeInsets];
+
+    imageEdgeInsets.right = right;
+
+    [self setImageEdgeInsets:imageEdgeInsets];
+}
+
 @end
