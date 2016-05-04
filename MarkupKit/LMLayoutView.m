@@ -130,7 +130,7 @@
 
 - (UIView *)viewForLastBaselineLayout
 {
-    return [self viewForFirstBaselineLayout];
+    return ([_arrangedSubviews count] == 0) ? [super viewForLastBaselineLayout] : [[_arrangedSubviews lastObject] viewForLastBaselineLayout];
 }
 
 - (void)setNeedsUpdateConstraints
