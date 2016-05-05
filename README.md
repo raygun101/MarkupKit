@@ -125,7 +125,7 @@ For example, the following markup creates an instance of `LMTableViewCell` whose
 
 Edge inset properties of several other view types can also be specified using this shorthand. For example:
 
-    <UIButton title="Click Me!" contentEdgeInsets="12"/>
+    <UIButton title="Press Me!" contentEdgeInsets="12"/>
 
     <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>    
     
@@ -958,31 +958,16 @@ Like layout views, spacer views do not consume touch events, so they will not in
 See _LMSpacerView.h_ for more information.
  
 ## LMLayerView
-`LMLayerView` is arguably the simplest layout view. It just arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view. 
+The `LMLayerView` class simply arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view.
 
-For example, the following markup creates a layer view containing two sub-views. The `UIImageView` instance, since it is declared first, appears beneath the `UILabel` instance, effectively creating a background for the label:
+For example, the following markup creates a layer view containing two subviews. The `UIImageView` instance, since it is declared first, appears beneath the `UILabel` instance, effectively creating a background for the label:
 
     <LMLayerView>
         <UIImageView image="world.png" contentMode="scaleAspectFit"/>
         <UILabel text="Hello, World!" textAlignment="center"/>
     </LMLayerView>
 
-However, layer views are not limited to defining background images. Because layout and spacer views do not consume touch events, layer views can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying content. 
-
-For example, the following markup creates a layer view containing a scroll view and a column view. The column view contains a button that is aligned to the bottom of the window and floats over the scroll view. Because column views do not consume touch events, the user can still interact with the scroll view by touching anywhere except the button:
-
-    <LMLayerView>
-        <LMScrollView fitToWidth="true">
-            <UILabel text="Lorem ipsum dolor sit amet..." numberOfLines="0" lineBreakMode="byWordWrapping"/>
-        </LMScrollView>
-
-        <LMColumnView>
-            <LMSpacer/>
-            <LMColumnView layoutMargins="20">
-                <UIButton style="customButton" title="Press Me!" backgroundColor="#00aa00"/>
-            </LMColumnView>
-        </LMColumnView>
-    </LMLayerView>
+However, layer views are not limited to defining background images. Because layout and spacer views do not consume touch events, they can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying content. 
 
 See _LMLayerView.h_ for more information.
 
@@ -1091,7 +1076,6 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
     + (UIButton *)infoLightButton;
     + (UIButton *)infoDarkButton;
     + (UIButton *)contactAddButton;
-    + (UIButton *)customButton;
 
 Button content is programmatically configured using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
