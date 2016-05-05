@@ -340,19 +340,13 @@ The `root` argument is also commonly used when implementing custom table or coll
         LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
     }
 
-### Property Handling
+### Color and Font Values
 `LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values:
 
     + (UIColor *)colorValue:(NSString *)value;
     + (UIFont *)fontValue:(NSString *)value;
 
 These methods may also be called by application code to translate MarkupKit-encoded color and font values to `UIColor` and `UIFont` instances, respectively.
-
-Finally, `LMViewBuilder` provides the following method, which is used to apply a set of property values to a view:
-
-    + (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view;
-
-`LMViewBuilder` uses this method internally to configure view instances declared in markup, but it can also be called by application code to set property values for dynamically generated views.
 
 See _LMViewBuilder.h_ for more information.
 
