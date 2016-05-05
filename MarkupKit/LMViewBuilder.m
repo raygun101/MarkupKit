@@ -26,7 +26,6 @@ static NSString * const kSizeClassFormat = @"%@~%@";
 static NSString * const kFileExtension = @"xml";
 
 static NSString * const kPropertiesTarget = @"properties";
-static NSString * const kStringsTarget = @"strings";
 
 static NSString * const kRootTag = @"root";
 static NSString * const kFactoryKey = @"style";
@@ -47,7 +46,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
     UIView *_root;
 
     NSMutableDictionary *_properties;
-    NSMutableDictionary *_strings;
 
     NSMutableArray *_views;
 }
@@ -773,7 +771,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
         _root = root;
 
         _properties = [NSMutableDictionary new];
-        _strings = [NSMutableDictionary new];
 
         _views = [NSMutableArray new];
     }
@@ -831,13 +828,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
                 [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
             }
-        } else if ([target isEqual:kStringsTarget]) {
-            // Load strings
-            NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"strings" inDirectory:nil];
-
-            if (path != nil) {
-                [_strings addEntriesFromDictionary:[NSDictionary dictionaryWithContentsOfFile:path]];
-            }
         }
     } else {
         // Notify view
@@ -873,15 +863,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
             [actions setObject:value forKey:key];
         } else {
             if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [value substringFromIndex:[kLocalizedStringPrefix length]];
-
-                NSString *localizedValue = [_strings objectForKey:value];
-
-                if (localizedValue == nil) {
-                    localizedValue = [[NSBundle mainBundle] localizedStringForKey:value value:nil table:nil];
-                }
-
-                value = localizedValue;
+                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]]
+                    value:nil table:nil];
             }
 
             [properties setObject:value forKey:key];
@@ -1026,17 +1009,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
         }
     } else {
-        // Inject properties and strings into owner
-        @try {
-            [_owner setValue:_properties forKey:kPropertiesTarget];
-            [_owner setValue:_strings forKey:kStringsTarget];
-        }
-        @catch (NSException *exception) {
-            if (![[exception name] isEqual:NSUndefinedKeyException]) {
-                @throw exception;
-            }
-        }
-
         // Set root view
         if ([view isKindOfClass:[UIView self]]) {
             _root = view;

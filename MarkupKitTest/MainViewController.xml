@@ -26,9 +26,6 @@ limitations under the License.
     }
 }?>
 
-<?strings MainViewController?>
-<?strings Missing?>
-
 <root fitToWidth="true">
     <LMLayerView>
         <UIView backgroundColor="#eeeeee"/>
