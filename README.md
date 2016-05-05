@@ -164,31 +164,9 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates may be either external or inline. External templates are defined in property list (_.plist_) files or [JSON](http://www.json.org) documents. Inline templates are specified as JSON embedded within the markup document iteself. 
+Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Each template is represented by a dictionary object defined at the top level of the property list or JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
 
-Each template is represented by a dictionary object defined at the top level of the property list or JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied.
-
-Templates are added to a MarkupKit document using the `properties` processing instruction. For example, the following PI imports all properties defined by the "MyStyles" template into the current document:
-
-    <?properties MyStyles?>
-    
-The property values must be specified in either _MyStyles.plist_ or _MyStyles.json_; for example:
-
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-    	<key>greeting</key>
-    	<dict>
-    		<key>font</key>
-    		<string>Helvetica 24</string>
-    		<key>textAlignment</key>
-    		<string>center</string>
-    	</dict>
-    </dict>
-    </plist>
-
-or:
+For example, the following JSON document defines a template named "greeting", which contains definitions for "font" and "textAlignment" properties:
 
     {
         "greeting": {
@@ -197,7 +175,11 @@ or:
         }
     }
 
-Inline templates simply embed a template definition within the markup document itself. They are only visible to the enclosing document:
+Templates are added to a MarkupKit document using the `properties` processing instruction. The following PI adds all properties defined by _MyStyles.json_ to the current document:
+
+    <?properties MyStyles?>
+
+Inline templates simply embed the template definition within the markup document itself:
 
     <?properties {
         "greeting": {
@@ -205,6 +187,8 @@ Inline templates simply embed a template definition within the markup document i
             "textAlignment": "center"
         }
     }?>
+
+External templates are generally used when a set of properties may be shared by multiple markup documents, and internal templates are used when the properties are only applicable to the current document.
 
 #### Applying Templates
 Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
