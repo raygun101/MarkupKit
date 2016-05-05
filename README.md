@@ -146,26 +146,6 @@ If a localized value is not found, the key will be used instead. For example, if
 
 This allows developers to easily identify missing string resources at runtime.
 
-In addition to the global values defined in _Localizable.strings_, the `strings` processing instruction can be used to define a set of local string values that are only visible to the current document. For example, if the application additionally provides the following localized value in a file named _MyStrings.strings_:
-    
-    "goodbye" = "Goodbye!";
-
-this markup will produce a table view containing two rows reading "Hello, World!" and "Goodbye!", respectively:
-    
-    <?strings MyStrings?>
-    
-    <LMTableView>
-        <LMTableViewCell>
-            <UILabel text="@hello"/>
-        </LMTableViewCell>
-        
-        <LMTableViewCell>
-            <UILabel text="@goodbye"/>
-        </LMTableViewCell>
-    </LMTableView>
-
-Multiple `strings` PIs may be specified in a single document. The values from all of the named string tables are merged into a single collection of localized string values available to the document. If the same value is defined by multiple tables (including the default, _Localizable.strings_), the most recently defined value takes precedence.
-
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
 
@@ -239,7 +219,7 @@ Multiple templates can be applied to a view using a comma-separated list of temp
 
 Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the property list or JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
-Like `strings` processing instructions, multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. As with strings, the most recently defined values take precedence.
+Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
 
 ### Outlets
 Views defined in markup are not particularly useful on their own. The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
@@ -261,9 +241,6 @@ or in Swift, like this:
     var textField: UITextField!
 
 In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is supported by MarkupKit, but is not required.
-
-#### String and Property Template Injection
-If the document's owner defines a property named `strings`, this property will be automatically populated with the final collection of localized string values, represented by an instance of `NSDictionary`. Similarly, if the owner defines a property named `properties`, this property will be populated with the final collection of property template values, also an instance of `NSDictionary`. This allows the owner to access the final set of string and property values as seen by the document.
 
 ### Actions
 Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventTouchUpInside` event when a button instance is tapped.
