@@ -783,6 +783,8 @@ Further, the baseline to which subviews will be aligned can be controlled by the
         ...
     </LMRowView>
 
+Note that the `baseline` property requires iOS 9 or later. On iOS 8, the first baseline will always be used.
+
 See _LMRowView.h_ for more information.
 
 ### LMColumnView

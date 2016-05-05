@@ -21,29 +21,29 @@ limitations under the License.
     }
 }?>
 
-<LMColumnView backgroundColor="#ffffff" topSpacing="16" bottomSpacing="16">
-    <UILabel class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+<LMScrollView fitToWidth="true" backgroundColor="#ffffff">
+    <LMColumnView layoutMargins="16">
+        <UILabel class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
 
-    <LMColumnView alignToGrid="true">
-        <LMRowView alignToBaseline="true">
-            <UILabel class="cell" textAlignment="right" text="First Baseline"/>
+        <LMColumnView alignToGrid="true">
+            <LMRowView alignToBaseline="true">
+                <UILabel class="cell" textAlignment="right" text="First Baseline"/>
+                <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            </LMRowView>
+
+            <LMRowView alignToBaseline="true" baseline="last">
+                <UILabel class="cell" textAlignment="right" text="Last Baseline"/>
+
+                <LMColumnView weight="1" class="cell">
+                    <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                    <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                </LMColumnView>
+            </LMRowView>
+        </LMColumnView>
+
+        <LMRowView>
+            <UILabel weight="2" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
             <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
         </LMRowView>
-
-        <LMRowView alignToBaseline="true" baseline="last">
-            <UILabel class="cell" textAlignment="right" text="Last Baseline"/>
-
-            <LMColumnView weight="1" class="cell">
-                <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-                <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-            </LMColumnView>
-        </LMRowView>
     </LMColumnView>
-
-    <LMSpacer class="cell"/>
-
-    <LMRowView weight="1">
-        <UILabel weight="2" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-        <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
-    </LMRowView>
-</LMColumnView>
+</LMScrollView>
