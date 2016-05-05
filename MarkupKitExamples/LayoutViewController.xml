@@ -36,9 +36,9 @@ limitations under the License.
     <UILabel text="Text Fields" font="System-Bold 16"/>
 
     <LMRowView layoutMargins="12">
-        <UITextField weight="4" placeholder="City" backgroundColor="#ededed"/>
-        <UITextField weight="2" placeholder="State" backgroundColor="#ededed"/>
-        <UITextField weight="2" placeholder="Zip" backgroundColor="#ededed"/>
+        <UITextField weight="4" placeholder="City" borderStyle="roundedRect"/>
+        <UITextField weight="2" placeholder="State" borderStyle="roundedRect"/>
+        <UITextField weight="2" placeholder="Zip" borderStyle="roundedRect"/>
     </LMRowView>
 
     <LMSpacer/>

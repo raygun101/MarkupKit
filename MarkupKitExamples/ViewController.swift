@@ -42,9 +42,9 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(SelectionViewController(), animated: true)
         } else if (value == "customCellView") {
             navigationController!.pushViewController(CustomCellViewController(), animated: true)
-        } else if (value == "layoutView") {
+        } else if (value == "layoutViews") {
             navigationController!.pushViewController(LayoutViewController(), animated: true)
-        } else if (value == "stackView") {
+        } else if (value == "stackViews") {
             navigationController!.pushViewController(StackViewController(), animated: true)
         } else if (value == "effectView") {
             navigationController!.pushViewController(EffectViewController(), animated: true)
