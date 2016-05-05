@@ -42,7 +42,11 @@ limitations under the License.
         </LMColumnView>
 
         <LMRowView>
-            <UILabel weight="2" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            <LMColumnView weight="2" class="cell">
+                <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                <LMSpacer/>
+            </LMColumnView>
+
             <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
         </LMRowView>
     </LMColumnView>
