@@ -1,0 +1,8 @@
+{
+	"row.first": {
+        "backgroundColor": "#ff0000"
+    },
+	"row.second": {
+        "backgroundColor": "#00ff00"
+    }
+}
