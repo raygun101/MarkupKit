@@ -23,7 +23,7 @@ class StackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Stack View"
+        title = "Stack Views"
 
         edgesForExtendedLayout = UIRectEdge.None
     }

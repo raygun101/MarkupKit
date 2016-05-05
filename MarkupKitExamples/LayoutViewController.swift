@@ -23,7 +23,7 @@ class LayoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Layout View"
+        title = "Layout Views"
 
         edgesForExtendedLayout = UIRectEdge.None
     }

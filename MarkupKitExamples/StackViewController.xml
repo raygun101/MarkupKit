@@ -36,9 +36,9 @@ limitations under the License.
     <UILabel text="Text Fields" font="System-Bold 16"/>
 
     <UIStackView axis="horizontal" distribution="fillProportionally" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
-        <UITextField placeholder="City" backgroundColor="#ededed"/>
-        <UITextField placeholder="State" backgroundColor="#ededed"/>
-        <UITextField placeholder="Zip" backgroundColor="#ededed"/>
+        <UITextField placeholder="City" borderStyle="roundedRect"/>
+        <UITextField placeholder="State" borderStyle="roundedRect"/>
+        <UITextField placeholder="Zip" borderStyle="roundedRect"/>
     </UIStackView>
 
     <LMSpacer/>
