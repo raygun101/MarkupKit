@@ -53,6 +53,10 @@
 
 - (void)layoutSubviews
 {
+    // Don't give subviews a higher vertical content compression resistance priority than this view's
+    UILayoutPriority verticalContentCompressionResistancePriority = MIN(UILayoutPriorityRequired,
+        [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisVertical]);
+
     // Ensure that subviews resize according to weight
     UIView *superview = [self superview];
 
@@ -64,7 +68,7 @@
     }
 
     for (UIView * subview in _arrangedSubviews) {
-        [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        [subview setContentCompressionResistancePriority:verticalContentCompressionResistancePriority forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
         UILayoutPriority horizontalCompressionResistancePriority, horizontalContentHuggingPriority;
