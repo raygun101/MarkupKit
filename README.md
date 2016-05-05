@@ -1,7 +1,7 @@
 # Overview
 MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
 
-For example, the following markup declares an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
+For example, the following markup creates an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
     <UILabel text="Hello, World!"/>
 
@@ -28,7 +28,7 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
 This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
 
-For example, `LMColumnView`, a MarkupKit-provided view type that automatically arranges its subviews in a vertical line, overrides this method to call `addArrangedSubview:` on itself. The following markup declares an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. As the markup is processed, the image view and the label will be instantiated and added to the column view via `appendMarkupElementView:`:
+For example, `LMColumnView`, a MarkupKit-provided view type that automatically arranges its subviews in a vertical line, overrides this method to call `addArrangedSubview:` on itself. The following markup declares an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. As the markup is processed, the image view and the label are instantiated and added to the column view via `appendMarkupElementView:`:
 
 	<LMColumnView>
 		<UIImageView image="world.png"/>
@@ -48,7 +48,7 @@ Each `<segment>` element triggers to a call to the following method, which is al
 
     - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
 
-The element's name, "segment", would be passed in the `tag` argument, and a key/value pair containing the segment's title would be included in the dictionary passed as the `properties` argument.
+The element's name, "segment", is passed in the `tag` argument, and a key/value pair containing the segment's title is included in the dictionary passed as the `properties` argument.
 
 Like `appendMarkupElementView:`, the default implementation of this method does nothing. `UIView` subclasses must override it to provide view-specific behavior. 
 
@@ -57,7 +57,7 @@ Attributes in a MarkupKit document typically represent properties of or actions 
 
     <UIButton style="systemButton" title="Press Me!"/>
 
-Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as enumerations, colors, fonts, and images, are handled specifically by MarkupKit and are discussed in more detail below.
+Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as colors, fonts, images, and enumerations, are handled specifically by MarkupKit and are discussed in more detail below.
 
 Internally, MarkupKit calls `setValue:forKeyPath:` to apply property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
 
@@ -65,7 +65,7 @@ Internally, MarkupKit calls `setValue:forKeyPath:` to apply property values. Thi
 
 Attributes whose names begin with "on" generally represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
-    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="buttonPressed()"/>
+    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="buttonPressed"/>
 
 Actions are discussed in more detail below.
 
@@ -104,11 +104,13 @@ For example, the following markup creates an instance of `UIImageView` and sets 
 ### Enumerations
 Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing and presents a software keyboard suitable for entering email addresses:
 
-    <UITextField placeholder="Email Address" clearButtonMode="whileEditing" keyboardType="emailAddress"/>
+    <UITextField placeholder="Email Address" 
+        clearButtonMode="whileEditing" 
+        keyboardType="emailAddress"/>
 
 Enumeration values in MarkupKit are abbreviated versions of their UIKit counterparts. The attribute value is simply the full name of the enum value minus the leading type name, with a lowercase first character. For example, "whileEditing" in the above example corresponds to the `UITextFieldViewModeWhileEditing` value of the `UITextFieldViewMode` enum. Similarly, "emailAddress" corresponds to the `UIKeyboardTypeEmailAddress` value of the `UIKeyboardType` enum. 
 
-Note that attribute values are converted to enum types based solely on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
+Note that attribute values are converted to enum types based on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
 
     <UILabel text="whileEditing"/>
 
@@ -117,7 +119,7 @@ The `UIView` class allows a caller to specify the amount of space that should be
 
 Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components.
 
-For example, the following markup creates an instance of `LMTableViewCell` whose `top`, `left`, `bottom`, and `right` layout margins are set to 20:
+For example, the following markup creates an instance of `LMTableViewCell` whose top, left, bottom, and right layout margins are set to 20:
 
     <LMTableViewCell layoutMargins="20">
         ...
@@ -164,7 +166,9 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Each template is represented by a dictionary object defined at the top level of the property list or JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
+Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Inline templates are defined within the markup document itself, and external templates are defined in a separate file.
+
+Each template is represented by a dictionary object defined at the top level of the property list or JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
 
 For example, the following JSON document defines a template named "greeting", which contains definitions for "font" and "textAlignment" properties:
 
@@ -179,7 +183,7 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties MyStyles?>
 
-Inline templates simply embed the template definition within the markup document itself:
+Inline templates simply embed the entire template definition within the processing instruction:
 
     <?properties {
         "greeting": {
@@ -206,7 +210,7 @@ Note that, although attribute values in XML are always represented as strings, t
 Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
 
 ### Outlets
-Views defined in markup are not particularly useful on their own. The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
+The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
 
 For example, the following markup declares a table view containing a `UITextField`. The text field is assigned an ID of "textField":
 
@@ -233,12 +237,25 @@ While it would be possible for an application to register for events programmati
 
 For example, the following markup declares an instance of `UIButton` that calls the `handleButtonTouchUpInside:` method of the document's owner when the button is tapped:
 
-    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="handleButtonTouchUpInside:"/>
+    <UIButton style="systemButton" title="Press Me!" 
+        onTouchUpInside="handleButtonTouchUpInside:"/>
+
+For example:
+
+    func handleButtonTouchUpInside(sender: UIButton) {
+        // Handle button press
+    }
+
+Note that the `sender` argument is optional; if the trailing colon is omitted in the handler name, the event will trigger a call to a zero-argument handler method:
+
+    func handleButtonTouchUpInside() {
+        // Handle button press
+    }
 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
 
 ## Processing Instructions
-In addition to the document-wide `strings` and `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
+In addition to the document-wide `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer view declarations and section breaks:
 
