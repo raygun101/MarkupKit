@@ -44,11 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIButton *)contactAddButton;
 
 /**
- * Creates a custom button.
- */
-+ (UIButton *)customButton;
-
-/**
  * The button's title.
  */
 @property (nonatomic, nullable) NSString *title;
@@ -57,106 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  * The button's image.
  */
 @property (nonatomic, nullable) UIImage *image;
-
-/**
- * The button's normal title.
- */
-@property (nonatomic, nullable) NSString *normalTitle DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's normal title color.
- */
-@property (nonatomic, nullable) UIColor *normalTitleColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's normal title shadow color.
- */
-@property (nonatomic, nullable) UIColor *normalTitleShadowColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's normal image.
- */
-@property (nonatomic, nullable) UIImage *normalImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's normal background image.
- */
-@property (nonatomic, nullable) UIImage *normalBackgroundImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's highlighted title.
- */
-@property (nonatomic, nullable) NSString *highlightedTitle DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's highlighted title color.
- */
-@property (nonatomic, nullable) UIColor *highlightedTitleColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's highlighted title shadow color.
- */
-@property (nonatomic, nullable) UIColor *highlightedTitleShadowColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's highlighted image.
- */
-@property (nonatomic, nullable) UIImage *highlightedImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's highlighted background image.
- */
-@property (nonatomic, nullable) UIImage *highlightedBackgroundImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's disabled title.
- */
-@property (nonatomic, nullable) NSString *disabledTitle DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's disabled title color.
- */
-@property (nonatomic, nullable) UIColor *disabledTitleColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's disabled title shadow color.
- */
-@property (nonatomic, nullable) UIColor *disabledTitleShadowColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's disabled image.
- */
-@property (nonatomic, nullable) UIImage *disabledImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's disabled background image.
- */
-@property (nonatomic, nullable) UIImage *disabledBackgroundImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's selected title.
- */
-@property (nonatomic, nullable) NSString *selectedTitle DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's selected title color.
- */
-@property (nonatomic, nullable) UIColor *selectedTitleColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's selected title shadow color.
- */
-@property (nonatomic, nullable) UIColor *selectedTitleShadowColor DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's selected image.
- */
-@property (nonatomic, nullable) UIImage *selectedImage DEPRECATED_ATTRIBUTE;
-
-/**
- * The button's selected background image.
- */
-@property (nonatomic, nullable) UIImage *selectedBackgroundImage DEPRECATED_ATTRIBUTE;
 
 /**
  * The top content edge inset.

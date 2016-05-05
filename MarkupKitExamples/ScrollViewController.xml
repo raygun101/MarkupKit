@@ -23,7 +23,8 @@ limitations under the License.
     </LMScrollView>
 
     <LMColumnView>
-        <LMColumnView weight="1"/>
+        <LMSpacer/>
+
         <LMColumnView layoutMargins="20">
             <UIButton style="systemButton" title="Press Me!"
                 backgroundColor="#ffffffee" contentEdgeInsets="16" clipsToBounds="true"
