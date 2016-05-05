@@ -32,7 +32,11 @@ limitations under the License.
 
         <LMRowView alignToBaseline="true" baseline="last">
             <UILabel class="cell" textAlignment="right" text="Last Baseline"/>
-            <UILabel weight="1" class="cell" numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+
+            <LMColumnView weight="1" class="cell">
+                <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+                <UILabel numberOfLines="0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."/>
+            </LMColumnView>
         </LMRowView>
     </LMColumnView>
 
