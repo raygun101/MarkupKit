@@ -796,17 +796,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 properties = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error];
             } else {
-                NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"plist"];
+                NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
 
                 if (path != nil) {
-                    properties = [NSDictionary dictionaryWithContentsOfFile:path];
-                } else {
-                    path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
-
-                    if (path != nil) {
-                        properties = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
-                            options:0 error:&error];
-                    }
+                    properties = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
+                        options:0 error:&error];
                 }
             }
 
