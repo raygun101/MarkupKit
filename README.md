@@ -166,9 +166,9 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Inline templates are defined within the markup document itself, and external templates are defined in a separate file.
+Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Inline templates are defined within the markup document itself, and external templates are specified in a separate file.
 
-Each template is represented by a dictionary object defined at the top level of the property list or JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
+Each template is represented by a dictionary object defined at the top level of the JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
 
 For example, the following JSON document defines a template named "greeting", which contains definitions for "font" and "textAlignment" properties:
 
@@ -194,10 +194,12 @@ Inline templates simply embed the entire template definition within the processi
 
 External templates are generally used when a set of properties may be shared by multiple markup documents, and internal templates are used when the properties are only applicable to the current document.
 
-#### Applying Templates
-Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined by the property list. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
+Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple template specifications, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
 
-For example, given any of the preceding template definitions, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally centered text:
+#### Applying Templates
+Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined within the current document. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
+
+For example, given the preceding template definition, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally centered text:
 
     <UILabel class="greeting" text="Hello, World!"/>
 
@@ -205,9 +207,7 @@ Multiple templates can be applied to a view using a comma-separated list of temp
 
     <UILabel class="bold, red" text="Bold Red Label"/>
 
-Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the property list or JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
-
-Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple property lists or inline templates, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
+Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
 ### Outlets
 The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
@@ -222,11 +222,11 @@ For example, the following markup declares a table view containing a `UITextFiel
 
 The owning class might declare an outlet for the text field in Objective-C like this:
 
-    @property (nonatomic) UITextField *textField;
+    @property (nonatomic) IBOutlet UITextField *textField;
     
 or in Swift, like this:
 
-    var textField: UITextField!
+    @IBOutlet var textField: UITextField!
 
 In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is supported by MarkupKit, but is not required.
 
@@ -242,13 +242,13 @@ For example, the following markup declares an instance of `UIButton` that calls 
 
 For example:
 
-    func handleButtonTouchUpInside(sender: UIButton) {
+    @IBAction func handleButtonTouchUpInside(sender: UIButton) {
         // Handle button press
     }
 
 Note that the `sender` argument is optional; if the trailing colon is omitted in the handler name, the event will trigger a call to a zero-argument handler method:
 
-    func handleButtonTouchUpInside() {
+    @IBAction func handleButtonTouchUpInside() {
         // Handle button press
     }
 
