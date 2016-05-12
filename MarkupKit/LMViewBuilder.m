@@ -456,6 +456,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
             continue;
         } else if ([key isEqual:@"datePickerMode"]) {
+            // Translate to date picker mode
             UIDatePickerMode datePickerMode;
             if ([value isEqual:@"time"]) {
                 datePickerMode = UIDatePickerModeTime;
@@ -471,6 +472,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
             value = [NSNumber numberWithInt:datePickerMode];
         } else if ([key isEqual:@"activityIndicatorViewStyle"]) {
+            // Translate to activity indicator view style
             UIActivityIndicatorViewStyle activityIndicatorViewStyle;
             if ([value isEqual:@"whiteLarge"]) {
                 activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
@@ -496,6 +498,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
             value = [NSNumber numberWithInt:collectionViewScrollDirection];
         } else if ([key isEqual:@"separatorStyle"]) {
+            // Translate to table view cell separator style
             UITableViewCellSeparatorStyle tableViewCellSeparatorStyle;
             if ([value isEqual:@"none"]) {
                 tableViewCellSeparatorStyle = UITableViewCellSeparatorStyleNone;
@@ -640,7 +643,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             }
 
             value = [NSNumber numberWithInt:layoutConstraintAxis];
-        } else if ([key isEqual:@"alignment"] && [view isKindOfClass:[UIStackView class]]) {
+        } else if ([key isEqual:@"alignment"]) {
             // Translate to stack view alignment
             UIStackViewAlignment stackViewAlignment;
             if ([value isEqual:@"fill"]) {
