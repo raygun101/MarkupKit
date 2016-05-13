@@ -52,15 +52,14 @@ static NSDictionary *textSpellCheckingTypeValues;
 static NSDictionary *keyboardAppearanceValues;
 static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
+static NSDictionary *datePickerModeValues;
+static NSDictionary *activityIndicatorViewStyleValues;
+static NSDictionary *tableViewCellSeparatorStyleValues;
+static NSDictionary *tableViewCellAccessoryTypeValues;
+static NSDictionary *tableViewCellSelectionStyleValues;
 
 // TODO
 /*
-datePickerMode
-activityIndicatorViewStyle
-collectionViewScrollDirection
-tableViewCellSeparatorStyle
-tableViewCellAccessoryType
-tableViewCellSelectionStyle
 webPaginationBreakingMode
 webPaginationMode
 barStyle
@@ -218,6 +217,40 @@ static NSDictionary *layoutPriorities;
         @"yahoo": @(UIReturnKeyYahoo),
         @"done": @(UIReturnKeyDone),
         @"emergencyCall": @(UIReturnKeyEmergencyCall)
+    };
+
+    datePickerModeValues = @{
+        @"time": @(UIDatePickerModeTime),
+        @"date": @(UIDatePickerModeDate),
+        @"dateAndTime": @(UIDatePickerModeDateAndTime),
+        @"countDownTimer": @(UIDatePickerModeCountDownTimer)
+    };
+
+    activityIndicatorViewStyleValues = @{
+        @"whiteLarge": @(UIActivityIndicatorViewStyleWhiteLarge),
+        @"white": @(UIActivityIndicatorViewStyleWhite),
+        @"gray": @(UIActivityIndicatorViewStyleGray)
+    };
+
+    tableViewCellSeparatorStyleValues = @{
+        @"none": @(UITableViewCellSeparatorStyleNone),
+        @"singleLine": @(UITableViewCellSeparatorStyleSingleLine),
+        @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
+    };
+
+    tableViewCellAccessoryTypeValues = @{
+        @"none": @(UITableViewCellAccessoryNone),
+        @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
+        @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
+        @"checkmark": @(UITableViewCellAccessoryCheckmark),
+        @"detailButton": @(UITableViewCellAccessoryDetailButton)
+    };
+
+    tableViewCellSelectionStyleValues = @{
+        @"none": @(UITableViewCellSelectionStyleNone),
+        @"blue": @(UITableViewCellSelectionStyleBlue),
+        @"gray": @(UITableViewCellSelectionStyleGray),
+        @"default": @(UITableViewCellSelectionStyleDefault)
     };
 
     layoutPriorities = @{
@@ -455,94 +488,39 @@ static NSDictionary *layoutPriorities;
             continue;
         } else if ([key isEqual:@"datePickerMode"]) {
             // Translate to date picker mode
-            UIDatePickerMode datePickerMode;
-            if ([value isEqual:@"time"]) {
-                datePickerMode = UIDatePickerModeTime;
-            } else if ([value isEqual:@"date"]) {
-                datePickerMode = UIDatePickerModeDate;
-            } else if ([value isEqual:@"dateAndTime"]) {
-                datePickerMode = UIDatePickerModeDateAndTime;
-            } else if ([value isEqual:@"countDownTimer"]) {
-                datePickerMode = UIDatePickerModeCountDownTimer;
-            } else {
+            value = [datePickerModeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:datePickerMode];
         } else if ([key isEqual:@"activityIndicatorViewStyle"]) {
             // Translate to activity indicator view style
-            UIActivityIndicatorViewStyle activityIndicatorViewStyle;
-            if ([value isEqual:@"whiteLarge"]) {
-                activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-            } else if ([value isEqual:@"white"]) {
-                activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhite;
-            } else if ([value isEqual:@"gray"]) {
-                activityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-            } else {
+            value = [activityIndicatorViewStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:activityIndicatorViewStyle];
-        } else if ([key isEqual:@"scrollDirection"]) {
-            // Translate to collection view scroll direction
-            UICollectionViewScrollDirection collectionViewScrollDirection;
-            if ([value isEqual:@"horizontal"]) {
-                collectionViewScrollDirection = UICollectionViewScrollDirectionHorizontal;
-            } else if ([value isEqual:@"vertical"]) {
-                collectionViewScrollDirection = UICollectionViewScrollDirectionVertical;
-            } else {
-                continue;
-            }
-
-            value = [NSNumber numberWithInt:collectionViewScrollDirection];
         } else if ([key isEqual:@"separatorStyle"]) {
             // Translate to table view cell separator style
-            UITableViewCellSeparatorStyle tableViewCellSeparatorStyle;
-            if ([value isEqual:@"none"]) {
-                tableViewCellSeparatorStyle = UITableViewCellSeparatorStyleNone;
-            } else if ([value isEqual:@"singleLine"]) {
-                tableViewCellSeparatorStyle = UITableViewCellSeparatorStyleSingleLine;
-            } else if ([value isEqual:@"singleLineEtched"]) {
-                tableViewCellSeparatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-            } else {
+            value = [tableViewCellSeparatorStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:tableViewCellSeparatorStyle];
         } else if ([key isEqual:@"accessoryType"]) {
             // Translate to table view cell accessory type
-            UITableViewCellAccessoryType tableViewCellAccessoryType;
-            if ([value isEqual:@"none"]) {
-                tableViewCellAccessoryType = UITableViewCellAccessoryNone;
-            } else if ([value isEqual:@"disclosureIndicator"]) {
-                tableViewCellAccessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            } else if ([value isEqual:@"detailDisclosureButton"]) {
-                tableViewCellAccessoryType = UITableViewCellAccessoryDetailDisclosureButton;
-            } else if ([value isEqual:@"checkmark"]) {
-                tableViewCellAccessoryType = UITableViewCellAccessoryCheckmark;
-            } else if ([value isEqual:@"detailButton"]) {
-                tableViewCellAccessoryType = UITableViewCellAccessoryDetailButton;
-            } else {
+            value = [tableViewCellAccessoryTypeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:tableViewCellAccessoryType];
         } else if ([key isEqual:@"selectionStyle"]) {
             // Translate to table view cell selection style
-            UITableViewCellSelectionStyle tableViewCellSelectionStyle;
-            if ([value isEqual:@"none"]) {
-                tableViewCellSelectionStyle = UITableViewCellSelectionStyleNone;
-            } else if ([value isEqual:@"blue"]) {
-                tableViewCellSelectionStyle = UITableViewCellSelectionStyleBlue;
-            } else if ([value isEqual:@"gray"]) {
-                tableViewCellSelectionStyle = UITableViewCellSelectionStyleGray;
-            } else if ([value isEqual:@"default"]) {
-                tableViewCellSelectionStyle = UITableViewCellSelectionStyleDefault;
-            } else {
+            value = [tableViewCellSelectionStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:tableViewCellSelectionStyle];
         } else if ([key isEqual:@"dataDetectorTypes"]) {
             // Translate to data detector types
             UIDataDetectorTypes dataDetectorTypes;
