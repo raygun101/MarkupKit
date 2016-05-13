@@ -15,8 +15,6 @@
 #import "LMViewBuilder.h"
 #import "UIView+Markup.h"
 
-#import <objc/message.h>
-
 static NSString * const kNormalSizeClass = @"normal";
 static NSString * const kHorizontalSizeClass = @"horizontal";
 static NSString * const kVerticalSizeClass = @"vertical";
