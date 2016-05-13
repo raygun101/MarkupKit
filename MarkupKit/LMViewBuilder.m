@@ -290,9 +290,9 @@ static NSDictionary *layoutPriorities;
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
 {
-    NSBundle *mainBundle = [NSBundle mainBundle];
-
     NSURL *url = nil;
+
+    NSBundle *mainBundle = [NSBundle mainBundle];
 
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
         UITraitCollection *traitCollection = [owner traitCollection];
@@ -565,8 +565,8 @@ static NSDictionary *layoutPriorities;
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
 {
     if ([_views count] == 0) {
+        // Process instruction
         if ([target isEqual:kPropertiesTarget]) {
-            // Load properties
             NSDictionary *properties = nil;
 
             NSError *error = nil;
@@ -616,6 +616,7 @@ static NSDictionary *layoutPriorities;
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
 {
+    // Process attributes
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
