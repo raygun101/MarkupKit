@@ -21,6 +21,8 @@ class CustomSectionViewController: UITableViewController {
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("CustomSectionViewController", owner: self, root: nil)
+
+        tableView.dataSource = self
     }
 
     override func viewDidLoad() {
@@ -29,8 +31,6 @@ class CustomSectionViewController: UITableViewController {
         title = "Custom Section View"
 
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: CustomSectionViewController.CellIdentifier)
-        
-        tableView.dataSource = self
     }
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

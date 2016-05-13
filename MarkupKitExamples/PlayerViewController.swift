@@ -23,14 +23,14 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("PlayerViewController", owner: self, root: nil)
+
+        tableView.dataSource = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Player View"
-
-        tableView.dataSource = self
     }
 
     override func viewWillAppear(animated: Bool) {

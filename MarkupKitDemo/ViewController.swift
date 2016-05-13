@@ -30,15 +30,15 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+
+        tableView.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "MarkupKit Demo"
-        
-        tableView.delegate = self
-        
+
         sizePickerView.delegate = self
 
         slider.minimumValue = Float(stepper.minimumValue)
