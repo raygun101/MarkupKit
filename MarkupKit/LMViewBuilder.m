@@ -391,8 +391,6 @@ static NSDictionary *layoutPriorities;
     for (NSString *path in properties) {
         id value = [properties objectForKey:path];
 
-        // TODO Continue if value is nil?
-
         // TODO Trim string values?
 
         NSRange keyDelimiterRange = [path rangeOfString:@"." options:NSBackwardsSearch];
@@ -400,158 +398,80 @@ static NSDictionary *layoutPriorities;
         NSString *key = (keyDelimiterRange.location == NSNotFound) ? path : [path substringFromIndex:keyDelimiterRange.location + 1];
 
         if ([key isEqual:@"contentMode"]) {
-            // Translate to view content mode
             value = [viewContentModeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"tintAdjustmentMode"]) {
-            // Translate to tint adjustment mode
             value = [tintAdjustmentModeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"contentHorizontalAlignment"]) {
-            // Translate to control content horizontal alignment
             value = [controlContentHorizontalAlignmentValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"contentVerticalAlignment"]) {
-            // Translate to control content vertical alignment
             value = [controlContentVerticalAlignmentValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"lineBreakMode"]) {
-            // Translate to line break mode
             value = [lineBreakModeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"textAlignment"]) {
-            // Translate value to text alignment
             value = [textAlignmentValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"borderStyle"]) {
-            // Translate to text border style
             value = [textBorderStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
-            // Translate to text field view mode
             value = [textFieldViewModeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"autocapitalizationType"]) {
-            // Translate to auto-capitalization type
             value = [textAutocapitalizationTypeValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setAutocapitalizationType:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"autocorrectionType"]) {
-            // Translate to auto-correction type
             value = [textAutocorrectionTypeValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setAutocorrectionType:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"spellCheckingType"]) {
-            // Translate to spell checking type
             value = [textSpellCheckingTypeValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setSpellCheckingType:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"keyboardAppearance"]) {
-            // Translate to keyboard appearance
             value = [keyboardAppearanceValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setKeyboardAppearance:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"keyboardType"]) {
-            // Translate to keyboard type
             value = [keyboardTypeValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setKeyboardType:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"returnKeyType"]) {
-            // Translate to return key type
             value = [returnKeyTypeValues objectForKey:value];
 
-            // Property is not KVC-compliant
             if (value != nil) {
                 [(UIView<UITextInputTraits> *)view setReturnKeyType:[value integerValue]];
             }
 
             continue;
         } else if ([key isEqual:@"datePickerMode"]) {
-            // Translate to date picker mode
             value = [datePickerModeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"activityIndicatorViewStyle"]) {
-            // Translate to activity indicator view style
             value = [activityIndicatorViewStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"separatorStyle"]) {
-            // Translate to table view cell separator style
             value = [tableViewCellSeparatorStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"accessoryType"]) {
-            // Translate to table view cell accessory type
             value = [tableViewCellAccessoryTypeValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"selectionStyle"]) {
-            // Translate to table view cell selection style
             value = [tableViewCellSelectionStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"dataDetectorTypes"]) {
-            // Translate to data detector types
             UIDataDetectorTypes dataDetectorTypes;
             if ([value isEqual:@"none"]) {
                 dataDetectorTypes = UIDataDetectorTypeNone;
@@ -581,89 +501,27 @@ static NSDictionary *layoutPriorities;
 
             value = [NSNumber numberWithUnsignedInteger:dataDetectorTypes];
         } else if ([key isEqual:@"barStyle"]) {
-            // Translate to bar style
             value = [barStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"searchBarStyle"]) {
-            // Translate to search bar style
             value = [searchBarStyleValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"axis"]) {
-            // Translate to layout constraint axis
             value = [layoutConstraintAxisValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"alignment"]) {
-            // Translate to stack view alignment
             value = [stackViewAlignmentValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key isEqual:@"distribution"]) {
-            // Translate to stack view distribution
             value = [stackViewDistributionValues objectForKey:value];
-
-            if (value == nil) {
-                continue;
-            }
         } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            // Parse color specification
-            UIColor *color;
-            if ([value isKindOfClass:[NSString self]]) {
-                color = [LMViewBuilder colorValue:value];
-            } else {
-                color = nil;
-            }
-
-            if (color == nil) {
-                continue;
-            }
+            value = ([value isKindOfClass:[NSString self]]) ? [LMViewBuilder colorValue:value] : nil;
 
             if ([path hasPrefix:@"layer"]) {
-                value = (id)[color CGColor];
-            } else {
-                value = color;
+                value = (id)[value CGColor];
             }
         } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            // Parse font specification
-            UIFont *font;
-            if ([value isKindOfClass:[NSString self]]) {
-                font = [LMViewBuilder fontValue:value];
-            } else {
-                font = nil;
-            }
-
-            if (font == nil) {
-                continue;
-            }
-
-            value = font;
+            value = ([value isKindOfClass:[NSString self]]) ? [LMViewBuilder fontValue:value] : nil;
         } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            // Load named image
-            UIImage *image;
-            if ([value isKindOfClass:[NSString self]]) {
-                image = [UIImage imageNamed:value];
-            } else {
-                image = nil;
-            }
-
-            if (image == nil) {
-                continue;
-            }
-
-            value = image;
+            value = ([value isKindOfClass:[NSString self]]) ? [UIImage imageNamed:value] : nil;
         } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
-            // Translate to layout priority
             NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
 
             if (layoutPriority != nil) {
@@ -671,13 +529,14 @@ static NSDictionary *layoutPriorities;
             }
         } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
-            // Create edge insets from value
             CGFloat inset = [value floatValue];
 
             value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         }
 
-        [view setValue:value forKeyPath:path];
+        if (value != nil) {
+            [view setValue:value forKeyPath:path];
+        }
     }
 }
 
