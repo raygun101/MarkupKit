@@ -57,13 +57,11 @@ static NSDictionary *activityIndicatorViewStyleValues;
 static NSDictionary *tableViewCellSeparatorStyleValues;
 static NSDictionary *tableViewCellAccessoryTypeValues;
 static NSDictionary *tableViewCellSelectionStyleValues;
+static NSDictionary *barStyleValues;
+static NSDictionary *searchBarStyleValues;
 
 // TODO
 /*
-webPaginationBreakingMode
-webPaginationMode
-barStyle
-searchBarStyle
 layoutConstraintAxis
 stackViewAlignment
 stackViewDistribution
@@ -251,6 +249,17 @@ static NSDictionary *layoutPriorities;
         @"blue": @(UITableViewCellSelectionStyleBlue),
         @"gray": @(UITableViewCellSelectionStyleGray),
         @"default": @(UITableViewCellSelectionStyleDefault)
+    };
+
+    barStyleValues = @{
+        @"default": @(UIBarStyleDefault),
+        @"black": @(UIBarStyleBlack)
+    };
+
+    searchBarStyleValues = @{
+        @"default": @(UISearchBarStyleDefault),
+        @"prominent": @(UISearchBarStyleProminent),
+        @"minimal": @(UISearchBarStyleMinimal)
     };
 
     layoutPriorities = @{
@@ -551,62 +560,20 @@ static NSDictionary *layoutPriorities;
             }
 
             value = [NSNumber numberWithUnsignedInteger:dataDetectorTypes];
-        } else if ([key isEqual:@"paginationBreakingMode"]) {
-            // Translate to web pagination breaking mode
-            UIWebPaginationBreakingMode webPaginationBreakingMode;
-            if ([value isEqual:@"page"]) {
-                webPaginationBreakingMode = UIWebPaginationBreakingModePage;
-            } else if ([value isEqual:@"column"]) {
-                webPaginationBreakingMode = UIWebPaginationBreakingModeColumn;
-            } else {
-                continue;
-            }
-
-            value = [NSNumber numberWithInt:webPaginationBreakingMode];
-        } else if ([key isEqual:@"paginationMode"]) {
-            // Translate to web pagination mode
-            UIWebPaginationMode webPaginationMode;
-            if ([value isEqual:@"unpaginated"]) {
-                webPaginationMode = UIWebPaginationModeUnpaginated;
-            } else if ([value isEqual:@"leftToRight"]) {
-                webPaginationMode = UIWebPaginationModeLeftToRight;
-            } else if ([value isEqual:@"topToBottom"]) {
-                webPaginationMode = UIWebPaginationModeTopToBottom;
-            } else if ([value isEqual:@"bottomToTop"]) {
-                webPaginationMode = UIWebPaginationModeBottomToTop;
-            } else if ([value isEqual:@"rightToLeft"]) {
-                webPaginationMode = UIWebPaginationModeRightToLeft;
-            } else {
-                continue;
-            }
-
-            value = [NSNumber numberWithInt:webPaginationMode];
         } else if ([key isEqual:@"barStyle"]) {
             // Translate to bar style
-            UIBarStyle barStyle;
-            if ([value isEqual:@"default"]) {
-                barStyle = UIBarStyleDefault;
-            } else if ([value isEqual:@"black"]) {
-                barStyle = UIBarStyleBlack;
-            } else {
+            value = [barStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:barStyle];
         } else if ([key isEqual:@"searchBarStyle"]) {
             // Translate to search bar style
-            UISearchBarStyle searchBarStyle;
-            if ([value isEqual:@"default"]) {
-                searchBarStyle = UISearchBarStyleDefault;
-            } else if ([value isEqual:@"prominent"]) {
-                searchBarStyle = UISearchBarStyleProminent;
-            } else if ([value isEqual:@"minimal"]) {
-                searchBarStyle = UISearchBarStyleMinimal;
-            } else {
+            value = [searchBarStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:searchBarStyle];
         } else if ([key isEqual:@"axis"]) {
             // Translate to layout constraint axis
             UILayoutConstraintAxis layoutConstraintAxis;
