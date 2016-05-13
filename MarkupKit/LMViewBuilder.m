@@ -405,10 +405,6 @@ static NSDictionary *layoutPriorities;
             value = [LMViewBuilder fontValue:[value description]];
         } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
             value = [UIImage imageNamed:[value description]];
-        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            CGFloat inset = [value floatValue];
-
-            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         } else  if ([key isEqual:@"contentMode"]) {
             value = [viewContentModeValues objectForKey:value];
         } else if ([key isEqual:@"tintAdjustmentMode"]) {
@@ -522,6 +518,11 @@ static NSDictionary *layoutPriorities;
             value = [stackViewAlignmentValues objectForKey:value];
         } else if ([key isEqual:@"distribution"]) {
             value = [stackViewDistributionValues objectForKey:value];
+        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
+            options:NSRegularExpressionSearch].location != NSNotFound) {
+            CGFloat inset = [value floatValue];
+
+            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
             NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
