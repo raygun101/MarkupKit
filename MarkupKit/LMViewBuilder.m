@@ -391,13 +391,25 @@ static NSDictionary *layoutPriorities;
     for (NSString *path in properties) {
         id value = [properties objectForKey:path];
 
-        // TODO Trim string values?
-
         NSRange keyDelimiterRange = [path rangeOfString:@"." options:NSBackwardsSearch];
 
         NSString *key = (keyDelimiterRange.location == NSNotFound) ? path : [path substringFromIndex:keyDelimiterRange.location + 1];
 
-        if ([key isEqual:@"contentMode"]) {
+        if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
+            value = [LMViewBuilder colorValue:[value description]];
+
+            if ([path hasPrefix:@"layer"]) {
+                value = (id)[value CGColor];
+            }
+        } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
+            value = [LMViewBuilder fontValue:[value description]];
+        } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
+            value = [UIImage imageNamed:[value description]];
+        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$" options:NSRegularExpressionSearch].location != NSNotFound) {
+            CGFloat inset = [value floatValue];
+
+            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
+        } else  if ([key isEqual:@"contentMode"]) {
             value = [viewContentModeValues objectForKey:value];
         } else if ([key isEqual:@"tintAdjustmentMode"]) {
             value = [tintAdjustmentModeValues objectForKey:value];
@@ -510,16 +522,6 @@ static NSDictionary *layoutPriorities;
             value = [stackViewAlignmentValues objectForKey:value];
         } else if ([key isEqual:@"distribution"]) {
             value = [stackViewDistributionValues objectForKey:value];
-        } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = ([value isKindOfClass:[NSString self]]) ? [LMViewBuilder colorValue:value] : nil;
-
-            if ([path hasPrefix:@"layer"]) {
-                value = (id)[value CGColor];
-            }
-        } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = ([value isKindOfClass:[NSString self]]) ? [LMViewBuilder fontValue:value] : nil;
-        } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = ([value isKindOfClass:[NSString self]]) ? [UIImage imageNamed:value] : nil;
         } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
             NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
@@ -527,11 +529,6 @@ static NSDictionary *layoutPriorities;
             if (layoutPriority != nil) {
                 value = layoutPriority;
             }
-        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
-            options:NSRegularExpressionSearch].location != NSNotFound) {
-            CGFloat inset = [value floatValue];
-
-            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
         }
 
         if (value != nil) {
