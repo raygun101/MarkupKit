@@ -18,13 +18,13 @@ import MarkupKit
 class RadioButtonViewController: UITableViewController {
     override func loadView() {
         view = LMViewBuilder.viewWithName("RadioButtonViewController", owner: self, root: nil)
+
+        tableView.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Radio Buttons"
-
-        tableView.delegate = self
     }
 }

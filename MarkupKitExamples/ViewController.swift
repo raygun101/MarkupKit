@@ -18,6 +18,8 @@ import MarkupKit
 class ViewController: UITableViewController {
     override func loadView() {
         view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+
+        tableView.delegate = self
     }
 
     override func viewDidLoad() {
@@ -26,8 +28,6 @@ class ViewController: UITableViewController {
         title = "MarkupKit Examples"
 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
-
-        tableView.delegate = self
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

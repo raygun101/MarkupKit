@@ -18,13 +18,13 @@ import MarkupKit
 class CheckboxViewController: UITableViewController {
     override func loadView() {
         view = LMViewBuilder.viewWithName("CheckboxViewController", owner: self, root: nil)
+
+        tableView.delegate = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Checkboxes"
-
-        tableView.delegate = self
     }
 }
