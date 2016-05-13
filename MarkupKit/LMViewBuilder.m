@@ -36,6 +36,9 @@ static NSString * const kActionPrefix = @"on";
 
 static NSString * const kLocalizedStringPrefix = @"@";
 
+static NSDictionary *fontTextStyles;
+static NSDictionary *layoutPriorities;
+
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
 @end
@@ -48,6 +51,28 @@ static NSString * const kLocalizedStringPrefix = @"@";
     NSMutableDictionary *_properties;
 
     NSMutableArray *_views;
+}
+
++ (void)initialize
+{
+    fontTextStyles = @{
+        @"title1": UIFontTextStyleTitle1,
+        @"title2": UIFontTextStyleTitle2,
+        @"title3": UIFontTextStyleTitle3,
+        @"headline": UIFontTextStyleHeadline,
+        @"subheadline": UIFontTextStyleSubheadline,
+        @"body": UIFontTextStyleBody,
+        @"footnote": UIFontTextStyleFootnote,
+        @"caption1": UIFontTextStyleCaption1,
+        @"caption2": UIFontTextStyleCaption2
+    };
+
+    layoutPriorities = @{
+        @"required": @(UILayoutPriorityRequired),
+        @"defaultHigh": @(UILayoutPriorityDefaultHigh),
+        @"defaultLow": @(UILayoutPriorityDefaultLow),
+        @"fittingSizeLevel": @(UILayoutPriorityFittingSizeLevel)
+    };
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -120,24 +145,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
 {
     UIFont *font = nil;
 
-    if ([value isEqual:@"title1"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
-    } else if ([value isEqual:@"title2"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
-    } else if ([value isEqual:@"title3"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
-    } else if ([value isEqual:@"headline"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    } else if ([value isEqual:@"subheadline"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-    } else if ([value isEqual:@"body"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    } else if ([value isEqual:@"footnote"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-    } else if ([value isEqual:@"caption1"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
-    } else if ([value isEqual:@"caption2"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+    NSString *fontTextStyle = [fontTextStyles objectForKey:value];
+
+    if (fontTextStyle != nil) {
+        font = [UIFont preferredFontForTextStyle:fontTextStyle];
     } else {
         NSArray *components = [value componentsSeparatedByString:@" "];
 
@@ -734,20 +745,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
         } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
             // Translate to layout priority
-            UILayoutPriority layoutPriority;
-            if ([value isEqual:@"required"]) {
-                layoutPriority = UILayoutPriorityRequired;
-            } else if ([value isEqual:@"defaultHigh"]) {
-                layoutPriority = UILayoutPriorityDefaultHigh;
-            } else if ([value isEqual:@"defaultLow"]) {
-                layoutPriority = UILayoutPriorityDefaultLow;
-            } else if ([value isEqual:@"fittingSizeLevel"]) {
-                layoutPriority = UILayoutPriorityFittingSizeLevel;
-            } else {
-                layoutPriority = [value floatValue];
-            }
+            NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
 
-            value = [NSNumber numberWithFloat:layoutPriority];
+            if (layoutPriority != nil) {
+                value = layoutPriority;
+            }
         } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
             options:NSRegularExpressionSearch].location != NSNotFound) {
             // Create edge insets from value
@@ -975,7 +977,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
             } else if ([name isEqual:@"AllEvents"]) {
                 controlEvents = UIControlEventAllEvents;
             } else {
-                controlEvents = 0;
+                continue;
             }
 
             SEL action = NSSelectorFromString([actions objectForKey:key]);
