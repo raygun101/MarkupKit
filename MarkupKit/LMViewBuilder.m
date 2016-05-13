@@ -59,13 +59,9 @@ static NSDictionary *tableViewCellAccessoryTypeValues;
 static NSDictionary *tableViewCellSelectionStyleValues;
 static NSDictionary *barStyleValues;
 static NSDictionary *searchBarStyleValues;
-
-// TODO
-/*
-layoutConstraintAxis
-stackViewAlignment
-stackViewDistribution
-*/
+static NSDictionary *layoutConstraintAxisValues;
+static NSDictionary *stackViewAlignmentValues;
+static NSDictionary *stackViewDistributionValues;
 
 static NSDictionary *layoutPriorities;
 
@@ -260,6 +256,30 @@ static NSDictionary *layoutPriorities;
         @"default": @(UISearchBarStyleDefault),
         @"prominent": @(UISearchBarStyleProminent),
         @"minimal": @(UISearchBarStyleMinimal)
+    };
+
+    layoutConstraintAxisValues = @{
+        @"horizontal": @(UILayoutConstraintAxisHorizontal),
+        @"vertical": @(UILayoutConstraintAxisVertical)
+    };
+
+    stackViewAlignmentValues = @{
+        @"fill": @(UIStackViewAlignmentFill),
+        @"leading": @(UIStackViewAlignmentLeading),
+        @"top": @(UIStackViewAlignmentTop),
+        @"firstBaseline": @(UIStackViewAlignmentFirstBaseline),
+        @"center": @(UIStackViewAlignmentCenter),
+        @"trailing": @(UIStackViewAlignmentTrailing),
+        @"bottom": @(UIStackViewAlignmentBottom),
+        @"lastBaseline": @(UIStackViewAlignmentLastBaseline)
+    };
+
+    stackViewDistributionValues = @{
+        @"fill": @(UIStackViewDistributionFill),
+        @"fillEqually": @(UIStackViewDistributionFillEqually),
+        @"fillProportionally": @(UIStackViewDistributionFillProportionally),
+        @"equalSpacing": @(UIStackViewDistributionEqualSpacing),
+        @"equalCentering": @(UIStackViewDistributionEqualSpacing)
     };
 
     layoutPriorities = @{
@@ -576,58 +596,25 @@ static NSDictionary *layoutPriorities;
             }
         } else if ([key isEqual:@"axis"]) {
             // Translate to layout constraint axis
-            UILayoutConstraintAxis layoutConstraintAxis;
-            if ([value isEqual:@"horizontal"]) {
-                layoutConstraintAxis = UILayoutConstraintAxisHorizontal;
-            } else if ([value isEqual:@"vertical"]) {
-                layoutConstraintAxis = UILayoutConstraintAxisVertical;
-            } else {
+            value = [layoutConstraintAxisValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:layoutConstraintAxis];
         } else if ([key isEqual:@"alignment"]) {
             // Translate to stack view alignment
-            UIStackViewAlignment stackViewAlignment;
-            if ([value isEqual:@"fill"]) {
-                stackViewAlignment = UIStackViewAlignmentFill;
-            } else if ([value isEqual:@"leading"]) {
-                stackViewAlignment = UIStackViewAlignmentLeading;
-            } else if ([value isEqual:@"top"]) {
-                stackViewAlignment = UIStackViewAlignmentTop;
-            } else if ([value isEqual:@"firstBaseline"]) {
-                stackViewAlignment = UIStackViewAlignmentFirstBaseline;
-            } else if ([value isEqual:@"center"]) {
-                stackViewAlignment = UIStackViewAlignmentCenter;
-            } else if ([value isEqual:@"trailing"]) {
-                stackViewAlignment = UIStackViewAlignmentTrailing;
-            } else if ([value isEqual:@"bottom"]) {
-                stackViewAlignment = UIStackViewAlignmentBottom;
-            } else if ([value isEqual:@"lastBaseline"]) {
-                stackViewAlignment = UIStackViewAlignmentLastBaseline;
-            } else {
+            value = [stackViewAlignmentValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:stackViewAlignment];
         } else if ([key isEqual:@"distribution"]) {
             // Translate to stack view distribution
-            UIStackViewDistribution stackViewDistribution;
-            if ([value isEqual:@"fill"]) {
-                stackViewDistribution = UIStackViewDistributionFill;
-            } else if ([value isEqual:@"fillEqually"]) {
-                stackViewDistribution = UIStackViewDistributionFillEqually;
-            } else if ([value isEqual:@"fillProportionally"]) {
-                stackViewDistribution = UIStackViewDistributionFillProportionally;
-            } else if ([value isEqual:@"equalSpacing"]) {
-                stackViewDistribution = UIStackViewDistributionEqualSpacing;
-            } else if ([value isEqual:@"equalCentering"]) {
-                stackViewDistribution = UIStackViewDistributionEqualSpacing;
-            } else {
+            value = [stackViewDistributionValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:stackViewDistribution];
         } else if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
             // Parse color specification
             UIColor *color;
