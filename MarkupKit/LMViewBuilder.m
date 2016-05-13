@@ -37,6 +37,39 @@ static NSString * const kActionPrefix = @"on";
 static NSString * const kLocalizedStringPrefix = @"@";
 
 static NSDictionary *fontTextStyles;
+
+static NSDictionary *viewContentModeValues;
+
+// TODO
+/*
+tintAdjustmentMode
+controlContentHorizontalAlignment
+controlContentVerticalAlignment
+lineBreakMode
+textAlignment
+textBorderStyle
+textFieldViewMode
+textAutocapitalizationType
+textAutocorrectionType
+textSpellCheckingType
+keyboardAppearance
+keyboardType
+returnKeyType
+datePickerMode
+activityIndicatorViewStyle
+collectionViewScrollDirection
+tableViewCellSeparatorStyle
+tableViewCellAccessoryType
+tableViewCellSelectionStyle
+webPaginationBreakingMode
+webPaginationMode
+barStyle
+searchBarStyle
+layoutConstraintAxis
+stackViewAlignment
+stackViewDistribution
+*/
+
 static NSDictionary *layoutPriorities;
 
 @interface LMViewBuilder () <NSXMLParserDelegate>
@@ -65,6 +98,22 @@ static NSDictionary *layoutPriorities;
         @"footnote": UIFontTextStyleFootnote,
         @"caption1": UIFontTextStyleCaption1,
         @"caption2": UIFontTextStyleCaption2
+    };
+
+    viewContentModeValues = @{
+        @"scaleToFill": @(UIViewContentModeScaleToFill),
+        @"scaleAspectFit": @(UIViewContentModeScaleAspectFit),
+        @"scaleAspectFill": @(UIViewContentModeScaleAspectFill),
+        @"redraw": @(UIViewContentModeRedraw),
+        @"center": @(UIViewContentModeCenter),
+        @"top": @(UIViewContentModeTop),
+        @"bottom": @(UIViewContentModeBottom),
+        @"left": @(UIViewContentModeLeft),
+        @"right": @(UIViewContentModeRight),
+        @"topLeft": @(UIViewContentModeTopLeft),
+        @"topRight": @(UIViewContentModeTopRight),
+        @"bottomLeft": @(UIViewContentModeBottomLeft),
+        @"bottomRight": @(UIViewContentModeBottomRight)
     };
 
     layoutPriorities = @{
@@ -176,44 +225,21 @@ static NSDictionary *layoutPriorities;
     for (NSString *path in properties) {
         id value = [properties objectForKey:path];
 
+        // TODO Continue if value is nil?
+
+        // TODO Trim string values?
+
         NSRange keyDelimiterRange = [path rangeOfString:@"." options:NSBackwardsSearch];
 
         NSString *key = (keyDelimiterRange.location == NSNotFound) ? path : [path substringFromIndex:keyDelimiterRange.location + 1];
 
         if ([key isEqual:@"contentMode"]) {
-            // Translate to content mode
-            UIViewContentMode contentMode;
-            if ([value isEqual:@"scaleToFill"]) {
-                contentMode = UIViewContentModeScaleToFill;
-            } else if ([value isEqual:@"scaleAspectFit"]) {
-                contentMode = UIViewContentModeScaleAspectFit;
-            } else if ([value isEqual:@"scaleAspectFill"]) {
-                contentMode = UIViewContentModeScaleAspectFill;
-            } else if ([value isEqual:@"redraw"]) {
-                contentMode = UIViewContentModeRedraw;
-            } else if ([value isEqual:@"center"]) {
-                contentMode = UIViewContentModeCenter;
-            } else if ([value isEqual:@"top"]) {
-                contentMode = UIViewContentModeTop;
-            } else if ([value isEqual:@"bottom"]) {
-                contentMode = UIViewContentModeBottom;
-            } else if ([value isEqual:@"left"]) {
-                contentMode = UIViewContentModeLeft;
-            } else if ([value isEqual:@"right"]) {
-                contentMode = UIViewContentModeRight;
-            } else if ([value isEqual:@"topLeft"]) {
-                contentMode = UIViewContentModeTopLeft;
-            } else if ([value isEqual:@"topRight"]) {
-                contentMode = UIViewContentModeTopRight;
-            } else if ([value isEqual:@"bottomLeft"]) {
-                contentMode = UIViewContentModeBottomLeft;
-            } else if ([value isEqual:@"bottomRight"]) {
-                contentMode = UIViewContentModeBottomRight;
-            } else {
+            // Translate to view content mode
+            value = [viewContentModeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:contentMode];
         } else if ([key isEqual:@"tintAdjustmentMode"]) {
             // Translate to tint adjustment mode
             UIViewTintAdjustmentMode tintAdjustmentMode;
