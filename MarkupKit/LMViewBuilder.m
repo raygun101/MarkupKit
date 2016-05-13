@@ -43,15 +43,15 @@ static NSDictionary *tintAdjustmentModeValues;
 static NSDictionary *controlContentHorizontalAlignmentValues;
 static NSDictionary *controlContentVerticalAlignmentValues;
 static NSDictionary *lineBreakModeValues;
+static NSDictionary *textAlignmentValues;
+static NSDictionary *textBorderStyleValues;
+static NSDictionary *textFieldViewModeValues;
+static NSDictionary *textAutocapitalizationTypeValues;
+static NSDictionary *textAutocorrectionTypeValues;
+static NSDictionary *textSpellCheckingTypeValues;
 
 // TODO
 /*
-textAlignment
-textBorderStyle
-textFieldViewMode
-textAutocapitalizationType
-textAutocorrectionType
-textSpellCheckingType
 keyboardAppearance
 keyboardType
 returnKeyType
@@ -143,6 +143,47 @@ static NSDictionary *layoutPriorities;
         @"byTruncatingHead": @(NSLineBreakByTruncatingHead),
         @"byTruncatingTail": @(NSLineBreakByTruncatingTail),
         @"byTruncatingMiddle": @(NSLineBreakByTruncatingMiddle)
+    };
+
+    textAlignmentValues = @{
+        @"left": @(NSTextAlignmentLeft),
+        @"center": @(NSTextAlignmentCenter),
+        @"right": @(NSTextAlignmentRight),
+        @"justified": @(NSTextAlignmentJustified),
+        @"natural": @(NSTextAlignmentNatural)
+    };
+
+    textBorderStyleValues = @{
+        @"none": @(UITextBorderStyleNone),
+        @"line": @(UITextBorderStyleLine),
+        @"bezel": @(UITextBorderStyleBezel),
+        @"roundedRect": @(UITextBorderStyleRoundedRect)
+    };
+
+    textFieldViewModeValues = @{
+        @"never": @(UITextFieldViewModeNever),
+        @"whileEditing": @(UITextFieldViewModeWhileEditing),
+        @"unlessEditing": @(UITextFieldViewModeUnlessEditing),
+        @"always": @(UITextFieldViewModeAlways)
+    };
+
+    textAutocapitalizationTypeValues = @{
+        @"none": @(UITextAutocapitalizationTypeNone),
+        @"words": @(UITextAutocapitalizationTypeWords),
+        @"sentences": @(UITextAutocapitalizationTypeSentences),
+        @"allCharacters": @(UITextAutocapitalizationTypeAllCharacters)
+    };
+
+    textAutocorrectionTypeValues = @{
+        @"default": @(UITextAutocorrectionTypeDefault),
+        @"yes": @(UITextAutocorrectionTypeYes),
+        @"no": @(UITextAutocorrectionTypeNo)
+    };
+
+    textSpellCheckingTypeValues = @{
+        @"default": @(UITextSpellCheckingTypeDefault),
+        @"yes": @(UITextSpellCheckingTypeYes),
+        @"no": @(UITextSpellCheckingTypeNo)
     };
 
     layoutPriorities = @{
@@ -299,105 +340,53 @@ static NSDictionary *layoutPriorities;
             }
         } else if ([key isEqual:@"textAlignment"]) {
             // Translate value to text alignment
-            NSTextAlignment textAlignment;
-            if ([value isEqual:@"left"]) {
-                textAlignment = NSTextAlignmentLeft;
-            } else if ([value isEqual:@"center"]) {
-                textAlignment = NSTextAlignmentCenter;
-            } else if ([value isEqual:@"right"]) {
-                textAlignment = NSTextAlignmentRight;
-            } else if ([value isEqual:@"justified"]) {
-                textAlignment = NSTextAlignmentJustified;
-            } else if ([value isEqual:@"natural"]) {
-                textAlignment = NSTextAlignmentNatural;
-            } else {
+            value = [textAlignmentValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:textAlignment];
         } else if ([key isEqual:@"borderStyle"]) {
             // Translate to text border style
-            UITextBorderStyle textBorderStyle;
-            if ([value isEqual:@"none"]) {
-                textBorderStyle = UITextBorderStyleNone;
-            } else if ([value isEqual:@"line"]) {
-                textBorderStyle = UITextBorderStyleLine;
-            } else if ([value isEqual:@"bezel"]) {
-                textBorderStyle = UITextBorderStyleBezel;
-            } else if ([value isEqual:@"roundedRect"]) {
-                textBorderStyle = UITextBorderStyleRoundedRect;
-            } else {
+            value = [textBorderStyleValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:textBorderStyle];
         } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
             // Translate to text field view mode
-            UITextFieldViewMode textFieldViewMode;
-            if ([value isEqual:@"never"]) {
-                textFieldViewMode = UITextFieldViewModeNever;
-            } else if ([value isEqual:@"whileEditing"]) {
-                textFieldViewMode = UITextFieldViewModeWhileEditing;
-            } else if ([value isEqual:@"unlessEditing"]) {
-                textFieldViewMode = UITextFieldViewModeUnlessEditing;
-            } else if ([value isEqual:@"always"]) {
-                textFieldViewMode = UITextFieldViewModeAlways;
-            } else {
+            value = [textFieldViewModeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:textFieldViewMode];
         } else if ([key isEqual:@"autocapitalizationType"]) {
             // Translate to auto-capitalization type
-            UITextAutocapitalizationType textAutocapitalizationType;
-            if ([value isEqual:@"none"]) {
-                textAutocapitalizationType = UITextAutocapitalizationTypeNone;
-            } else if ([value isEqual:@"words"]) {
-                textAutocapitalizationType = UITextAutocapitalizationTypeWords;
-            } else if ([value isEqual:@"sentences"]) {
-                textAutocapitalizationType = UITextAutocapitalizationTypeSentences;
-            } else if ([value isEqual:@"allCharacters"]) {
-                textAutocapitalizationType = UITextAutocapitalizationTypeAllCharacters;
-            } else {
-                continue;
-            }
+            value = [textAutocapitalizationTypeValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setAutocapitalizationType:textAutocapitalizationType];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setAutocapitalizationType:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"autocorrectionType"]) {
             // Translate to auto-correction type
-            UITextAutocorrectionType textAutocorrectionType;
-            if ([value isEqual:@"default"]) {
-                textAutocorrectionType = UITextAutocorrectionTypeDefault;
-            } else if ([value isEqual:@"yes"]) {
-                textAutocorrectionType = UITextAutocorrectionTypeYes;
-            } else if ([value isEqual:@"no"]) {
-                textAutocorrectionType = UITextAutocorrectionTypeNo;
-            } else {
-                continue;
-            }
+            value = [textAutocorrectionTypeValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setAutocorrectionType:textAutocorrectionType];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setAutocorrectionType:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"spellCheckingType"]) {
             // Translate to spell checking type
-            UITextSpellCheckingType textSpellCheckingType;
-            if ([value isEqual:@"default"]) {
-                textSpellCheckingType = UITextSpellCheckingTypeDefault;
-            } else if ([value isEqual:@"yes"]) {
-                textSpellCheckingType = UITextSpellCheckingTypeYes;
-            } else if ([value isEqual:@"no"]) {
-                textSpellCheckingType = UITextSpellCheckingTypeNo;
-            } else {
-                continue;
-            }
+            value = [textSpellCheckingTypeValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setSpellCheckingType:textSpellCheckingType];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setSpellCheckingType:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"keyboardAppearance"]) {
