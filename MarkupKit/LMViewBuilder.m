@@ -49,12 +49,12 @@ static NSDictionary *textFieldViewModeValues;
 static NSDictionary *textAutocapitalizationTypeValues;
 static NSDictionary *textAutocorrectionTypeValues;
 static NSDictionary *textSpellCheckingTypeValues;
+static NSDictionary *keyboardAppearanceValues;
+static NSDictionary *keyboardTypeValues;
+static NSDictionary *returnKeyTypeValues;
 
 // TODO
 /*
-keyboardAppearance
-keyboardType
-returnKeyType
 datePickerMode
 activityIndicatorViewStyle
 collectionViewScrollDirection
@@ -184,6 +184,40 @@ static NSDictionary *layoutPriorities;
         @"default": @(UITextSpellCheckingTypeDefault),
         @"yes": @(UITextSpellCheckingTypeYes),
         @"no": @(UITextSpellCheckingTypeNo)
+    };
+
+    keyboardAppearanceValues = @{
+        @"default": @(UIKeyboardAppearanceDefault),
+        @"dark": @(UIKeyboardAppearanceDark),
+        @"light": @(UIKeyboardAppearanceLight)
+    };
+
+    keyboardTypeValues = @{
+        @"default": @(UIKeyboardTypeDefault),
+        @"ASCIICapable": @(UIKeyboardTypeASCIICapable),
+        @"numbersAndPunctuation": @(UIKeyboardTypeNumbersAndPunctuation),
+        @"URL": @(UIKeyboardTypeURL),
+        @"numberPad": @(UIKeyboardTypeNumberPad),
+        @"phonePad": @(UIKeyboardTypePhonePad),
+        @"namePhonePad": @(UIKeyboardTypeNamePhonePad),
+        @"emailAddress": @(UIKeyboardTypeEmailAddress),
+        @"decimalPad": @(UIKeyboardTypeDecimalPad),
+        @"twitter": @(UIKeyboardTypeTwitter),
+        @"webSearch": @(UIKeyboardTypeWebSearch)
+    };
+
+    returnKeyTypeValues = @{
+        @"default": @(UIReturnKeyDefault),
+        @"go": @(UIReturnKeyGo),
+        @"google": @(UIReturnKeyGoogle),
+        @"join": @(UIReturnKeyJoin),
+        @"next": @(UIReturnKeyNext),
+        @"route": @(UIReturnKeyRoute),
+        @"search": @(UIReturnKeySearch),
+        @"send": @(UIReturnKeySend),
+        @"yahoo": @(UIReturnKeyYahoo),
+        @"done": @(UIReturnKeyDone),
+        @"emergencyCall": @(UIReturnKeyEmergencyCall)
     };
 
     layoutPriorities = @{
@@ -391,85 +425,32 @@ static NSDictionary *layoutPriorities;
             continue;
         } else if ([key isEqual:@"keyboardAppearance"]) {
             // Translate to keyboard appearance
-            UIKeyboardAppearance keyboardAppearance;
-            if ([value isEqual:@"default"]) {
-                keyboardAppearance = UIKeyboardAppearanceDefault;
-            } else if ([value isEqual:@"dark"]) {
-                keyboardAppearance = UIKeyboardAppearanceDark;
-            } else if ([value isEqual:@"light"]) {
-                keyboardAppearance = UIKeyboardAppearanceLight;
-            } else {
-                continue;
-            }
+            value = [keyboardAppearanceValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setKeyboardAppearance:keyboardAppearance];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setKeyboardAppearance:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"keyboardType"]) {
             // Translate to keyboard type
-            UIKeyboardType keyboardType;
-            if ([value isEqual:@"default"]) {
-                keyboardType = UIKeyboardTypeDefault;
-            } else if ([value isEqual:@"ASCIICapable"]) {
-                keyboardType = UIKeyboardTypeASCIICapable;
-            } else if ([value isEqual:@"numbersAndPunctuation"]) {
-                keyboardType = UIKeyboardTypeNumbersAndPunctuation;
-            } else if ([value isEqual:@"URL"]) {
-                keyboardType = UIKeyboardTypeURL;
-            } else if ([value isEqual:@"numberPad"]) {
-                keyboardType = UIKeyboardTypeNumberPad;
-            } else if ([value isEqual:@"phonePad"]) {
-                keyboardType = UIKeyboardTypePhonePad;
-            } else if ([value isEqual:@"namePhonePad"]) {
-                keyboardType = UIKeyboardTypeNamePhonePad;
-            } else if ([value isEqual:@"emailAddress"]) {
-                keyboardType = UIKeyboardTypeEmailAddress;
-            } else if ([value isEqual:@"decimalPad"]) {
-                keyboardType = UIKeyboardTypeDecimalPad;
-            } else if ([value isEqual:@"twitter"]) {
-                keyboardType = UIKeyboardTypeTwitter;
-            } else if ([value isEqual:@"webSearch"]) {
-                keyboardType = UIKeyboardTypeWebSearch;
-            } else {
-                continue;
-            }
+            value = [keyboardTypeValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setKeyboardType:keyboardType];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setKeyboardType:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"returnKeyType"]) {
             // Translate to return key type
-            UIReturnKeyType returnKeyType;
-            if ([value isEqual:@"default"]) {
-                returnKeyType = UIReturnKeyDefault;
-            } else if ([value isEqual:@"go"]) {
-                returnKeyType = UIReturnKeyGo;
-            } else if ([value isEqual:@"google"]) {
-                returnKeyType = UIReturnKeyGoogle;
-            } else if ([value isEqual:@"join"]) {
-                returnKeyType = UIReturnKeyJoin;
-            } else if ([value isEqual:@"next"]) {
-                returnKeyType = UIReturnKeyNext;
-            } else if ([value isEqual:@"route"]) {
-                returnKeyType = UIReturnKeyRoute;
-            } else if ([value isEqual:@"search"]) {
-                returnKeyType = UIReturnKeySearch;
-            } else if ([value isEqual:@"send"]) {
-                returnKeyType = UIReturnKeySend;
-            } else if ([value isEqual:@"yahoo"]) {
-                returnKeyType = UIReturnKeyYahoo;
-            } else if ([value isEqual:@"done"]) {
-                returnKeyType = UIReturnKeyDone;
-            } else if ([value isEqual:@"emergencyCall"]) {
-                returnKeyType = UIReturnKeyEmergencyCall;
-            } else {
-                continue;
-            }
+            value = [returnKeyTypeValues objectForKey:value];
 
             // Property is not KVC-compliant
-            [(UIView<UITextInputTraits> *)view setReturnKeyType:returnKeyType];
+            if (value != nil) {
+                [(UIView<UITextInputTraits> *)view setReturnKeyType:[value integerValue]];
+            }
 
             continue;
         } else if ([key isEqual:@"datePickerMode"]) {
