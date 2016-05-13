@@ -39,13 +39,13 @@ static NSString * const kLocalizedStringPrefix = @"@";
 static NSDictionary *fontTextStyles;
 
 static NSDictionary *viewContentModeValues;
+static NSDictionary *tintAdjustmentModeValues;
+static NSDictionary *controlContentHorizontalAlignmentValues;
+static NSDictionary *controlContentVerticalAlignmentValues;
+static NSDictionary *lineBreakModeValues;
 
 // TODO
 /*
-tintAdjustmentMode
-controlContentHorizontalAlignment
-controlContentVerticalAlignment
-lineBreakMode
 textAlignment
 textBorderStyle
 textFieldViewMode
@@ -114,6 +114,35 @@ static NSDictionary *layoutPriorities;
         @"topRight": @(UIViewContentModeTopRight),
         @"bottomLeft": @(UIViewContentModeBottomLeft),
         @"bottomRight": @(UIViewContentModeBottomRight)
+    };
+
+    tintAdjustmentModeValues = @{
+        @"automatic": @(UIViewTintAdjustmentModeAutomatic),
+        @"normal": @(UIViewTintAdjustmentModeNormal),
+        @"dimmed": @(UIViewTintAdjustmentModeDimmed)
+    };
+
+    controlContentHorizontalAlignmentValues = @{
+        @"center": @(UIControlContentHorizontalAlignmentCenter),
+        @"left": @(UIControlContentHorizontalAlignmentLeft),
+        @"right": @(UIControlContentHorizontalAlignmentRight),
+        @"fill": @(UIControlContentHorizontalAlignmentFill)
+    };
+
+    controlContentVerticalAlignmentValues = @{
+        @"center": @(UIControlContentVerticalAlignmentCenter),
+        @"top": @(UIControlContentVerticalAlignmentTop),
+        @"bottom": @(UIControlContentVerticalAlignmentBottom),
+        @"fill": @(UIControlContentVerticalAlignmentFill)
+    };
+
+    lineBreakModeValues = @{
+        @"byWordWrapping": @(NSLineBreakByWordWrapping),
+        @"byCharWrapping": @(NSLineBreakByCharWrapping),
+        @"byClipping": @(NSLineBreakByClipping),
+        @"byTruncatingHead": @(NSLineBreakByTruncatingHead),
+        @"byTruncatingTail": @(NSLineBreakByTruncatingTail),
+        @"byTruncatingMiddle": @(NSLineBreakByTruncatingMiddle)
     };
 
     layoutPriorities = @{
@@ -242,70 +271,32 @@ static NSDictionary *layoutPriorities;
             }
         } else if ([key isEqual:@"tintAdjustmentMode"]) {
             // Translate to tint adjustment mode
-            UIViewTintAdjustmentMode tintAdjustmentMode;
-            if ([value isEqual:@"automatic"]) {
-                tintAdjustmentMode = UIViewTintAdjustmentModeAutomatic;
-            } else if ([value isEqual:@"normal"]) {
-                tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
-            } else if ([value isEqual:@"dimmed"]) {
-                tintAdjustmentMode = UIViewTintAdjustmentModeDimmed;
-            } else {
+            value = [tintAdjustmentModeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:tintAdjustmentMode];
         } else if ([key isEqual:@"contentHorizontalAlignment"]) {
             // Translate to control content horizontal alignment
-            UIControlContentHorizontalAlignment controlContentHorizontalAlignment;
-            if ([value isEqual:@"center"]) {
-                controlContentHorizontalAlignment = UIControlContentHorizontalAlignmentCenter;
-            } else if ([value isEqual:@"left"]) {
-                controlContentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-            } else if ([value isEqual:@"right"]) {
-                controlContentHorizontalAlignment = UIControlContentHorizontalAlignmentRight;
-            } else if ([value isEqual:@"fill"]) {
-                controlContentHorizontalAlignment = UIControlContentHorizontalAlignmentFill;
-            } else {
+            value = [controlContentHorizontalAlignmentValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:controlContentHorizontalAlignment];
         } else if ([key isEqual:@"contentVerticalAlignment"]) {
             // Translate to control content vertical alignment
-            UIControlContentVerticalAlignment controlContentVerticalAlignment;
-            if ([value isEqual:@"center"]) {
-                controlContentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
-            } else if ([value isEqual:@"top"]) {
-                controlContentVerticalAlignment = UIControlContentVerticalAlignmentTop;
-            } else if ([value isEqual:@"bottom"]) {
-                controlContentVerticalAlignment = UIControlContentVerticalAlignmentBottom;
-            } else if ([value isEqual:@"fill"]) {
-                controlContentVerticalAlignment = UIControlContentVerticalAlignmentFill;
-            } else {
+            value = [controlContentVerticalAlignmentValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:controlContentVerticalAlignment];
         } else if ([key isEqual:@"lineBreakMode"]) {
             // Translate to line break mode
-            NSLineBreakMode lineBreakMode;
-            if ([value isEqual:@"byWordWrapping"]) {
-                lineBreakMode = NSLineBreakByWordWrapping;
-            } else if ([value isEqual:@"byCharWrapping"]) {
-                lineBreakMode = NSLineBreakByCharWrapping;
-            } else if ([value isEqual:@"byClipping"]) {
-                lineBreakMode = NSLineBreakByClipping;
-            } else if ([value isEqual:@"byTruncatingHead"]) {
-                lineBreakMode = NSLineBreakByTruncatingHead;
-            } else if ([value isEqual:@"byTruncatingTail"]) {
-                lineBreakMode = NSLineBreakByTruncatingTail;
-            } else if ([value isEqual:@"byTruncatingMiddle"]) {
-                lineBreakMode = NSLineBreakByTruncatingMiddle;
-            } else {
+            value = [lineBreakModeValues objectForKey:value];
+
+            if (value == nil) {
                 continue;
             }
-
-            value = [NSNumber numberWithInt:lineBreakMode];
         } else if ([key isEqual:@"textAlignment"]) {
             // Translate value to text alignment
             NSTextAlignment textAlignment;
