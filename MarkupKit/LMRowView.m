@@ -35,17 +35,11 @@
 - (void)setValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"baseline"]) {
-        // Translate to baseline
-        LMBaseline baseline;
         if ([value isEqual:@"first"]) {
-            baseline = LMBaselineFirst;
+            value = @(LMBaselineFirst);
         } else if ([value isEqual:@"last"]) {
-            baseline = LMBaselineLast;
-        } else {
-            baseline = [value intValue];
+            value = @(LMBaselineLast);
         }
-
-        value = [NSNumber numberWithInt:baseline];
     }
 
     [super setValue:value forKey:key];
