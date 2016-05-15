@@ -250,7 +250,7 @@ typedef enum {
                 // Uncheck all cells except for current selection
                 NSArray *rows = [[_sections objectAtIndex:section] rows];
 
-                for (NSInteger i = 0, n = [rows count]; i < n; i++) {
+                for (NSUInteger i = 0, n = [rows count]; i < n; i++) {
                     [[rows objectAtIndex:i] setChecked:(i == row)];
                 }
 
