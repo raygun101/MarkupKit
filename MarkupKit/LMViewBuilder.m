@@ -35,8 +35,6 @@ static NSString * const kActionPrefix = @"on";
 
 static NSString * const kLocalizedStringPrefix = @"@";
 
-static NSDictionary *fontTextStyles;
-
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
 @end
@@ -49,21 +47,6 @@ static NSDictionary *fontTextStyles;
     NSMutableDictionary *_properties;
 
     NSMutableArray *_views;
-}
-
-+ (void)initialize
-{
-    fontTextStyles = @{
-        @"title1": UIFontTextStyleTitle1,
-        @"title2": UIFontTextStyleTitle2,
-        @"title3": UIFontTextStyleTitle3,
-        @"headline": UIFontTextStyleHeadline,
-        @"subheadline": UIFontTextStyleSubheadline,
-        @"body": UIFontTextStyleBody,
-        @"footnote": UIFontTextStyleFootnote,
-        @"caption1": UIFontTextStyleCaption1,
-        @"caption2": UIFontTextStyleCaption2
-    };
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -136,10 +119,26 @@ static NSDictionary *fontTextStyles;
 {
     UIFont *font = nil;
 
-    NSString *fontTextStyle = [fontTextStyles objectForKey:value];
-
-    if (fontTextStyle != nil) {
-        font = [UIFont preferredFontForTextStyle:fontTextStyle];
+    if ([value isEqual:@"title1"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+    } else if ([value isEqual:@"title2"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
+    } else if ([value isEqual:@"title3"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+    } else if ([value isEqual:@"headline"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+    } else if ([value isEqual:@"subheadline"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    } else if ([value isEqual:@"body"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+    } else if ([value isEqual:@"callout"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
+    } else if ([value isEqual:@"footnote"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+    } else if ([value isEqual:@"caption1"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    } else if ([value isEqual:@"caption2"]) {
+        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
     } else {
         NSArray *components = [value componentsSeparatedByString:@" "];
 

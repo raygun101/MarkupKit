@@ -30,8 +30,6 @@ static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
 static NSDictionary *barStyleValues;
 
-static NSDictionary *layoutPriorities;
-
 @implementation UIView (Markup)
 
 + (void)initialize
@@ -131,13 +129,6 @@ static NSDictionary *layoutPriorities;
     barStyleValues = @{
         @"default": @(UIBarStyleDefault),
         @"black": @(UIBarStyleBlack)
-    };
-
-    layoutPriorities = @{
-        @"required": @(UILayoutPriorityRequired),
-        @"defaultHigh": @(UILayoutPriorityDefaultHigh),
-        @"defaultLow": @(UILayoutPriorityDefaultLow),
-        @"fittingSizeLevel": @(UILayoutPriorityFittingSizeLevel)
     };
 }
 
@@ -527,10 +518,14 @@ static NSDictionary *layoutPriorities;
         value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
     } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
         options:NSRegularExpressionSearch].location != NSNotFound) {
-        NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
-
-        if (layoutPriority != nil) {
-            value = layoutPriority;
+        if ([value isEqual:@"required"]) {
+            value = @(UILayoutPriorityRequired);
+        } else if ([value isEqual:@"defaultHigh"]) {
+            value = @(UILayoutPriorityDefaultHigh);
+        } else if ([value isEqual:@"defaultLow"]) {
+            value = @(UILayoutPriorityDefaultLow);
+        } else if ([value isEqual:@"fittingSizeLevel"]) {
+            value = @(UILayoutPriorityFittingSizeLevel);
         }
     }
 
