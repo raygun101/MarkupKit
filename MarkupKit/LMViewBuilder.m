@@ -13,6 +13,7 @@
 //
 
 #import "LMViewBuilder.h"
+#import "NSObject+Markup.h"
 #import "UIView+Markup.h"
 
 static NSString * const kNormalSizeClass = @"normal";
@@ -35,33 +36,6 @@ static NSString * const kActionPrefix = @"on";
 static NSString * const kLocalizedStringPrefix = @"@";
 
 static NSDictionary *fontTextStyles;
-
-static NSDictionary *viewContentModeValues;
-static NSDictionary *tintAdjustmentModeValues;
-static NSDictionary *controlContentHorizontalAlignmentValues;
-static NSDictionary *controlContentVerticalAlignmentValues;
-static NSDictionary *lineBreakModeValues;
-static NSDictionary *textAlignmentValues;
-static NSDictionary *textBorderStyleValues;
-static NSDictionary *textFieldViewModeValues;
-static NSDictionary *textAutocapitalizationTypeValues;
-static NSDictionary *textAutocorrectionTypeValues;
-static NSDictionary *textSpellCheckingTypeValues;
-static NSDictionary *keyboardAppearanceValues;
-static NSDictionary *keyboardTypeValues;
-static NSDictionary *returnKeyTypeValues;
-static NSDictionary *datePickerModeValues;
-static NSDictionary *activityIndicatorViewStyleValues;
-static NSDictionary *tableViewCellSeparatorStyleValues;
-static NSDictionary *tableViewCellAccessoryTypeValues;
-static NSDictionary *tableViewCellSelectionStyleValues;
-static NSDictionary *barStyleValues;
-static NSDictionary *searchBarStyleValues;
-static NSDictionary *layoutConstraintAxisValues;
-static NSDictionary *stackViewAlignmentValues;
-static NSDictionary *stackViewDistributionValues;
-
-static NSDictionary *layoutPriorities;
 
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
@@ -89,202 +63,6 @@ static NSDictionary *layoutPriorities;
         @"footnote": UIFontTextStyleFootnote,
         @"caption1": UIFontTextStyleCaption1,
         @"caption2": UIFontTextStyleCaption2
-    };
-
-    viewContentModeValues = @{
-        @"scaleToFill": @(UIViewContentModeScaleToFill),
-        @"scaleAspectFit": @(UIViewContentModeScaleAspectFit),
-        @"scaleAspectFill": @(UIViewContentModeScaleAspectFill),
-        @"redraw": @(UIViewContentModeRedraw),
-        @"center": @(UIViewContentModeCenter),
-        @"top": @(UIViewContentModeTop),
-        @"bottom": @(UIViewContentModeBottom),
-        @"left": @(UIViewContentModeLeft),
-        @"right": @(UIViewContentModeRight),
-        @"topLeft": @(UIViewContentModeTopLeft),
-        @"topRight": @(UIViewContentModeTopRight),
-        @"bottomLeft": @(UIViewContentModeBottomLeft),
-        @"bottomRight": @(UIViewContentModeBottomRight)
-    };
-
-    tintAdjustmentModeValues = @{
-        @"automatic": @(UIViewTintAdjustmentModeAutomatic),
-        @"normal": @(UIViewTintAdjustmentModeNormal),
-        @"dimmed": @(UIViewTintAdjustmentModeDimmed)
-    };
-
-    controlContentHorizontalAlignmentValues = @{
-        @"center": @(UIControlContentHorizontalAlignmentCenter),
-        @"left": @(UIControlContentHorizontalAlignmentLeft),
-        @"right": @(UIControlContentHorizontalAlignmentRight),
-        @"fill": @(UIControlContentHorizontalAlignmentFill)
-    };
-
-    controlContentVerticalAlignmentValues = @{
-        @"center": @(UIControlContentVerticalAlignmentCenter),
-        @"top": @(UIControlContentVerticalAlignmentTop),
-        @"bottom": @(UIControlContentVerticalAlignmentBottom),
-        @"fill": @(UIControlContentVerticalAlignmentFill)
-    };
-
-    lineBreakModeValues = @{
-        @"byWordWrapping": @(NSLineBreakByWordWrapping),
-        @"byCharWrapping": @(NSLineBreakByCharWrapping),
-        @"byClipping": @(NSLineBreakByClipping),
-        @"byTruncatingHead": @(NSLineBreakByTruncatingHead),
-        @"byTruncatingTail": @(NSLineBreakByTruncatingTail),
-        @"byTruncatingMiddle": @(NSLineBreakByTruncatingMiddle)
-    };
-
-    textAlignmentValues = @{
-        @"left": @(NSTextAlignmentLeft),
-        @"center": @(NSTextAlignmentCenter),
-        @"right": @(NSTextAlignmentRight),
-        @"justified": @(NSTextAlignmentJustified),
-        @"natural": @(NSTextAlignmentNatural)
-    };
-
-    textBorderStyleValues = @{
-        @"none": @(UITextBorderStyleNone),
-        @"line": @(UITextBorderStyleLine),
-        @"bezel": @(UITextBorderStyleBezel),
-        @"roundedRect": @(UITextBorderStyleRoundedRect)
-    };
-
-    textFieldViewModeValues = @{
-        @"never": @(UITextFieldViewModeNever),
-        @"whileEditing": @(UITextFieldViewModeWhileEditing),
-        @"unlessEditing": @(UITextFieldViewModeUnlessEditing),
-        @"always": @(UITextFieldViewModeAlways)
-    };
-
-    textAutocapitalizationTypeValues = @{
-        @"none": @(UITextAutocapitalizationTypeNone),
-        @"words": @(UITextAutocapitalizationTypeWords),
-        @"sentences": @(UITextAutocapitalizationTypeSentences),
-        @"allCharacters": @(UITextAutocapitalizationTypeAllCharacters)
-    };
-
-    textAutocorrectionTypeValues = @{
-        @"default": @(UITextAutocorrectionTypeDefault),
-        @"yes": @(UITextAutocorrectionTypeYes),
-        @"no": @(UITextAutocorrectionTypeNo)
-    };
-
-    textSpellCheckingTypeValues = @{
-        @"default": @(UITextSpellCheckingTypeDefault),
-        @"yes": @(UITextSpellCheckingTypeYes),
-        @"no": @(UITextSpellCheckingTypeNo)
-    };
-
-    keyboardAppearanceValues = @{
-        @"default": @(UIKeyboardAppearanceDefault),
-        @"dark": @(UIKeyboardAppearanceDark),
-        @"light": @(UIKeyboardAppearanceLight)
-    };
-
-    keyboardTypeValues = @{
-        @"default": @(UIKeyboardTypeDefault),
-        @"ASCIICapable": @(UIKeyboardTypeASCIICapable),
-        @"numbersAndPunctuation": @(UIKeyboardTypeNumbersAndPunctuation),
-        @"URL": @(UIKeyboardTypeURL),
-        @"numberPad": @(UIKeyboardTypeNumberPad),
-        @"phonePad": @(UIKeyboardTypePhonePad),
-        @"namePhonePad": @(UIKeyboardTypeNamePhonePad),
-        @"emailAddress": @(UIKeyboardTypeEmailAddress),
-        @"decimalPad": @(UIKeyboardTypeDecimalPad),
-        @"twitter": @(UIKeyboardTypeTwitter),
-        @"webSearch": @(UIKeyboardTypeWebSearch)
-    };
-
-    returnKeyTypeValues = @{
-        @"default": @(UIReturnKeyDefault),
-        @"go": @(UIReturnKeyGo),
-        @"google": @(UIReturnKeyGoogle),
-        @"join": @(UIReturnKeyJoin),
-        @"next": @(UIReturnKeyNext),
-        @"route": @(UIReturnKeyRoute),
-        @"search": @(UIReturnKeySearch),
-        @"send": @(UIReturnKeySend),
-        @"yahoo": @(UIReturnKeyYahoo),
-        @"done": @(UIReturnKeyDone),
-        @"emergencyCall": @(UIReturnKeyEmergencyCall)
-    };
-
-    datePickerModeValues = @{
-        @"time": @(UIDatePickerModeTime),
-        @"date": @(UIDatePickerModeDate),
-        @"dateAndTime": @(UIDatePickerModeDateAndTime),
-        @"countDownTimer": @(UIDatePickerModeCountDownTimer)
-    };
-
-    activityIndicatorViewStyleValues = @{
-        @"whiteLarge": @(UIActivityIndicatorViewStyleWhiteLarge),
-        @"white": @(UIActivityIndicatorViewStyleWhite),
-        @"gray": @(UIActivityIndicatorViewStyleGray)
-    };
-
-    tableViewCellSeparatorStyleValues = @{
-        @"none": @(UITableViewCellSeparatorStyleNone),
-        @"singleLine": @(UITableViewCellSeparatorStyleSingleLine),
-        @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
-    };
-
-    tableViewCellAccessoryTypeValues = @{
-        @"none": @(UITableViewCellAccessoryNone),
-        @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
-        @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
-        @"checkmark": @(UITableViewCellAccessoryCheckmark),
-        @"detailButton": @(UITableViewCellAccessoryDetailButton)
-    };
-
-    tableViewCellSelectionStyleValues = @{
-        @"none": @(UITableViewCellSelectionStyleNone),
-        @"blue": @(UITableViewCellSelectionStyleBlue),
-        @"gray": @(UITableViewCellSelectionStyleGray),
-        @"default": @(UITableViewCellSelectionStyleDefault)
-    };
-
-    barStyleValues = @{
-        @"default": @(UIBarStyleDefault),
-        @"black": @(UIBarStyleBlack)
-    };
-
-    searchBarStyleValues = @{
-        @"default": @(UISearchBarStyleDefault),
-        @"prominent": @(UISearchBarStyleProminent),
-        @"minimal": @(UISearchBarStyleMinimal)
-    };
-
-    layoutConstraintAxisValues = @{
-        @"horizontal": @(UILayoutConstraintAxisHorizontal),
-        @"vertical": @(UILayoutConstraintAxisVertical)
-    };
-
-    stackViewAlignmentValues = @{
-        @"fill": @(UIStackViewAlignmentFill),
-        @"leading": @(UIStackViewAlignmentLeading),
-        @"top": @(UIStackViewAlignmentTop),
-        @"firstBaseline": @(UIStackViewAlignmentFirstBaseline),
-        @"center": @(UIStackViewAlignmentCenter),
-        @"trailing": @(UIStackViewAlignmentTrailing),
-        @"bottom": @(UIStackViewAlignmentBottom),
-        @"lastBaseline": @(UIStackViewAlignmentLastBaseline)
-    };
-
-    stackViewDistributionValues = @{
-        @"fill": @(UIStackViewDistributionFill),
-        @"fillEqually": @(UIStackViewDistributionFillEqually),
-        @"fillProportionally": @(UIStackViewDistributionFillProportionally),
-        @"equalSpacing": @(UIStackViewDistributionEqualSpacing),
-        @"equalCentering": @(UIStackViewDistributionEqualSpacing)
-    };
-
-    layoutPriorities = @{
-        @"required": @(UILayoutPriorityRequired),
-        @"defaultHigh": @(UILayoutPriorityDefaultHigh),
-        @"defaultLow": @(UILayoutPriorityDefaultLow),
-        @"fittingSizeLevel": @(UILayoutPriorityFittingSizeLevel)
     };
 }
 
@@ -382,158 +160,6 @@ static NSDictionary *layoutPriorities;
     }
 
     return font;
-}
-
-+ (void)applyPropertyValues:(NSDictionary *)properties toView:(UIView *)view
-{
-    for (NSString *path in properties) {
-        id value = [properties objectForKey:path];
-
-        NSRange keyDelimiterRange = [path rangeOfString:@"." options:NSBackwardsSearch];
-
-        NSString *key = (keyDelimiterRange.location == NSNotFound) ? path : [path substringFromIndex:keyDelimiterRange.location + 1];
-
-        if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = [LMViewBuilder colorValue:[value description]];
-
-            if ([path hasPrefix:@"layer"]) {
-                value = (id)[value CGColor];
-            }
-        } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = [LMViewBuilder fontValue:[value description]];
-        } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
-            value = [UIImage imageNamed:[value description]];
-        } else  if ([key isEqual:@"contentMode"]) {
-            value = [viewContentModeValues objectForKey:value];
-        } else if ([key isEqual:@"tintAdjustmentMode"]) {
-            value = [tintAdjustmentModeValues objectForKey:value];
-        } else if ([key isEqual:@"contentHorizontalAlignment"]) {
-            value = [controlContentHorizontalAlignmentValues objectForKey:value];
-        } else if ([key isEqual:@"contentVerticalAlignment"]) {
-            value = [controlContentVerticalAlignmentValues objectForKey:value];
-        } else if ([key isEqual:@"lineBreakMode"]) {
-            value = [lineBreakModeValues objectForKey:value];
-        } else if ([key isEqual:@"textAlignment"]) {
-            value = [textAlignmentValues objectForKey:value];
-        } else if ([key isEqual:@"borderStyle"]) {
-            value = [textBorderStyleValues objectForKey:value];
-        } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
-            value = [textFieldViewModeValues objectForKey:value];
-        } else if ([key isEqual:@"autocapitalizationType"]) {
-            value = [textAutocapitalizationTypeValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setAutocapitalizationType:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"autocorrectionType"]) {
-            value = [textAutocorrectionTypeValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setAutocorrectionType:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"spellCheckingType"]) {
-            value = [textSpellCheckingTypeValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setSpellCheckingType:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"keyboardAppearance"]) {
-            value = [keyboardAppearanceValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setKeyboardAppearance:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"keyboardType"]) {
-            value = [keyboardTypeValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setKeyboardType:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"returnKeyType"]) {
-            value = [returnKeyTypeValues objectForKey:value];
-
-            if (value != nil) {
-                [(UIView<UITextInputTraits> *)view setReturnKeyType:[value integerValue]];
-            }
-
-            continue;
-        } else if ([key isEqual:@"datePickerMode"]) {
-            value = [datePickerModeValues objectForKey:value];
-        } else if ([key isEqual:@"activityIndicatorViewStyle"]) {
-            value = [activityIndicatorViewStyleValues objectForKey:value];
-        } else if ([key isEqual:@"separatorStyle"]) {
-            value = [tableViewCellSeparatorStyleValues objectForKey:value];
-        } else if ([key isEqual:@"accessoryType"]) {
-            value = [tableViewCellAccessoryTypeValues objectForKey:value];
-        } else if ([key isEqual:@"selectionStyle"]) {
-            value = [tableViewCellSelectionStyleValues objectForKey:value];
-        } else if ([key isEqual:@"dataDetectorTypes"]) {
-            UIDataDetectorTypes dataDetectorTypes;
-            if ([value isEqual:@"none"]) {
-                dataDetectorTypes = UIDataDetectorTypeNone;
-            } else if ([value isEqual:@"all"]) {
-                dataDetectorTypes = UIDataDetectorTypeAll;
-            } else {
-                NSArray *components = [value componentsSeparatedByString:@"|"];
-
-                dataDetectorTypes = 0;
-
-                for (NSString *component in components) {
-                    NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
-                    if ([name isEqual:@"phoneNumber"]) {
-                        dataDetectorTypes |= UIDataDetectorTypePhoneNumber;
-                    } else if ([name isEqual:@"link"]) {
-                        dataDetectorTypes |= UIDataDetectorTypeLink;
-                    } else if ([name isEqual:@"address"]) {
-                        dataDetectorTypes |= UIDataDetectorTypeAddress;
-                    } else if ([name isEqual:@"calendarEvent"]) {
-                        dataDetectorTypes |= UIDataDetectorTypeCalendarEvent;
-                    } else {
-                        continue;
-                    }
-                }
-            }
-
-            value = [NSNumber numberWithUnsignedInteger:dataDetectorTypes];
-        } else if ([key isEqual:@"barStyle"]) {
-            value = [barStyleValues objectForKey:value];
-        } else if ([key isEqual:@"searchBarStyle"]) {
-            value = [searchBarStyleValues objectForKey:value];
-        } else if ([key isEqual:@"axis"]) {
-            value = [layoutConstraintAxisValues objectForKey:value];
-        } else if ([key isEqual:@"alignment"]) {
-            value = [stackViewAlignmentValues objectForKey:value];
-        } else if ([key isEqual:@"distribution"]) {
-            value = [stackViewDistributionValues objectForKey:value];
-        } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
-            options:NSRegularExpressionSearch].location != NSNotFound) {
-            CGFloat inset = [value floatValue];
-
-            value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-        } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
-            options:NSRegularExpressionSearch].location != NSNotFound) {
-            NSNumber *layoutPriority = [layoutPriorities objectForKey:value];
-
-            if (layoutPriority != nil) {
-                value = layoutPriority;
-            }
-        }
-
-        if (value != nil) {
-            [view setValue:value forKeyPath:path];
-        }
-    }
 }
 
 - (instancetype)init
@@ -703,14 +329,20 @@ static NSDictionary *layoutPriorities;
             NSArray *components = [template componentsSeparatedByString:@","];
 
             for (NSString *component in components) {
-                NSString *key = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-                [LMViewBuilder applyPropertyValues:[_properties objectForKey:key] toView:view];
+                NSDictionary *values = [_properties objectForKey:name];
+
+                for (NSString *keyPath in values) {
+                    [view applyMarkupPropertyValue:[values objectForKey:keyPath] forKeyPath:keyPath];
+                }
             }
         }
 
         // Apply instance properties
-        [LMViewBuilder applyPropertyValues:properties toView:view];
+        for (NSString *keyPath in properties) {
+            [view applyMarkupPropertyValue:[properties objectForKey:keyPath] forKeyPath:keyPath];
+        }
 
         // Add action handlers
         for (NSString *key in actions) {

@@ -14,6 +14,7 @@
 
 #import "LMRowView.h"
 #import "LMColumnView.h"
+#import "NSObject+Markup.h"
 #import "UIView+Markup.h"
 
 @implementation LMRowView
@@ -32,7 +33,7 @@
     [self setNeedsUpdateConstraints];
 }
 
-- (void)setValue:(id)value forKey:(NSString *)key
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"baseline"]) {
         if ([value isEqual:@"first"]) {
@@ -42,7 +43,7 @@
         }
     }
 
-    [super setValue:value forKey:key];
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 - (void)layoutSubviews
