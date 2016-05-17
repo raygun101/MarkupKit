@@ -17,7 +17,17 @@
 #import "NSObject+Markup.h"
 #import "UIView+Markup.h"
 
+static NSDictionary *baselineValues;
+
 @implementation LMRowView
+
++ (void)initialize
+{
+    baselineValues = @{
+        @"first": @(LMBaselineFirst),
+        @"last": @(LMBaselineLast)
+    };
+}
 
 - (void)setAlignToBaseline:(BOOL)alignToBaseline
 {
@@ -36,11 +46,7 @@
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"baseline"]) {
-        if ([value isEqual:@"first"]) {
-            value = @(LMBaselineFirst);
-        } else if ([value isEqual:@"last"]) {
-            value = @(LMBaselineLast);
-        }
+        value = [baselineValues objectForKey:value];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];
