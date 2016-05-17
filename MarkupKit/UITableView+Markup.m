@@ -14,8 +14,37 @@
 
 #import "UITableView+Markup.h"
 #import "UITableViewCell+Markup.h"
+#import "NSObject+Markup.h"
+
+static NSDictionary *tableViewCellSeparatorStyleValues;
+static NSDictionary *tableViewCellAccessoryTypeValues;
+static NSDictionary *tableViewCellSelectionStyleValues;
 
 @implementation UITableView (Markup)
+
++ (void)initialize
+{
+    tableViewCellSeparatorStyleValues = @{
+        @"none": @(UITableViewCellSeparatorStyleNone),
+        @"singleLine": @(UITableViewCellSeparatorStyleSingleLine),
+        @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
+    };
+
+    tableViewCellAccessoryTypeValues = @{
+        @"none": @(UITableViewCellAccessoryNone),
+        @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
+        @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
+        @"checkmark": @(UITableViewCellAccessoryCheckmark),
+        @"detailButton": @(UITableViewCellAccessoryDetailButton)
+    };
+
+    tableViewCellSelectionStyleValues = @{
+        @"none": @(UITableViewCellSelectionStyleNone),
+        @"blue": @(UITableViewCellSelectionStyleBlue),
+        @"gray": @(UITableViewCellSelectionStyleGray),
+        @"default": @(UITableViewCellSelectionStyleDefault)
+    };
+}
 
 - (NSString *)nameForSection:(NSInteger)section
 {
@@ -69,6 +98,19 @@
     }
 
     return (row < n) ? row : NSNotFound;
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"separatorStyle"]) {
+        value = [tableViewCellSeparatorStyleValues objectForKey:value];
+    } else if ([key isEqual:@"accessoryType"]) {
+        value = [tableViewCellAccessoryTypeValues objectForKey:value];
+    } else if ([key isEqual:@"selectionStyle"]) {
+        value = [tableViewCellSelectionStyleValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

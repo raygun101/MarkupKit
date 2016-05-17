@@ -13,12 +13,57 @@
 //
 
 #import "UIStackView+Markup.h"
+#import "NSObject+Markup.h"
+
+static NSDictionary *layoutConstraintAxisValues;
+static NSDictionary *stackViewAlignmentValues;
+static NSDictionary *stackViewDistributionValues;
 
 @implementation UIStackView (Markup)
+
++ (void)initialize
+{
+    layoutConstraintAxisValues = @{
+        @"horizontal": @(UILayoutConstraintAxisHorizontal),
+        @"vertical": @(UILayoutConstraintAxisVertical)
+    };
+
+    stackViewAlignmentValues = @{
+        @"fill": @(UIStackViewAlignmentFill),
+        @"leading": @(UIStackViewAlignmentLeading),
+        @"top": @(UIStackViewAlignmentTop),
+        @"firstBaseline": @(UIStackViewAlignmentFirstBaseline),
+        @"center": @(UIStackViewAlignmentCenter),
+        @"trailing": @(UIStackViewAlignmentTrailing),
+        @"bottom": @(UIStackViewAlignmentBottom),
+        @"lastBaseline": @(UIStackViewAlignmentLastBaseline)
+    };
+
+    stackViewDistributionValues = @{
+        @"fill": @(UIStackViewDistributionFill),
+        @"fillEqually": @(UIStackViewDistributionFillEqually),
+        @"fillProportionally": @(UIStackViewDistributionFillProportionally),
+        @"equalSpacing": @(UIStackViewDistributionEqualSpacing),
+        @"equalCentering": @(UIStackViewDistributionEqualSpacing)
+    };
+}
 
 - (void)appendMarkupElementView:(UIView *)view
 {
     [self addArrangedSubview:view];
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"axis"]) {
+        value = [layoutConstraintAxisValues objectForKey:value];
+    } else if ([key isEqual:@"alignment"]) {
+        value = [stackViewAlignmentValues objectForKey:value];
+    } else if ([key isEqual:@"distribution"]) {
+        value = [stackViewDistributionValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end
