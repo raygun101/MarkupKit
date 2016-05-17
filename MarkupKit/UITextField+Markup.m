@@ -13,6 +13,7 @@
 //
 
 #import "UITextField+Markup.h"
+#import "NSObject+Markup.h"
 
 #import <objc/message.h>
 
@@ -28,9 +29,29 @@ typedef enum {
     kElementInputAccessoryView
 } __ElementDisposition;
 
+static NSDictionary *textBorderStyleValues;
+static NSDictionary *textFieldViewModeValues;
+
 #define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
 
 @implementation UITextField (Markup)
+
++ (void)initialize
+{
+    textBorderStyleValues = @{
+        @"none": @(UITextBorderStyleNone),
+        @"line": @(UITextBorderStyleLine),
+        @"bezel": @(UITextBorderStyleBezel),
+        @"roundedRect": @(UITextBorderStyleRoundedRect)
+    };
+
+    textFieldViewModeValues = @{
+        @"never": @(UITextFieldViewModeNever),
+        @"whileEditing": @(UITextFieldViewModeWhileEditing),
+        @"unlessEditing": @(UITextFieldViewModeUnlessEditing),
+        @"always": @(UITextFieldViewModeAlways)
+    };
+}
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
@@ -87,6 +108,17 @@ typedef enum {
     }
 
     objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"borderStyle"]) {
+        value = [textBorderStyleValues objectForKey:value];
+    } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
+        value = [textFieldViewModeValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

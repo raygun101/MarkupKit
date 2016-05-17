@@ -20,28 +20,15 @@
 
 static NSDictionary *viewContentModeValues;
 static NSDictionary *tintAdjustmentModeValues;
-static NSDictionary *controlContentHorizontalAlignmentValues;
-static NSDictionary *controlContentVerticalAlignmentValues;
 static NSDictionary *lineBreakModeValues;
 static NSDictionary *textAlignmentValues;
-static NSDictionary *textBorderStyleValues;
-static NSDictionary *textFieldViewModeValues;
 static NSDictionary *textAutocapitalizationTypeValues;
 static NSDictionary *textAutocorrectionTypeValues;
 static NSDictionary *textSpellCheckingTypeValues;
 static NSDictionary *keyboardAppearanceValues;
 static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
-static NSDictionary *datePickerModeValues;
-static NSDictionary *activityIndicatorViewStyleValues;
-static NSDictionary *tableViewCellSeparatorStyleValues;
-static NSDictionary *tableViewCellAccessoryTypeValues;
-static NSDictionary *tableViewCellSelectionStyleValues;
 static NSDictionary *barStyleValues;
-static NSDictionary *searchBarStyleValues;
-static NSDictionary *layoutConstraintAxisValues;
-static NSDictionary *stackViewAlignmentValues;
-static NSDictionary *stackViewDistributionValues;
 
 static NSDictionary *layoutPriorities;
 
@@ -71,20 +58,6 @@ static NSDictionary *layoutPriorities;
         @"dimmed": @(UIViewTintAdjustmentModeDimmed)
     };
 
-    controlContentHorizontalAlignmentValues = @{
-        @"center": @(UIControlContentHorizontalAlignmentCenter),
-        @"left": @(UIControlContentHorizontalAlignmentLeft),
-        @"right": @(UIControlContentHorizontalAlignmentRight),
-        @"fill": @(UIControlContentHorizontalAlignmentFill)
-    };
-
-    controlContentVerticalAlignmentValues = @{
-        @"center": @(UIControlContentVerticalAlignmentCenter),
-        @"top": @(UIControlContentVerticalAlignmentTop),
-        @"bottom": @(UIControlContentVerticalAlignmentBottom),
-        @"fill": @(UIControlContentVerticalAlignmentFill)
-    };
-
     lineBreakModeValues = @{
         @"byWordWrapping": @(NSLineBreakByWordWrapping),
         @"byCharWrapping": @(NSLineBreakByCharWrapping),
@@ -100,20 +73,6 @@ static NSDictionary *layoutPriorities;
         @"right": @(NSTextAlignmentRight),
         @"justified": @(NSTextAlignmentJustified),
         @"natural": @(NSTextAlignmentNatural)
-    };
-
-    textBorderStyleValues = @{
-        @"none": @(UITextBorderStyleNone),
-        @"line": @(UITextBorderStyleLine),
-        @"bezel": @(UITextBorderStyleBezel),
-        @"roundedRect": @(UITextBorderStyleRoundedRect)
-    };
-
-    textFieldViewModeValues = @{
-        @"never": @(UITextFieldViewModeNever),
-        @"whileEditing": @(UITextFieldViewModeWhileEditing),
-        @"unlessEditing": @(UITextFieldViewModeUnlessEditing),
-        @"always": @(UITextFieldViewModeAlways)
     };
 
     textAutocapitalizationTypeValues = @{
@@ -169,73 +128,9 @@ static NSDictionary *layoutPriorities;
         @"emergencyCall": @(UIReturnKeyEmergencyCall)
     };
 
-    datePickerModeValues = @{
-        @"time": @(UIDatePickerModeTime),
-        @"date": @(UIDatePickerModeDate),
-        @"dateAndTime": @(UIDatePickerModeDateAndTime),
-        @"countDownTimer": @(UIDatePickerModeCountDownTimer)
-    };
-
-    activityIndicatorViewStyleValues = @{
-        @"whiteLarge": @(UIActivityIndicatorViewStyleWhiteLarge),
-        @"white": @(UIActivityIndicatorViewStyleWhite),
-        @"gray": @(UIActivityIndicatorViewStyleGray)
-    };
-
-    tableViewCellSeparatorStyleValues = @{
-        @"none": @(UITableViewCellSeparatorStyleNone),
-        @"singleLine": @(UITableViewCellSeparatorStyleSingleLine),
-        @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
-    };
-
-    tableViewCellAccessoryTypeValues = @{
-        @"none": @(UITableViewCellAccessoryNone),
-        @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
-        @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
-        @"checkmark": @(UITableViewCellAccessoryCheckmark),
-        @"detailButton": @(UITableViewCellAccessoryDetailButton)
-    };
-
-    tableViewCellSelectionStyleValues = @{
-        @"none": @(UITableViewCellSelectionStyleNone),
-        @"blue": @(UITableViewCellSelectionStyleBlue),
-        @"gray": @(UITableViewCellSelectionStyleGray),
-        @"default": @(UITableViewCellSelectionStyleDefault)
-    };
-
     barStyleValues = @{
         @"default": @(UIBarStyleDefault),
         @"black": @(UIBarStyleBlack)
-    };
-
-    searchBarStyleValues = @{
-        @"default": @(UISearchBarStyleDefault),
-        @"prominent": @(UISearchBarStyleProminent),
-        @"minimal": @(UISearchBarStyleMinimal)
-    };
-
-    layoutConstraintAxisValues = @{
-        @"horizontal": @(UILayoutConstraintAxisHorizontal),
-        @"vertical": @(UILayoutConstraintAxisVertical)
-    };
-
-    stackViewAlignmentValues = @{
-        @"fill": @(UIStackViewAlignmentFill),
-        @"leading": @(UIStackViewAlignmentLeading),
-        @"top": @(UIStackViewAlignmentTop),
-        @"firstBaseline": @(UIStackViewAlignmentFirstBaseline),
-        @"center": @(UIStackViewAlignmentCenter),
-        @"trailing": @(UIStackViewAlignmentTrailing),
-        @"bottom": @(UIStackViewAlignmentBottom),
-        @"lastBaseline": @(UIStackViewAlignmentLastBaseline)
-    };
-
-    stackViewDistributionValues = @{
-        @"fill": @(UIStackViewDistributionFill),
-        @"fillEqually": @(UIStackViewDistributionFillEqually),
-        @"fillProportionally": @(UIStackViewDistributionFillProportionally),
-        @"equalSpacing": @(UIStackViewDistributionEqualSpacing),
-        @"equalCentering": @(UIStackViewDistributionEqualSpacing)
     };
 
     layoutPriorities = @{
@@ -542,18 +437,10 @@ static NSDictionary *layoutPriorities;
         value = [viewContentModeValues objectForKey:value];
     } else if ([key isEqual:@"tintAdjustmentMode"]) {
         value = [tintAdjustmentModeValues objectForKey:value];
-    } else if ([key isEqual:@"contentHorizontalAlignment"]) {
-        value = [controlContentHorizontalAlignmentValues objectForKey:value];
-    } else if ([key isEqual:@"contentVerticalAlignment"]) {
-        value = [controlContentVerticalAlignmentValues objectForKey:value];
     } else if ([key isEqual:@"lineBreakMode"]) {
         value = [lineBreakModeValues objectForKey:value];
     } else if ([key isEqual:@"textAlignment"]) {
         value = [textAlignmentValues objectForKey:value];
-    } else if ([key isEqual:@"borderStyle"]) {
-        value = [textBorderStyleValues objectForKey:value];
-    } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
-        value = [textFieldViewModeValues objectForKey:value];
     } else if ([key isEqual:@"autocapitalizationType"]) {
         value = [textAutocapitalizationTypeValues objectForKey:value];
 
@@ -602,16 +489,6 @@ static NSDictionary *layoutPriorities;
         }
 
         return;
-    } else if ([key isEqual:@"datePickerMode"]) {
-        value = [datePickerModeValues objectForKey:value];
-    } else if ([key isEqual:@"activityIndicatorViewStyle"]) {
-        value = [activityIndicatorViewStyleValues objectForKey:value];
-    } else if ([key isEqual:@"separatorStyle"]) {
-        value = [tableViewCellSeparatorStyleValues objectForKey:value];
-    } else if ([key isEqual:@"accessoryType"]) {
-        value = [tableViewCellAccessoryTypeValues objectForKey:value];
-    } else if ([key isEqual:@"selectionStyle"]) {
-        value = [tableViewCellSelectionStyleValues objectForKey:value];
     } else if ([key isEqual:@"dataDetectorTypes"]) {
         UIDataDetectorTypes dataDetectorTypes;
         if ([value isEqual:@"none"]) {
@@ -643,14 +520,6 @@ static NSDictionary *layoutPriorities;
         value = [NSNumber numberWithUnsignedInteger:dataDetectorTypes];
     } else if ([key isEqual:@"barStyle"]) {
         value = [barStyleValues objectForKey:value];
-    } else if ([key isEqual:@"searchBarStyle"]) {
-        value = [searchBarStyleValues objectForKey:value];
-    } else if ([key isEqual:@"axis"]) {
-        value = [layoutConstraintAxisValues objectForKey:value];
-    } else if ([key isEqual:@"alignment"]) {
-        value = [stackViewAlignmentValues objectForKey:value];
-    } else if ([key isEqual:@"distribution"]) {
-        value = [stackViewDistributionValues objectForKey:value];
     } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
         options:NSRegularExpressionSearch].location != NSNotFound) {
         CGFloat inset = [value floatValue];
