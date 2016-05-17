@@ -53,23 +53,30 @@ The element's name, "segment", is passed in the `tag` argument, and a key/value 
 Like `appendMarkupElementView:`, the default implementation of this method does nothing. `UIView` subclasses must override it to provide view-specific behavior. 
 
 ## Attributes
-Attributes in a MarkupKit document typically represent properties of or actions associated with a view. For example, the following markup declares an instance of a system-style `UIButton` whose `title` property is set to "Press Me!":
+Attributes in a MarkupKit document usually represent view properties. For example, the following markup declares an instance of a system-style `UIButton` and sets its `title` property to "Press Me!":
 
     <UIButton style="systemButton" title="Press Me!"/>
 
 Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as colors, fonts, images, and enumerations, are handled specifically by MarkupKit and are discussed in more detail below.
 
-Internally, MarkupKit calls `setValue:forKeyPath:` to apply property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
+MarkupKit adds the following methods to `NSObject` to assist in applying property values:
+
+    - (void)applyMarkupPropertyValue:(nullable id)value forKey:(NSString *)key;
+    - (void)applyMarkupPropertyValue:(nullable id)value forKeyPath:(NSString *)keyPath;
+
+Ultimately, these methods delegate to the `setValue:forKey:` method of `NSObject`. However, they allow an implementing class to override the default behavior and perform any necessary translation before the value is actually set (for example, converting a string representation of a color value to a `UIColor` instance).
+
+MarkupKit actually invokes the second method when applying property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
 
     <UIButton style="systemButton" title="Press Me!" titleLabel.font="Helvetica-Bold 32"/>
 
-Attributes whose names begin with "on" generally represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
+A few attributes have special meaning in MarkupKit and do not represent either properties or actions. These include "style", "class", and "id". Their respective purposes are explained in more detail later.
+
+Additionally, attributes whose names begin with "on" represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
     <UIButton style="systemButton" title="Press Me!" onTouchUpInside="buttonPressed"/>
 
-Actions are discussed in more detail below.
-
-A few attributes have special meaning in MarkupKit and do not represent either properties or actions. These include "style", "class", and "id". Their respective purposes are explained in more detail later.
+Actions are also discussed in more detail below.
 
 ### Colors
 The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit are represented by a hexadecimal RGB[A] value preceded by a hash symbol.
