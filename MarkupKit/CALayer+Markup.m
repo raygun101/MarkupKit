@@ -14,6 +14,7 @@
 
 #import "CALayer+Markup.h"
 #import "NSObject+Markup.h"
+#import "LMViewBuilder.h"
 
 #import <UIKit/UIColor.h>
 
@@ -41,8 +42,8 @@
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if ([value isKindOfClass:[UIColor self]]) {
-        value = (id)[value CGColor];
+    if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
+        value = (id)[[LMViewBuilder colorValue:[value description]] CGColor];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];
