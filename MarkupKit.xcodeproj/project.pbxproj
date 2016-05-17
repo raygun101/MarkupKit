@@ -34,6 +34,8 @@
 		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
 		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
+		3769F8EF1CEB48D3000DB662 /* NSObject+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3769F8ED1CEB48D3000DB662 /* NSObject+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3769F8F01CEB48D3000DB662 /* NSObject+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3769F8EE1CEB48D3000DB662 /* NSObject+Markup.m */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormViewController.xml */; };
 		3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3778C79B1CAD6AC9008A012A /* Localizable.strings */; };
@@ -334,6 +336,8 @@
 		375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
 		37604CBF1C65146C00046146 /* LMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewCell.h; sourceTree = "<group>"; };
 		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
+		3769F8ED1CEB48D3000DB662 /* NSObject+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Markup.h"; sourceTree = "<group>"; };
+		3769F8EE1CEB48D3000DB662 /* NSObject+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Markup.m"; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormViewController.xml; sourceTree = "<group>"; };
 		3778C79A1CAD6AC9008A012A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -628,6 +632,8 @@
 				3779F9891C652E530070A29C /* LMPlayerView.m */,
 				3757B7CC1ADEC09A0002E16C /* LMViewBuilder.h */,
 				3757B7CD1ADEC09A0002E16C /* LMViewBuilder.m */,
+				3769F8ED1CEB48D3000DB662 /* NSObject+Markup.h */,
+				3769F8EE1CEB48D3000DB662 /* NSObject+Markup.m */,
 				3B5CE0041B87AC5000163D8D /* NSString+Markup.h */,
 				3B5CE0051B87AC5000163D8D /* NSString+Markup.m */,
 				3B4D1F291B041EF400CB61A9 /* CALayer+Markup.h */,
@@ -792,6 +798,7 @@
 				379C02661C660A0200DEB95E /* UIProgressView+Markup.h in Headers */,
 				379C02671C660A0200DEB95E /* UIToolbar+Markup.h in Headers */,
 				379C02681C660A0200DEB95E /* UIStackView+Markup.h in Headers */,
+				3769F8EF1CEB48D3000DB662 /* NSObject+Markup.h in Headers */,
 				379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */,
 				379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */,
 				379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */,
@@ -1148,6 +1155,7 @@
 				379C024A1C6609C900DEB95E /* UITableView+Markup.m in Sources */,
 				379C024B1C6609C900DEB95E /* UITableViewCell+Markup.m in Sources */,
 				379C024C1C6609C900DEB95E /* UIVisualEffectView+Markup.m in Sources */,
+				3769F8F01CEB48D3000DB662 /* NSObject+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
