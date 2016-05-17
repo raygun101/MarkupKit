@@ -13,6 +13,9 @@
 //
 
 #import "CALayer+Markup.h"
+#import "NSObject+Markup.h"
+
+#import <UIKit/UIColor.h>
 
 @implementation CALayer (Markup)
 
@@ -34,6 +37,15 @@
 - (void)setShadowOffsetHeight:(CGFloat)height
 {
     self.shadowOffset = CGSizeMake(self.shadowOffset.width, height);
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([value isKindOfClass:[UIColor self]]) {
+        value = (id)[value CGColor];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

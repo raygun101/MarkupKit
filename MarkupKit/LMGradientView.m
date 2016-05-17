@@ -13,6 +13,7 @@
 //
 
 #import "LMGradientView.h"
+#import "NSObject+Markup.h"
 #import "LMViewBuilder.h"
 
 @implementation LMGradientView
@@ -48,7 +49,7 @@
     _gradient = nil;
 }
 
-- (void)setValue:(id)value forKey:(NSString *)key
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"colors"] && [value isKindOfClass:[NSString self]]) {
         NSArray *components = [value componentsSeparatedByString:@","];
@@ -72,7 +73,7 @@
         value = locations;
     }
 
-    [super setValue:value forKey:key];
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 - (void)drawRect:(CGRect)rect
