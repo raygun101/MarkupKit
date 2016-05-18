@@ -31,7 +31,6 @@ static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 
 static NSString * const kOutletKey = @"id";
-static NSString * const kActionPrefix = @"on";
 
 static NSString * const kLocalizedStringPrefix = @"@";
 
@@ -257,9 +256,42 @@ static NSString * const kLocalizedStringPrefix = @"@";
             template = value;
         } else if ([key isEqual:kOutletKey]) {
             outlet = value;
-        } else if ([key hasPrefix:kActionPrefix] && [key length] > [kActionPrefix length]
-            && ![key isEqual:@"onTintColor"]) {
-            [actions setObject:value forKey:key];
+        } else if ([key isEqual:@"onTouchDown"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDown)];
+        } else if ([key isEqual:@"onTouchDownRepeat"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDownRepeat)];
+        } else if ([key isEqual:@"onTouchDragInside"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDragInside)];
+        } else if ([key isEqual:@"onTouchDragOutside"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDragOutside)];
+        } else if ([key isEqual:@"onTouchDragEnter"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDragEnter)];
+        } else if ([key isEqual:@"onTouchDragExit"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchDragExit)];
+        } else if ([key isEqual:@"onTouchUpInside"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchUpInside)];
+        } else if ([key isEqual:@"onTouchUpOutside"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchUpOutside)];
+        } else if ([key isEqual:@"onTouchCancel"]) {
+            [actions setObject:value forKey:@(UIControlEventTouchCancel)];
+        } else if ([key isEqual:@"onValueChanged"]) {
+            [actions setObject:value forKey:@(UIControlEventValueChanged)];
+        } else if ([key isEqual:@"onPrimaryActionTriggered"]) {
+            [actions setObject:value forKey:@(UIControlEventPrimaryActionTriggered)];
+        } else if ([key isEqual:@"onEditingDidBegin"]) {
+            [actions setObject:value forKey:@(UIControlEventEditingDidBegin)];
+        } else if ([key isEqual:@"onEditingChanged"]) {
+            [actions setObject:value forKey:@(UIControlEventEditingChanged)];
+        } else if ([key isEqual:@"onEditingDidEnd"]) {
+            [actions setObject:value forKey:@(UIControlEventEditingDidEnd)];
+        } else if ([key isEqual:@"onEditingDidEndOnExit"]) {
+            [actions setObject:value forKey:@(UIControlEventEditingDidEndOnExit)];
+        } else if ([key isEqual:@"onAllTouchEvents"]) {
+            [actions setObject:value forKey:@(UIControlEventAllTouchEvents)];
+        } else if ([key isEqual:@"onAllEditingEvents"]) {
+            [actions setObject:value forKey:@(UIControlEventAllEditingEvents)];
+        } else if ([key isEqual:@"onAllEvents"]) {
+            [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
             if ([value hasPrefix:kLocalizedStringPrefix]) {
                 value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]]
@@ -332,63 +364,21 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
                 NSDictionary *values = [_properties objectForKey:name];
 
-                for (NSString *keyPath in values) {
-                    [view applyMarkupPropertyValue:[values objectForKey:keyPath] forKeyPath:keyPath];
+                for (NSString *key in values) {
+                    [view applyMarkupPropertyValue:[values objectForKey:key] forKeyPath:key];
                 }
             }
         }
 
         // Apply instance properties
-        for (NSString *keyPath in properties) {
-            [view applyMarkupPropertyValue:[properties objectForKey:keyPath] forKeyPath:keyPath];
+        for (NSString *key in properties) {
+            [view applyMarkupPropertyValue:[properties objectForKey:key] forKeyPath:key];
         }
 
         // Add action handlers
-        for (NSString *key in actions) {
-            NSString *name = [key substringFromIndex:[kActionPrefix length]];
-
-            UIControlEvents controlEvents;
-            if ([name isEqual:@"TouchDown"]) {
-                controlEvents = UIControlEventTouchDown;
-            } else if ([name isEqual:@"TouchDownRepeat"]) {
-                controlEvents = UIControlEventTouchDownRepeat;
-            } else if ([name isEqual:@"TouchDragInside"]) {
-                controlEvents = UIControlEventTouchDragInside;
-            } else if ([name isEqual:@"TouchDragOutside"]) {
-                controlEvents = UIControlEventTouchDragOutside;
-            } else if ([name isEqual:@"TouchDragEnter"]) {
-                controlEvents = UIControlEventTouchDragEnter;
-            } else if ([name isEqual:@"TouchDragExit"]) {
-                controlEvents = UIControlEventTouchDragExit;
-            } else if ([name isEqual:@"TouchUpInside"]) {
-                controlEvents = UIControlEventTouchUpInside;
-            } else if ([name isEqual:@"TouchUpOutside"]) {
-                controlEvents = UIControlEventTouchUpOutside;
-            } else if ([name isEqual:@"TouchCancel"]) {
-                controlEvents = UIControlEventTouchCancel;
-            } else if ([name isEqual:@"ValueChanged"]) {
-                controlEvents = UIControlEventValueChanged;
-            } else if ([name isEqual:@"EditingDidBegin"]) {
-                controlEvents = UIControlEventEditingDidBegin;
-            } else if ([name isEqual:@"EditingChanged"]) {
-                controlEvents = UIControlEventEditingChanged;
-            } else if ([name isEqual:@"EditingDidEnd"]) {
-                controlEvents = UIControlEventEditingDidEnd;
-            } else if ([name isEqual:@"EditingDidEndOnExit"]) {
-                controlEvents = UIControlEventEditingDidEndOnExit;
-            } else if ([name isEqual:@"AllTouchEvents"]) {
-                controlEvents = UIControlEventAllTouchEvents;
-            } else if ([name isEqual:@"AllEditingEvents"]) {
-                controlEvents = UIControlEventAllEditingEvents;
-            } else if ([name isEqual:@"AllEvents"]) {
-                controlEvents = UIControlEventAllEvents;
-            } else {
-                continue;
-            }
-
-            SEL action = NSSelectorFromString([actions objectForKey:key]);
-            
-            [(UIControl *)view addTarget:_owner action:action forControlEvents:controlEvents];
+        for (NSNumber *key in actions) {
+            [(UIControl *)view addTarget:_owner action:NSSelectorFromString([actions objectForKey:key])
+                forControlEvents:[key integerValue]];
         }
 
         // Push onto view stack
