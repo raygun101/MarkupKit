@@ -21,6 +21,6 @@ limitations under the License.
 
         <LMSpacer/>
 
-        <UIButton style="systemButton" title="@done" onTouchUpInside="doneButtonPressed"/>
+        <UIButton style="systemButton" title="@done" onPrimaryActionTriggered="doneButtonPressed"/>
     </LMColumnView>
 </LMColumnView>
