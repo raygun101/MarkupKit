@@ -31,7 +31,7 @@ limitations under the License.
                 layer.borderColor="#808080"
                 layer.borderWidth="0.5"
                 layer.cornerRadius="6"
-                onTouchUpInside="showGreeting"/>
+                onPrimaryActionTriggered="showGreeting"/>
         </LMColumnView>
     </LMColumnView>
 </LMLayerView>

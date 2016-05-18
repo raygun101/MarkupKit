@@ -23,6 +23,6 @@ limitations under the License.
             keyboardType="URL"
             text="http://"/>
         
-        <UIButton style="systemButton" title="Go" onTouchUpInside="loadURL"/>
+        <UIButton style="systemButton" title="Go" onPrimaryActionTriggered="loadURL"/>
     </LMColumnView>
 </LMColumnView>

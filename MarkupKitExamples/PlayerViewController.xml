@@ -25,6 +25,6 @@ limitations under the License.
     <?sectionBreak?>
     
     <LMTableViewCell>
-        <UIButton style="systemButton" id="playButton" onTouchUpInside="togglePlay"/>
+        <UIButton style="systemButton" id="playButton" onPrimaryActionTriggered="togglePlay"/>
     </LMTableViewCell>
 </LMTableView>
