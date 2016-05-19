@@ -109,6 +109,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
             color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
         }
+    } else {
+        NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
+
+        if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
+            color = [[UIColor self] valueForKey:selectorName];
+        } else {
+            UIImage *image = [UIImage imageNamed:value];
+
+            if (image != nil) {
+                color = [UIColor colorWithPatternImage:image];
+            }
+        }
     }
 
     return color;

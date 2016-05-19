@@ -18,7 +18,9 @@
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    [self setValue:value forKey:key];
+    if (value != nil) {
+        [self setValue:value forKey:key];
+    }
 }
 
 - (void)applyMarkupPropertyValue:(id)value forKeyPath:(NSString *)keyPath
