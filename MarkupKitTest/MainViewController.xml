@@ -28,7 +28,7 @@ limitations under the License.
 
 <root fitToWidth="true">
     <LMLayerView>
-        <UIView backgroundColor="#eeeeee"/>
+        <UIView backgroundColor="Background"/>
         
         <LMColumnView layoutMargins="20">
             <LMRowView class="row.first">
@@ -62,14 +62,14 @@ limitations under the License.
             <LMRowView alignToBaseline="true" backgroundColor="#ff00ff">
                 <LMSpacer/>
                 <UILabel text="abcd" font="Helvetica 16"/>
-                <UILabel text="efg" font="Helvetica 32" backgroundColor="#ffff00"/>
+                <UILabel text="efg" font="Helvetica 32" backgroundColor="yellow"/>
                 <UILabel text="hijk" font="Helvetica 24"/>
                 <LMSpacer/>
             </LMRowView>
 
             <LMRowView layoutMargins="12" backgroundColor="#ffff00">
                 <LMSpacer/>
-                <UILabel text="abcd" font="Helvetica 16"/>
+                <UILabel text="abcd" font="Helvetica 16" textAlignment="abcde"/>
                 <UILabel width="45" text="efg hijk lmnop" font="Helvetica 16" numberOfLines="0" backgroundColor="#00ffff"/>
                 <LMSpacer/>
             </LMRowView>

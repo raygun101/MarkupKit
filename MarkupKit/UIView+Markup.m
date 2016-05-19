@@ -28,7 +28,6 @@ static NSDictionary *textSpellCheckingTypeValues;
 static NSDictionary *keyboardAppearanceValues;
 static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
-static NSDictionary *barStyleValues;
 
 @implementation UIView (Markup)
 
@@ -124,11 +123,6 @@ static NSDictionary *barStyleValues;
         @"yahoo": @(UIReturnKeyYahoo),
         @"done": @(UIReturnKeyDone),
         @"emergencyCall": @(UIReturnKeyEmergencyCall)
-    };
-
-    barStyleValues = @{
-        @"default": @(UIBarStyleDefault),
-        @"black": @(UIBarStyleBlack)
     };
 }
 
@@ -480,37 +474,6 @@ static NSDictionary *barStyleValues;
         }
 
         return;
-    } else if ([key isEqual:@"dataDetectorTypes"]) {
-        UIDataDetectorTypes dataDetectorTypes;
-        if ([value isEqual:@"none"]) {
-            dataDetectorTypes = UIDataDetectorTypeNone;
-        } else if ([value isEqual:@"all"]) {
-            dataDetectorTypes = UIDataDetectorTypeAll;
-        } else {
-            NSArray *components = [value componentsSeparatedByString:@"|"];
-
-            dataDetectorTypes = 0;
-
-            for (NSString *component in components) {
-                NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-
-                if ([name isEqual:@"phoneNumber"]) {
-                    dataDetectorTypes |= UIDataDetectorTypePhoneNumber;
-                } else if ([name isEqual:@"link"]) {
-                    dataDetectorTypes |= UIDataDetectorTypeLink;
-                } else if ([name isEqual:@"address"]) {
-                    dataDetectorTypes |= UIDataDetectorTypeAddress;
-                } else if ([name isEqual:@"calendarEvent"]) {
-                    dataDetectorTypes |= UIDataDetectorTypeCalendarEvent;
-                } else {
-                    continue;
-                }
-            }
-        }
-
-        value = [NSNumber numberWithUnsignedInteger:dataDetectorTypes];
-    } else if ([key isEqual:@"barStyle"]) {
-        value = [barStyleValues objectForKey:value];
     } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
         options:NSRegularExpressionSearch].location != NSNotFound) {
         CGFloat inset = [value floatValue];
