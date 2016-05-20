@@ -34,7 +34,6 @@ typedef enum {
 
     if (self) {
         _layoutMarginsRelativeArrangement = YES;
-        _elementDisposition = kElementDefault;
     }
 
     return self;

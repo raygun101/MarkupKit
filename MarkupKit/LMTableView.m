@@ -77,7 +77,6 @@ typedef enum {
 
 #define INIT {\
     _sections = [NSMutableArray new];\
-    _elementDisposition = kElementDefault;\
     [super setDataSource:self];\
     [super setDelegate:self];\
     [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
@@ -240,38 +239,37 @@ typedef enum {
 {
     NSInteger section = [indexPath section];
 
-    LMTableViewSelectionMode selectionMode = [self selectionModeForSection:section];
-
-    if (selectionMode != LMTableViewSelectionModeDefault) {
-        NSInteger row = [indexPath row];
-
-        switch (selectionMode) {
-            case LMTableViewSelectionModeSingleCheckmark: {
-                // Uncheck all cells except for current selection
-                NSArray *rows = [[_sections objectAtIndex:section] rows];
-
-                for (NSUInteger i = 0, n = [rows count]; i < n; i++) {
-                    [[rows objectAtIndex:i] setChecked:(i == row)];
-                }
-
-                break;
-            }
-
-            case LMTableViewSelectionModeMultipleCheckmarks: {
-                // Toggle check state of current selection
-                UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:row];
-
-                [cell setChecked:![cell checked]];
-
-                break;
-            }
-
-            default: {
-                [NSException raise:NSInternalInconsistencyException format:@"Unexpected selection mode."];
-            }
+    switch ([self selectionModeForSection:section]) {
+        case LMTableViewSelectionModeDefault: {
+            // No-op
+            break;
         }
 
-        [self deselectRowAtIndexPath:indexPath animated:YES];
+        case LMTableViewSelectionModeSingleCheckmark: {
+            // Uncheck all cells except for current selection
+            NSArray *rows = [[_sections objectAtIndex:section] rows];
+
+            NSInteger row = [indexPath row];
+            
+            for (NSUInteger i = 0, n = [rows count]; i < n; i++) {
+                [[rows objectAtIndex:i] setChecked:(i == row)];
+            }
+
+            [self deselectRowAtIndexPath:indexPath animated:YES];
+
+            break;
+        }
+
+        case LMTableViewSelectionModeMultipleCheckmarks: {
+            // Toggle check state of current selection
+            UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:[indexPath row]];
+
+            [cell setChecked:![cell checked]];
+
+            [self deselectRowAtIndexPath:indexPath animated:YES];
+
+            break;
+        }
     }
 
     if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
