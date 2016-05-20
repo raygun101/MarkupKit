@@ -79,11 +79,33 @@ Additionally, attributes whose names begin with "on" represent control events, o
 Actions are also discussed in more detail below.
 
 ### Colors
-The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit are represented by a hexadecimal RGB[A] value preceded by a hash symbol.
+The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit may be specified in one of several ways:
+
+* As a hexadecimal RGB[A] value preceded by a hash symbol; e.g. "#ff0000" or "#ffffff66"
+* As a named color; e.g. "yellow"
+* As a pattern image; e.g. "background.png"
 
 For example, the following markup creates a label whose text color is set to "#ff0000", or bright red:
 
     <UILabel text="A Red Label" textColor="#ff0000"/>
+    
+This example creates a column view whose background color is set to a semi-transparent white:
+
+    <LMColumnView backgroundColor="#ffffff66">
+        ...
+    </LMColumnView>
+    
+Named color values correspond to the color preset methods of `UIColor`, such as `darkGrayColor`. The attribute value is the name of the method minus the "Color" suffix; for example:
+
+    <UIButton style="systemButton" color="green"/>
+
+Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
+
+    <LMTableView backgroundColor="tile.png">
+        ...
+    </LMTableView>
+    
+Images are discussed in more detail below.
 
 ### Fonts
 The value of any attribute whose name equals "font" or ends with "Font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
@@ -107,6 +129,10 @@ The value of any attribute whose name is "image" or ends with "Image" is convert
 For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
 
     <UIImageView image="background.png"/>
+
+Note that, because images are loaded via `imageNamed:`, image attributes may also refer to image sets defined in an asset catalog. For example, if the asset catalog contains an image set named "PrintIcon", the following markup would create a button with a title of "Print" and an icon appropriate for the current device resolution:
+
+    <UIButton style="systemButton" image="PrintIcon" title="Print"/>
 
 ### Enumerations
 Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing and presents a software keyboard suitable for entering email addresses:
@@ -134,7 +160,7 @@ For example, the following markup creates an instance of `LMTableViewCell` whose
 
 Edge inset properties of several other view types can also be specified using this shorthand. For example:
 
-    <UIButton title="Press Me!" contentEdgeInsets="12"/>
+    <UIButton style="systemButton" title="Press Me!" contentEdgeInsets="12"/>
 
     <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>    
     
