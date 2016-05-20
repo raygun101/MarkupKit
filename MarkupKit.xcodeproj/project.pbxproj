@@ -11,6 +11,11 @@
 		372418E01ADF335A0067CDF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372418DC1ADF33590067CDF0 /* MainViewController.swift */; };
 		372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 372418E21ADF34600067CDF0 /* waterfall.jpg */; };
 		372418EC1ADF34600067CDF0 /* MainViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 372418E51ADF34600067CDF0 /* MainViewController.xml */; };
+		3736CC3F1CEFAB1300061064 /* LMCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3736CC3D1CEFAB1300061064 /* LMCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3736CC401CEFAB1300061064 /* LMCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3736CC3E1CEFAB1300061064 /* LMCollectionView.m */; };
+		3736CC431CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3736CC411CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3736CC441CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3736CC421CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.m */; };
+		3736CC461CEFAB8500061064 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3736CC451CEFAB8500061064 /* CollectionViewController.xml */; };
 		373BEC841C3EC036006EF8B4 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */; };
 		373BEC861C3EC03B006EF8B4 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */; };
 		374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374C036A1CB978A600339BB6 /* AppDelegate.swift */; };
@@ -299,6 +304,11 @@
 		372418DC1ADF33590067CDF0 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		372418E21ADF34600067CDF0 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
 		372418E51ADF34600067CDF0 /* MainViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MainViewController.xml; sourceTree = "<group>"; };
+		3736CC3D1CEFAB1300061064 /* LMCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionView.h; sourceTree = "<group>"; };
+		3736CC3E1CEFAB1300061064 /* LMCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionView.m; sourceTree = "<group>"; };
+		3736CC411CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewFlowLayout+Markup.h"; sourceTree = "<group>"; };
+		3736CC421CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewFlowLayout+Markup.m"; sourceTree = "<group>"; };
+		3736CC451CEFAB8500061064 /* CollectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollectionViewController.xml; sourceTree = "<group>"; };
 		373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
 		373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PeriodicTableViewController.xml; sourceTree = "<group>"; };
 		3742F0021B34D27B00B31987 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
@@ -642,6 +652,8 @@
 				3BAD2D581B30E7CA00DDB6CD /* LMTableView.m */,
 				3BAD2D5B1B30E8FB00DDB6CD /* LMTableViewCell.h */,
 				3BAD2D5C1B30E8FB00DDB6CD /* LMTableViewCell.m */,
+				3736CC3D1CEFAB1300061064 /* LMCollectionView.h */,
+				3736CC3E1CEFAB1300061064 /* LMCollectionView.m */,
 				37604CBF1C65146C00046146 /* LMCollectionViewCell.h */,
 				37604CC01C65146C00046146 /* LMCollectionViewCell.m */,
 				3779F9881C652E530070A29C /* LMPlayerView.h */,
@@ -684,6 +696,8 @@
 				3757B7D91ADEC1550002E16C /* UITableView+Markup.m */,
 				3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */,
 				3B7115B11B0424D300E546F3 /* UITableViewCell+Markup.m */,
+				3736CC411CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h */,
+				3736CC421CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.m */,
 				3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */,
 				3BD5DB901BD5B8CC00D20851 /* UIVisualEffectView+Markup.m */,
 				37B070671ADEBE3F00A92FCF /* Info.plist */,
@@ -765,6 +779,7 @@
 				373BEC831C3EC036006EF8B4 /* PeriodicTableViewController.swift */,
 				373BEC851C3EC03B006EF8B4 /* PeriodicTableViewController.xml */,
 				37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */,
+				3736CC451CEFAB8500061064 /* CollectionViewController.xml */,
 				3779F9841C6520A20070A29C /* ColorCell.swift */,
 				3779F9861C6520B70070A29C /* ColorCell.xml */,
 				3779F98C1C652EB30070A29C /* PlayerViewController.swift */,
@@ -795,6 +810,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				379C024D1C660A0100DEB95E /* MarkupKit.h in Headers */,
+				3736CC431CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h in Headers */,
 				379C024E1C660A0100DEB95E /* LMLayoutView.h in Headers */,
 				379C024F1C660A0100DEB95E /* LMBoxView.h in Headers */,
 				379C02501C660A0100DEB95E /* LMColumnView.h in Headers */,
@@ -828,6 +844,7 @@
 				3769F8EF1CEB48D3000DB662 /* NSObject+Markup.h in Headers */,
 				379C02691C660A0200DEB95E /* UIScrollView+Markup.h in Headers */,
 				379C026C1C660A0200DEB95E /* UITableView+Markup.h in Headers */,
+				3736CC3F1CEFAB1300061064 /* LMCollectionView.h in Headers */,
 				379C026D1C660A0200DEB95E /* UITableViewCell+Markup.h in Headers */,
 				3769F8F31CEB5ACD000DB662 /* UIControl+Markup.h in Headers */,
 				379C026E1C660A0200DEB95E /* UIVisualEffectView+Markup.h in Headers */,
@@ -1111,6 +1128,7 @@
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxViewController.xml in Resources */,
 				37A9FC251C108D6B00A09102 /* LinearGradientViewController.xml in Resources */,
 				3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */,
+				3736CC461CEFAB8500061064 /* CollectionViewController.xml in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
 				3BB70C661B78EC630086A3F9 /* ViewController.xml in Resources */,
 			);
@@ -1172,6 +1190,7 @@
 				3769F8F41CEB5ACD000DB662 /* UIControl+Markup.m in Sources */,
 				379C023C1C6609C900DEB95E /* LMViewBuilder.m in Sources */,
 				379C023D1C6609C900DEB95E /* NSString+Markup.m in Sources */,
+				3736CC401CEFAB1300061064 /* LMCollectionView.m in Sources */,
 				379C023E1C6609C900DEB95E /* CALayer+Markup.m in Sources */,
 				379C023F1C6609C900DEB95E /* UIView+Markup.m in Sources */,
 				379C02401C6609C900DEB95E /* UIButton+Markup.m in Sources */,
@@ -1179,6 +1198,7 @@
 				379C02421C6609C900DEB95E /* UITextField+Markup.m in Sources */,
 				379C02431C6609C900DEB95E /* UIPickerView+Markup.m in Sources */,
 				379C02441C6609C900DEB95E /* UIProgressView+Markup.m in Sources */,
+				3736CC441CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.m in Sources */,
 				379C02451C6609C900DEB95E /* UIToolbar+Markup.m in Sources */,
 				379C02461C6609C900DEB95E /* UIStackView+Markup.m in Sources */,
 				379C02471C6609C900DEB95E /* UIScrollView+Markup.m in Sources */,
