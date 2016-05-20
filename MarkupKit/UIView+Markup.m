@@ -28,6 +28,7 @@ static NSDictionary *textSpellCheckingTypeValues;
 static NSDictionary *keyboardAppearanceValues;
 static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
+static NSDictionary *barStyleValues;
 
 @implementation UIView (Markup)
 
@@ -123,6 +124,11 @@ static NSDictionary *returnKeyTypeValues;
         @"yahoo": @(UIReturnKeyYahoo),
         @"done": @(UIReturnKeyDone),
         @"emergencyCall": @(UIReturnKeyEmergencyCall)
+    };
+
+    barStyleValues = @{
+        @"default": @(UIBarStyleDefault),
+        @"black": @(UIBarStyleBlack)
     };
 }
 
@@ -474,6 +480,8 @@ static NSDictionary *returnKeyTypeValues;
         }
 
         return;
+    } else if ([key isEqual:@"barStyle"]) {
+        value = [barStyleValues objectForKey:value];
     } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
         options:NSRegularExpressionSearch].location != NSNotFound) {
         CGFloat inset = [value floatValue];
