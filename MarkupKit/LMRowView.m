@@ -141,10 +141,6 @@ static NSDictionary *baselineValues;
                         baselineAttribute = NSLayoutAttributeLastBaseline;
                         break;
                     }
-
-                    default: {
-                        [NSException raise:NSInternalInconsistencyException format:@"Unexpected baseline."];
-                    }
                 }
 
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:baselineAttribute
