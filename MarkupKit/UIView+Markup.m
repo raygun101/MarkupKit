@@ -19,7 +19,7 @@
 #import <objc/message.h>
 
 static NSDictionary *viewContentModeValues;
-static NSDictionary *tintAdjustmentModeValues;
+static NSDictionary *viewTintAdjustmentModeValues;
 static NSDictionary *lineBreakModeValues;
 static NSDictionary *textAlignmentValues;
 static NSDictionary *textAutocapitalizationTypeValues;
@@ -50,7 +50,7 @@ static NSDictionary *barStyleValues;
         @"bottomRight": @(UIViewContentModeBottomRight)
     };
 
-    tintAdjustmentModeValues = @{
+    viewTintAdjustmentModeValues = @{
         @"automatic": @(UIViewTintAdjustmentModeAutomatic),
         @"normal": @(UIViewTintAdjustmentModeNormal),
         @"dimmed": @(UIViewTintAdjustmentModeDimmed)
@@ -427,7 +427,7 @@ static NSDictionary *barStyleValues;
     } else  if ([key isEqual:@"contentMode"]) {
         value = [viewContentModeValues objectForKey:value];
     } else if ([key isEqual:@"tintAdjustmentMode"]) {
-        value = [tintAdjustmentModeValues objectForKey:value];
+        value = [viewTintAdjustmentModeValues objectForKey:value];
     } else if ([key isEqual:@"lineBreakMode"]) {
         value = [lineBreakModeValues objectForKey:value];
     } else if ([key isEqual:@"textAlignment"]) {
