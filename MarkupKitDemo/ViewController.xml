@@ -42,7 +42,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Image View" class="cell.header"/>
 
     <LMTableViewCell selectionStyle="none">
-        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="213"/>
+        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="210"/>
     </LMTableViewCell>
 
     <?sectionBreak?>
