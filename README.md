@@ -892,6 +892,35 @@ Bottom spacing can be set similarly using the controller's bottom layout guide.
 
 See _LMColumnView.h_ for more information.
 
+### Fixed Dimensions
+Although views are typically arranged based on their intrinsic content sizes, it is occasionally necessary to assign a fixed value for a particular view dimension. MarkupKit adds the following properties to `UIView` to facilitate explicit size definition:
+
+    @property (nonatomic) CGFloat width;    
+    @property (nonatomic) CGFloat height;
+    
+For example, the following markup declares an image view whose `height` property is set to 240 pixels:
+
+    <UIImageView image="world.png" contentMode="scaleAspectFit" height="240"/>
+    
+If the image is smaller or larger than 240 pixels tall, it will be scaled up or down to fit within this height. Since the content mode is set to "scaleAspectFit", the width will be adjusted accordingly so that the image retains the correct aspect ratio.
+
+### Bounded Dimensions
+MarkupKit also adds the following properties to `UIView`, which are used to define bounded values for a given dimension:
+
+    @property (nonatomic) CGFloat minimumWidth;
+    @property (nonatomic) CGFloat maximumWidth;
+    @property (nonatomic) CGFloat minimumHeight;
+    @property (nonatomic) CGFloat maximumHeight;
+
+Specifying a minimum width or height value ensures that the corresponding dimension is greater than or equal to the given value. Similarly, specifying a maximum width or height ensures that the corresponding dimension is less than or equal to the given value.
+
+For example, the following markup declares a `UILabel` instance with a minimum width of 120 and a maximum width of 240:
+
+    <UILabel text="Lorem ipsum dolor sit amet..." numberOfLines="0"
+        minimumWidth="120" maximumWidth="240"/>
+        
+This ensures that the label will be at least 120 pixels and at most 240 pixels wide.
+
 ### View Weights
 Often, a row or column view will be given more space than it needs to accommodate the intrinsic sizes of its subviews. MarkupKit adds the following property to `UIView` that is used to determine how the extra space should be allocated:
 
@@ -1291,4 +1320,4 @@ For example, the following markup creates a system button with a shadow opacity 
         layer.shadowOffsetHeight="3"/>
 
 # Further Reading
-For more information, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki) or the [discussion forum](https://disqus.com/home/channel/markupkit/).
+For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
