@@ -680,24 +680,12 @@ For example, the following markup declares a picker view whose rows are defined 
 
 The JSON document must be formatted as an array containing one object per row. Each object must define a "title" value and may provide an optional "value" value; for example:
 
-	[
-	    {
-	        "title": "Small",
-	        "value": "S"
-	    },
-	    {
-	        "title": "Medium",
-	        "value": "M"
-	    },
-	    {
-	        "title": "Large",
-	        "value": "L"
-	    },
-	    {
-	        "title": "Extra-Large",
-	        "value": "XL"
-	    }
-	]
+    [
+        {"title": "Small", "value": "S"},
+        {"title": "Medium", "value": "M"},
+        {"title": "Large", "value": "L"},
+        {"title": "Extra-Large", "value": "XL"}
+    ]
 
 ### Multiple Components
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
