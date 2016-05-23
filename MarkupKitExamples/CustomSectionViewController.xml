@@ -16,7 +16,7 @@ limitations under the License.
 
 <LMTableView style="groupedTableView">
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Static Section" textLabel.textColor="#808080"/>
+    <UITableViewHeaderFooterView textLabel.text="Static Section"/>
 
     <UITableViewCell textLabel.text="One"/>
     <UITableViewCell textLabel.text="Two"/>
@@ -26,5 +26,5 @@ limitations under the License.
 
     <?sectionName dynamic?>
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Dynamic Section" textLabel.textColor="#808080"/>
+    <UITableViewHeaderFooterView textLabel.text="Dynamic Section"/>
 </LMTableView>

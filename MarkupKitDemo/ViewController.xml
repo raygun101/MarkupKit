@@ -78,10 +78,7 @@ limitations under the License.
         <UITextField id="sizeTextField" placeholder="Size">
             <?inputView?>
             <LMPickerView id="sizePickerView">
-                <row title="Small" value="S"/>
-                <row title="Medium" value="M"/>
-                <row title="Large" value="L"/>
-                <row title="Extra-Large" value="XL"/>
+                <?rows Sizes?>
             </LMPickerView>
         </UITextField>
     </LMTableViewCell>

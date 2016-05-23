@@ -1,6 +1,6 @@
 {
     "cell.header": {
-        "textLabel.font": "body",
+        "textLabel.font": "subheadline",
         "textLabel.textColor": "#808080"
     }
 }
