@@ -305,8 +305,8 @@ These processing instructions and others are discussed in more detail later.
 The remaining sections of this document discuss the classes included with the MarkupKit framework:
 
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by an iOS application
-* `LMTableView` and `LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
-* `LMCollectionViewCell` - `UICollectionViewCell` subclass that facilitates declaration of collection view content
+* `LMTableView`/`LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
+* `LMCollectionView`/`LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
 * `LMPageView` - subclass of `UIScrollView` that facilitates the declaration of paged content
@@ -403,7 +403,7 @@ For example, the following markup declares a plain table view containing three r
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
 
-The `backgroundView` processing instruction corresponds to a call to the `setBackgroundView:` method of `UITableView` and can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear background gradient:
+The `backgroundView` processing instruction corresponds to a call to the `setBackgroundView:` method of `UITableView` and can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear gradient background:
 
     <LMTableView style="groupedTableView">
         <?backgroundView?>
@@ -420,6 +420,7 @@ The `tableHeaderView` and `tableFooterView` processing instructions correspond t
         ...
     </LMTableView>
 
+#### Multiple Sections
 The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. This markup creates a grouped table view containing two sections (the first section is created implicitly):
 
     <LMTableView style="groupedTableView">
@@ -463,7 +464,7 @@ The `sectionFooterView` processing instruction assigns a footer view to the curr
 
 As with header views, footers views are not limited to instances of `UITableViewCell`; any `UIView` subclass can be used as a footer.
 
-The `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+Finally, the `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -479,7 +480,8 @@ The `sectionName` processing instruction is used to assign a name to a section. 
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-Finally, the `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
+#### Section Selection Mode
+The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
 For example, the following markup creates a table view that allows a user to select one of several colors:
 
@@ -585,8 +587,45 @@ The child of the root tag represents the cell's content. It can be any valid vie
 
 See _LMTableViewCell.h_ for more information.
 
-## LMCollectionViewCell
-Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
+## LMCollectionView and LMCollectionViewCell
+The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declaration of collection view content in markup. Both classes are discussed in more detail below.
+
+### LMCollectionView
+Unlike `LMTableView`, which allows developers to define the entire structure of a table view declaratively, `LMCollectionView` offers only minimal functionality beyond what is provided by its base class, `UICollectionView`. It exists primarily as a means for declaring collection view instances in markup.
+
+Instances of `UICollectionView` are created programmatically using the `initWithFrame:collectionViewLayout:` method of `UICollectionView`. `LMCollectionView` defines the following factory method to allow collection views to be constructed in markup:
+
+    + (LMCollectionView *)flowLayoutCollectionView;
+
+This method is used to create instances of `LMCollectionView` that use a collection view flow layout:
+
+    <LMCollectionView id="collectionView" style="flowLayoutCollectionView"/>
+
+MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that allow it to be configured declaratively; for example:
+
+	<LMCollectionView style="flowLayoutCollectionView"
+	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+	    collectionViewLayout.sectionInset="12"
+	    backgroundColor="#ffffff"/>
+
+These properties are discussed in more detail in a later section.
+
+`LMCollectionView` supports the `backgroundView` processing instruction, which can be used to assign a background view to the collection view; for example, the following markup creates a collection view with with a linear gradient background:
+
+	<LMCollectionView style="flowLayoutCollectionView"
+	    collectionViewLayout.itemWidth="80" 
+	    collectionViewLayout.estimatedItemHeight="80"/>
+	    <?backgroundView?>
+	    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+	    ...
+	</LMCollectionView>
+
+See _LMCollectionView.h_ for more information.
+
+### LMCollectionViewCell
+Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
+
+By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -631,6 +670,36 @@ An optional value can also be associated with row, as shown below:
         <row title="Extra-Large" value="XL"/>
     </LMPickerView>
 
+Additionally, row content can be defined externally using the `rows` processing instruction. This PI instructs the picker view to retrieve its row declarations from an external JSON document. This helps improve readability and also allows row definitions to be shared across multiple markup documents.
+
+For example, the following markup declares a picker view whose rows are defined in a file named _Sizes.json_:
+
+    <LMPickerView id="sizePickerView">
+        <?rows Sizes?>
+    </LMPickerView>
+
+The JSON document must be formatted as an array containing one object per row. Each object must define a "title" value and may provide an optional "value" value; for example:
+
+	[
+	    {
+	        "title": "Small",
+	        "value": "S"
+	    },
+	    {
+	        "title": "Medium",
+	        "value": "M"
+	    },
+	    {
+	        "title": "Large",
+	        "value": "L"
+	    },
+	    {
+	        "title": "Extra-Large",
+	        "value": "XL"
+	    }
+	]
+
+### Multiple Components
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
 
     <LMPickerView>
@@ -667,7 +736,7 @@ Finally, the `componentName` processing instruction assigns a name to a componen
         <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
-#### Custom Data Source/Delegate Implementations
+### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMPickerView` instance to override the default behavior. This allows the data source to provide some picker content dynamically while relying on the picker view to manage static content. 
 
 `LMPickerView` propagates the following `UIPickerViewDataSource` calls to a custom data source:
@@ -1298,6 +1367,33 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCe
     <UITableViewCell textLabel.text="This is a switch">
         <UISwitch id="switch"/>
     </UITableViewCell>
+
+### UICollectionViewFlowLayout
+MarkupKit adds the following properties to `UICollectionViewFlowLayout` to allow it to be configured in markup:
+
+    @property (nonatomic) CGFloat itemWidth;
+    @property (nonatomic) CGFloat itemHeight;
+
+    @property (nonatomic) CGFloat estimatedItemWidth;
+    @property (nonatomic) CGFloat estimatedItemHeight;
+    
+    @property (nonatomic) CGFloat sectionInsetTop;
+    @property (nonatomic) CGFloat sectionInsetLeft;
+    @property (nonatomic) CGFloat sectionInsetBottom;
+    @property (nonatomic) CGFloat sectionInsetRight;
+
+    @property (nonatomic) CGFloat headerReferenceWidth;
+    @property (nonatomic) CGFloat headerReferenceHeight;
+    
+    @property (nonatomic) CGFloat footerReferenceWidth;
+    @property (nonatomic) CGFloat footerReferenceHeight;
+
+For example:
+
+	<LMCollectionView style="flowLayoutCollectionView"
+	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+	    collectionViewLayout.sectionInset="12"
+	    backgroundColor="#ffffff"/>
 
 ### UIVisualEffectView
 Instances of `UIVisualEffectView` are created using the `initWithEffect:` method, which takes a `UIVisualEffect` instance as an argument. MarkupKit adds the following factory methods to `UIVisualEffectView` to facilitate construction of `UIVisualEffectView` in markup:

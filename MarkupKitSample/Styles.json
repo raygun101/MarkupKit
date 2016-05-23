@@ -1,10 +1,10 @@
 {
     "cell.header": {
-		"textLabel.font": "body",
+		"textLabel.font": "subheadline",
 		"textLabel.color": "#808080"
     },
 	"cell.footer": {
-		"textLabel.font": "subheadline",
+		"textLabel.font": "caption2",
 		"textLabel.color": "#808080"
     },
 	"cell.input": {

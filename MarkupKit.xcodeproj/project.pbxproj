@@ -57,6 +57,7 @@
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
 		3779F98F1C652EB90070A29C /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F98E1C652EB90070A29C /* PlayerViewController.xml */; };
 		3779F9911C652EC70070A29C /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9901C652EC70070A29C /* sample.mp4 */; };
+		377EFFF41CF3B3390002A656 /* Sizes.json in Resources */ = {isa = PBXBuildFile; fileRef = 377EFFF31CF3B3390002A656 /* Sizes.json */; };
 		37804AA11CCA5DA000CC17E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */; };
 		37804AA21CCA5DA000CC17E4 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37804AA01CCA5DA000CC17E4 /* WebViewController.xml */; };
 		37804AA51CCA5DB000CC17E4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804AA31CCA5DB000CC17E4 /* MapViewController.swift */; };
@@ -374,6 +375,7 @@
 		3779F98C1C652EB30070A29C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		3779F98E1C652EB90070A29C /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerViewController.xml; sourceTree = "<group>"; };
 		3779F9901C652EC70070A29C /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
+		377EFFF31CF3B3390002A656 /* Sizes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sizes.json; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				37AC28321C08B49C00BC8C87 /* LaunchScreen.storyboard */,
 				37AC28351C08B49C00BC8C87 /* Info.plist */,
 				37AE7CBD1CDB806A009C5AD0 /* Styles.json */,
+				377EFFF31CF3B3390002A656 /* Sizes.json */,
 			);
 			path = MarkupKitDemo;
 			sourceTree = "<group>";
@@ -1059,6 +1062,7 @@
 			files = (
 				37AC28341C08B49C00BC8C87 /* LaunchScreen.storyboard in Resources */,
 				37AE7CBE1CDB806A009C5AD0 /* Styles.json in Resources */,
+				377EFFF41CF3B3390002A656 /* Sizes.json in Resources */,
 				375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */,
 				37AC283F1C08B5D100BC8C87 /* ViewController.xml in Resources */,
 				37AC28311C08B49C00BC8C87 /* Assets.xcassets in Resources */,
