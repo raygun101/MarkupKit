@@ -1,18 +1,6 @@
 [
-    {
-        "title": "Small",
-        "value": "S"
-    },
-    {
-        "title": "Medium",
-        "value": "M"
-    },
-    {
-        "title": "Large",
-        "value": "L"
-    },
-    {
-        "title": "Extra-Large",
-        "value": "XL"
-    }
+    {"title": "Small", "value": "S"},
+    {"title": "Medium", "value": "M"},
+    {"title": "Large", "value": "L"},
+    {"title": "Extra-Large", "value": "XL"}
 ]
