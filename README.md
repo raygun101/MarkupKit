@@ -294,7 +294,7 @@ MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class t
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
-        <UITableViewCell textLabel.text="Section 1"/>
+        <UITableViewHeaderFooterView textLabel.text="Section 1"/>
         
 		...
 	</LMTableView>
@@ -385,42 +385,29 @@ These methods may also be called by application code to translate MarkupKit-enco
 See _LMViewBuilder.h_ for more information.
 
 ## LMTableView and LMTableViewCell
-The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of a table view's content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. It is configured to use self-sizing cells by default. `LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior.
+The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of table view content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.
 
-MarkupKit also provides extensions to the standard `UITableViewCell` classes that allows it to be used in markup. This is discussed in more detail in a later section.
+`LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior. 
 
-### LMTableView
-The `LMTableView` class supports the definition of statically defined table content. It defines the following factory methods, which are used to create new table view instances in markup:
+MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
+
+### Declaration
+`LMTableView` provides the following factory methods, which are used to construct new table view instances in markup:
 
     + (LMTableView *)plainTableView;
     + (LMTableView *)groupedTableView;
 
-For example, the following markup declares a plain table view containing three rows:
+For example, the following markup creates a plain table view containing three rows:
 
     <LMTableView style="plainTableView">
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 2"/>
         <UITableViewCell textLabel.text="Row 3"/>
     </LMTableView>
+    
+Note that, by default, grouped table views enable self-sizing behavior for section headers and footers, but plain table views do not.
 
-The `backgroundView` processing instruction corresponds to a call to the `setBackgroundView:` method of `UITableView` and can be used to assign a background view to a table view. For example, this markup creates a grouped table view with a linear gradient background:
-
-    <LMTableView style="groupedTableView">
-        <?backgroundView?>
-        <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
-        
-        ...
-    </LMTableView>
-
-The `tableHeaderView` and `tableFooterView` processing instructions correspond to the `setTableHeaderView:` and `setTableFooterView:` methods of `UITableView`, respectively, and are used to set a table view's header and footer views. For example, the following markup declares a table view containing a search bar as a header view:
-
-    <LMTableView>
-        <?tableHeaderView?>
-        <UISearchBar id="searchBar"/>
-        ...
-    </LMTableView>
-
-#### Multiple Sections
+### Section Management
 The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. This markup creates a grouped table view containing two sections (the first section is created implicitly):
 
     <LMTableView style="groupedTableView">
@@ -439,30 +426,16 @@ The `sectionHeaderView` processing instruction assigns a header view to the curr
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
-        <UITableViewCell textLabel.text="Section 1"/>
+        <UITableViewHeaderFooterView textLabel.text="Section 1"/>
 
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 1"/>
     </LMTableView>
 
-Note that this example uses an instance of `UITableViewCell` as a section header. While this is often convenient, it is not required. Any `UIView` subclass can be used as a section header view.
+Note that, although this example uses an instance of `UITableViewHeaderFooterView` as a section header view, this is not strictly required. Any `UIView` subclass can be used as a section header.
 
-The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. The view element immediately following the PI is used as the footer view for the section:
-
-    <LMTableView style="groupedTableView">
-        <?sectionHeaderView?>
-        <UITableViewCell textLabel.text="Section 1 Start"/>
-
-        <UITableViewCell textLabel.text="Row 1"/>
-        <UITableViewCell textLabel.text="Row 1"/>
-        <UITableViewCell textLabel.text="Row 1"/>
-
-        <?sectionFooterView?>
-        <UITableViewCell textLabel.text="Section 1 End"/>
-    </LMTableView>
-
-As with header views, footers views are not limited to instances of `UITableViewCell`; any `UIView` subclass can be used as a footer.
+The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. As with header views, footers views are not limited to instances of any particular type; any `UIView` subclass can be used.
 
 Finally, the `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
@@ -480,7 +453,7 @@ Finally, the `sectionName` processing instruction is used to assign a name to a 
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-#### Section Selection Modes
+### Section Selection Modes
 The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
 For example, the following markup creates a table view that allows a user to select one of several colors:
@@ -503,7 +476,25 @@ Selection state is managed via several methods that `LMTableView` inherits from 
 
 The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The third and fourth methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
 
-#### Custom Data Source/Delegate Implementations
+### Accessory Views
+The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
+
+    <LMTableView style="groupedTableView">
+        <?backgroundView?>
+        <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+        
+        ...
+    </LMTableView>
+
+The `tableHeaderView` and `tableFooterView` processing instructions are used to set a table view's header and footer views, respectively, and correspond to the `setTableHeaderView:` and `setTableFooterView:` methods of `UITableView`. For example, the following markup declares a table view containing a search bar as a header view:
+
+    <LMTableView>
+        <?tableHeaderView?>
+        <UISearchBar id="searchBar"/>
+        ...
+    </LMTableView>
+
+### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMTableView` instance to override the default behavior. This allows the data source to provide some table content dynamically while relying on the table view to manage static content. 
 
 `LMTableView` propagates the following `UITableViewDataSource` calls to a custom data source:
@@ -547,9 +538,7 @@ Additionally, an application-specific delegate may be set on an `LMTableView` in
 * `tableView:willDeselectRowAtIndexPath:`
 * `tableView:didDeselectRowAtIndexPath:`
 
-See _LMTableView.h_ for more information.
-
-### LMTableViewCell
+### Custom Cell Content
 The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, it automatically applies constraints to its content to enable self-sizing behavior.
 
 For example, the following markup creates a plain table view whose single cell contains a `UIDatePicker`. The date picker will be automatically sized to fill the width and height of the cell:
@@ -585,12 +574,12 @@ The child of the root tag represents the cell's content. It can be any valid vie
 * `selectedBackgroundView` - sets the cell's selected background view
 * `multipleSelectionBackgroundView` - sets the cell's multiple selection background view
 
-See _LMTableViewCell.h_ for more information.
+See _LMTableView.h_ and _LMTableViewCell.h_ for more information.
 
 ## LMCollectionView and LMCollectionViewCell
 The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declaration of collection view content in markup. Both classes are discussed in more detail below.
 
-### LMCollectionView
+### Declaration
 Unlike `LMTableView`, which allows developers to define the entire structure of a table view declaratively, `LMCollectionView` offers only minimal functionality beyond what is provided by its base class, `UICollectionView`. It exists primarily as a means for declaring collection view instances in markup.
 
 Instances of `UICollectionView` are created programmatically using the `initWithFrame:collectionViewLayout:` method of `UICollectionView`. `LMCollectionView` defines the following factory method to allow collection views to be constructed in markup:
@@ -610,7 +599,8 @@ MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that
 
 These properties are discussed in more detail in a later section.
 
-`LMCollectionView` supports the `backgroundView` processing instruction, which can be used to assign a background view to the collection view; for example, the following markup creates a collection view with with a linear gradient background:
+### Accessory Views
+The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with a linear gradient background:
 
 	<LMCollectionView style="flowLayoutCollectionView"
 	    collectionViewLayout.itemWidth="80" 
@@ -620,9 +610,7 @@ These properties are discussed in more detail in a later section.
 	    ...
 	</LMCollectionView>
 
-See _LMCollectionView.h_ for more information.
-
-### LMCollectionViewCell
+### Custom Cell Content
 Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom collection view cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
 
 By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
@@ -647,7 +635,7 @@ As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constrai
 * `backgroundView` - sets the cell's background view
 * `selectedBackgroundView` - sets the cell's selected background view
 
-See _LMCollectionViewCell.h_ for more information.
+See _LMCollectionView.h_ and _LMCollectionViewCell.h_ for more information.
 
 ## LMPickerView
 `LMPickerView` is a subclass of `UIPickerView` that acts as its own data source and delegate, serving content from a statically-defined collection of row and component titles. For example, the following markup declares a picker view containing four rows reprenting size options:
@@ -670,7 +658,7 @@ An optional value can also be associated with row, as shown below:
         <row title="Extra-Large" value="XL"/>
     </LMPickerView>
 
-### Multiple Components
+### Component Management
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
 
     <LMPickerView>
