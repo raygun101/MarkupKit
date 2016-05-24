@@ -18,8 +18,6 @@
 static NSString * const kComponentSeparatorTarget = @"componentSeparator";
 static NSString * const kComponentNameTarget = @"componentName";
 
-static NSString * const kRowsTarget = @"rows";
-
 static NSString * const kRowTag = @"row";
 static NSString * const kRowTitleKey = @"title";
 static NSString * const kRowValueKey = @"value";
@@ -197,36 +195,6 @@ static NSString * const kRowValueKey = @"value";
         [self insertComponent:[self numberOfComponents]];
     } else if ([target isEqual:kComponentNameTarget]) {
         [self setName:data forComponent:[self numberOfComponents] - 1];
-    } else if ([target isEqual:kRowsTarget]) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
-        
-        if (path != nil) {
-            NSError *error = nil;
-            
-            NSArray *rows = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
-                options:0 error:&error];
-            
-            if (error != nil) {
-                NSDictionary *userInfo = [error userInfo];
-
-                [NSException raise:NSGenericException format:@"Error reading rows: \"%@\"",
-                    [userInfo objectForKey:@"NSDebugDescription"]];
-            }
-
-            NSInteger component = [self numberOfComponents] - 1;
-            
-            int i = 0;
-
-            for (NSDictionary *row in rows) {
-                NSString *title = [row objectForKey:kRowTitleKey];
-                
-                if (title != nil) {
-                    [self insertRow:i inComponent:component withTitle:title value:[row objectForKey:kRowValueKey]];
-                    
-                    i++;
-                }
-            }
-        }
     }
 }
 
