@@ -550,7 +550,7 @@ Additionally, an application-specific delegate may be set on an `LMTableView` in
 See _LMTableView.h_ for more information.
 
 ### LMTableViewCell
-The `LMTableViewCell` class supports the declaration of custom cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, it automatically applies constraints to its content to enable self-sizing behavior.
+The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, it automatically applies constraints to its content to enable self-sizing behavior.
 
 For example, the following markup creates a plain table view whose single cell contains a `UIDatePicker`. The date picker will be automatically sized to fill the width and height of the cell:
 
@@ -623,7 +623,7 @@ These properties are discussed in more detail in a later section.
 See _LMCollectionView.h_ for more information.
 
 ### LMCollectionViewCell
-Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
+Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom collection view cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
 
 By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
 
@@ -669,23 +669,6 @@ An optional value can also be associated with row, as shown below:
         <row title="Large" value="L"/>
         <row title="Extra-Large" value="XL"/>
     </LMPickerView>
-
-Additionally, row content can be defined externally using the `rows` processing instruction. This PI instructs the picker view to retrieve its row declarations from an external JSON document. This helps improve readability and also allows row definitions to be shared across multiple markup documents.
-
-For example, the following markup declares a picker view whose rows are defined in a file named _Sizes.json_:
-
-    <LMPickerView id="sizePickerView">
-        <?rows Sizes?>
-    </LMPickerView>
-
-The JSON document must be formatted as an array containing one object per row. Each object must define a "title" value and may provide an optional "value" value; for example:
-
-    [
-        {"title": "Small", "value": "S"},
-        {"title": "Medium", "value": "M"},
-        {"title": "Large", "value": "L"},
-        {"title": "Extra-Large", "value": "XL"}
-    ]
 
 ### Multiple Components
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
