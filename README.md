@@ -480,7 +480,7 @@ Finally, the `sectionName` processing instruction is used to assign a name to a 
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-#### Section Selection Mode
+#### Section Selection Modes
 The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
 For example, the following markup creates a table view that allows a user to select one of several colors:
@@ -705,7 +705,7 @@ The `componentSeparator` processing instruction inserts a new component into the
         <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
-Finally, the `componentName` processing instruction assigns a name to a component. It corresponds to a call to the `setName:forComponent:` method. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+The `componentName` processing instruction assigns a name to a component. It corresponds to a call to the `setName:forComponent:` method. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
 
     <LMPickerView>
         <?componentName sizes?>
