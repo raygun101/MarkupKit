@@ -70,7 +70,14 @@ limitations under the License.
     <LMTableViewCell selectionStyle="none">
         <UITextField id="dateTextField" placeholder="Date">
             <?inputView?>
-            <UIDatePicker datePickerMode="date" onValueChanged="updateDateTextField:"/>
+            <UIDatePicker id="datePicker" datePickerMode="date"/>
+
+            <?inputAccessoryView?>
+            <UIToolbar>
+                <item type="cancel" action="cancelDateEdit"/>
+                <item type="flexibleSpace"/>
+                <item type="done" action="updateDateText"/>
+            </UIToolbar>
         </UITextField>
     </LMTableViewCell>
 
@@ -83,20 +90,12 @@ limitations under the License.
                 <row title="Large" value="L"/>
                 <row title="Extra-Large" value="XL"/>
             </LMPickerView>
-        </UITextField>
-    </LMTableViewCell>
 
-    <LMTableViewCell selectionStyle="none">
-        <UITextField id="accessoryTextField" placeholder="Accessory">
             <?inputAccessoryView?>
             <UIToolbar>
-                <item type="cancel" action="cancelEdit"/>
-                
+                <item type="cancel" action="cancelSizeEdit"/>
                 <item type="flexibleSpace"/>
-
-                <item title="One" action="updateText:"/>
-                <item title="Two" action="updateText:"/>
-                <item title="Three" action="updateText:"/>
+                <item type="done" action="updateSizeText"/>
             </UIToolbar>
         </UITextField>
     </LMTableViewCell>

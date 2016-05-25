@@ -48,9 +48,9 @@ Each `<segment>` element triggers to a call to the following method, which is al
 
     - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
 
-The element's name, "segment", is passed in the `tag` argument, and a key/value pair containing the segment's title is included in the dictionary passed as the `properties` argument.
+The element's name, "segment", is passed in the `tag` argument, and a key/value pair containing the segment's title is included in the dictionary passed as the `properties` argument. `UISegmentedControl` overrides this method to add the given segment title to itself.
 
-Like `appendMarkupElementView:`, the default implementation of this method does nothing. `UIView` subclasses must override it to provide view-specific behavior. 
+Like `appendMarkupElementView:`, the default implementation of `processMarkupElement:properties:` does nothing. Subclasses must override it to provide view-specific behavior.
 
 ## Attributes
 Attributes in a MarkupKit document usually represent view properties. For example, the following markup declares an instance of a system-style `UIButton` and sets its `title` property to "Press Me!":
@@ -74,12 +74,12 @@ A few attributes have special meaning in MarkupKit and do not represent either p
 
 Additionally, attributes whose names begin with "on" represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
-    <UIButton style="systemButton" title="Press Me!" onTouchUpInside="buttonPressed"/>
+    <UIButton style="systemButton" title="Press Me!" onPrimaryActionTriggered="buttonPressed"/>
 
 Actions are also discussed in more detail below.
 
 ### Colors
-The value of any attribute whose name equals "color" or ends with "Color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit may be specified in one of several ways:
+The value of any attribute whose name is equal to or ends with "color" is converted to an instance of `UIColor` before the property value is set. Colors in MarkupKit may be specified in one of several ways:
 
 * As a hexadecimal RGB[A] value preceded by a hash symbol; e.g. "#ff0000" or "#ffffff66"
 * As a named color; e.g. "yellow"
@@ -108,7 +108,7 @@ Pattern images are specified by providing the name of the name of the image to u
 Images are discussed in more detail below.
 
 ### Fonts
-The value of any attribute whose name equals "font" or ends with "Font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
+The value of any attribute whose name is equal to or ends with "font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
 
 * As an explicitly named font, using the full name of the font, followed by a space and the font size; for example, "HelveticaNeue-Medium 24"
 * As a dynamic font, using the name of the text style; e.g. "headline"
@@ -124,7 +124,7 @@ This markup creates a `UILabel` that reads "This is headline text" and sets its 
 The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
 
 ### Images
-The value of any attribute whose name is "image" or ends with "Image" is converted to an instance of `UIImage` before the property value is set. The image is loaded from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
+The value of any attribute whose name is equal to or ends with "image" is converted to an instance of `UIImage` before the property value is set. The image is loaded from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
 
 For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
 
@@ -135,7 +135,7 @@ Note that, because images are loaded via `imageNamed:`, image attributes may als
     <UIButton style="systemButton" image="PrintIcon" title="Print"/>
 
 ### Enumerations
-Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing and presents a software keyboard suitable for entering email addresses:
+Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing, and presents a software keyboard suitable for entering email addresses:
 
     <UITextField placeholder="Email Address" 
         clearButtonMode="whileEditing" 
@@ -162,9 +162,13 @@ Edge inset properties of several other view types can also be specified using th
 
     <UIButton style="systemButton" title="Press Me!" contentEdgeInsets="12"/>
 
-    <UITextView height="240" textContainerInset="7" textContainer.lineFragmentPadding="0"/>    
+    <UITextView height="240" textContainerInset="7"/>    
     
-Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually. This is discussed in more detail later.
+Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually; for example:
+
+	<UIButton style="systemButton" title="Press Me!" contentEdgeInsetTop="12"/>
+
+These extensions are discussed in more detail later.
 
 ### Localization
 If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
@@ -212,7 +216,7 @@ For example, the following JSON document defines a template named "greeting", wh
         }
     }
 
-Templates are added to a MarkupKit document using the `properties` processing instruction. The following PI adds all properties defined by _MyStyles.json_ to the current document:
+Templates are added to a MarkupKit document using the `properties` processing instruction (PI). The following PI adds all properties defined by _MyStyles.json_ to the current document:
 
     <?properties MyStyles?>
 
@@ -261,34 +265,33 @@ or in Swift, like this:
 
     @IBOutlet var textField: UITextField!
 
-In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is supported by MarkupKit, but is not required.
+In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was defined in a storyboard or created programmatically. Note that the `IBOutlet` annotation used by Interface Builder to tag outlet properties is supported by MarkupKit, but is not required.
 
 ### Actions
-Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventTouchUpInside` event when a button instance is tapped.
+Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventPrimaryActionTriggered` event when a button instance is tapped.
 
-While it would be possible for an application to register for events programmatically using outlets, MarkupKit provides a more convenient alternative. Any attribute whose name begins with "on" (but is not equal to "on") is considered a control event. The atrribute value represents the name of the action that will be triggered when the event is fired. The attribute name is simply the "on" prefix followed by the name of the event, minus the "UIControlEvent" prefix.
+While it would be possible for an application to register for events programmatically using outlets, MarkupKit provides a more convenient alternative. Any attribute whose name begins with "on" (but does not refer to a property) is considered a control event. The attribute value represents the name of the action that will be triggered when the event is fired. The attribute name is simply the "on" prefix followed by the name of the event, minus the "UIControlEvent" prefix.
 
-For example, the following markup declares an instance of `UIButton` that calls the `handleButtonTouchUpInside:` method of the document's owner when the button is tapped:
+For example, the following markup declares an instance of `UIButton` that calls the `buttonPressed:` method of the document's owner when the button is tapped:
 
-    <UIButton style="systemButton" title="Press Me!" 
-        onTouchUpInside="handleButtonTouchUpInside:"/>
+	<UIButton style="systemButton" title="Press Me!" onPrimaryActionTriggered="buttonPressed:"/>
 
 For example:
 
-    @IBAction func handleButtonTouchUpInside(sender: UIButton) {
+    @IBAction func buttonPressed(sender: UIButton) {
         // Handle button press
     }
 
-Note that the `sender` argument is optional; if the trailing colon is omitted in the handler name, the event will trigger a call to a zero-argument handler method:
+Note that the `sender` argument is optional; if the trailing colon is omitted from the handler name, the event will trigger a call to a zero-argument handler method:
 
-    @IBAction func handleButtonTouchUpInside() {
+    @IBAction func buttonPressed() {
         // Handle button press
     }
 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
 
 ## Processing Instructions
-In addition to the document-wide `properties` processing instructions mentioned earlier, MarkupKit also supports view-specific PIs. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
+In addition to the document-wide `properties` processing instruction mentioned earlier, MarkupKit also supports view-specific processing instructions. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer view declarations and section breaks:
 
@@ -299,7 +302,7 @@ MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class t
 		...
 	</LMTableView>
 	
-These processing instructions and others are discussed in more detail later.
+These processing instructions and others are discussed in more detail below.
 
 # MarkupKit Classes
 The remaining sections of this document discuss the classes included with the MarkupKit framework:
@@ -344,7 +347,7 @@ For example, if an instance of `LMScrollView` is passed as the `root` argument t
         <UIImageView image="world.png"/>
     </root>
 
-is equivalent to the following:
+is equivalent to the following markup:
 
     <LMScrollView>
         <UIImageView image="world.png"/>
@@ -353,7 +356,7 @@ is equivalent to the following:
 The `root` argument is typically used when a document's root view is defined by an external source. For example, a view controller that is instantiated programmatically typically creates its own view instance in `loadView`. It defines the view entirely in markup, passing a `nil` value for `root`:
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("MyView", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
     }
 
 However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of its `view` property as the `root` argument:
@@ -361,7 +364,7 @@ However, a view controller that is defined by a storyboard already has an establ
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LMViewBuilder.viewWithName("MyView", owner: self, root: view)
+        LMViewBuilder.viewWithName("ViewController", owner: self, root: view)
     }
 
 This allows the navigational structure of the application (i.e. segues) to be defined in a storyboard, but the content of individual views to be defined in markup.
@@ -371,7 +374,7 @@ The `root` argument is also commonly used when implementing custom table or coll
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
+        LMViewBuilder.viewWithName("CustomTableViewCell", owner: self, root: self)
     }
 
 ### Color and Font Values
@@ -392,12 +395,12 @@ The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of ta
 MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
 
 ### Declaration
-`LMTableView` provides the following factory methods, which are used to construct new table view instances in markup:
+`LMTableView` provides two factory methods that are used to construct new table view instances in markup:
 
     + (LMTableView *)plainTableView;
     + (LMTableView *)groupedTableView;
 
-For example, the following markup creates a plain table view containing three rows:
+For example, the following markup creates a "plain"-style table view containing three rows:
 
     <LMTableView style="plainTableView">
         <UITableViewCell textLabel.text="Row 1"/>
@@ -433,11 +436,11 @@ The `sectionHeaderView` processing instruction assigns a header view to the curr
         <UITableViewCell textLabel.text="Row 1"/>
     </LMTableView>
 
-Note that, although this example uses an instance of `UITableViewHeaderFooterView` as a section header view, this is not strictly required. Any `UIView` subclass can be used as a section header.
+Note that, although this example uses an instance of `UITableViewHeaderFooterView` as a header view, this is not strictly required. Any `UIView` subclass can be used as a section header.
 
 The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. As with header views, footers views are not limited to instances of any particular type; any `UIView` subclass can be used.
 
-Finally, the `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+Finally, the `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or reordered without breaking controller code; for example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -474,7 +477,7 @@ Selection state is managed via several methods that `LMTableView` inherits from 
     - (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
     - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
-The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The third and fourth methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
+The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The remaining two methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
@@ -485,6 +488,8 @@ The `backgroundView` processing instruction can be used to assign a background v
         
         ...
     </LMTableView>
+
+Gradient views are discussed in more detail later.
 
 The `tableHeaderView` and `tableFooterView` processing instructions are used to set a table view's header and footer views, respectively, and correspond to the `setTableHeaderView:` and `setTableFooterView:` methods of `UITableView`. For example, the following markup declares a table view containing a search bar as a header view:
 
@@ -539,7 +544,7 @@ Additionally, an application-specific delegate may be set on an `LMTableView` in
 * `tableView:didDeselectRowAtIndexPath:`
 
 ### Custom Cell Content
-The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, it automatically applies constraints to its content to enable self-sizing behavior.
+The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
 
 For example, the following markup creates a plain table view whose single cell contains a `UIDatePicker`. The date picker will be automatically sized to fill the width and height of the cell:
 
@@ -554,14 +559,13 @@ For example, the following markup creates a plain table view whose single cell c
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("MyCustomTableViewCell", owner: self, root: self)
+        LMViewBuilder.viewWithName("CustomTableViewCell", owner: self, root: self)
     }
 
-Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument. Note that attributes can be applied to this element just as if it's type had been declared explicitly:
+Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _CustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument. Note that attributes can be applied to this element just as if it's type had been declared explicitly:
 
     <root layoutMargins="12">
         <LMColumnView>
-            <UILabel id="myCustomLabel"/>
             ...
         </LMColumnView>
     <root>
@@ -582,15 +586,15 @@ The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declara
 ### Declaration
 Unlike `LMTableView`, which allows developers to define the entire structure of a table view declaratively, `LMCollectionView` offers only minimal functionality beyond what is provided by its base class, `UICollectionView`. It exists primarily as a means for declaring collection view instances in markup.
 
-Instances of `UICollectionView` are created programmatically using the `initWithFrame:collectionViewLayout:` method of `UICollectionView`. `LMCollectionView` defines the following factory method to allow collection views to be constructed in markup:
+Instances of `UICollectionView` are created programmatically using the `initWithFrame:collectionViewLayout:` method of `UICollectionView`. `LMCollectionView` provides the following factory method to allow collection views to be constructed in markup:
 
     + (LMCollectionView *)flowLayoutCollectionView;
 
-This method is used to create instances of `LMCollectionView` that use a collection view flow layout:
+This method creates instances of `LMCollectionView` that use a collection view flow layout:
 
     <LMCollectionView id="collectionView" style="flowLayoutCollectionView"/>
 
-MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that allow it to be configured declaratively; for example:
+MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that allow it to be configured declaratively. For example, the following markup sets the flow layout's item width to 80, its item height to 120, and its section inset to 12:
 
 	<LMCollectionView style="flowLayoutCollectionView"
 	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
@@ -600,32 +604,31 @@ MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that
 These properties are discussed in more detail in a later section.
 
 ### Accessory Views
-The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with a linear gradient background:
+The `backgroundView` processing instruction can be used to assign a background view to a collection view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with a linear gradient background:
 
 	<LMCollectionView style="flowLayoutCollectionView"
-	    collectionViewLayout.itemWidth="80" 
-	    collectionViewLayout.estimatedItemHeight="80"/>
+	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+	    collectionViewLayout.sectionInset="12">
 	    <?backgroundView?>
 	    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
 	    ...
 	</LMCollectionView>
 
 ### Custom Cell Content
-Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom collection view cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
+Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
 
 By overriding `initWithFrame:` and specifying the cell view as the document owner, callers can create custom collection view cells whose content is expressed in markup: 
 
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        LMViewBuilder.viewWithName("MyCustomCollectionViewCell", owner: self, root: self)
+        LMViewBuilder.viewWithName("CustomCollectionViewCell", owner: self, root: self)
     }
 
-As with `LMTableViewCell`, `LMCollectionViewCell` automatically applies constraints to its content to enable self-sizing behavior. Again, because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _MyCustomCollectionViewCell.xml_ must include a `<root>` tag to refer to this argument:
+Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _CustomCollectionViewCell.xml_ must include a `<root>` tag to refer to this argument:
 
     <root layoutMargins="12">
         <LMColumnView>
-            <UILabel id="myCustomLabel"/>
             ...
         </LMColumnView>
     <root>
@@ -647,7 +650,7 @@ See _LMCollectionView.h_ and _LMCollectionViewCell.h_ for more information.
         <row title="Extra-Large"/>
     </LMPickerView>
 
-The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the "title" attribute is used as the row title. 
+The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the `row` tag's "title" attribute is used as the title of the row. 
 
 An optional value can also be associated with row, as shown below:
 
@@ -657,6 +660,8 @@ An optional value can also be associated with row, as shown below:
         <row title="Large" value="L"/>
         <row title="Extra-Large" value="XL"/>
     </LMPickerView>
+
+This allows an application to present an optionally localized, human-readable value in the picker view while internally maintaining a system-level key or ID for the row.
 
 ### Component Management
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options:
@@ -676,7 +681,7 @@ The `componentSeparator` processing instruction inserts a new component into the
         <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
-The `componentName` processing instruction assigns a name to a component. It corresponds to a call to the `setName:forComponent:` method. This allows components to be identified by name rather than index, so they can be added or re-ordered without breaking controller code. For example:
+The `componentName` processing instruction assigns a name to a component. It corresponds to a call to the `setName:forComponent:` method. This allows components to be identified by name rather than index, so they can be added or reordered without breaking controller code. For example:
 
     <LMPickerView>
         <?componentName sizes?>
@@ -1198,15 +1203,33 @@ MarkupKit adds support for the following processing instructions to `UITextField
     <?inputView?>
     <?inputAccessoryView?>
 
-For example, the following markup declares a text field with an associated `UIDatePicker` as an input view:
+For example, the following markup declares an instance of `UITextField` suitable for entering email addresses. The text field includes an email icon as a right view as a hint to the user about the field's content:
 
-    <UITextField placeholder="Date">
-        <?inputView?>
-        <UIDatePicker datePickerMode="date"/>
+    <UITextField id="emailAddressTextField" placeholder="Email Address"
+        keyboardType="emailAddress"
+        rightViewMode="always">
+        <?rightView?>
+        <UIImageView image="email.png"/>
     </UITextField>
 
+This markup declares a text field with an associated `UIDatePicker` as an input view and a `UIToolbar` as as input accessory view:
+
+    <UITextField id="dateTextField" placeholder="Date">
+        <?inputView?>
+        <UIDatePicker id="datePicker" datePickerMode="date"/>
+
+        <?inputAccessoryView?>
+        <UIToolbar>
+            <item type="cancel" action="cancelDateEdit"/>
+            <item type="flexibleSpace"/>
+            <item type="done" action="updateDateText"/>
+        </UIToolbar>
+    </UITextField>
+    
+MarkupKit's support for `UIToolbar` is discussed in more detail below.
+
 ### UIPickerView
-MarkuptKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` simply so casting is not required when using an `LMPickerView`. They are provided primarily for parity with similar extensions to `UITableView`:
+MarkupKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` primarily so casting is not required when using an `LMPickerView` instance in markup. They also provide parity with similar methods added to `UITableView`:
 
     - (NSString *)nameForComponent:(NSInteger)component;
     - (NSInteger)componentWithName:(NSString *)name;
@@ -1225,7 +1248,7 @@ For example, the following markup declares an instance of a default-style `UIPro
     <UIProgressView style="defaultProgressView"/>
 
 ### UIToolbar
-Toolbars are populated using the `items` property of `UIToobar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. The `items` element is used to add an item to a toolbar. The "title" attribute can be used to specify a the items's title:
+Toolbars are populated using the `items` property of `UIToobar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. The `item` element is used to add an item to a toolbar. The "title" attribute of the `item` tag can be used to specify an items's title:
 
     <UIToobar>
         <item title="OK"/>
@@ -1242,29 +1265,27 @@ Similarly, the "image" attribute can be used to specify an image for an item:
 Finally, the "type" attribute can be used to create a system-type toolbar item; for example:
 
     <UIToobar>
-        <item type="flexibleSpace"/>
         <item type="play"/>
         <item type="pause"/>
         <item type="rewind"/>
         <item type="fastForward"/>        
-        <item type="flexibleSpace"/>
     </UIToobar>
     
-The "action" attribute can be used to associate an action with a toolbar item. The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler:
+The "action" attribute of the `item` tag can be used to associate an action with a toolbar item:
 
     <UIToolbar>
         <item type="cancel" action="cancel:"/>        
         <item type="flexibleSpace"/>
         <item type="done" action="done:"/>        
     </UIToolbar>
-    
-Action handlers are typically defined in the controller class. For example:
 
-    func cancel(sender: UIBarButtonItem) {
+The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler. Action handlers are typically defined in the controller class; for example:
+
+    @IBAction func cancel(sender: UIBarButtonItem) {
         // ...
     }
 
-    func done(sender: UIBarButtonItem) {
+    @IBAction func done(sender: UIBarButtonItem) {
         // ...
     }
 
@@ -1278,7 +1299,7 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` 
         <LMSpacer/>
     </UIStackView>
 
-Note that `UIStackView` requires iOS 9 or later.
+`UIStackView` requires iOS 9 or later.
 
 ### UIScrollView
 MarkupKit adds the following property to `UIScrollView` to help simplify interaction with paged scroll views. 
@@ -1288,7 +1309,7 @@ MarkupKit adds the following property to `UIScrollView` to help simplify interac
 If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
 
 ### UITableView
-MarkuptKit adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`:
+MarkupKit adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`:
 
     - (NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
@@ -1316,9 +1337,7 @@ MarkupKit additionally adds the following properties to `UITableViewCell`:
     @property (nonatomic, nullable) id value;
     @property (nonatomic) BOOL checked;
 
-The `value` property is used to associate an optional value with the cell. It is similar to the `tag` property of a `UIView` but is not limited to integer values. 
-
-The `checked` property is used primarily in conjunction with `LMTableView` checkmark selection modes. This property is set to `true` when the cell is checked and `false` when it is unchecked.
+The `value` property is used to associate an optional value with a cell. It is similar to the `tag` property of a `UIView` but is not limited to integer values. The `checked` property is set to `true` when a cell is checked and `false` when it is unchecked. Both properties are used primarily in conjunction with `LMTableView` section selection modes.
 
 #### Accessory Views
 MarkupKit adds an implementation of `appendMarkupElementView:` to `UITableViewCell` that sets the given view as the cell's accessory view, enabling the declaration of accessory views in markup. For example, the following markup creates a cell that has a `UISwitch` as an accessory view:
