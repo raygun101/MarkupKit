@@ -15,17 +15,29 @@
 import UIKit
 import MarkupKit
 
-class ViewController: UITableViewController {
+class ViewController: UITableViewController, UICollectionViewDataSource {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var dateTextField: UITextField!
 
     @IBOutlet var sizeTextField: UITextField!
     @IBOutlet var sizePickerView: LMPickerView!
 
+    @IBOutlet var collectionView: LMCollectionView!
+
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var slider: UISlider!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var progressView: UIProgressView!
+
+    let icons = [
+        "AccessTimeIcon",
+        "BluetoothIcon",
+        "CheckCircleIcon",
+        "DoneIcon",
+        "EventIcon",
+        "FingerprintIcon",
+        "GradeIcon"
+    ]
 
     override func loadView() {
         view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
@@ -37,6 +49,10 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "MarkupKit Demo"
+
+        collectionView.dataSource = self
+        
+        collectionView?.registerClass(IconCell.self, forCellWithReuseIdentifier: IconCell.self.description())
 
         slider.minimumValue = Float(stepper.minimumValue)
         slider.maximumValue = Float(stepper.maximumValue)
@@ -72,6 +88,26 @@ class ViewController: UITableViewController {
     @IBAction func updateSizeText() {
         sizeTextField.text = sizePickerView.titleForRow(sizePickerView.selectedRowInComponent(0), forComponent: 0)!
         sizeTextField.resignFirstResponder()
+    }
+
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return icons.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(IconCell.self.description(), forIndexPath: indexPath) as! IconCell
+
+        let index = indexPath.item
+        let icon = icons[index]
+
+        cell.imageView.image = UIImage(named: icon)
+        cell.label.text = icon
+
+        return cell;
     }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
