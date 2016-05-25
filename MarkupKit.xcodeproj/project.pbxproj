@@ -159,6 +159,8 @@
 		37B1523B1C64E15E0010BBD4 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1523A1C64E15E0010BBD4 /* CollectionViewController.swift */; };
 		37BB39AF1BF8C76F00AD4D98 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */; };
 		37BB39B11BF8C7A200AD4D98 /* CustomSectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37BB39B01BF8C7A200AD4D98 /* CustomSectionViewController.xml */; };
+		37C657921CF65EAC00855D89 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C657901CF65EAC00855D89 /* IconCell.swift */; };
+		37C657931CF65EAC00855D89 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C657911CF65EAC00855D89 /* IconCell.xml */; };
 		37C806C11BEE37D000196FD6 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BC1BEE37D000196FD6 /* GridViewController.xml */; };
 		37C806C21BEE37D000196FD6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C806BD1BEE37D000196FD6 /* GridViewController.swift */; };
 		37C806C31BEE37D000196FD6 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 37C806BE1BEE37D000196FD6 /* sample.txt */; };
@@ -432,6 +434,8 @@
 		37B259811C132A9400C4DA90 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37BB39AE1BF8C76F00AD4D98 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
 		37BB39B01BF8C7A200AD4D98 /* CustomSectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionViewController.xml; sourceTree = "<group>"; };
+		37C657901CF65EAC00855D89 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		37C657911CF65EAC00855D89 /* IconCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IconCell.xml; sourceTree = "<group>"; };
 		37C806BC1BEE37D000196FD6 /* GridViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridViewController.xml; sourceTree = "<group>"; };
 		37C806BD1BEE37D000196FD6 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
 		37C806BE1BEE37D000196FD6 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
@@ -585,6 +589,8 @@
 				37AC28291C08B49C00BC8C87 /* AppDelegate.swift */,
 				37AC282B1C08B49C00BC8C87 /* ViewController.swift */,
 				37AC283E1C08B5D100BC8C87 /* ViewController.xml */,
+				37C657901CF65EAC00855D89 /* IconCell.swift */,
+				37C657911CF65EAC00855D89 /* IconCell.xml */,
 				375498361C08BF6F008A6895 /* IMG_0725.jpg */,
 				37AC28301C08B49C00BC8C87 /* Assets.xcassets */,
 				37AC28321C08B49C00BC8C87 /* LaunchScreen.storyboard */,
@@ -1057,6 +1063,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37C657931CF65EAC00855D89 /* IconCell.xml in Resources */,
 				37AC28341C08B49C00BC8C87 /* LaunchScreen.storyboard in Resources */,
 				37AE7CBE1CDB806A009C5AD0 /* Styles.json in Resources */,
 				375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */,
@@ -1163,6 +1170,7 @@
 			files = (
 				37AC282A1C08B49C00BC8C87 /* AppDelegate.swift in Sources */,
 				37AC282C1C08B49C00BC8C87 /* ViewController.swift in Sources */,
+				37C657921CF65EAC00855D89 /* IconCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
