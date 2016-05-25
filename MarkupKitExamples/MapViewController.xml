@@ -21,10 +21,10 @@ limitations under the License.
         <LMRowView>
             <UITextField id="latitudeTextField" weight="1" placeholder="Latitude" borderStyle="roundedRect"
                 autocorrectionType="no" autocapitalizationType="none"
-                keyboardType="numberPad"/>
+                keyboardType="numbersAndPunctuation"/>
             <UITextField id="longitudeTextField" weight="1" placeholder="Longitude" borderStyle="roundedRect"
                 autocorrectionType="no" autocapitalizationType="none"
-                keyboardType="numberPad"/>
+                keyboardType="numbersAndPunctuation"/>
         </LMRowView>
         
         <UIButton style="systemButton" title="Go" onPrimaryActionTriggered="showLocation"/>

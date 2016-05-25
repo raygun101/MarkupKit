@@ -15,13 +15,12 @@
 import UIKit
 import MarkupKit
 
-class ViewController: UITableViewController, UIPickerViewDelegate {
+class ViewController: UITableViewController {
+    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var dateTextField: UITextField!
 
     @IBOutlet var sizeTextField: UITextField!
     @IBOutlet var sizePickerView: LMPickerView!
-
-    @IBOutlet var accessoryTextField: UITextField!
 
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var slider: UISlider!
@@ -39,8 +38,6 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
 
         title = "MarkupKit Demo"
 
-        sizePickerView.delegate = self
-
         slider.minimumValue = Float(stepper.minimumValue)
         slider.maximumValue = Float(stepper.maximumValue)
 
@@ -55,28 +52,26 @@ class ViewController: UITableViewController, UIPickerViewDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
 
-    @IBAction func updateDateTextField(datePicker: UIDatePicker) {
+    @IBAction func cancelDateEdit() {
+        dateTextField.resignFirstResponder()
+    }
+
+    @IBAction func updateDateText() {
         let dateFormatter = NSDateFormatter()
 
         dateFormatter.dateFormat = "yyyy-MM-dd"
 
         dateTextField.text = dateFormatter.stringFromDate(datePicker.date)
+        dateTextField.resignFirstResponder()
     }
 
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if (pickerView == sizePickerView) {
-            sizeTextField.text = pickerView.titleForRow(row, forComponent: component)
-        }
+    @IBAction func cancelSizeEdit() {
+        sizeTextField.resignFirstResponder()
     }
 
-    func cancelEdit() {
-        accessoryTextField.resignFirstResponder()
-    }
-
-    func updateText(sender: UIBarButtonItem) {
-        accessoryTextField.text = sender.title
-
-        accessoryTextField.resignFirstResponder()
+    @IBAction func updateSizeText() {
+        sizeTextField.text = sizePickerView.titleForRow(sizePickerView.selectedRowInComponent(0), forComponent: 0)!
+        sizeTextField.resignFirstResponder()
     }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {
