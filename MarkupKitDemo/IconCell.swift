@@ -30,6 +30,8 @@ class IconCell: LMCollectionViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         imageView.image = nil
         label.text = nil
     }

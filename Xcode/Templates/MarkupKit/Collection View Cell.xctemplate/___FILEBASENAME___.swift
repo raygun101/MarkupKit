@@ -23,6 +23,8 @@ class ___FILEBASENAMEASIDENTIFIER___: LMCollectionViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         // TODO: Clear contents
     }
 }

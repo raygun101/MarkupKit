@@ -31,6 +31,8 @@ class ColorCell: LMCollectionViewCell {
     }
 
     override func prepareForReuse() {
+        super.prepareForReuse()
+
         indexLabel.text = nil
         colorView.backgroundColor = nil
         valueLabel.text = nil
