@@ -998,6 +998,7 @@
 					};
 					37B070821ADEBEB000A92FCF = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = FBUU23VBFN;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
 								enabled = 0;
