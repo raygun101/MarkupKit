@@ -104,6 +104,10 @@
         _constraints = nil;
     }
 
+    if ([_pages count] == 0) {
+        return;
+    }
+
     [super setNeedsUpdateConstraints];
 }
 

@@ -72,6 +72,10 @@
         _constraints = nil;
     }
 
+    if (_contentView == nil) {
+        return;
+    }
+
     [super setNeedsUpdateConstraints];
 }
 

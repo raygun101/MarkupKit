@@ -141,6 +141,10 @@
         _constraints = nil;
     }
 
+    if ([_arrangedSubviews count] == 0) {
+        return;
+    }
+
     [super setNeedsUpdateConstraints];
 }
 
