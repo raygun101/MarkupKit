@@ -1,5 +1,5 @@
-# Overview
-MarkupKit is a framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
+# Introduction
+MarkupKit is an open-source framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
 
 For example, the following markup creates an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
@@ -13,8 +13,6 @@ The output produced by this markup is identical to the output of the following S
 This guide introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
 MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit). For examples and additional information, including a tutorial on getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
-
-I am always looking for ways to improve MarkupKit. If you have any suggestions, please [let me know](mailto:gk_brown@verizon.net?subject=MarkupKit).
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
