@@ -1,4 +1,0 @@
-"name" = "Name";
-"sayHello" = "Say Hello";
-"unknownName" = "I don't know your name!";
-"greetingFormat" = "Hello, %1$@!";

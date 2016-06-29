@@ -32,19 +32,14 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
 
         pickerView.dataSource = self
         pickerView.delegate = self
+
+        edgesForExtendedLayout = UIRectEdge.None
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
 
         updateLabel()
-    }
-
-    override func viewWillLayoutSubviews() {
-        let columnView = view as! LMColumnView
-
-        columnView.topSpacing = topLayoutGuide.length
-        columnView.bottomSpacing = bottomLayoutGuide.length
     }
 
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {

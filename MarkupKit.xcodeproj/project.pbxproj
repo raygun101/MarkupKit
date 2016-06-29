@@ -51,7 +51,6 @@
 		3769F9001CEB5C6C000DB662 /* UIActivityIndicatorView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3769F8FE1CEB5C6C000DB662 /* UIActivityIndicatorView+Markup.m */; };
 		377294FA1C35732A00A19C58 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377294F91C35732A00A19C58 /* FormViewController.swift */; };
 		377294FC1C35732E00A19C58 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377294FB1C35732E00A19C58 /* FormViewController.xml */; };
-		3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3778C79B1CAD6AC9008A012A /* Localizable.strings */; };
 		3779F9851C6520A30070A29C /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F9841C6520A20070A29C /* ColorCell.swift */; };
 		3779F9871C6520B70070A29C /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3779F9861C6520B70070A29C /* ColorCell.xml */; };
 		3779F98D1C652EB30070A29C /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3779F98C1C652EB30070A29C /* PlayerViewController.swift */; };
@@ -368,7 +367,6 @@
 		3769F8FE1CEB5C6C000DB662 /* UIActivityIndicatorView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+Markup.m"; sourceTree = "<group>"; };
 		377294F91C35732A00A19C58 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		377294FB1C35732E00A19C58 /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormViewController.xml; sourceTree = "<group>"; };
-		3778C79A1CAD6AC9008A012A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3779F9841C6520A20070A29C /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3779F9861C6520B70070A29C /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
 		3779F9881C652E530070A29C /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPlayerView.h; sourceTree = "<group>"; };
@@ -797,7 +795,6 @@
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
-				3778C79B1CAD6AC9008A012A /* Localizable.strings */,
 				3BE776191B7A73DD006AA761 /* pharmacies.json */,
 				37D36AC51BB1DDCE008E36FD /* chevy.png */,
 				37D36AC61BB1DDCE008E36FD /* mini.png */,
@@ -1135,7 +1132,6 @@
 				3BE7761E1B7A7405006AA761 /* PharmacyCell.xml in Resources */,
 				3BB70C6E1B78EFAC0086A3F9 /* CheckboxViewController.xml in Resources */,
 				37A9FC251C108D6B00A09102 /* LinearGradientViewController.xml in Resources */,
-				3778C7991CAD6AC9008A012A /* Localizable.strings in Resources */,
 				3736CC461CEFAB8500061064 /* CollectionViewController.xml in Resources */,
 				37D36AC91BB1DDCE008E36FD /* mini.png in Resources */,
 				3BB70C661B78EC630086A3F9 /* ViewController.xml in Resources */,
@@ -1312,14 +1308,6 @@
 				3754E0421CB9510500E8C32D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		3778C79B1CAD6AC9008A012A /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3778C79A1CAD6AC9008A012A /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */ = {
