@@ -44,7 +44,6 @@
 {
     _spacing = spacing;
 
-    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 

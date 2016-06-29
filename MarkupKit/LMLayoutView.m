@@ -74,7 +74,6 @@
 
         [view addObserver:self forKeyPath:@HIDDEN_KEY options:0 context:nil];
 
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     } else {
         [NSException raise:NSInvalidArgumentException format:@"View is already an arranged subview."];
@@ -90,7 +89,6 @@
 
         [_arrangedSubviews removeObjectAtIndex:index];
 
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     }
 }
@@ -98,7 +96,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     if ([keyPath isEqual:@HIDDEN_KEY]) {
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     }
 }
@@ -114,7 +111,6 @@
 {
     _layoutMarginsRelativeArrangement = layoutMarginsRelativeArrangement;
 
-    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 
