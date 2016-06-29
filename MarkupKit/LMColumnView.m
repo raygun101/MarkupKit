@@ -29,7 +29,6 @@
 {
     _topSpacing = topSpacing;
 
-    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 
@@ -37,7 +36,6 @@
 {
     _bottomSpacing = bottomSpacing;
 
-    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 

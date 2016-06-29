@@ -34,7 +34,6 @@
         [_contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     }
 
-    [self invalidateIntrinsicContentSize];
     [self setNeedsUpdateConstraints];
 }
 
@@ -57,7 +56,6 @@
     if (subview == _contentView) {
         _contentView = nil;
 
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     }
 

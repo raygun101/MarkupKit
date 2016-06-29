@@ -70,7 +70,6 @@
 
         [_pages insertObject:page atIndex:index];
 
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     } else {
         [NSException raise:NSInvalidArgumentException format:@"View is already a page."];
@@ -84,7 +83,6 @@
     if (index != NSNotFound) {
         [_pages removeObjectAtIndex:index];
 
-        [self invalidateIntrinsicContentSize];
         [self setNeedsUpdateConstraints];
     }
 }
