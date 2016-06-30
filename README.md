@@ -995,6 +995,8 @@ In this example, the first label will be given one-sixth of the available space,
 
 Weights in `LMRowView` are handled similarly, but in the horizontal direction.
 
+Note that explicitly defined width and height values take priority over weights. If a view has both a weight and a fixed dimension value, the weight value will be ignored.
+
 ## LMSpacer 
 A common use for weights is to add flexible space around a view. For example, the following markup centers a label vertically within a column:
 
