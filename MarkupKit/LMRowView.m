@@ -151,7 +151,7 @@ static NSDictionary *baselineValues;
 
         CGFloat weight = [subview weight];
 
-        if (!isnan(weight)) {
+        if (!isnan(weight) && isnan([subview width])) {
             if (previousWeightedSubview != nil) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeWidth
                     relatedBy:NSLayoutRelationEqual toItem:previousWeightedSubview attribute:NSLayoutAttributeWidth
