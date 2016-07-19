@@ -16,9 +16,9 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 
 # Contents
 * [Document Structure](#document-structure)
-* [MarkupKit Classes](#markupKit-classes)
+* [MarkupKit Classes](#markupkit-classes)
 	* [LMViewBuilder](#lmviewbuilder)
-	* [LMTableView and LMTableViewCell](#lmtableview-andlmtableviewcell)
+	* [LMTableView and LMTableViewCell](#lmtableview-and-lmtableviewcell)
 	* [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
 	* [LMPickerView](#lmpickerview)
 	* [LMScrollView](#lmscrollview)
