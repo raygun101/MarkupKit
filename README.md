@@ -30,7 +30,7 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 	* [LMGradientView](#lmgradientview)
 	* [LMPlayerView](#lmplayerview)
 	* [UIKit Extensions](#uikit-extensions)
-* [More Information](#more-information)
+* [Additional Information](#additional-information)
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
@@ -1411,5 +1411,5 @@ For example, the following markup creates a system button with a shadow opacity 
         layer.shadowRadius="10" 
         layer.shadowOffsetHeight="3"/>
 
-# More Information
+# Additional Information
 For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
