@@ -13,10 +13,32 @@
 //
 
 #import "UITableViewCell+Markup.h"
+#import "NSObject+Markup.h"
 
 #import <objc/message.h>
 
+static NSDictionary *tableViewCellAccessoryTypeValues;
+static NSDictionary *tableViewCellSelectionStyleValues;
+
 @implementation UITableViewCell (Markup)
+
++ (void)initialize
+{
+    tableViewCellAccessoryTypeValues = @{
+        @"none": @(UITableViewCellAccessoryNone),
+        @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
+        @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
+        @"checkmark": @(UITableViewCellAccessoryCheckmark),
+        @"detailButton": @(UITableViewCellAccessoryDetailButton)
+    };
+
+    tableViewCellSelectionStyleValues = @{
+        @"none": @(UITableViewCellSelectionStyleNone),
+        @"blue": @(UITableViewCellSelectionStyleBlue),
+        @"gray": @(UITableViewCellSelectionStyleGray),
+        @"default": @(UITableViewCellSelectionStyleDefault)
+    };
+}
 
 + (UITableViewCell *)defaultTableViewCell
 {
@@ -63,6 +85,17 @@
     [self setAccessoryView:view];
 
     [view sizeToFit];
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"accessoryType"]) {
+        value = [tableViewCellAccessoryTypeValues objectForKey:value];
+    } else if ([key isEqual:@"selectionStyle"]) {
+        value = [tableViewCellSelectionStyleValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end
