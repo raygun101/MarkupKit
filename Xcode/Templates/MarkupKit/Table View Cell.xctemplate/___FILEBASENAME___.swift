@@ -19,6 +19,6 @@ class ___FILEBASENAMEASIDENTIFIER___: LMTableViewCell {
     }
 
     required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder);
+        super.init(coder: decoder)
     }
 }

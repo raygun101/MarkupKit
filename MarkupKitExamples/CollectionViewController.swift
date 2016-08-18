@@ -21,7 +21,7 @@ class CollectionViewController: UICollectionViewController {
         "#ff0000", "#800000", "#ffff00", "#808080",
         "#00ff00", "#008000", "#00ffff", "#008080",
         "#0000ff", "#000080", "#ff00ff", "#800080"
-    ];
+    ]
 
     override func loadView() {
         collectionView = LMViewBuilder.viewWithName("CollectionViewController", owner: self, root: nil) as? UICollectionView
@@ -55,6 +55,6 @@ class CollectionViewController: UICollectionViewController {
         cell.colorView.backgroundColor = LMViewBuilder.colorValue(color)
         cell.valueLabel.text = color
 
-        return cell;
+        return cell
     }
 }

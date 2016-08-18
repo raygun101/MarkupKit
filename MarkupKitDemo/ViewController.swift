@@ -107,7 +107,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         cell.imageView.image = UIImage(named: icon)
         cell.label.text = icon
 
-        return cell;
+        return cell
     }
 
     @IBAction func stepperValueChanged(sender: UIStepper) {

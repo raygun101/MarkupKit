@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func sayHello() {
-        greetingLabel.text = "Hello, World!";
+        greetingLabel.text = "Hello, World!"
     }
 }
 
