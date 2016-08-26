@@ -86,7 +86,7 @@ MarkupKit actually invokes the second method when applying property values. This
 
     <UIButton style="systemButton" title="Press Me!" titleLabel.font="Helvetica-Bold 32"/>
 
-A few attributes have special meaning in MarkupKit and do not represent either properties or actions. These include "style", "class", and "id". Their respective purposes are explained in more detail later.
+A few attributes have special meaning in MarkupKit and do not represent properties. These include "style", "class", and "id". Their respective purposes are explained in more detail later.
 
 Additionally, attributes whose names begin with "on" represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
@@ -808,7 +808,7 @@ See _LMPageView.h_ for more information.
 ## LMLayoutView
 Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded view positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
 
-Auto layout in iOS is implemented primarily via layout constraints, which, while powerful, are not particularly convenient to work with. To simplify the process of adding auto layout to an iOS application, MarkupKit provides the following set of view classes, whose sole responsibility is managing the size and position of their respective subviews:
+Auto layout in iOS is implemented primarily via layout constraints, which, while powerful, are not particularly convenient to work with. To simplify the process, MarkupKit provides the following set of view classes, whose sole responsibility is managing the size and position of their respective subviews:
 
 * `LMRowView` - arranges subviews in a horizontal line
 * `LMColumnView` - arranges subviews in a vertical line
