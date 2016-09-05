@@ -43,7 +43,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
     id _owner;
     UIView *_root;
 
-    NSMutableDictionary *_properties;
+    NSMutableDictionary *_templates;
 
     NSMutableArray *_views;
 }
@@ -185,7 +185,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         _owner = owner;
         _root = root;
 
-        _properties = [NSMutableDictionary new];
+        _templates = [NSMutableDictionary new];
 
         _views = [NSMutableArray new];
     }
@@ -203,18 +203,18 @@ static NSString * const kLocalizedStringPrefix = @"@";
     if ([_views count] == 0) {
         // Process instruction
         if ([target isEqual:kPropertiesTarget]) {
-            NSDictionary *properties = nil;
+            NSDictionary *templates = nil;
 
             NSError *error = nil;
 
             if ([data hasPrefix:@"{"]) {
-                properties = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                templates = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error];
             } else {
                 NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
 
                 if (path != nil) {
-                    properties = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
+                    templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
                         options:0 error:&error];
                 }
             }
@@ -226,16 +226,16 @@ static NSString * const kLocalizedStringPrefix = @"@";
                     [userInfo objectForKey:@"NSDebugDescription"]];
             }
 
-            for (NSString *key in properties) {
-                NSMutableDictionary *template = (NSMutableDictionary *)[_properties objectForKey:key];
+            for (NSString *key in templates) {
+                NSMutableDictionary *template = (NSMutableDictionary *)[_templates objectForKey:key];
 
                 if (template == nil) {
                     template = [NSMutableDictionary new];
 
-                    [_properties setObject:template forKey:key];
+                    [_templates setObject:template forKey:key];
                 }
 
-                [template addEntriesFromDictionary:(NSDictionary *)[properties objectForKey:key]];
+                [template addEntriesFromDictionary:(NSDictionary *)[templates objectForKey:key]];
             }
         }
     } else {
@@ -374,10 +374,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
             for (NSString *component in components) {
                 NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-                NSDictionary *values = [_properties objectForKey:name];
+                NSDictionary *template = [_templates objectForKey:name];
 
-                for (NSString *key in values) {
-                    [view applyMarkupPropertyValue:[values objectForKey:key] forKeyPath:key];
+                for (NSString *key in template) {
+                    [view applyMarkupPropertyValue:[template objectForKey:key] forKeyPath:key];
                 }
             }
         }
