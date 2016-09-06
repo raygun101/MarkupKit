@@ -37,4 +37,5 @@ limitations under the License.
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
+    <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
 </LMTableView>

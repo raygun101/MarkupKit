@@ -15,14 +15,24 @@
 import UIKit
 import MarkupKit
 
-class RadioButtonViewController: UITableViewController {
+class IncludesController: UIViewController {
+    var firstLabel: UILabel!
+    var secondLabel: UILabel!
+    var thirdLabel: UILabel!
+
     override func loadView() {
-        view = LMViewBuilder.viewWithName("RadioButtonViewController", owner: self, root: nil)
+        view = LMViewBuilder.viewWithName("IncludesController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Radio Buttons"
+        title = "Includes"
+
+        edgesForExtendedLayout = UIRectEdge.None
+
+        firstLabel.text = "First row"
+        secondLabel.text = "Second row"
+        thirdLabel.text = "Third row"
     }
 }

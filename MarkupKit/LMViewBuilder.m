@@ -25,6 +25,7 @@ static NSString * const kSizeClassFormat = @"%@~%@";
 static NSString * const kFileExtension = @"xml";
 
 static NSString * const kPropertiesTarget = @"properties";
+static NSString * const kIncludeTarget = @"include";
 
 static NSString * const kRootTag = @"root";
 static NSString * const kFactoryKey = @"style";
@@ -33,6 +34,15 @@ static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
 
 static NSString * const kLocalizedStringPrefix = @"@";
+
+@interface LMViewBuilderInclude : NSObject
+
+@property (nonatomic) UIView *parent;
+@property (nonatomic) NSString *name;
+
+- (instancetype)initWithParent:(UIView *)parent name:(NSString *)name;
+
+@end
 
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
@@ -46,6 +56,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
     NSMutableDictionary *_templates;
 
     NSMutableArray *_views;
+    NSMutableArray *_includes;
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -89,6 +100,10 @@ static NSString * const kLocalizedStringPrefix = @"@";
         [parser parse];
 
         view = [viewBuilder root];
+
+        for (LMViewBuilderInclude *include in [viewBuilder includes]) {
+            [[include parent] appendMarkupElementView:[LMViewBuilder viewWithName:[include name] owner:owner root:nil]];
+        }
     }
 
     return view;
@@ -188,6 +203,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
         _templates = [NSMutableDictionary new];
 
         _views = [NSMutableArray new];
+        _includes = [NSMutableArray new];
     }
 
     return self;
@@ -198,11 +214,16 @@ static NSString * const kLocalizedStringPrefix = @"@";
     return _root;
 }
 
+- (NSArray *)includes
+{
+    return _includes;
+}
+
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
 {
-    if ([_views count] == 0) {
-        // Process instruction
-        if ([target isEqual:kPropertiesTarget]) {
+    if ([target isEqual:kPropertiesTarget]) {
+        // Merge templates
+        if ([_views count] > 0) {
             NSDictionary *templates = nil;
 
             NSError *error = nil;
@@ -238,6 +259,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 [template addEntriesFromDictionary:(NSDictionary *)[templates objectForKey:key]];
             }
         }
+    } else if ([target isEqual:kIncludeTarget]) {
+        // Push include
+        if ([_views count] > 0) {
+            [_includes addObject:[[LMViewBuilderInclude alloc] initWithParent:[_views lastObject] name:data]];
+        }
     } else {
         // Notify view
         id view = [_views lastObject];
@@ -252,7 +278,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
 {
-    // Process attributes
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
@@ -430,6 +455,22 @@ static NSString * const kLocalizedStringPrefix = @"@";
     [NSException raise:NSGenericException format:@"A parse error occurred at line %d, column %d.",
         [[userInfo objectForKey:@"NSXMLParserErrorLineNumber"] intValue],
         [[userInfo objectForKey:@"NSXMLParserErrorColumn"] intValue]];
+}
+
+@end
+
+@implementation LMViewBuilderInclude
+
+- (instancetype)initWithParent:(UIView *)parent name:(NSString *)name
+{
+    self = [super init];
+
+    if (self) {
+        _parent = parent;
+        _name = name;
+    }
+
+    return self;
 }
 
 @end

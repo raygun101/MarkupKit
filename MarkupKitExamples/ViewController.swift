@@ -78,6 +78,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(WebViewController(), animated: true)
         } else if (value == "mapView") {
             navigationController!.pushViewController(MapViewController(), animated: true)
+        } else if (value == "includes") {
+            navigationController!.pushViewController(IncludesController(), animated: true)
         } else {
             tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }

@@ -33,6 +33,7 @@ class SizeClassViewController: UIViewController {
 
         if (previousTraitCollection != nil) {
             loadView()
+            viewDidLoad()
         }
     }
 }
