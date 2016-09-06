@@ -223,7 +223,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 {
     if ([target isEqual:kPropertiesTarget]) {
         // Merge templates
-        if ([_views count] > 0) {
+        if ([_views count] == 0) {
             NSDictionary *templates = nil;
 
             NSError *error = nil;
