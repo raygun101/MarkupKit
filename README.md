@@ -232,9 +232,9 @@ For example, the following JSON document defines a template named "greeting", wh
         }
     }
 
-Templates are added to a MarkupKit document using the `properties` processing instruction (PI). The following PI adds all properties defined by _MyStyles.json_ to the current document:
+Templates are added to a MarkupKit document using the `properties` processing instruction (PI). The following PI adds all properties defined by _Styles.json_ to the current document:
 
-    <?properties MyStyles?>
+    <?properties Styles?>
 
 Inline templates simply embed the entire template definition within the processing instruction:
 
@@ -306,8 +306,31 @@ Note that the `sender` argument is optional; if the trailing colon is omitted fr
 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
 
+## Includes
+Includes allow content defined in another markup document to be "included" or "imported" into the current document. They enable the structure of a user interface to be modularized; for example, to break up a complex document into smaller, more manageable pieces.
+
+Includes are specified using the `include` processing instruction. The PI's data value represents the name of the document to include. For example, the following processing instruction would import a document named _FirstRow.xml_ into the current document:
+
+    <LMColumnView>
+        <?include FirstRow?>
+        ...
+    </LMColumnView>
+
+The content of the included document is handled nearly the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions are assigned to the parent's owner. However, property templates defined by the parent document are not visible to the include, nor are templates defined by the include visible to the parent. Common property definitions can be placed in external template documents.
+
+Includes are often used to implement size class-specific layout behavior. They allow the common elements of a user interface to be defined in a parent document, while delegating the elements that are specific to a particular form factor or orientation to one or more includes.
+
+For example, given the following markup, a document named _SecondRow~horizontal.xml_ would be loaded on a device that is currently presenting a regular width and compact height:
+
+    <LMColumnView>
+        ...
+        <?include SecondRow?>
+    </LMColumnView>
+
+However, if the device was presenting a compact width and regular height, the document named _SecondRow~vertical.xml_ would be loaded instead.
+
 ## Processing Instructions
-In addition to the document-wide `properties` processing instruction mentioned earlier, MarkupKit also supports view-specific processing instructions. These allow developers to provide additional information to the view that can't be easily represented as an attribute value, subview, or untyped element. 
+In addition to the document-wide `properties` and `include` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer view declarations and section breaks:
 
