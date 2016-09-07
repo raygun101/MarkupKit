@@ -316,7 +316,7 @@ Includes are specified using the `include` processing instruction. The PI's data
         ...
     </LMColumnView>
 
-The content of the included document is handled nearly the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions are assigned to the parent's owner. However, property templates defined by the parent document are not visible to the include, nor are templates defined by the include visible to the parent. Common property definitions can be placed in external template documents.
+The content of the included document is handled the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions defined by the include are assigned to the parent's owner. Property templates defined by the parent document are visible to includes, but templates defined by an include are only visible within the include itself (as well as within any nested includes).
 
 Includes are often used to implement size class-specific layout behavior. They allow the common elements of a user interface to be defined in a parent document, while delegating the elements that are specific to a particular form factor or orientation to one or more includes.
 

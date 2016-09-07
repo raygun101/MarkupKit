@@ -61,6 +61,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
 {
+    return [LMViewBuilder viewWithName:name owner:owner root:root templates:nil];
+}
+
++ (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root templates:(NSDictionary *)templates
+{
     NSURL *url = nil;
 
     NSBundle *mainBundle = [NSBundle mainBundle];
@@ -92,7 +97,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
     UIView *view = nil;
 
     if (url != nil) {
-        LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
+        LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root templates:templates];
 
         NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
 
@@ -102,7 +107,9 @@ static NSString * const kLocalizedStringPrefix = @"@";
         view = [viewBuilder root];
 
         for (LMViewBuilderInclude *include in [viewBuilder includes]) {
-            [[include parent] appendMarkupElementView:[LMViewBuilder viewWithName:[include name] owner:owner root:nil]];
+            UIView *child = [LMViewBuilder viewWithName:[include name] owner:owner root:nil templates:[viewBuilder templates]];
+
+            [[include parent] appendMarkupElementView:child];
         }
     }
 
@@ -192,7 +199,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
     return nil;
 }
 
-- (instancetype)initWithOwner:(id)owner root:(UIView *)root
+- (instancetype)initWithOwner:(id)owner root:(UIView *)root templates:(NSDictionary *)templates
 {
     self = [super init];
 
@@ -200,8 +207,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
         _owner = owner;
         _root = root;
 
-        _templates = [NSMutableDictionary new];
-
+        _templates = [[NSMutableDictionary alloc] initWithDictionary:templates];
+        
         _views = [NSMutableArray new];
         _includes = [NSMutableArray new];
     }
@@ -217,6 +224,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
 - (NSArray *)includes
 {
     return _includes;
+}
+
+- (NSDictionary *)templates
+{
+    return _templates;
 }
 
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data

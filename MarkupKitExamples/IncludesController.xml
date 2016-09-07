@@ -14,6 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties {
+    "label": {
+        "font": "title2"
+    }
+}?>
+
 <LMScrollView fitToWidth="true" backgroundColor="#ffffff">
     <?include ColumnView?>
 </LMScrollView>

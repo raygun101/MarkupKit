@@ -14,7 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties {
+    "label": {
+        "textColor": "#0000ff"
+    }
+}?>
+
 <LMRowView spacing="12">
     <UIImageView image="vw.png"/>
-    <UILabel id="thirdLabel" font="title2" weight="1"/>
+    <UILabel id="thirdLabel" class="label" weight="1"/>
 </LMRowView>

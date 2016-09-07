@@ -14,6 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties {
+    "label": {
+        "textColor": "#ff0000"
+    }
+}?>
+
 <LMColumnView layoutMargins="12">
     <?include FirstRowView?>
     <?include SecondRowView?>
