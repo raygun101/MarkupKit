@@ -24,7 +24,7 @@ class CollectionViewController: UICollectionViewController {
     ]
 
     override func loadView() {
-        collectionView = LMViewBuilder.viewWithName("CollectionViewController", owner: self, root: nil) as? UICollectionView
+        collectionView = LMViewBuilder.view(withName: "CollectionViewController", owner: self, root: nil) as? UICollectionView
     }
 
     override func viewDidLoad() {
@@ -32,23 +32,23 @@ class CollectionViewController: UICollectionViewController {
 
         title = "Collection View"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
 
-        collectionView?.registerClass(ColorCell.self, forCellWithReuseIdentifier: ColorCell.self.description())
+        collectionView?.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.self.description())
     }
 
-    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return colors.count
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(ColorCell.self.description(), forIndexPath: indexPath) as! ColorCell
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.self.description(), for: indexPath) as! ColorCell
 
-        let index = indexPath.item
+        let index = (indexPath as NSIndexPath).item
         let color = colors[index]
 
         cell.indexLabel.text = String(index)

@@ -17,10 +17,10 @@ import MarkupKit
 
 class ColorPickerViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ColorPickerViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ColorPickerViewController", owner: self, root: nil)
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         tableView.layoutIfNeeded()
 
         preferredContentSize = tableView.contentSize

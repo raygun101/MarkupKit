@@ -17,7 +17,7 @@ import MarkupKit
 
 class LayoutViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("LayoutViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "LayoutViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class LayoutViewController: UIViewController {
 
         title = "Layout Views"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

@@ -17,7 +17,7 @@ import MarkupKit
 
 class EqualWidthViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("EqualWidthViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "EqualWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,12 +25,12 @@ class EqualWidthViewController: UIViewController {
 
         title = "Equal Width Views"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain,
-            target: self, action: #selector(EqualWidthViewController.next))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(getter: EqualWidthViewController.next))
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 
     func next() {

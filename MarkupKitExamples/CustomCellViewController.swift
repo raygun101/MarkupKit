@@ -23,32 +23,32 @@ class CustomCellViewController: UITableViewController {
         title = "Custom Cell View"
         
         // Configure table view
-        tableView.registerClass(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.self.description())
+        tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.self.description())
         tableView.estimatedRowHeight = 2
 
         // Load pharmacy list from JSON
-        let path = NSBundle.mainBundle().pathForResource("pharmacies", ofType: "json")
-        let data = NSData(contentsOfFile: path!)
+        let path = Bundle.main.path(forResource: "pharmacies", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
 
-        pharmacies = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions())) as! [[String: AnyObject]]
+        pharmacies = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions())) as! [[String: AnyObject]]
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return pharmacies.count
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get pharmacy data
-        let index = indexPath.row
+        let index = (indexPath as NSIndexPath).row
         
         let pharmacy = pharmacies[index]
 
         // Configure cell with pharmacy data
-        let cell = tableView.dequeueReusableCellWithIdentifier(PharmacyCell.self.description()) as! PharmacyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.self.description()) as! PharmacyCell
 
         cell.nameLabel.text = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
         cell.distanceLabel.text = String(format: "%.2f miles", pharmacy["distance"] as! Double)
@@ -61,10 +61,10 @@ class CustomCellViewController: UITableViewController {
         let phoneNumberFormatter = PhoneNumberFormatter()
 
         let phone = pharmacy["phone"] as? NSString
-        cell.phoneLabel.text = (phone == nil) ? nil : phoneNumberFormatter.stringForObjectValue(phone!)
+        cell.phoneLabel.text = (phone == nil) ? nil : phoneNumberFormatter.string(for: phone!)
 
         let fax = pharmacy["fax"] as? NSString
-        cell.faxLabel.text = (fax == nil) ? nil : phoneNumberFormatter.stringForObjectValue(fax!)
+        cell.faxLabel.text = (fax == nil) ? nil : phoneNumberFormatter.string(for: fax!)
 
         cell.emailLabel.text = pharmacy["email"] as? String
 
@@ -72,14 +72,14 @@ class CustomCellViewController: UITableViewController {
     }
 }
 
-class PhoneNumberFormatter: NSFormatter {
-    override func stringForObjectValue(obj: AnyObject?) -> String? {
+class PhoneNumberFormatter: Formatter {
+    override func string(for obj: Any?) -> String? {
         let val = obj as! NSString
 
         return String(format:"(%@) %@-%@",
-            val.substringWithRange(NSMakeRange(0, 3)),
-            val.substringWithRange(NSMakeRange(3, 3)),
-            val.substringWithRange(NSMakeRange(6, 4))
+            val.substring(with: NSMakeRange(0, 3)),
+            val.substring(with: NSMakeRange(3, 3)),
+            val.substring(with: NSMakeRange(6, 4))
         )
     }
 }

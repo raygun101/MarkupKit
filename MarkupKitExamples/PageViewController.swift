@@ -20,7 +20,7 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var pageControl: UIPageControl!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PageViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "PageViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -28,12 +28,12 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
 
         title = "Page View"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
 
         pageView.delegate = self
     }
 
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.currentPage
     }
 }

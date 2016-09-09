@@ -23,7 +23,7 @@ class NestedStackViewController: UIViewController {
     @IBOutlet var lastNameTextField: UITextField!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("NestedStackViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "NestedStackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -31,26 +31,26 @@ class NestedStackViewController: UIViewController {
 
         title = "Nested Stack Views"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain,
-            target: self, action: #selector(NestedStackViewController.next))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(getter: NestedStackViewController.next))
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
 
         // Create custom constraints
-        NSLayoutConstraint.activateConstraints([
+        NSLayoutConstraint.activate([
             // Image view aspect ratio
-            NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.Width,
-                relatedBy: NSLayoutRelation.Equal, toItem: imageView, attribute: NSLayoutAttribute.Height,
+            NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width,
+                relatedBy: NSLayoutRelation.equal, toItem: imageView, attribute: NSLayoutAttribute.height,
                 multiplier: 1.0, constant: 0),
 
             // Equal text field widths
-            NSLayoutConstraint(item: middleNameTextField, attribute: NSLayoutAttribute.Width,
-                relatedBy: NSLayoutRelation.Equal, toItem: firstNameTextField, attribute: NSLayoutAttribute.Width,
+            NSLayoutConstraint(item: middleNameTextField, attribute: NSLayoutAttribute.width,
+                relatedBy: NSLayoutRelation.equal, toItem: firstNameTextField, attribute: NSLayoutAttribute.width,
                 multiplier: 1.0, constant: 0),
-            NSLayoutConstraint(item: lastNameTextField, attribute: NSLayoutAttribute.Width,
-                relatedBy: NSLayoutRelation.Equal, toItem: middleNameTextField, attribute: NSLayoutAttribute.Width,
+            NSLayoutConstraint(item: lastNameTextField, attribute: NSLayoutAttribute.width,
+                relatedBy: NSLayoutRelation.equal, toItem: middleNameTextField, attribute: NSLayoutAttribute.width,
                 multiplier: 1.0, constant: 0)
         ])
     }

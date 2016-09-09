@@ -17,7 +17,7 @@ import MarkupKit
 
 class PeriodicTableViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PeriodicTableViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "PeriodicTableViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class PeriodicTableViewController: UIViewController {
 
         title = "Periodic Table"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

@@ -17,7 +17,7 @@ import MarkupKit
 
 class RadialGradientViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("RadialGradientViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "RadialGradientViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class RadialGradientViewController: UIViewController {
 
         title = "Radial Gradient View"
         
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

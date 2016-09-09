@@ -17,7 +17,7 @@ import MarkupKit
 
 class ViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
         tableView.delegate = self
     }
@@ -27,11 +27,11 @@ class ViewController: UITableViewController {
 
         title = "MarkupKit Examples"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
         let value = cell!.value as! String
 
         if (value == "radioButtons") {
@@ -81,7 +81,7 @@ class ViewController: UITableViewController {
         } else if (value == "includes") {
             navigationController!.pushViewController(IncludesController(), animated: true)
         } else {
-            tableView.deselectRowAtIndexPath(indexPath, animated: true)
+            tableView.deselectRow(at: indexPath, animated: true)
         }
     }
 }

@@ -24,7 +24,7 @@ class MapViewController: UIViewController {
     static let Radius = 250.0
     
     override func loadView() {
-        view = LMViewBuilder.viewWithName("MapViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "MapViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -32,50 +32,50 @@ class MapViewController: UIViewController {
 
         title = "Map View"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
+        let defaultNotificationCenter = NotificationCenter.default
         
         defaultNotificationCenter.addObserver(self,
             selector: #selector(MapViewController.keyboardWillShow(_:)),
-            name: UIKeyboardWillShowNotification,
+            name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
 
         defaultNotificationCenter.addObserver(self,
             selector: #selector(MapViewController.keyboardWillHide(_:)),
-            name: UIKeyboardWillHideNotification,
+            name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
         
         latitudeTextField.becomeFirstResponder()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        let defaultNotificationCenter = NSNotificationCenter.defaultCenter()
+        let defaultNotificationCenter = NotificationCenter.default
         
-        defaultNotificationCenter.removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        defaultNotificationCenter.removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
-        (view as! LMColumnView).bottomSpacing = notification.userInfo![UIKeyboardFrameBeginUserInfoKey]!.CGRectValue().size.height
+    func keyboardWillShow(_ notification: Notification) {
+        (view as! LMColumnView).bottomSpacing = ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size.height
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    func keyboardWillHide(_ notification: Notification) {
         (view as! LMColumnView).bottomSpacing = 0
     }
     
     @IBAction func showLocation() {
-        let latitude = Double(latitudeTextField.text!)
-        let longitude = Double(longitudeTextField.text!)
+        let latitude = Double(latitudeTextField.text!)!
+        let longitude = Double(longitudeTextField.text!)!
         
         if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
-            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!),
+            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
                 MapViewController.Radius * 1000, MapViewController.Radius * 1000)
 
             if (region.center.latitude + region.span.latitudeDelta <= 90

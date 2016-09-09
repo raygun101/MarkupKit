@@ -20,7 +20,7 @@ class CustomSectionViewController: UITableViewController {
     static let CellIdentifier = "cell"
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("CustomSectionViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "CustomSectionViewController", owner: self, root: nil)
 
         tableView.dataSource = self
     }
@@ -30,32 +30,32 @@ class CustomSectionViewController: UITableViewController {
 
         title = "Custom Section View"
 
-        tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: CustomSectionViewController.CellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CustomSectionViewController.CellIdentifier)
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableView.numberOfSections
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (tableView.nameForSection(section) == CustomSectionViewController.DynamicSectionName) {
+        if (tableView.name(forSection: section) == CustomSectionViewController.DynamicSectionName) {
             n = 3
         } else {
-            n = tableView.numberOfRowsInSection(section)
+            n = tableView.numberOfRows(inSection: section)
         }
 
         return n
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.nameForSection(indexPath.section) == CustomSectionViewController.DynamicSectionName) {
-            cell = tableView.dequeueReusableCellWithIdentifier(CustomSectionViewController.CellIdentifier)!
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == CustomSectionViewController.DynamicSectionName) {
+            cell = tableView.dequeueReusableCell(withIdentifier: CustomSectionViewController.CellIdentifier)!
             
-            cell.textLabel!.text = String(indexPath.row + 1)
+            cell.textLabel!.text = String((indexPath as NSIndexPath).row + 1)
         } else {
-            cell = tableView.cellForRowAtIndexPath(indexPath)!
+            cell = tableView.cellForRow(at: indexPath)!
         }
 
         return cell

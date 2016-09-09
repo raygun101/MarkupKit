@@ -22,7 +22,7 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     @IBOutlet var playButton: UIButton!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("PlayerViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "PlayerViewController", owner: self, root: nil)
 
         tableView.dataSource = self
     }
@@ -33,45 +33,45 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         title = "Player View"
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         activityIndicatorView.startAnimating()
 
-        playButton.enabled = false
+        playButton.isEnabled = false
 
         playerView.delegate = self
 
-        playerView.layer.player = AVPlayer(URL: NSBundle.mainBundle().URLForResource("sample", withExtension: "mp4")!)
+        playerView.layer.player = AVPlayer(url: Bundle.main.url(forResource: "sample", withExtension: "mp4")!)
         playerView.layer.videoGravity = AVLayerVideoGravityResizeAspectFill
     }
 
-    override func viewWillDisappear(animated: Bool) {
-        playButton.enabled = false
+    override func viewWillDisappear(_ animated: Bool) {
+        playButton.isEnabled = false
 
         playerView.layer.player?.pause()
 
         playerView.delegate = nil
     }
 
-    func playerView(playerView: LMPlayerView, isReadyForDisplay readyForDisplay: Bool) {
+    func playerView(_ playerView: LMPlayerView, isReadyForDisplay readyForDisplay: Bool) {
         activityIndicatorView.stopAnimating()
 
         tableView.reloadData()
         
         togglePlay()
 
-        playButton.enabled = true
+        playButton.isEnabled = true
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return (playerView.layer.player?.status == .ReadyToPlay) ? tableView.numberOfSections : 0
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfSections : 0
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (playerView.layer.player?.status == .ReadyToPlay) ? tableView.numberOfRowsInSection(section) : 0
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfRows(inSection: section) : 0
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.cellForRowAtIndexPath(indexPath)!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.cellForRow(at: indexPath)!
     }
 
     @IBAction func togglePlay() {

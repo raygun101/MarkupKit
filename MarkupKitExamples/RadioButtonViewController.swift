@@ -17,7 +17,7 @@ import MarkupKit
 
 class RadioButtonViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("RadioButtonViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "RadioButtonViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

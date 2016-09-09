@@ -26,7 +26,7 @@ class PharmacyCell: LMTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("PharmacyCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "PharmacyCell", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {

@@ -17,7 +17,7 @@ import MarkupKit
 
 class GridViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("GridViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "GridViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class GridViewController: UIViewController {
 
         title = "Grid View"
         
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

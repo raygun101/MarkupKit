@@ -23,7 +23,7 @@ class ColorCell: LMCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        LMViewBuilder.viewWithName("ColorCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "ColorCell", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {

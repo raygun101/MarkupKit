@@ -20,7 +20,7 @@ class ScrollViewController: UIViewController {
     @IBOutlet var label2: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ScrollViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ScrollViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -28,18 +28,18 @@ class ScrollViewController: UIViewController {
 
         title = "Scroll View"
         
-        let textPath = NSBundle.mainBundle().pathForResource("sample", ofType: "txt")
-        let text = try? NSString(contentsOfFile: textPath!, encoding: NSASCIIStringEncoding)
+        let textPath = Bundle.main.path(forResource: "sample", ofType: "txt")
+        let text = try? NSString(contentsOfFile: textPath!, encoding: String.Encoding.ascii.rawValue)
 
         label1.text = text as String?
         label2.text = text as String?
     }
 
     @IBAction func showGreeting() {
-        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
 
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 }

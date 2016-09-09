@@ -17,7 +17,7 @@ import MarkupKit
 
 class SimpleStackViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("SimpleStackViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "SimpleStackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,12 +25,12 @@ class SimpleStackViewController: UIViewController {
 
         title = "Simple Stack View"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain,
-            target: self, action: #selector(SimpleStackViewController.next))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(getter: SimpleStackViewController.next))
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 
     func next() {

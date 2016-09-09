@@ -21,13 +21,13 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
 
         title = "Selection View"
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Color", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(SelectionViewController.showColorPicker))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Color", style: UIBarButtonItemStyle.plain, target: self, action: #selector(SelectionViewController.showColorPicker))
 
-        colorPickerViewController.modalPresentationStyle = .Popover
+        colorPickerViewController.modalPresentationStyle = .popover
         colorPickerViewController.tableView.delegate = self
     }
 
@@ -35,21 +35,21 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
         let colorPickerPresentationController = colorPickerViewController.presentationController as! UIPopoverPresentationController
 
         colorPickerPresentationController.barButtonItem = navigationItem.rightBarButtonItem
-        colorPickerPresentationController.backgroundColor = UIColor.whiteColor()
+        colorPickerPresentationController.backgroundColor = UIColor.white
         colorPickerPresentationController.delegate = self
 
-        presentViewController(colorPickerViewController, animated: true, completion: nil)
+        present(colorPickerViewController, animated: true, completion: nil)
     }
 
-    func adaptivePresentationStyleForPresentationController(controller: UIPresentationController) -> UIModalPresentationStyle {
-        return .None
+    func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+        return .none
     }
 
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
 
         view.backgroundColor = LMViewBuilder.colorValue(cell!.value as! String)
 
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }

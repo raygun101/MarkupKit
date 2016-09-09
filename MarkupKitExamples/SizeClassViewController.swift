@@ -17,7 +17,7 @@ import MarkupKit
 
 class SizeClassViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("SizeClassViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "SizeClassViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,10 +25,10 @@ class SizeClassViewController: UIViewController {
 
         title = "Size Classes"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         if (previousTraitCollection != nil) {

@@ -21,7 +21,7 @@ class IncludesController: UIViewController {
     var thirdLabel: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("IncludesController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "IncludesController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class IncludesController: UIViewController {
 
         title = "Includes"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
 
         firstLabel.text = "First row"
         secondLabel.text = "Second row"

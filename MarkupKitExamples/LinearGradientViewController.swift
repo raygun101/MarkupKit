@@ -17,7 +17,7 @@ import MarkupKit
 
 class LinearGradientViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("LinearGradientViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "LinearGradientViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class LinearGradientViewController: UIViewController {
 
         title = "Linear Gradient View"
         
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

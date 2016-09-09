@@ -17,7 +17,7 @@ import MarkupKit
 
 class FormViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("FormViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "FormViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class FormViewController: UIViewController {
 
         title = "Form View"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

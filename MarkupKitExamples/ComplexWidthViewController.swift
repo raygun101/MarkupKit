@@ -20,7 +20,7 @@ class ComplexWidthViewController: UIViewController {
     @IBOutlet var redView: UIView!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ComplexWidthViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ComplexWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -28,22 +28,22 @@ class ComplexWidthViewController: UIViewController {
 
         title = "Complex Width Views"
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain,
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain,
             target: self, action: #selector(ComplexWidthViewController.done))
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
 
         // 2x width constraint
-        let widthConstraint = NSLayoutConstraint(item: redView, attribute: NSLayoutAttribute.Width,
-            relatedBy: NSLayoutRelation.Equal, toItem: blueView, attribute: NSLayoutAttribute.Width,
+        let widthConstraint = NSLayoutConstraint(item: redView, attribute: NSLayoutAttribute.width,
+            relatedBy: NSLayoutRelation.equal, toItem: blueView, attribute: NSLayoutAttribute.width,
             multiplier: 2.0, constant: 0)
 
         widthConstraint.priority = UILayoutPriorityDefaultHigh
 
-        widthConstraint.active = true
+        widthConstraint.isActive = true
     }
 
     func done() {
-        navigationController!.popToRootViewControllerAnimated(true)
+        navigationController!.popToRootViewController(animated: true)
     }
 }

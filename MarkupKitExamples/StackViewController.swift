@@ -17,7 +17,7 @@ import MarkupKit
 
 class StackViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("StackViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "StackViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,6 +25,6 @@ class StackViewController: UIViewController {
 
         title = "Stack Views"
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 }

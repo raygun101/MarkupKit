@@ -17,7 +17,7 @@ import MarkupKit
 
 class DifferentWidthViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("DifferentWidthViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "DifferentWidthViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
@@ -25,12 +25,12 @@ class DifferentWidthViewController: UIViewController {
 
         title = "Different Width Views"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.Plain,
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.Plain,
-            target: self, action: #selector(DifferentWidthViewController.next))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(getter: DifferentWidthViewController.next))
 
-        edgesForExtendedLayout = UIRectEdge.None
+        edgesForExtendedLayout = UIRectEdge()
     }
 
     func next() {

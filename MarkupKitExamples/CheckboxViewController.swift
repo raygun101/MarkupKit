@@ -17,7 +17,7 @@ import MarkupKit
 
 class CheckboxViewController: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("CheckboxViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "CheckboxViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
