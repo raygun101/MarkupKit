@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet var greetingLabel: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
     }
 
     @IBAction func sayHello() {
