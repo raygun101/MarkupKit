@@ -27,7 +27,7 @@ class CustomCell: LMTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("CustomCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "CustomCell", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {

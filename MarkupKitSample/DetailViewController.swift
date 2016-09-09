@@ -25,7 +25,7 @@ class DetailViewController: UIViewController {
 
     // View initialization
     override func loadView() {
-        view = LMViewBuilder.viewWithName("DetailViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: nil)
     }
 
     override func viewWillLayoutSubviews() {
@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
 
     // Done button press handler
     @IBAction func doneButtonPressed() {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 }
 

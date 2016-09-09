@@ -32,15 +32,15 @@ class ViewController: UITableViewController {
 
     // View initialization
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
         tableView.dataSource = self
         tableView.delegate = self
 
-        let path = NSBundle.mainBundle().pathForResource("rows", ofType: "json")
-        let data = NSData(contentsOfFile: path!)
+        let path = Bundle.main.path(forResource: "rows", ofType: "json")
+        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
 
-        rows = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.AllowFragments)) as! [[String: AnyObject]]
+        rows = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)) as! [[String: AnyObject]]
     }
 
     override func viewDidLoad() {
@@ -48,60 +48,60 @@ class ViewController: UITableViewController {
 
         title = "Lorem Ipsum"
 
-        tableView.registerClass(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
     }
 
     // Button press handler
     @IBAction func buttonPressed() {
-        let mainBundle = NSBundle.mainBundle()
+        let mainBundle = Bundle.main
 
-        let alertController = UIAlertController(title: mainBundle.localizedStringForKey("alert", value: nil, table: nil),
-            message: "Lorem ipsum dolor sit amet.", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: mainBundle.localizedString(forKey: "alert", value: nil, table: nil),
+            message: "Lorem ipsum dolor sit amet.", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: mainBundle.localizedStringForKey("ok", value: nil, table: nil),
-            style: .Default, handler:nil))
+        alertController.addAction(UIAlertAction(title: mainBundle.localizedString(forKey: "ok", value: nil, table: nil),
+            style: .default, handler:nil))
 
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 
     // Data source
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableView.numberOfSections
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (tableView.nameForSection(section) == ViewController.DynamicSectionName) {
+        if (tableView.name(forSection: section) == ViewController.DynamicSectionName) {
             n = rows.count
         } else {
-            n = tableView.numberOfRowsInSection(section)
+            n = tableView.numberOfRows(inSection: section)
         }
 
         return n
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.nameForSection(indexPath.section) == ViewController.DynamicSectionName) {
-            let row = rows[indexPath.row]
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == ViewController.DynamicSectionName) {
+            let row = rows[(indexPath as NSIndexPath).row]
 
-            let customCell = tableView.dequeueReusableCellWithIdentifier(CustomCell.self.description()) as! CustomCell
+            let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.self.description()) as! CustomCell
 
             customCell.headingLabel.text = row["heading"] as? String
             customCell.detailLabel.text = row["detail"] as? String
 
             cell = customCell
         } else {
-            cell = tableView.cellForRowAtIndexPath(indexPath)!
+            cell = tableView.cellForRow(at: indexPath)!
         }
 
         return cell
     }
 
     // Delegate
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (tableView.nameForSection(indexPath.section) == ViewController.DynamicSectionName) {
-            let row = rows[indexPath.row]
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == ViewController.DynamicSectionName) {
+            let row = rows[(indexPath as NSIndexPath).row]
 
             let detailViewController = DetailViewController()
 
@@ -110,7 +110,7 @@ class ViewController: UITableViewController {
             detailViewController.headingLabel.text = row["heading"] as? String
             detailViewController.detailLabel.text = row["detail"] as? String
 
-            presentViewController(detailViewController, animated: true, completion: nil)
+            present(detailViewController, animated: true, completion: nil)
         }
     }
 }
