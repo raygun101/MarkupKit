@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 class CustomComponentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    static let DynamicComponentName = "dynamic"
+    let dynamicComponentName = "dynamic"
 
     @IBOutlet var pickerView: UIPickerView!
     @IBOutlet var label: UILabel!
@@ -48,7 +48,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
-        if (pickerView.name(forComponent: component) == CustomComponentViewController.DynamicComponentName) {
+        if (pickerView.name(forComponent: component) == dynamicComponentName) {
             n = 3
         } else {
             n = pickerView.numberOfRows(inComponent: component)
@@ -59,7 +59,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let title: String
-        if (pickerView.name(forComponent: component) == CustomComponentViewController.DynamicComponentName) {
+        if (pickerView.name(forComponent: component) == dynamicComponentName) {
             title = String(row + 1)
         } else {
             title = pickerView.title(forRow: row, forComponent:component)!

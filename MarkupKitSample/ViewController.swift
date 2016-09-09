@@ -27,9 +27,6 @@ class ViewController: UITableViewController {
     // Properties
     var rows: [[String: AnyObject]]!
 
-    // Constants
-    static let DynamicSectionName = "dynamic"
-
     // View initialization
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)

@@ -21,7 +21,7 @@ class MapViewController: UIViewController {
     @IBOutlet var latitudeTextField: UITextField!
     @IBOutlet var longitudeTextField: UITextField!
     
-    static let Radius = 250.0
+    let radius = 250.0
     
     override func loadView() {
         view = LMViewBuilder.view(withName: "MapViewController", owner: self, root: nil)
@@ -75,8 +75,7 @@ class MapViewController: UIViewController {
         let longitude = Double(longitudeTextField.text!)!
         
         if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
-            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
-                MapViewController.Radius * 1000, MapViewController.Radius * 1000)
+            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius * 1000, radius * 1000)
 
             if (region.center.latitude + region.span.latitudeDelta <= 90
                 && region.center.latitude - region.span.latitudeDelta >= -90) {

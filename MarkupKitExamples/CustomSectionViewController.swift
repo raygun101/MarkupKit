@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class CustomSectionViewController: UITableViewController {
-    static let DynamicSectionName = "dynamic"
-    static let CellIdentifier = "cell"
+    let dynamicSectionName = "dynamic"
+    let cellIdentifier = "cell"
 
     override func loadView() {
         view = LMViewBuilder.view(withName: "CustomSectionViewController", owner: self, root: nil)
@@ -30,7 +30,7 @@ class CustomSectionViewController: UITableViewController {
 
         title = "Custom Section View"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: CustomSectionViewController.CellIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,7 +39,7 @@ class CustomSectionViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (tableView.name(forSection: section) == CustomSectionViewController.DynamicSectionName) {
+        if (tableView.name(forSection: section) == dynamicSectionName) {
             n = 3
         } else {
             n = tableView.numberOfRows(inSection: section)
@@ -50,8 +50,8 @@ class CustomSectionViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == CustomSectionViewController.DynamicSectionName) {
-            cell = tableView.dequeueReusableCell(withIdentifier: CustomSectionViewController.CellIdentifier)!
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == dynamicSectionName) {
+            cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)!
             
             cell.textLabel!.text = String((indexPath as NSIndexPath).row + 1)
         } else {
