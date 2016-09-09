@@ -65,21 +65,17 @@
 
     CGFloat spacing = [self spacing];
 
-    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute, leadingAttribute, trailingAttribute;
+    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
     if ([self layoutMarginsRelativeArrangement]) {
         topAttribute = NSLayoutAttributeTopMargin;
         bottomAttribute = NSLayoutAttributeBottomMargin;
         leftAttribute = NSLayoutAttributeLeftMargin;
         rightAttribute = NSLayoutAttributeRightMargin;
-        leadingAttribute = NSLayoutAttributeLeadingMargin;
-        trailingAttribute = NSLayoutAttributeTrailingMargin;
     } else {
         topAttribute = NSLayoutAttributeTop;
         bottomAttribute = NSLayoutAttributeBottom;
         leftAttribute = NSLayoutAttributeLeft;
         rightAttribute = NSLayoutAttributeRight;
-        leadingAttribute = NSLayoutAttributeLeading;
-        trailingAttribute = NSLayoutAttributeTrailing;
     }
 
     UIView *previousSubview = nil;

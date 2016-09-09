@@ -73,7 +73,7 @@ class CustomCellViewController: UITableViewController {
 }
 
 class PhoneNumberFormatter: NSFormatter {
-    override func stringForObjectValue(obj: AnyObject) -> String? {
+    override func stringForObjectValue(obj: AnyObject?) -> String? {
         let val = obj as! NSString
 
         return String(format:"(%@) %@-%@",
