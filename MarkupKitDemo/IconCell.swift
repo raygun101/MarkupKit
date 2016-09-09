@@ -22,7 +22,7 @@ class IconCell: LMCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        LMViewBuilder.viewWithName("IconCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "IconCell", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {
