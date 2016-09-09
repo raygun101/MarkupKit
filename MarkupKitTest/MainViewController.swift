@@ -22,28 +22,28 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LMViewBuilder.viewWithName("MainViewController", owner: self, root: view)
+        LMViewBuilder.view(withName: "MainViewController", owner: self, root: view)
     }
 
-    @IBAction func handleButtonTouchUpInside(sender: UIButton) {
-        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .Alert)
+    @IBAction func handleButtonTouchUpInside(_ sender: UIButton) {
+        let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .Cancel) {(action) in
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) {(action) in
             print("User tapped Cancel")
         })
 
-        alertController.addAction(UIAlertAction(title: "OK", style: .Default) {(action) in
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) {(action) in
             print("User tapped OK")
         })
 
-        presentViewController(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: nil)
     }
 
-    @IBAction func handleSwitchValueChanged(sender: UISwitch) {
-        imageView.hidden = !sender.on
+    @IBAction func handleSwitchValueChanged(_ sender: UISwitch) {
+        imageView.isHidden = !sender.isOn
     }
 
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         print("The user clicked button \(buttonIndex)")
     }
 }
