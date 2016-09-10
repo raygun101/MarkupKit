@@ -11,7 +11,7 @@ import MarkupKit
 
 class ___FILEBASENAMEASIDENTIFIER___: UITableViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
+        view = LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -23,19 +23,19 @@ class ___FILEBASENAMEASIDENTIFIER___: UITableViewController {
         // TODO: Perform any post-load configuration
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableView.numberOfSections
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView.numberOfRowsInSection(section)
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tableView.numberOfRows(inSection: section)
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.cellForRowAtIndexPath(indexPath)!
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return tableView.cellForRow(at: indexPath)!
     }
 
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // TODO: Handle row selection
     }
 }

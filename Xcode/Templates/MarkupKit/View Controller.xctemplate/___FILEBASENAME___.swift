@@ -11,7 +11,7 @@ import MarkupKit
 
 class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.viewWithName("___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
+        view = LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
