@@ -27,6 +27,8 @@ class ViewController: UITableViewController {
     // Properties
     var rows: [[String: AnyObject]]!
 
+    let dynamicSectionName = "dynamic"
+
     // View initialization
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
@@ -68,7 +70,7 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
-        if (tableView.name(forSection: section) == ViewController.DynamicSectionName) {
+        if (tableView.name(forSection: section) == dynamicSectionName) {
             n = rows.count
         } else {
             n = tableView.numberOfRows(inSection: section)
@@ -79,7 +81,7 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == ViewController.DynamicSectionName) {
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == dynamicSectionName) {
             let row = rows[(indexPath as NSIndexPath).row]
 
             let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.self.description()) as! CustomCell
@@ -97,7 +99,7 @@ class ViewController: UITableViewController {
 
     // Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == ViewController.DynamicSectionName) {
+        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == dynamicSectionName) {
             let row = rows[(indexPath as NSIndexPath).row]
 
             let detailViewController = DetailViewController()
