@@ -318,9 +318,9 @@ Includes are specified using the `include` processing instruction. The PI's data
         ...
     </LMColumnView>
 
-The content of the included document is handled the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions defined by the include are assigned to the parent's owner. Property templates defined by the parent document are visible to includes, but templates defined by an include are only visible within the include itself (as well as within any nested includes).
+The content of the included document is handled the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions defined by the include are assigned to the parent's owner. Property templates defined by the parent document are visible to includes, but templates defined by an include are only visible to the include itself (as well as to any nested includes).
 
-Includes are often used to implement size class-specific layout behavior. They allow the common elements of a user interface to be defined in a parent document, while delegating the elements that are specific to a particular form factor or orientation to one or more includes.
+Includes are often used to create size class-specific layouts. The common elements of a user interface are defined in a parent document, while elements that are specific to a particular form factor or orientation are delegated to one or more includes.
 
 For example, given the following markup, a document named _SecondRow~horizontal.xml_ would be loaded on a device that is currently presenting a regular width and compact height:
 
@@ -330,6 +330,8 @@ For example, given the following markup, a document named _SecondRow~horizontal.
     </LMColumnView>
 
 However, if the device was presenting a compact width and regular height, the document named _SecondRow~vertical.xml_ would be loaded instead.
+
+Size class-specific layouts are discussed in more detail later.
 
 ## Processing Instructions
 In addition to the document-wide `properties` and `include` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
