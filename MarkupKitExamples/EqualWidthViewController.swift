@@ -28,12 +28,12 @@ class EqualWidthViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
-            target: self, action: #selector(getter: EqualWidthViewController.next))
+            target: self, action: #selector(moveNext))
 
         edgesForExtendedLayout = UIRectEdge()
     }
 
-    func next() {
+    func moveNext() {
         navigationController!.pushViewController(DifferentWidthViewController(), animated: true)
     }
 }

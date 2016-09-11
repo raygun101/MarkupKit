@@ -34,7 +34,7 @@ class NestedStackViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
-            target: self, action: #selector(getter: NestedStackViewController.next))
+            target: self, action: #selector(moveNext))
 
         edgesForExtendedLayout = UIRectEdge()
 
@@ -55,7 +55,7 @@ class NestedStackViewController: UIViewController {
         ])
     }
 
-    func next() {
+    func moveNext() {
         navigationController!.pushViewController(EqualWidthViewController(), animated: true)
     }
 }

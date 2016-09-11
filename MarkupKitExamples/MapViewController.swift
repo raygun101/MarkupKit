@@ -41,12 +41,12 @@ class MapViewController: UIViewController {
         let defaultNotificationCenter = NotificationCenter.default
         
         defaultNotificationCenter.addObserver(self,
-            selector: #selector(MapViewController.keyboardWillShow(_:)),
+            selector: #selector(keyboardWillShow(_:)),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
 
         defaultNotificationCenter.addObserver(self,
-            selector: #selector(MapViewController.keyboardWillHide(_:)),
+            selector: #selector(keyboardWillHide(_:)),
             name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
         

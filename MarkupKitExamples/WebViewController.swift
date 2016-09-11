@@ -38,12 +38,12 @@ class WebViewController: UIViewController {
         let defaultNotificationCenter = NotificationCenter.default
         
         defaultNotificationCenter.addObserver(self,
-            selector: #selector(WebViewController.keyboardWillShow(_:)),
+            selector: #selector(keyboardWillShow(_:)),
             name: NSNotification.Name.UIKeyboardWillShow,
             object: nil)
 
         defaultNotificationCenter.addObserver(self,
-            selector: #selector(WebViewController.keyboardWillHide(_:)),
+            selector: #selector(keyboardWillHide(_:)),
             name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
         

@@ -28,12 +28,12 @@ class SimpleStackViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
-            target: self, action: #selector(getter: SimpleStackViewController.next))
+            target: self, action: #selector(moveNext))
 
         edgesForExtendedLayout = UIRectEdge()
     }
 
-    func next() {
+    func moveNext() {
         navigationController!.pushViewController(NestedStackViewController(), animated: true)
     }
 }
