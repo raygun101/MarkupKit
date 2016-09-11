@@ -12,7 +12,9 @@ The output produced by this markup is identical to the output of the following S
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit). For examples and additional information, including a tutorial on getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
+MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
+
+For examples and additional information, including a tutorial on getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 # Contents
 * [Document Structure](#document-structure)
@@ -294,7 +296,7 @@ For example, the following markup declares an instance of `UIButton` that calls 
 
 For example:
 
-    @IBAction func buttonPressed(sender: UIButton) {
+    @IBAction func buttonPressed(_ sender: UIButton) {
         // Handle button press
     }
 
@@ -395,7 +397,7 @@ is equivalent to the following markup:
 The `root` argument is typically used when a document's root view is defined by an external source. For example, a view controller that is instantiated programmatically typically creates its own view instance in `loadView`. It defines the view entirely in markup, passing a `nil` value for `root`:
 
     override func loadView() {
-        view = LMViewBuilder.viewWithName("ViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
     }
 
 However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of its `view` property as the `root` argument:
@@ -403,7 +405,7 @@ However, a view controller that is defined by a storyboard already has an establ
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        LMViewBuilder.viewWithName("ViewController", owner: self, root: view)
+        LMViewBuilder.view(withName: "ViewController", owner: self, root: view)
     }
 
 This allows the navigational structure of the application (i.e. segues) to be defined in a storyboard, but the content of individual views to be defined in markup.
@@ -413,7 +415,7 @@ The `root` argument is also commonly used when implementing custom table or coll
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("CustomTableViewCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "CustomTableViewCell", owner: self, root: self)
     }
 
 ### Color and Font Values
@@ -549,27 +551,27 @@ In order to support static content declaration, `LMTableView` acts as its own da
 
 The implementing class should delegate to the given table view instance as needed:
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         return tableView.numberOfSections
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (section == 0) {
             // custom behavior
         } else {
-            n = tableView.numberOfRowsInSection(section)
+            n = tableView.numberOfRows(inSection: section)
         }
 
         return n
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         if (indexPath.section == 0) {
             // custom behavior
         } else {
-            cell = tableView.cellForRowAtIndexPath(indexPath)!
+            cell = tableView.cellForRow(at: indexPath)!
         }
 
         return cell
@@ -598,7 +600,7 @@ For example, the following markup creates a plain table view whose single cell c
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.viewWithName("CustomTableViewCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "CustomTableViewCell", owner: self, root: self)
     }
 
 Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _CustomTableViewCell.xml_ must include a `<root>` tag to refer to this argument. Note that attributes can be applied to this element just as if it's type had been declared explicitly:
@@ -661,7 +663,7 @@ By overriding `initWithFrame:` and specifying the cell view as the document owne
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        LMViewBuilder.viewWithName("CustomCollectionViewCell", owner: self, root: self)
+        LMViewBuilder.view(withName: "CustomCollectionViewCell", owner: self, root: self)
     }
 
 Because the initializer passes the cell instance itself as the value of the `root` argument to `viewWithName:owner:root`, the markup declared in _CustomCollectionViewCell.xml_ must include a `<root>` tag to refer to this argument:
@@ -750,27 +752,27 @@ In order to support static content declaration, `LMPickerView` acts as its own d
 
 The implementing class should delegate to the given picker view instance as needed:
 
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerView.numberOfComponents
     }
     
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
         if (component == 0) {
             // Custom behavior
         } else {
-            n = pickerView.numberOfRowsInComponent(component)
+            n = pickerView.numberOfRows(inComponent: component)
         }
 
         return n
     }
 
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let title: String
         if (component == 0) {
             // Custom behavior
         } else {
-            title = pickerView.titleForRow(row, forComponent:component)!
+            title = pickerView.title(forRow: row, forComponent:component)!
         }
 
         return title
@@ -820,7 +822,7 @@ For example, the following markup declares a page view containing three pages. P
 
 Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view to reflect the current page number. MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
 
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.currentPage
     }
 
@@ -957,6 +959,8 @@ These properties can be used to ensure that the column view's content is not obs
 For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top spacing to the length of the controller's top layout guide, ensuring that the first subview is positioned below the guide:
 
     override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
         columnView.topSpacing = topLayoutGuide.length
     }
 
@@ -1322,11 +1326,11 @@ The "action" attribute of the `item` tag can be used to associate an action with
 
 The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler. Action handlers are typically defined in the controller class; for example:
 
-    @IBAction func cancel(sender: UIBarButtonItem) {
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
         // ...
     }
 
-    @IBAction func done(sender: UIBarButtonItem) {
+    @IBAction func done(_ sender: UIBarButtonItem) {
         // ...
     }
 
