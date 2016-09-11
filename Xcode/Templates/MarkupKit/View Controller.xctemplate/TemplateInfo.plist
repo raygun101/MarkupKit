@@ -9,7 +9,7 @@
 	<key>Summary</key>
 	<string>An empty view controller class.</string>
 	<key>SortOrder</key>
-	<integer>4</integer>
+	<integer>1</integer>
 	<key>AllowedTypes</key>
 	<array>
 		<string>public.swift-source</string>

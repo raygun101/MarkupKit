@@ -9,7 +9,7 @@
 	<key>Summary</key>
 	<string>An empty custom table view cell class.</string>
 	<key>SortOrder</key>
-	<integer>2</integer>
+	<integer>3</integer>
 	<key>AllowedTypes</key>
 	<array>
 		<string>public.swift-source</string>

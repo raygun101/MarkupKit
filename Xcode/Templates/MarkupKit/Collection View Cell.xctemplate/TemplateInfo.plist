@@ -9,7 +9,7 @@
 	<key>Summary</key>
 	<string>An empty custom collection view cell class.</string>
 	<key>SortOrder</key>
-	<integer>1</integer>
+	<integer>4</integer>
 	<key>AllowedTypes</key>
 	<array>
 		<string>public.swift-source</string>
