@@ -33,13 +33,14 @@ class ViewController: UITableViewController {
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
+        // Configure table view
         tableView.dataSource = self
         tableView.delegate = self
 
-        let path = Bundle.main.path(forResource: "rows", ofType: "json")
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
+        // Load row list from JSON
+        let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
 
-        rows = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)) as! [[String: AnyObject]]
+        rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
     }
 
     override func viewDidLoad() {
