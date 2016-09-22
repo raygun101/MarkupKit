@@ -29,7 +29,7 @@ class ScrollViewController: UIViewController {
         title = "Scroll View"
         
         let textPath = Bundle.main.path(forResource: "sample", ofType: "txt")
-        let text = try? NSString(contentsOfFile: textPath!, encoding: String.Encoding.ascii.rawValue)
+        let text = try? String(contentsOfFile: textPath!, encoding: String.Encoding.ascii)
 
         label1.text = text as String?
         label2.text = text as String?

@@ -27,10 +27,9 @@ class CustomCellViewController: UITableViewController {
         tableView.estimatedRowHeight = 2
 
         // Load pharmacy list from JSON
-        let path = Bundle.main.path(forResource: "pharmacies", ofType: "json")
-        let data = try? Data(contentsOf: URL(fileURLWithPath: path!))
+        let pharmacyListURL = Bundle.main.url(forResource: "pharmacies", withExtension: "json")
 
-        pharmacies = (try! JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions())) as! [[String: AnyObject]]
+        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: pharmacyListURL!)) as! [[String: AnyObject]]
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,10 +59,10 @@ class CustomCellViewController: UITableViewController {
 
         let phoneNumberFormatter = PhoneNumberFormatter()
 
-        let phone = pharmacy["phone"] as? NSString
+        let phone = pharmacy["phone"] as? String
         cell.phoneLabel.text = (phone == nil) ? nil : phoneNumberFormatter.string(for: phone!)
 
-        let fax = pharmacy["fax"] as? NSString
+        let fax = pharmacy["fax"] as? String
         cell.faxLabel.text = (fax == nil) ? nil : phoneNumberFormatter.string(for: fax!)
 
         cell.emailLabel.text = pharmacy["email"] as? String
@@ -76,7 +75,7 @@ class PhoneNumberFormatter: Formatter {
     override func string(for obj: Any?) -> String? {
         let val = obj as! NSString
 
-        return String(format:"(%@) %@-%@",
+        return String(format: "(%@) %@-%@",
             val.substring(with: NSMakeRange(0, 3)),
             val.substring(with: NSMakeRange(3, 3)),
             val.substring(with: NSMakeRange(6, 4))
