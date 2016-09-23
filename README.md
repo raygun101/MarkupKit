@@ -238,7 +238,7 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties Styles?>
 
-If the document's owner implements the `UITraitEnvironment` protocol, any size class-specific property overrides will also be added to the document. Size class-specific properties are discussed in more detail later.
+If the document's owner implements the `UITraitEnvironment` protocol, any size class-specific property overrides (e.g. _Styles~horizontal.json_) will also be added to the document. Size class-specific properties are discussed in more detail later.
 
 Inline templates simply embed the entire template definition within the processing instruction:
 
@@ -249,7 +249,7 @@ Inline templates simply embed the entire template definition within the processi
         }
     }?>
 
-External templates are generally used when a set of properties may be shared by multiple markup documents, and internal templates are used when the properties are only applicable to the current document.
+External templates are generally used when a set of properties may be shared by multiple markup documents, and inline templates are used when the properties are only applicable to the current document. External templates are cached so that their contents do not need to be reloaded each time they are referenced.
 
 Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple template specifications, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
 

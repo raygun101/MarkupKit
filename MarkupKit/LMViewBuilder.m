@@ -47,6 +47,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
 @end
 
+static NSMutableDictionary *templateCache;
+
 @implementation LMViewBuilder
 {
     id _owner;
@@ -56,6 +58,11 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
     NSMutableArray *_views;
     NSMutableArray *_includes;
+}
+
++ (void)initialize
+{
+    templateCache = [NSMutableDictionary new];
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -200,6 +207,25 @@ static NSString * const kLocalizedStringPrefix = @"@";
     return font;
 }
 
++ (NSDictionary *)templatesWithName:(NSString *)name error:(NSError **)error
+{
+    NSDictionary *templates = [templateCache objectForKey:name];
+
+    if (templates == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
+
+        if (path != nil) {
+            templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:error];
+
+            if (*error == nil) {
+                [templateCache setObject:templates forKey:name];
+            }
+        }
+    }
+
+    return templates;
+}
+
 - (instancetype)init
 {
     return nil;
@@ -248,21 +274,13 @@ static NSString * const kLocalizedStringPrefix = @"@";
                 [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error]];
             } else {
-                NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
-
-                if (path != nil) {
-                    [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
-                        options:0 error:&error]];
-                }
+                [self mergeTemplates:[LMViewBuilder templatesWithName:data error:&error]];
 
                 if (error == nil && [_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
                     NSString *sizeClass = [LMViewBuilder sizeClassForOwner:_owner];
-                    NSString *overridePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:kSizeClassFormat, data, sizeClass] ofType:@"json"];
 
-                    if (overridePath != nil) {
-                        [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:overridePath]
-                            options:0 error:&error]];
-                    }
+                    [self mergeTemplates:[LMViewBuilder templatesWithName:[NSString stringWithFormat:kSizeClassFormat, data, sizeClass]
+                        error:&error]];
                 }
             }
 
