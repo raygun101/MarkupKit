@@ -25,6 +25,15 @@ class MainViewController: UIViewController {
         LMViewBuilder.view(withName: "MainViewController", owner: self, root: view)
     }
 
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if (previousTraitCollection != nil) {
+            loadView()
+            viewDidLoad()
+        }
+    }
+
     @IBAction func handleButtonTouchUpInside(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 

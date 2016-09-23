@@ -1,0 +1,11 @@
+{
+    "row.first": {
+		"layer.borderColor": "#0c0ccd",
+		"layer.borderWidth": 2
+    },
+
+	"row.second": {
+		"layer.borderColor": "#aa4e0c",
+		"layer.borderWidth": 2
+	}
+}

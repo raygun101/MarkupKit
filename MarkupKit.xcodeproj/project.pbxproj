@@ -39,6 +39,8 @@
 		375FCE2E1C39B84B00B91718 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2D1C39B84B00B91718 /* EqualWidthViewController.swift */; };
 		375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE2F1C39B85700B91718 /* DifferentWidthViewController.swift */; };
 		375FCE321C39B86200B91718 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */; };
+		3761559C1D9567CE001BDC2D /* Styles2~horizontal.json in Resources */ = {isa = PBXBuildFile; fileRef = 3761559B1D9567CE001BDC2D /* Styles2~horizontal.json */; };
+		3761559E1D9567F2001BDC2D /* Styles2~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3761559D1D9567F2001BDC2D /* Styles2~vertical.json */; };
 		3769F8EF1CEB48D3000DB662 /* NSObject+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3769F8ED1CEB48D3000DB662 /* NSObject+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3769F8F01CEB48D3000DB662 /* NSObject+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3769F8EE1CEB48D3000DB662 /* NSObject+Markup.m */; };
 		3769F8F31CEB5ACD000DB662 /* UIControl+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3769F8F11CEB5ACD000DB662 /* UIControl+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -361,6 +363,8 @@
 		375FCE311C39B86200B91718 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
 		37604CBF1C65146C00046146 /* LMCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMCollectionViewCell.h; sourceTree = "<group>"; };
 		37604CC01C65146C00046146 /* LMCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMCollectionViewCell.m; sourceTree = "<group>"; };
+		3761559B1D9567CE001BDC2D /* Styles2~horizontal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~horizontal.json"; sourceTree = "<group>"; };
+		3761559D1D9567F2001BDC2D /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
 		3769F8ED1CEB48D3000DB662 /* NSObject+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Markup.h"; sourceTree = "<group>"; };
 		3769F8EE1CEB48D3000DB662 /* NSObject+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Markup.m"; sourceTree = "<group>"; };
 		3769F8F11CEB5ACD000DB662 /* UIControl+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+Markup.h"; sourceTree = "<group>"; };
@@ -735,6 +739,8 @@
 				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
 				37AE7CC31CDB9E0C009C5AD0 /* Styles1.json */,
 				375BE3E11CB859A100566793 /* Styles2.json */,
+				3761559B1D9567CE001BDC2D /* Styles2~horizontal.json */,
+				3761559D1D9567F2001BDC2D /* Styles2~vertical.json */,
 				372418E21ADF34600067CDF0 /* waterfall.jpg */,
 			);
 			path = MarkupKitTest;
@@ -1111,7 +1117,9 @@
 				3B09976C1B21DBAD001BF85C /* MainViewController.strings in Resources */,
 				37AE7CC41CDB9E0C009C5AD0 /* Styles1.json in Resources */,
 				37B0708F1ADEBEB000A92FCF /* Images.xcassets in Resources */,
+				3761559E1D9567F2001BDC2D /* Styles2~vertical.json in Resources */,
 				372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */,
+				3761559C1D9567CE001BDC2D /* Styles2~horizontal.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

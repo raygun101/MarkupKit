@@ -22,7 +22,6 @@ static NSString * const kVerticalSizeClass = @"vertical";
 static NSString * const kMinimalSizeClass = @"minimal";
 
 static NSString * const kSizeClassFormat = @"%@~%@";
-static NSString * const kFileExtension = @"xml";
 
 static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kIncludeTarget = @"include";
@@ -71,27 +70,13 @@ static NSString * const kLocalizedStringPrefix = @"@";
     NSBundle *mainBundle = [NSBundle mainBundle];
 
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-        UITraitCollection *traitCollection = [owner traitCollection];
+        NSString *sizeClass = [LMViewBuilder sizeClassForOwner:owner];
 
-        UIUserInterfaceSizeClass horizontalSizeClass = [traitCollection horizontalSizeClass];
-        UIUserInterfaceSizeClass verticalSizeClass = [traitCollection verticalSizeClass];
-
-        NSString *sizeClass;
-        if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
-            sizeClass = kNormalSizeClass;
-        } else if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-            sizeClass = kHorizontalSizeClass;
-        } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
-            sizeClass = kVerticalSizeClass;
-        } else {
-            sizeClass = kMinimalSizeClass;
-        }
-
-        url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:kFileExtension];
+        url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
     }
 
     if (url == nil) {
-        url = [mainBundle URLForResource:name withExtension:kFileExtension];
+        url = [mainBundle URLForResource:name withExtension:@"xml"];
     }
 
     UIView *view = nil;
@@ -114,6 +99,27 @@ static NSString * const kLocalizedStringPrefix = @"@";
     }
 
     return view;
+}
+
++ (NSString *)sizeClassForOwner:(id<UITraitEnvironment>)owner
+{
+    UITraitCollection *traitCollection = [owner traitCollection];
+
+    UIUserInterfaceSizeClass horizontalSizeClass = [traitCollection horizontalSizeClass];
+    UIUserInterfaceSizeClass verticalSizeClass = [traitCollection verticalSizeClass];
+
+    NSString *sizeClass;
+    if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+        sizeClass = kNormalSizeClass;
+    } else if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
+        sizeClass = kHorizontalSizeClass;
+    } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
+        sizeClass = kVerticalSizeClass;
+    } else {
+        sizeClass = kMinimalSizeClass;
+    }
+
+    return sizeClass;
 }
 
 + (UIColor *)colorValue:(NSString *)value
@@ -236,19 +242,27 @@ static NSString * const kLocalizedStringPrefix = @"@";
     if ([target isEqual:kPropertiesTarget]) {
         // Merge templates
         if ([_views count] == 0) {
-            NSDictionary *templates = nil;
-
             NSError *error = nil;
 
             if ([data hasPrefix:@"{"]) {
-                templates = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-                    options:0 error:&error];
+                [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                    options:0 error:&error]];
             } else {
                 NSString *path = [[NSBundle mainBundle] pathForResource:data ofType:@"json"];
 
                 if (path != nil) {
-                    templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
-                        options:0 error:&error];
+                    [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
+                        options:0 error:&error]];
+                }
+
+                if (error == nil && [_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
+                    NSString *sizeClass = [LMViewBuilder sizeClassForOwner:_owner];
+                    NSString *overridePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:kSizeClassFormat, data, sizeClass] ofType:@"json"];
+
+                    if (overridePath != nil) {
+                        [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:overridePath]
+                            options:0 error:&error]];
+                    }
                 }
             }
 
@@ -257,18 +271,6 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
                 [NSException raise:NSGenericException format:@"Error reading properties: \"%@\"",
                     [userInfo objectForKey:@"NSDebugDescription"]];
-            }
-
-            for (NSString *key in templates) {
-                NSMutableDictionary *template = (NSMutableDictionary *)[_templates objectForKey:key];
-
-                if (template == nil) {
-                    template = [NSMutableDictionary new];
-
-                    [_templates setObject:template forKey:key];
-                }
-
-                [template addEntriesFromDictionary:(NSDictionary *)[templates objectForKey:key]];
             }
         }
     } else if ([target isEqual:kIncludeTarget]) {
@@ -283,6 +285,21 @@ static NSString * const kLocalizedStringPrefix = @"@";
         if ([view isKindOfClass:[UIView self]]) {
             [view processMarkupInstruction:target data:data];
         }
+    }
+}
+
+- (void)mergeTemplates:(NSDictionary *)templates
+{
+    for (NSString *key in templates) {
+        NSMutableDictionary *template = (NSMutableDictionary *)[_templates objectForKey:key];
+
+        if (template == nil) {
+            template = [NSMutableDictionary new];
+
+            [_templates setObject:template forKey:key];
+        }
+
+        [template addEntriesFromDictionary:(NSDictionary *)[templates objectForKey:key]];
     }
 }
 

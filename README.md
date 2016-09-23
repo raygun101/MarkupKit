@@ -238,6 +238,8 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties Styles?>
 
+If the document's owner implements the `UITraitEnvironment` protocol, any size class-specific property overrides will also be added to the document. Size class-specific properties are discussed in more detail later.
+
 Inline templates simply embed the entire template definition within the processing instruction:
 
     <?properties {
@@ -369,6 +371,7 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 
     + (UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
 
+### Document Name and Owner
 The `name` parameter represents the name of the view to load. It is the file name of the XML document containing the view declaration, minus the _.xml_ extension.
 
 The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
@@ -382,6 +385,24 @@ If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:r
 
 If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginViewController.xml_).
 
+Further, `LMViewBuilder` will apply any size class-specific property templates to the current document. For example, if a document imports a template collection as follows:
+
+    <?properties Styles?>
+    
+`LMViewBuilder` will first load any properties defined in _Styles.json_, then any properties defined by the template document corresponding to the owner's size class, if present (e.g. _Styles~horizontal.json_). This allows an application to define properties that apply only to a particular size class as well as override values specified in the default template, if desired.
+
+Note that neither size class-specific layouts nor template properties are automatically applied when the owner's size class changes. The application is responsible for reloading the document as needed; for example:
+
+    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+    
+        if (previousTraitCollection != nil) {
+            loadView()
+            viewDidLoad()
+        }
+    }
+
+### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.
 
 For example, if an instance of `LMScrollView` is passed as the `root` argument to `viewWithName:owner:root:`, this markup:
