@@ -63,17 +63,6 @@ static NSMutableDictionary *templateCache;
 + (void)initialize
 {
     templateCache = [NSMutableDictionary new];
-
-    // TODO Add templates defined in Appearance.json, etc. to UIAppearance; for
-    // each size class (including default):
-    // - Read JSON document
-    // - For each dictionary:
-    //   - Split key by comma
-    //   - Get class of each named type
-    //   - Call appearanceForTraitCollection:whenContainedInInstancesOfClasses:
-    //     to get appearance proxy for last type in list, passing leading types
-    //     in reverse order as containerTypes
-    //   - Apply properties to proxy using applyMarkupPropertyValue:forKeyPath:
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
