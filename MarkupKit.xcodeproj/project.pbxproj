@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3709017F1D980747001103DA /* Appearance.json in Resources */ = {isa = PBXBuildFile; fileRef = 3709017E1D980747001103DA /* Appearance.json */; };
+		370901811D98075C001103DA /* Appearance~horizontal.json in Resources */ = {isa = PBXBuildFile; fileRef = 370901801D98075C001103DA /* Appearance~horizontal.json */; };
+		370901831D98076C001103DA /* Appearance~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 370901821D98076C001103DA /* Appearance~vertical.json */; };
 		372418D91ADF33230067CDF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372418D81ADF33230067CDF0 /* AppDelegate.swift */; };
 		372418E01ADF335A0067CDF0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372418DC1ADF33590067CDF0 /* MainViewController.swift */; };
 		372418E91ADF34600067CDF0 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 372418E21ADF34600067CDF0 /* waterfall.jpg */; };
@@ -307,6 +310,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3709017E1D980747001103DA /* Appearance.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Appearance.json; sourceTree = "<group>"; };
+		370901801D98075C001103DA /* Appearance~horizontal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Appearance~horizontal.json"; sourceTree = "<group>"; };
+		370901821D98076C001103DA /* Appearance~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Appearance~vertical.json"; sourceTree = "<group>"; };
 		3709BCFD1C0B57610099B8F2 /* LMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPickerView.h; sourceTree = "<group>"; };
 		3709BCFE1C0B57610099B8F2 /* LMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPickerView.m; sourceTree = "<group>"; };
 		372418D81ADF33230067CDF0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -609,6 +615,9 @@
 				37AC28301C08B49C00BC8C87 /* Assets.xcassets */,
 				37AC28321C08B49C00BC8C87 /* LaunchScreen.storyboard */,
 				37AC28351C08B49C00BC8C87 /* Info.plist */,
+				3709017E1D980747001103DA /* Appearance.json */,
+				370901801D98075C001103DA /* Appearance~horizontal.json */,
+				370901821D98076C001103DA /* Appearance~vertical.json */,
 				37AE7CBD1CDB806A009C5AD0 /* Styles.json */,
 			);
 			path = MarkupKitDemo;
@@ -1091,9 +1100,12 @@
 			files = (
 				37C657931CF65EAC00855D89 /* IconCell.xml in Resources */,
 				37AC28341C08B49C00BC8C87 /* LaunchScreen.storyboard in Resources */,
+				370901811D98075C001103DA /* Appearance~horizontal.json in Resources */,
 				37AE7CBE1CDB806A009C5AD0 /* Styles.json in Resources */,
+				370901831D98076C001103DA /* Appearance~vertical.json in Resources */,
 				375498371C08BF6F008A6895 /* IMG_0725.jpg in Resources */,
 				37AC283F1C08B5D100BC8C87 /* ViewController.xml in Resources */,
+				3709017F1D980747001103DA /* Appearance.json in Resources */,
 				37AC28311C08B49C00BC8C87 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1462,7 +1474,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarkupKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1478,7 +1490,7 @@
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = MarkupKitDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1674,7 +1686,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1690,7 +1702,7 @@
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/MarkupKitExamples/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
 				PRODUCT_NAME = "$(TARGET_NAME)";

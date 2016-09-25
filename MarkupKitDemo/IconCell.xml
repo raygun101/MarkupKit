@@ -15,9 +15,6 @@ limitations under the License.
 -->
 
 <root>
-    <?selectedBackgroundView?>
-    <UIView backgroundColor="lightGray" layer.cornerRadius="8"/>
-
     <LMColumnView>
         <UIImageView id="imageView" contentMode="scaleAspectFit"/>
         <UILabel id="label" font="caption1" textAlignment="center"/>
