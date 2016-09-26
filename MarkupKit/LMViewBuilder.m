@@ -33,6 +33,7 @@ static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
 
 static NSString * const kLocalizedStringPrefix = @"@";
+static NSString * const kInfoPrefix = @"$";
 
 @interface LMViewBuilderInclude : NSObject
 
@@ -394,8 +395,9 @@ static NSMutableDictionary *templateCache;
             [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
             if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]]
-                    value:nil table:nil];
+                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+            } else if ([value hasPrefix:kInfoPrefix]) {
+                value = [[[NSBundle mainBundle] infoDictionary] valueForKeyPath:[value substringFromIndex:[kInfoPrefix length]]];
             }
 
             [properties setObject:value forKey:key];
