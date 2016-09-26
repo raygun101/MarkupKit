@@ -32,7 +32,7 @@ limitations under the License.
         
         <LMColumnView layoutMargins="20">
             <LMRowView class="row.first">
-                <UILabel id="greetingLabel" text="@greeting" textColor="#ff00ff"/>
+                <UILabel id="greetingLabel" text="@greeting"/>
                 <LMSpacer/>
                 <UILabel text="@missing.key" textAlignment="right" font="System 22"/>
             </LMRowView>

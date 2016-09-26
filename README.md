@@ -81,6 +81,7 @@ MarkupKit adds the following methods to `NSObject` to assist in applying propert
 
     - (void)applyMarkupPropertyValue:(nullable id)value forKey:(NSString *)key;
     - (void)applyMarkupPropertyValue:(nullable id)value forKeyPath:(NSString *)keyPath;
+    - (void)applyMarkupPropertyValues:(NSDictionary<NSString *, id> *)dictionary;
 
 Ultimately, these methods delegate to the `setValue:forKey:` method of `NSObject`. However, they allow an implementing class to override the default behavior and perform any necessary translation before the value is actually set (for example, converting a string representation of a color value to a `UIColor` instance).
 
@@ -455,6 +456,31 @@ The `root` argument is also commonly used when implementing custom table or coll
 These methods may also be called by application code to translate MarkupKit-encoded color and font values to `UIColor` and `UIFont` instances, respectively.
 
 See _LMViewBuilder.h_ for more information.
+
+### Property Templates
+Finally, `LMViewBuilder` provides the following method, which provides programmatic access to property templates:
+
+    + (NSDictionary<NSString *, NSDictionary<NSString *, id> *> *)templatesWithName:(NSString *)name 
+        traitCollection:(UITraitCollection *)traitCollection;
+
+Any size class-specific properties are resolved by the method before the dictionary is returned. 
+
+When used in conjunction with the `applyMarkupPropertyValues:` method added to `NSObject`, `templatesWithName:traitCollection:` enables an application to easily manage the appearance of user interface elements that are created by the UIKit framework, such as the navigation bar of a navigation controller. For example:
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        navigationController?.navigationBar.applyMarkupPropertyValues(LMViewBuilder.templates(withName: "ViewController", 
+            traitCollection: traitCollection)["navigationBar"]!)
+    }
+
+If _ViewController.json_ is defined as follows, the preceding code would produce a "black"-style navigation bar with white text and a dark gray bar tint color:
+
+    "navigationBar": {
+        "barStyle": "black",
+        "tintColor": "#ffffff",
+        "barTintColor": "#444444"
+    }
 
 ## LMTableView and LMTableViewCell
 The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of table view content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.

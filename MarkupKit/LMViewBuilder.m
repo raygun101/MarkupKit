@@ -77,9 +77,11 @@ static NSMutableDictionary *templateCache;
     NSBundle *mainBundle = [NSBundle mainBundle];
 
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-        NSString *sizeClass = [LMViewBuilder sizeClassForOwner:owner];
+        NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
 
-        url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
+        if (sizeClass != nil) {
+            url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
+        }
     }
 
     if (url == nil) {
@@ -108,10 +110,8 @@ static NSMutableDictionary *templateCache;
     return view;
 }
 
-+ (NSString *)sizeClassForOwner:(id<UITraitEnvironment>)owner
++ (NSString *)sizeClassForTraitCollection:(UITraitCollection *)traitCollection
 {
-    UITraitCollection *traitCollection = [owner traitCollection];
-
     UIUserInterfaceSizeClass horizontalSizeClass = [traitCollection horizontalSizeClass];
     UIUserInterfaceSizeClass verticalSizeClass = [traitCollection verticalSizeClass];
 
@@ -122,8 +122,10 @@ static NSMutableDictionary *templateCache;
         sizeClass = kHorizontalSizeClass;
     } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
         sizeClass = kVerticalSizeClass;
-    } else {
+    } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
         sizeClass = kMinimalSizeClass;
+    } else {
+        sizeClass = nil;
     }
 
     return sizeClass;
@@ -207,7 +209,22 @@ static NSMutableDictionary *templateCache;
     return font;
 }
 
-+ (NSDictionary *)templatesWithName:(NSString *)name error:(NSError **)error
++ (NSDictionary *)templatesWithName:(NSString *)name traitCollection:(UITraitCollection *)traitCollection
+{
+    NSMutableDictionary *templates = [NSMutableDictionary new];
+
+    [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:name] into:templates];
+
+    NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:traitCollection];
+
+    if (sizeClass != nil) {
+        [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] into:templates];
+    }
+
+    return templates;
+}
+
++ (NSDictionary *)templatesWithName:(NSString *)name
 {
     NSDictionary *templates = [templateCache objectForKey:name];
 
@@ -215,15 +232,36 @@ static NSMutableDictionary *templateCache;
         NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
 
         if (path != nil) {
-            templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path] options:0 error:error];
+            NSError *error = nil;
 
-            if (*error == nil) {
-                [templateCache setObject:templates forKey:name];
+            templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
+                options:0 error:&error];
+
+            if (error != nil) {
+                [NSException raise:NSGenericException format:@"%@: %@", path,
+                    [[error userInfo] objectForKey:@"NSDebugDescription"]];
             }
+
+            [templateCache setObject:templates forKey:name];
         }
     }
 
     return templates;
+}
+
++ (void)mergeDictionary:(NSDictionary *)dictionary into:(NSMutableDictionary *)templates
+{
+    for (NSString *key in dictionary) {
+        NSMutableDictionary *template = (NSMutableDictionary *)[templates objectForKey:key];
+
+        if (template == nil) {
+            template = [NSMutableDictionary new];
+
+            [templates setObject:template forKey:key];
+        }
+
+        [template addEntriesFromDictionary:(NSDictionary *)[dictionary objectForKey:key]];
+    }
 }
 
 - (instancetype)init
@@ -268,27 +306,20 @@ static NSMutableDictionary *templateCache;
     if ([target isEqual:kPropertiesTarget]) {
         // Merge templates
         if ([_views count] == 0) {
-            NSError *error = nil;
-
             if ([data hasPrefix:@"{"]) {
-                [self mergeTemplates:[NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-                    options:0 error:&error]];
-            } else {
-                [self mergeTemplates:[LMViewBuilder templatesWithName:data error:&error]];
+                NSError *error = nil;
 
-                if (error == nil && [_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-                    NSString *sizeClass = [LMViewBuilder sizeClassForOwner:_owner];
+                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                    options:0 error:&error];
 
-                    [self mergeTemplates:[LMViewBuilder templatesWithName:[NSString stringWithFormat:kSizeClassFormat, data, sizeClass]
-                        error:&error]];
+                if (error != nil) {
+                    [NSException raise:NSGenericException format:@"Line %ld: %@", [parser lineNumber],
+                        [[error userInfo] objectForKey:@"NSDebugDescription"]];
                 }
-            }
 
-            if (error != nil) {
-                NSDictionary *userInfo = [error userInfo];
-
-                [NSException raise:NSGenericException format:@"Error reading properties: \"%@\"",
-                    [userInfo objectForKey:@"NSDebugDescription"]];
+                [LMViewBuilder mergeDictionary:dictionary into:_templates];
+            } else {
+                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:[_owner traitCollection]] into:_templates];
             }
         }
     } else if ([target isEqual:kIncludeTarget]) {
@@ -303,21 +334,6 @@ static NSMutableDictionary *templateCache;
         if ([view isKindOfClass:[UIView self]]) {
             [view processMarkupInstruction:target data:data];
         }
-    }
-}
-
-- (void)mergeTemplates:(NSDictionary *)templates
-{
-    for (NSString *key in templates) {
-        NSMutableDictionary *template = (NSMutableDictionary *)[_templates objectForKey:key];
-
-        if (template == nil) {
-            template = [NSMutableDictionary new];
-
-            [_templates setObject:template forKey:key];
-        }
-
-        [template addEntriesFromDictionary:(NSDictionary *)[templates objectForKey:key]];
     }
 }
 
@@ -446,18 +462,12 @@ static NSMutableDictionary *templateCache;
             for (NSString *component in components) {
                 NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-                NSDictionary *template = [_templates objectForKey:name];
-
-                for (NSString *key in template) {
-                    [view applyMarkupPropertyValue:[template objectForKey:key] forKeyPath:key];
-                }
+                [view applyMarkupPropertyValues:[_templates objectForKey:name]];
             }
         }
 
         // Apply instance properties
-        for (NSString *key in properties) {
-            [view applyMarkupPropertyValue:[properties objectForKey:key] forKeyPath:key];
-        }
+        [view applyMarkupPropertyValues:properties];
 
         // Add action handlers
         for (NSNumber *key in actions) {

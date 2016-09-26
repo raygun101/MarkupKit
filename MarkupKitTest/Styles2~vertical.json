@@ -3,7 +3,9 @@
 		"layer.borderColor": "#f0f0f0",
 		"layer.borderWidth": 8
     },
-
+    "label.greeting": {
+        "textColor": "#00cc00"
+    },
 	"row.second": {
 		"layer.borderColor": "#00cc00",
 		"layer.borderWidth": 8
