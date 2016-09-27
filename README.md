@@ -267,11 +267,6 @@ Multiple templates can be applied to a view using a comma-separated list of temp
 
 Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
 
-#### Appearance Proxies
-TODO
-
-Appearance proxy templates require iOS 9 or later.
-
 ### Outlets
 The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner (generally either the view controller for the root view or the root view itself), allowing the application to interact with it.
 
