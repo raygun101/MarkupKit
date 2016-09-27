@@ -43,7 +43,7 @@ limitations under the License.
             </foo>
 
             <LMRowView class="row.second">
-                <UILabel text="$CFBundleShortVersionString" class="large, blue"/>
+                <UILabel text="12345" class="large, blue"/>
                 <LMSpacer/>
                 <UIButton style="systemButton" title="@prompt"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"

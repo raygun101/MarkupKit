@@ -204,13 +204,6 @@ If a localized value is not found, the key will be used instead. For example, if
 
 This allows developers to easily identify missing string resources at runtime.
 
-### Bundle Info
-If an attribute's value begins with "$", MarkupKit attempts to look up the corresponding value from _Info.plist_. For example, the following markup declares an instance of `UILabel` that displays the application's short version string:
-
-    <UILabel text="$CFBundleShortVersionString"/>
-
-Custom values are supported. Nested values can be accessed via key path.
-
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
 
