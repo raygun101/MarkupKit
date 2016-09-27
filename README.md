@@ -113,11 +113,32 @@ This example creates a column view whose background color is set to a semi-trans
     <LMColumnView backgroundColor="#ffffff66">
         ...
     </LMColumnView>
-    
-Named color values correspond to the color preset methods of `UIColor`, such as `darkGrayColor`. The attribute value is the name of the method minus the "Color" suffix; for example:
 
-    <UIButton style="systemButton" color="green"/>
+#### Named Colors
+A named color value may refer to either a color in the application's "color table" or a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] codes. The names can be used thoroughout the application in place of the actual hex values.
 
+For example, the following property list defines a color named "darkRed":
+
+    <plist version="1.0">
+    <dict>
+        <key>darkRed</key>
+        <string>#8b0000</string>
+    </dict>
+    </plist>
+
+This markup creates an instance of `UILabel` whose text color will be set to the value that "darkRed" refers to in the property list, "#8b0000":
+
+    <UILabel text="A Dark Red Label" textColor="darkRed"/>
+
+Named colors may also refer to the color preset methods of `UIColor`, such as `darkGrayColor`. The value is the name of the accessor method minus the "Color" suffix. 
+
+For example, the following markup would produce a system-style button whose tint color is set to the value returned by the `greenColor` method of `UIColor`:
+
+    <UIButton style="systemButton" tintColor="green"/>
+
+However, colors in the color table take precedence over `UIColor` constants. If _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by the `greenColor` method.
+
+#### Pattern Images
 Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
 
     <LMTableView backgroundColor="tile.png">

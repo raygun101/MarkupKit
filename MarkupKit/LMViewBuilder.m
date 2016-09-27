@@ -47,6 +47,7 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
 @end
 
+static NSMutableDictionary *colorTable;
 static NSMutableDictionary *templateCache;
 
 @implementation LMViewBuilder
@@ -62,6 +63,26 @@ static NSMutableDictionary *templateCache;
 
 + (void)initialize
 {
+    colorTable = [NSMutableDictionary new];
+
+    NSString *colorTablePath = [[NSBundle mainBundle] pathForResource:@"Colors" ofType:@"plist"];
+
+    if (colorTablePath != nil) {
+        NSError *error = nil;
+
+        NSDictionary *colorTableValues = [NSPropertyListSerialization propertyListWithData:[NSData dataWithContentsOfFile:colorTablePath]
+            options:0 format:nil error:&error];
+
+        if (error != nil) {
+            [NSException raise:NSGenericException format:@"%@: %@", colorTablePath,
+                [[error userInfo] objectForKey:@"NSDebugDescription"]];
+        }
+
+        for (NSString *key in colorTableValues) {
+            [colorTable setObject:[LMViewBuilder colorValue:[colorTableValues objectForKey:key]] forKey:key];
+        }
+    }
+
     templateCache = [NSMutableDictionary new];
 }
 
@@ -147,15 +168,19 @@ static NSMutableDictionary *templateCache;
             color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
         }
     } else {
-        NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
+        color = [colorTable objectForKey:value];
 
-        if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
-            color = [[UIColor self] valueForKey:selectorName];
-        } else {
-            UIImage *image = [UIImage imageNamed:value];
+        if (color == nil) {
+            NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
 
-            if (image != nil) {
-                color = [UIColor colorWithPatternImage:image];
+            if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
+                color = [[UIColor self] valueForKey:selectorName];
+            } else {
+                UIImage *image = [UIImage imageNamed:value];
+
+                if (image != nil) {
+                    color = [UIColor colorWithPatternImage:image];
+                }
             }
         }
     }

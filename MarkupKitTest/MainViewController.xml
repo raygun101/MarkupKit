@@ -51,7 +51,7 @@ limitations under the License.
             </LMRowView>
 
             <UIButton style="systemButton" title="@prompt" image="Right"
-                tintColor="#ff0000" backgroundColor="#ffffff"
+                tintColor="red" backgroundColor="#ffffff"
                 contentEdgeInsets="16" imageEdgeInsetRight="8"
                 clipsToBounds="true"
                 layer.borderColor="#808080"
@@ -83,7 +83,7 @@ limitations under the License.
 
             <LMRowView>
                 <LMSpacer/>
-                <UISwitch on="false" onTintColor="#22446688" onValueChanged="handleSwitchValueChanged:"/>
+                <UISwitch on="false" onTintColor="fireBrick" onValueChanged="handleSwitchValueChanged:"/>
             </LMRowView>
 
             <LMRowView layoutMargins="12" backgroundColor="#ffffff">

@@ -72,6 +72,7 @@
 		3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
 		3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackViewController.xml */; };
+		378591DD1D9AEA6E00A4849D /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 378591DC1D9AEA6E00A4849D /* Colors.plist */; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
 		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
@@ -400,6 +401,7 @@
 		3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
 		3781C9061C399CC500F324A4 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
+		378591DC1D9AEA6E00A4849D /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 				378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */,
 				37B070861ADEBEB000A92FCF /* Info.plist */,
 				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
+				378591DC1D9AEA6E00A4849D /* Colors.plist */,
 				37AE7CC31CDB9E0C009C5AD0 /* Styles1.json */,
 				375BE3E11CB859A100566793 /* Styles2.json */,
 				3761559B1D9567CE001BDC2D /* Styles2~horizontal.json */,
@@ -1119,6 +1122,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				378591DD1D9AEA6E00A4849D /* Colors.plist in Resources */,
 				378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */,
 				3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */,
 				375BE3E21CB859A100566793 /* Styles2.json in Resources */,
