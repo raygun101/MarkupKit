@@ -313,7 +313,7 @@ static NSMutableDictionary *templateCache;
                     options:0 error:&error];
 
                 if (error != nil) {
-                    [NSException raise:NSGenericException format:@"Line %ld: %@", [parser lineNumber],
+                    [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber],
                         [[error userInfo] objectForKey:@"NSDebugDescription"]];
                 }
 
