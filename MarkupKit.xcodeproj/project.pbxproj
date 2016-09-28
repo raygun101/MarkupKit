@@ -75,6 +75,7 @@
 		378591DD1D9AEA6E00A4849D /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 378591DC1D9AEA6E00A4849D /* Colors.plist */; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
+		379A04971D9C712A0070DD6D /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 379A04961D9C712A0070DD6D /* Fonts.plist */; };
 		379C022C1C6609C900DEB95E /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0031B34D27B00B31987 /* LMLayoutView.m */; };
 		379C022D1C6609C900DEB95E /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F0071B34D28500B31987 /* LMBoxView.m */; };
 		379C022E1C6609C900DEB95E /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3742F00B1B34D28C00B31987 /* LMColumnView.m */; };
@@ -404,6 +405,7 @@
 		378591DC1D9AEA6E00A4849D /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		379A04961D9C712A0070DD6D /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
 		379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSpacer.h; sourceTree = "<group>"; };
 		379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMSpacer.m; sourceTree = "<group>"; };
 		37A9FC141C107D9200A09102 /* LMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMGradientView.h; sourceTree = "<group>"; };
@@ -738,8 +740,9 @@
 				37B0708E1ADEBEB000A92FCF /* Images.xcassets */,
 				378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */,
 				37B070861ADEBEB000A92FCF /* Info.plist */,
-				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
 				378591DC1D9AEA6E00A4849D /* Colors.plist */,
+				379A04961D9C712A0070DD6D /* Fonts.plist */,
+				3BFF6E061B307F4F00FE62DD /* Localizable.strings */,
 				37AE7CC31CDB9E0C009C5AD0 /* Styles1.json */,
 				375BE3E11CB859A100566793 /* Styles2.json */,
 				3761559B1D9567CE001BDC2D /* Styles2~horizontal.json */,
@@ -1127,6 +1130,7 @@
 				3BFF6E041B307F4F00FE62DD /* Localizable.strings in Resources */,
 				375BE3E21CB859A100566793 /* Styles2.json in Resources */,
 				3B88C8DB1B1E2D3A00C34E8A /* Main.storyboard in Resources */,
+				379A04971D9C712A0070DD6D /* Fonts.plist in Resources */,
 				372418EC1ADF34600067CDF0 /* MainViewController.xml in Resources */,
 				3B09976C1B21DBAD001BF85C /* MainViewController.strings in Resources */,
 				37AE7CC41CDB9E0C009C5AD0 /* Styles1.json in Resources */,

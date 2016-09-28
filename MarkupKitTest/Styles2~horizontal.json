@@ -4,6 +4,7 @@
 		"layer.borderWidth": 2
     },
     "label.greeting": {
+        "font": "monospaced",
         "textColor": "#aa4e0c"
     },
 	"row.second": {

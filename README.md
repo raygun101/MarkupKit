@@ -115,7 +115,7 @@ This example creates a column view whose background color is set to a semi-trans
     </LMColumnView>
 
 #### Named Colors
-A named color value may refer to either a color in the application's "color table" or a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] codes. The names can be used thoroughout the application in place of the actual hex values.
+A named color value may refer to either a color in the application's "color table" or to a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] values. The names can be used thoroughout the application in place of the actual hex values.
 
 For example, the following property list defines a color named "darkRed":
 
@@ -136,7 +136,7 @@ For example, the following markup would produce a system-style button whose tint
 
     <UIButton style="systemButton" tintColor="green"/>
 
-However, colors in the color table take precedence over `UIColor` constants. If _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by the `greenColor` method.
+Color table entries take precedence over `UIColor` constants. For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by the `greenColor` method.
 
 #### Pattern Images
 Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
@@ -150,19 +150,39 @@ Images are discussed in more detail below.
 ### Fonts
 The value of any attribute whose name is equal to or ends with "font" is converted to an instance of `UIFont` before the property value is set. Fonts in MarkupKit are specified in one of two ways:
 
-* As an explicitly named font, using the full name of the font, followed by a space and the font size; for example, "HelveticaNeue-Medium 24"
-* As a dynamic font, using the name of the text style; e.g. "headline"
+* As an explicitly named font, using the full name of the font followed by a space and the font size
+* As a text style; e.g. "body"
 
 For example, the following markup creates a `UILabel` that reads "This is Helvetica 24 text" and sets its font to 24-point Helvetica:
 
     <UILabel text="This is Helvetica 24 text" font="Helvetica 24"/>
 
-This markup creates a `UILabel` that reads "This is headline text" and sets its font to whatever is currently configured for the "headline" text style:
+The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
+
+#### Text Styles
+A text style refers to either an entry in the application's "font table" or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used thoroughout the application in place of the actual font names.
+
+For example, the following property list defines a text style named "monospaced":
+
+    <plist version="1.0">
+    <dict>
+        <key>monospaced</key>
+        <string>Courier 12</string>
+    </dict>
+    </plist>
+
+This markup creates an instance of `UILabel` whose font will be set to the value that "monospaced" refers to in the property list, "Courier 12":
+
+    <UILabel text="This is monospaced text" font="monospaced"/>
+
+Style names may also refer to system-defined text styles such as `UIFontTextStyleHeadline`. The value is the name of the style constant minus the leading "UIFontTextStyle" prefix, with a leading lowercase letter.
+
+For example, the following markup would produce a label whose font is set to whatever is currently associated with the system's "headline" text style:
 
     <UILabel text="This is headline text" font="headline"/>
 
-The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
-
+Font table entries take precedence over system style constants. For example, if _Fonts.plist_ defined a value for "headline", the corresponding font would be used instead of the value associated with the `UIFontTextStyleHeadline` constant.
+    
 ### Images
 The value of any attribute whose name is equal to or ends with "image" is converted to an instance of `UIImage` before the property value is set. The image is loaded from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
 

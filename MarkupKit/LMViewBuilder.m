@@ -48,6 +48,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
 @end
 
 static NSMutableDictionary *colorTable;
+static NSMutableDictionary *fontTable;
+
 static NSMutableDictionary *templateCache;
 
 @implementation LMViewBuilder
@@ -80,6 +82,26 @@ static NSMutableDictionary *templateCache;
 
         for (NSString *key in colorTableValues) {
             [colorTable setObject:[LMViewBuilder colorValue:[colorTableValues objectForKey:key]] forKey:key];
+        }
+    }
+
+    fontTable = [NSMutableDictionary new];
+
+    NSString *fontTablePath = [[NSBundle mainBundle] pathForResource:@"Fonts" ofType:@"plist"];
+
+    if (fontTablePath != nil) {
+        NSError *error = nil;
+
+        NSDictionary *fontTableValues = [NSPropertyListSerialization propertyListWithData:[NSData dataWithContentsOfFile:fontTablePath]
+            options:0 format:nil error:&error];
+
+        if (error != nil) {
+            [NSException raise:NSGenericException format:@"%@: %@", fontTablePath,
+                [[error userInfo] objectForKey:@"NSDebugDescription"]];
+        }
+
+        for (NSString *key in fontTableValues) {
+            [fontTable setObject:[LMViewBuilder fontValue:[fontTableValues objectForKey:key]] forKey:key];
         }
     }
 
@@ -190,43 +212,45 @@ static NSMutableDictionary *templateCache;
 
 + (UIFont *)fontValue:(NSString *)value
 {
-    UIFont *font = nil;
+    UIFont *font = [fontTable objectForKey:value];
 
-    if ([value isEqual:@"title1"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
-    } else if ([value isEqual:@"title2"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
-    } else if ([value isEqual:@"title3"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
-    } else if ([value isEqual:@"headline"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
-    } else if ([value isEqual:@"subheadline"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-    } else if ([value isEqual:@"body"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    } else if ([value isEqual:@"callout"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
-    } else if ([value isEqual:@"footnote"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
-    } else if ([value isEqual:@"caption1"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
-    } else if ([value isEqual:@"caption2"]) {
-        font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
-    } else {
-        NSArray *components = [value componentsSeparatedByString:@" "];
+    if (font == nil) {
+        if ([value isEqual:@"title1"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
+        } else if ([value isEqual:@"title2"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle2];
+        } else if ([value isEqual:@"title3"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle3];
+        } else if ([value isEqual:@"headline"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
+        } else if ([value isEqual:@"subheadline"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+        } else if ([value isEqual:@"body"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
+        } else if ([value isEqual:@"callout"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleCallout];
+        } else if ([value isEqual:@"footnote"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+        } else if ([value isEqual:@"caption1"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+        } else if ([value isEqual:@"caption2"]) {
+            font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+        } else {
+            NSArray *components = [value componentsSeparatedByString:@" "];
 
-        if ([components count] == 2) {
-            NSString *fontName = [components objectAtIndex:0];
-            CGFloat fontSize = [[components objectAtIndex:1] floatValue];
+            if ([components count] == 2) {
+                NSString *fontName = [components objectAtIndex:0];
+                CGFloat fontSize = [[components objectAtIndex:1] floatValue];
 
-            if ([fontName isEqual:@"System"]) {
-                font = [UIFont systemFontOfSize:fontSize];
-            } else if ([fontName isEqual:@"System-Bold"]) {
-                font = [UIFont boldSystemFontOfSize:fontSize];
-            } else if ([fontName isEqual:@"System-Italic"]) {
-                font = [UIFont italicSystemFontOfSize:fontSize];
-            } else {
-                font = [UIFont fontWithName:fontName size:fontSize];
+                if ([fontName isEqual:@"System"]) {
+                    font = [UIFont systemFontOfSize:fontSize];
+                } else if ([fontName isEqual:@"System-Bold"]) {
+                    font = [UIFont boldSystemFontOfSize:fontSize];
+                } else if ([fontName isEqual:@"System-Italic"]) {
+                    font = [UIFont italicSystemFontOfSize:fontSize];
+                } else {
+                    font = [UIFont fontWithName:fontName size:fontSize];
+                }
             }
         }
     }

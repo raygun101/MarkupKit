@@ -4,6 +4,7 @@
 		"layer.borderWidth": 8
     },
     "label.greeting": {
+        "font": "body",
         "textColor": "#00cc00"
     },
 	"row.second": {
