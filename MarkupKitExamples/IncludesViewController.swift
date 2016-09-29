@@ -15,13 +15,13 @@
 import UIKit
 import MarkupKit
 
-class IncludesController: UIViewController {
+class IncludesViewController: UIViewController {
     var firstLabel: UILabel!
     var secondLabel: UILabel!
     var thirdLabel: UILabel!
 
     override func loadView() {
-        view = LMViewBuilder.view(withName: "IncludesController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "IncludesViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {

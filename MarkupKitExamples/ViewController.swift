@@ -79,7 +79,9 @@ class ViewController: UITableViewController {
         } else if (value == "mapView") {
             navigationController!.pushViewController(MapViewController(), animated: true)
         } else if (value == "includes") {
-            navigationController!.pushViewController(IncludesController(), animated: true)
+            navigationController!.pushViewController(IncludesViewController(), animated: true)
+        } else if (value == "colorsAndFonts") {
+            navigationController!.pushViewController(ColorsAndFontsViewController(), animated: true)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
