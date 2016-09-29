@@ -40,11 +40,11 @@ class MainViewController: UIViewController {
     @IBAction func handleButtonTouchUpInside(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) {(action) in
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel) { action in
             print("User tapped Cancel")
         })
 
-        alertController.addAction(UIAlertAction(title: "OK", style: .default) {(action) in
+        alertController.addAction(UIAlertAction(title: "OK", style: .default) { action in
             print("User tapped OK")
         })
 
