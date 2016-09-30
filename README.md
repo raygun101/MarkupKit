@@ -108,14 +108,14 @@ For example, the following markup creates a label whose text color is set to "#f
 
     <UILabel text="A Red Label" textColor="#ff0000"/>
     
-This example creates a column view whose background color is set to a semi-transparent white:
+This markup creates a column view whose background color is set to a semi-transparent white:
 
     <LMColumnView backgroundColor="#ffffff66">
         ...
     </LMColumnView>
 
 #### Named Colors
-A named color value may refer to either a color in the application's "color table" or to a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] values. The names can be used thoroughout the application in place of the actual hex values.
+A named color value may refer to either a color in the application's color table or to a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] values. The names can be used thoroughout the application in place of the actual hex values.
 
 For example, the following property list defines a color named "darkRed":
 
@@ -160,7 +160,7 @@ For example, the following markup creates a `UILabel` that reads "This is Helvet
 The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
 
 #### Text Styles
-A text style refers to either an entry in the application's "font table" or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used thoroughout the application in place of the actual font names.
+A text style refers to either an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used thoroughout the application in place of the actual font names.
 
 For example, the following property list defines a text style named "monospaced":
 
