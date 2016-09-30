@@ -27,4 +27,13 @@ class ColorsAndFontsViewController: UIViewController {
 
         edgesForExtendedLayout = UIRectEdge()
     }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if (previousTraitCollection != nil) {
+            loadView()
+            viewDidLoad()
+        }
+    }
 }

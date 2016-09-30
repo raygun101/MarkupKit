@@ -1,0 +1,15 @@
+{
+    "columnView.list": {
+        "layoutMargins": 18
+    },
+
+    "imageView.icon": {
+        "tintColor": "icon",
+        "contentMode": "scaleAspectFit"
+    },
+
+    "label.description": {
+        "font": "description",
+        "textColor": "text"
+    }
+}

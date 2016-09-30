@@ -14,8 +14,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView backgroundColor="#ffffff">
-    <!-- 
-    TODO: Declare view content 
-    -->
-</LMColumnView>
+<?properties ColorsAndFontsViewController?>
+
+<LMLayerView backgroundColor="background" layoutMarginsRelativeArrangement="false">
+    <LMColumnView class="columnView.list">
+        <LMRowView>
+            <UIImageView image="phone_icon" class="imageView.icon"/>
+            <UILabel text="Phone" class="label.description" weight="1"/>
+        </LMRowView>
+
+        <LMRowView>
+            <UIImageView image="fax_icon" class="imageView.icon"/>
+            <UILabel text="Fax" class="label.description" weight="1"/>
+        </LMRowView>
+
+        <LMRowView>
+            <UIImageView image="email_icon" class="imageView.icon"/>
+            <UILabel text="Email" class="label.description" weight="1"/>
+        </LMRowView>
+
+        <LMSpacer/>
+    </LMColumnView>
+</LMLayerView>

@@ -182,6 +182,8 @@
 		37D36AC81BB1DDCE008E36FD /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC51BB1DDCE008E36FD /* chevy.png */; };
 		37D36AC91BB1DDCE008E36FD /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC61BB1DDCE008E36FD /* mini.png */; };
 		37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 37D36AC71BB1DDCE008E36FD /* vw.png */; };
+		37DFBCBD1D9E923400FDFD86 /* ColorsAndFontsViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 37DFBCBC1D9E923400FDFD86 /* ColorsAndFontsViewController.json */; };
+		37DFBCBF1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 37DFBCBE1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json */; };
 		37DFDA3E1D9DC8D400AFA7C2 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37DFDA3D1D9DC8D400AFA7C2 /* Colors.plist */; };
 		37DFDA401D9DC8E300AFA7C2 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 37DFDA3F1D9DC8E300AFA7C2 /* Fonts.plist */; };
 		37DFDA431D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DFDA411D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.swift */; };
@@ -472,6 +474,8 @@
 		37D36AC71BB1DDCE008E36FD /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
 		37D947881C19B7BC00D323C4 /* UITextField+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Markup.h"; sourceTree = "<group>"; };
 		37D947891C19B7BC00D323C4 /* UITextField+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Markup.m"; sourceTree = "<group>"; };
+		37DFBCBC1D9E923400FDFD86 /* ColorsAndFontsViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorsAndFontsViewController.json; sourceTree = "<group>"; };
+		37DFBCBE1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFontsViewController~vertical.json"; sourceTree = "<group>"; };
 		37DFDA3D1D9DC8D400AFA7C2 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		37DFDA3F1D9DC8E300AFA7C2 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
 		37DFDA411D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsAndFontsViewController.swift; sourceTree = "<group>"; };
@@ -832,6 +836,8 @@
 				37724BF01D7F136D00A6010C /* ThirdRowView.xml */,
 				37DFDA411D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.swift */,
 				37DFDA421D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.xml */,
+				37DFBCBC1D9E923400FDFD86 /* ColorsAndFontsViewController.json */,
+				37DFBCBE1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -1181,7 +1187,9 @@
 				37C806C41BEE37D000196FD6 /* ScrollViewController.xml in Resources */,
 				375FCE2A1C39B80100B91718 /* DifferentWidthViewController.xml in Resources */,
 				3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */,
+				37DFBCBF1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
+				37DFBCBD1D9E923400FDFD86 /* ColorsAndFontsViewController.json in Resources */,
 				37A9FC271C108D7A00A09102 /* RadialGradientViewController.xml in Resources */,
 				37D0723F1C26E7CB006BFA76 /* SizeClassViewController.xml in Resources */,
 				375FCE2C1C39B80900B91718 /* ComplexWidthViewController.xml in Resources */,

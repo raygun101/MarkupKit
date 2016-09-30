@@ -1,0 +1,9 @@
+{
+    "columnView.list": {
+        "layoutMargins": 12
+    },
+
+    "label.description": {
+        "font": "description_small",
+    }
+}
