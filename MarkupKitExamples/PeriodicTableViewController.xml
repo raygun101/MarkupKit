@@ -18,9 +18,11 @@ limitations under the License.
     "table": {
         "spacing": 4
     },
+
     "row": {
         "spacing": 4
     },
+
     "cell": {
         "width": 48,
         "height": 48,
@@ -28,45 +30,58 @@ limitations under the License.
         "textColor": "#0c47a7",
         "textAlignment": "center"
     },
+
     "element": {
         "layer.borderWidth": 0.5,
         "layer.borderColor": "#8d1af6"
     },
+
     "legend": {
         "font": "System 12",
         "textAlignment": "center",
         "numberOfLines": 0
     },
+
     "alkali-metal": {
         "backgroundColor": "#ff6268"
     },
+
     "alkaline-earth-metal": {
         "backgroundColor": "#ffddb2"
     },
+
     "lanthanide": {
         "backgroundColor": "#ffbffb"
     },
+
     "actinide": {
         "backgroundColor": "#ff98c9"
     },
+
     "transition-metal": {
         "backgroundColor": "#ffbfc1"
     },
+
     "post-transition-metal": {
         "backgroundColor": "#cccccc"
     },
+
     "metalloid": {
         "backgroundColor": "#cbcc9e"
     },
+
     "polyatomic-nonmetal": {
         "backgroundColor": "#9cffc8"
     },
+
     "diatomic-nonmetal": {
         "backgroundColor": "#e5ff9c"
     },
+
     "noble-gas": {
         "backgroundColor": "#beffff"
     },
+
     "unknown": {
         "backgroundColor": "#e8e8e8"
     }

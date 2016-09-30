@@ -16,11 +16,14 @@ limitations under the License.
 
 <?properties Styles1?>
 <?properties Styles2?>
+
 <?properties Missing?>
+
 <?properties {
     "large": {
         "font": "Helvetica-Bold 32"
     },
+
     "blue": {
         "textColor": "#0000ff"
     }
