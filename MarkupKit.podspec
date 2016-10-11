@@ -3,10 +3,10 @@ Pod::Spec.new do |s|
   s.version          = '2.5'
   s.summary          = 'Declarative UI for iOS applications'
   s.description      = <<-DESC
-    MarkupKit is a framework for simplifying development of native iOS applications. It allows
-    developers to construct user interfaces declaratively using a human-readable markup language,
-    rather than programmatically in code or interactively using a visual modeling tool such as
-    Interface Builder.
+    MarkupKit is an open-source framework for simplifying development of native iOS
+    applications. It allows developers to construct user interfaces declaratively using a
+    human-readable markup language, rather than visually using Interface Builder or
+    programmatically in code.
     DESC
   s.homepage         = 'https://github.com/gk-brown/MarkupKit'
   s.license          = 'Apache License, Version 2.0'
