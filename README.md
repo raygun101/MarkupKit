@@ -10,11 +10,20 @@ The output produced by this markup is identical to the output of the following S
     let label = UILabel()
     label.text = "Hello, World!"
 
-This guide introduces the MarkupKit framework and provides an overview of its key features. The next section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
+This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
+
+For more information, please see the following:
+
+* [Overview](https://github.com/gk-brown/MarkupKit/wiki/Overview) - Brief introduction to key features
+* [Getting Started](https://github.com/gk-brown/MarkupKit/wiki/Getting-Started) - "Hello, World"-style tutorial
+* [Demo](https://github.com/gk-brown/MarkupKit/wiki/Demo) - Demonstration of common user interface elements implemented in markup
+* [Sample Application](https://github.com/gk-brown/MarkupKit/wiki/Sample-Application) - Simple application demonstrating "real-world" usage of common MarkupKit features
+* [Examples](https://github.com/gk-brown/MarkupKit/wiki/Examples) - Code samples highlighting key features
+* [Templates](https://github.com/gk-brown/MarkupKit/wiki/Templates) - Xcode templates for simplifying MarkupKit development
+* [Deployment](https://github.com/gk-brown/MarkupKit/wiki/Deployment) - Guide to deploying MarkupKit-based applications
+* [Articles](https://github.com/gk-brown/MarkupKit/wiki/Articles) - Articles about MarkupKit
 
 MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
-
-For examples and additional information, including a tutorial on getting started with MarkupKit, please see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 # Contents
 * [Document Structure](#document-structure)
@@ -35,7 +44,7 @@ For examples and additional information, including a tutorial on getting started
 * [Additional Information](#additional-information)
 
 # Document Structure
-MarkupKit uses XML to define the structure of a user interface. In a MarkupKit document, XML elements typically represent `UIView` instances, and XML attributes generally represent properties of those views. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
+MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
 
 ## Elements
 Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. 
@@ -231,7 +240,9 @@ Additionally, MarkupKit adds properties to these view types that allow edge inse
 These extensions are discussed in more detail later.
 
 ### Localization
-If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
+If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. 
+
+For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
     "hello" = "Hello, World!";
 
@@ -239,11 +250,7 @@ the following markup will produce an instance of `UILabel` with the value of its
 
     <UILabel text="@hello"/>
 
-If a localized value is not found, the key will be used instead. For example, if the application does not provide a localized value for "goodbye", the following markup will produce a label containing the literal text "goodbye":
-
-    <UILabel text="@goodbye"/>
-
-This allows developers to easily identify missing string resources at runtime.
+If a localized value is not found, the key will be used instead. This allows developers to easily identify missing string resources at runtime.
 
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
