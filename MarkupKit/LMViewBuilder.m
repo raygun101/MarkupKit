@@ -34,12 +34,16 @@ static NSString * const kOutletKey = @"id";
 
 static NSString * const kLocalizedStringPrefix = @"@";
 
+@interface LMIncludeContainerView : UIView
+
+@end
+
 @interface LMViewBuilderInclude : NSObject
 
-@property (nonatomic) UIView *parent;
+@property (nonatomic) LMIncludeContainerView *container;
 @property (nonatomic) NSString *name;
 
-- (instancetype)initWithParent:(UIView *)parent name:(NSString *)name;
+- (instancetype)initWithContainer:(LMIncludeContainerView *)container name:(NSString *)name;
 
 @end
 
@@ -146,7 +150,7 @@ static NSMutableDictionary *templateCache;
         for (LMViewBuilderInclude *include in [viewBuilder includes]) {
             UIView *child = [LMViewBuilder viewWithName:[include name] owner:owner root:nil templates:[viewBuilder templates]];
 
-            [[include parent] appendMarkupElementView:child];
+            [[include container] appendMarkupElementView:child];
         }
     }
 
@@ -374,7 +378,15 @@ static NSMutableDictionary *templateCache;
     } else if ([target isEqual:kIncludeTarget]) {
         // Push include
         if ([_views count] > 0) {
-            [_includes addObject:[[LMViewBuilderInclude alloc] initWithParent:[_views lastObject] name:data]];
+            id superview = [_views lastObject];
+            
+            if ([superview isKindOfClass:[UIView self]]) {
+                LMIncludeContainerView *container = [LMIncludeContainerView new];
+
+                [superview appendMarkupElementView:container];
+
+                [_includes addObject:[[LMViewBuilderInclude alloc] initWithContainer:container name:data]];
+            }
         }
     } else {
         // Notify view
@@ -564,14 +576,43 @@ static NSMutableDictionary *templateCache;
 
 @end
 
+@implementation LMIncludeContainerView
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self addSubview:view];
+    
+    NSMutableArray *constraints = [NSMutableArray new];
+
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
+        multiplier:1 constant:0]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
+        multiplier:1 constant:0]];
+
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft
+        multiplier:1 constant:0]];
+    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight
+        multiplier:1 constant:0]];
+
+    [NSLayoutConstraint activateConstraints:constraints];
+}
+
+@end
+
 @implementation LMViewBuilderInclude
 
-- (instancetype)initWithParent:(UIView *)parent name:(NSString *)name
+- (instancetype)initWithContainer:(LMIncludeContainerView *)container name:(NSString *)name
 {
     self = [super init];
 
     if (self) {
-        _parent = parent;
+        _container = container;
         _name = name;
     }
 
