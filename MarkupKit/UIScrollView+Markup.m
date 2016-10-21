@@ -13,12 +13,33 @@
 //
 
 #import "UIScrollView+Markup.h"
+#import "NSObject+Markup.h"
+
+static NSDictionary *keyboardDismissModeValues;
 
 @implementation UIScrollView (Markup)
+
++ (void)initialize
+{
+    keyboardDismissModeValues = @{
+        @"none": @(UIScrollViewKeyboardDismissModeNone),
+        @"onDrag": @(UIScrollViewKeyboardDismissModeOnDrag),
+        @"interactive": @(UIScrollViewKeyboardDismissModeInteractive)
+    };
+}
 
 - (NSInteger)currentPage
 {
     return [self isPagingEnabled] ? (NSInteger)[self contentOffset].x / [self frame].size.width : 0;
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"keyboardDismissMode"]) {
+        value = [keyboardDismissModeValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

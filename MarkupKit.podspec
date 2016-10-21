@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'MarkupKit'
-  s.version          = '2.5.1'
+  s.version          = '2.5.2'
   s.summary          = 'Declarative UI for iOS applications'
   s.description      = <<-DESC
     MarkupKit is an open-source framework for simplifying development of native iOS
