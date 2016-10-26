@@ -706,7 +706,7 @@ Because the initializer passes the cell instance itself as the value of the `roo
         <LMColumnView>
             ...
         </LMColumnView>
-    <root>
+    </root>
 
 The child of the root tag represents the cell's content. It can be any valid view, but is often a layout view that is used to automatically size and position the cell's custom content views. 
 
@@ -769,7 +769,7 @@ Because the initializer passes the cell instance itself as the value of the `roo
         <LMColumnView>
             ...
         </LMColumnView>
-    <root>
+    </root>
 
 `LMCollectionViewCell` also supports the following processing instructions, which can be used to specify the value of various background views:
 
