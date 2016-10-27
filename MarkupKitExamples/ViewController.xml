@@ -39,4 +39,5 @@ limitations under the License.
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
     <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
     <UITableViewCell textLabel.text="Colors and Fonts" accessoryType="disclosureIndicator" value="colorsAndFonts"/>
+    <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>
 </LMTableView>

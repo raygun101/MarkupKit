@@ -38,6 +38,7 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 	* [LMRowView and LMColumnView](#lmrowview-and-lmcolumnview)
 	* [LMSpacer](#lmspacer)
 	* [LMLayerView](#lmlayerview)
+	* [LMAnchorView](#lmanchorview)
 	* [LMGradientView](#lmgradientview)
 	* [LMPlayerView](#lmplayerview)
 	* [UIKit Extensions](#uikit-extensions)
@@ -410,6 +411,7 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMRowView` and `LMColumnView` - layout views that arrange subviews in a horizontal or vertical line, respectively
 * `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
+* `LMAnchorView` - view that optionally anchors subviews to one or more edges
 * `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
 * `LMPlayerView` - view that presents an AV player
 
@@ -935,6 +937,7 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 * `LMRowView` - arranges subviews in a horizontal line
 * `LMColumnView` - arranges subviews in a vertical line
 * `LMLayerView` - arranges subviews in layers, like a stack of transparencies
+* `LMAnchorView` - optionally anchors subviews to one or more edges
 
 These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly.
 
@@ -1167,7 +1170,7 @@ Because spacer views are so common, MarkupKit provides a dedicated `UIView` subc
 Like layout views, spacer views do not consume touch events, so they will not interfere with any user interface elements that appear underneath them.
  
 See _LMSpacerView.h_ for more information.
- 
+
 ## LMLayerView
 The `LMLayerView` class simply arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view.
 
@@ -1181,6 +1184,36 @@ For example, the following markup creates a layer view containing two subviews. 
 However, layer views are not limited to defining background images. Because layout and spacer views do not consume touch events, they can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying content. 
 
 See _LMLayerView.h_ for more information.
+
+## LMAnchorView
+The `LMAnchorView` class optionally anchors subviews to one or more of its own edges. Although it is possible to achieve similar layouts using a combination of row, column, layer, and spacer views, anchor views may offer a simpler alternative in some cases. 
+
+Anchors are specified as a comma-separated list of edges to which the view will be anchored within its parent. For example, the following markup creates an anchor view containing four labels anchored to its top, left, right, and bottom edges. The labels will all be inset by 16 pixels:
+
+    <LMAnchorView layoutMargins="16">
+        <UILabel class="label" text="Top" anchor="top"/>
+        <UILabel class="label" text="Left" anchor="left"/>
+        <UILabel class="label" text="Right" anchor="right"/>
+        <UILabel class="label" text="Bottom" anchor="bottom"/>
+    </LMAnchorView>
+
+Subviews may also be anchored to the leading and trailing edges of the parent view to support right-to-left locales; for example:
+
+    <LMAnchorView layoutMargins="16">
+        <UILabel class="label" text="Leading" anchor="leading"/>
+        <UILabel class="label" text="Trailing" anchor="trailing"/>
+    </LMAnchorView>
+
+Additionally, subviews may be anchored to multiple edges for a given dimension. For example, the following markup creates an anchor view containing two labels, each of which will span the entire width of the anchor view:
+
+    <LMAnchorView layoutMargins="16">
+        <UILabel class="label" text="Top" anchor="top, left, right"/>
+        <UILabel class="label" text="Bottom" anchor="bottom, left, right"/>
+    </LMAnchorView>
+
+If no anchor is specified for a given dimension, the subview will be centered within the anchor view for that dimension.
+
+See _LMAnchorView.h_ for more information.
 
 ## LMGradientView
 `LMGradientView` is the base class for views that facilitate the declaration of gradient effects. The gradient is automatically sized to fill the entire view.
@@ -1266,6 +1299,10 @@ A `weight` property is also added to `UIView` that is used by row and column vie
 
     @property (nonatomic) CGFloat weight;
 
+The `anchor` property is used to specify a set of anchor values for a view. It is used in conjunction with the `LMAnchorView` layout view class:
+
+    @property (nonatomic) LMAnchor anchor;
+    
 The following properties are added to allow the components of a view's layout margin to be set individually:
 
     @property (nonatomic) CGFloat layoutMarginTop;

@@ -72,6 +72,10 @@
 		3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */; };
 		3781C9051C399CB600F324A4 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3781C9041C399CB600F324A4 /* NestedStackViewController.swift */; };
 		3781C9071C399CC500F324A4 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3781C9061C399CC500F324A4 /* NestedStackViewController.xml */; };
+		3784FA5C1DC2AC58001E7136 /* LMAnchorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3784FA5A1DC2AC58001E7136 /* LMAnchorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3784FA5D1DC2AC58001E7136 /* LMAnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3784FA5B1DC2AC58001E7136 /* LMAnchorView.m */; };
+		3784FA601DC2AC99001E7136 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3784FA5E1DC2AC99001E7136 /* AnchorViewController.swift */; };
+		3784FA611DC2AC99001E7136 /* AnchorViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3784FA5F1DC2AC99001E7136 /* AnchorViewController.xml */; };
 		378591DD1D9AEA6E00A4849D /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 378591DC1D9AEA6E00A4849D /* Colors.plist */; };
 		378CA4C81C138D5700D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CA1C138D5700D72195 /* LaunchScreen.storyboard */; };
 		378CA4CB1C138D7300D72195 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */; };
@@ -408,6 +412,10 @@
 		3781C8FE1C39959D00F324A4 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3781C9041C399CB600F324A4 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
 		3781C9061C399CC500F324A4 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
+		3784FA5A1DC2AC58001E7136 /* LMAnchorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAnchorView.h; sourceTree = "<group>"; };
+		3784FA5B1DC2AC58001E7136 /* LMAnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAnchorView.m; sourceTree = "<group>"; };
+		3784FA5E1DC2AC99001E7136 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
+		3784FA5F1DC2AC99001E7136 /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnchorViewController.xml; sourceTree = "<group>"; };
 		378591DC1D9AEA6E00A4849D /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		378CA4C91C138D5700D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		378CA4CC1C138D7300D72195 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -670,6 +678,8 @@
 				3742F00F1B34D29300B31987 /* LMRowView.m */,
 				3742F0121B34D2C800B31987 /* LMLayerView.h */,
 				3742F0131B34D2C800B31987 /* LMLayerView.m */,
+				3784FA5A1DC2AC58001E7136 /* LMAnchorView.h */,
+				3784FA5B1DC2AC58001E7136 /* LMAnchorView.m */,
 				379BFBCD1B46AD5600C4A9EE /* LMSpacer.h */,
 				379BFBCE1B46AD5600C4A9EE /* LMSpacer.m */,
 				37A9FC141C107D9200A09102 /* LMGradientView.h */,
@@ -838,6 +848,8 @@
 				37DFDA421D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.xml */,
 				37DFBCBC1D9E923400FDFD86 /* ColorsAndFontsViewController.json */,
 				37DFBCBE1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json */,
+				3784FA5E1DC2AC99001E7136 /* AnchorViewController.swift */,
+				3784FA5F1DC2AC99001E7136 /* AnchorViewController.xml */,
 				3BE7761F1B7A7A8E006AA761 /* Images.xcassets */,
 				378CA4CD1C138D7300D72195 /* LaunchScreen.storyboard */,
 				3BB70C371B78E9990086A3F9 /* Info.plist */,
@@ -887,6 +899,7 @@
 				379C02631C660A0100DEB95E /* UISegmentedControl+Markup.h in Headers */,
 				379C02641C660A0200DEB95E /* UITextField+Markup.h in Headers */,
 				3769F8FF1CEB5C6C000DB662 /* UIActivityIndicatorView+Markup.h in Headers */,
+				3784FA5C1DC2AC58001E7136 /* LMAnchorView.h in Headers */,
 				379C02651C660A0200DEB95E /* UIPickerView+Markup.h in Headers */,
 				3769F8F71CEB5BBC000DB662 /* UIDatePicker+Markup.h in Headers */,
 				379C02661C660A0200DEB95E /* UIProgressView+Markup.h in Headers */,
@@ -1186,6 +1199,7 @@
 				3BB70C6A1B78ECFB0086A3F9 /* RadioButtonViewController.xml in Resources */,
 				37C806C41BEE37D000196FD6 /* ScrollViewController.xml in Resources */,
 				375FCE2A1C39B80100B91718 /* DifferentWidthViewController.xml in Resources */,
+				3784FA611DC2AC99001E7136 /* AnchorViewController.xml in Resources */,
 				3781C8FF1C39959D00F324A4 /* SimpleStackViewController.xml in Resources */,
 				37DFBCBF1D9E924800FDFD86 /* ColorsAndFontsViewController~vertical.json in Resources */,
 				37D36ACA1BB1DDCE008E36FD /* vw.png in Resources */,
@@ -1268,6 +1282,7 @@
 				379C023A1C6609C900DEB95E /* LMTableViewCell.m in Sources */,
 				379C02381C6609C900DEB95E /* LMCollectionViewCell.m in Sources */,
 				379C023B1C6609C900DEB95E /* LMPlayerView.m in Sources */,
+				3784FA5D1DC2AC58001E7136 /* LMAnchorView.m in Sources */,
 				3769F8F41CEB5ACD000DB662 /* UIControl+Markup.m in Sources */,
 				379C023C1C6609C900DEB95E /* LMViewBuilder.m in Sources */,
 				379C023D1C6609C900DEB95E /* NSString+Markup.m in Sources */,
@@ -1320,6 +1335,7 @@
 				375FCE301C39B85700B91718 /* DifferentWidthViewController.swift in Sources */,
 				3BF7ECC71B793C4A00A162B4 /* ColorPickerViewController.swift in Sources */,
 				37724BE81D7F0F6600A6010C /* IncludesViewController.swift in Sources */,
+				3784FA601DC2AC99001E7136 /* AnchorViewController.swift in Sources */,
 				37804AA11CCA5DA000CC17E4 /* WebViewController.swift in Sources */,
 				37DFDA431D9DCA8F00AFA7C2 /* ColorsAndFontsViewController.swift in Sources */,
 				3BE776181B7A7354006AA761 /* CustomCellViewController.swift in Sources */,

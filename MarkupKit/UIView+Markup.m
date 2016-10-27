@@ -30,6 +30,8 @@ static NSDictionary *keyboardTypeValues;
 static NSDictionary *returnKeyTypeValues;
 static NSDictionary *barStyleValues;
 
+static NSDictionary *anchorValues;
+
 @implementation UIView (Markup)
 
 + (void)initialize
@@ -129,6 +131,16 @@ static NSDictionary *barStyleValues;
     barStyleValues = @{
         @"default": @(UIBarStyleDefault),
         @"black": @(UIBarStyleBlack)
+    };
+
+    anchorValues = @{
+        @"none": @(LMAnchorNone),
+        @"top": @(LMAnchorTop),
+        @"bottom": @(LMAnchorBottom),
+        @"left": @(LMAnchorLeft),
+        @"right": @(LMAnchorRight),
+        @"leading": @(LMAnchorLeading),
+        @"trailing": @(LMAnchorTrailing)
     };
 }
 
@@ -300,6 +312,21 @@ static NSDictionary *barStyleValues;
     NSAssert(isnan(weight) || weight > 0, @"Invalid weight.");
     
     objc_setAssociatedObject(self, @selector(weight), isnan(weight) ? nil : [NSNumber numberWithFloat:weight],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (LMAnchor)anchor
+{
+    NSNumber *anchor = objc_getAssociatedObject(self, @selector(anchor));
+
+    return (anchor == nil) ? 0 : [anchor unsignedIntegerValue];
+}
+
+- (void)setAnchor:(LMAnchor)anchor
+{
+    objc_setAssociatedObject(self, @selector(anchor), [NSNumber numberWithUnsignedInteger:anchor],
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     [[self superview] setNeedsUpdateConstraints];
@@ -498,6 +525,18 @@ static NSDictionary *barStyleValues;
         } else if ([value isEqual:@"fittingSizeLevel"]) {
             value = @(UILayoutPriorityFittingSizeLevel);
         }
+    } else if ([key isEqual:@"anchor"]) {
+        NSArray *components = [value componentsSeparatedByString:@","];
+
+        LMAnchor anchor = LMAnchorNone;
+
+        for (NSString *component in components) {
+            NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+            anchor |= [[anchorValues objectForKey:name] unsignedIntegerValue];
+        }
+
+        value = @(anchor);
     }
 
     [super applyMarkupPropertyValue:value forKey:key];

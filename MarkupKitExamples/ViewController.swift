@@ -82,6 +82,8 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(IncludesViewController(), animated: true)
         } else if (value == "colorsAndFonts") {
             navigationController!.pushViewController(ColorsAndFontsViewController(), animated: true)
+        } else if (value == "anchorView") {
+            navigationController!.pushViewController(AnchorViewController(), animated: true)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }

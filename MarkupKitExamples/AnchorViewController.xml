@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  AnchorViewController.xml
+  MarkupKit
+
+  Created by Greg Brown on 10/27/16.
+  Copyright © 2016 Greg Brown. All rights reserved.
+-->
+
+<?properties {
+    "label": {
+        "layer.borderWidth": 0.5,
+        "layer.borderColor": "#cccccc"
+    }
+}?>
+
+<LMLayerView backgroundColor="#ffffff" layoutMarginsRelativeArrangement="false">
+    <LMAnchorView layoutMargins="16">
+        <UILabel class="label" text="Top Left" anchor="top, left"/>
+        <UILabel class="label" text="Top" anchor="top"/>
+        <UILabel class="label" text="Top Right" anchor="top, right"/>
+
+        <UILabel class="label" text="Left" anchor="left"/>
+
+        <UILabel class="label" text="None"/>
+
+        <UILabel class="label" text="Right" anchor="right"/>
+
+        <UILabel class="label" text="Bottom Left" anchor="bottom, left"/>
+        <UILabel class="label" text="Bottom" anchor="bottom"/>
+        <UILabel class="label" text="Bottom Right" anchor="bottom, right"/>
+    </LMAnchorView>
+</LMLayerView>
