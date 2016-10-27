@@ -34,6 +34,8 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         activityIndicatorView.startAnimating()
 
         playButton.isEnabled = false
@@ -45,6 +47,8 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     }
 
     override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
         playButton.isEnabled = false
 
         playerView.layer.player?.pause()

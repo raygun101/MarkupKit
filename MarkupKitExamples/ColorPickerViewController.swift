@@ -21,6 +21,8 @@ class ColorPickerViewController: UITableViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
         tableView.layoutIfNeeded()
 
         preferredContentSize = tableView.contentSize
