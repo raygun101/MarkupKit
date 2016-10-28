@@ -1191,24 +1191,24 @@ The `LMAnchorView` class optionally anchors subviews to one or more of its own e
 Anchors are specified as a comma-separated list of edges to which the view will be anchored within its parent. For example, the following markup creates an anchor view containing four labels anchored to its top, left, right, and bottom edges. The labels will all be inset by 16 pixels:
 
     <LMAnchorView layoutMargins="16">
-        <UILabel class="label" text="Top" anchor="top"/>
-        <UILabel class="label" text="Left" anchor="left"/>
-        <UILabel class="label" text="Right" anchor="right"/>
-        <UILabel class="label" text="Bottom" anchor="bottom"/>
+        <UILabel text="Top" anchor="top"/>
+        <UILabel text="Left" anchor="left"/>
+        <UILabel text="Right" anchor="right"/>
+        <UILabel text="Bottom" anchor="bottom"/>
     </LMAnchorView>
 
 Subviews may also be anchored to the leading and trailing edges of the parent view to support right-to-left locales; for example:
 
     <LMAnchorView layoutMargins="16">
-        <UILabel class="label" text="Leading" anchor="leading"/>
-        <UILabel class="label" text="Trailing" anchor="trailing"/>
+        <UILabel text="Leading" anchor="leading"/>
+        <UILabel text="Trailing" anchor="trailing"/>
     </LMAnchorView>
 
 Additionally, subviews may be anchored to multiple edges for a given dimension. For example, the following markup creates an anchor view containing two labels, each of which will span the entire width of the anchor view:
 
     <LMAnchorView layoutMargins="16">
-        <UILabel class="label" text="Top" anchor="top, left, right"/>
-        <UILabel class="label" text="Bottom" anchor="bottom, left, right"/>
+        <UILabel text="Top" anchor="top, left, right"/>
+        <UILabel text="Bottom" anchor="bottom, left, right"/>
     </LMAnchorView>
 
 If no anchor is specified for a given dimension, the subview will be centered within the anchor view for that dimension.
