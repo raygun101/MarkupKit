@@ -172,12 +172,12 @@ typedef enum {
 
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[[_sections objectAtIndex:indexPath.section] rows] insertObject:cell atIndex:indexPath.row];
+    [[[_sections objectAtIndex:[indexPath section]] rows] insertObject:cell atIndex:[indexPath row]];
 }
 
 - (void)deleteCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [[[_sections objectAtIndex:indexPath.section] rows] removeObjectAtIndex:indexPath.row];
+    [[[_sections objectAtIndex:[indexPath section]] rows] removeObjectAtIndex:[indexPath row]];
 }
 
 - (NSInteger)numberOfRowsInSection:(NSInteger)section
@@ -187,9 +187,9 @@ typedef enum {
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *rows = [[_sections objectAtIndex:indexPath.section] rows];
+    NSArray *rows = [[_sections objectAtIndex:[indexPath section]] rows];
 
-    NSInteger row = indexPath.row;
+    NSInteger row = [indexPath row];
 
     return (row < [rows count]) ? [rows objectAtIndex:row] : [super cellForRowAtIndexPath:indexPath];
 }
