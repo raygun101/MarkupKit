@@ -647,6 +647,7 @@ In order to support static content declaration, `LMTableView` acts as its own da
 * `numberOfSectionsInTableView:`
 * `tableView:numberOfRowsInSection:`
 * `tableView:cellForRowAtIndexPath:`
+* `tableView:canEditRowAtIndexPath:`
 
 The implementing class should delegate to the given table view instance as needed:
 
@@ -682,6 +683,7 @@ Additionally, an application-specific delegate may be set on an `LMTableView` in
 * `tableView:didSelectRowAtIndexPath:`
 * `tableView:willDeselectRowAtIndexPath:`
 * `tableView:didDeselectRowAtIndexPath:`
+* `tableView:editActionsForRowAtIndexPath:`
 
 ### Custom Cell Content
 The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
