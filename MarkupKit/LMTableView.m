@@ -187,7 +187,11 @@ typedef enum {
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[_sections objectAtIndex:indexPath.section] rows] objectAtIndex:indexPath.row];
+    NSArray *rows = [[_sections objectAtIndex:indexPath.section] rows];
+
+    NSInteger row = indexPath.row;
+
+    return (row < [rows count]) ? [rows objectAtIndex:row] : [super cellForRowAtIndexPath:indexPath];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -224,6 +228,18 @@ typedef enum {
     }
 
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    BOOL canEdit;
+    if ([_dataSource respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
+        canEdit = [_dataSource tableView:tableView canEditRowAtIndexPath:indexPath];
+    } else {
+        canEdit = NO;
+    }
+
+    return canEdit;
 }
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -291,6 +307,18 @@ typedef enum {
     if ([_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
         [_delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
     }
+}
+
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSArray *editActions;
+    if ([_delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
+        editActions = [_delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
+    } else {
+        editActions = @[];
+    }
+
+    return editActions;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section

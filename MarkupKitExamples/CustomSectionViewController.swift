@@ -23,6 +23,7 @@ class CustomSectionViewController: UITableViewController {
         view = LMViewBuilder.view(withName: "CustomSectionViewController", owner: self, root: nil)
 
         tableView.dataSource = self
+        tableView.delegate = self
     }
 
     override func viewDidLoad() {
@@ -59,5 +60,32 @@ class CustomSectionViewController: UITableViewController {
         }
 
         return cell
+    }
+
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return (tableView.name(forSection: indexPath.section) == dynamicSectionName)
+    }
+
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editActions: [UITableViewRowAction]
+        if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
+            editActions = [
+                UITableViewRowAction(style: .normal, title: "Select") { action, indexPath in
+                    tableView.setEditing(false, animated: true)
+
+                    let alertController = UIAlertController(title: "Row Selected",
+                        message: "You selected row \(indexPath.row + 1).",
+                        preferredStyle: .alert)
+
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            ]
+        } else {
+            editActions = []
+        }
+
+        return editActions
     }
 }
