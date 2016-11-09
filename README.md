@@ -48,7 +48,13 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
 
 ## Elements
-Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. 
+Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. For example, the following markup produces an instance of `UITextField`:
+
+    <UITextField/>
+
+If a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
+
+    <MyApp.MyCustomView/>
 
 MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
 
