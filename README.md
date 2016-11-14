@@ -48,28 +48,43 @@ MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](h
 MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
 
 ## Elements
-Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding class instances are dynamically created and added to the view hierarchy. For example, the following markup produces an instance of `UITextField`:
+Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding view types are dynamically instantiated and added to the view hierarchy. 
 
-    <UITextField/>
-
-If a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
-
-    <MyApp.MyCustomView/>
-
-MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
-
-    - (void)appendMarkupElementView:(UIView *)view;
-
-This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. 
-
-For example, `LMColumnView`, a MarkupKit-provided view type that automatically arranges its subviews in a vertical line, overrides this method to call `addArrangedSubview:` on itself. The following markup declares an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. As the markup is processed, the image view and the label are instantiated and added to the column view via `appendMarkupElementView:`:
+For example, the following markup creates an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. `LMColumnView` is a MarkupKit-provided subclass of `UIView` that automatically arranges its subviews in a vertical line:
 
 	<LMColumnView>
 		<UIImageView image="world.png"/>
 		<UILabel text="Hello, World!"/>
 	</LMColumnView>
 
-Elements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method. In MarkupKit, this is represented as follows:
+The same result could be achieved programmatically as shown below:
+
+    let columnView = LMColumnView()
+    
+    let imageView = UIImageView()
+    imageView.image = UIImage(named: "world.png")
+    
+    columnView.addArrangedSubview(imageView)
+    
+    let label = UILabel()
+    label.text = "Hello, World!"
+    
+    columnView.addArrangedSubview(label)
+
+Although the two examples produce identical results, the markup version is much more concise and easier to read.
+
+MarkupKit adds the following method to the `UIView` class to facilitate construction of a view hierarchy from markup:
+
+    - (void)appendMarkupElementView:(UIView *)view;
+
+This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView`, overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
+
+Note that if a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
+
+    <MyApp.MyCustomView/>
+
+### Untyped Elements
+In addition to view instances, ulements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method. In MarkupKit, this is represented as follows:
 
     <UISegmentedControl>
         <segment title="Small"/>
