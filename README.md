@@ -10,6 +10,8 @@ The output produced by this markup is identical to the output of the following S
     let label = UILabel()
     label.text = "Hello, World!"
 
+Building an interface in markup can significantly reduce development time. It also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
+
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
 For more information, please see the following:
@@ -77,14 +79,14 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
     - (void)appendMarkupElementView:(UIView *)view;
 
-This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView`, overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
+This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
 
 Note that if a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
 
     <MyApp.MyCustomView/>
 
 ### Untyped Elements
-In addition to view instances, ulements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method. In MarkupKit, this is represented as follows:
+In addition to view instances, elements may also represent untyped data. For example, the text content of a `UISegmentedControl` is specified by its `insertSegmentWithTitle:atIndex:animated:` method. In MarkupKit, this is represented as follows:
 
     <UISegmentedControl>
         <segment title="Small"/>
@@ -97,16 +99,16 @@ Each `<segment>` element triggers to a call to the following method, which is al
 
     - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
 
-The element's name, "segment", is passed in the `tag` argument, and a key/value pair containing the segment's title is included in the dictionary passed as the `properties` argument. `UISegmentedControl` overrides this method to add the given segment title to itself.
+The element's name, "segment", is passed in the `tag` argument, and a key/value pair representing the "title" attribute is included in the `properties` dictionary. 
 
-Like `appendMarkupElementView:`, the default implementation of `processMarkupElement:properties:` does nothing. Subclasses must override it to provide view-specific behavior.
+As with `appendMarkupElementView:`, the default implementation of `processMarkupElement:properties:` does nothing; subclasses must override it to provide view-specific behavior. For example, `UISegmentedControl` overrides this method to call `insertSegmentWithTitle:atIndex:animated:` on itself. 
 
 ## Attributes
 Attributes in a MarkupKit document usually represent view properties. For example, the following markup declares an instance of a system-style `UIButton` and sets its `title` property to "Press Me!":
 
     <UIButton style="systemButton" title="Press Me!"/>
 
-Property values are set using [key-value coding](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/KeyValueCoding/Articles/KeyValueCoding.html) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as colors, fonts, images, and enumerations, are handled specifically by MarkupKit and are discussed in more detail below.
+Property values are set using [key-value coding](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/) (KVC). Type conversions for string, number, and boolean properties are handled automatically by KVC. Other types, such as colors, fonts, images, and enumerations, are handled specifically by MarkupKit and are discussed in more detail below.
 
 MarkupKit adds the following methods to `NSObject` to assist in applying property values:
 
