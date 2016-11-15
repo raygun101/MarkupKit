@@ -14,8 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<UIStackView axis="vertical" spacing="8">
-    <UILabel text="Labels" font="System-Bold 16"/>
+<UIStackView axis="vertical" spacing="8" layoutMarginsRelativeArrangement="true">
+    <LMSpacer height="8"/>
+
+    <UILabel text="Labels" font="System-Bold 18"/>
 
     <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
         <UILabel text="One"/>
@@ -24,7 +26,7 @@ limitations under the License.
         <LMSpacer/>
     </UIStackView>
 
-    <UILabel text="Image Views" font="System-Bold 16"/>
+    <UILabel text="Image Views" font="System-Bold 18"/>
 
     <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
         <UIImageView image="vw.png"/>
@@ -33,7 +35,7 @@ limitations under the License.
         <LMSpacer/>
     </UIStackView>
 
-    <UILabel text="Text Fields" font="System-Bold 16"/>
+    <UILabel text="Text Fields" font="System-Bold 18"/>
 
     <UIStackView axis="horizontal" distribution="fillProportionally" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
         <UITextField placeholder="City" borderStyle="roundedRect"/>

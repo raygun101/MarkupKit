@@ -14,8 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
-    <UILabel text="Labels" font="System-Bold 16"/>
+<LMColumnView backgroundColor="#ffffff">
+    <LMSpacer height="8"/>
+
+    <UILabel text="Labels" font="System-Bold 18"/>
 
     <LMRowView layoutMargins="12">
         <UILabel text="One"/>
@@ -24,7 +26,7 @@ limitations under the License.
         <LMSpacer/>
     </LMRowView>
 
-    <UILabel text="Image Views" font="System-Bold 16"/>
+    <UILabel text="Image Views" font="System-Bold 18"/>
 
     <LMRowView layoutMargins="12">
         <UIImageView image="vw.png"/>
@@ -33,7 +35,7 @@ limitations under the License.
         <LMSpacer/>
     </LMRowView>
 
-    <UILabel text="Text Fields" font="System-Bold 16"/>
+    <UILabel text="Text Fields" font="System-Bold 18"/>
 
     <LMRowView layoutMargins="12">
         <UITextField weight="4" placeholder="City" borderStyle="roundedRect"/>
