@@ -41,8 +41,6 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
 
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
-
-        tableView.delegate = self
     }
 
     override func viewDidLoad() {

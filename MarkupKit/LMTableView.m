@@ -187,11 +187,13 @@ typedef enum {
 
 - (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *rows = [[_sections objectAtIndex:[indexPath section]] rows];
+    UITableViewCell *cell = [super cellForRowAtIndexPath:indexPath];
 
-    NSInteger row = [indexPath row];
+    if (cell == nil) {
+        cell = [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:indexPath.row];
+    }
 
-    return (row < [rows count]) ? [rows objectAtIndex:row] : [super cellForRowAtIndexPath:indexPath];
+    return cell;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
