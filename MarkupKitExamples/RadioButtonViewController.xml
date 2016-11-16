@@ -17,8 +17,8 @@ limitations under the License.
 <LMTableView style="groupedTableView">
     <?sectionSelectionMode singleCheckmark?>
 
-    <UITableViewCell textLabel.text="Small"/>
-    <UITableViewCell textLabel.text="Medium"/>
-    <UITableViewCell textLabel.text="Large" checked="true"/>
-    <UITableViewCell textLabel.text="Extra-Large"/>
+    <UITableViewCell textLabel.text="Small" value="S"/>
+    <UITableViewCell textLabel.text="Medium" value="M"/>
+    <UITableViewCell textLabel.text="Large" value="L" checked="true"/>
+    <UITableViewCell textLabel.text="Extra-Large" value="XL"/>
 </LMTableView>
