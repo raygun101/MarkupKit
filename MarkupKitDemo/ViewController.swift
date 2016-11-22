@@ -61,7 +61,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
     @IBAction func showGreeting() {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
 
         present(alertController, animated: true, completion: nil)
     }

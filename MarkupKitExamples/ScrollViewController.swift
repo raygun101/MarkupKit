@@ -38,7 +38,7 @@ class ScrollViewController: UIViewController {
     @IBAction func showGreeting() {
         let alertController = UIAlertController(title: "Greeting", message: "Hello!", preferredStyle: .alert)
 
-        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
 
         present(alertController, animated: true, completion: nil)
     }

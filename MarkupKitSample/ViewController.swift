@@ -59,7 +59,7 @@ class ViewController: UITableViewController {
             message: "Lorem ipsum dolor sit amet.", preferredStyle: .alert)
 
         alertController.addAction(UIAlertAction(title: mainBundle.localizedString(forKey: "ok", value: nil, table: nil),
-            style: .default, handler:nil))
+            style: .default))
 
         present(alertController, animated: true, completion: nil)
     }

@@ -71,13 +71,13 @@ class CustomSectionViewController: UITableViewController {
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
             editActions = [
                 UITableViewRowAction(style: .normal, title: "Select") { action, indexPath in
-                    tableView.setEditing(false, animated: true)
+                    tableView.reloadRows(at: [indexPath], with: .right)
 
                     let alertController = UIAlertController(title: "Row Selected",
                         message: "You selected row \(indexPath.row + 1).",
                         preferredStyle: .alert)
 
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
 
                     self.present(alertController, animated: true, completion: nil)
                 }
