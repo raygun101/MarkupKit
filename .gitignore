@@ -1,6 +1,8 @@
 **/.DS_Store
 build/
+build.tvOS/
 MarkupKit.xcodeproj/xcuserdata/
 MarkupKit.xcodeproj/project.xcworkspace/xcuserdata/
 MarkupKit.framework.tar.gz
+MarkupKit.framework.tvOS.tar.gz
 XcodeTemplates.tar.gz
