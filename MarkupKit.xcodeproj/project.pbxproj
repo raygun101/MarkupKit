@@ -129,6 +129,10 @@
 		377DE99D1DE70F10005D523A /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3B7115AF1B0424C200E546F3 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		377DE99E1DE70F10005D523A /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3736CC411CEFAB2600061064 /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		377DE99F1DE70F10005D523A /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3BD5DB8F1BD5B8CC00D20851 /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		377EFA4A1DEDDA2000F05E6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 377EFA491DEDDA2000F05E6A /* Assets.xcassets */; };
+		377EFA4F1DEDDAA400F05E6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E0381CB9510500E8C32D /* AppDelegate.swift */; };
+		377EFA501DEDDAA400F05E6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3754E03A1CB9510500E8C32D /* ViewController.swift */; };
+		377EFA521DEDDAC900F05E6A /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377EFA511DEDDAC900F05E6A /* ViewController.xml */; };
 		37804AA11CCA5DA000CC17E4 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */; };
 		37804AA21CCA5DA000CC17E4 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37804AA01CCA5DA000CC17E4 /* WebViewController.xml */; };
 		37804AA51CCA5DB000CC17E4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37804AA31CCA5DB000CC17E4 /* MapViewController.swift */; };
@@ -476,6 +480,9 @@
 		3779F98C1C652EB30070A29C /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		3779F98E1C652EB90070A29C /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerViewController.xml; sourceTree = "<group>"; };
 		3779F9901C652EC70070A29C /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
+		377EFA401DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.tvOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		377EFA491DEDDA2000F05E6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		377EFA511DEDDAC900F05E6A /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		378004EF1BAD89BB003777C1 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
 		378004F01BAD89BB003777C1 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		37804A9F1CCA5DA000CC17E4 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
@@ -629,6 +636,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		377EFA3D1DEDDA2000F05E6A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		37A19DDD1DEDC0ED00CB9C2C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,6 +717,15 @@
 			path = MarkupKitIntroduction;
 			sourceTree = "<group>";
 		};
+		377EFA411DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				377EFA511DEDDAC900F05E6A /* ViewController.xml */,
+				377EFA491DEDDA2000F05E6A /* Assets.xcassets */,
+			);
+			path = MarkupKitIntroduction.tvOS;
+			sourceTree = "<group>";
+		};
 		37AC28281C08B49C00BC8C87 /* MarkupKitDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -725,6 +748,7 @@
 			children = (
 				37B070651ADEBE3F00A92FCF /* MarkupKit */,
 				3754E0371CB9510500E8C32D /* MarkupKitIntroduction */,
+				377EFA411DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS */,
 				37AC28281C08B49C00BC8C87 /* MarkupKitDemo */,
 				374C03691CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C351B78E9990086A3F9 /* MarkupKitExamples */,
@@ -743,6 +767,7 @@
 				3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */,
 				374C03681CB978A600339BB6 /* MarkupKitSample.app */,
 				37A19DE11DEDC0ED00CB9C2C /* MarkupKit.framework */,
+				377EFA401DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1086,6 +1111,23 @@
 			productReference = 3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */;
 			productType = "com.apple.product-type.application";
 		};
+		377EFA3F1DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 377EFA4E1DEDDA2000F05E6A /* Build configuration list for PBXNativeTarget "MarkupKitIntroduction.tvOS" */;
+			buildPhases = (
+				377EFA3C1DEDDA2000F05E6A /* Sources */,
+				377EFA3D1DEDDA2000F05E6A /* Frameworks */,
+				377EFA3E1DEDDA2000F05E6A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MarkupKitIntroduction.tvOS;
+			productName = MarkupKitIntroduction.tvOS;
+			productReference = 377EFA401DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS.app */;
+			productType = "com.apple.product-type.application";
+		};
 		37A19DE01DEDC0ED00CB9C2C /* MarkupKit.tvOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 37A19DE81DEDC0ED00CB9C2C /* Build configuration list for PBXNativeTarget "MarkupKit.tvOS" */;
@@ -1186,7 +1228,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0810;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Greg Brown";
 				TargetAttributes = {
@@ -1200,6 +1242,10 @@
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = FBUU23VBFN;
 						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					377EFA3F1DEDDA2000F05E6A = {
+						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
 					};
 					37A19DE01DEDC0ED00CB9C2C = {
@@ -1251,6 +1297,7 @@
 				37B070621ADEBE3F00A92FCF /* MarkupKit */,
 				37A19DE01DEDC0ED00CB9C2C /* MarkupKit.tvOS */,
 				3754E0351CB9510500E8C32D /* MarkupKitIntroduction */,
+				377EFA3F1DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS */,
 				37AC28261C08B49C00BC8C87 /* MarkupKitDemo */,
 				374C03671CB978A600339BB6 /* MarkupKitSample */,
 				3BB70C331B78E9980086A3F9 /* MarkupKitExamples */,
@@ -1282,6 +1329,15 @@
 				3754E0431CB9510500E8C32D /* LaunchScreen.storyboard in Resources */,
 				3754E0401CB9510500E8C32D /* Assets.xcassets in Resources */,
 				3754E0491CB951B400E8C32D /* ViewController.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		377EFA3E1DEDDA2000F05E6A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				377EFA521DEDDAC900F05E6A /* ViewController.xml in Resources */,
+				377EFA4A1DEDDA2000F05E6A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1408,6 +1464,15 @@
 			files = (
 				3754E03B1CB9510500E8C32D /* ViewController.swift in Sources */,
 				3754E0391CB9510500E8C32D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		377EFA3C1DEDDA2000F05E6A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				377EFA4F1DEDDAA400F05E6A /* AppDelegate.swift in Sources */,
+				377EFA501DEDDAA400F05E6A /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1718,6 +1783,49 @@
 				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitIntroduction;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		377EFA4C1DEDDA2000F05E6A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = MarkupKitIntroduction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitIntroduction;
+				PRODUCT_MODULE_NAME = MarkupKitIntroduction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		377EFA4D1DEDDA2000F05E6A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				INFOPLIST_FILE = MarkupKitIntroduction/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitIntroduction;
+				PRODUCT_MODULE_NAME = MarkupKitIntroduction;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -2043,6 +2151,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		377EFA4E1DEDDA2000F05E6A /* Build configuration list for PBXNativeTarget "MarkupKitIntroduction.tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				377EFA4C1DEDDA2000F05E6A /* Debug */,
+				377EFA4D1DEDDA2000F05E6A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		37A19DE81DEDC0ED00CB9C2C /* Build configuration list for PBXNativeTarget "MarkupKit.tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -2050,6 +2166,7 @@
 				37A19DE71DEDC0ED00CB9C2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37AC28381C08B49C00BC8C87 /* Build configuration list for PBXNativeTarget "MarkupKitDemo" */ = {
 			isa = XCConfigurationList;
