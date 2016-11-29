@@ -79,7 +79,7 @@ class CustomSectionViewController: UITableViewController {
 
                     alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
 
-                    self.present(alertController, animated: true, completion: nil)
+                    self.present(alertController, animated: true)
                 }
             ]
         } else {

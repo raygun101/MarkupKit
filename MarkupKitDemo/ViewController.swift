@@ -63,7 +63,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
 
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
 
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 
     @IBAction func cancelDateEdit() {

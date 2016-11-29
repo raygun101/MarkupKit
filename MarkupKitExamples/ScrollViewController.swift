@@ -40,6 +40,6 @@ class ScrollViewController: UIViewController {
 
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
 
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 }

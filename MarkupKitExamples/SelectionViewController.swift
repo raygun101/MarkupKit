@@ -39,7 +39,7 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
         colorPickerPresentationController.backgroundColor = UIColor.white
         colorPickerPresentationController.delegate = self
 
-        present(colorPickerViewController, animated: true, completion: nil)
+        present(colorPickerViewController, animated: true)
     }
 
     func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
@@ -51,6 +51,6 @@ class SelectionViewController: UIViewController, UITableViewDelegate, UIPopoverP
 
         view.backgroundColor = LMViewBuilder.colorValue(cell!.value as! String)
 
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }

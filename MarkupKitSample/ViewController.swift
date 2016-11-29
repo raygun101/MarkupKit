@@ -61,7 +61,7 @@ class ViewController: UITableViewController {
         alertController.addAction(UIAlertAction(title: mainBundle.localizedString(forKey: "ok", value: nil, table: nil),
             style: .default))
 
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true)
     }
 
     // Data source
@@ -110,7 +110,7 @@ class ViewController: UITableViewController {
             detailViewController.headingLabel.text = row["heading"] as? String
             detailViewController.detailLabel.text = row["detail"] as? String
 
-            present(detailViewController, animated: true, completion: nil)
+            present(detailViewController, animated: true)
         }
     }
 }

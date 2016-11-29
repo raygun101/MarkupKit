@@ -39,7 +39,7 @@ class DetailViewController: UIViewController {
 
     // Done button press handler
     @IBAction func doneButtonPressed() {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
 }
 
