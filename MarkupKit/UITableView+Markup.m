@@ -23,9 +23,11 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 + (void)initialize
 {
     tableViewCellSeparatorStyleValues = @{
+        #if TARGET_OS_IOS
         @"none": @(UITableViewCellSeparatorStyleNone),
         @"singleLine": @(UITableViewCellSeparatorStyleSingleLine),
         @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
+        #endif
     };
 }
 

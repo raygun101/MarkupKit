@@ -27,9 +27,13 @@ static NSDictionary *tableViewCellSelectionStyleValues;
     tableViewCellAccessoryTypeValues = @{
         @"none": @(UITableViewCellAccessoryNone),
         @"disclosureIndicator": @(UITableViewCellAccessoryDisclosureIndicator),
+        #if TARGET_OS_IOS
         @"detailDisclosureButton": @(UITableViewCellAccessoryDetailDisclosureButton),
+        #endif
         @"checkmark": @(UITableViewCellAccessoryCheckmark),
+        #if TARGET_OS_IOS
         @"detailButton": @(UITableViewCellAccessoryDetailButton)
+        #endif
     };
 
     tableViewCellSelectionStyleValues = @{

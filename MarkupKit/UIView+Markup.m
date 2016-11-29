@@ -129,8 +129,10 @@ static NSDictionary *anchorValues;
     };
 
     barStyleValues = @{
+        #if TARGET_OS_IOS
         @"default": @(UIBarStyleDefault),
         @"black": @(UIBarStyleBlack)
+        #endif
     };
 
     anchorValues = @{

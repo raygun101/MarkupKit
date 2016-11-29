@@ -28,10 +28,12 @@ static NSDictionary *keyboardDismissModeValues;
     };
 }
 
+#if TARGET_OS_IOS
 - (NSInteger)currentPage
 {
     return [self isPagingEnabled] ? (NSInteger)[self contentOffset].x / [self frame].size.width : 0;
 }
+#endif
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {

@@ -24,7 +24,9 @@ static NSDictionary *activityIndicatorViewStyleValues;
     activityIndicatorViewStyleValues = @{
         @"whiteLarge": @(UIActivityIndicatorViewStyleWhiteLarge),
         @"white": @(UIActivityIndicatorViewStyleWhite),
+        #if TARGET_OS_IOS
         @"gray": @(UIActivityIndicatorViewStyleGray)
+        #endif
     };
 }
 

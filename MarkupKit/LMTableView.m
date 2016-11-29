@@ -232,6 +232,7 @@ typedef enum {
     return cell;
 }
 
+#if TARGET_OS_IOS
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     BOOL canEdit;
@@ -243,6 +244,7 @@ typedef enum {
 
     return canEdit;
 }
+#endif
 
 - (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -311,6 +313,7 @@ typedef enum {
     }
 }
 
+#if TARGET_OS_IOS
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *editActions;
@@ -322,6 +325,7 @@ typedef enum {
 
     return editActions;
 }
+#endif
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {

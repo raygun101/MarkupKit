@@ -18,10 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIScrollView (Markup)
 
+#if TARGET_OS_IOS
 /**
  * The index of the current page.
  */
 @property (nonatomic, readonly) NSInteger currentPage;
+#endif
 
 @end
 

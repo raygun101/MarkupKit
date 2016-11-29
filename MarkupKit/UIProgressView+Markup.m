@@ -21,10 +21,12 @@
     return [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
 }
 
+#if TARGET_OS_IOS
 + (UIProgressView *)barProgressView
 {
     return [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleBar];
 }
+#endif
 
 @end
 
