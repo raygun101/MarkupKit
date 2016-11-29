@@ -17,9 +17,9 @@ limitations under the License.
 <LMColumnView backgroundColor="#fff8dc" bottomSpacing="16">
     <LMSpacer weight="1"/>
 
-    <UILabel id="greetingLabel" textAlignment="center" font="System 32"/>
+    <UILabel id="greetingLabel" textAlignment="center" font="headline"/>
 
     <LMSpacer weight="2"/>
 
-    <UIButton style="systemButton" title="Say Hello" onTouchUpInside="sayHello"/>
+    <UIButton style="systemButton" title="Say Hello" onPrimaryActionTriggered="sayHello"/>
 </LMColumnView>
