@@ -761,11 +761,11 @@
 			isa = PBXGroup;
 			children = (
 				37B070631ADEBE3F00A92FCF /* MarkupKit.framework */,
-				37B070831ADEBEB000A92FCF /* MarkupKitTest.app */,
-				3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */,
-				37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */,
 				3754E0361CB9510500E8C32D /* MarkupKitIntroduction.app */,
+				37AC28271C08B49C00BC8C87 /* MarkupKitDemo.app */,
 				374C03681CB978A600339BB6 /* MarkupKitSample.app */,
+				3BB70C341B78E9980086A3F9 /* MarkupKitExamples.app */,
+				37B070831ADEBEB000A92FCF /* MarkupKitTest.app */,
 				37A19DE11DEDC0ED00CB9C2C /* MarkupKit.framework */,
 				377EFA401DEDDA2000F05E6A /* MarkupKitIntroduction.tvOS.app */,
 			);
@@ -1326,9 +1326,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3754E0431CB9510500E8C32D /* LaunchScreen.storyboard in Resources */,
-				3754E0401CB9510500E8C32D /* Assets.xcassets in Resources */,
 				3754E0491CB951B400E8C32D /* ViewController.xml in Resources */,
+				3754E0401CB9510500E8C32D /* Assets.xcassets in Resources */,
+				3754E0431CB9510500E8C32D /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1462,8 +1462,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3754E03B1CB9510500E8C32D /* ViewController.swift in Sources */,
 				3754E0391CB9510500E8C32D /* AppDelegate.swift in Sources */,
+				3754E03B1CB9510500E8C32D /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2158,6 +2158,7 @@
 				377EFA4D1DEDDA2000F05E6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		37A19DE81DEDC0ED00CB9C2C /* Build configuration list for PBXNativeTarget "MarkupKit.tvOS" */ = {
 			isa = XCConfigurationList;
