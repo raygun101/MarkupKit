@@ -15,22 +15,22 @@ limitations under the License.
 -->
 
 <LMTableView style="groupedTableView">
-    <!-- Button -->
-    <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Button"/>
-
-    <LMTableViewCell>
-        <UIButton style="systemButton" title="Press Me" onPrimaryActionTriggered="showGreeting"/>
-    </LMTableViewCell>
-
-    <?sectionBreak?>
-
     <!-- Image view -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Image View"/>
 
     <LMTableViewCell>
         <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="210"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
+    <!-- Button -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Button"/>
+
+    <LMTableViewCell>
+        <UIButton style="systemButton" title="Press Me" onPrimaryActionTriggered="showGreeting"/>
     </LMTableViewCell>
 
     <?sectionBreak?>

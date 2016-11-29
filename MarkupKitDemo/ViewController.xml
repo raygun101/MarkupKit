@@ -17,6 +17,16 @@ limitations under the License.
 <?properties Styles?>
 
 <LMTableView style="groupedTableView">
+    <!-- Image view -->
+    <?sectionHeaderView?>
+    <UITableViewCell textLabel.text="Image View" class="cell.header"/>
+
+    <LMTableViewCell selectionStyle="none">
+        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="210"/>
+    </LMTableViewCell>
+
+    <?sectionBreak?>
+
     <!-- Button -->
     <?sectionHeaderView?>
     <UITableViewCell textLabel.text="Button" class="cell.header"/>
@@ -34,16 +44,6 @@ limitations under the License.
     <UITableViewCell textLabel.text="On/Off" selectionStyle="none">
         <UISwitch/>
     </UITableViewCell>
-
-    <?sectionBreak?>
-
-    <!-- Image view -->
-    <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Image View" class="cell.header"/>
-
-    <LMTableViewCell selectionStyle="none">
-        <UIImageView image="IMG_0725.jpg" contentMode="scaleAspectFit" height="210"/>
-    </LMTableViewCell>
 
     <?sectionBreak?>
 

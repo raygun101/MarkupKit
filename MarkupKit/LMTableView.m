@@ -327,6 +327,11 @@ typedef enum {
 }
 #endif
 
+- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return ([[_sections objectAtIndex:[indexPath section]] selectionMode] != LMTableViewSelectionModeDefault);
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     return [self viewForHeaderInSection:section];
