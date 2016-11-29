@@ -1311,14 +1311,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37AF1A8D1CB979C300DBDBE3 /* CustomCell.xml in Resources */,
-				37AE7CC01CDB814B009C5AD0 /* Styles.json in Resources */,
-				37AF1A961CB97A0500DBDBE3 /* Localizable.strings in Resources */,
-				374C03751CB978A600339BB6 /* LaunchScreen.storyboard in Resources */,
 				37AF1A871CB979A600DBDBE3 /* ViewController.xml in Resources */,
-				37AF1A951CB979FF00DBDBE3 /* rows.json in Resources */,
-				374C03721CB978A600339BB6 /* Assets.xcassets in Resources */,
+				37AF1A8D1CB979C300DBDBE3 /* CustomCell.xml in Resources */,
 				37AF1A8E1CB979C300DBDBE3 /* DetailViewController.xml in Resources */,
+				374C03721CB978A600339BB6 /* Assets.xcassets in Resources */,
+				374C03751CB978A600339BB6 /* LaunchScreen.storyboard in Resources */,
+				37AF1A961CB97A0500DBDBE3 /* Localizable.strings in Resources */,
+				37AE7CC01CDB814B009C5AD0 /* Styles.json in Resources */,
+				37AF1A951CB979FF00DBDBE3 /* rows.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,9 +1451,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */,
 				374C036D1CB978A600339BB6 /* ViewController.swift in Sources */,
 				37AF1A8C1CB979C300DBDBE3 /* CustomCell.swift in Sources */,
-				374C036B1CB978A600339BB6 /* AppDelegate.swift in Sources */,
 				37AF1A8F1CB979C300DBDBE3 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
