@@ -100,6 +100,91 @@
 		3771E95D1DF1B79A0064CC82 /* rows.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E95B1DF1B79A0064CC82 /* rows.json */; };
 		3771E95E1DF1B79A0064CC82 /* Styles.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E95C1DF1B79A0064CC82 /* Styles.json */; };
 		3771E95F1DF1B7D10064CC82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9611DF1B7D10064CC82 /* Localizable.strings */; };
+		3771E9701DF1B8B00064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E96F1DF1B8B00064CC82 /* Assets.xcassets */; };
+		3771E9731DF1B8B00064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */; };
+		3771E9781DF1B8C00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
+		3771E9791DF1B8C00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		3771E97E1DF1B8E40064CC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */; };
+		3771E9811DF1B8FC0064CC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97F1DF1B8FC0064CC82 /* ViewController.swift */; };
+		3771E9821DF1B8FC0064CC82 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9801DF1B8FC0064CC82 /* ViewController.xml */; };
+		3771E9851DF1B9460064CC82 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9831DF1B9460064CC82 /* RadioButtonViewController.swift */; };
+		3771E9861DF1B9460064CC82 /* RadioButtonViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */; };
+		3771E9891DF1B9580064CC82 /* CheckboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9871DF1B9580064CC82 /* CheckboxViewController.swift */; };
+		3771E98A1DF1B9580064CC82 /* CheckboxViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */; };
+		3771E98C1DF1B97A0064CC82 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */; };
+		3771E98F1DF1B9820064CC82 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */; };
+		3771E9901DF1B9820064CC82 /* ColorPickerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */; };
+		3771E9921DF1B98F0064CC82 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */; };
+		3771E9951DF1B9990064CC82 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9931DF1B9990064CC82 /* PharmacyCell.swift */; };
+		3771E9961DF1B9990064CC82 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9941DF1B9990064CC82 /* PharmacyCell.xml */; };
+		3771E9981DF1B99E0064CC82 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9971DF1B99E0064CC82 /* pharmacies.json */; };
+		3771E99B1DF1B9A80064CC82 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */; };
+		3771E99C1DF1B9A80064CC82 /* LayoutViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */; };
+		3771E99F1DF1B9B50064CC82 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E99D1DF1B9B50064CC82 /* StackViewController.swift */; };
+		3771E9A01DF1B9B50064CC82 /* StackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E99E1DF1B9B50064CC82 /* StackViewController.xml */; };
+		3771E9A31DF1B9C70064CC82 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */; };
+		3771E9A41DF1B9C70064CC82 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */; };
+		3771E9A71DF1B9D10064CC82 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */; };
+		3771E9A81DF1B9D10064CC82 /* ScrollViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */; };
+		3771E9AB1DF1B9DA0064CC82 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */; };
+		3771E9AC1DF1B9DA0064CC82 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */; };
+		3771E9AF1DF1B9E70064CC82 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9AD1DF1B9E70064CC82 /* CustomSectionViewController.swift */; };
+		3771E9B01DF1B9E70064CC82 /* CustomSectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9AE1DF1B9E70064CC82 /* CustomSectionViewController.xml */; };
+		3771E9B31DF1B9F10064CC82 /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B11DF1B9F10064CC82 /* CustomComponentViewController.swift */; };
+		3771E9B41DF1B9F10064CC82 /* CustomComponentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9B21DF1B9F10064CC82 /* CustomComponentViewController.xml */; };
+		3771E9B71DF1B9FD0064CC82 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */; };
+		3771E9B81DF1B9FD0064CC82 /* LinearGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */; };
+		3771E9BB1DF1BA070064CC82 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */; };
+		3771E9BC1DF1BA070064CC82 /* RadialGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */; };
+		3771E9BF1DF1BA100064CC82 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9BD1DF1BA100064CC82 /* PageViewController.swift */; };
+		3771E9C01DF1BA100064CC82 /* PageViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9BE1DF1BA100064CC82 /* PageViewController.xml */; };
+		3771E9C51DF1BA200064CC82 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */; };
+		3771E9C61DF1BA200064CC82 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */; };
+		3771E9C71DF1BA200064CC82 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */; };
+		3771E9C81DF1BA200064CC82 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */; };
+		3771E9CB1DF1BA2C0064CC82 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */; };
+		3771E9CC1DF1BA2C0064CC82 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */; };
+		3771E9D01DF1BA4C0064CC82 /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CD1DF1BA4C0064CC82 /* chevy.png */; };
+		3771E9D11DF1BA4C0064CC82 /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CE1DF1BA4C0064CC82 /* mini.png */; };
+		3771E9D21DF1BA4C0064CC82 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CF1DF1BA4C0064CC82 /* vw.png */; };
+		3771E9D51DF1BA570064CC82 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D31DF1BA570064CC82 /* sample.mp4 */; };
+		3771E9D61DF1BA570064CC82 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D41DF1BA570064CC82 /* sample.txt */; };
+		3771E9D81DF1BA690064CC82 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D71DF1BA690064CC82 /* Colors.plist */; };
+		3771E9DA1DF1BA720064CC82 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D91DF1BA720064CC82 /* Fonts.plist */; };
+		3771E9DD1DF1BA920064CC82 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */; };
+		3771E9DE1DF1BA920064CC82 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */; };
+		3771E9E31DF1BA9C0064CC82 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */; };
+		3771E9E41DF1BA9C0064CC82 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */; };
+		3771E9E51DF1BA9C0064CC82 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */; };
+		3771E9E61DF1BA9C0064CC82 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */; };
+		3771E9E91DF1BAA80064CC82 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */; };
+		3771E9EA1DF1BAA80064CC82 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */; };
+		3771E9ED1DF1BAB50064CC82 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9EB1DF1BAB50064CC82 /* WebViewController.swift */; };
+		3771E9EE1DF1BAB50064CC82 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */; };
+		3771E9F11DF1BAC20064CC82 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */; };
+		3771E9F21DF1BAC20064CC82 /* MapViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F01DF1BAC20064CC82 /* MapViewController.xml */; };
+		3771E9F51DF1BACC0064CC82 /* IncludesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */; };
+		3771E9F61DF1BACC0064CC82 /* IncludesViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */; };
+		3771E9F81DF1BAD70064CC82 /* FirstRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */; };
+		3771E9FA1DF1BADE0064CC82 /* SecondRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */; };
+		3771E9FC1DF1BAE70064CC82 /* ThirdRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */; };
+		3771E9FE1DF1BAFE0064CC82 /* ColumnView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */; };
+		3771EA031DF1BB090064CC82 /* ColorsAndFontsViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */; };
+		3771EA041DF1BB090064CC82 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */; };
+		3771EA051DF1BB090064CC82 /* ColorsAndFontsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */; };
+		3771EA061DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */; };
+		3771EA091DF1BB1D0064CC82 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */; };
+		3771EA0A1DF1BB1D0064CC82 /* AnchorViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */; };
+		3771EA0D1DF1BB550064CC82 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */; };
+		3771EA0E1DF1BB550064CC82 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */; };
+		3771EA111DF1BB720064CC82 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */; };
+		3771EA121DF1BB720064CC82 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */; };
+		3771EA151DF1BB800064CC82 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */; };
+		3771EA161DF1BB800064CC82 /* EqualWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */; };
+		3771EA191DF1BB8E0064CC82 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */; };
+		3771EA1A1DF1BB8E0064CC82 /* DifferentWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */; };
+		3771EA1D1DF1BB9C0064CC82 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */; };
+		3771EA1E1DF1BB9C0064CC82 /* ComplexWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
 		37E57ADA1DF19248002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57AD71DF19248002984B9 /* AppDelegate.swift */; };
@@ -122,6 +207,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		3771E9481DF1B68A0064CC82 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 37E3BB341DF1814000878727 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3799BAD81DF18389006E6B3D;
+			remoteInfo = MarkupKit;
+		};
+		3771E97A1DF1B8C00064CC82 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37E3BB341DF1814000878727 /* Project object */;
 			proxyType = 1;
@@ -152,6 +244,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3771E9471DF1B68A0064CC82 /* MarkupKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3771E97C1DF1B8C00064CC82 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				3771E9791DF1B8C00064CC82 /* MarkupKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,6 +298,91 @@
 		3771E95B1DF1B79A0064CC82 /* rows.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rows.json; sourceTree = "<group>"; };
 		3771E95C1DF1B79A0064CC82 /* Styles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles.json; sourceTree = "<group>"; };
 		3771E9601DF1B7D10064CC82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3771E9661DF1B8B00064CC82 /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3771E96F1DF1B8B00064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3771E9721DF1B8B00064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3771E9741DF1B8B00064CC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3771E97F1DF1B8FC0064CC82 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3771E9801DF1B8FC0064CC82 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
+		3771E9831DF1B9460064CC82 /* RadioButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadioButtonViewController.swift; sourceTree = "<group>"; };
+		3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadioButtonViewController.xml; sourceTree = "<group>"; };
+		3771E9871DF1B9580064CC82 /* CheckboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxViewController.swift; sourceTree = "<group>"; };
+		3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CheckboxViewController.xml; sourceTree = "<group>"; };
+		3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
+		3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorPickerViewController.xml; sourceTree = "<group>"; };
+		3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
+		3771E9931DF1B9990064CC82 /* PharmacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyCell.swift; sourceTree = "<group>"; };
+		3771E9941DF1B9990064CC82 /* PharmacyCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PharmacyCell.xml; sourceTree = "<group>"; };
+		3771E9971DF1B99E0064CC82 /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pharmacies.json; sourceTree = "<group>"; };
+		3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
+		3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutViewController.xml; sourceTree = "<group>"; };
+		3771E99D1DF1B9B50064CC82 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
+		3771E99E1DF1B9B50064CC82 /* StackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StackViewController.xml; sourceTree = "<group>"; };
+		3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectViewController.swift; sourceTree = "<group>"; };
+		3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EffectViewController.xml; sourceTree = "<group>"; };
+		3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ScrollViewController.xml; sourceTree = "<group>"; };
+		3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = GridViewController.xml; sourceTree = "<group>"; };
+		3771E9AD1DF1B9E70064CC82 /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSectionViewController.swift; sourceTree = "<group>"; };
+		3771E9AE1DF1B9E70064CC82 /* CustomSectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomSectionViewController.xml; sourceTree = "<group>"; };
+		3771E9B11DF1B9F10064CC82 /* CustomComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomComponentViewController.swift; sourceTree = "<group>"; };
+		3771E9B21DF1B9F10064CC82 /* CustomComponentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CustomComponentViewController.xml; sourceTree = "<group>"; };
+		3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinearGradientViewController.swift; sourceTree = "<group>"; };
+		3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LinearGradientViewController.xml; sourceTree = "<group>"; };
+		3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RadialGradientViewController.swift; sourceTree = "<group>"; };
+		3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientViewController.xml; sourceTree = "<group>"; };
+		3771E9BD1DF1BA100064CC82 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		3771E9BE1DF1BA100064CC82 /* PageViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageViewController.xml; sourceTree = "<group>"; };
+		3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassViewController.swift; sourceTree = "<group>"; };
+		3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassViewController.xml; sourceTree = "<group>"; };
+		3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~horizontal.xml"; sourceTree = "<group>"; };
+		3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~vertical.xml"; sourceTree = "<group>"; };
+		3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormViewController.xml; sourceTree = "<group>"; };
+		3771E9CD1DF1BA4C0064CC82 /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
+		3771E9CE1DF1BA4C0064CC82 /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
+		3771E9CF1DF1BA4C0064CC82 /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
+		3771E9D31DF1BA570064CC82 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
+		3771E9D41DF1BA570064CC82 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
+		3771E9D71DF1BA690064CC82 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
+		3771E9D91DF1BA720064CC82 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
+		3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodicTableViewController.swift; sourceTree = "<group>"; };
+		3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PeriodicTableViewController.xml; sourceTree = "<group>"; };
+		3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollectionViewController.xml; sourceTree = "<group>"; };
+		3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
+		3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
+		3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerViewController.xml; sourceTree = "<group>"; };
+		3771E9EB1DF1BAB50064CC82 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WebViewController.xml; sourceTree = "<group>"; };
+		3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3771E9F01DF1BAC20064CC82 /* MapViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MapViewController.xml; sourceTree = "<group>"; };
+		3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludesViewController.swift; sourceTree = "<group>"; };
+		3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IncludesViewController.xml; sourceTree = "<group>"; };
+		3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FirstRowView.xml; sourceTree = "<group>"; };
+		3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SecondRowView.xml; sourceTree = "<group>"; };
+		3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ThirdRowView.xml; sourceTree = "<group>"; };
+		3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColumnView.xml; sourceTree = "<group>"; };
+		3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorsAndFontsViewController.json; sourceTree = "<group>"; };
+		3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsAndFontsViewController.swift; sourceTree = "<group>"; };
+		3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorsAndFontsViewController.xml; sourceTree = "<group>"; };
+		3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFontsViewController~vertical.json"; sourceTree = "<group>"; };
+		3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
+		3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnchorViewController.xml; sourceTree = "<group>"; };
+		3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
+		3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
+		3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
+		3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
+		3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidthViewController.swift; sourceTree = "<group>"; };
+		3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthViewController.xml; sourceTree = "<group>"; };
+		3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentWidthViewController.swift; sourceTree = "<group>"; };
+		3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthViewController.xml; sourceTree = "<group>"; };
+		3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
+		3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthViewController.xml; sourceTree = "<group>"; };
 		3799BAD91DF18389006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BADC1DF18389006E6B3D /* MarkupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkupKit.h; sourceTree = "<group>"; };
 		3799BADD1DF18389006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -305,6 +493,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3771E9631DF1B8B00064CC82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3771E9781DF1B8C00064CC82 /* MarkupKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3799BAD51DF18389006E6B3D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -351,6 +547,97 @@
 			path = MarkupKitSample;
 			sourceTree = "<group>";
 		};
+		3771E9671DF1B8B00064CC82 /* MarkupKitExamples */ = {
+			isa = PBXGroup;
+			children = (
+				3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */,
+				3771E97F1DF1B8FC0064CC82 /* ViewController.swift */,
+				3771E9801DF1B8FC0064CC82 /* ViewController.xml */,
+				3771E9831DF1B9460064CC82 /* RadioButtonViewController.swift */,
+				3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */,
+				3771E9871DF1B9580064CC82 /* CheckboxViewController.swift */,
+				3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */,
+				3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */,
+				3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */,
+				3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */,
+				3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */,
+				3771E9931DF1B9990064CC82 /* PharmacyCell.swift */,
+				3771E9941DF1B9990064CC82 /* PharmacyCell.xml */,
+				3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */,
+				3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */,
+				3771E99D1DF1B9B50064CC82 /* StackViewController.swift */,
+				3771E99E1DF1B9B50064CC82 /* StackViewController.xml */,
+				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
+				3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */,
+				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
+				3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */,
+				3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */,
+				3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */,
+				3771E9AD1DF1B9E70064CC82 /* CustomSectionViewController.swift */,
+				3771E9AE1DF1B9E70064CC82 /* CustomSectionViewController.xml */,
+				3771E9B11DF1B9F10064CC82 /* CustomComponentViewController.swift */,
+				3771E9B21DF1B9F10064CC82 /* CustomComponentViewController.xml */,
+				3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */,
+				3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */,
+				3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */,
+				3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */,
+				3771E9BD1DF1BA100064CC82 /* PageViewController.swift */,
+				3771E9BE1DF1BA100064CC82 /* PageViewController.xml */,
+				3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */,
+				3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */,
+				3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */,
+				3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */,
+				3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */,
+				3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */,
+				3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */,
+				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
+				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
+				3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */,
+				3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */,
+				3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */,
+				3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */,
+				3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */,
+				3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */,
+				3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */,
+				3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */,
+				3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */,
+				3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */,
+				3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */,
+				3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */,
+				3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */,
+				3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */,
+				3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */,
+				3771E9EB1DF1BAB50064CC82 /* WebViewController.swift */,
+				3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */,
+				3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */,
+				3771E9F01DF1BAC20064CC82 /* MapViewController.xml */,
+				3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */,
+				3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */,
+				3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */,
+				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
+				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
+				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
+				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
+				3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */,
+				3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */,
+				3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */,
+				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
+				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
+				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
+				3771E9D41DF1BA570064CC82 /* sample.txt */,
+				3771E9D31DF1BA570064CC82 /* sample.mp4 */,
+				3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */,
+				3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */,
+				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
+				3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */,
+				3771E9741DF1B8B00064CC82 /* Info.plist */,
+				3771E9D71DF1BA690064CC82 /* Colors.plist */,
+				3771E9D91DF1BA720064CC82 /* Fonts.plist */,
+				3771E9971DF1B99E0064CC82 /* pharmacies.json */,
+			);
+			path = MarkupKitExamples;
+			sourceTree = "<group>";
+		};
 		3799BADA1DF18389006E6B3D /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -358,6 +645,7 @@
 				37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */,
 				37E57AFF1DF1B181002984B9 /* MarkupKitDemo.app */,
 				3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */,
+				3771E9661DF1B8B00064CC82 /* MarkupKitExamples.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -456,6 +744,7 @@
 				37E57AC61DF191B1002984B9 /* MarkupKitIntroduction */,
 				37E57B001DF1B181002984B9 /* MarkupKitDemo */,
 				3771E9351DF1B66A0064CC82 /* MarkupKitSample */,
+				3771E9671DF1B8B00064CC82 /* MarkupKitExamples */,
 				3799BADA1DF18389006E6B3D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -562,6 +851,25 @@
 			productReference = 3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		3771E9651DF1B8B00064CC82 /* MarkupKitExamples */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3771E9751DF1B8B00064CC82 /* Build configuration list for PBXNativeTarget "MarkupKitExamples" */;
+			buildPhases = (
+				3771E9621DF1B8B00064CC82 /* Sources */,
+				3771E9631DF1B8B00064CC82 /* Frameworks */,
+				3771E9641DF1B8B00064CC82 /* Resources */,
+				3771E97C1DF1B8C00064CC82 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3771E97B1DF1B8C00064CC82 /* PBXTargetDependency */,
+			);
+			name = MarkupKitExamples;
+			productName = MarkupKitExamples;
+			productReference = 3771E9661DF1B8B00064CC82 /* MarkupKitExamples.app */;
+			productType = "com.apple.product-type.application";
+		};
 		3799BAD81DF18389006E6B3D /* MarkupKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3799BAE11DF18389006E6B3D /* Build configuration list for PBXNativeTarget "MarkupKit" */;
@@ -633,6 +941,12 @@
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
+					3771E9651DF1B8B00064CC82 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = FBUU23VBFN;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
+					};
 					3799BAD81DF18389006E6B3D = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = FBUU23VBFN;
@@ -669,6 +983,7 @@
 				37E57AC41DF191B1002984B9 /* MarkupKitIntroduction */,
 				37E57AFE1DF1B181002984B9 /* MarkupKitDemo */,
 				3771E9331DF1B66A0064CC82 /* MarkupKitSample */,
+				3771E9651DF1B8B00064CC82 /* MarkupKitExamples */,
 			);
 		};
 /* End PBXProject section */
@@ -686,6 +1001,62 @@
 				3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771E95F1DF1B7D10064CC82 /* Localizable.strings in Resources */,
 				3771E95D1DF1B79A0064CC82 /* rows.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3771E9641DF1B8B00064CC82 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3771E9901DF1B9820064CC82 /* ColorPickerViewController.xml in Resources */,
+				3771EA0A1DF1BB1D0064CC82 /* AnchorViewController.xml in Resources */,
+				3771E9821DF1B8FC0064CC82 /* ViewController.xml in Resources */,
+				3771E9CC1DF1BA2C0064CC82 /* FormViewController.xml in Resources */,
+				3771E9F81DF1BAD70064CC82 /* FirstRowView.xml in Resources */,
+				3771E9961DF1B9990064CC82 /* PharmacyCell.xml in Resources */,
+				3771E9701DF1B8B00064CC82 /* Assets.xcassets in Resources */,
+				3771E9D51DF1BA570064CC82 /* sample.mp4 in Resources */,
+				3771E9AC1DF1B9DA0064CC82 /* GridViewController.xml in Resources */,
+				3771E9C71DF1BA200064CC82 /* SizeClassViewController~horizontal.xml in Resources */,
+				3771E9FA1DF1BADE0064CC82 /* SecondRowView.xml in Resources */,
+				3771E9C81DF1BA200064CC82 /* SizeClassViewController~vertical.xml in Resources */,
+				3771EA121DF1BB720064CC82 /* NestedStackViewController.xml in Resources */,
+				3771EA0E1DF1BB550064CC82 /* SimpleStackViewController.xml in Resources */,
+				3771E9DA1DF1BA720064CC82 /* Fonts.plist in Resources */,
+				3771E9D11DF1BA4C0064CC82 /* mini.png in Resources */,
+				3771E9EE1DF1BAB50064CC82 /* WebViewController.xml in Resources */,
+				3771E9E61DF1BA9C0064CC82 /* ColorCell.xml in Resources */,
+				3771E9FC1DF1BAE70064CC82 /* ThirdRowView.xml in Resources */,
+				3771E9D61DF1BA570064CC82 /* sample.txt in Resources */,
+				3771E9E41DF1BA9C0064CC82 /* CollectionViewController.xml in Resources */,
+				3771EA051DF1BB090064CC82 /* ColorsAndFontsViewController.xml in Resources */,
+				3771EA1E1DF1BB9C0064CC82 /* ComplexWidthViewController.xml in Resources */,
+				3771E9EA1DF1BAA80064CC82 /* PlayerViewController.xml in Resources */,
+				3771E9D01DF1BA4C0064CC82 /* chevy.png in Resources */,
+				3771E9D21DF1BA4C0064CC82 /* vw.png in Resources */,
+				3771EA161DF1BB800064CC82 /* EqualWidthViewController.xml in Resources */,
+				3771EA1A1DF1BB8E0064CC82 /* DifferentWidthViewController.xml in Resources */,
+				3771E9981DF1B99E0064CC82 /* pharmacies.json in Resources */,
+				3771E9FE1DF1BAFE0064CC82 /* ColumnView.xml in Resources */,
+				3771E9A81DF1B9D10064CC82 /* ScrollViewController.xml in Resources */,
+				3771E9B01DF1B9E70064CC82 /* CustomSectionViewController.xml in Resources */,
+				3771E9B41DF1B9F10064CC82 /* CustomComponentViewController.xml in Resources */,
+				3771E9F21DF1BAC20064CC82 /* MapViewController.xml in Resources */,
+				3771E9DE1DF1BA920064CC82 /* PeriodicTableViewController.xml in Resources */,
+				3771E98A1DF1B9580064CC82 /* CheckboxViewController.xml in Resources */,
+				3771E99C1DF1B9A80064CC82 /* LayoutViewController.xml in Resources */,
+				3771E9A41DF1B9C70064CC82 /* EffectViewController.xml in Resources */,
+				3771EA031DF1BB090064CC82 /* ColorsAndFontsViewController.json in Resources */,
+				3771E9F61DF1BACC0064CC82 /* IncludesViewController.xml in Resources */,
+				3771E9D81DF1BA690064CC82 /* Colors.plist in Resources */,
+				3771E9C61DF1BA200064CC82 /* SizeClassViewController.xml in Resources */,
+				3771E9A01DF1B9B50064CC82 /* StackViewController.xml in Resources */,
+				3771E9861DF1B9460064CC82 /* RadioButtonViewController.xml in Resources */,
+				3771E9B81DF1B9FD0064CC82 /* LinearGradientViewController.xml in Resources */,
+				3771EA061DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json in Resources */,
+				3771E9C01DF1BA100064CC82 /* PageViewController.xml in Resources */,
+				3771E9BC1DF1BA070064CC82 /* RadialGradientViewController.xml in Resources */,
+				3771E9731DF1B8B00064CC82 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +1101,47 @@
 				3771E94F1DF1B73C0064CC82 /* ViewController.swift in Sources */,
 				3771E9531DF1B7580064CC82 /* CustomCell.swift in Sources */,
 				3771E9571DF1B77D0064CC82 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3771E9621DF1B8B00064CC82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3771E98C1DF1B97A0064CC82 /* SelectionViewController.swift in Sources */,
+				3771E9921DF1B98F0064CC82 /* CustomCellViewController.swift in Sources */,
+				3771E9951DF1B9990064CC82 /* PharmacyCell.swift in Sources */,
+				3771E97E1DF1B8E40064CC82 /* AppDelegate.swift in Sources */,
+				3771E9C51DF1BA200064CC82 /* SizeClassViewController.swift in Sources */,
+				3771E99B1DF1B9A80064CC82 /* LayoutViewController.swift in Sources */,
+				3771E98F1DF1B9820064CC82 /* ColorPickerViewController.swift in Sources */,
+				3771E9A31DF1B9C70064CC82 /* EffectViewController.swift in Sources */,
+				3771E9A71DF1B9D10064CC82 /* ScrollViewController.swift in Sources */,
+				3771E9E51DF1BA9C0064CC82 /* ColorCell.swift in Sources */,
+				3771E9B31DF1B9F10064CC82 /* CustomComponentViewController.swift in Sources */,
+				3771E9F51DF1BACC0064CC82 /* IncludesViewController.swift in Sources */,
+				3771E9E31DF1BA9C0064CC82 /* CollectionViewController.swift in Sources */,
+				3771E9B71DF1B9FD0064CC82 /* LinearGradientViewController.swift in Sources */,
+				3771E9ED1DF1BAB50064CC82 /* WebViewController.swift in Sources */,
+				3771E9AB1DF1B9DA0064CC82 /* GridViewController.swift in Sources */,
+				3771EA1D1DF1BB9C0064CC82 /* ComplexWidthViewController.swift in Sources */,
+				3771EA151DF1BB800064CC82 /* EqualWidthViewController.swift in Sources */,
+				3771E9DD1DF1BA920064CC82 /* PeriodicTableViewController.swift in Sources */,
+				3771E9891DF1B9580064CC82 /* CheckboxViewController.swift in Sources */,
+				3771E99F1DF1B9B50064CC82 /* StackViewController.swift in Sources */,
+				3771EA0D1DF1BB550064CC82 /* SimpleStackViewController.swift in Sources */,
+				3771E9E91DF1BAA80064CC82 /* PlayerViewController.swift in Sources */,
+				3771E9F11DF1BAC20064CC82 /* MapViewController.swift in Sources */,
+				3771EA111DF1BB720064CC82 /* NestedStackViewController.swift in Sources */,
+				3771E9BB1DF1BA070064CC82 /* RadialGradientViewController.swift in Sources */,
+				3771E9811DF1B8FC0064CC82 /* ViewController.swift in Sources */,
+				3771EA041DF1BB090064CC82 /* ColorsAndFontsViewController.swift in Sources */,
+				3771E9BF1DF1BA100064CC82 /* PageViewController.swift in Sources */,
+				3771E9851DF1B9460064CC82 /* RadioButtonViewController.swift in Sources */,
+				3771EA191DF1BB8E0064CC82 /* DifferentWidthViewController.swift in Sources */,
+				3771E9CB1DF1BA2C0064CC82 /* FormViewController.swift in Sources */,
+				3771EA091DF1BB1D0064CC82 /* AnchorViewController.swift in Sources */,
+				3771E9AF1DF1B9E70064CC82 /* CustomSectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +1218,11 @@
 			target = 3799BAD81DF18389006E6B3D /* MarkupKit */;
 			targetProxy = 3771E9481DF1B68A0064CC82 /* PBXContainerItemProxy */;
 		};
+		3771E97B1DF1B8C00064CC82 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3799BAD81DF18389006E6B3D /* MarkupKit */;
+			targetProxy = 3771E97A1DF1B8C00064CC82 /* PBXContainerItemProxy */;
+		};
 		37E57AE01DF19258002984B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3799BAD81DF18389006E6B3D /* MarkupKit */;
@@ -833,6 +1250,14 @@
 				3771E9601DF1B7D10064CC82 /* en */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3771E9721DF1B8B00064CC82 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */ = {
@@ -961,6 +1386,113 @@
 			};
 			name = Release;
 		};
+		3771E9761DF1B8B00064CC82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = FBUU23VBFN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = MarkupKitExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3771E9771DF1B8B00064CC82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = FBUU23VBFN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = MarkupKitExamples/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = org.markupkit.MarkupKitExamples;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		3799BADF1DF18389006E6B3D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -988,7 +1520,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FBUU23VBFN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1051,7 +1582,6 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = FBUU23VBFN;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1315,6 +1845,14 @@
 			buildConfigurations = (
 				3771E9431DF1B66A0064CC82 /* Debug */,
 				3771E9441DF1B66A0064CC82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3771E9751DF1B8B00064CC82 /* Build configuration list for PBXNativeTarget "MarkupKitExamples" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3771E9761DF1B8B00064CC82 /* Debug */,
+				3771E9771DF1B8B00064CC82 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

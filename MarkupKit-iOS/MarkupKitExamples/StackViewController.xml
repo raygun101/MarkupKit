@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<UIStackView axis="vertical" spacing="8" layoutMarginsRelativeArrangement="true">
+    <LMSpacer height="8"/>
+
+    <UILabel text="Labels" font="System-Bold 18"/>
+
+    <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+        <LMSpacer/>
+    </UIStackView>
+
+    <UILabel text="Image Views" font="System-Bold 18"/>
+
+    <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UIImageView image="vw.png"/>
+        <UIImageView image="mini.png"/>
+        <UIImageView image="chevy.png"/>
+        <LMSpacer/>
+    </UIStackView>
+
+    <UILabel text="Text Fields" font="System-Bold 18"/>
+
+    <UIStackView axis="horizontal" distribution="fillProportionally" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
+        <UITextField placeholder="City" borderStyle="roundedRect"/>
+        <UITextField placeholder="State" borderStyle="roundedRect"/>
+        <UITextField placeholder="Zip" borderStyle="roundedRect"/>
+    </UIStackView>
+
+    <LMSpacer/>
+</UIStackView>
