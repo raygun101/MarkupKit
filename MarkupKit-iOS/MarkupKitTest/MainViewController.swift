@@ -54,8 +54,4 @@ class MainViewController: UIViewController {
     @IBAction func handleSwitchValueChanged(_ sender: UISwitch) {
         imageView.isHidden = !sender.isOn
     }
-
-    func alertView(_ alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        print("The user clicked button \(buttonIndex)")
-    }
 }
