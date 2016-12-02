@@ -1,5 +1,5 @@
 # Introduction
-MarkupKit is an open-source framework for simplifying development of native iOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
+MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
 
 For example, the following markup creates an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
@@ -25,7 +25,7 @@ For more information, please see the following:
 * [Deployment](https://github.com/gk-brown/MarkupKit/wiki/Deployment) - Guide to deploying MarkupKit-based applications
 * [Articles](https://github.com/gk-brown/MarkupKit/wiki/Articles) - Articles about MarkupKit
 
-MarkupKit requires iOS 8 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
+MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
 # Contents
 * [Document Structure](#document-structure)
