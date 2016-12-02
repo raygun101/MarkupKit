@@ -11,4 +11,9 @@ Pod::Spec.new do |s|
   s.ios.source_files        = 'MarkupKit-iOS/MarkupKit/*.{h,m}'
   s.tvos.deployment_target  = '10.0'
   s.tvos.source_files       = 'MarkupKit-iOS/MarkupKit/*.{h,m}'
+  s.tvos.exclude_files      = [
+    'MarkupKit-iOS/MarkupKit/UIDatePicker+Markup.m',
+    'MarkupKit-iOS/MarkupKit/UIPickerView+Markup.m',
+    'MarkupKit-iOS/MarkupKit/UIToolbar+Markup.m'
+  ]
 end
