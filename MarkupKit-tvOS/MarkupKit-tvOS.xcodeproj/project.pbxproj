@@ -829,7 +829,6 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USE_HEADERMAP = YES;
 			};
 			name = Debug;
 		};
@@ -878,7 +877,6 @@
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
-				USE_HEADERMAP = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
