@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37BE79EE1DF1F4A2008D5D77 /* IMG_0725.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37BE79ED1DF1F4A2008D5D77 /* IMG_0725.jpg */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -140,6 +141,7 @@
 /* Begin PBXFileReference section */
 		3799BAE71DF18396006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BAEB1DF18396006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37BE79ED1DF1F4A2008D5D77 /* IMG_0725.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_0725.jpg; path = "../../MarkupKit-iOS/MarkupKitDemo/IMG_0725.jpg"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
 		37E579D51DF19090002984B9 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLayoutView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.m"; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */,
 				37E57B3E1DF1B428002984B9 /* ViewController.swift */,
 				37E57B3F1DF1B428002984B9 /* ViewController.xml */,
+				37BE79ED1DF1F4A2008D5D77 /* IMG_0725.jpg */,
 				37E57B311DF1B398002984B9 /* Assets.xcassets */,
 				37E57B331DF1B398002984B9 /* Info.plist */,
 			);
@@ -567,6 +570,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E57B411DF1B428002984B9 /* ViewController.xml in Resources */,
+				37BE79EE1DF1F4A2008D5D77 /* IMG_0725.jpg in Resources */,
 				37E57B321DF1B398002984B9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
