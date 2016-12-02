@@ -490,9 +490,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */,
 				37E57ADC1DF19248002984B9 /* ViewController.xml in Resources */,
 				37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */,
+				37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,8 +549,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E57ADB1DF19248002984B9 /* ViewController.swift in Sources */,
 				37E57ADA1DF19248002984B9 /* AppDelegate.swift in Sources */,
+				37E57ADB1DF19248002984B9 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
