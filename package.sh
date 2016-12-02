@@ -20,12 +20,12 @@ tar -czv -C $FRAMEWORK-iOS/$BUILD/Release-universal -f $FRAMEWORK-iOS.framework.
 rm -Rf $FRAMEWORK-tvOS/$BUILD
 rm -f $FRAMEWORK-tvOS.framework.tar.gz
 
-xcodebuild archive -project $FRAMEWORK-tvOS/$FRAMEWORK-tvOS.xcodeproj -scheme $FRAMEWORK -sdk iphoneos SYMROOT=$BUILD
-xcodebuild build -project $FRAMEWORK-tvOS/$FRAMEWORK-tvOS.xcodeproj -target $FRAMEWORK -sdk iphonesimulator SYMROOT=$BUILD
+xcodebuild archive -project $FRAMEWORK-tvOS/$FRAMEWORK-tvOS.xcodeproj -scheme $FRAMEWORK -sdk appletvos SYMROOT=$BUILD
+xcodebuild build -project $FRAMEWORK-tvOS/$FRAMEWORK-tvOS.xcodeproj -target $FRAMEWORK -sdk appletvsimulator SYMROOT=$BUILD
 
-cp -RL $FRAMEWORK-tvOS/$BUILD/Release-iphoneos $FRAMEWORK-tvOS/$BUILD/Release-universal
+cp -RL $FRAMEWORK-tvOS/$BUILD/Release-appletvos $FRAMEWORK-tvOS/$BUILD/Release-universal
 
-lipo -create $FRAMEWORK-tvOS/$BUILD/Release-iphoneos/$FRAMEWORK_PATH/$FRAMEWORK $FRAMEWORK-tvOS/$BUILD/Release-iphonesimulator/$FRAMEWORK_PATH/$FRAMEWORK -output $FRAMEWORK-tvOS/$BUILD/Release-universal/$FRAMEWORK_PATH/$FRAMEWORK
+lipo -create $FRAMEWORK-tvOS/$BUILD/Release-appletvos/$FRAMEWORK_PATH/$FRAMEWORK $FRAMEWORK-tvOS/$BUILD/Release-appletvsimulator/$FRAMEWORK_PATH/$FRAMEWORK -output $FRAMEWORK-tvOS/$BUILD/Release-universal/$FRAMEWORK_PATH/$FRAMEWORK
 
 tar -czv -C $FRAMEWORK-tvOS/$BUILD/Release-universal -f $FRAMEWORK-tvOS.framework.tar.gz $FRAMEWORK_PATH
 
