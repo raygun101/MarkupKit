@@ -19,17 +19,17 @@ limitations under the License.
 <LMLayerView backgroundColor="background" layoutMarginsRelativeArrangement="false">
     <LMColumnView class="columnView.list">
         <LMRowView>
-            <UIImageView image="phone_icon" class="imageView.icon"/>
+            <UIImageView image="PhoneIcon" class="imageView.icon"/>
             <UILabel text="Phone" class="label.description" weight="1"/>
         </LMRowView>
 
         <LMRowView>
-            <UIImageView image="fax_icon" class="imageView.icon"/>
+            <UIImageView image="FaxIcon" class="imageView.icon"/>
             <UILabel text="Fax" class="label.description" weight="1"/>
         </LMRowView>
 
         <LMRowView>
-            <UIImageView image="email_icon" class="imageView.icon"/>
+            <UIImageView image="EmailIcon" class="imageView.icon"/>
             <UILabel text="Email" class="label.description" weight="1"/>
         </LMRowView>
 
