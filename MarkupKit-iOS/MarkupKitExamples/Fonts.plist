@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>description</key>
-	<string>Helvetica-Bold 22</string>
+	<string>headline</string>
 	<key>description_small</key>
-	<string>Helvetica 16</string>
+	<string>caption1</string>
 </dict>
 </plist>
