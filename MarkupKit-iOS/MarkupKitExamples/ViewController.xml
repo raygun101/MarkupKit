@@ -17,25 +17,39 @@ limitations under the License.
 <LMTableView>
     <UITableViewCell textLabel.text="Radio Buttons" accessoryType="disclosureIndicator" value="radioButtons"/>
     <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Selection View" accessoryType="disclosureIndicator" value="selectionView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Custom Cell View" accessoryType="disclosureIndicator" value="customCellView"/>
     <UITableViewCell textLabel.text="Layout Views" accessoryType="disclosureIndicator" value="layoutViews"/>
     <UITableViewCell textLabel.text="Stack Views" accessoryType="disclosureIndicator" value="stackViews"/>
     <UITableViewCell textLabel.text="Effect View" accessoryType="disclosureIndicator" value="effectView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
     <UITableViewCell textLabel.text="Custom Section View" accessoryType="disclosureIndicator" value="customSectionView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Custom Component View" accessoryType="disclosureIndicator" value="customComponentView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Linear Gradient View" accessoryType="disclosureIndicator" value="linearGradientView"/>
     <UITableViewCell textLabel.text="Radial Gradient View" accessoryType="disclosureIndicator" value="radialGradientView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
     <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Auto Layout Cookbook" accessoryType="disclosureIndicator" value="autoLayoutCookbook"/>
+    <?end?>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
     <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
     <UITableViewCell textLabel.text="Colors and Fonts" accessoryType="disclosureIndicator" value="colorsAndFonts"/>

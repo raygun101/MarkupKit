@@ -27,7 +27,9 @@ class ViewController: UITableViewController {
 
         title = "MarkupKit Examples"
 
+        #if os(iOS)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        #endif
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -39,7 +41,9 @@ class ViewController: UITableViewController {
         } else if (value == "checkboxes") {
             navigationController!.pushViewController(CheckboxViewController(), animated: true)
         } else if (value == "selectionView") {
+            #if os(iOS)
             navigationController!.pushViewController(SelectionViewController(), animated: true)
+            #endif
         } else if (value == "customCellView") {
             navigationController!.pushViewController(CustomCellViewController(), animated: true)
         } else if (value == "layoutViews") {
@@ -49,33 +53,45 @@ class ViewController: UITableViewController {
         } else if (value == "effectView") {
             navigationController!.pushViewController(EffectViewController(), animated: true)
         } else if (value == "scrollView") {
+            #if os(iOS)
             navigationController!.pushViewController(ScrollViewController(), animated: true)
+            #endif
         } else if (value == "gridView") {
             navigationController!.pushViewController(GridViewController(), animated: true)
         } else if (value == "customSectionView") {
             navigationController!.pushViewController(CustomSectionViewController(), animated: true)
         } else if (value == "customComponentView") {
+            #if os(iOS)
             navigationController!.pushViewController(CustomComponentViewController(), animated: true)
+            #endif
         } else if (value == "linearGradientView") {
             navigationController!.pushViewController(LinearGradientViewController(), animated: true)
         } else if (value == "radialGradientView") {
             navigationController!.pushViewController(RadialGradientViewController(), animated: true)
         } else if (value == "pageView") {
+            #if os(iOS)
             navigationController!.pushViewController(PageViewController(), animated: true)
+            #endif
         } else if (value == "sizeClassView") {
             navigationController!.pushViewController(SizeClassViewController(), animated: true)
         } else if (value == "formView") {
             navigationController!.pushViewController(FormViewController(), animated: true)
         } else if (value == "autoLayoutCookbook") {
+            #if os(iOS)
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
+            #endif
         } else if (value == "periodicTable") {
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
         } else if (value == "collectionView") {
+            #if os(iOS)
             navigationController!.pushViewController(CollectionViewController(), animated: true)
+            #endif
         } else if (value == "playerView") {
             navigationController!.pushViewController(PlayerViewController(), animated: true)
         } else if (value == "webView") {
+            #if os(iOS)
             navigationController!.pushViewController(WebViewController(), animated: true)
+            #endif
         } else if (value == "mapView") {
             navigationController!.pushViewController(MapViewController(), animated: true)
         } else if (value == "includes") {
@@ -87,6 +103,10 @@ class ViewController: UITableViewController {
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+    }
+
+    override func tableView(_ tableView: UITableView, canFocusRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
 }
 

@@ -86,6 +86,7 @@
 		376306881DF188F400357E68 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB341DF18539006E6B3D /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306891DF188F400357E68 /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB201DF18539006E6B3D /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763068A1DF188F400357E68 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3763AD8F1DF714F600E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8E1DF714F600E88F7A /* sample.jpg */; };
 		3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93D1DF1B66A0064CC82 /* Assets.xcassets */; };
 		3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */; };
 		3771E9461DF1B68A0064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
@@ -215,7 +216,7 @@
 		37E57B1D1DF1B1D8002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B161DF1B1D8002984B9 /* AppDelegate.swift */; };
 		37E57B1E1DF1B1D8002984B9 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B171DF1B1D8002984B9 /* IconCell.swift */; };
 		37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B181DF1B1D8002984B9 /* IconCell.xml */; };
-		37E57B201DF1B1D8002984B9 /* IMG_0725.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* IMG_0725.jpg */; };
+		37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* sample.jpg */; };
 		37E57B211DF1B1D8002984B9 /* Styles.json in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1A1DF1B1D8002984B9 /* Styles.json */; };
 		37E57B221DF1B1D8002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B1B1DF1B1D8002984B9 /* ViewController.swift */; };
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
@@ -318,6 +319,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3771E9401DF1B66A0064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -528,7 +530,7 @@
 		37E57B161DF1B1D8002984B9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E57B171DF1B1D8002984B9 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		37E57B181DF1B1D8002984B9 /* IconCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IconCell.xml; sourceTree = "<group>"; };
-		37E57B191DF1B1D8002984B9 /* IMG_0725.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_0725.jpg; sourceTree = "<group>"; };
+		37E57B191DF1B1D8002984B9 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37E57B1A1DF1B1D8002984B9 /* Styles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles.json; sourceTree = "<group>"; };
 		37E57B1B1DF1B1D8002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
@@ -682,6 +684,7 @@
 				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
 				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
 				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
+				3763AD8E1DF714F600E88F7A /* sample.jpg */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
 				3771E9D31DF1BA570064CC82 /* sample.mp4 */,
 				3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */,
@@ -852,7 +855,7 @@
 				37E57B1C1DF1B1D8002984B9 /* ViewController.xml */,
 				37E57B171DF1B1D8002984B9 /* IconCell.swift */,
 				37E57B181DF1B1D8002984B9 /* IconCell.xml */,
-				37E57B191DF1B1D8002984B9 /* IMG_0725.jpg */,
+				37E57B191DF1B1D8002984B9 /* sample.jpg */,
 				37E57B1A1DF1B1D8002984B9 /* Styles.json */,
 				37E57B081DF1B181002984B9 /* Assets.xcassets */,
 				37E57B0A1DF1B181002984B9 /* LaunchScreen.storyboard */,
@@ -1145,6 +1148,7 @@
 				3771EA5B1DF1C1430064CC82 /* ColorCell.xml in Resources */,
 				3771EA5C1DF1C1430064CC82 /* PlayerViewController.xml in Resources */,
 				3771EA5D1DF1C1430064CC82 /* WebViewController.xml in Resources */,
+				3763AD8F1DF714F600E88F7A /* sample.jpg in Resources */,
 				3771EA5E1DF1C1430064CC82 /* MapViewController.xml in Resources */,
 				3771EA5F1DF1C1430064CC82 /* IncludesViewController.xml in Resources */,
 				3771EA601DF1C1430064CC82 /* ColumnView.xml in Resources */,
@@ -1210,7 +1214,7 @@
 			files = (
 				37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */,
 				37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */,
-				37E57B201DF1B1D8002984B9 /* IMG_0725.jpg in Resources */,
+				37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */,
 				37E57B211DF1B1D8002984B9 /* Styles.json in Resources */,
 				37E57B091DF1B181002984B9 /* Assets.xcassets in Resources */,
 				37E57B0C1DF1B181002984B9 /* LaunchScreen.storyboard in Resources */,

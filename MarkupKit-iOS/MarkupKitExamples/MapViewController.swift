@@ -35,9 +35,10 @@ class MapViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge()
     }
 
+    #if os(iOS)
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         let defaultNotificationCenter = NotificationCenter.default
         
         defaultNotificationCenter.addObserver(self,
@@ -49,19 +50,19 @@ class MapViewController: UIViewController {
             selector: #selector(keyboardWillHide(_:)),
             name: NSNotification.Name.UIKeyboardWillHide,
             object: nil)
-        
+
         latitudeTextField.becomeFirstResponder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        
+
         let defaultNotificationCenter = NotificationCenter.default
         
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
+
     func keyboardWillShow(_ notification: Notification) {
         (view as! LMColumnView).bottomSpacing = ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size.height
     }
@@ -69,6 +70,7 @@ class MapViewController: UIViewController {
     func keyboardWillHide(_ notification: Notification) {
         (view as! LMColumnView).bottomSpacing = 0
     }
+    #endif
     
     @IBAction func showLocation() {
         let latitude = Double(latitudeTextField.text!)!

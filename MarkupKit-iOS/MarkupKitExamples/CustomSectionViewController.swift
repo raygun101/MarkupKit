@@ -62,6 +62,7 @@ class CustomSectionViewController: UITableViewController {
         return cell
     }
 
+    #if os(iOS)
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return (tableView.name(forSection: indexPath.section) == dynamicSectionName)
     }
@@ -88,4 +89,5 @@ class CustomSectionViewController: UITableViewController {
 
         return editActions
     }
+    #endif
 }

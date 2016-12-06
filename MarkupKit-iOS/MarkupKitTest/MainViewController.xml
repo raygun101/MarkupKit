@@ -15,7 +15,9 @@ limitations under the License.
 -->
 
 <?properties Styles1?>
+<?case iOS?>
 <?properties Styles2?>
+<?end?>
 
 <?properties Missing?>
 
@@ -44,6 +46,10 @@ limitations under the License.
                 <bar/>
                 <UILabel text="I'm not here"/>
             </foo>
+
+            <?case macOS?>
+            <NSTextField id="textField"/>
+            <?end?>
 
             <LMRowView class="row.second">
                 <UILabel text="12345" class="large, blue"/>
@@ -105,6 +111,7 @@ limitations under the License.
                 </UITextField>
             </LMRowView>
 
+            <?case iOS?>
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"
                 layer.shadowOpacity="0.5" layer.shadowOffsetHeight="8" layer.shadowRadius="10"/>
         </LMColumnView>

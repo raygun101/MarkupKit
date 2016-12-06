@@ -329,7 +329,15 @@ typedef enum {
 
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return ([[_sections objectAtIndex:[indexPath section]] selectionMode] != LMTableViewSelectionModeDefault);
+    BOOL canFocus;
+    if ([[_sections objectAtIndex:[indexPath section]] selectionMode] == LMTableViewSelectionModeDefault) {
+        canFocus = ([_delegate respondsToSelector:@selector(tableView:canFocusRowAtIndexPath:)]
+            && [_delegate tableView:tableView canFocusRowAtIndexPath:indexPath]);
+    } else {
+        canFocus = YES;
+    }
+
+    return canFocus;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
