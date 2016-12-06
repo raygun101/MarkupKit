@@ -408,7 +408,18 @@ However, if the device was presenting a compact width and regular height, the do
 
 Size class-specific layouts are discussed in more detail later.
 
-## Processing Instructions
+## Conditional Processing
+In most cases, a markup document created for an iOS application can be used as-is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on target operating system. All content following the PI will only be processed if the current OS matches the target operating system. For example:
+
+	<?case iOS?>
+	    <!-- iOS-specific content -->
+	<?case tvOS?>
+	    <!-- tvOS-specific content -->
+	<?end?>
+
+The optional `end` PI terminates a case. If unspecified, OS-specific processing will continue until the end of the document is reached.
+
+## View-Specific Processing Instructions
 In addition to the document-wide `properties` and `include` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer view declarations and section breaks:
