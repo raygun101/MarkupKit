@@ -35,7 +35,6 @@ class MapViewController: UIViewController {
         edgesForExtendedLayout = UIRectEdge()
     }
 
-    #if os(iOS)
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -70,7 +69,6 @@ class MapViewController: UIViewController {
     func keyboardWillHide(_ notification: Notification) {
         (view as! LMColumnView).bottomSpacing = 0
     }
-    #endif
     
     @IBAction func showLocation() {
         let latitude = Double(latitudeTextField.text!)!

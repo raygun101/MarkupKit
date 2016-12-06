@@ -27,7 +27,6 @@
 		37BC06AC1DF720F100C46DF6 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD131DF713AE00E88F7A /* FormViewController.swift */; };
 		37BC06AD1DF720F100C46DF6 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD1F1DF713AE00E88F7A /* PeriodicTableViewController.swift */; };
 		37BC06AE1DF720F100C46DF6 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD251DF713AE00E88F7A /* PlayerViewController.swift */; };
-		37BC06AF1DF720F100C46DF6 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD291DF713AE00E88F7A /* MapViewController.swift */; };
 		37BC06B01DF720F100C46DF6 /* IncludesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */; };
 		37BC06B11DF720F100C46DF6 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD311DF713AE00E88F7A /* ColorsAndFontsViewController.swift */; };
 		37BC06B21DF720F100C46DF6 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD331DF713AE00E88F7A /* AnchorViewController.swift */; };
@@ -48,7 +47,6 @@
 		37BC06C11DF7211B00C46DF6 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD141DF713AE00E88F7A /* FormViewController.xml */; };
 		37BC06C21DF7211B00C46DF6 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD201DF713AE00E88F7A /* PeriodicTableViewController.xml */; };
 		37BC06C31DF7211B00C46DF6 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD261DF713AE00E88F7A /* PlayerViewController.xml */; };
-		37BC06C41DF7211B00C46DF6 /* MapViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2A1DF713AE00E88F7A /* MapViewController.xml */; };
 		37BC06C51DF7211B00C46DF6 /* IncludesViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2C1DF713AE00E88F7A /* IncludesViewController.xml */; };
 		37BC06C61DF7211B00C46DF6 /* ColumnView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2D1DF713AE00E88F7A /* ColumnView.xml */; };
 		37BC06C71DF7211B00C46DF6 /* FirstRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2E1DF713AE00E88F7A /* FirstRowView.xml */; };
@@ -251,8 +249,6 @@
 		3763AD201DF713AE00E88F7A /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PeriodicTableViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml"; sourceTree = "<group>"; };
 		3763AD251DF713AE00E88F7A /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/PlayerViewController.swift"; sourceTree = "<group>"; };
 		3763AD261DF713AE00E88F7A /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PlayerViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PlayerViewController.xml"; sourceTree = "<group>"; };
-		3763AD291DF713AE00E88F7A /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/MapViewController.swift"; sourceTree = "<group>"; };
-		3763AD2A1DF713AE00E88F7A /* MapViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MapViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/MapViewController.xml"; sourceTree = "<group>"; };
 		3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncludesViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/IncludesViewController.swift"; sourceTree = "<group>"; };
 		3763AD2C1DF713AE00E88F7A /* IncludesViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = IncludesViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/IncludesViewController.xml"; sourceTree = "<group>"; };
 		3763AD2D1DF713AE00E88F7A /* ColumnView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ColumnView.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ColumnView.xml"; sourceTree = "<group>"; };
@@ -445,8 +441,6 @@
 				3763AD201DF713AE00E88F7A /* PeriodicTableViewController.xml */,
 				3763AD251DF713AE00E88F7A /* PlayerViewController.swift */,
 				3763AD261DF713AE00E88F7A /* PlayerViewController.xml */,
-				3763AD291DF713AE00E88F7A /* MapViewController.swift */,
-				3763AD2A1DF713AE00E88F7A /* MapViewController.xml */,
 				3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */,
 				3763AD2C1DF713AE00E88F7A /* IncludesViewController.xml */,
 				3763AD2D1DF713AE00E88F7A /* ColumnView.xml */,
@@ -810,7 +804,6 @@
 				37BC06C11DF7211B00C46DF6 /* FormViewController.xml in Resources */,
 				37BC06C21DF7211B00C46DF6 /* PeriodicTableViewController.xml in Resources */,
 				37BC06C31DF7211B00C46DF6 /* PlayerViewController.xml in Resources */,
-				37BC06C41DF7211B00C46DF6 /* MapViewController.xml in Resources */,
 				37BC06C51DF7211B00C46DF6 /* IncludesViewController.xml in Resources */,
 				37BC06C61DF7211B00C46DF6 /* ColumnView.xml in Resources */,
 				37BC06C71DF7211B00C46DF6 /* FirstRowView.xml in Resources */,
@@ -883,7 +876,6 @@
 				37BC06AC1DF720F100C46DF6 /* FormViewController.swift in Sources */,
 				37BC06AD1DF720F100C46DF6 /* PeriodicTableViewController.swift in Sources */,
 				37BC06AE1DF720F100C46DF6 /* PlayerViewController.swift in Sources */,
-				37BC06AF1DF720F100C46DF6 /* MapViewController.swift in Sources */,
 				37BC06B01DF720F100C46DF6 /* IncludesViewController.swift in Sources */,
 				37BC06B11DF720F100C46DF6 /* ColorsAndFontsViewController.swift in Sources */,
 				37BC06B21DF720F100C46DF6 /* AnchorViewController.swift in Sources */,

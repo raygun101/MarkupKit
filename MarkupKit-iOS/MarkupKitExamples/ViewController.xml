@@ -49,8 +49,8 @@ limitations under the License.
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
     <?case iOS?>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
-    <?end?>
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
     <UITableViewCell textLabel.text="Colors and Fonts" accessoryType="disclosureIndicator" value="colorsAndFonts"/>
     <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>

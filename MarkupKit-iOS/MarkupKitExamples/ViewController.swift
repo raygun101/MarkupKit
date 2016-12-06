@@ -93,7 +93,9 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(WebViewController(), animated: true)
             #endif
         } else if (value == "mapView") {
+            #if os(iOS)
             navigationController!.pushViewController(MapViewController(), animated: true)
+            #endif
         } else if (value == "includes") {
             navigationController!.pushViewController(IncludesViewController(), animated: true)
         } else if (value == "colorsAndFonts") {
