@@ -917,7 +917,7 @@ Additionally, an application-specific delegate may be set on an `LMPickerView` i
 
 * `pickerView:didSelectRow:inComponent:`
 
-See _LMPickerView.h_ for more information.
+`LMPickerView` is available in iOS only. See _LMPickerView.h_ for more information.
 
 ## LMScrollView
 The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of scroll view content in markup. It presents a single scrollable content view, optionally allowing the user to scroll in one or both directions.
@@ -963,7 +963,7 @@ Page views are commonly used as the bottom layer in a layer view; a layer contai
 
 Layer views are discussed in more detail later.
 
-See _LMPageView.h_ for more information.
+`LMPageView` is available in iOS only. See _LMPageView.h_ for more information.
 
 ## LMLayoutView
 Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded view positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
