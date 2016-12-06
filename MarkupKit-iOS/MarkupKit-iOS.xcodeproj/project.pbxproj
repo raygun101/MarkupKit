@@ -202,6 +202,8 @@
 		3771EAA01DF1C2720064CC82 /* Styles2~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */; };
 		3771EAA11DF1C2D00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
+		37BC06DA1DF7225C00C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D91DF7225C00C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
 		37E57ADA1DF19248002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57AD71DF19248002984B9 /* AppDelegate.swift */; };
@@ -516,6 +518,8 @@
 		3799BB3B1DF18539006E6B3D /* UIView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Markup.m"; sourceTree = "<group>"; };
 		3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIVisualEffectView+Markup.h"; sourceTree = "<group>"; };
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
+		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57ACE1DF191B1002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57AD11DF191B1002984B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -689,6 +693,7 @@
 				3771E9D31DF1BA570064CC82 /* sample.mp4 */,
 				3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */,
 				3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */,
+				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
 				3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */,
 				3771E9741DF1B8B00064CC82 /* Info.plist */,
@@ -857,6 +862,7 @@
 				37E57B181DF1B1D8002984B9 /* IconCell.xml */,
 				37E57B191DF1B1D8002984B9 /* sample.jpg */,
 				37E57B1A1DF1B1D8002984B9 /* Styles.json */,
+				37BC06D71DF7219500C46DF6 /* Icons.xcassets */,
 				37E57B081DF1B181002984B9 /* Assets.xcassets */,
 				37E57B0A1DF1B181002984B9 /* LaunchScreen.storyboard */,
 				37E57B0D1DF1B181002984B9 /* Info.plist */,
@@ -1164,6 +1170,7 @@
 				3771EA6A1DF1C1430064CC82 /* sample.mp4 in Resources */,
 				3771EA6B1DF1C1430064CC82 /* ColorsAndFontsViewController.json in Resources */,
 				3771EA6C1DF1C1430064CC82 /* ColorsAndFontsViewController~vertical.json in Resources */,
+				37BC06DA1DF7225C00C46DF6 /* Icons.xcassets in Resources */,
 				3771EA6D1DF1C1430064CC82 /* Assets.xcassets in Resources */,
 				3771EA6E1DF1C1430064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771EA6F1DF1C1430064CC82 /* Colors.plist in Resources */,
@@ -1216,6 +1223,7 @@
 				37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */,
 				37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */,
 				37E57B211DF1B1D8002984B9 /* Styles.json in Resources */,
+				37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */,
 				37E57B091DF1B181002984B9 /* Assets.xcassets in Resources */,
 				37E57B0C1DF1B181002984B9 /* LaunchScreen.storyboard in Resources */,
 			);

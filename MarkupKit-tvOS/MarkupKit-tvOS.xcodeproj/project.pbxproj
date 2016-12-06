@@ -67,6 +67,7 @@
 		37BC06D41DF7211B00C46DF6 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
 		37BC06D51DF7211B00C46DF6 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3B1DF713AE00E88F7A /* Fonts.plist */; };
 		37BC06D61DF7211B00C46DF6 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3C1DF713AE00E88F7A /* pharmacies.json */; };
+		37BC06DC1DF7230B00C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -278,6 +279,7 @@
 		3799BAE71DF18396006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BAEB1DF18396006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37BC069B1DF71F5700C46DF6 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.mp4; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.mp4"; sourceTree = "<group>"; };
+		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
 		37E579D51DF19090002984B9 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLayoutView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.m"; sourceTree = "<group>"; };
@@ -462,6 +464,7 @@
 				37BC069B1DF71F5700C46DF6 /* sample.mp4 */,
 				3763AD381DF713AE00E88F7A /* ColorsAndFontsViewController.json */,
 				3763AD391DF713AE00E88F7A /* ColorsAndFontsViewController~vertical.json */,
+				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
 				378720681DF70F53004FF42A /* Assets.xcassets */,
 				3787206A1DF70F53004FF42A /* Info.plist */,
 				3763AD3A1DF713AE00E88F7A /* Colors.plist */,
@@ -822,6 +825,7 @@
 				37BC06D01DF7211B00C46DF6 /* sample.mp4 in Resources */,
 				37BC06D11DF7211B00C46DF6 /* ColorsAndFontsViewController.json in Resources */,
 				37BC06D21DF7211B00C46DF6 /* ColorsAndFontsViewController~vertical.json in Resources */,
+				37BC06DC1DF7230B00C46DF6 /* Icons.xcassets in Resources */,
 				37BC06D31DF7211B00C46DF6 /* Assets.xcassets in Resources */,
 				37BC06D41DF7211B00C46DF6 /* Colors.plist in Resources */,
 				37BC06D51DF7211B00C46DF6 /* Fonts.plist in Resources */,
