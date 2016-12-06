@@ -16,10 +16,23 @@ limitations under the License.
 
 <?properties {
     "cell": {
-        "layer.borderWidth": 0.5,
-        "layer.borderColor": "#666666"
+        "layer.borderColor": "#cccccc"
     }
 }?>
+
+<?case iOS?>
+<?properties {
+    "cell": {
+        "layer.borderWidth": 0.5
+    }
+}?>
+<?case tvOS?>
+<?properties {
+    "cell": {
+        "layer.borderWidth": 1
+    }
+}?>
+<?end?>
 
 <LMScrollView fitToWidth="true" backgroundColor="#ffffff">
     <LMColumnView layoutMargins="16">

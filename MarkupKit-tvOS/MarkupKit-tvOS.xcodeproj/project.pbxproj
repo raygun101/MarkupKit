@@ -24,7 +24,6 @@
 		37BC06A91DF720F100C46DF6 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */; };
 		37BC06AA1DF720F100C46DF6 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD0B1DF713AE00E88F7A /* RadialGradientViewController.swift */; };
 		37BC06AB1DF720F100C46DF6 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD0F1DF713AE00E88F7A /* SizeClassViewController.swift */; };
-		37BC06AC1DF720F100C46DF6 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD131DF713AE00E88F7A /* FormViewController.swift */; };
 		37BC06AE1DF720F100C46DF6 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD251DF713AE00E88F7A /* PlayerViewController.swift */; };
 		37BC06B01DF720F100C46DF6 /* IncludesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */; };
 		37BC06B11DF720F100C46DF6 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD311DF713AE00E88F7A /* ColorsAndFontsViewController.swift */; };
@@ -43,7 +42,6 @@
 		37BC06BE1DF7211B00C46DF6 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD101DF713AE00E88F7A /* SizeClassViewController.xml */; };
 		37BC06BF1DF7211B00C46DF6 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD111DF713AE00E88F7A /* SizeClassViewController~horizontal.xml */; };
 		37BC06C01DF7211B00C46DF6 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */; };
-		37BC06C11DF7211B00C46DF6 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD141DF713AE00E88F7A /* FormViewController.xml */; };
 		37BC06C31DF7211B00C46DF6 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD261DF713AE00E88F7A /* PlayerViewController.xml */; };
 		37BC06C51DF7211B00C46DF6 /* IncludesViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2C1DF713AE00E88F7A /* IncludesViewController.xml */; };
 		37BC06C61DF7211B00C46DF6 /* ColumnView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD2D1DF713AE00E88F7A /* ColumnView.xml */; };
@@ -241,8 +239,6 @@
 		3763AD101DF713AE00E88F7A /* SizeClassViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = SizeClassViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/SizeClassViewController.xml"; sourceTree = "<group>"; };
 		3763AD111DF713AE00E88F7A /* SizeClassViewController~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "SizeClassViewController~horizontal.xml"; path = "../../MarkupKit-iOS/MarkupKitExamples/SizeClassViewController~horizontal.xml"; sourceTree = "<group>"; };
 		3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "SizeClassViewController~vertical.xml"; path = "../../MarkupKit-iOS/MarkupKitExamples/SizeClassViewController~vertical.xml"; sourceTree = "<group>"; };
-		3763AD131DF713AE00E88F7A /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FormViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/FormViewController.swift"; sourceTree = "<group>"; };
-		3763AD141DF713AE00E88F7A /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = FormViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/FormViewController.xml"; sourceTree = "<group>"; };
 		3763AD251DF713AE00E88F7A /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/PlayerViewController.swift"; sourceTree = "<group>"; };
 		3763AD261DF713AE00E88F7A /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PlayerViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PlayerViewController.xml"; sourceTree = "<group>"; };
 		3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncludesViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/IncludesViewController.swift"; sourceTree = "<group>"; };
@@ -431,8 +427,6 @@
 				3763AD101DF713AE00E88F7A /* SizeClassViewController.xml */,
 				3763AD111DF713AE00E88F7A /* SizeClassViewController~horizontal.xml */,
 				3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */,
-				3763AD131DF713AE00E88F7A /* FormViewController.swift */,
-				3763AD141DF713AE00E88F7A /* FormViewController.xml */,
 				3763AD251DF713AE00E88F7A /* PlayerViewController.swift */,
 				3763AD261DF713AE00E88F7A /* PlayerViewController.xml */,
 				3763AD2B1DF713AE00E88F7A /* IncludesViewController.swift */,
@@ -795,7 +789,6 @@
 				37BC06BE1DF7211B00C46DF6 /* SizeClassViewController.xml in Resources */,
 				37BC06BF1DF7211B00C46DF6 /* SizeClassViewController~horizontal.xml in Resources */,
 				37BC06C01DF7211B00C46DF6 /* SizeClassViewController~vertical.xml in Resources */,
-				37BC06C11DF7211B00C46DF6 /* FormViewController.xml in Resources */,
 				37BC06C31DF7211B00C46DF6 /* PlayerViewController.xml in Resources */,
 				37BC06C51DF7211B00C46DF6 /* IncludesViewController.xml in Resources */,
 				37BC06C61DF7211B00C46DF6 /* ColumnView.xml in Resources */,
@@ -866,7 +859,6 @@
 				37BC06A91DF720F100C46DF6 /* LinearGradientViewController.swift in Sources */,
 				37BC06AA1DF720F100C46DF6 /* RadialGradientViewController.swift in Sources */,
 				37BC06AB1DF720F100C46DF6 /* SizeClassViewController.swift in Sources */,
-				37BC06AC1DF720F100C46DF6 /* FormViewController.swift in Sources */,
 				37BC06AE1DF720F100C46DF6 /* PlayerViewController.swift in Sources */,
 				37BC06B01DF720F100C46DF6 /* IncludesViewController.swift in Sources */,
 				37BC06B11DF720F100C46DF6 /* ColorsAndFontsViewController.swift in Sources */,

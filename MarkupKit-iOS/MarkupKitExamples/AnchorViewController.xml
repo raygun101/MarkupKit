@@ -16,10 +16,23 @@ limitations under the License.
 
 <?properties {
     "label": {
-        "layer.borderWidth": 0.5,
         "layer.borderColor": "#cccccc"
     }
 }?>
+
+<?case iOS?>
+<?properties {
+    "label": {
+        "layer.borderWidth": 0.5
+    }
+}?>
+<?case tvOS?>
+<?properties {
+    "label": {
+        "layer.borderWidth": 1
+    }
+}?>
+<?end?>
 
 <LMLayerView backgroundColor="#ffffff" layoutMarginsRelativeArrangement="false">
     <LMAnchorView layoutMargins="16">

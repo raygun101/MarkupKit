@@ -21,6 +21,15 @@ limitations under the License.
 
     "textfield": {
         "font": "body", "borderStyle": "roundedRect"
+    },
+
+    "textview": {
+        "font": "body",
+        "textContainerInset": 7,
+        "textContainer.lineFragmentPadding": 0,
+        "layer.borderColor": "#cdcdcd",
+        "layer.borderWidth": 0.5,
+        "layer.cornerRadius": 6
     }
 }?>
 
@@ -45,10 +54,7 @@ limitations under the License.
 
         <LMRowView>
             <UILabel text="Notes" class="label"/>
-            <UITextView height="240" font="body"
-                textContainerInset="7" textContainer.lineFragmentPadding="0"
-                layer.borderWidth="0.5" layer.borderColor="#cdcdcd" layer.cornerRadius="6"
-                weight="1"/>
+            <UITextView class="textview" height="240" weight="1"/>
         </LMRowView>
     </LMColumnView>
 </LMScrollView>

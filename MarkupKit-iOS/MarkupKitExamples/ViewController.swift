@@ -75,7 +75,9 @@ class ViewController: UITableViewController {
         } else if (value == "sizeClassView") {
             navigationController!.pushViewController(SizeClassViewController(), animated: true)
         } else if (value == "formView") {
+            #if os(iOS)
             navigationController!.pushViewController(FormViewController(), animated: true)
+            #endif
         } else if (value == "autoLayoutCookbook") {
             #if os(iOS)
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
