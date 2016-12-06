@@ -41,9 +41,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
     <?case iOS?>
     <UITableViewCell textLabel.text="Auto Layout Cookbook" accessoryType="disclosureIndicator" value="autoLayoutCookbook"/>
-    <?end?>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
-    <?case iOS?>
     <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
     <?end?>
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>

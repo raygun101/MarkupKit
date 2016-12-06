@@ -17,16 +17,16 @@ limitations under the License.
 <LMColumnView backgroundColor="#ffffff">
     <LMSpacer height="8"/>
 
-    <UILabel text="Labels" font="System-Bold 18"/>
+    <UILabel text="Labels" font="headline"/>
 
     <LMRowView layoutMargins="12">
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
+        <UILabel text="One" font="body"/>
+        <UILabel text="Two" font="body"/>
+        <UILabel text="Three" font="body"/>
         <LMSpacer/>
     </LMRowView>
 
-    <UILabel text="Image Views" font="System-Bold 18"/>
+    <UILabel text="Image Views" font="headline"/>
 
     <LMRowView layoutMargins="12">
         <UIImageView image="vw.png"/>
@@ -35,12 +35,12 @@ limitations under the License.
         <LMSpacer/>
     </LMRowView>
 
-    <UILabel text="Text Fields" font="System-Bold 18"/>
+    <UILabel text="Text Fields" font="headline"/>
 
     <LMRowView layoutMargins="12">
-        <UITextField weight="4" placeholder="City" borderStyle="roundedRect"/>
-        <UITextField weight="2" placeholder="State" borderStyle="roundedRect"/>
-        <UITextField weight="2" placeholder="Zip" borderStyle="roundedRect"/>
+        <UITextField weight="4" placeholder="City" font="body" borderStyle="roundedRect"/>
+        <UITextField weight="2" placeholder="State" font="body" borderStyle="roundedRect"/>
+        <UITextField weight="2" placeholder="Zip" font="body" borderStyle="roundedRect"/>
     </LMRowView>
 
     <LMSpacer/>

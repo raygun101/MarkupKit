@@ -17,24 +17,24 @@ limitations under the License.
 <root>
     <LMColumnView spacing="4" layoutMarginBottom="8">
         <LMRowView alignToBaseline="true" spacing="4">
-            <UILabel id="nameLabel" weight="1" font="System-Bold 16"/>
-            <UILabel id="distanceLabel" font="System 14" textColor="#808080"/>
+            <UILabel id="nameLabel" weight="1" font="headline"/>
+            <UILabel id="distanceLabel" font="body" textColor="#808080"/>
         </LMRowView>
 
-        <UILabel id="addressLabel" numberOfLines="0" font="System 14"/>
+        <UILabel id="addressLabel" numberOfLines="0" font="body"/>
 
         <LMColumnView spacing="4">
             <LMRowView>
-                <UIImageView image="PhoneIcon"/>
-                <UILabel id="phoneLabel" weight="1" font="System 12"/>
+                <UIImageView image="PhoneIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
+                <UILabel id="phoneLabel" weight="1" font="caption1"/>
             </LMRowView>
             <LMRowView>
-                <UIImageView image="FaxIcon"/>
-                <UILabel id="faxLabel" weight="1" font="System 12"/>
+                <UIImageView image="FaxIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
+                <UILabel id="faxLabel" weight="1" font="caption1"/>
             </LMRowView>
             <LMRowView>
-                <UIImageView image="EmailIcon"/>
-                <UILabel id="emailLabel" weight="1" font="System 12"/>
+                <UIImageView image="EmailIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
+                <UILabel id="emailLabel" weight="1" font="caption1"/>
             </LMRowView>
         </LMColumnView>
     </LMColumnView>

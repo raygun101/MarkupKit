@@ -26,7 +26,7 @@ limitations under the License.
     "cell": {
         "width": 48,
         "height": 48,
-        "font": "System 18",
+        "font": "body",
         "textColor": "#0c47a7",
         "textAlignment": "center"
     },
@@ -37,7 +37,7 @@ limitations under the License.
     },
 
     "legend": {
-        "font": "System 12",
+        "font": "caption1",
         "textAlignment": "center",
         "numberOfLines": 0
     },

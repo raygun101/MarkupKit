@@ -17,16 +17,16 @@ limitations under the License.
 <UIStackView axis="vertical" spacing="8" layoutMarginsRelativeArrangement="true">
     <LMSpacer height="8"/>
 
-    <UILabel text="Labels" font="System-Bold 18"/>
+    <UILabel text="Labels" font="headline"/>
 
     <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
+        <UILabel text="One" font="body"/>
+        <UILabel text="Two" font="body"/>
+        <UILabel text="Three" font="body"/>
         <LMSpacer/>
     </UIStackView>
 
-    <UILabel text="Image Views" font="System-Bold 18"/>
+    <UILabel text="Image Views" font="headline"/>
 
     <UIStackView axis="horizontal" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
         <UIImageView image="vw.png"/>
@@ -35,12 +35,12 @@ limitations under the License.
         <LMSpacer/>
     </UIStackView>
 
-    <UILabel text="Text Fields" font="System-Bold 18"/>
+    <UILabel text="Text Fields" font="headline"/>
 
     <UIStackView axis="horizontal" distribution="fillProportionally" spacing="8" layoutMargins="12" layoutMarginsRelativeArrangement="true">
-        <UITextField placeholder="City" borderStyle="roundedRect"/>
-        <UITextField placeholder="State" borderStyle="roundedRect"/>
-        <UITextField placeholder="Zip" borderStyle="roundedRect"/>
+        <UITextField placeholder="City" font="body" borderStyle="roundedRect"/>
+        <UITextField placeholder="State" font="body" borderStyle="roundedRect"/>
+        <UITextField placeholder="Zip" font="body" borderStyle="roundedRect"/>
     </UIStackView>
 
     <LMSpacer/>
