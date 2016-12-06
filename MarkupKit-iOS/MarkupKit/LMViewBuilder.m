@@ -23,6 +23,8 @@ static NSString * const kMinimalSizeClass = @"minimal";
 
 static NSString * const kSizeClassFormat = @"%@~%@";
 
+static NSString * const kCaseTarget = @"case";
+static NSString * const kEndTarget = @"end";
 static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kIncludeTarget = @"include";
 
@@ -65,6 +67,8 @@ static NSMutableDictionary *templateCache;
 
     NSMutableArray *_views;
     NSMutableArray *_includes;
+
+    NSString *_target;
 }
 
 + (void)initialize
@@ -334,6 +338,8 @@ static NSMutableDictionary *templateCache;
         
         _views = [NSMutableArray new];
         _includes = [NSMutableArray new];
+
+        _target = nil;
     }
 
     return self;
@@ -356,9 +362,17 @@ static NSMutableDictionary *templateCache;
 
 - (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
 {
-    if ([target isEqual:kPropertiesTarget]) {
-        // Merge templates
-        if ([_views count] == 0) {
+    if ([target isEqual:kCaseTarget]) {
+        _target = data;
+    } else if ([target isEqual:kEndTarget]) {
+        _target = nil;
+    } else {
+        if (_target != nil && ![_target isEqual:[[UIDevice currentDevice] systemName]]) {
+            return;
+        }
+
+        if ([target isEqual:kPropertiesTarget]) {
+            // Merge templates
             if ([data hasPrefix:@"{"]) {
                 NSError *error = nil;
 
@@ -374,26 +388,26 @@ static NSMutableDictionary *templateCache;
             } else {
                 [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:[_owner traitCollection]] into:_templates];
             }
-        }
-    } else if ([target isEqual:kIncludeTarget]) {
-        // Push include
-        if ([_views count] > 0) {
-            id superview = [_views lastObject];
-            
-            if ([superview isKindOfClass:[UIView self]]) {
-                LMIncludeContainerView *container = [LMIncludeContainerView new];
+        } else if ([target isEqual:kIncludeTarget]) {
+            // Push include
+            if ([_views count] > 0) {
+                id superview = [_views lastObject];
 
-                [superview appendMarkupElementView:container];
+                if ([superview isKindOfClass:[UIView self]]) {
+                    LMIncludeContainerView *container = [LMIncludeContainerView new];
 
-                [_includes addObject:[[LMViewBuilderInclude alloc] initWithContainer:container name:data]];
+                    [superview appendMarkupElementView:container];
+
+                    [_includes addObject:[[LMViewBuilderInclude alloc] initWithContainer:container name:data]];
+                }
             }
-        }
-    } else {
-        // Notify view
-        id view = [_views lastObject];
+        } else {
+            // Notify view
+            id view = [_views lastObject];
 
-        if ([view isKindOfClass:[UIView self]]) {
-            [view processMarkupInstruction:target data:data];
+            if ([view isKindOfClass:[UIView self]]) {
+                [view processMarkupInstruction:target data:data];
+            }
         }
     }
 }
@@ -402,6 +416,10 @@ static NSMutableDictionary *templateCache;
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
 {
+    if (_target != nil && ![_target isEqual:[[UIDevice currentDevice] systemName]]) {
+        return;
+    }
+
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
@@ -543,6 +561,10 @@ static NSMutableDictionary *templateCache;
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
 {
+    if (_target != nil && ![_target isEqual:[[UIDevice currentDevice] systemName]]) {
+        return;
+    }
+
     // Pop from view stack
     id view = [_views lastObject];
 
