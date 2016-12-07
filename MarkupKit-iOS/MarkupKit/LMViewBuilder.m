@@ -587,13 +587,27 @@ static NSMutableDictionary *templateCache;
     }
 }
 
+- (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string
+{
+    if ([[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0) {
+        return;
+    }
+
+    [NSException raise:NSGenericException format:@"Unexpected character content near line %ld.",
+        [parser lineNumber]];
+}
+
+- (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
+{
+    [NSException raise:NSGenericException format:@"Unexpected CDATA content near line %ld.",
+        [parser lineNumber]];
+}
+
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)error
 {
-    NSDictionary *userInfo = [error userInfo];
-
-    [NSException raise:NSGenericException format:@"A parse error occurred at line %d, column %d.",
-        [[userInfo objectForKey:@"NSXMLParserErrorLineNumber"] intValue],
-        [[userInfo objectForKey:@"NSXMLParserErrorColumn"] intValue]];
+    [NSException raise:NSGenericException format:@"A parse error occurred at line %ld, column %ld.",
+        [parser lineNumber],
+        [parser columnNumber]];
 }
 
 @end
