@@ -718,6 +718,9 @@ Additionally, an application-specific delegate may be set on an `LMTableView` in
 * `tableView:willDeselectRowAtIndexPath:`
 * `tableView:didDeselectRowAtIndexPath:`
 * `tableView:editActionsForRowAtIndexPath:`
+* `tableView:canFocusRowAtIndexPath:`
+
+Note that `tableView:canFocusRowAtIndexPath:` is called only when the table view's selection mode is set to `LMTableViewSelectionModeDefault`. Otherwise, the row is automatically focusable.
 
 ### Custom Cell Content
 The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
