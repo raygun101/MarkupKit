@@ -594,20 +594,20 @@ static NSMutableDictionary *templateCache;
     }
 
     [NSException raise:NSGenericException format:@"Unexpected character content near line %ld.",
-        [parser lineNumber]];
+        (long)[parser lineNumber]];
 }
 
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock
 {
     [NSException raise:NSGenericException format:@"Unexpected CDATA content near line %ld.",
-        [parser lineNumber]];
+        (long)[parser lineNumber]];
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)error
 {
     [NSException raise:NSGenericException format:@"A parse error occurred at line %ld, column %ld.",
-        [parser lineNumber],
-        [parser columnNumber]];
+        (long)[parser lineNumber],
+        (long)[parser columnNumber]];
 }
 
 @end
