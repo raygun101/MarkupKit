@@ -16,7 +16,7 @@ limitations under the License.
 
 <?properties ColorsAndFontsViewController?>
 
-<LMLayerView backgroundColor="background" layoutMarginsRelativeArrangement="false">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="background">
     <LMColumnView class="columnView.list">
         <LMRowView>
             <UIImageView image="PhoneIcon" class="imageView.icon"/>

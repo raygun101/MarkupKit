@@ -19,7 +19,10 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     let dynamicComponentName = "dynamic"
 
     @IBOutlet var pickerView: UIPickerView!
-    @IBOutlet var label: UILabel!
+
+    @IBOutlet var sizeLabel: UILabel!
+    @IBOutlet var colorLabel: UILabel!
+    @IBOutlet var numberLabel: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.view(withName: "CustomComponentViewController", owner: self, root: nil)
@@ -49,7 +52,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
         if (pickerView.name(forComponent: component) == dynamicComponentName) {
-            n = 3
+            n = 5
         } else {
             n = pickerView.numberOfRows(inComponent: component)
         }
@@ -73,9 +76,9 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     }
 
     func updateLabel() {
-        let title1 = pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 0), forComponent: 0)!
-        let title2 = pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 1), forComponent: 1)!
+        sizeLabel.text = pickerView.value(forRow: pickerView.selectedRow(inComponent: 0), forComponent: 0) as? String
+        colorLabel.text = pickerView.value(forRow: pickerView.selectedRow(inComponent: 1), forComponent: 1) as? String
 
-        label.text = "\(title1), \(title2)"
+        numberLabel.text = pickerView(pickerView, titleForRow: pickerView.selectedRow(inComponent: 2), forComponent: 2)
     }
 }
