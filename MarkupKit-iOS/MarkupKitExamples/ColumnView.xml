@@ -20,7 +20,7 @@ limitations under the License.
     }
 }?>
 
-<LMColumnView layoutMargins="12">
+<LMColumnView layoutMargins="20">
     <?include FirstRowView?>
     <?include SecondRowView?>
     <?include ThirdRowView?>

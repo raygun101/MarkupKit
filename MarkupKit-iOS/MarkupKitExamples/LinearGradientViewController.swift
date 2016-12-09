@@ -24,9 +24,12 @@ class LinearGradientViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Linear Gradient View"
-        
+
+        #if os(iOS)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
             target: nil, action: nil)
+        #endif
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
             target: self, action: #selector(moveNext))
 

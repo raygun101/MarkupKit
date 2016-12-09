@@ -20,7 +20,7 @@ limitations under the License.
     }
 }?>
 
-<LMRowView spacing="12">
+<LMRowView spacing="20">
     <UIImageView image="vw.png"/>
     <UILabel id="thirdLabel" class="label" weight="1"/>
 </LMRowView>

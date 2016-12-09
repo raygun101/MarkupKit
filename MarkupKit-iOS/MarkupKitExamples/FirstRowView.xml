@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMRowView spacing="12">
+<LMRowView spacing="20">
     <UIImageView image="chevy.png"/>
     <UILabel id="firstLabel" class="label" weight="1"/>
 </LMRowView>
