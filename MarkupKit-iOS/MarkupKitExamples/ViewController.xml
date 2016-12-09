@@ -23,6 +23,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
 
     <?case iOS?>
+    <UITableViewCell textLabel.text="Sliders" accessoryType="disclosureIndicator" value="sliders"/>
     <UITableViewCell textLabel.text="Selection View" accessoryType="disclosureIndicator" value="selectionView"/>
     <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>

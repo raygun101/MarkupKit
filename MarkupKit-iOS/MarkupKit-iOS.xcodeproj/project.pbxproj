@@ -193,6 +193,8 @@
 		3771EAA01DF1C2720064CC82 /* Styles2~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */; };
 		3771EAA11DF1C2D00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A69731DFB105500E06CD1 /* SlidersViewController.swift */; };
+		377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377A69741DFB105500E06CD1 /* SlidersViewController.xml */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -416,6 +418,8 @@
 		3771EA9A1DF1C2720064CC82 /* Styles2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles2.json; sourceTree = "<group>"; };
 		3771EA9B1DF1C2720064CC82 /* Styles2~horizontal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~horizontal.json"; sourceTree = "<group>"; };
 		3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
+		377A69731DFB105500E06CD1 /* SlidersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidersViewController.swift; sourceTree = "<group>"; };
+		377A69741DFB105500E06CD1 /* SlidersViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlidersViewController.xml; sourceTree = "<group>"; };
 		3799BAD91DF18389006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BADC1DF18389006E6B3D /* MarkupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkupKit.h; sourceTree = "<group>"; };
 		3799BADD1DF18389006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -613,6 +617,8 @@
 				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
 				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
 				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
+				377A69731DFB105500E06CD1 /* SlidersViewController.swift */,
+				377A69741DFB105500E06CD1 /* SlidersViewController.xml */,
 				3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */,
 				3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */,
 				3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */,
@@ -1104,6 +1110,7 @@
 				373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */,
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
+				377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */,
 				373BFB191DFB007B00BB7509 /* ColorPickerViewController.xml in Resources */,
 				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
 				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
@@ -1215,6 +1222,7 @@
 				373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */,
 				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
 				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
+				377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */,
 				373BFAF71DFB003800BB7509 /* SelectionViewController.swift in Sources */,
 				373BFAF81DFB003800BB7509 /* ColorPickerViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,

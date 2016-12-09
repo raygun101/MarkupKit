@@ -48,6 +48,10 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(ColorsAndFontsViewController(), animated: true)
         } else if (value == "includes") {
             navigationController!.pushViewController(IncludesViewController(), animated: true)
+        } else if (value == "sliders") {
+            #if os(iOS)
+            navigationController!.pushViewController(SlidersViewController(), animated: true)
+            #endif
         } else if (value == "selectionView") {
             #if os(iOS)
             navigationController!.pushViewController(SelectionViewController(), animated: true)
