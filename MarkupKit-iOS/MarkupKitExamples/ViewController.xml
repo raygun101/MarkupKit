@@ -22,7 +22,6 @@ limitations under the License.
     <?end?>
     <UITableViewCell textLabel.text="Custom Cell View" accessoryType="disclosureIndicator" value="customCellView"/>
     <UITableViewCell textLabel.text="Layout Views" accessoryType="disclosureIndicator" value="layoutViews"/>
-    <UITableViewCell textLabel.text="Stack Views" accessoryType="disclosureIndicator" value="stackViews"/>
     <UITableViewCell textLabel.text="Effect View" accessoryType="disclosureIndicator" value="effectView"/>
     <?case iOS?>
     <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
@@ -40,7 +39,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
     <?case iOS?>
     <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
-    <UITableViewCell textLabel.text="Auto Layout Cookbook" accessoryType="disclosureIndicator" value="autoLayoutCookbook"/>
+    <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
     <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
     <?end?>

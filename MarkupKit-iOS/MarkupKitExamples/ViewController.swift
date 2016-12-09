@@ -48,8 +48,6 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(CustomCellViewController(), animated: true)
         } else if (value == "layoutViews") {
             navigationController!.pushViewController(LayoutViewController(), animated: true)
-        } else if (value == "stackViews") {
-            navigationController!.pushViewController(StackViewController(), animated: true)
         } else if (value == "effectView") {
             navigationController!.pushViewController(EffectViewController(), animated: true)
         } else if (value == "scrollView") {
@@ -78,7 +76,7 @@ class ViewController: UITableViewController {
             #if os(iOS)
             navigationController!.pushViewController(FormViewController(), animated: true)
             #endif
-        } else if (value == "autoLayoutCookbook") {
+        } else if (value == "stackView") {
             #if os(iOS)
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
             #endif

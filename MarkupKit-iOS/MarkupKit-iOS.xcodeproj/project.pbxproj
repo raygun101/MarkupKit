@@ -112,7 +112,6 @@
 		3771EA251DF1C0E10064CC82 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */; };
 		3771EA261DF1C0E10064CC82 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9931DF1B9990064CC82 /* PharmacyCell.swift */; };
 		3771EA271DF1C0E10064CC82 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */; };
-		3771EA281DF1C0E10064CC82 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E99D1DF1B9B50064CC82 /* StackViewController.swift */; };
 		3771EA291DF1C0E10064CC82 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */; };
 		3771EA2A1DF1C0E10064CC82 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */; };
 		3771EA2B1DF1C0E10064CC82 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */; };
@@ -125,9 +124,6 @@
 		3771EA321DF1C0E10064CC82 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */; };
 		3771EA331DF1C0E10064CC82 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */; };
 		3771EA341DF1C0E10064CC82 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */; };
-		3771EA351DF1C0E10064CC82 /* EqualWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */; };
-		3771EA361DF1C0E10064CC82 /* DifferentWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */; };
-		3771EA371DF1C0E10064CC82 /* ComplexWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */; };
 		3771EA381DF1C0E10064CC82 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */; };
 		3771EA391DF1C0E10064CC82 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */; };
 		3771EA3A1DF1C0E10064CC82 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */; };
@@ -143,7 +139,6 @@
 		3771EA441DF1C1430064CC82 /* ColorPickerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */; };
 		3771EA451DF1C1430064CC82 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9941DF1B9990064CC82 /* PharmacyCell.xml */; };
 		3771EA461DF1C1430064CC82 /* LayoutViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */; };
-		3771EA471DF1C1430064CC82 /* StackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E99E1DF1B9B50064CC82 /* StackViewController.xml */; };
 		3771EA481DF1C1430064CC82 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */; };
 		3771EA491DF1C1430064CC82 /* ScrollViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */; };
 		3771EA4A1DF1C1430064CC82 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */; };
@@ -158,9 +153,6 @@
 		3771EA531DF1C1430064CC82 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */; };
 		3771EA541DF1C1430064CC82 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */; };
 		3771EA551DF1C1430064CC82 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */; };
-		3771EA561DF1C1430064CC82 /* EqualWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */; };
-		3771EA571DF1C1430064CC82 /* DifferentWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */; };
-		3771EA581DF1C1430064CC82 /* ComplexWidthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */; };
 		3771EA591DF1C1430064CC82 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */; };
 		3771EA5A1DF1C1430064CC82 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */; };
 		3771EA5B1DF1C1430064CC82 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */; };
@@ -356,8 +348,6 @@
 		3771E9971DF1B99E0064CC82 /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = pharmacies.json; sourceTree = "<group>"; };
 		3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutViewController.swift; sourceTree = "<group>"; };
 		3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LayoutViewController.xml; sourceTree = "<group>"; };
-		3771E99D1DF1B9B50064CC82 /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackViewController.swift; sourceTree = "<group>"; };
-		3771E99E1DF1B9B50064CC82 /* StackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = StackViewController.xml; sourceTree = "<group>"; };
 		3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EffectViewController.swift; sourceTree = "<group>"; };
 		3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EffectViewController.xml; sourceTree = "<group>"; };
 		3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
@@ -415,12 +405,6 @@
 		3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
 		3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
 		3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
-		3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EqualWidthViewController.swift; sourceTree = "<group>"; };
-		3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = EqualWidthViewController.xml; sourceTree = "<group>"; };
-		3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifferentWidthViewController.swift; sourceTree = "<group>"; };
-		3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DifferentWidthViewController.xml; sourceTree = "<group>"; };
-		3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComplexWidthViewController.swift; sourceTree = "<group>"; };
-		3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ComplexWidthViewController.xml; sourceTree = "<group>"; };
 		3771EA761DF1C1D70064CC82 /* MarkupKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771EA7D1DF1C1D70064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3771EA7F1DF1C1D70064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -629,8 +613,6 @@
 				3771E9941DF1B9990064CC82 /* PharmacyCell.xml */,
 				3771E9991DF1B9A80064CC82 /* LayoutViewController.swift */,
 				3771E99A1DF1B9A80064CC82 /* LayoutViewController.xml */,
-				3771E99D1DF1B9B50064CC82 /* StackViewController.swift */,
-				3771E99E1DF1B9B50064CC82 /* StackViewController.xml */,
 				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
 				3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */,
 				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
@@ -657,12 +639,6 @@
 				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
 				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
 				3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */,
-				3771EA131DF1BB800064CC82 /* EqualWidthViewController.swift */,
-				3771EA141DF1BB800064CC82 /* EqualWidthViewController.xml */,
-				3771EA171DF1BB8E0064CC82 /* DifferentWidthViewController.swift */,
-				3771EA181DF1BB8E0064CC82 /* DifferentWidthViewController.xml */,
-				3771EA1B1DF1BB9C0064CC82 /* ComplexWidthViewController.swift */,
-				3771EA1C1DF1BB9C0064CC82 /* ComplexWidthViewController.xml */,
 				3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */,
 				3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */,
 				3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */,
@@ -1130,7 +1106,6 @@
 				3771EA441DF1C1430064CC82 /* ColorPickerViewController.xml in Resources */,
 				3771EA451DF1C1430064CC82 /* PharmacyCell.xml in Resources */,
 				3771EA461DF1C1430064CC82 /* LayoutViewController.xml in Resources */,
-				3771EA471DF1C1430064CC82 /* StackViewController.xml in Resources */,
 				3771EA481DF1C1430064CC82 /* EffectViewController.xml in Resources */,
 				3771EA491DF1C1430064CC82 /* ScrollViewController.xml in Resources */,
 				3771EA4A1DF1C1430064CC82 /* GridViewController.xml in Resources */,
@@ -1145,9 +1120,6 @@
 				3771EA531DF1C1430064CC82 /* FormViewController.xml in Resources */,
 				3771EA541DF1C1430064CC82 /* SimpleStackViewController.xml in Resources */,
 				3771EA551DF1C1430064CC82 /* NestedStackViewController.xml in Resources */,
-				3771EA561DF1C1430064CC82 /* EqualWidthViewController.xml in Resources */,
-				3771EA571DF1C1430064CC82 /* DifferentWidthViewController.xml in Resources */,
-				3771EA581DF1C1430064CC82 /* ComplexWidthViewController.xml in Resources */,
 				3771EA591DF1C1430064CC82 /* PeriodicTableViewController.xml in Resources */,
 				3771EA5A1DF1C1430064CC82 /* CollectionViewController.xml in Resources */,
 				3771EA5B1DF1C1430064CC82 /* ColorCell.xml in Resources */,
@@ -1255,7 +1227,6 @@
 				3771EA251DF1C0E10064CC82 /* CustomCellViewController.swift in Sources */,
 				3771EA261DF1C0E10064CC82 /* PharmacyCell.swift in Sources */,
 				3771EA271DF1C0E10064CC82 /* LayoutViewController.swift in Sources */,
-				3771EA281DF1C0E10064CC82 /* StackViewController.swift in Sources */,
 				3771EA291DF1C0E10064CC82 /* EffectViewController.swift in Sources */,
 				3771EA2A1DF1C0E10064CC82 /* ScrollViewController.swift in Sources */,
 				3771EA2B1DF1C0E10064CC82 /* GridViewController.swift in Sources */,
@@ -1268,9 +1239,6 @@
 				3771EA321DF1C0E10064CC82 /* FormViewController.swift in Sources */,
 				3771EA331DF1C0E10064CC82 /* SimpleStackViewController.swift in Sources */,
 				3771EA341DF1C0E10064CC82 /* NestedStackViewController.swift in Sources */,
-				3771EA351DF1C0E10064CC82 /* EqualWidthViewController.swift in Sources */,
-				3771EA361DF1C0E10064CC82 /* DifferentWidthViewController.swift in Sources */,
-				3771EA371DF1C0E10064CC82 /* ComplexWidthViewController.swift in Sources */,
 				3771EA381DF1C0E10064CC82 /* PeriodicTableViewController.swift in Sources */,
 				3771EA391DF1C0E10064CC82 /* CollectionViewController.swift in Sources */,
 				3771EA3A1DF1C0E10064CC82 /* ColorCell.swift in Sources */,
