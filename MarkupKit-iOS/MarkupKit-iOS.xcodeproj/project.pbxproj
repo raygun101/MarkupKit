@@ -211,7 +211,6 @@
 		37E57B1E1DF1B1D8002984B9 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B171DF1B1D8002984B9 /* IconCell.swift */; };
 		37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B181DF1B1D8002984B9 /* IconCell.xml */; };
 		37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* sample.jpg */; };
-		37E57B211DF1B1D8002984B9 /* Styles.json in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1A1DF1B1D8002984B9 /* Styles.json */; };
 		37E57B221DF1B1D8002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B1B1DF1B1D8002984B9 /* ViewController.swift */; };
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
 /* End PBXBuildFile section */
@@ -519,7 +518,6 @@
 		37E57B171DF1B1D8002984B9 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 		37E57B181DF1B1D8002984B9 /* IconCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IconCell.xml; sourceTree = "<group>"; };
 		37E57B191DF1B1D8002984B9 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
-		37E57B1A1DF1B1D8002984B9 /* Styles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles.json; sourceTree = "<group>"; };
 		37E57B1B1DF1B1D8002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -837,7 +835,6 @@
 				37E57B171DF1B1D8002984B9 /* IconCell.swift */,
 				37E57B181DF1B1D8002984B9 /* IconCell.xml */,
 				37E57B191DF1B1D8002984B9 /* sample.jpg */,
-				37E57B1A1DF1B1D8002984B9 /* Styles.json */,
 				37BC06D71DF7219500C46DF6 /* Icons.xcassets */,
 				37E57B081DF1B181002984B9 /* Assets.xcassets */,
 				37E57B0A1DF1B181002984B9 /* LaunchScreen.storyboard */,
@@ -1193,7 +1190,6 @@
 				37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */,
 				37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */,
 				37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */,
-				37E57B211DF1B1D8002984B9 /* Styles.json in Resources */,
 				37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */,
 				37E57B091DF1B181002984B9 /* Assets.xcassets in Resources */,
 				37E57B0C1DF1B181002984B9 /* LaunchScreen.storyboard in Resources */,

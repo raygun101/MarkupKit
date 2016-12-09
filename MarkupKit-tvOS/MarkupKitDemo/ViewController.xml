@@ -17,17 +17,17 @@ limitations under the License.
 <LMTableView style="groupedTableView">
     <!-- Image view -->
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Image View"/>
+    <UITableViewHeaderFooterView textLabel.text="Image View"/>
 
     <LMTableViewCell>
-        <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="210"/>
+        <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="320"/>
     </LMTableViewCell>
 
     <?sectionBreak?>
 
     <!-- Button -->
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Button"/>
+    <UITableViewHeaderFooterView textLabel.text="Button"/>
 
     <LMTableViewCell>
         <UIButton style="systemButton" title="Press Me" onPrimaryActionTriggered="showGreeting"/>
@@ -37,7 +37,7 @@ limitations under the License.
 
     <!-- Text fields -->
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Text Fields"/>
+    <UITableViewHeaderFooterView textLabel.text="Text Fields"/>
 
     <LMTableViewCell>
         <UITextField placeholder="Text"/>
@@ -61,7 +61,7 @@ limitations under the License.
     <?sectionSelectionMode singleCheckmark?>
 
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Radio Buttons"/>
+    <UITableViewHeaderFooterView textLabel.text="Radio Buttons"/>
 
     <UITableViewCell textLabel.text="Small"/>
     <UITableViewCell textLabel.text="Medium"/>
@@ -74,7 +74,7 @@ limitations under the License.
     <?sectionSelectionMode multipleCheckmarks?>
 
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Checkboxes"/>
+    <UITableViewHeaderFooterView textLabel.text="Checkboxes"/>
 
     <UITableViewCell textLabel.text="Dog"/>
     <UITableViewCell textLabel.text="Cat" checked="true"/>
@@ -86,7 +86,7 @@ limitations under the License.
 
     <!-- Segmented control -->
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Segmented Control"/>
+    <UITableViewHeaderFooterView textLabel.text="Segmented Control"/>
 
     <LMTableViewCell>
         <LMRowView>
