@@ -14,10 +14,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView backgroundColor="#fff8dc" bottomSpacing="16">
+<LMColumnView topSpacing="16" bottomSpacing="16">
     <LMSpacer weight="1"/>
 
-    <UILabel id="greetingLabel" textAlignment="center" font="headline"/>
+    <UILabel id="greetingLabel" font="headline" textAlignment="center"/>
 
     <LMSpacer weight="2"/>
 
