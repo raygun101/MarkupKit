@@ -25,6 +25,15 @@ class LinearGradientViewController: UIViewController {
 
         title = "Linear Gradient View"
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
+            target: nil, action: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(moveNext))
+
         edgesForExtendedLayout = UIRectEdge()
+    }
+
+    func moveNext() {
+        navigationController!.pushViewController(RadialGradientViewController(), animated: true)
     }
 }

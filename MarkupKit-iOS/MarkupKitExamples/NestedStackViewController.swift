@@ -31,8 +31,6 @@ class NestedStackViewController: UIViewController {
 
         title = "Nested Stack Views"
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain,
-            target: nil, action: nil)
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain,
             target: self, action: #selector(done))
 

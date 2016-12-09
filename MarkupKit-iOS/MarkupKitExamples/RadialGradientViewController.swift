@@ -25,6 +25,13 @@ class RadialGradientViewController: UIViewController {
 
         title = "Radial Gradient View"
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain,
+            target: self, action: #selector(done))
+
         edgesForExtendedLayout = UIRectEdge()
+    }
+
+    func done() {
+        navigationController!.popToRootViewController(animated: true)
     }
 }

@@ -62,10 +62,8 @@ class ViewController: UITableViewController {
             #if os(iOS)
             navigationController!.pushViewController(CustomComponentViewController(), animated: true)
             #endif
-        } else if (value == "linearGradientView") {
+        } else if (value == "gradientViews") {
             navigationController!.pushViewController(LinearGradientViewController(), animated: true)
-        } else if (value == "radialGradientView") {
-            navigationController!.pushViewController(RadialGradientViewController(), animated: true)
         } else if (value == "pageView") {
             #if os(iOS)
             navigationController!.pushViewController(PageViewController(), animated: true)
