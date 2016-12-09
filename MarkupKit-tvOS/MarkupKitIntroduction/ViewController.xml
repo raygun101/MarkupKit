@@ -15,13 +15,15 @@ limitations under the License.
 -->
 
 <LMLayerView>
-    <LMColumnView layoutMargins="24">
-        <LMSpacer weight="1"/>
+    <LMColumnView layoutMargins="48" spacing="96">
+        <LMRowView>
+            <LMSpacer/>
+            <UIButton style="systemButton" title="Say Hello" onPrimaryActionTriggered="sayHello"/>
+            <LMSpacer/>
+        </LMRowView>
 
-        <UILabel id="greetingLabel" textAlignment="center" font="headline"/>
+        <UILabel id="greetingLabel" font="headline" textAlignment="center"/>
 
-        <LMSpacer weight="2"/>
-
-        <UIButton style="systemButton" title="Say Hello" onPrimaryActionTriggered="sayHello"/>
+        <LMSpacer/>
     </LMColumnView>
 </LMLayerView>
