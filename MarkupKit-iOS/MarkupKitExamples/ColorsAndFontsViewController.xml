@@ -14,25 +14,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<?properties ColorsAndFontsViewController?>
+<?properties ColorsAndFonts?>
 
 <LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="background">
-    <LMColumnView class="columnView.list">
-        <LMRowView>
-            <UIImageView image="PhoneIcon" class="imageView.icon"/>
-            <UILabel text="Phone" class="label.description" weight="1"/>
-        </LMRowView>
-
-        <LMRowView>
-            <UIImageView image="FaxIcon" class="imageView.icon"/>
-            <UILabel text="Fax" class="label.description" weight="1"/>
-        </LMRowView>
-
-        <LMRowView>
-            <UIImageView image="EmailIcon" class="imageView.icon"/>
-            <UILabel text="Email" class="label.description" weight="1"/>
-        </LMRowView>
-
+    <LMColumnView layoutMargins="20">
+        <LMSpacer/>
+        <UIImageView image="CheckCircleIcon" class="imageView"/>
+        <UILabel text="Lorem ipsum dolor sit amet" class="label"/>
         <LMSpacer/>
     </LMColumnView>
 </LMLayerView>

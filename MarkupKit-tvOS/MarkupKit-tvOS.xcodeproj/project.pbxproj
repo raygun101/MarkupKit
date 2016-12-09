@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		373BFAEC1DFAF4E900BB7509 /* ColorsAndFonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */; };
+		373BFAED1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */; };
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -17,7 +19,6 @@
 		37BC06A21DF720F100C46DF6 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACF81DF713AE00E88F7A /* CustomCellViewController.swift */; };
 		37BC06A31DF720F100C46DF6 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACF91DF713AE00E88F7A /* PharmacyCell.swift */; };
 		37BC06A41DF720F100C46DF6 /* LayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACFB1DF713AE00E88F7A /* LayoutViewController.swift */; };
-		37BC06A51DF720F100C46DF6 /* StackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACFD1DF713AE00E88F7A /* StackViewController.swift */; };
 		37BC06A61DF720F100C46DF6 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */; };
 		37BC06A71DF720F100C46DF6 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD031DF713AE00E88F7A /* GridViewController.swift */; };
 		37BC06A81DF720F100C46DF6 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD051DF713AE00E88F7A /* CustomSectionViewController.swift */; };
@@ -33,7 +34,6 @@
 		37BC06B51DF7211B00C46DF6 /* CheckboxViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACF41DF713AE00E88F7A /* CheckboxViewController.xml */; };
 		37BC06B61DF7211B00C46DF6 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACFA1DF713AE00E88F7A /* PharmacyCell.xml */; };
 		37BC06B71DF7211B00C46DF6 /* LayoutViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACFC1DF713AE00E88F7A /* LayoutViewController.xml */; };
-		37BC06B81DF7211B00C46DF6 /* StackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACFE1DF713AE00E88F7A /* StackViewController.xml */; };
 		37BC06B91DF7211B00C46DF6 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD001DF713AE00E88F7A /* EffectViewController.xml */; };
 		37BC06BA1DF7211B00C46DF6 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD041DF713AE00E88F7A /* GridViewController.xml */; };
 		37BC06BB1DF7211B00C46DF6 /* CustomSectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD061DF713AE00E88F7A /* CustomSectionViewController.xml */; };
@@ -55,8 +55,6 @@
 		37BC06CE1DF7211B00C46DF6 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD371DF713AE00E88F7A /* vw.png */; };
 		37BC06CF1DF7211B00C46DF6 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD901DF7151900E88F7A /* sample.jpg */; };
 		37BC06D01DF7211B00C46DF6 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37BC069B1DF71F5700C46DF6 /* sample.mp4 */; };
-		37BC06D11DF7211B00C46DF6 /* ColorsAndFontsViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD381DF713AE00E88F7A /* ColorsAndFontsViewController.json */; };
-		37BC06D21DF7211B00C46DF6 /* ColorsAndFontsViewController~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD391DF713AE00E88F7A /* ColorsAndFontsViewController~vertical.json */; };
 		37BC06D31DF7211B00C46DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378720681DF70F53004FF42A /* Assets.xcassets */; };
 		37BC06D41DF7211B00C46DF6 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
 		37BC06D51DF7211B00C46DF6 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3B1DF713AE00E88F7A /* Fonts.plist */; };
@@ -211,6 +209,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ColorsAndFonts.json; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts.json"; sourceTree = "<group>"; };
+		373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ColorsAndFonts~vertical.json"; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
 		3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/AppDelegate.swift"; sourceTree = "<group>"; };
 		3763ACEF1DF713AE00E88F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.swift"; sourceTree = "<group>"; };
 		3763ACF01DF713AE00E88F7A /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.xml"; sourceTree = "<group>"; };
@@ -223,8 +223,6 @@
 		3763ACFA1DF713AE00E88F7A /* PharmacyCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PharmacyCell.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PharmacyCell.xml"; sourceTree = "<group>"; };
 		3763ACFB1DF713AE00E88F7A /* LayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LayoutViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/LayoutViewController.swift"; sourceTree = "<group>"; };
 		3763ACFC1DF713AE00E88F7A /* LayoutViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LayoutViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/LayoutViewController.xml"; sourceTree = "<group>"; };
-		3763ACFD1DF713AE00E88F7A /* StackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StackViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/StackViewController.swift"; sourceTree = "<group>"; };
-		3763ACFE1DF713AE00E88F7A /* StackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = StackViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/StackViewController.xml"; sourceTree = "<group>"; };
 		3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EffectViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/EffectViewController.swift"; sourceTree = "<group>"; };
 		3763AD001DF713AE00E88F7A /* EffectViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = EffectViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/EffectViewController.xml"; sourceTree = "<group>"; };
 		3763AD031DF713AE00E88F7A /* GridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/GridViewController.swift"; sourceTree = "<group>"; };
@@ -254,8 +252,6 @@
 		3763AD351DF713AE00E88F7A /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = chevy.png; path = "../../MarkupKit-iOS/MarkupKitExamples/chevy.png"; sourceTree = "<group>"; };
 		3763AD361DF713AE00E88F7A /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mini.png; path = "../../MarkupKit-iOS/MarkupKitExamples/mini.png"; sourceTree = "<group>"; };
 		3763AD371DF713AE00E88F7A /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vw.png; path = "../../MarkupKit-iOS/MarkupKitExamples/vw.png"; sourceTree = "<group>"; };
-		3763AD381DF713AE00E88F7A /* ColorsAndFontsViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ColorsAndFontsViewController.json; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFontsViewController.json"; sourceTree = "<group>"; };
-		3763AD391DF713AE00E88F7A /* ColorsAndFontsViewController~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ColorsAndFontsViewController~vertical.json"; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFontsViewController~vertical.json"; sourceTree = "<group>"; };
 		3763AD3A1DF713AE00E88F7A /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Colors.plist; path = "../../MarkupKit-iOS/MarkupKitExamples/Colors.plist"; sourceTree = "<group>"; };
 		3763AD3B1DF713AE00E88F7A /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Fonts.plist; path = "../../MarkupKit-iOS/MarkupKitExamples/Fonts.plist"; sourceTree = "<group>"; };
 		3763AD3C1DF713AE00E88F7A /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pharmacies.json; path = "../../MarkupKit-iOS/MarkupKitExamples/pharmacies.json"; sourceTree = "<group>"; };
@@ -411,8 +407,6 @@
 				3763ACFA1DF713AE00E88F7A /* PharmacyCell.xml */,
 				3763ACFB1DF713AE00E88F7A /* LayoutViewController.swift */,
 				3763ACFC1DF713AE00E88F7A /* LayoutViewController.xml */,
-				3763ACFD1DF713AE00E88F7A /* StackViewController.swift */,
-				3763ACFE1DF713AE00E88F7A /* StackViewController.xml */,
 				3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */,
 				3763AD001DF713AE00E88F7A /* EffectViewController.xml */,
 				3763AD031DF713AE00E88F7A /* GridViewController.swift */,
@@ -437,6 +431,8 @@
 				3763AD301DF713AE00E88F7A /* ThirdRowView.xml */,
 				3763AD311DF713AE00E88F7A /* ColorsAndFontsViewController.swift */,
 				3763AD321DF713AE00E88F7A /* ColorsAndFontsViewController.xml */,
+				373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */,
+				373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */,
 				3763AD331DF713AE00E88F7A /* AnchorViewController.swift */,
 				3763AD341DF713AE00E88F7A /* AnchorViewController.xml */,
 				3763AD351DF713AE00E88F7A /* chevy.png */,
@@ -444,8 +440,6 @@
 				3763AD371DF713AE00E88F7A /* vw.png */,
 				3763AD901DF7151900E88F7A /* sample.jpg */,
 				37BC069B1DF71F5700C46DF6 /* sample.mp4 */,
-				3763AD381DF713AE00E88F7A /* ColorsAndFontsViewController.json */,
-				3763AD391DF713AE00E88F7A /* ColorsAndFontsViewController~vertical.json */,
 				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
 				378720681DF70F53004FF42A /* Assets.xcassets */,
 				3787206A1DF70F53004FF42A /* Info.plist */,
@@ -779,12 +773,13 @@
 				37BC06B51DF7211B00C46DF6 /* CheckboxViewController.xml in Resources */,
 				37BC06B61DF7211B00C46DF6 /* PharmacyCell.xml in Resources */,
 				37BC06B71DF7211B00C46DF6 /* LayoutViewController.xml in Resources */,
-				37BC06B81DF7211B00C46DF6 /* StackViewController.xml in Resources */,
 				37BC06B91DF7211B00C46DF6 /* EffectViewController.xml in Resources */,
 				37BC06BA1DF7211B00C46DF6 /* GridViewController.xml in Resources */,
+				373BFAED1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json in Resources */,
 				37BC06BB1DF7211B00C46DF6 /* CustomSectionViewController.xml in Resources */,
 				37BC06BC1DF7211B00C46DF6 /* LinearGradientViewController.xml in Resources */,
 				37BC06BD1DF7211B00C46DF6 /* RadialGradientViewController.xml in Resources */,
+				373BFAEC1DFAF4E900BB7509 /* ColorsAndFonts.json in Resources */,
 				37BC06BE1DF7211B00C46DF6 /* SizeClassViewController.xml in Resources */,
 				37BC06BF1DF7211B00C46DF6 /* SizeClassViewController~horizontal.xml in Resources */,
 				37BC06C01DF7211B00C46DF6 /* SizeClassViewController~vertical.xml in Resources */,
@@ -801,8 +796,6 @@
 				37BC06CE1DF7211B00C46DF6 /* vw.png in Resources */,
 				37BC06CF1DF7211B00C46DF6 /* sample.jpg in Resources */,
 				37BC06D01DF7211B00C46DF6 /* sample.mp4 in Resources */,
-				37BC06D11DF7211B00C46DF6 /* ColorsAndFontsViewController.json in Resources */,
-				37BC06D21DF7211B00C46DF6 /* ColorsAndFontsViewController~vertical.json in Resources */,
 				37BC06DC1DF7230B00C46DF6 /* Icons.xcassets in Resources */,
 				37BC06D31DF7211B00C46DF6 /* Assets.xcassets in Resources */,
 				37BC06D41DF7211B00C46DF6 /* Colors.plist in Resources */,
@@ -851,7 +844,6 @@
 				37BC06A21DF720F100C46DF6 /* CustomCellViewController.swift in Sources */,
 				37BC06A31DF720F100C46DF6 /* PharmacyCell.swift in Sources */,
 				37BC06A41DF720F100C46DF6 /* LayoutViewController.swift in Sources */,
-				37BC06A51DF720F100C46DF6 /* StackViewController.swift in Sources */,
 				37BC06A61DF720F100C46DF6 /* EffectViewController.swift in Sources */,
 				37BC06A71DF720F100C46DF6 /* GridViewController.swift in Sources */,
 				37BC06A81DF720F100C46DF6 /* CustomSectionViewController.swift in Sources */,

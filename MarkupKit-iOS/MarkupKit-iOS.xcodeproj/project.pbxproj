@@ -171,8 +171,8 @@
 		3771EA681DF1C1430064CC82 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CF1DF1BA4C0064CC82 /* vw.png */; };
 		3771EA691DF1C1430064CC82 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D41DF1BA570064CC82 /* sample.txt */; };
 		3771EA6A1DF1C1430064CC82 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D31DF1BA570064CC82 /* sample.mp4 */; };
-		3771EA6B1DF1C1430064CC82 /* ColorsAndFontsViewController.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */; };
-		3771EA6C1DF1C1430064CC82 /* ColorsAndFontsViewController~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */; };
+		3771EA6B1DF1C1430064CC82 /* ColorsAndFonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */; };
+		3771EA6C1DF1C1430064CC82 /* ColorsAndFonts~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */; };
 		3771EA6D1DF1C1430064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E96F1DF1B8B00064CC82 /* Assets.xcassets */; };
 		3771EA6E1DF1C1430064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */; };
 		3771EA6F1DF1C1430064CC82 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D71DF1BA690064CC82 /* Colors.plist */; };
@@ -394,10 +394,10 @@
 		3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SecondRowView.xml; sourceTree = "<group>"; };
 		3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ThirdRowView.xml; sourceTree = "<group>"; };
 		3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColumnView.xml; sourceTree = "<group>"; };
-		3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorsAndFontsViewController.json; sourceTree = "<group>"; };
+		3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorsAndFonts.json; sourceTree = "<group>"; };
 		3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsAndFontsViewController.swift; sourceTree = "<group>"; };
 		3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorsAndFontsViewController.xml; sourceTree = "<group>"; };
-		3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFontsViewController~vertical.json"; sourceTree = "<group>"; };
+		3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
 		3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
 		3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnchorViewController.xml; sourceTree = "<group>"; };
 		3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
@@ -657,6 +657,8 @@
 				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
 				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
 				3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */,
+				3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */,
+				3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */,
 				3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */,
 				3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */,
 				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
@@ -665,8 +667,6 @@
 				3763AD8E1DF714F600E88F7A /* sample.jpg */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
 				3771E9D31DF1BA570064CC82 /* sample.mp4 */,
-				3771E9FF1DF1BB090064CC82 /* ColorsAndFontsViewController.json */,
-				3771EA021DF1BB090064CC82 /* ColorsAndFontsViewController~vertical.json */,
 				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
 				3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */,
@@ -1136,8 +1136,8 @@
 				3771EA681DF1C1430064CC82 /* vw.png in Resources */,
 				3771EA691DF1C1430064CC82 /* sample.txt in Resources */,
 				3771EA6A1DF1C1430064CC82 /* sample.mp4 in Resources */,
-				3771EA6B1DF1C1430064CC82 /* ColorsAndFontsViewController.json in Resources */,
-				3771EA6C1DF1C1430064CC82 /* ColorsAndFontsViewController~vertical.json in Resources */,
+				3771EA6B1DF1C1430064CC82 /* ColorsAndFonts.json in Resources */,
+				3771EA6C1DF1C1430064CC82 /* ColorsAndFonts~vertical.json in Resources */,
 				37BC06DA1DF7225C00C46DF6 /* Icons.xcassets in Resources */,
 				3771EA6D1DF1C1430064CC82 /* Assets.xcassets in Resources */,
 				3771EA6E1DF1C1430064CC82 /* LaunchScreen.storyboard in Resources */,
