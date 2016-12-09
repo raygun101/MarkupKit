@@ -44,8 +44,6 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(GridViewController(), animated: true)
         } else if (value == "anchorView") {
             navigationController!.pushViewController(AnchorViewController(), animated: true)
-        } else if (value == "effectView") {
-            navigationController!.pushViewController(EffectViewController(), animated: true)
         } else if (value == "colorsAndFonts") {
             navigationController!.pushViewController(ColorsAndFontsViewController(), animated: true)
         } else if (value == "includes") {
@@ -70,6 +68,8 @@ class ViewController: UITableViewController {
             #if os(iOS)
             navigationController!.pushViewController(CustomComponentViewController(), animated: true)
             #endif
+        } else if (value == "effectView") {
+            navigationController!.pushViewController(EffectViewController(), animated: true)
         } else if (value == "gradientViews") {
             navigationController!.pushViewController(LinearGradientViewController(), animated: true)
         } else if (value == "sizeClassView") {

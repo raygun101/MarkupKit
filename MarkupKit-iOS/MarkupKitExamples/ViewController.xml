@@ -19,7 +19,6 @@ limitations under the License.
     <UITableViewCell textLabel.text="Checkboxes" accessoryType="disclosureIndicator" value="checkboxes"/>
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
     <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>
-    <UITableViewCell textLabel.text="Effect View" accessoryType="disclosureIndicator" value="effectView"/>
     <UITableViewCell textLabel.text="Colors and Fonts" accessoryType="disclosureIndicator" value="colorsAndFonts"/>
     <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
 
@@ -36,6 +35,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Custom Component View" accessoryType="disclosureIndicator" value="customComponentView"/>
     <?end?>
 
+    <UITableViewCell textLabel.text="Effect View" accessoryType="disclosureIndicator" value="effectView"/>
     <UITableViewCell textLabel.text="Gradient Views" accessoryType="disclosureIndicator" value="gradientViews"/>
     <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
 
