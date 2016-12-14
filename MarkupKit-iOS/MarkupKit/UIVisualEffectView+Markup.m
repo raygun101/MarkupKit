@@ -31,4 +31,21 @@
     return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
 }
 
+#if TARGET_OS_TV
++ (UIVisualEffectView *)extraDarkBlurEffectView
+{
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraDark]];
+}
+#endif
+
++ (UIVisualEffectView *)regularBlurEffectView
+{
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+}
+
++ (UIVisualEffectView *)prominentBlurEffectView
+{
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
+}
+
 @end
