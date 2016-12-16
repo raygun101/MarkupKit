@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371E236D1E042E1D00A29425 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = 371E236C1E042E1D00A29425 /* sample.mov */; };
 		373BFAEE1DFB003800BB7509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */; };
 		373BFAEF1DFB003800BB7509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97F1DF1B8FC0064CC82 /* ViewController.swift */; };
 		373BFAF01DFB003800BB7509 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9831DF1B9460064CC82 /* RadioButtonViewController.swift */; };
@@ -75,7 +76,6 @@
 		373BFB2F1DFB007B00BB7509 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CF1DF1BA4C0064CC82 /* vw.png */; };
 		373BFB301DFB007B00BB7509 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8E1DF714F600E88F7A /* sample.jpg */; };
 		373BFB311DFB007B00BB7509 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D41DF1BA570064CC82 /* sample.txt */; };
-		373BFB321DFB007B00BB7509 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D31DF1BA570064CC82 /* sample.mp4 */; };
 		373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D91DF7225C00C46DF6 /* Icons.xcassets */; };
 		373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E96F1DF1B8B00064CC82 /* Assets.xcassets */; };
 		373BFB351DFB007B00BB7509 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */; };
@@ -312,6 +312,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
 		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -370,7 +371,6 @@
 		3771E9CD1DF1BA4C0064CC82 /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
 		3771E9CE1DF1BA4C0064CC82 /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
 		3771E9CF1DF1BA4C0064CC82 /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
-		3771E9D31DF1BA570064CC82 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.mp4; sourceTree = "<group>"; };
 		3771E9D41DF1BA570064CC82 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		3771E9D71DF1BA690064CC82 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		3771E9D91DF1BA720064CC82 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
@@ -666,7 +666,7 @@
 				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
 				3763AD8E1DF714F600E88F7A /* sample.jpg */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
-				3771E9D31DF1BA570064CC82 /* sample.mp4 */,
+				371E236C1E042E1D00A29425 /* sample.mov */,
 				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
 				3771E9711DF1B8B00064CC82 /* LaunchScreen.storyboard */,
@@ -1109,6 +1109,7 @@
 				373BFB151DFB007B00BB7509 /* ColumnView.xml in Resources */,
 				373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */,
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
+				371E236D1E042E1D00A29425 /* sample.mov in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
 				377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */,
 				373BFB191DFB007B00BB7509 /* ColorPickerViewController.xml in Resources */,
@@ -1137,7 +1138,6 @@
 				373BFB2F1DFB007B00BB7509 /* vw.png in Resources */,
 				373BFB301DFB007B00BB7509 /* sample.jpg in Resources */,
 				373BFB311DFB007B00BB7509 /* sample.txt in Resources */,
-				373BFB321DFB007B00BB7509 /* sample.mp4 in Resources */,
 				373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */,
 				373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */,
 				373BFB351DFB007B00BB7509 /* LaunchScreen.storyboard in Resources */,

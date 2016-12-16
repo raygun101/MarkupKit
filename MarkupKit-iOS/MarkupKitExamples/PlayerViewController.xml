@@ -14,12 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView style="groupedTableView">
+<LMTableView separatorStyle="none">
     <?backgroundView?>
     <UIActivityIndicatorView id="activityIndicatorView" activityIndicatorViewStyle="gray"/>
 
     <LMTableViewCell>
-        <LMPlayerView id="playerView" height="320"/>
+        <LMPlayerView id="playerView" maximumHeight="480"/>
     </LMTableViewCell>
 
     <?sectionBreak?>

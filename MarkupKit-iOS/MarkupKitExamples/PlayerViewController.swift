@@ -42,8 +42,7 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
 
         playerView.delegate = self
 
-        playerView.layer.player = AVPlayer(url: Bundle.main.url(forResource: "sample", withExtension: "mp4")!)
-        playerView.layer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        playerView.layer.player = AVPlayer(url: Bundle.main.url(forResource: "sample", withExtension: "mov")!)
     }
 
     override func viewWillDisappear(_ animated: Bool) {

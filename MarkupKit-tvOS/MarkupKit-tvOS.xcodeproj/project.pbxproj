@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371E236F1E042E8F00A29425 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = 371E236E1E042E8F00A29425 /* sample.mov */; };
 		373BFB391DFB015000BB7509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */; };
 		373BFB3A1DFB015000BB7509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACEF1DF713AE00E88F7A /* ViewController.swift */; };
 		373BFB3B1DFB015000BB7509 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACF11DF713AE00E88F7A /* RadioButtonViewController.swift */; };
@@ -49,7 +50,6 @@
 		373BFB601DFB017100BB7509 /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD361DF713AE00E88F7A /* mini.png */; };
 		373BFB611DFB017100BB7509 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD371DF713AE00E88F7A /* vw.png */; };
 		373BFB621DFB017100BB7509 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD901DF7151900E88F7A /* sample.jpg */; };
-		373BFB631DFB017100BB7509 /* sample.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 37BC069B1DF71F5700C46DF6 /* sample.mp4 */; };
 		373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */; };
 		373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378720681DF70F53004FF42A /* Assets.xcassets */; };
 		373BFB661DFB017100BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
@@ -207,6 +207,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		371E236E1E042E8F00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = sample.mov; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.mov"; sourceTree = "<group>"; };
 		373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ColorsAndFonts.json; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts.json"; sourceTree = "<group>"; };
 		373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ColorsAndFonts~vertical.json"; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
 		3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/AppDelegate.swift"; sourceTree = "<group>"; };
@@ -258,7 +259,6 @@
 		3787206A1DF70F53004FF42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3799BAE71DF18396006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BAEB1DF18396006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		37BC069B1DF71F5700C46DF6 /* sample.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = sample.mp4; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.mp4"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
@@ -433,7 +433,7 @@
 				3763AD361DF713AE00E88F7A /* mini.png */,
 				3763AD371DF713AE00E88F7A /* vw.png */,
 				3763AD901DF7151900E88F7A /* sample.jpg */,
-				37BC069B1DF71F5700C46DF6 /* sample.mp4 */,
+				371E236E1E042E8F00A29425 /* sample.mov */,
 				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
 				378720681DF70F53004FF42A /* Assets.xcassets */,
 				3787206A1DF70F53004FF42A /* Info.plist */,
@@ -774,6 +774,7 @@
 				373BFB531DFB017100BB7509 /* ColumnView.xml in Resources */,
 				373BFB541DFB017100BB7509 /* FirstRowView.xml in Resources */,
 				373BFB551DFB017100BB7509 /* SecondRowView.xml in Resources */,
+				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB561DFB017100BB7509 /* ThirdRowView.xml in Resources */,
 				373BFB571DFB017100BB7509 /* PharmacyCell.xml in Resources */,
 				373BFB581DFB017100BB7509 /* CustomSectionViewController.xml in Resources */,
@@ -788,7 +789,6 @@
 				373BFB601DFB017100BB7509 /* mini.png in Resources */,
 				373BFB611DFB017100BB7509 /* vw.png in Resources */,
 				373BFB621DFB017100BB7509 /* sample.jpg in Resources */,
-				373BFB631DFB017100BB7509 /* sample.mp4 in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
 				373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */,
 				373BFB661DFB017100BB7509 /* Colors.plist in Resources */,
