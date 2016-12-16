@@ -15,12 +15,19 @@
 #import "UIScrollView+Markup.h"
 #import "NSObject+Markup.h"
 
+static NSDictionary *indicatorStyleValues;
 static NSDictionary *keyboardDismissModeValues;
 
 @implementation UIScrollView (Markup)
 
 + (void)initialize
 {
+    indicatorStyleValues = @{
+        @"default": @(UIScrollViewIndicatorStyleDefault),
+        @"black": @(UIScrollViewIndicatorStyleBlack),
+        @"white": @(UIScrollViewIndicatorStyleWhite)
+    };
+
     keyboardDismissModeValues = @{
         @"none": @(UIScrollViewKeyboardDismissModeNone),
         @"onDrag": @(UIScrollViewKeyboardDismissModeOnDrag),
@@ -37,7 +44,9 @@ static NSDictionary *keyboardDismissModeValues;
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if ([key isEqual:@"keyboardDismissMode"]) {
+    if ([key isEqual:@"indicatorStyle"]) {
+        value = [indicatorStyleValues objectForKey:value];
+    } else if ([key isEqual:@"keyboardDismissMode"]) {
         value = [keyboardDismissModeValues objectForKey:value];
     }
 

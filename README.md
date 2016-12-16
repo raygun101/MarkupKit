@@ -1597,6 +1597,11 @@ Instances of `UIVisualEffectView` are created using the `initWithEffect:` method
     + (UIVisualEffectView *)extraLightBlurEffectView;
     + (UIVisualEffectView *)lightBlurEffectView;
     + (UIVisualEffectView *)darkBlurEffectView;
+	+ (UIVisualEffectView *)extraDarkBlurEffectView;
+	+ (UIVisualEffectView *)regularBlurEffectView;
+	+ (UIVisualEffectView *)prominentBlurEffectView;
+
+Note that `extraDarkBlurEffectView` is available in tvOS only.
 
 ### CALayer
 The `layer` property of `UIView` returns a `CALayer` instance that can be used to configure properties of the view. However, the `shadowOffset` property of `CALayer` is a `CGSize`. Since structs are not supported in XML, MarkupKit adds the following methods to `CALayer` to allow the layer's shadow offset width and height to be configured independently:
