@@ -473,7 +473,7 @@ static NSMutableDictionary *templateCache;
             [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
             if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [[NSBundle bundleForClass:[_owner class]] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
             }
 
             [properties setObject:value forKey:key];
