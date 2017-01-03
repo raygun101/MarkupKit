@@ -486,6 +486,8 @@ Note that neither size class-specific layouts nor template properties are automa
             viewDidLoad()
         }
     }
+    
+Also note that, while `viewWithName:owner:root:` loads markup documents and string tables from the bundle that defines the owner's class, static assets such as property templates, color and font tables, and images are always loaded from the application's main bundle.
 
 ### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.

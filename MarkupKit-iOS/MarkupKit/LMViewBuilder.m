@@ -125,18 +125,18 @@ static NSMutableDictionary *templateCache;
 {
     NSURL *url = nil;
 
-    NSBundle *mainBundle = [NSBundle mainBundle];
+    NSBundle *bundle = [NSBundle bundleForClass:[owner class]];
 
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
         NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
 
         if (sizeClass != nil) {
-            url = [mainBundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
+            url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
         }
     }
 
     if (url == nil) {
-        url = [mainBundle URLForResource:name withExtension:@"xml"];
+        url = [bundle URLForResource:name withExtension:@"xml"];
     }
 
     UIView *view = nil;
@@ -473,7 +473,7 @@ static NSMutableDictionary *templateCache;
             [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
             if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+                value = [[NSBundle bundleForClass:[_owner class]] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
             }
 
             [properties setObject:value forKey:key];
