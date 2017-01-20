@@ -155,8 +155,6 @@ static NSDictionary *anchorValues;
 
 - (void)setWidth:(CGFloat)width
 {
-    NSAssert(isnan(width) || width >= 0, @"Invalid width.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
 
     [constraint setActive:NO];
@@ -164,7 +162,7 @@ static NSDictionary *anchorValues;
     if (!isnan(width)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:width];
+            multiplier:1 constant:MAX(width, 0)];
     } else {
         constraint = nil;
     }
@@ -183,8 +181,6 @@ static NSDictionary *anchorValues;
 
 - (void)setMinimumWidth:(CGFloat)minimumWidth
 {
-    NSAssert(isnan(minimumWidth) || minimumWidth >= 0, @"Invalid minimum width.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumWidth));
 
     [constraint setActive:NO];
@@ -192,7 +188,7 @@ static NSDictionary *anchorValues;
     if (!isnan(minimumWidth)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:minimumWidth];
+            multiplier:1 constant:MAX(minimumWidth, 0)];
     } else {
         constraint = nil;
     }
@@ -211,8 +207,6 @@ static NSDictionary *anchorValues;
 
 - (void)setMaximumWidth:(CGFloat)maximumWidth
 {
-    NSAssert(isnan(maximumWidth) || maximumWidth >= 0, @"Invalid maximum width.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumWidth));
 
     [constraint setActive:NO];
@@ -220,7 +214,7 @@ static NSDictionary *anchorValues;
     if (!isnan(maximumWidth)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:maximumWidth];
+            multiplier:1 constant:MAX(maximumWidth, 0)];
     } else {
         constraint = nil;
     }
@@ -239,8 +233,6 @@ static NSDictionary *anchorValues;
 
 - (void)setHeight:(CGFloat)height
 {
-    NSAssert(isnan(height) || height >= 0, @"Invalid height.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
 
     [constraint setActive:NO];
@@ -248,7 +240,7 @@ static NSDictionary *anchorValues;
     if (!isnan(height)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:height];
+            multiplier:1 constant:MAX(height, 0)];
     } else {
         constraint = nil;
     }
@@ -267,8 +259,6 @@ static NSDictionary *anchorValues;
 
 - (void)setMinimumHeight:(CGFloat)minimumHeight
 {
-    NSAssert(isnan(minimumHeight) || minimumHeight >= 0, @"Invalid minimum height.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumHeight));
 
     [constraint setActive:NO];
@@ -276,7 +266,7 @@ static NSDictionary *anchorValues;
     if (!isnan(minimumHeight)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:minimumHeight];
+            multiplier:1 constant:MAX(minimumHeight, 0)];
     } else {
         constraint = nil;
     }
@@ -295,8 +285,6 @@ static NSDictionary *anchorValues;
 
 - (void)setMaximumHeight:(CGFloat)maximumHeight
 {
-    NSAssert(isnan(maximumHeight) || maximumHeight >= 0, @"Invalid maximum height.");
-
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(maximumHeight));
 
     [constraint setActive:NO];
@@ -304,7 +292,7 @@ static NSDictionary *anchorValues;
     if (!isnan(maximumHeight)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:maximumHeight];
+            multiplier:1 constant:MAX(maximumHeight, 0)];
     } else {
         constraint = nil;
     }
@@ -323,8 +311,10 @@ static NSDictionary *anchorValues;
 
 - (void)setWeight:(CGFloat)weight
 {
-    NSAssert(isnan(weight) || weight > 0, @"Invalid weight.");
-    
+    if (weight <= 0) {
+        return;
+    }
+
     objc_setAssociatedObject(self, @selector(weight), isnan(weight) ? nil : [NSNumber numberWithFloat:weight],
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
