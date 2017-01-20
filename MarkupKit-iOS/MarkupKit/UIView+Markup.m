@@ -165,6 +165,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:width];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
@@ -191,6 +193,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:minimumWidth];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
@@ -217,6 +221,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:maximumWidth];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
@@ -243,6 +249,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:height];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
@@ -269,6 +277,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:minimumHeight];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
@@ -295,6 +305,8 @@ static NSDictionary *anchorValues;
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
             multiplier:1 constant:maximumHeight];
+    } else {
+        constraint = nil;
     }
 
     [constraint setActive:YES];
