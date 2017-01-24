@@ -18,7 +18,7 @@
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if (value == nil) {
+    if (value == nil || value == [NSNull null]) {
         return;
     }
 
