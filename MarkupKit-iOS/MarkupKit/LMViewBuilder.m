@@ -540,12 +540,18 @@ static NSMutableDictionary *templateCache;
             for (NSString *component in components) {
                 NSString *name = [component stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 
-                [view applyMarkupPropertyValues:[_templates objectForKey:name]];
+                NSDictionary *template = [_templates objectForKey:name];
+
+                for (NSString *key in template) {
+                    [view applyMarkupPropertyValue:[template objectForKey:key] forKeyPath:key];
+                }
             }
         }
 
         // Apply instance properties
-        [view applyMarkupPropertyValues:properties];
+        for (NSString *key in properties) {
+            [view applyMarkupPropertyValue:[properties objectForKey:key] forKeyPath:key];
+        }
 
         // Add action handlers
         for (NSNumber *key in actions) {

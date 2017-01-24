@@ -18,9 +18,11 @@
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if (value != nil) {
-        [self setValue:value forKey:key];
+    if (value == nil) {
+        return;
     }
+
+    [self setValue:value forKey:key];
 }
 
 - (void)applyMarkupPropertyValue:(id)value forKeyPath:(NSString *)keyPath
@@ -36,19 +38,6 @@
     }
 
     [target applyMarkupPropertyValue:value forKey:[components objectAtIndex:n - 1]];
-}
-
-- (void)applyMarkupPropertyValues:(NSDictionary *)dictionary
-{
-    for (NSString *key in dictionary) {
-        id value = [dictionary objectForKey:key];
-
-        if (value == [NSNull null]) {
-            value = nil;
-        }
-
-        [self applyMarkupPropertyValue:value forKeyPath:key];
-    }
 }
 
 @end

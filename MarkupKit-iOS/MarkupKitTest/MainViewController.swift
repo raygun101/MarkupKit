@@ -23,9 +23,6 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         LMViewBuilder.view(withName: "MainViewController", owner: self, root: view)
-
-        greetingLabel.applyMarkupPropertyValues(LMViewBuilder.templates(withName: "Styles2",
-            traitCollection: traitCollection)["label.greeting"]!);
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
