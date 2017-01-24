@@ -29,9 +29,9 @@ static NSString * const kPropertiesTarget = @"properties";
 static NSString * const kIncludeTarget = @"include";
 
 static NSString * const kRootTag = @"root";
+
 static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
-
 static NSString * const kOutletKey = @"id";
 
 static NSString * const kLocalizedStringPrefix = @"@";
@@ -472,10 +472,6 @@ static NSMutableDictionary *templateCache;
         } else if ([key isEqual:@"onAllEvents"]) {
             [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
-            if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
-            }
-
             [properties setObject:value forKey:key];
         }
     }
@@ -528,11 +524,6 @@ static NSMutableDictionary *templateCache;
             }
         }
 
-        // Set outlet value
-        if (outlet != nil) {
-            [_owner setValue:view forKey:outlet];
-        }
-
         // Apply template properties
         if (template != nil) {
             NSArray *components = [template componentsSeparatedByString:@","];
@@ -550,13 +541,23 @@ static NSMutableDictionary *templateCache;
 
         // Apply instance properties
         for (NSString *key in properties) {
-            [view applyMarkupPropertyValue:[properties objectForKey:key] forKeyPath:key];
+            NSString *value = [properties objectForKey:key];
+
+            if ([value hasPrefix:kLocalizedStringPrefix]) {
+                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+            }
+
+            [view applyMarkupPropertyValue:value forKeyPath:key];
         }
 
         // Add action handlers
         for (NSNumber *key in actions) {
-            [(UIControl *)view addTarget:_owner action:NSSelectorFromString([actions objectForKey:key])
-                forControlEvents:[key integerValue]];
+            [(UIControl *)view addTarget:_owner action:NSSelectorFromString([actions objectForKey:key]) forControlEvents:[key integerValue]];
+        }
+
+        // Set outlet value
+        if (outlet != nil) {
+            [_owner setValue:view forKey:outlet];
         }
 
         // Push onto view stack
