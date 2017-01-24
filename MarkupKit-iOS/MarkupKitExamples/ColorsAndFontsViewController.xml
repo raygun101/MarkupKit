@@ -19,8 +19,8 @@ limitations under the License.
 <LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="background">
     <LMColumnView layoutMargins="20">
         <LMSpacer/>
-        <UIImageView image="CheckCircleIcon" class="imageView"/>
-        <UILabel text="Lorem ipsum dolor sit amet" class="label"/>
+        <UIImageView class="imageView" image="CheckCircleIcon"/>
+        <UILabel class="label" text="Lorem ipsum dolor sit amet"/>
         <LMSpacer/>
     </LMColumnView>
 </LMLayerView>

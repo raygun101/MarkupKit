@@ -273,17 +273,17 @@ limitations under the License.
         </LMColumnView>
 
         <LMRowView>
-            <UILabel text="Alkali metal" class="legend, alkali-metal" weight="1"/>
-            <UILabel text="Alkaline earth metal" class="legend, alkaline-earth-metal" weight="1"/>
-            <UILabel text="Lanthanide" class="legend, lanthanide" weight="1"/>
-            <UILabel text="Actinide" class="legend, actinide" weight="1"/>
-            <UILabel text="Transition metal" class="legend, transition-metal" weight="1"/>
-            <UILabel text="Post-transition metal" class="legend, post-transition-metal" weight="1"/>
-            <UILabel text="Metalloid" class="legend, metalloid" weight="1"/>
-            <UILabel text="Polyatomic nonmetal" class="legend, polyatomic-nonmetal" weight="1"/>
-            <UILabel text="Diatomic nonmetal" class="legend, diatomic-nonmetal" weight="1"/>
-            <UILabel text="Noble gas" class="legend, noble-gas" weight="1"/>
-            <UILabel text="Unknown" class="legend, unknown" weight="1"/>
+            <UILabel class="legend, alkali-metal" weight="1" text="Alkali metal"/>
+            <UILabel class="legend, alkaline-earth-metal" weight="1" text="Alkaline earth metal"/>
+            <UILabel class="legend, lanthanide" weight="1" text="Lanthanide"/>
+            <UILabel class="legend, actinide" weight="1" text="Actinide"/>
+            <UILabel class="legend, transition-metal" weight="1" text="Transition metal"/>
+            <UILabel class="legend, post-transition-metal" weight="1" text="Post-transition metal"/>
+            <UILabel class="legend, metalloid" weight="1" text="Metalloid"/>
+            <UILabel class="legend, polyatomic-nonmetal" weight="1" text="Polyatomic nonmetal"/>
+            <UILabel class="legend, diatomic-nonmetal" weight="1" text="Diatomic nonmetal"/>
+            <UILabel class="legend, noble-gas" weight="1" text="Noble gas"/>
+            <UILabel class="legend, unknown" weight="1" text="Unknown"/>
         </LMRowView>
     </LMColumnView>
 </LMScrollView>
