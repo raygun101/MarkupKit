@@ -36,16 +36,16 @@ static NSString * const kOutletKey = @"id";
 
 static NSString * const kLocalizedStringPrefix = @"@";
 
-@interface LMIncludeContainerView : UIView
+@interface LMIncludeContainer : UIView
 
 @end
 
-@interface LMViewBuilderInclude : NSObject
+@interface LMInclude : NSObject
 
-@property (nonatomic) LMIncludeContainerView *container;
+@property (nonatomic) LMIncludeContainer *container;
 @property (nonatomic) NSString *name;
 
-- (instancetype)initWithContainer:(LMIncludeContainerView *)container name:(NSString *)name;
+- (instancetype)initWithContainer:(LMIncludeContainer *)container name:(NSString *)name;
 
 @end
 
@@ -151,7 +151,7 @@ static NSMutableDictionary *templateCache;
 
         view = [viewBuilder root];
 
-        for (LMViewBuilderInclude *include in [viewBuilder includes]) {
+        for (LMInclude *include in [viewBuilder includes]) {
             UIView *child = [LMViewBuilder viewWithName:[include name] owner:owner root:nil templates:[viewBuilder templates]];
 
             [[include container] appendMarkupElementView:child];
@@ -394,11 +394,11 @@ static NSMutableDictionary *templateCache;
                 id superview = [_views lastObject];
 
                 if ([superview isKindOfClass:[UIView self]]) {
-                    LMIncludeContainerView *container = [LMIncludeContainerView new];
+                    LMIncludeContainer *container = [LMIncludeContainer new];
 
                     [superview appendMarkupElementView:container];
 
-                    [_includes addObject:[[LMViewBuilderInclude alloc] initWithContainer:container name:data]];
+                    [_includes addObject:[[LMInclude alloc] initWithContainer:container name:data]];
                 }
             }
         } else {
@@ -619,7 +619,7 @@ static NSMutableDictionary *templateCache;
 
 @end
 
-@implementation LMIncludeContainerView
+@implementation LMIncludeContainer
 
 - (void)appendMarkupElementView:(UIView *)view
 {
@@ -648,9 +648,9 @@ static NSMutableDictionary *templateCache;
 
 @end
 
-@implementation LMViewBuilderInclude
+@implementation LMInclude
 
-- (instancetype)initWithContainer:(LMIncludeContainerView *)container name:(NSString *)name
+- (instancetype)initWithContainer:(LMIncludeContainer *)container name:(NSString *)name
 {
     self = [super init];
 
