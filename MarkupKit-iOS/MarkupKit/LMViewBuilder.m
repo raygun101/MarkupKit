@@ -34,6 +34,7 @@ static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
 
+static NSString * const kBindingPrefix = @"$";
 static NSString * const kLocalizedStringPrefix = @"@";
 
 @interface LMIncludeContainer : UIView
@@ -543,11 +544,15 @@ static NSMutableDictionary *templateCache;
         for (NSString *key in properties) {
             NSString *value = [properties objectForKey:key];
 
-            if ([value hasPrefix:kLocalizedStringPrefix]) {
-                value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
-            }
+            if ([value hasPrefix:kBindingPrefix]) {
+                // TODO
+            } else {
+                if ([value hasPrefix:kLocalizedStringPrefix]) {
+                    value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+                }
 
-            [view applyMarkupPropertyValue:value forKeyPath:key];
+                [view applyMarkupPropertyValue:value forKeyPath:key];
+            }
         }
 
         // Add action handlers
