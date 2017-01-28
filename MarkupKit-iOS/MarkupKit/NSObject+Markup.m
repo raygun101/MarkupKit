@@ -63,7 +63,9 @@
 
 - (void)unbind
 {
-    [self setBindings:nil];
+    // TODO Remove this object as an observer from all other objects
+
+    // TODO Remove all other objects as an observer of this object
 }
 
 - (NSMutableArray *)bindings
@@ -94,7 +96,7 @@
         _object = object;
         _keyPath = keyPath;
 
-        [_object addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [_object addObserver:self forKeyPath:_keyPath options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
     }
 
     return self;
@@ -102,7 +104,9 @@
 
 - (void)dealloc
 {
-    // TODO Unbind source object if not already unbound
+    // TODO Remove object's bindings as an observer of this binding's observer (can simply remove from object's binding list and trigger deallocation?)
+
+    [_object removeObserver:self forKeyPath:_keyPath];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
