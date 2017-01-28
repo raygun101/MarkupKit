@@ -18,7 +18,13 @@
 
 @interface LMBinding : NSObject
 
-// TODO
+@property (weak, nonatomic, readonly) id observer;
+@property (nonatomic, readonly) NSString *binding;
+
+@property (weak, nonatomic, readonly) id object;
+@property (nonatomic, readonly) NSString *keyPath;
+
+- (instancetype)initWithObserver:(id)observer binding:(NSString *)binding object:(id)object keyPath:(NSString *)keyPath;
 
 @end
 
@@ -50,12 +56,14 @@
 
 - (void)bind:(NSString *)binding toObject:(id)object withKeyPath:(NSString *)keyPath
 {
-    // TODO Establish a two-way binding between this object and the given object
+    // TODO Establish a binding from bound object/key path to this object/binding and add to this object's binding list
+
+    // TODO Establish a binding from this object/binding to bound object/key path and add to bound object's binding list
 }
 
 - (void)unbind
 {
-    // TODO Release all bindings to and from this object
+    [self setBindings:nil];
 }
 
 - (NSMutableArray *)bindings
@@ -71,8 +79,26 @@
 @end
 
 @implementation LMBinding
+{
+    BOOL _update;
+}
 
-// TODO
+- (instancetype)initWithObserver:(id)observer binding:(NSString *)binding object:(id)object keyPath:(NSString *)keyPath
+{
+    self = [super init];
+
+    if (self) {
+        _observer = observer;
+        _binding = binding;
+
+        _object = object;
+        _keyPath = keyPath;
+
+        [_object addObserver:self forKeyPath:keyPath options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+    }
+
+    return self;
+}
 
 - (void)dealloc
 {
@@ -81,7 +107,17 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    // TODO Update target object
+    if (!_update) {
+        _update = YES;
+
+        id value = [change objectForKey:NSKeyValueChangeNewKey];
+
+        if (value != nil && value != [NSNull null]) {
+            [_observer setValue:value forKey:_binding];
+        }
+
+        _update = NO;
+    }
 }
 
 @end

@@ -43,8 +43,8 @@ static NSString * const kLocalizedStringPrefix = @"@";
 
 @interface LMInclude : NSObject
 
-@property (nonatomic) LMIncludeContainer *container;
-@property (nonatomic) NSString *name;
+@property (nonatomic, readonly) LMIncludeContainer *container;
+@property (nonatomic, readonly) NSString *name;
 
 - (instancetype)initWithContainer:(LMIncludeContainer *)container name:(NSString *)name;
 

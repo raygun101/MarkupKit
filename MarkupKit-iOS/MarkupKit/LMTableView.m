@@ -57,8 +57,8 @@ typedef enum {
 
 @implementation LMTableView
 {
-    __weak id<UITableViewDataSource> _dataSource;
-    __weak id<UITableViewDelegate> _delegate;
+    id<UITableViewDataSource> __weak _dataSource;
+    id<UITableViewDelegate> __weak _delegate;
 
     NSMutableArray *_sections;
 

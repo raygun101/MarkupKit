@@ -44,8 +44,8 @@ static NSString * const kRowValueKey = @"value";
 
 @implementation LMPickerView
 {
-    __weak id<UIPickerViewDataSource> _dataSource;
-    __weak id<UIPickerViewDelegate> _delegate;
+    id<UIPickerViewDataSource> __weak _dataSource;
+    id<UIPickerViewDelegate> __weak _delegate;
 
     NSMutableArray *_components;
 }
