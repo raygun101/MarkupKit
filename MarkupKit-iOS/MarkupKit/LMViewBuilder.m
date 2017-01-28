@@ -545,7 +545,7 @@ static NSMutableDictionary *templateCache;
             NSString *value = [properties objectForKey:key];
 
             if ([value hasPrefix:kBindingPrefix]) {
-                // TODO
+                [view bind:key toObject:_owner withKeyPath:[value substringFromIndex:[kBindingPrefix length]]];
             } else {
                 if ([value hasPrefix:kLocalizedStringPrefix]) {
                     value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];

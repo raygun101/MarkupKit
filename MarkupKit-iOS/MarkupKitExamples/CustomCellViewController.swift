@@ -49,7 +49,7 @@ class CustomCellViewController: UITableViewController {
         // Configure cell with pharmacy data
         let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.self.description()) as! PharmacyCell
 
-        cell.nameLabel.text = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
+        cell.name = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
         cell.distanceLabel.text = String(format: "%.2f miles", pharmacy["distance"] as! Double)
 
         cell.addressLabel.text = String(format: "%@\n%@ %@ %@",

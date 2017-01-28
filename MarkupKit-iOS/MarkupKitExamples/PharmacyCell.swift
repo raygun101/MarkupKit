@@ -16,7 +16,9 @@ import UIKit
 import MarkupKit
 
 class PharmacyCell: LMTableViewCell {
-    @IBOutlet var nameLabel: UILabel!
+    dynamic var name: String!
+
+    // TODO Make these model view properties
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var phoneLabel: UILabel!
@@ -31,5 +33,9 @@ class PharmacyCell: LMTableViewCell {
 
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+    }
+
+    deinit {
+        unbind()
     }
 }

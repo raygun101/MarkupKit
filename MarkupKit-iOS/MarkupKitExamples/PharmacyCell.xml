@@ -17,7 +17,7 @@ limitations under the License.
 <root>
     <LMColumnView spacing="4" layoutMarginBottom="8">
         <LMRowView alignToBaseline="true" spacing="4">
-            <UILabel id="nameLabel" weight="1" font="headline"/>
+            <UILabel weight="1" text="$name" font="headline"/>
             <UILabel id="distanceLabel" font="body" textColor="#808080"/>
         </LMRowView>
 
