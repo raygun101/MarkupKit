@@ -56,16 +56,39 @@
 
 - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
-    // TODO Create binding
-    // TODO Add binding as observer of property on self
-    // TODO Add binding as observer of key path on view
-    // TODO Add binding to bindings list
+    LMBinding *binding = [[LMBinding alloc] initWithObject:self property:property view:view keyPath:keyPath];
+
+    [self addObserver:binding forKeyPath:property options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+
+    [view addObserver:binding forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
+
+    [[self bindings] addObject:binding];
 }
 
 - (void)unbindAll
 {
-    // TODO For each binding in bindings list, remove as observer on self and view
-    // TODO Clear bindings list
+    NSMutableArray *bindings = [self bindings];
+
+    for (LMBinding *binding in bindings) {
+        [self removeObserver:binding forKeyPath:[binding property] context:nil];
+
+        [[binding view] removeObserver:binding forKeyPath:[binding keyPath] context:nil];
+    }
+
+    [bindings removeAllObjects];
+}
+
+- (NSMutableArray *)bindings
+{
+    NSMutableArray *bindings = objc_getAssociatedObject(self, @selector(bindings));
+
+    if (bindings == nil) {
+        bindings = [NSMutableArray new];
+
+        objc_setAssociatedObject(self, @selector(bindings), bindings, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+
+    return bindings;
 }
 
 @end

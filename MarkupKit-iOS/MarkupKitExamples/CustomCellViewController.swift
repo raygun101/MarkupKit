@@ -50,9 +50,10 @@ class CustomCellViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.self.description()) as! PharmacyCell
 
         cell.name = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
-        cell.distanceLabel.text = String(format: "%.2f miles", pharmacy["distance"] as! Double)
 
-        cell.addressLabel.text = String(format: "%@\n%@ %@ %@",
+        cell.distance = String(format: "%.2f miles", pharmacy["distance"] as! Double)
+
+        cell.address = String(format: "%@\n%@ %@ %@",
             pharmacy["address1"] as! String,
             pharmacy["city"] as! String, pharmacy["state"] as! String,
             pharmacy["zipCode"] as! String)
@@ -60,12 +61,12 @@ class CustomCellViewController: UITableViewController {
         let phoneNumberFormatter = PhoneNumberFormatter()
 
         let phone = pharmacy["phone"] as? String
-        cell.phoneLabel.text = (phone == nil) ? nil : phoneNumberFormatter.string(for: phone!)
+        cell.phone = (phone == nil) ? nil : phoneNumberFormatter.string(for: phone!)
 
         let fax = pharmacy["fax"] as? String
-        cell.faxLabel.text = (fax == nil) ? nil : phoneNumberFormatter.string(for: fax!)
+        cell.fax = (fax == nil) ? nil : phoneNumberFormatter.string(for: fax!)
 
-        cell.emailLabel.text = pharmacy["email"] as? String
+        cell.email = pharmacy["email"] as? String
 
         return cell
     }
