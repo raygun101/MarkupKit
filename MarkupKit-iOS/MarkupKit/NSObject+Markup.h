@@ -12,7 +12,7 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -35,18 +35,18 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)applyMarkupPropertyValue:(nullable id)value forKeyPath:(NSString *)keyPath;
 
 /**
- * Establishes a two-way binding between this object and another object.
+ * Establishes a two-way binding between this object and an associated view instance.
  *
- * @param binding The key path of a property in this object.
- * @param object The object to which this object will be bound.
- * @param keyPath The key path of a property in the bound object.
+ * @param property The key path of a property in this object.
+ * @param view The associated view instance.
+ * @param keyPath The key path of a property in the view.
  */
-- (void)bind:(NSString *)binding toObject:(id)object withKeyPath:(NSString *)keyPath;
+- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
 
 /**
- * Releases this object's bindings.
+ * Releases all bindings.
  */
-- (void)unbind;
+- (void)unbindAll;
 
 @end
 

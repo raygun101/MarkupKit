@@ -18,13 +18,13 @@
 
 @interface LMBinding : NSObject
 
-@property (weak, nonatomic, readonly) id observer;
-@property (nonatomic, readonly) NSString *binding;
-
 @property (weak, nonatomic, readonly) id object;
+@property (nonatomic, readonly) NSString *property;
+
+@property (weak, nonatomic, readonly) UIView *view;
 @property (nonatomic, readonly) NSString *keyPath;
 
-- (instancetype)initWithObserver:(id)observer binding:(NSString *)binding object:(id)object keyPath:(NSString *)keyPath;
+- (instancetype)initWithObject:(id)object property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath;
 
 @end
 
@@ -54,28 +54,18 @@
     [target applyMarkupPropertyValue:value forKey:[components objectAtIndex:n - 1]];
 }
 
-- (void)bind:(NSString *)binding toObject:(id)object withKeyPath:(NSString *)keyPath
+- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
-    // TODO Establish a binding from bound object/key path to this object/binding and add to this object's binding list
-
-    // TODO Establish a binding from this object/binding to bound object/key path and add to bound object's binding list
+    // TODO Create binding
+    // TODO Add binding as observer of property on self
+    // TODO Add binding as observer of key path on view
+    // TODO Add binding to bindings list
 }
 
-- (void)unbind
+- (void)unbindAll
 {
-    // TODO Remove this object as an observer from all other objects
-
-    // TODO Remove all other objects as an observer of this object
-}
-
-- (NSMutableArray *)bindings
-{
-    return objc_getAssociatedObject(self, @selector(bindings));
-}
-
-- (void)setBindings:(NSMutableArray *)bindings
-{
-    objc_setAssociatedObject(self, @selector(bindings), bindings, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    // TODO For each binding in bindings list, remove as observer on self and view
+    // TODO Clear bindings list
 }
 
 @end
@@ -85,28 +75,19 @@
     BOOL _update;
 }
 
-- (instancetype)initWithObserver:(id)observer binding:(NSString *)binding object:(id)object keyPath:(NSString *)keyPath
+- (instancetype)initWithObject:(id)object property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
 
     if (self) {
-        _observer = observer;
-        _binding = binding;
-
         _object = object;
-        _keyPath = keyPath;
+        _property = property;
 
-        [_object addObserver:self forKeyPath:_keyPath options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        _view = view;
+        _keyPath = keyPath;
     }
 
     return self;
-}
-
-- (void)dealloc
-{
-    // TODO Remove object's bindings as an observer of this binding's observer (can simply remove from object's binding list and trigger deallocation?)
-
-    [_object removeObserver:self forKeyPath:_keyPath];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -117,7 +98,11 @@
         id value = [change objectForKey:NSKeyValueChangeNewKey];
 
         if (value != nil && value != [NSNull null]) {
-            [_observer setValue:value forKey:_binding];
+            if (object == _object) {
+                [_view setValue:value forKey:_keyPath];
+            } else {
+                [_object setValue:value forKey:_property];
+            }
         }
 
         _update = NO;

@@ -36,6 +36,6 @@ class PharmacyCell: LMTableViewCell {
     }
 
     deinit {
-        unbind()
+        unbindAll()
     }
 }
