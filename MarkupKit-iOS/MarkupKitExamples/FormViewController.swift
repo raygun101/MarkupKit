@@ -16,6 +16,17 @@ import UIKit
 import MarkupKit
 
 class FormViewController: UIViewController {
+    class Address: NSObject {
+        dynamic var name: String?
+        dynamic var street: String?
+        dynamic var city: String?
+        dynamic var state: String?
+    }
+
+    var address = Address()
+
+    @IBOutlet var notesTextView: UITextView!
+
     override func loadView() {
         view = LMViewBuilder.view(withName: "FormViewController", owner: self, root: nil)
     }
@@ -26,5 +37,34 @@ class FormViewController: UIViewController {
         title = "Form View"
 
         edgesForExtendedLayout = UIRectEdge()
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain,
+            target: self, action: #selector(submitForm))
+    }
+
+    func submitForm() {
+        view.endEditing(true)
+
+        // Simulate form submission
+        let form: [String: Any?] = [
+            "address": [
+                "name": address.name,
+                "street": address.street,
+                "city": address.city,
+                "state": address.state
+            ],
+            "notes": notesTextView.text
+        ]
+
+        let data = try! JSONSerialization.data(withJSONObject: form, options: JSONSerialization.WritingOptions.prettyPrinted)
+
+        print(String(data: data, encoding: String.Encoding.utf8)!)
+
+        // Display "form submitted" message
+        let alertController = UIAlertController(title: "Status", message: "Form submitted.", preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+
+        present(alertController, animated: true, completion: nil)
     }
 }

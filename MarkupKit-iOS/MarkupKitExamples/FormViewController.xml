@@ -37,24 +37,24 @@ limitations under the License.
     <LMColumnView alignToGrid="true" layoutMargins="20">
         <LMRowView alignToBaseline="true">
             <UILabel class="label" text="Name"/>
-            <UITextField class="textfield" weight="1"/>
+            <UITextField class="textfield" weight="1" text="$address.name"/>
         </LMRowView>
 
         <LMRowView alignToBaseline="true">
             <UILabel class="label" text="Address"/>
             <LMColumnView weight="1">
-                <UITextField class="textfield" placeholder="Street"/>
+                <UITextField class="textfield" placeholder="Street" text="$address.street"/>
 
                 <LMRowView alignToBaseline="true">
-                    <UITextField class="textfield" weight="3" placeholder="City"/>
-                    <UITextField class="textfield" weight="1" placeholder="State"/>
+                    <UITextField class="textfield" weight="3" placeholder="City" text="$address.city"/>
+                    <UITextField class="textfield" weight="1" placeholder="State" text="$address.state"/>
                 </LMRowView>
             </LMColumnView>
         </LMRowView>
 
         <LMRowView>
             <UILabel class="label" text="Notes"/>
-            <UITextView class="textview" height="240" weight="1"/>
+            <UITextView id="notesTextView" class="textview" height="240" weight="1"/>
         </LMRowView>
     </LMColumnView>
 </LMScrollView>

@@ -122,9 +122,9 @@
 
         if (value != nil && value != [NSNull null]) {
             if (object == _object) {
-                [_view setValue:value forKey:_keyPath];
+                [_view setValue:value forKeyPath:_keyPath];
             } else {
-                [_object setValue:value forKey:_property];
+                [_object setValue:value forKeyPath:_property];
             }
         }
 
