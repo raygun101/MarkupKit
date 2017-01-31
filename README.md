@@ -1615,6 +1615,11 @@ MarkupKit adds the following methods to `UIResponder` to support declarative dat
 
 The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
 
+MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents and string tables are loaded:
+
+	- (NSBundle *)bundleForView;
+	- (NSBundle *)bundleForStrings;
+
 See _UIResponder.h_ for more information.
 
 # Additional Information

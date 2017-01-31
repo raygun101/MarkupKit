@@ -13,6 +13,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UIResponder (Markup)
 
 /**
+ * Returns the bundle that will be used to load view documents. The default implementation returns the bundle used to load this class.
+ */
+- (NSBundle *)bundleForView;
+
+/**
+ * Returns the bundle that will be used to load string tables. The default implementation returns the main bundle.
+ */
+- (NSBundle *)bundleForStrings;
+
+/**
  * Establishes a two-way binding between this object and an associated view instance.
  *
  * @param property The key path of a property in this object.

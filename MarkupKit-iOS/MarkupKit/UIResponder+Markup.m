@@ -24,6 +24,16 @@
 
 @implementation UIResponder (Markup)
 
+- (NSBundle *)bundleForView
+{
+    return [NSBundle bundleForClass:[self class]];
+}
+
+- (NSBundle *)bundleForStrings
+{
+    return [NSBundle mainBundle];
+}
+
 - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
     LMBinding *binding = [[LMBinding alloc] initWithObject:self property:property view:view keyPath:keyPath];

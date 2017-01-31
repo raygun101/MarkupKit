@@ -127,7 +127,7 @@ static NSMutableDictionary *templateCache;
 {
     NSURL *url = nil;
 
-    NSBundle *bundle = [NSBundle bundleForClass:[owner class]];
+    NSBundle *bundle = [owner bundleForView];
 
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
         NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
@@ -556,7 +556,13 @@ static NSMutableDictionary *templateCache;
                 [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
             } else {
                 if ([value hasPrefix:kLocalizedStringPrefix]) {
-                    value = [[NSBundle mainBundle] localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+                    NSBundle *bundle = [_owner bundleForStrings];
+
+                    if (bundle == nil) {
+                        bundle = [NSBundle mainBundle];
+                    }
+
+                    value = [bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
                 }
 
                 [view applyMarkupPropertyValue:value forKeyPath:key];
