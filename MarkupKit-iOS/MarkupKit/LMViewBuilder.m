@@ -35,8 +35,8 @@ static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
 
-static NSString * const kBindingPrefix = @"$";
 static NSString * const kLocalizedStringPrefix = @"@";
+static NSString * const kBindingPrefix = @"$";
 
 @interface LMIncludeContainer : UIView
 
@@ -485,6 +485,16 @@ static NSMutableDictionary *templateCache;
         } else if ([key isEqual:@"onAllEvents"]) {
             [actions setObject:value forKey:@(UIControlEventAllEvents)];
         } else {
+            if ([value hasPrefix:kLocalizedStringPrefix]) {
+                NSBundle *bundle = [_owner bundleForStrings];
+
+                if (bundle == nil) {
+                    bundle = [NSBundle mainBundle];
+                }
+
+                value = [bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+            }
+
             [properties setObject:value forKey:key];
         }
     }
@@ -559,16 +569,6 @@ static NSMutableDictionary *templateCache;
             if ([value hasPrefix:kBindingPrefix]) {
                 [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
             } else {
-                if ([value hasPrefix:kLocalizedStringPrefix]) {
-                    NSBundle *bundle = [_owner bundleForStrings];
-
-                    if (bundle == nil) {
-                        bundle = [NSBundle mainBundle];
-                    }
-
-                    value = [bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
-                }
-
                 [view applyMarkupPropertyValue:value forKeyPath:key];
             }
         }
