@@ -387,7 +387,14 @@ static NSMutableDictionary *templateCache;
 
                 [LMViewBuilder mergeDictionary:dictionary into:_templates];
             } else {
-                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:[_owner traitCollection]] into:_templates];
+                UITraitCollection *traitCollection;
+                if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
+                    traitCollection = [_owner traitCollection];
+                } else {
+                    traitCollection = nil;
+                }
+
+                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:traitCollection] into:_templates];
             }
         } else if ([target isEqual:kIncludeTarget]) {
             // Push include
