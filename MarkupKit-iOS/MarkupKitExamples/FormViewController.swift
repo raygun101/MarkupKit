@@ -42,6 +42,10 @@ class FormViewController: UIViewController {
             target: self, action: #selector(submitForm))
     }
 
+    deinit {
+        unbindAll()
+    }
+
     func submitForm() {
         view.endEditing(true)
 

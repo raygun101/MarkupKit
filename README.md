@@ -275,6 +275,21 @@ the following markup will produce an instance of `UILabel` with the value of its
 
 If a localized value is not found, the key will be used instead. This allows developers to easily identify missing string resources at runtime.
 
+### Data Binding
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view property will be automatically reflected in the other.
+
+For example, the following markup binds the _text_ property of a text field to the _name_ property of the owner:
+
+	<UITextField text="$name"/>
+ 
+Bindings must be released before the owner is deallocated as well as any time the document is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
+
+    deinit {
+        unbindAll()
+    }
+
+Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to `UIResponder`. See _UIResponder.h_ for more information.
+
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
 
@@ -1591,6 +1606,16 @@ For example, the following markup creates a system button with a shadow opacity 
         layer.shadowOpacity="0.5" 
         layer.shadowRadius="10" 
         layer.shadowOffsetHeight="3"/>
+
+### UIResponder
+MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
+
+	- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
+	- (void)unbindAll;
+
+The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
+
+See _UIResponder.h_ for more information.
 
 # Additional Information
 For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
