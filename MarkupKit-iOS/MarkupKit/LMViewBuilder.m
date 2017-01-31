@@ -336,7 +336,11 @@ static NSMutableDictionary *templateCache;
         _owner = owner;
         _root = root;
 
-        _templates = [[NSMutableDictionary alloc] initWithDictionary:templates];
+        _templates = [NSMutableDictionary new];
+
+        if (templates != nil) {
+            [_templates addEntriesFromDictionary:templates];
+        }
         
         _views = [NSMutableArray new];
         _includes = [NSMutableArray new];
