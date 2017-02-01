@@ -425,7 +425,7 @@ However, if the device was presenting a compact width and regular height, the do
 Size class-specific layouts are discussed in more detail later.
 
 ## Conditional Processing
-In most cases, a markup document created for an iOS application can be used as-is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on target operating system. All content following the PI will only be processed if the current OS matches the target operating system. For example:
+In most cases, a markup document created for an iOS application can be used as is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on the target operating system. Content following the PI will only be processed if the current OS matches the target. For example:
 
 	<?case iOS?>
 	    <!-- iOS-specific content -->
