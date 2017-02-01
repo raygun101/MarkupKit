@@ -42,8 +42,8 @@
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
-        value = (id)[[LMViewBuilder colorValue:[value description]] CGColor];
+    if ([value isKindOfClass:[UIColor self]]) {
+        value = (id)[value CGColor];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];

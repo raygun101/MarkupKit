@@ -449,13 +449,7 @@ static NSDictionary *anchorValues;
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if ([key rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
-        value = [LMViewBuilder colorValue:[value description]];
-    } else if ([key rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
-        value = [LMViewBuilder fontValue:[value description]];
-    } else if ([key rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
-        value = [UIImage imageNamed:[value description]];
-    } else  if ([key isEqual:@"contentMode"]) {
+    if ([key isEqual:@"contentMode"]) {
         value = [viewContentModeValues objectForKey:value];
     } else if ([key isEqual:@"tintAdjustmentMode"]) {
         value = [viewTintAdjustmentModeValues objectForKey:value];

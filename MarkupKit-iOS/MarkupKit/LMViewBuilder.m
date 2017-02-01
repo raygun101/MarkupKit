@@ -557,7 +557,7 @@ static NSMutableDictionary *templateCache;
                 NSDictionary *template = [_templates objectForKey:name];
 
                 for (NSString *key in template) {
-                    [view applyMarkupPropertyValue:[template objectForKey:key] forKeyPath:key];
+                    [view applyMarkupPropertyValue:[self valueForValue:[template objectForKey:key] withKeyPath:key] forKeyPath:key];
                 }
             }
         }
@@ -569,7 +569,7 @@ static NSMutableDictionary *templateCache;
             if ([value hasPrefix:kBindingPrefix]) {
                 [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
             } else {
-                [view applyMarkupPropertyValue:value forKeyPath:key];
+                [view applyMarkupPropertyValue:[self valueForValue:value withKeyPath:key] forKeyPath:key];
             }
         }
 
@@ -586,6 +586,26 @@ static NSMutableDictionary *templateCache;
         // Push onto view stack
         [_views addObject:view];
     }
+}
+
+- (id)valueForValue:(id)value withKeyPath:(NSString *)keyPath
+{
+    if ([keyPath rangeOfString:@"[Cc]olor$" options:NSRegularExpressionSearch].location != NSNotFound) {
+        value = [LMViewBuilder colorValue:[value description]];
+    } else if ([keyPath rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
+        value = [LMViewBuilder fontValue:[value description]];
+    } else if ([keyPath rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
+        UITraitCollection *traitCollection;
+        if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
+            traitCollection = [_owner traitCollection];
+        } else {
+            traitCollection = nil;
+        }
+
+        value = [UIImage imageNamed:[value description] inBundle:[_owner bundleForImages] compatibleWithTraitCollection:traitCollection];
+    }
+
+    return value;
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName

@@ -115,7 +115,7 @@ MarkupKit adds the following methods to `NSObject` to assist in applying propert
     - (void)applyMarkupPropertyValue:(nullable id)value forKey:(NSString *)key;
     - (void)applyMarkupPropertyValue:(nullable id)value forKeyPath:(NSString *)keyPath;
 
-Ultimately, these methods delegate to the `setValue:forKey:` method of `NSObject`. However, they allow an implementing class to override the default behavior and perform any necessary translation before the value is actually set (for example, converting a string representation of a color value to a `UIColor` instance).
+Ultimately, these methods delegate to the `setValue:forKey:` method of `NSObject`. However, they allow an implementing class to override the default behavior and perform any necessary translation before the value is actually set (for example, converting a string representation of an enum value to its numeric equivalent).
 
 MarkupKit actually invokes the second method when applying property values. This makes it possible to set properties of nested objects in markup. For example, the following markup creates a button whose title label's `font` property is set to "Helvetica-Bold 32":
 
@@ -1348,6 +1348,20 @@ Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` meth
     - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
     - (void)appendMarkupElementView:(UIView *)view;
 
+### UIResponder
+MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
+
+	- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
+	- (void)unbindAll;
+
+The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
+
+MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values, respectively, are loaded:
+
+	- (NSBundle *)bundleForView;
+	- (NSBundle *)bundleForImages;
+	- (NSBundle *)bundleForStrings;
+
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons to be declared in markup:
 
@@ -1597,7 +1611,7 @@ Instances of `UIVisualEffectView` are created using the `initWithEffect:` method
 Note that `extraDarkBlurEffectView` is available in tvOS only.
 
 ### CALayer
-The `layer` property of `UIView` returns a `CALayer` instance that can be used to configure properties of the view. However, the `shadowOffset` property of `CALayer` is a `CGSize`. Since structs are not supported in XML, MarkupKit adds the following methods to `CALayer` to allow the layer's shadow offset width and height to be configured independently:
+The `layer` property of `UIView` returns a `CALayer` instance that can be used to configure properties of the view. However, the `shadowOffset` property of `CALayer` is a `CGSize`, which is not natively supported by KVC. MarkupKit adds the following methods to `CALayer` to allow the layer's shadow offset width and height to be configured independently:
 
     @property (nonatomic) CGFloat shadowOffsetWidth;
     @property (nonatomic) CGFloat shadowOffsetHeight;
@@ -1608,21 +1622,6 @@ For example, the following markup creates a system button with a shadow opacity 
         layer.shadowOpacity="0.5" 
         layer.shadowRadius="10" 
         layer.shadowOffsetHeight="3"/>
-
-### UIResponder
-MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
-
-	- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
-	- (void)unbindAll;
-
-The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
-
-MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents and string tables are loaded:
-
-	- (NSBundle *)bundleForView;
-	- (NSBundle *)bundleForStrings;
-
-See _UIResponder.h_ for more information.
 
 # Additional Information
 For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).

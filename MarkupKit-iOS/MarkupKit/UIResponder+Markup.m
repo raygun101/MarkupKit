@@ -29,6 +29,11 @@
     return [NSBundle bundleForClass:[self class]];
 }
 
+- (NSBundle *)bundleForImages
+{
+    return [NSBundle mainBundle];
+}
+
 - (NSBundle *)bundleForStrings
 {
     return [NSBundle mainBundle];
