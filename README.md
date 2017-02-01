@@ -288,6 +288,8 @@ Bindings must be released before the owner is deallocated as well as any time th
         unbindAll()
     }
 
+Note that it may not be possible to establish a two-way binding in all cases. Internally, data binding uses [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html) (KVO) to register and respond to property change events. Although many UIKit types support KVO, not all do. In such cases, the view will still respond to changes in the owner, but the owner will not be automatically updated to reflect changes in the view.
+
 Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to `UIResponder`. See _UIResponder.h_ for more information.
 
 ### Factory Methods
