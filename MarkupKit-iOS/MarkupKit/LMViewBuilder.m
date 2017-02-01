@@ -129,6 +129,10 @@ static NSMutableDictionary *templateCache;
 
     NSBundle *bundle = [owner bundleForView];
 
+    if (bundle == nil) {
+        bundle = [NSBundle mainBundle];
+    }
+
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
         NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
 
@@ -595,6 +599,12 @@ static NSMutableDictionary *templateCache;
     } else if ([keyPath rangeOfString:@"[Ff]ont$" options:NSRegularExpressionSearch].location != NSNotFound) {
         value = [LMViewBuilder fontValue:[value description]];
     } else if ([keyPath rangeOfString:@"[Ii]mage$" options:NSRegularExpressionSearch].location != NSNotFound) {
+        NSBundle *bundle = [_owner bundleForImages];
+
+        if (bundle == nil) {
+            bundle = [NSBundle mainBundle];
+        }
+
         UITraitCollection *traitCollection;
         if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
             traitCollection = [_owner traitCollection];
@@ -602,7 +612,7 @@ static NSMutableDictionary *templateCache;
             traitCollection = nil;
         }
 
-        value = [UIImage imageNamed:[value description] inBundle:[_owner bundleForImages] compatibleWithTraitCollection:traitCollection];
+        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:traitCollection];
     }
 
     return value;

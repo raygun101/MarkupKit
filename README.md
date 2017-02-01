@@ -216,13 +216,13 @@ For example, the following markup would produce a label whose font is set to wha
 Font table entries take precedence over system style constants. For example, if _Fonts.plist_ defined a value for "headline", the corresponding font would be used instead of the value associated with the `UIFontTextStyleHeadline` constant.
     
 ### Images
-The value of any attribute whose name is equal to or ends with "image" is converted to an instance of `UIImage` before the property value is set. The image is loaded from the application's main bundle via the `imageNamed:` method of the `UIImage` class.
-
-For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
+The value of any attribute whose name is equal to or ends with "image" is converted to an instance of `UIImage` before the property value is set. For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
 
     <UIImageView image="background.png"/>
 
-Note that, because images are loaded via `imageNamed:`, image attributes may also refer to image sets defined in an asset catalog. For example, if the asset catalog contains an image set named "PrintIcon", the following markup would create a button with a title of "Print" and an icon appropriate for the current device resolution:
+Images are loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to the method. If the owner implements the `bundleForImages` method, the second argument will contain the value returned by this method. Otherwise, the application's main bundle will be used. Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the owner's `traitCollection` method. Otherwise, it will be `nil`.
+
+Note that, because images are loaded via `imageNamed:inBundle:compatibleWithTraitCollection:`, image attributes may refer to image sets defined in an asset catalog. For example, if the asset catalog contains an image set named "PrintIcon", the following markup would create a button with a title of "Print" and an icon appropriate for the current device resolution:
 
     <UIButton style="systemButton" image="PrintIcon" title="Print"/>
 
@@ -263,9 +263,7 @@ Additionally, MarkupKit adds properties to these view types that allow edge inse
 These extensions are discussed in more detail later.
 
 ### Localization
-If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. 
-
-For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
+If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
 
     "hello" = "Hello, World!";
 
@@ -274,6 +272,8 @@ the following markup will produce an instance of `UILabel` with the value of its
     <UILabel text="@hello"/>
 
 If a localized value is not found, the key will be used instead. This allows developers to easily identify missing string resources at runtime.
+
+If the document's owner implements the `bundleForStrings` method, localized string values will be loaded using the bundle returned by this method. Otherwise, they will be loaded using the application's main bundle.
 
 ### Data Binding
 Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view property will be automatically reflected in the other.
@@ -503,7 +503,7 @@ Note that neither size class-specific layouts nor template properties are automa
         }
     }
     
-Also note that, while `viewWithName:owner:root:` loads markup documents from the bundle that defines the owner's class, global assets such as property templates, color and font tables, localized string values, and images are always loaded from the application's main bundle.
+If the owner implements the `bundleForView` method, view documents will be loaded from the bundle returned by this method. Otherwise, they will be loaded from the application's main bundle. Note that property templates and color and font tables are always loaded from the application's main bundle.
 
 ### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.
@@ -1356,7 +1356,7 @@ MarkupKit adds the following methods to `UIResponder` to support declarative dat
 
 The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
 
-MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values, respectively, are loaded:
+MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values are loaded:
 
 	- (NSBundle *)bundleForView;
 	- (NSBundle *)bundleForImages;
