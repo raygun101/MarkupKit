@@ -507,6 +507,8 @@
 				37E579FD1DF19090002984B9 /* NSString+Markup.m */,
 				37E579FE1DF19090002984B9 /* CALayer+Markup.h */,
 				37E579FF1DF19090002984B9 /* CALayer+Markup.m */,
+				379214F71E40DF2A00C56838 /* UIResponder+Markup.h */,
+				379214F81E40DF2A00C56838 /* UIResponder+Markup.m */,
 				37E57A001DF19090002984B9 /* UIView+Markup.h */,
 				37E57A011DF19090002984B9 /* UIView+Markup.m */,
 				37E57A021DF19090002984B9 /* UIControl+Markup.h */,
@@ -541,8 +543,6 @@
 				37E57A1F1DF19090002984B9 /* UICollectionViewFlowLayout+Markup.m */,
 				37E57A201DF19090002984B9 /* UIVisualEffectView+Markup.h */,
 				37E57A211DF19090002984B9 /* UIVisualEffectView+Markup.m */,
-				379214F71E40DF2A00C56838 /* UIResponder+Markup.h */,
-				379214F81E40DF2A00C56838 /* UIResponder+Markup.m */,
 				3799BAEB1DF18396006E6B3D /* Info.plist */,
 			);
 			path = MarkupKit;
@@ -614,6 +614,7 @@
 				37E57AAD1DF1911F002984B9 /* NSObject+Markup.h in Headers */,
 				37E57AAE1DF1911F002984B9 /* NSString+Markup.h in Headers */,
 				37E57AAF1DF1911F002984B9 /* CALayer+Markup.h in Headers */,
+				379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */,
 				37E57AB01DF1911F002984B9 /* UIView+Markup.h in Headers */,
 				37E57AB11DF1911F002984B9 /* UIControl+Markup.h in Headers */,
 				37E57AB21DF1911F002984B9 /* UIButton+Markup.h in Headers */,
@@ -631,7 +632,6 @@
 				37E57ABE1DF1911F002984B9 /* UITableViewCell+Markup.h in Headers */,
 				37E57ABF1DF1911F002984B9 /* UICollectionViewFlowLayout+Markup.h in Headers */,
 				37E57AC01DF1911F002984B9 /* UIVisualEffectView+Markup.h in Headers */,
-				379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,6 +880,7 @@
 				37E57A851DF190F1002984B9 /* NSObject+Markup.m in Sources */,
 				37E57A861DF190F1002984B9 /* NSString+Markup.m in Sources */,
 				37E57A871DF190F1002984B9 /* CALayer+Markup.m in Sources */,
+				379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */,
 				37E57A881DF190F1002984B9 /* UIView+Markup.m in Sources */,
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
 				37E57A8A1DF190F1002984B9 /* UIButton+Markup.m in Sources */,
@@ -894,7 +895,6 @@
 				37E57A961DF190F1002984B9 /* UITableViewCell+Markup.m in Sources */,
 				37E57A971DF190F1002984B9 /* UICollectionViewFlowLayout+Markup.m in Sources */,
 				37E57A981DF190F1002984B9 /* UIVisualEffectView+Markup.m in Sources */,
-				379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
