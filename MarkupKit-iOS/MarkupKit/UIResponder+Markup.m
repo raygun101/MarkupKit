@@ -12,13 +12,13 @@
 
 @interface LMBinding : NSObject
 
-@property (weak, nonatomic, readonly) id object;
+@property (weak, nonatomic, readonly) id owner;
 @property (nonatomic, readonly) NSString *property;
 
 @property (weak, nonatomic, readonly) UIView *view;
 @property (nonatomic, readonly) NSString *keyPath;
 
-- (instancetype)initWithObject:(id)object property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath;
+- (instancetype)initWithOwner:(id)owner property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath;
 
 @end
 
@@ -36,7 +36,7 @@
 
 - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
-    LMBinding *binding = [[LMBinding alloc] initWithObject:self property:property view:view keyPath:keyPath];
+    LMBinding *binding = [[LMBinding alloc] initWithOwner:self property:property view:view keyPath:keyPath];
 
     [self addObserver:binding forKeyPath:property options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
 
@@ -78,12 +78,12 @@
     BOOL _update;
 }
 
-- (instancetype)initWithObject:(id)object property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath
+- (instancetype)initWithOwner:(id)owner property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
 
     if (self) {
-        _object = object;
+        _owner = owner;
         _property = property;
 
         _view = view;
@@ -101,10 +101,10 @@
         id value = [change objectForKey:NSKeyValueChangeNewKey];
 
         if (value != nil && value != [NSNull null]) {
-            if (object == _object) {
+            if (object == _owner) {
                 [_view setValue:value forKeyPath:_keyPath];
             } else {
-                [_object setValue:value forKeyPath:_property];
+                [_owner setValue:value forKeyPath:_property];
             }
         }
 
