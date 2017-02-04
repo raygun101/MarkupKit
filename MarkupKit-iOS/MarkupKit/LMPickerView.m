@@ -13,6 +13,7 @@
 //
 
 #import "LMPickerView.h"
+#import "UIPickerView+Markup.h"
 #import "NSObject+Markup.h"
 
 static NSString * const kComponentSeparatorTarget = @"componentSeparator";
@@ -38,15 +39,8 @@ static NSString * const kRowValueKey = @"value";
 
 @end
 
-@interface LMPickerView () <UIPickerViewDataSource, UIPickerViewDelegate>
-
-@end
-
 @implementation LMPickerView
 {
-    id<UIPickerViewDataSource> __weak _dataSource;
-    id<UIPickerViewDelegate> __weak _delegate;
-
     NSMutableArray *_components;
 }
 
@@ -75,16 +69,6 @@ static NSString * const kRowValueKey = @"value";
     return self;
 }
 
-- (void)setDataSource:(id<UIPickerViewDataSource>)dataSource
-{
-    _dataSource = dataSource;
-}
-
-- (void)setDelegate:(id<UIPickerViewDelegate>)delegate
-{
-    _delegate = delegate;
-}
-
 - (void)insertComponent:(NSInteger)component
 {
     [_components insertObject:[LMPickerViewComponent new] atIndex:component];
@@ -103,16 +87,6 @@ static NSString * const kRowValueKey = @"value";
 - (void)setName:(NSString *)name forComponent:(NSInteger)component
 {
     [[_components objectAtIndex:component] setName:name];
-}
-
-- (NSInteger)numberOfComponents
-{
-    return [_components count];
-}
-
-- (NSInteger)numberOfRowsInComponent:(NSInteger)component
-{
-    return [[[_components objectAtIndex:component] rows] count];
 }
 
 - (void)insertRow:(NSInteger)row inComponent:(NSInteger)component withTitle:(NSString *)title value:(id)value
@@ -147,45 +121,17 @@ static NSString * const kRowValueKey = @"value";
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    NSInteger n;
-    if ([_dataSource respondsToSelector:@selector(numberOfComponentsInPickerView:)]) {
-        n = [_dataSource numberOfComponentsInPickerView:pickerView];
-    } else {
-        n = [self numberOfComponents];
-    }
-
-    return n;
+    return [_components count];
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    NSInteger n;
-    if ([_dataSource respondsToSelector:@selector(pickerView:numberOfRowsInComponent:)]) {
-        n = [_dataSource pickerView:pickerView numberOfRowsInComponent:component];
-    } else {
-        n = [self numberOfRowsInComponent:component];
-    }
-
-    return n;
+    return [[[_components objectAtIndex:component] rows] count];
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    NSString *title;
-    if ([_delegate respondsToSelector:@selector(pickerView:titleForRow:forComponent:)]) {
-        title = [_delegate pickerView:pickerView titleForRow:row forComponent:component];
-    } else {
-        title = [self titleForRow:row forComponent:component];
-    }
-
-    return title;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
-{
-    if ([_delegate respondsToSelector:@selector(pickerView:didSelectRow:inComponent:)]) {
-        [_delegate pickerView:pickerView didSelectRow:row inComponent:component];
-    }
+    return [self titleForRow:row forComponent:component];
 }
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
@@ -200,12 +146,12 @@ static NSString * const kRowValueKey = @"value";
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
     if ([tag isEqual:kRowTag]) {
-        NSInteger component = [self numberOfComponents] - 1;
+        NSInteger component = [self numberOfComponentsInPickerView:self] - 1;
 
         NSString *title = [properties objectForKey:kRowTitleKey];
 
         if (title != nil) {
-            [self insertRow:[self numberOfRowsInComponent:component] inComponent:component
+            [self insertRow:[self pickerView:self numberOfRowsInComponent:component] inComponent:component
                 withTitle:title value:[properties objectForKey:kRowValueKey]];
         }
     }

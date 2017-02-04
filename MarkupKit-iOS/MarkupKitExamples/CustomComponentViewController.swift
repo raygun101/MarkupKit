@@ -46,7 +46,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerView.numberOfComponents
+        return pickerView.numberOfComponents(in: pickerView)
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
@@ -54,7 +54,7 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
         if (pickerView.name(forComponent: component) == dynamicComponentName) {
             n = 5
         } else {
-            n = pickerView.numberOfRows(inComponent: component)
+            n = pickerView.pickerView(pickerView, numberOfRowsInComponent: component)
         }
 
         return n
