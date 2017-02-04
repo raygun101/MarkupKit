@@ -150,7 +150,7 @@ limitations under the License.
 
     <!-- Date picker -->
     <?sectionHeaderView?>
-    <UITableViewCell textLabel.text="Date Picker"/>
+    <UITableViewHeaderFooterView textLabel.text="Date Picker"/>
 
     <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <UIDatePicker datePickerMode="date"/>

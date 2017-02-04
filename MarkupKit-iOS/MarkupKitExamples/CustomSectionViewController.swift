@@ -62,6 +62,10 @@ class CustomSectionViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.tableView(tableView, viewForHeaderInSection: section)
+    }
+
     #if os(iOS)
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return (tableView.name(forSection: indexPath.section) == dynamicSectionName)

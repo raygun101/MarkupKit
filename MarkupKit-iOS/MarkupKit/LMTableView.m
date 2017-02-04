@@ -309,13 +309,13 @@ typedef enum {
         }
 
         case kElementSectionHeaderView: {
-            [[_sections objectAtIndex:section] setHeaderView:view];
+            [self setView:view forHeaderInSection:section];
 
             break;
         }
 
         case kElementSectionFooterView: {
-            [[_sections objectAtIndex:section] setFooterView:view];
+            [self setView:view forFooterInSection:section];
 
             break;
         }
