@@ -35,7 +35,7 @@ class CustomSectionViewController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections
+        return tableView.numberOfSections(in: tableView)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +43,7 @@ class CustomSectionViewController: UITableViewController {
         if (tableView.name(forSection: section) == dynamicSectionName) {
             n = 3
         } else {
-            n = tableView.numberOfRows(inSection: section)
+            n = tableView.tableView(tableView, numberOfRowsInSection: section)
         }
 
         return n
@@ -56,7 +56,7 @@ class CustomSectionViewController: UITableViewController {
             
             cell.textLabel!.text = String((indexPath as NSIndexPath).row + 1)
         } else {
-            cell = tableView.cellForRow(at: indexPath)!
+            cell = tableView.tableView(tableView, cellForRowAt: indexPath)
         }
 
         return cell
@@ -84,7 +84,7 @@ class CustomSectionViewController: UITableViewController {
                 }
             ]
         } else {
-            editActions = []
+            editActions = tableView.tableView(tableView, editActionsForRowAt: indexPath)!
         }
 
         return editActions

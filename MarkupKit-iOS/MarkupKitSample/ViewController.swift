@@ -66,7 +66,7 @@ class ViewController: UITableViewController {
 
     // Data source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections
+        return tableView.numberOfSections(in: tableView)
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,7 +74,7 @@ class ViewController: UITableViewController {
         if (tableView.name(forSection: section) == dynamicSectionName) {
             n = rows.count
         } else {
-            n = tableView.numberOfRows(inSection: section)
+            n = tableView.tableView(tableView, numberOfRowsInSection: section)
         }
 
         return n
@@ -92,7 +92,7 @@ class ViewController: UITableViewController {
 
             cell = customCell
         } else {
-            cell = tableView.cellForRow(at: indexPath)!
+            cell = tableView.tableView(tableView, cellForRowAt: indexPath)
         }
 
         return cell

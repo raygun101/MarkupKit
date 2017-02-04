@@ -66,15 +66,15 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfSections : 0
+        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfSections(in: tableView) : 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfRows(inSection: section) : 0
+        return (playerView.layer.player?.status == .readyToPlay) ? tableView.tableView(tableView, numberOfRowsInSection: section) : 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.cellForRow(at: indexPath)!
+        return tableView.tableView(tableView, cellForRowAt: indexPath)
     }
 
     @IBAction func togglePlay() {

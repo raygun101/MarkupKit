@@ -13,6 +13,7 @@
 //
 
 #import "LMTableView.h"
+#import "UITableView+Markup.h"
 #import "UITableViewCell+Markup.h"
 
 static NSString * const kSectionBreakTarget = @"sectionBreak";
@@ -51,15 +52,8 @@ typedef enum {
 
 @end
 
-@interface LMTableView () <UITableViewDataSource, UITableViewDelegate>
-
-@end
-
 @implementation LMTableView
 {
-    id<UITableViewDataSource> __weak _dataSource;
-    id<UITableViewDelegate> __weak _delegate;
-
     NSMutableArray *_sections;
 
     __ElementDisposition _elementDisposition;
@@ -105,16 +99,6 @@ typedef enum {
     return self;
 }
 
-- (void)setDataSource:(id<UITableViewDataSource>)dataSource
-{
-    _dataSource = dataSource;
-}
-
-- (void)setDelegate:(id<UITableViewDelegate>)delegate
-{
-    _delegate = delegate;
-}
-
 - (void)insertSection:(NSInteger)section
 {
     [_sections insertObject:[LMTableViewSection new] atIndex:section];
@@ -123,11 +107,6 @@ typedef enum {
 - (void)deleteSection:(NSInteger)section
 {
     [_sections removeObjectAtIndex:section];
-}
-
-- (NSInteger)numberOfSections
-{
-    return [_sections count];
 }
 
 - (NSString *)nameForSection:(NSInteger)section
@@ -180,80 +159,27 @@ typedef enum {
     [[[_sections objectAtIndex:[indexPath section]] rows] removeObjectAtIndex:[indexPath row]];
 }
 
-- (NSInteger)numberOfRowsInSection:(NSInteger)section
-{
-    return [[[_sections objectAtIndex:section] rows] count];
-}
-
-- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [super cellForRowAtIndexPath:indexPath];
-
-    if (cell == nil) {
-        cell = [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:indexPath.row];
-    }
-
-    return cell;
-}
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSInteger n;
-    if ([_dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
-        n = [_dataSource numberOfSectionsInTableView:tableView];
-    } else {
-        n = [self numberOfSections];
-    }
-
-    return n;
+    return [_sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSInteger n;
-    if ([_dataSource respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
-        n = [_dataSource tableView:tableView numberOfRowsInSection:section];
-    } else {
-        n = [self numberOfRowsInSection:section];
-    }
-
-    return n;
+    return [[[_sections objectAtIndex:section] rows] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell;
-    if ([_dataSource respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
-        cell = [_dataSource tableView:tableView cellForRowAtIndexPath:indexPath];
-    } else {
-        cell = [self cellForRowAtIndexPath:indexPath];
-    }
-
-    return cell;
+    return [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:indexPath.row];
 }
 
 #if TARGET_OS_IOS
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL canEdit;
-    if ([_dataSource respondsToSelector:@selector(tableView:canEditRowAtIndexPath:)]) {
-        canEdit = [_dataSource tableView:tableView canEditRowAtIndexPath:indexPath];
-    } else {
-        canEdit = NO;
-    }
-
-    return canEdit;
+    return NO;
 }
 #endif
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([_delegate respondsToSelector:@selector(tableView:willSelectRowAtIndexPath:)]) {
-        indexPath = [_delegate tableView:tableView willSelectRowAtIndexPath:indexPath];
-    }
-
-    return indexPath;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -291,71 +217,36 @@ typedef enum {
             break;
         }
     }
-
-    if ([_delegate respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
-        [_delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
-    }
-}
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([_delegate respondsToSelector:@selector(tableView:willDeselectRowAtIndexPath:)]) {
-        indexPath = [_delegate tableView:tableView willDeselectRowAtIndexPath:indexPath];
-    }
-
-    return indexPath;
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([_delegate respondsToSelector:@selector(tableView:didDeselectRowAtIndexPath:)]) {
-        [_delegate tableView:tableView didDeselectRowAtIndexPath:indexPath];
-    }
 }
 
 #if TARGET_OS_IOS
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSArray *editActions;
-    if ([_delegate respondsToSelector:@selector(tableView:editActionsForRowAtIndexPath:)]) {
-        editActions = [_delegate tableView:tableView editActionsForRowAtIndexPath:indexPath];
-    } else {
-        editActions = @[];
-    }
-
-    return editActions;
+    return @[];
 }
 #endif
 
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL canFocus;
-    if ([[_sections objectAtIndex:[indexPath section]] selectionMode] == LMTableViewSelectionModeDefault) {
-        canFocus = ([_delegate respondsToSelector:@selector(tableView:canFocusRowAtIndexPath:)]
-            && [_delegate tableView:tableView canFocusRowAtIndexPath:indexPath]);
-    } else {
-        canFocus = YES;
-    }
-
-    return canFocus;
+    return [[_sections objectAtIndex:[indexPath section]] selectionMode] != LMTableViewSelectionModeDefault;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    return [self viewForHeaderInSection:section];
+    return [[_sections objectAtIndex:section] headerView];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    return [self viewForFooterInSection:section];
+    return [[_sections objectAtIndex:section] footerView];
 }
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:kSectionBreakTarget]) {
-        [self insertSection:[self numberOfSections]];
+        [self insertSection:[self numberOfSectionsInTableView:self]];
     } else if ([target isEqual:kSectionNameTarget]) {
-        [self setName:data forSection:[self numberOfSections] - 1];
+        [self setName:data forSection:[self numberOfSectionsInTableView:self] - 1];
     } else if ([target isEqual:kSectionSelectionModeTarget]) {
         LMTableViewSelectionMode selectionMode;
         if ([data isEqual:@"default"]) {
@@ -368,7 +259,7 @@ typedef enum {
             return;
         }
 
-        [self setSelectionMode: selectionMode forSection:[self numberOfSections] - 1];
+        [self setSelectionMode: selectionMode forSection:[self numberOfSectionsInTableView:self] - 1];
     } else if ([target isEqual:kBackgroundViewTarget]) {
         _elementDisposition = kElementBackgroundView;
     } else if ([target isEqual:kTableHeaderViewTarget]) {
@@ -384,7 +275,7 @@ typedef enum {
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    NSInteger section = [self numberOfSections] - 1;
+    NSInteger section = [self numberOfSectionsInTableView:self] - 1;
 
     switch (_elementDisposition) {
         case kElementDefault: {
