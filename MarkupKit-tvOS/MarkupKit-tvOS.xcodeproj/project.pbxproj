@@ -148,8 +148,6 @@
 		37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37F899871E475E8700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899851E475E8700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899881E475E8700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899861E475E8700205A70 /* LMTableViewController.m */; };
-		37F899971E47611F00205A70 /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899951E47611F00205A70 /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37F899981E47611F00205A70 /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899961E47611F00205A70 /* LMTableViewHeaderFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -361,8 +359,6 @@
 		37E57B3F1DF1B428002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		37F899851E475E8700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewController.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.h"; sourceTree = "<group>"; };
 		37F899861E475E8700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewController.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.m"; sourceTree = "<group>"; };
-		37F899951E47611F00205A70 /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewHeaderFooterView.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.h"; sourceTree = "<group>"; };
-		37F899961E47611F00205A70 /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewHeaderFooterView.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -503,8 +499,6 @@
 				37E579F11DF19090002984B9 /* LMTableView.m */,
 				37E579F21DF19090002984B9 /* LMTableViewCell.h */,
 				37E579F31DF19090002984B9 /* LMTableViewCell.m */,
-				37F899951E47611F00205A70 /* LMTableViewHeaderFooterView.h */,
-				37F899961E47611F00205A70 /* LMTableViewHeaderFooterView.m */,
 				37F899851E475E8700205A70 /* LMTableViewController.h */,
 				37F899861E475E8700205A70 /* LMTableViewController.m */,
 				37E579F41DF19090002984B9 /* LMCollectionView.h */,
@@ -627,7 +621,6 @@
 				37E57AAD1DF1911F002984B9 /* NSObject+Markup.h in Headers */,
 				37E57AAE1DF1911F002984B9 /* NSString+Markup.h in Headers */,
 				37E57AAF1DF1911F002984B9 /* CALayer+Markup.h in Headers */,
-				37F899971E47611F00205A70 /* LMTableViewHeaderFooterView.h in Headers */,
 				379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */,
 				37E57AB01DF1911F002984B9 /* UIView+Markup.h in Headers */,
 				37E57AB11DF1911F002984B9 /* UIControl+Markup.h in Headers */,
@@ -906,7 +899,6 @@
 				37E57A911DF190F1002984B9 /* UISearchBar+Markup.m in Sources */,
 				37E57A931DF190F1002984B9 /* UIStackView+Markup.m in Sources */,
 				37E57A941DF190F1002984B9 /* UIScrollView+Markup.m in Sources */,
-				37F899981E47611F00205A70 /* LMTableViewHeaderFooterView.m in Sources */,
 				37E57A951DF190F1002984B9 /* UITableView+Markup.m in Sources */,
 				37E57A961DF190F1002984B9 /* UITableViewCell+Markup.m in Sources */,
 				37E57A971DF190F1002984B9 /* UICollectionViewFlowLayout+Markup.m in Sources */,

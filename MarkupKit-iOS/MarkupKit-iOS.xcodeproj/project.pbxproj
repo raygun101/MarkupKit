@@ -217,8 +217,6 @@
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
 		37F899831E475E5700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899811E475E5700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899841E475E5700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899821E475E5700205A70 /* LMTableViewController.m */; };
-		37F899931E4760F000205A70 /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899911E4760F000205A70 /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37F899941E4760F000205A70 /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899921E4760F000205A70 /* LMTableViewHeaderFooterView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,8 +528,6 @@
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		37F899811E475E5700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewController.h; sourceTree = "<group>"; };
 		37F899821E475E5700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewController.m; sourceTree = "<group>"; };
-		37F899911E4760F000205A70 /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewHeaderFooterView.h; sourceTree = "<group>"; };
-		37F899921E4760F000205A70 /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -761,8 +757,6 @@
 				3799BB131DF18539006E6B3D /* LMTableView.m */,
 				3799BB141DF18539006E6B3D /* LMTableViewCell.h */,
 				3799BB151DF18539006E6B3D /* LMTableViewCell.m */,
-				37F899911E4760F000205A70 /* LMTableViewHeaderFooterView.h */,
-				37F899921E4760F000205A70 /* LMTableViewHeaderFooterView.m */,
 				37F899811E475E5700205A70 /* LMTableViewController.h */,
 				37F899821E475E5700205A70 /* LMTableViewController.m */,
 				3799BAF61DF18539006E6B3D /* LMCollectionView.h */,
@@ -892,7 +886,6 @@
 				376306771DF188F400357E68 /* NSObject+Markup.h in Headers */,
 				376306781DF188F400357E68 /* NSString+Markup.h in Headers */,
 				376306791DF188F400357E68 /* CALayer+Markup.h in Headers */,
-				37F899931E4760F000205A70 /* LMTableViewHeaderFooterView.h in Headers */,
 				379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */,
 				3763067A1DF188F400357E68 /* UIView+Markup.h in Headers */,
 				3763067B1DF188F400357E68 /* UIControl+Markup.h in Headers */,
@@ -1286,7 +1279,6 @@
 				3763063E1DF188BF00357E68 /* LMColumnView.m in Sources */,
 				3763063F1DF188BF00357E68 /* LMRowView.m in Sources */,
 				376306401DF188BF00357E68 /* LMLayerView.m in Sources */,
-				37F899941E4760F000205A70 /* LMTableViewHeaderFooterView.m in Sources */,
 				376306411DF188BF00357E68 /* LMAnchorView.m in Sources */,
 				376306421DF188BF00357E68 /* LMSpacer.m in Sources */,
 				376306431DF188BF00357E68 /* LMGradientView.m in Sources */,
