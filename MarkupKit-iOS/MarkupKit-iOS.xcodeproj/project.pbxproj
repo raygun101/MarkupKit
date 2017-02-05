@@ -215,6 +215,10 @@
 		37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* sample.jpg */; };
 		37E57B221DF1B1D8002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B1B1DF1B1D8002984B9 /* ViewController.swift */; };
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
+		37F899831E475E5700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899811E475E5700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F899841E475E5700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899821E475E5700205A70 /* LMTableViewController.m */; };
+		37F8998B1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899891E475EE900205A70 /* UITableViewHeaderFooterView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F8998C1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F8998A1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -524,6 +528,10 @@
 		37E57B191DF1B1D8002984B9 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37E57B1B1DF1B1D8002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
+		37F899811E475E5700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewController.h; sourceTree = "<group>"; };
+		37F899821E475E5700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewController.m; sourceTree = "<group>"; };
+		37F899891E475EE900205A70 /* UITableViewHeaderFooterView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewHeaderFooterView+Markup.h"; sourceTree = "<group>"; };
+		37F8998A1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewHeaderFooterView+Markup.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -753,6 +761,8 @@
 				3799BB131DF18539006E6B3D /* LMTableView.m */,
 				3799BB141DF18539006E6B3D /* LMTableViewCell.h */,
 				3799BB151DF18539006E6B3D /* LMTableViewCell.m */,
+				37F899811E475E5700205A70 /* LMTableViewController.h */,
+				37F899821E475E5700205A70 /* LMTableViewController.m */,
 				3799BAF61DF18539006E6B3D /* LMCollectionView.h */,
 				3799BAF71DF18539006E6B3D /* LMCollectionView.m */,
 				3799BAF81DF18539006E6B3D /* LMCollectionViewCell.h */,
@@ -797,6 +807,8 @@
 				3799BB331DF18539006E6B3D /* UITableView+Markup.m */,
 				3799BB341DF18539006E6B3D /* UITableViewCell+Markup.h */,
 				3799BB351DF18539006E6B3D /* UITableViewCell+Markup.m */,
+				37F899891E475EE900205A70 /* UITableViewHeaderFooterView+Markup.h */,
+				37F8998A1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.m */,
 				3799BB201DF18539006E6B3D /* UICollectionViewFlowLayout+Markup.h */,
 				3799BB211DF18539006E6B3D /* UICollectionViewFlowLayout+Markup.m */,
 				3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */,
@@ -865,6 +877,7 @@
 				376306691DF188F400357E68 /* LMAnchorView.h in Headers */,
 				3763066A1DF188F400357E68 /* LMSpacer.h in Headers */,
 				3763066B1DF188F400357E68 /* LMGradientView.h in Headers */,
+				37F899831E475E5700205A70 /* LMTableViewController.h in Headers */,
 				3763066C1DF188F400357E68 /* LMLinearGradientView.h in Headers */,
 				3763066D1DF188F400357E68 /* LMRadialGradientView.h in Headers */,
 				3763066E1DF188F400357E68 /* LMPickerView.h in Headers */,
@@ -882,6 +895,7 @@
 				379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */,
 				3763067A1DF188F400357E68 /* UIView+Markup.h in Headers */,
 				3763067B1DF188F400357E68 /* UIControl+Markup.h in Headers */,
+				37F8998B1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.h in Headers */,
 				3763067C1DF188F400357E68 /* UIButton+Markup.h in Headers */,
 				3763067D1DF188F400357E68 /* UIDatePicker+Markup.h in Headers */,
 				3763067E1DF188F400357E68 /* UISegmentedControl+Markup.h in Headers */,
@@ -1291,6 +1305,7 @@
 				376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */,
 				379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */,
 				376306521DF188BF00357E68 /* UIView+Markup.m in Sources */,
+				37F8998C1E475EE900205A70 /* UITableViewHeaderFooterView+Markup.m in Sources */,
 				376306531DF188BF00357E68 /* UIControl+Markup.m in Sources */,
 				376306541DF188BF00357E68 /* UIButton+Markup.m in Sources */,
 				376306551DF188BF00357E68 /* UIDatePicker+Markup.m in Sources */,
@@ -1301,6 +1316,7 @@
 				3763065A1DF188BF00357E68 /* UIProgressView+Markup.m in Sources */,
 				3763065B1DF188BF00357E68 /* UISearchBar+Markup.m in Sources */,
 				3763065C1DF188BF00357E68 /* UIToolbar+Markup.m in Sources */,
+				37F899841E475E5700205A70 /* LMTableViewController.m in Sources */,
 				3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */,
 				3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */,
 				3763065F1DF188BF00357E68 /* UITableView+Markup.m in Sources */,
