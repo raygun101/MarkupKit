@@ -10,7 +10,7 @@ import UIKit
 import MarkupKit
 
 class ___FILEBASENAMEASIDENTIFIER___: LMCollectionViewCell {
-    // TODO: Define outlets for view elements
+    // TODO: Define outlets or model properties for view elements
 
     override init(frame: CGRect) {
         super.init(frame: frame)

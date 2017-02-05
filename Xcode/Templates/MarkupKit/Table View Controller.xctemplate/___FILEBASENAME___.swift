@@ -9,7 +9,7 @@
 import UIKit
 import MarkupKit
 
-class ___FILEBASENAMEASIDENTIFIER___: UITableViewController {
+class ___FILEBASENAMEASIDENTIFIER___: LMTableViewController {
     override func loadView() {
         view = LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
 
@@ -21,18 +21,6 @@ class ___FILEBASENAMEASIDENTIFIER___: UITableViewController {
         super.viewDidLoad()
 
         // TODO: Perform any post-load configuration
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableView.numberOfRows(inSection: section)
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.cellForRow(at: indexPath)!
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

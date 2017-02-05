@@ -10,7 +10,7 @@ import UIKit
 import MarkupKit
 
 class ___FILEBASENAMEASIDENTIFIER___: LMTableViewCell {
-    // TODO: Define outlets for view elements
+    // TODO: Define outlets or model properties for view elements
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
