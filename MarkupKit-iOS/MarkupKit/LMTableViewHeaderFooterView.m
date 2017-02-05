@@ -12,9 +12,9 @@
 // limitations under the License.
 //
 
-#import "UITableViewHeaderFooterView+Markup.h"
+#import "LMTableViewHeaderFooterView.h"
 
-@implementation UITableViewHeaderFooterView (Markup)
+@implementation LMTableViewHeaderFooterView
 
 // TODO
 

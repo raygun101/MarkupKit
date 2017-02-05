@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITableViewHeaderFooterView (Markup)
+@interface LMTableViewHeaderFooterView : UITableViewHeaderFooterView
 
 // TODO
 
