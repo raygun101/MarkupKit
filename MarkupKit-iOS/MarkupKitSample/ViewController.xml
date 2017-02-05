@@ -19,7 +19,7 @@ limitations under the License.
 <LMTableView style="groupedTableView">
     <!-- Static content -->
     <?sectionHeaderView?>
-    <UITableViewCell class="cell.header" textLabel.text="@staticContent"/>
+    <UITableViewHeaderFooterView textLabel.text="@staticContent"/>
 
     <LMTableViewCell class="cell.input">
         <UITextField id="textField1" placeholder="@textField1"/>
@@ -45,5 +45,5 @@ limitations under the License.
     <?sectionName dynamic?>
 
     <?sectionHeaderView?>
-    <UITableViewCell class="cell.header" textLabel.text="@dynamicContent"/>
+    <UITableViewHeaderFooterView textLabel.text="@dynamicContent"/>
 </LMTableView>
