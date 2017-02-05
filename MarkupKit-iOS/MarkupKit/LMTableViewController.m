@@ -13,9 +13,57 @@
 //
 
 #import "LMTableViewController.h"
+#import "UITableView+Markup.h"
 
 @implementation LMTableViewController
 
-// TODO
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [[self tableView] numberOfSectionsInTableView:tableView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [[self tableView] tableView:tableView numberOfRowsInSection:section];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[self tableView] tableView:tableView cellForRowAtIndexPath:indexPath];
+}
+
+#if TARGET_OS_IOS
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[self tableView] tableView:tableView canEditRowAtIndexPath:indexPath];
+}
+#endif
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[self tableView] tableView:tableView didSelectRowAtIndexPath:indexPath];
+}
+
+#if TARGET_OS_IOS
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[self tableView] tableView:tableView editActionsForRowAtIndexPath:indexPath];
+}
+#endif
+
+- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [[self tableView] tableView:tableView canFocusRowAtIndexPath:indexPath];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return [[self tableView] tableView:tableView viewForHeaderInSection:section];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    return [[self tableView] tableView:tableView viewForFooterInSection:section];
+}
 
 @end

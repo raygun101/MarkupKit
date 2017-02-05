@@ -16,7 +16,7 @@ import UIKit
 import AVFoundation
 import MarkupKit
 
-class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
+class PlayerViewController: LMTableViewController, LMPlayerViewDelegate {
     @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet var playerView: LMPlayerView!
     @IBOutlet var playButton: UIButton!
@@ -55,6 +55,14 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         playerView.delegate = nil
     }
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return (playerView.layer.player?.status == .readyToPlay) ? super.numberOfSections(in: tableView) : 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (playerView.layer.player?.status == .readyToPlay) ? super.tableView(tableView, numberOfRowsInSection: section) : 0
+    }
+
     func playerView(_ playerView: LMPlayerView, isReadyForDisplay readyForDisplay: Bool) {
         activityIndicatorView.stopAnimating()
 
@@ -63,18 +71,6 @@ class PlayerViewController: UITableViewController, LMPlayerViewDelegate {
         togglePlay()
 
         playButton.isEnabled = true
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return (playerView.layer.player?.status == .readyToPlay) ? tableView.numberOfSections(in: tableView) : 0
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return (playerView.layer.player?.status == .readyToPlay) ? tableView.tableView(tableView, numberOfRowsInSection: section) : 0
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.tableView(tableView, cellForRowAt: indexPath)
     }
 
     @IBAction func togglePlay() {

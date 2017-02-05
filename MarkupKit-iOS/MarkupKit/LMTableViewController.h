@@ -16,9 +16,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ * Table view controller that delegates data source and delegate operations to its table view.
+ */
 @interface LMTableViewController : UITableViewController
-
-// TODO
 
 @end
 

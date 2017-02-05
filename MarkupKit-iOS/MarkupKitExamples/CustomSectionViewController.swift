@@ -15,7 +15,7 @@
 import UIKit
 import MarkupKit
 
-class CustomSectionViewController: UITableViewController {
+class CustomSectionViewController: LMTableViewController {
     let dynamicSectionName = "dynamic"
     let cellIdentifier = "cell"
 
@@ -34,16 +34,12 @@ class CustomSectionViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections(in: tableView)
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (tableView.name(forSection: section) == dynamicSectionName) {
             n = 3
         } else {
-            n = tableView.tableView(tableView, numberOfRowsInSection: section)
+            n = super.tableView(tableView, numberOfRowsInSection: section)
         }
 
         return n
@@ -56,14 +52,10 @@ class CustomSectionViewController: UITableViewController {
             
             cell.textLabel!.text = String((indexPath as NSIndexPath).row + 1)
         } else {
-            cell = tableView.tableView(tableView, cellForRowAt: indexPath)
+            cell = super.tableView(tableView, cellForRowAt: indexPath)
         }
 
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.tableView(tableView, viewForHeaderInSection: section)
     }
 
     #if os(iOS)
@@ -88,7 +80,7 @@ class CustomSectionViewController: UITableViewController {
                 }
             ]
         } else {
-            editActions = tableView.tableView(tableView, editActionsForRowAt: indexPath)!
+            editActions = super.tableView(tableView, editActionsForRowAt: indexPath)!
         }
 
         return editActions

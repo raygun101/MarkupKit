@@ -18,7 +18,7 @@ import MarkupKit
 /**
  * Table view controller.
  */
-class ViewController: UITableViewController {
+class ViewController: LMTableViewController {
     // Outlets
     @IBOutlet var textField1: UITextField!
     @IBOutlet var textField2: UITextField!
@@ -65,16 +65,12 @@ class ViewController: UITableViewController {
     }
 
     // Data source
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections(in: tableView)
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (tableView.name(forSection: section) == dynamicSectionName) {
             n = rows.count
         } else {
-            n = tableView.tableView(tableView, numberOfRowsInSection: section)
+            n = super.tableView(tableView, numberOfRowsInSection: section)
         }
 
         return n
@@ -92,18 +88,10 @@ class ViewController: UITableViewController {
 
             cell = customCell
         } else {
-            cell = tableView.tableView(tableView, cellForRowAt: indexPath)
+            cell = super.tableView(tableView, cellForRowAt: indexPath)
         }
 
         return cell
-    }
-
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableView.tableView(tableView, viewForHeaderInSection: section)
-    }
-
-    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return tableView.tableView(tableView, viewForFooterInSection: section)
     }
 
     // Delegate
