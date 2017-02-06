@@ -48,7 +48,7 @@ class CollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.self.description(), for: indexPath) as! ColorCell
 
-        let index = (indexPath as NSIndexPath).item
+        let index = indexPath.item
         let color = colors[index]
 
         cell.indexLabel.text = String(index)

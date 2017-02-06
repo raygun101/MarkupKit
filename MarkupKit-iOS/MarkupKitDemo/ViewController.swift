@@ -99,7 +99,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCell.self.description(), for: indexPath) as! IconCell
 
-        let index = (indexPath as NSIndexPath).item
+        let index = indexPath.item
         let icon = icons[index]
 
         cell.imageView.image = UIImage(named: icon)

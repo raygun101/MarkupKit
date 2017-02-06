@@ -78,8 +78,8 @@ class ViewController: LMTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
-        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == dynamicSectionName) {
-            let row = rows[(indexPath as NSIndexPath).row]
+        if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
+            let row = rows[indexPath.row]
 
             let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.self.description()) as! CustomCell
 
@@ -96,8 +96,8 @@ class ViewController: LMTableViewController {
 
     // Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if (tableView.name(forSection: (indexPath as NSIndexPath).section) == dynamicSectionName) {
-            let row = rows[(indexPath as NSIndexPath).row]
+        if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
+            let row = rows[indexPath.row]
 
             let detailViewController = DetailViewController()
 

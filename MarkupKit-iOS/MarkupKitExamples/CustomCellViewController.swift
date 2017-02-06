@@ -42,7 +42,7 @@ class CustomCellViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Get pharmacy data
-        let index = (indexPath as NSIndexPath).row
+        let index = indexPath.row
         
         let pharmacy = pharmacies[index]
 
