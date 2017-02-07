@@ -629,15 +629,15 @@ Finally, the `sectionName` processing instruction is used to associate a name wi
 
 This allows sections to be identified by name rather than by ordinal value, improving readability and making controller code more resilient to view changes:
 
-override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if (tableView.name(forSection: indexPath.section) == "firstSection") {
-        // User tapped row in first section
-    } else if (tableView.name(forSection: indexPath.section) == "secondSection") {
-        // User tapped row in second section
-    } else {
-        // User tapped row in other section
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tableView.name(forSection: indexPath.section) == "firstSection") {
+            // User tapped row in first section
+        } else if (tableView.name(forSection: indexPath.section) == "secondSection") {
+            // User tapped row in second section
+        } else {
+            // User tapped row in other section
+        }
     }
-}
 
 ### Section Selection Modes
 The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
