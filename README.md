@@ -32,6 +32,7 @@ MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release
 * [MarkupKit Classes](#markupkit-classes)
 	* [LMViewBuilder](#lmviewbuilder)
 	* [LMTableView and LMTableViewCell](#lmtableview-and-lmtableviewcell)
+	* [LMTableViewController](#lmtableviewcontroller)
 	* [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
 	* [LMPickerView](#lmpickerview)
 	* [LMScrollView](#lmscrollview)
@@ -388,13 +389,13 @@ For example, the following markup declares an instance of `UIButton` that calls 
 For example:
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        // Handle button press
+        // User tapped button
     }
 
 Note that the `sender` argument is optional; if the trailing colon is omitted from the handler name, the event will trigger a call to a zero-argument handler method:
 
     @IBAction func buttonPressed() {
-        // Handle button press
+        // User tapped button
     }
 
 Like `IBOutlet`, MarkupKit supports the `IBAction` annotation used by Interface Builder, but does not require it.
@@ -442,7 +443,7 @@ MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class t
 
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
-        <UITableViewHeaderFooterView textLabel.text="Section 1"/>
+        <UITableViewHeaderFooterView textLabel.text="Section 1"/>        
         
 		...
 	</LMTableView>
@@ -454,6 +455,7 @@ The remaining sections of this document discuss the classes included with the Ma
 
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by an iOS application
 * `LMTableView`/`LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
+* `LMTableViewController` - `UITableViewController` subclass that simplifies management of an `LMTableView`
 * `LMCollectionView`/`LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
@@ -557,9 +559,7 @@ See _LMViewBuilder.h_ for more information.
 ## LMTableView and LMTableViewCell
 The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of table view content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.
 
-`LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior. 
-
-MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
+`LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior. MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
 
 ### Declaration
 `LMTableView` provides two factory methods that are used to construct new table view instances in markup:
@@ -607,7 +607,7 @@ Note that, although this example uses an instance of `UITableViewHeaderFooterVie
 
 The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. As with header views, footers views are not limited to instances of any particular type; any `UIView` subclass can be used.
 
-Finally, the `sectionName` processing instruction is used to assign a name to a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. This allows sections to be identified by name rather than index, so they can be added or reordered without breaking controller code; for example:
+Finally, the `sectionName` processing instruction is used to associate a name with a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. For example:
 
     <LMTableView style="groupedTableView">
         <?sectionName firstSection?>
@@ -621,7 +621,23 @@ Finally, the `sectionName` processing instruction is used to assign a name to a 
         <UITableViewCell textLabel.text="Row 2a"/>
         <UITableViewCell textLabel.text="Row 2b"/>
         <UITableViewCell textLabel.text="Row 2c"/>
+
+        <?sectionBreak?>
+
+        ...
     </LMTableView>
+
+This allows sections to be identified by name rather than by ordinal value, improving readability and making controller code more resilient to view changes:
+
+override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    if (tableView.name(forSection: indexPath.section) == "firstSection") {
+        // User tapped row in first section
+    } else if (tableView.name(forSection: indexPath.section) == "secondSection") {
+        // User tapped row in second section
+    } else {
+        // User tapped row in other section
+    }
+}
 
 ### Section Selection Modes
 The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
@@ -652,7 +668,7 @@ The `backgroundView` processing instruction can be used to assign a background v
     <LMTableView style="groupedTableView">
         <?backgroundView?>
         <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
-        
+
         ...
     </LMTableView>
 
@@ -663,6 +679,7 @@ The `tableHeaderView` and `tableFooterView` processing instructions are used to 
     <LMTableView>
         <?tableHeaderView?>
         <UISearchBar id="searchBar"/>
+
         ...
     </LMTableView>
 
@@ -685,7 +702,7 @@ The implementing class should delegate to the given table view instance as neede
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let n: Int
         if (section == 0) {
-            // custom behavior
+            // Custom content
         } else {
             n = tableView.numberOfRows(inSection: section)
         }
@@ -696,7 +713,7 @@ The implementing class should delegate to the given table view instance as neede
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         if (indexPath.section == 0) {
-            // custom behavior
+            // Custom content
         } else {
             cell = tableView.cellForRow(at: indexPath)!
         }
@@ -752,6 +769,11 @@ The child of the root tag represents the cell's content. It can be any valid vie
 
 See _LMTableView.h_ and _LMTableViewCell.h_ for more information.
 
+## LMTableViewController
+`LMTableViewController` is a table view controller that delegates data source and delegate operations to its table view.
+
+TODO
+
 ## LMCollectionView and LMCollectionViewCell
 The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declaration of collection view content in markup. Both classes are discussed in more detail below.
 
@@ -783,6 +805,7 @@ The `backgroundView` processing instruction can be used to assign a background v
 	    collectionViewLayout.sectionInset="12">
 	    <?backgroundView?>
 	    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+
 	    ...
 	</LMCollectionView>
 
@@ -890,7 +913,7 @@ The implementing class should delegate to the given picker view instance as need
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
         if (component == 0) {
-            // Custom behavior
+            // Custom content
         } else {
             n = pickerView.numberOfRows(inComponent: component)
         }
@@ -901,7 +924,7 @@ The implementing class should delegate to the given picker view instance as need
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let title: String
         if (component == 0) {
-            // Custom behavior
+            // Custom content
         } else {
             title = pickerView.title(forRow: row, forComponent:component)!
         }
@@ -1507,11 +1530,11 @@ The "action" attribute of the `item` tag can be used to associate an action with
 The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler. Action handlers are typically defined in the controller class; for example:
 
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // ...
+        // User tapped cancel item
     }
 
     @IBAction func done(_ sender: UIBarButtonItem) {
-        // ...
+        // User tapped done item
     }
 
 ### UIStackView
