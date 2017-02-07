@@ -30,21 +30,21 @@ MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release
 # Contents
 * [Document Structure](#document-structure)
 * [MarkupKit Classes](#markupkit-classes)
-	* [LMViewBuilder](#lmviewbuilder)
-	* [LMTableView and LMTableViewCell](#lmtableview-and-lmtableviewcell)
-	* [LMTableViewController](#lmtableviewcontroller)
-	* [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
-	* [LMPickerView](#lmpickerview)
-	* [LMScrollView](#lmscrollview)
-	* [LMPageView](#lmpageview)
-	* [LMLayoutView](#lmlayoutview)
-	* [LMRowView and LMColumnView](#lmrowview-and-lmcolumnview)
-	* [LMSpacer](#lmspacer)
-	* [LMLayerView](#lmlayerview)
-	* [LMAnchorView](#lmanchorview)
-	* [LMGradientView](#lmgradientview)
-	* [LMPlayerView](#lmplayerview)
-	* [UIKit Extensions](#uikit-extensions)
+    * [LMViewBuilder](#lmviewbuilder)
+    * [LMTableView and LMTableViewCell](#lmtableview-and-lmtableviewcell)
+    * [LMTableViewController](#lmtableviewcontroller)
+    * [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
+    * [LMPickerView](#lmpickerview)
+    * [LMScrollView](#lmscrollview)
+    * [LMPageView](#lmpageview)
+    * [LMLayoutView](#lmlayoutview)
+    * [LMRowView and LMColumnView](#lmrowview-and-lmcolumnview)
+    * [LMSpacer](#lmspacer)
+    * [LMLayerView](#lmlayerview)
+    * [LMAnchorView](#lmanchorview)
+    * [LMGradientView](#lmgradientview)
+    * [LMPlayerView](#lmplayerview)
+    * [UIKit Extensions](#uikit-extensions)
 * [Additional Information](#additional-information)
 
 # Document Structure
@@ -55,10 +55,10 @@ Elements in a MarkupKit document typically represent instances of `UIView` or it
 
 For example, the following markup creates an instance of `LMColumnView` containing a `UIImageView` and a `UILabel`. `LMColumnView` is a MarkupKit-provided subclass of `UIView` that automatically arranges its subviews in a vertical line:
 
-	<LMColumnView>
-		<UIImageView image="world.png"/>
-		<UILabel text="Hello, World!"/>
-	</LMColumnView>
+    <LMColumnView>
+        <UIImageView image="world.png"/>
+        <UILabel text="Hello, World!"/>
+    </LMColumnView>
 
 The same result could be achieved programmatically as shown below:
 
@@ -259,7 +259,7 @@ Edge inset properties of several other view types can also be specified using th
     
 Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually; for example:
 
-	<UIButton style="systemButton" title="Press Me!" contentEdgeInsetTop="12"/>
+    <UIButton style="systemButton" title="Press Me!" contentEdgeInsetTop="12"/>
 
 These extensions are discussed in more detail later.
 
@@ -281,7 +281,7 @@ Attributes whose values begin with "$" represent data bindings. The text followi
 
 For example, the following markup binds the _text_ property of a text field to the _name_ property of the owner:
 
-	<UITextField text="$name"/>
+    <UITextField text="$name"/>
  
 Bindings must be released before the owner is deallocated as well as any time the document is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
 
@@ -384,7 +384,7 @@ While it would be possible for an application to register for events programmati
 
 For example, the following markup declares an instance of `UIButton` that calls the `buttonPressed:` method of the document's owner when the button is tapped:
 
-	<UIButton style="systemButton" title="Press Me!" onPrimaryActionTriggered="buttonPressed:"/>
+    <UIButton style="systemButton" title="Press Me!" onPrimaryActionTriggered="buttonPressed:"/>
 
 For example:
 
@@ -428,11 +428,11 @@ Size class-specific layouts are discussed in more detail later.
 ## Conditional Processing
 In most cases, a markup document created for an iOS application can be used as is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on the target operating system. Content following the PI will only be processed if the current OS matches the target. For example:
 
-	<?case iOS?>
-	    <!-- iOS-specific content -->
-	<?case tvOS?>
-	    <!-- tvOS-specific content -->
-	<?end?>
+    <?case iOS?>
+        <!-- iOS-specific content -->
+    <?case tvOS?>
+        <!-- tvOS-specific content -->
+    <?end?>
 
 The optional `end` PI terminates a case. If unspecified, OS-specific processing will continue until the end of the document is reached.
 
@@ -445,9 +445,9 @@ MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class t
         <?sectionHeaderView?>
         <UITableViewHeaderFooterView textLabel.text="Section 1"/>        
         
-		...
-	</LMTableView>
-	
+        ...
+    </LMTableView>
+    
 These processing instructions and others are discussed in more detail below.
 
 # MarkupKit Classes
@@ -790,24 +790,24 @@ This method creates instances of `LMCollectionView` that use a collection view f
 
 MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that allow it to be configured declaratively. For example, the following markup sets the flow layout's item width to 80, its item height to 120, and its section inset to 12:
 
-	<LMCollectionView style="flowLayoutCollectionView"
-	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-	    collectionViewLayout.sectionInset="12"
-	    backgroundColor="#ffffff"/>
+    <LMCollectionView style="flowLayoutCollectionView"
+        collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+        collectionViewLayout.sectionInset="12"
+        backgroundColor="#ffffff"/>
 
 These properties are discussed in more detail in a later section.
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a collection view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with a linear gradient background:
 
-	<LMCollectionView style="flowLayoutCollectionView"
-	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-	    collectionViewLayout.sectionInset="12">
-	    <?backgroundView?>
-	    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+    <LMCollectionView style="flowLayoutCollectionView"
+        collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+        collectionViewLayout.sectionInset="12">
+        <?backgroundView?>
+        <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
 
-	    ...
-	</LMCollectionView>
+        ...
+    </LMCollectionView>
 
 ### Custom Cell Content
 Like `LMTableViewCell`, `LMCollectionViewCell` supports the declaration of custom cell content. It extends `UICollectionViewCell` and automatically applies constraints to its content to enable self-sizing behavior.
@@ -1374,16 +1374,16 @@ Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` meth
 ### UIResponder
 MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
 
-	- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
-	- (void)unbindAll;
+    - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
+    - (void)unbindAll;
 
 The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
 
 MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values are loaded:
 
-	- (NSBundle *)bundleForView;
-	- (NSBundle *)bundleForImages;
-	- (NSBundle *)bundleForStrings;
+    - (NSBundle *)bundleForView;
+    - (NSBundle *)bundleForImages;
+    - (NSBundle *)bundleForStrings;
 
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons to be declared in markup:
@@ -1616,10 +1616,10 @@ MarkupKit adds the following properties to `UICollectionViewFlowLayout` to allow
 
 For example:
 
-	<LMCollectionView style="flowLayoutCollectionView"
-	    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-	    collectionViewLayout.sectionInset="12"
-	    backgroundColor="#ffffff"/>
+    <LMCollectionView style="flowLayoutCollectionView"
+        collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
+        collectionViewLayout.sectionInset="12"
+        backgroundColor="#ffffff"/>
 
 ### UIVisualEffectView
 Instances of `UIVisualEffectView` are created using the `initWithEffect:` method, which takes a `UIVisualEffect` instance as an argument. MarkupKit adds the following factory methods to `UIVisualEffectView` to facilitate construction of `UIVisualEffectView` in markup:
@@ -1627,9 +1627,9 @@ Instances of `UIVisualEffectView` are created using the `initWithEffect:` method
     + (UIVisualEffectView *)extraLightBlurEffectView;
     + (UIVisualEffectView *)lightBlurEffectView;
     + (UIVisualEffectView *)darkBlurEffectView;
-	+ (UIVisualEffectView *)extraDarkBlurEffectView;
-	+ (UIVisualEffectView *)regularBlurEffectView;
-	+ (UIVisualEffectView *)prominentBlurEffectView;
+    + (UIVisualEffectView *)extraDarkBlurEffectView;
+    + (UIVisualEffectView *)regularBlurEffectView;
+    + (UIVisualEffectView *)prominentBlurEffectView;
 
 Note that `extraDarkBlurEffectView` is available in tvOS only.
 
