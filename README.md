@@ -640,7 +640,9 @@ This allows sections to be identified by name rather than by ordinal value, impr
     }
 
 ### Section Selection Modes
-The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
+The `sectionSelectionMode` processing instruction is used to set the selection mode for a section. It corresponds to a call to the `setSelectionMode:forSection:` method of `LMTableView`. 
+
+Valid values for this PI include "default", "singleCheckmark", and "multipleCheckmarks". The "default" option produces the default selection behavior (the application is responsible for managing selection state). The "singleCheckmark" option ensures that only a single row will be checked in the section at a given time, similar to a group of radio buttons. The "multipleCheckmarks" option causes the checked state of a row to be toggled each time the row is tapped, similar to a group of checkboxes.
 
 For example, the following markup creates a table view that allows a user to select one of several colors:
 
@@ -653,7 +655,7 @@ For example, the following markup creates a table view that allows a user to sel
 
 The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional value with a cell, such as the color values shown in the previous example. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row.
 
-Selection state is managed via several methods that `LMTableView` inherits from the MarkupKit extensions to `UITableView`. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`; however, they can also be used by other custom `UITableView` subclasses:
+Selection state is managed via several methods that `LMTableView` inherits MarkupKit's extensions to `UITableView`. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`; however, they can also be used by other custom `UITableView` subclasses:
 
     - (nullable NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
@@ -684,53 +686,9 @@ The `tableHeaderView` and `tableFooterView` processing instructions are used to 
     </LMTableView>
 
 ### Custom Data Source/Delegate Implementations
-In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMTableView` instance to override the default behavior. This allows the data source to provide some table content dynamically while relying on the table view to manage static content. 
+In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, in many cases, an application may need to host both static and dynamic content within the same table view, or respond to delegate events such as `tableView:didSelectRowAtIndexPath:`. In such cases, the table view controller can register itself as the table view's data source or delegate and forward calls to the table view implementation as needed.
 
-`LMTableView` propagates the following `UITableViewDataSource` calls to a custom data source:
-
-* `numberOfSectionsInTableView:`
-* `tableView:numberOfRowsInSection:`
-* `tableView:cellForRowAtIndexPath:`
-* `tableView:canEditRowAtIndexPath:`
-
-The implementing class should delegate to the given table view instance as needed:
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView.numberOfSections
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let n: Int
-        if (section == 0) {
-            // Custom content
-        } else {
-            n = tableView.numberOfRows(inSection: section)
-        }
-
-        return n
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell
-        if (indexPath.section == 0) {
-            // Custom content
-        } else {
-            cell = tableView.cellForRow(at: indexPath)!
-        }
-
-        return cell
-    }
-
-Additionally, an application-specific delegate may be set on an `LMTableView` instance to handle row selection events. `LMTableView` propagates the following `UITableViewDelegate` calls to a custom delegate:
-
-* `tableView:willSelectRowAtIndexPath:`
-* `tableView:didSelectRowAtIndexPath:`
-* `tableView:willDeselectRowAtIndexPath:`
-* `tableView:didDeselectRowAtIndexPath:`
-* `tableView:editActionsForRowAtIndexPath:`
-* `tableView:canFocusRowAtIndexPath:`
-
-Note that `tableView:canFocusRowAtIndexPath:` is called only when the table view's selection mode is set to `LMTableViewSelectionModeDefault`. Otherwise, the row is automatically focusable.
+While it is possible for controllers to perform this delegation manually, in most cases it is not required. The `LMTableViewController` class discussed later provides default implementations of data source and delegate methods that simply delegate to the table view. As a result, view controllers that manage an `LMTableView` instance can generally just extend `LMTableViewController` and override the appropriate methods, delegating to the base class as necessary.
 
 ### Custom Cell Content
 The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
@@ -770,9 +728,50 @@ The child of the root tag represents the cell's content. It can be any valid vie
 See _LMTableView.h_ and _LMTableViewCell.h_ for more information.
 
 ## LMTableViewController
-`LMTableViewController` is a table view controller that delegates data source and delegate operations to its table view.
+`LMTableViewController` is a subclass of `UITableViewController` that simplifies management of an `LMTableView` instance. By default, it delegates data source and delegate operations to the table view. Subclasses can override the default implementations to provide custom table view content or respond to table view events such as row selection and edit requests.
 
-TODO
+For example, the following markup declares a table view containing two sections. The first contains static content defined in markup. The second presents dynamic content provided by the controller:
+
+    <LMTableView>
+        <?sectionName static?>
+        ...
+    
+        <?sectionBreak?>
+        <?sectionName dynamic?>
+        ...
+    </LMTableView>
+
+The controller class extends `LMViewController` and overrides `tableView:numberOfRowsInSection:` and `tableView:cellForRowAtIndexPath:` to provide the content for the dynamic section. It also overrides `tableView:didSelectRowAtIndexPath:` to respond to user selection on the custom rows:
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let n: Int
+        if (tableView.name(forSection: section) == "dynamic") {
+            n = numberOfCustomRows()
+        } else {
+            n = super.tableView(tableView, numberOfRowsInSection: section)
+        }
+    
+        return n
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell
+        if (tableView.name(forSection: indexPath.section) == "dynamic") {
+            cell = customCellForRow(indexPath.row)
+        } else {
+            cell = super.tableView(tableView, cellForRowAt: indexPath)
+        }
+    
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if (tableView.name(forSection: indexPath.section) == "dynamic") {
+            handleCustomRowSelection(indexPath.row)
+        } else {
+            super.tableView(tableView, didSelectRowAt: indexPath)
+        }
+    }
 
 ## LMCollectionView and LMCollectionViewCell
 The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declaration of collection view content in markup. Both classes are discussed in more detail below.
@@ -896,26 +895,30 @@ The `componentName` processing instruction assigns a name to a component. It cor
     </LMPickerView>
 
 ### Custom Data Source/Delegate Implementations
-In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source may still be set on an `LMPickerView` instance to override the default behavior. This allows the data source to provide some picker content dynamically while relying on the picker view to manage static content. 
+In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed.
 
-`LMPickerView` propagates the following `UIPickerViewDataSource` calls to a custom data source:
+For example, the following markup declares a picker view containing static and dynamic components:
 
-* `numberOfComponentsInPickerView:`
-* `pickerView:numberOfRowsInComponent:`
-* `pickerView:titleForRow:forComponent`
+    <LMPickerView id="pickerView">
+        <?componentName static?>
+        ...
 
-The implementing class should delegate to the given picker view instance as needed:
+        <?componentName dynamic?>
+        ...
+    </LMPickerView>
+
+The controller class implements `numberOfComponentsInPickerView:`, `pickerView:numberOfRowsInComponent:`, and `pickerView:titleForRow:forComponent:` to provide the content for the dynamic component. It delegates all other behavior to the picker view itself:
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return pickerView.numberOfComponents
+        return pickerView.numberOfComponents(in: pickerView)
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let n: Int
-        if (component == 0) {
-            // Custom content
+        if (pickerView.name(forComponent: component) == "dynamic") {
+            n = numberOfCustomRows()
         } else {
-            n = pickerView.numberOfRows(inComponent: component)
+            n = pickerView.pickerView(pickerView, numberOfRowsInComponent: component)
         }
 
         return n
@@ -923,18 +926,14 @@ The implementing class should delegate to the given picker view instance as need
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let title: String
-        if (component == 0) {
-            // Custom content
+        if (pickerView.name(forComponent: component) == "dynamic") {
+            title = customTitleForRow(row)
         } else {
             title = pickerView.title(forRow: row, forComponent:component)!
         }
 
         return title
     }
-
-Additionally, an application-specific delegate may be set on an `LMPickerView` instance to handle row selection events. `LMPickerView` propagates the following `LMPickerViewDelegate` call to a custom delegate:
-
-* `pickerView:didSelectRow:inComponent:`
 
 `LMPickerView` is available in iOS only. See _LMPickerView.h_ for more information.
 

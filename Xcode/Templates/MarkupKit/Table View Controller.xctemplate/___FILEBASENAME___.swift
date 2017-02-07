@@ -22,8 +22,4 @@ class ___FILEBASENAMEASIDENTIFIER___: LMTableViewController {
 
         // TODO: Perform any post-load configuration
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Handle row selection
-    }
 }
