@@ -124,7 +124,7 @@ MarkupKit actually invokes the second method when applying property values. This
 
 A few attributes have special meaning in MarkupKit and do not represent properties. These include "style", "class", and "id". Their respective purposes are explained in more detail later.
 
-Additionally, attributes whose names begin with "on" represent control events, or "actions". The values of these attributes represent the handler methods that are triggered when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
+Additionally, attributes whose names begin with "on" represent control events, or "actions". The values of these attributes represent the handler methods that are called when their associated events are fired. For example, this markup creates a button with an associated action that will be triggered when the button is pressed:
 
     <UIButton style="systemButton" title="Press Me!" onPrimaryActionTriggered="buttonPressed"/>
 
@@ -221,7 +221,7 @@ The value of any attribute whose name is equal to or ends with "image" is conver
 
     <UIImageView image="background.png"/>
 
-Images are loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to the method. If the owner implements the `bundleForImages` method, the second argument will contain the value returned by this method. Otherwise, the application's main bundle will be used. Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the owner's `traitCollection` method. Otherwise, it will be `nil`.
+Images are loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to the method. If the document's owner (usually the view controller) implements the `bundleForImages` method, the second argument will contain the value returned by this method. Otherwise, the application's main bundle will be used. Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the owner's `traitCollection` method. Otherwise, it will be `nil`.
 
 Note that, because images are loaded via `imageNamed:inBundle:compatibleWithTraitCollection:`, image attributes may refer to image sets defined in an asset catalog. For example, if the asset catalog contains an image set named "PrintIcon", the following markup would create a button with a title of "Print" and an icon appropriate for the current device resolution:
 
@@ -243,7 +243,7 @@ Note that attribute values are converted to enum types based on the attribute's 
 ### Edge Insets
 The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
-Since structure types aren't supported by XML, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components.
+Since edge inset structures aren't natively supported by KVC, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components.
 
 For example, the following markup creates an instance of `LMTableViewCell` whose top, left, bottom, and right layout margins are set to 20:
 
@@ -296,7 +296,7 @@ Bindings may also be programmatically established by calling the `bind:toView:wi
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
 
-MarkupKit doesn't know anything about methods - only instances and properties/events. To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is the name of a "factory method", a zero-argument class method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
+To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is the name of a "factory method", a zero-argument class method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
 
 For example, the following markup creates an instance of a "system"-style `UIButton` by calling the `systemButton` method MarkupKit adds to the `UIButton` class:
 
@@ -311,7 +311,7 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either external or inline. Inline templates are defined within the markup document itself, and external templates are specified in a separate file.
+Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either inline or external. Inline templates are defined within the markup document itself, and external templates are specified in a separate file.
 
 Each template is represented by a dictionary object defined at the top level of the JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
 
@@ -339,7 +339,7 @@ Inline templates simply embed the entire template definition within the processi
         }
     }?>
 
-External templates are generally used when a set of properties may be shared by multiple markup documents, and inline templates are used when the properties are only applicable to the current document. External templates are cached so that their contents do not need to be reloaded each time they are referenced.
+Inline templates are generally used when a set of properties are only applicable to the current document, and external templates are used when the properties may be shared by multiple documents. External templates are cached so that their contents do not need to be reloaded each time they are referenced.
 
 Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple template specifications, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
 
