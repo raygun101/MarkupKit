@@ -25,9 +25,8 @@ limitations under the License.
         <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="210"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
-
     <!-- Button -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Button"/>
 
@@ -35,9 +34,10 @@ limitations under the License.
         <UIButton style="systemButton" title="Press Me" onPrimaryActionTriggered="showGreeting"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
+    <?case iOS?>
 
     <!-- Switch -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Switch"/>
 
@@ -45,9 +45,10 @@ limitations under the License.
         <UISwitch/>
     </UITableViewCell>
 
-    <?sectionBreak?>
+    <?end?>
 
     <!-- Text fields -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Text Fields"/>
 
@@ -67,6 +68,7 @@ limitations under the License.
         <UITextField placeholder="Password" secureTextEntry="true"/>
     </LMTableViewCell>
 
+    <?case iOS?>
     <LMTableViewCell selectionStyle="none">
         <UITextField id="dateTextField" placeholder="Date">
             <?inputView?>
@@ -99,12 +101,11 @@ limitations under the License.
             </UIToolbar>
         </UITextField>
     </LMTableViewCell>
-
-    <?sectionBreak?>
+    <?end?>
 
     <!-- Radio buttons -->
+    <?sectionBreak?>
     <?sectionSelectionMode singleCheckmark?>
-
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Radio Buttons"/>
 
@@ -113,11 +114,9 @@ limitations under the License.
     <UITableViewCell textLabel.text="Large" checked="true"/>
     <UITableViewCell textLabel.text="Extra-Large"/>
 
-    <?sectionBreak?>
-
     <!-- Checkboxes -->
+    <?sectionBreak?>
     <?sectionSelectionMode multipleCheckmarks?>
-
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Checkboxes"/>
 
@@ -127,9 +126,8 @@ limitations under the License.
     <UITableViewCell textLabel.text="Rabbit"/>
     <UITableViewCell textLabel.text="Turtle" checked="true"/>
 
-    <?sectionBreak?>
-
     <!-- Segmented control -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Segmented Control"/>
 
@@ -146,9 +144,10 @@ limitations under the License.
         </LMRowView>
     </LMTableViewCell>
 
-    <?sectionBreak?>
+    <?case iOS?>
 
     <!-- Date picker -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Date Picker"/>
 
@@ -156,9 +155,8 @@ limitations under the License.
         <UIDatePicker datePickerMode="date"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
-
     <!-- Custom picker -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Custom Picker"/>
 
@@ -181,9 +179,10 @@ limitations under the License.
         </LMPickerView>
     </LMTableViewCell>
 
-    <?sectionBreak?>
+    <?end?>
 
     <!-- Collection view -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Collection View"/>
 
@@ -195,9 +194,10 @@ limitations under the License.
             backgroundColor="#ffffff"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
+    <?case iOS?>
 
     <!-- Stepper -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Stepper"/>
 
@@ -209,9 +209,8 @@ limitations under the License.
         </LMRowView>
     </LMTableViewCell>
 
-    <?sectionBreak?>
-
     <!-- Slider -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Slider"/>
 
@@ -219,23 +218,23 @@ limitations under the License.
         <UISlider id="slider" onValueChanged="sliderValueChanged:"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
-
     <!-- Page control -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Page Control"/>
 
     <LMTableViewCell selectionStyle="none">
-        <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="#ff0000" currentPageIndicatorTintColor="#00ff00"/>
+        <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="red" currentPageIndicatorTintColor="green"/>
     </LMTableViewCell>
 
-    <?sectionBreak?>
-
     <!-- Progress view -->
+    <?sectionBreak?>
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="Progress View"/>
 
     <LMTableViewCell selectionStyle="none">
         <UIProgressView id="progressView" style="defaultProgressView"/>
     </LMTableViewCell>
+
+    <?end?>
 </LMTableView>

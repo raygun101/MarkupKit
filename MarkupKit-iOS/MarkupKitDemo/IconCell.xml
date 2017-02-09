@@ -16,7 +16,7 @@ limitations under the License.
 
 <root>
     <LMColumnView>
-        <UIImageView id="imageView" contentMode="scaleAspectFit"/>
+        <UIImageView id="imageView" contentMode="scaleAspectFit" tintColor="black"/>
         <UILabel id="label" font="caption1" textAlignment="center"/>
     </LMColumnView>
 </root>

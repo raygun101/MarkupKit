@@ -16,18 +16,22 @@ import UIKit
 import MarkupKit
 
 class ViewController: UITableViewController, UICollectionViewDataSource {
+    #if os(iOS)
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var dateTextField: UITextField!
 
     @IBOutlet var sizeTextField: UITextField!
     @IBOutlet var sizePickerView: LMPickerView!
+    #endif
 
     @IBOutlet var collectionView: LMCollectionView!
 
+    #if os(iOS)
     @IBOutlet var stepper: UIStepper!
     @IBOutlet var slider: UISlider!
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var progressView: UIProgressView!
+    #endif
 
     let icons = [
         "AccessTimeIcon",
@@ -52,10 +56,12 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         
         collectionView?.register(IconCell.self, forCellWithReuseIdentifier: IconCell.self.description())
 
+        #if os(iOS)
         slider.minimumValue = Float(stepper.minimumValue)
         slider.maximumValue = Float(stepper.maximumValue)
 
         stepperValueChanged(stepper)
+        #endif
     }
 
     @IBAction func showGreeting() {
@@ -66,6 +72,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         present(alertController, animated: true)
     }
 
+    #if os(iOS)
     @IBAction func cancelDateEdit() {
         dateTextField.resignFirstResponder()
     }
@@ -87,6 +94,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         sizeTextField.text = sizePickerView.title(forRow: sizePickerView.selectedRow(inComponent: 0), forComponent: 0)!
         sizeTextField.resignFirstResponder()
     }
+    #endif
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -108,6 +116,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         return cell
     }
 
+    #if os(iOS)
     @IBAction func stepperValueChanged(_ sender: UIStepper) {
         slider.value = Float(sender.value)
 
@@ -126,4 +135,5 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
         pageControl.currentPage = Int(round(value * 10))
         progressView.progress = value
     }
+    #endif
 }

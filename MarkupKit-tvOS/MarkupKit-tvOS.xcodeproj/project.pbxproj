@@ -55,6 +55,11 @@
 		373BFB661DFB017100BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
 		373BFB671DFB017100BB7509 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3B1DF713AE00E88F7A /* Fonts.plist */; };
 		373BFB681DFB017100BB7509 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3C1DF713AE00E88F7A /* pharmacies.json */; };
+		374D829F1E4CEFDC00A45368 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D829B1E4CEFDC00A45368 /* ViewController.swift */; };
+		374D82A01E4CEFDC00A45368 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 374D829C1E4CEFDC00A45368 /* ViewController.xml */; };
+		374D82A11E4CEFDC00A45368 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D829D1E4CEFDC00A45368 /* IconCell.swift */; };
+		374D82A21E4CEFDC00A45368 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 374D829E1E4CEFDC00A45368 /* IconCell.xml */; };
+		374D82A41E4CF0E400A45368 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374D82A31E4CF0E400A45368 /* Icons.xcassets */; };
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -142,8 +147,6 @@
 		37E57B371DF1B3FF002984B9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		37E57B381DF1B3FF002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37E57B3D1DF1B40D002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */; };
-		37E57B401DF1B428002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B3E1DF1B428002984B9 /* ViewController.swift */; };
-		37E57B411DF1B428002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B3F1DF1B428002984B9 /* ViewController.xml */; };
 		37E57B421DF1B48D002984B9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37F899871E475E8700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899851E475E8700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -214,6 +217,11 @@
 		371E236E1E042E8F00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = sample.mov; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.mov"; sourceTree = "<group>"; };
 		373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ColorsAndFonts.json; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts.json"; sourceTree = "<group>"; };
 		373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ColorsAndFonts~vertical.json"; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
+		374D829B1E4CEFDC00A45368 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/ViewController.swift"; sourceTree = "<group>"; };
+		374D829C1E4CEFDC00A45368 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewController.xml; path = "../../MarkupKit-iOS/MarkupKitDemo/ViewController.xml"; sourceTree = "<group>"; };
+		374D829D1E4CEFDC00A45368 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconCell.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/IconCell.swift"; sourceTree = "<group>"; };
+		374D829E1E4CEFDC00A45368 /* IconCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = IconCell.xml; path = "../../MarkupKit-iOS/MarkupKitDemo/IconCell.xml"; sourceTree = "<group>"; };
+		374D82A31E4CF0E400A45368 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitDemo/Icons.xcassets"; sourceTree = "<group>"; };
 		3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/AppDelegate.swift"; sourceTree = "<group>"; };
 		3763ACEF1DF713AE00E88F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.swift"; sourceTree = "<group>"; };
 		3763ACF01DF713AE00E88F7A /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.xml"; sourceTree = "<group>"; };
@@ -355,8 +363,6 @@
 		37E57B311DF1B398002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57B331DF1B398002984B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/AppDelegate.swift"; sourceTree = "<group>"; };
-		37E57B3E1DF1B428002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		37E57B3F1DF1B428002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		37F899851E475E8700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewController.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.h"; sourceTree = "<group>"; };
 		37F899861E475E8700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewController.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -581,9 +587,12 @@
 			isa = PBXGroup;
 			children = (
 				37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */,
-				37E57B3E1DF1B428002984B9 /* ViewController.swift */,
-				37E57B3F1DF1B428002984B9 /* ViewController.xml */,
+				374D829B1E4CEFDC00A45368 /* ViewController.swift */,
+				374D829C1E4CEFDC00A45368 /* ViewController.xml */,
+				374D829D1E4CEFDC00A45368 /* IconCell.swift */,
+				374D829E1E4CEFDC00A45368 /* IconCell.xml */,
 				3763AD8C1DF714AF00E88F7A /* sample.jpg */,
+				374D82A31E4CF0E400A45368 /* Icons.xcassets */,
 				37E57B311DF1B398002984B9 /* Assets.xcassets */,
 				37E57B331DF1B398002984B9 /* Info.plist */,
 			);
@@ -831,9 +840,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E57B411DF1B428002984B9 /* ViewController.xml in Resources */,
+				374D82A21E4CEFDC00A45368 /* IconCell.xml in Resources */,
 				3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */,
+				374D82A01E4CEFDC00A45368 /* ViewController.xml in Resources */,
 				37E57B321DF1B398002984B9 /* Assets.xcassets in Resources */,
+				374D82A41E4CF0E400A45368 /* Icons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -919,8 +930,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374D829F1E4CEFDC00A45368 /* ViewController.swift in Sources */,
 				37E57B3D1DF1B40D002984B9 /* AppDelegate.swift in Sources */,
-				37E57B401DF1B428002984B9 /* ViewController.swift in Sources */,
+				374D82A11E4CEFDC00A45368 /* IconCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
