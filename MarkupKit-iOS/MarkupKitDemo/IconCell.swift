@@ -27,10 +27,4 @@ class IconCell: LMCollectionViewCell {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        imageView.image = nil
-    }
 }

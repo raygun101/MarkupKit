@@ -16,9 +16,9 @@ import UIKit
 import MarkupKit
 
 class ColorCell: LMCollectionViewCell {
-    @IBOutlet var indexLabel: UILabel!
-    @IBOutlet var colorView: UIView!
-    @IBOutlet var valueLabel: UILabel!
+    dynamic var index: String?
+    dynamic var color: UIColor?
+    dynamic var value: String?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,13 +28,5 @@ class ColorCell: LMCollectionViewCell {
 
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
-    }
-
-    override func prepareForReuse() {
-        super.prepareForReuse()
-
-        indexLabel.text = nil
-        colorView.backgroundColor = nil
-        valueLabel.text = nil
     }
 }

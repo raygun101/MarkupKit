@@ -19,10 +19,10 @@ limitations under the License.
     <UIView backgroundColor="#f0f8ff" layer.cornerRadius="8"/>
 
     <LMColumnView>
-        <UILabel id="indexLabel" textAlignment="center" font="body"/>
+        <UILabel text="$index" textAlignment="center" font="body"/>
 
-        <UIView id="colorView" weight="1" layer.borderWidth="0.5" layer.borderColor="#000000"/>
+        <UIView weight="1" layer.borderWidth="0.5" layer.borderColor="#000000" backgroundColor="$color"/>
 
-        <UILabel id="valueLabel" textAlignment="center" font="caption1"/>
+        <UILabel text="$value" textAlignment="center" font="caption1"/>
     </LMColumnView>
 </root>

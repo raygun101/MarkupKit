@@ -49,11 +49,11 @@ class CollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCell.self.description(), for: indexPath) as! ColorCell
 
         let index = indexPath.item
-        let color = colors[index]
+        let value = colors[index]
 
-        cell.indexLabel.text = String(index)
-        cell.colorView.backgroundColor = LMViewBuilder.colorValue(color)
-        cell.valueLabel.text = color
+        cell.index = String(index)
+        cell.color = LMViewBuilder.colorValue(value)
+        cell.value = value
 
         return cell
     }
