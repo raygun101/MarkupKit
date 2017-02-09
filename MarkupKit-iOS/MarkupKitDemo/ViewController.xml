@@ -187,9 +187,9 @@ limitations under the License.
     <UITableViewHeaderFooterView textLabel.text="Collection View"/>
 
     <LMTableViewCell selectionStyle="none">
-        <LMCollectionView style="flowLayoutCollectionView" id="collectionView" height="96"
+        <LMCollectionView style="flowLayoutCollectionView" id="collectionView" height="64"
             collectionViewLayout.scrollDirection="horizontal"
-            collectionViewLayout.itemWidth="112" collectionViewLayout.itemHeight="96"
+            collectionViewLayout.itemWidth="64" collectionViewLayout.itemHeight="64"
             collectionViewLayout.minimumLineSpacing="4"
             backgroundColor="#ffffff"/>
     </LMTableViewCell>

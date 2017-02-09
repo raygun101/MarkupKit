@@ -17,7 +17,6 @@ import MarkupKit
 
 class IconCell: LMCollectionViewCell {
     var imageView: UIImageView!
-    var label: UILabel!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +32,5 @@ class IconCell: LMCollectionViewCell {
         super.prepareForReuse()
 
         imageView.image = nil
-        label.text = nil
     }
 }
