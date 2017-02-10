@@ -26,5 +26,9 @@ class PeriodicTableViewController: UIViewController {
         title = "Periodic Table"
 
         edgesForExtendedLayout = UIRectEdge()
+
+        let scrollView = view as! LMScrollView
+        
+        scrollView.panGestureRecognizer.allowedTouchTypes = [UITouchType.indirect.rawValue as NSNumber]
     }
 }

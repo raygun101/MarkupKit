@@ -65,6 +65,8 @@
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F71E40DF2A00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F81E40DF2A00C56838 /* UIResponder+Markup.m */; };
+		379E4B401E4E42DA00FEDC2E /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */; };
+		379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -273,6 +275,8 @@
 		379214F81E40DF2A00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIResponder+Markup.m"; sourceTree = "<group>"; };
 		3799BAE71DF18396006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BAEB1DF18396006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodicTableViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.swift"; sourceTree = "<group>"; };
+		379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PeriodicTableViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
@@ -441,6 +445,8 @@
 				3763AD101DF713AE00E88F7A /* SizeClassViewController.xml */,
 				3763AD111DF713AE00E88F7A /* SizeClassViewController~horizontal.xml */,
 				3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */,
+				379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */,
+				379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */,
 				3763AD251DF713AE00E88F7A /* PlayerViewController.swift */,
 				3763AD261DF713AE00E88F7A /* PlayerViewController.xml */,
 				3763AD351DF713AE00E88F7A /* chevy.png */,
@@ -815,6 +821,7 @@
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
 				373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */,
 				373BFB661DFB017100BB7509 /* Colors.plist in Resources */,
+				379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */,
 				373BFB671DFB017100BB7509 /* Fonts.plist in Resources */,
 				373BFB681DFB017100BB7509 /* pharmacies.json in Resources */,
 			);
@@ -862,6 +869,7 @@
 				373BFB3D1DFB015000BB7509 /* GridViewController.swift in Sources */,
 				373BFB3E1DFB015000BB7509 /* AnchorViewController.swift in Sources */,
 				373BFB401DFB015000BB7509 /* ColorsAndFontsViewController.swift in Sources */,
+				379E4B401E4E42DA00FEDC2E /* PeriodicTableViewController.swift in Sources */,
 				373BFB411DFB015000BB7509 /* IncludesViewController.swift in Sources */,
 				373BFB421DFB015000BB7509 /* CustomCellViewController.swift in Sources */,
 				373BFB431DFB015000BB7509 /* PharmacyCell.swift in Sources */,

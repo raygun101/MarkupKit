@@ -87,9 +87,7 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(SimpleStackViewController(), animated: true)
             #endif
         } else if (value == "periodicTable") {
-            #if os(iOS)
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
-            #endif
         } else if (value == "collectionView") {
             #if os(iOS)
             navigationController!.pushViewController(CollectionViewController(), animated: true)
