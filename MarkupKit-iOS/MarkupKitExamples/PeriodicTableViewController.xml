@@ -108,7 +108,7 @@ limitations under the License.
     }
 }?>
 
-<LMScrollView backgroundColor="#ffffff">
+<LMScrollView panGestureRecognizer.allowedTouchTypes="direct, indirect" backgroundColor="#ffffff">
     <LMColumnView layoutMargins="8" spacing="16">
         <LMColumnView class="table">
             <LMRowView class="row">

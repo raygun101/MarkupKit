@@ -12,19 +12,8 @@
 // limitations under the License.
 //
 
-import UIKit
-import MarkupKit
+#import <UIKit/UIKit.h>
 
-class PeriodicTableViewController: UIViewController {
-    override func loadView() {
-        view = LMViewBuilder.view(withName: "PeriodicTableViewController", owner: self, root: nil)
-    }
+@interface UIGestureRecognizer (Markup)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        title = "Periodic Table"
-
-        edgesForExtendedLayout = UIRectEdge()
-    }
-}
+@end

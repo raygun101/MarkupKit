@@ -197,6 +197,8 @@
 		377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377A69741DFB105500E06CD1 /* SlidersViewController.xml */; };
 		379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F31E40DECE00C56838 /* UIResponder+Markup.m */; };
 		379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F41E40DECE00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -507,6 +509,8 @@
 		3799BB3B1DF18539006E6B3D /* UIView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Markup.m"; sourceTree = "<group>"; };
 		3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIVisualEffectView+Markup.h"; sourceTree = "<group>"; };
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
+		379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
+		379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -773,6 +777,8 @@
 				3799BAF11DF18539006E6B3D /* CALayer+Markup.m */,
 				379214F41E40DECE00C56838 /* UIResponder+Markup.h */,
 				379214F31E40DECE00C56838 /* UIResponder+Markup.m */,
+				379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */,
+				379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */,
 				3799BB3A1DF18539006E6B3D /* UIView+Markup.h */,
 				3799BB3B1DF18539006E6B3D /* UIView+Markup.m */,
 				3799BB221DF18539006E6B3D /* UIControl+Markup.h */,
@@ -887,6 +893,7 @@
 				376306781DF188F400357E68 /* NSString+Markup.h in Headers */,
 				376306791DF188F400357E68 /* CALayer+Markup.h in Headers */,
 				379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */,
+				379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */,
 				3763067A1DF188F400357E68 /* UIView+Markup.h in Headers */,
 				3763067B1DF188F400357E68 /* UIControl+Markup.h in Headers */,
 				3763067C1DF188F400357E68 /* UIButton+Markup.h in Headers */,
@@ -1297,6 +1304,7 @@
 				376306501DF188BF00357E68 /* NSString+Markup.m in Sources */,
 				376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */,
 				379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */,
+				379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				376306521DF188BF00357E68 /* UIView+Markup.m in Sources */,
 				376306531DF188BF00357E68 /* UIControl+Markup.m in Sources */,
 				376306541DF188BF00357E68 /* UIButton+Markup.m in Sources */,

@@ -67,6 +67,8 @@
 		379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F81E40DF2A00C56838 /* UIResponder+Markup.m */; };
 		379E4B401E4E42DA00FEDC2E /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */; };
 		379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */; };
+		379E4B4C1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B4A1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		379E4B4D1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B4B1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -277,6 +279,8 @@
 		3799BAEB1DF18396006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PeriodicTableViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.swift"; sourceTree = "<group>"; };
 		379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PeriodicTableViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml"; sourceTree = "<group>"; };
+		379E4B4A1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
+		379E4B4B1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
@@ -527,6 +531,8 @@
 				37E579FF1DF19090002984B9 /* CALayer+Markup.m */,
 				379214F71E40DF2A00C56838 /* UIResponder+Markup.h */,
 				379214F81E40DF2A00C56838 /* UIResponder+Markup.m */,
+				379E4B4A1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h */,
+				379E4B4B1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m */,
 				37E57A001DF19090002984B9 /* UIView+Markup.h */,
 				37E57A011DF19090002984B9 /* UIView+Markup.m */,
 				37E57A021DF19090002984B9 /* UIControl+Markup.h */,
@@ -637,6 +643,7 @@
 				37E57AAE1DF1911F002984B9 /* NSString+Markup.h in Headers */,
 				37E57AAF1DF1911F002984B9 /* CALayer+Markup.h in Headers */,
 				379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */,
+				379E4B4C1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h in Headers */,
 				37E57AB01DF1911F002984B9 /* UIView+Markup.h in Headers */,
 				37E57AB11DF1911F002984B9 /* UIControl+Markup.h in Headers */,
 				37E57AB21DF1911F002984B9 /* UIButton+Markup.h in Headers */,
@@ -908,6 +915,7 @@
 				37E57A861DF190F1002984B9 /* NSString+Markup.m in Sources */,
 				37E57A871DF190F1002984B9 /* CALayer+Markup.m in Sources */,
 				379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */,
+				379E4B4D1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				37E57A881DF190F1002984B9 /* UIView+Markup.m in Sources */,
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
 				37E57A8A1DF190F1002984B9 /* UIButton+Markup.m in Sources */,
