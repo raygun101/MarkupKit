@@ -29,4 +29,8 @@ class ColorCell: LMCollectionViewCell {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
+
+    deinit {
+        unbindAll()
+    }
 }
