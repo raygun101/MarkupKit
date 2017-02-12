@@ -46,19 +46,18 @@ class ViewController: LMTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Lorem Ipsum"
+        title = Bundle.main.localizedString(forKey: "title", value: nil, table: nil)
 
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
     }
 
     // Button press handler
     @IBAction func buttonPressed() {
-        let mainBundle = Bundle.main
+        let alertController = UIAlertController(title: Bundle.main.localizedString(forKey: "alert", value: nil, table: nil),
+            message: Bundle.main.localizedString(forKey: "message", value: nil, table: nil),
+            preferredStyle: .alert)
 
-        let alertController = UIAlertController(title: mainBundle.localizedString(forKey: "alert", value: nil, table: nil),
-            message: "Lorem ipsum dolor sit amet.", preferredStyle: .alert)
-
-        alertController.addAction(UIAlertAction(title: mainBundle.localizedString(forKey: "ok", value: nil, table: nil),
+        alertController.addAction(UIAlertAction(title: Bundle.main.localizedString(forKey: "ok", value: nil, table: nil),
             style: .default))
 
         present(alertController, animated: true)
@@ -79,12 +78,9 @@ class ViewController: LMTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
-            let row = rows[indexPath.row]
-
             let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.self.description()) as! CustomCell
 
-            customCell.headingLabel.text = row["heading"] as? String
-            customCell.detailLabel.text = row["detail"] as? String
+            customCell.content = rows[indexPath.row]
 
             cell = customCell
         } else {

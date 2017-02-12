@@ -1,3 +1,4 @@
+"title" = "Lorem Ipsum";
 "staticContent" = "Static Content";
 "textField1" = "Text Field 1";
 "textField2" = "Text Field 2";
@@ -5,5 +6,6 @@
 "button" = "Button";
 "dynamicContent" = "Dynamic Content";
 "alert" = "Alert";
+"message" = "Lorem ipsum dolor sit amet.";
 "ok" = "OK";
 "done" = "Done";

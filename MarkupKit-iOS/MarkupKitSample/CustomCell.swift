@@ -19,9 +19,8 @@ import MarkupKit
  * Custom table view cell.
  */
 class CustomCell: LMTableViewCell {
-    // Outlets
-    @IBOutlet var headingLabel: UILabel!
-    @IBOutlet var detailLabel: UILabel!
+    // View model
+    dynamic var content: [String: AnyObject]?
 
     // Initializers
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
