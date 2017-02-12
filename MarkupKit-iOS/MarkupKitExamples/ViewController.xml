@@ -46,9 +46,9 @@ limitations under the License.
     <?end?>
 
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
+    <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
 
     <?case iOS?>
-    <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
     <?end?>

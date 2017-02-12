@@ -14,6 +14,26 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?case iOS?>
+<?properties {
+    "colorSwatch": {
+        "layer.borderWidth": 0.5
+    }
+}?>
+<?case tvOS?>
+<?properties {
+    "colorSwatch": {
+        "layer.borderWidth": 1
+    }
+}?>
+<?end?>
+
+<?properties {
+    "colorSwatch": {
+        "layer.borderColor": "#000000"
+    }
+}?>
+
 <root layoutMargins="8">
     <?selectedBackgroundView?>
     <UIView backgroundColor="#f0f8ff" layer.cornerRadius="8"/>
@@ -21,7 +41,7 @@ limitations under the License.
     <LMColumnView>
         <UILabel text="$index" textAlignment="center" font="body"/>
 
-        <UIView weight="1" layer.borderWidth="0.5" layer.borderColor="#000000" backgroundColor="$color"/>
+        <UIView class="colorSwatch" weight="1" backgroundColor="$color"/>
 
         <UILabel text="$value" textAlignment="center" font="caption1"/>
     </LMColumnView>

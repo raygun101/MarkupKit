@@ -89,9 +89,7 @@ class ViewController: UITableViewController {
         } else if (value == "periodicTable") {
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
         } else if (value == "collectionView") {
-            #if os(iOS)
             navigationController!.pushViewController(CollectionViewController(), animated: true)
-            #endif
         } else if (value == "webView") {
             #if os(iOS)
             navigationController!.pushViewController(WebViewController(), animated: true)

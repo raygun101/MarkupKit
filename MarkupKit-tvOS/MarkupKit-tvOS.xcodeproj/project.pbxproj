@@ -69,6 +69,10 @@
 		379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */; };
 		379E4B4C1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B4A1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B4D1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B4B1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m */; };
+		37B392391E50B06C00931587 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B392351E50B06C00931587 /* CollectionViewController.swift */; };
+		37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392361E50B06C00931587 /* CollectionViewController.xml */; };
+		37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B392371E50B06C00931587 /* ColorCell.swift */; };
+		37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392381E50B06C00931587 /* ColorCell.xml */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -281,6 +285,10 @@
 		379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PeriodicTableViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml"; sourceTree = "<group>"; };
 		379E4B4A1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIGestureRecognizer+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
 		379E4B4B1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIGestureRecognizer+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
+		37B392351E50B06C00931587 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/CollectionViewController.swift"; sourceTree = "<group>"; };
+		37B392361E50B06C00931587 /* CollectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CollectionViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/CollectionViewController.xml"; sourceTree = "<group>"; };
+		37B392371E50B06C00931587 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorCell.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.swift"; sourceTree = "<group>"; };
+		37B392381E50B06C00931587 /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ColorCell.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.xml"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
@@ -451,6 +459,10 @@
 				3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */,
 				379E4B3E1E4E42DA00FEDC2E /* PeriodicTableViewController.swift */,
 				379E4B3F1E4E42DA00FEDC2E /* PeriodicTableViewController.xml */,
+				37B392351E50B06C00931587 /* CollectionViewController.swift */,
+				37B392361E50B06C00931587 /* CollectionViewController.xml */,
+				37B392371E50B06C00931587 /* ColorCell.swift */,
+				37B392381E50B06C00931587 /* ColorCell.xml */,
 				3763AD251DF713AE00E88F7A /* PlayerViewController.swift */,
 				3763AD261DF713AE00E88F7A /* PlayerViewController.xml */,
 				3763AD351DF713AE00E88F7A /* chevy.png */,
@@ -810,6 +822,7 @@
 				373BFB531DFB017100BB7509 /* ColumnView.xml in Resources */,
 				373BFB541DFB017100BB7509 /* FirstRowView.xml in Resources */,
 				373BFB551DFB017100BB7509 /* SecondRowView.xml in Resources */,
+				37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */,
 				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB561DFB017100BB7509 /* ThirdRowView.xml in Resources */,
 				373BFB571DFB017100BB7509 /* PharmacyCell.xml in Resources */,
@@ -822,6 +835,7 @@
 				373BFB5D1DFB017100BB7509 /* SizeClassViewController~vertical.xml in Resources */,
 				373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */,
 				373BFB5F1DFB017100BB7509 /* chevy.png in Resources */,
+				37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */,
 				373BFB601DFB017100BB7509 /* mini.png in Resources */,
 				373BFB611DFB017100BB7509 /* vw.png in Resources */,
 				373BFB621DFB017100BB7509 /* sample.jpg in Resources */,
@@ -869,6 +883,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */,
+				37B392391E50B06C00931587 /* CollectionViewController.swift in Sources */,
 				373BFB391DFB015000BB7509 /* AppDelegate.swift in Sources */,
 				373BFB3A1DFB015000BB7509 /* ViewController.swift in Sources */,
 				373BFB3B1DFB015000BB7509 /* RadioButtonViewController.swift in Sources */,

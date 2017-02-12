@@ -14,7 +14,22 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMCollectionView style="flowLayoutCollectionView"
-    collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
-    collectionViewLayout.sectionInset="12"
-    backgroundColor="#ffffff"/>
+<?case iOS?>
+<?properties {
+    "collectionView": {
+        "collectionViewLayout.itemWidth": 80,
+        "collectionViewLayout.itemHeight": 120,
+        "collectionViewLayout.sectionInset": 12
+    }
+}?>
+<?case tvOS?>
+<?properties {
+    "collectionView": {
+        "collectionViewLayout.itemWidth": 160,
+        "collectionViewLayout.itemHeight": 240,
+        "collectionViewLayout.sectionInset": 24
+    }
+}?>
+<?end?>
+
+<LMCollectionView style="flowLayoutCollectionView" class="collectionView" backgroundColor="#ffffff"/>
