@@ -92,6 +92,8 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [NSException raise:NSInternalInconsistencyException format:@"Unexpected request for table view cell."];
+
     return nil;
 }
 
