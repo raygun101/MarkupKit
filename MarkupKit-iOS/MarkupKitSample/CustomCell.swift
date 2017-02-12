@@ -32,4 +32,8 @@ class CustomCell: LMTableViewCell {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
+
+    deinit {
+        unbindAll()
+    }
 }
