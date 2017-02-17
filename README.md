@@ -1,5 +1,5 @@
 # Introduction
-MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable markup language, rather than visually using Interface Builder or programmatically in code. 
+MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable, HTML-like markup language, rather than visually using Interface Builder or programmatically in code. 
 
 For example, the following markup creates an instance of `UILabel` and sets the value of its `text` property to "Hello, World!":
 
@@ -10,41 +10,21 @@ The output produced by this markup is identical to the output of the following S
     let label = UILabel()
     label.text = "Hello, World!"
 
-Building an interface in markup can significantly reduce development time. It also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
+Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
-This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and describe how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
+![](README/periodic-table.png)
 
-For more information, please see the following:
+Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
-* [Overview](https://github.com/gk-brown/MarkupKit/wiki/Overview) - Brief introduction to key features
-* [Getting Started](https://github.com/gk-brown/MarkupKit/wiki/Getting-Started) - "Hello, World"-style tutorial
-* [Demo](https://github.com/gk-brown/MarkupKit/wiki/Demo) - Demonstration of common user interface elements implemented in markup
-* [Sample Application](https://github.com/gk-brown/MarkupKit/wiki/Sample-Application) - Simple application demonstrating "real-world" usage of common MarkupKit features
-* [Examples](https://github.com/gk-brown/MarkupKit/wiki/Examples) - Code samples highlighting key features
-* [Templates](https://github.com/gk-brown/MarkupKit/wiki/Templates) - Xcode templates for simplifying MarkupKit development
-* [Deployment](https://github.com/gk-brown/MarkupKit/wiki/Deployment) - Guide to deploying MarkupKit-based applications
-* [Articles](https://github.com/gk-brown/MarkupKit/wiki/Articles) - Articles about MarkupKit
+Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior. 
+
+This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
 MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
 # Contents
 * [Document Structure](#document-structure)
 * [MarkupKit Classes](#markupkit-classes)
-    * [LMViewBuilder](#lmviewbuilder)
-    * [LMTableView and LMTableViewCell](#lmtableview-and-lmtableviewcell)
-    * [LMTableViewController](#lmtableviewcontroller)
-    * [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
-    * [LMPickerView](#lmpickerview)
-    * [LMScrollView](#lmscrollview)
-    * [LMPageView](#lmpageview)
-    * [LMLayoutView](#lmlayoutview)
-    * [LMRowView and LMColumnView](#lmrowview-and-lmcolumnview)
-    * [LMSpacer](#lmspacer)
-    * [LMLayerView](#lmlayerview)
-    * [LMAnchorView](#lmanchorview)
-    * [LMGradientView](#lmgradientview)
-    * [LMPlayerView](#lmplayerview)
-    * [UIKit Extensions](#uikit-extensions)
 * [Additional Information](#additional-information)
 
 # Document Structure
