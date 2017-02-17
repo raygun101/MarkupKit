@@ -1,3 +1,8 @@
+![Supported Platforms](https://img.shields.io/cocoapods/p/MarkupKit.svg) 
+[![Releases](https://img.shields.io/github/release/gk-brown/MarkupKit.svg)](https://github.com/gk-brown/MarkupKit/releases)
+[![CocoaPods](https://img.shields.io/cocoapods/v/MarkupKit.svg)](https://cocoapods.org/pods/MarkupKit)
+[![Discussion](https://badges.gitter.im/gk-brown/MarkupKit.svg)](https://gitter.im/MarkupKit/Lobby)
+
 # Introduction
 MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable, HTML-like markup language, rather than visually using Interface Builder or programmatically in code. 
 
