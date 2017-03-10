@@ -35,6 +35,62 @@ static NSDictionary *keyboardDismissModeValues;
     };
 }
 
+- (CGFloat)contentInsetTop
+{
+    return [self contentInset].top;
+}
+
+- (void)setContentInsetTop:(CGFloat)top
+{
+    UIEdgeInsets contentInset = [self contentInset];
+
+    contentInset.top = top;
+
+    [self setContentInset:contentInset];
+}
+
+- (CGFloat)contentInsetLeft
+{
+    return [self contentInset].left;
+}
+
+- (void)setContentInsetLeft:(CGFloat)left
+{
+    UIEdgeInsets contentInset = [self contentInset];
+
+    contentInset.left = left;
+
+    [self setContentInset:contentInset];
+}
+
+- (CGFloat)contentInsetBottom
+{
+    return [self contentInset].bottom;
+}
+
+- (void)setContentInsetBottom:(CGFloat)bottom
+{
+    UIEdgeInsets contentInset = [self contentInset];
+
+    contentInset.bottom = bottom;
+
+    [self setContentInset:contentInset];
+}
+
+- (CGFloat)contentInsetRight
+{
+    return [self contentInset].right;
+}
+
+- (void)setContentInsetRight:(CGFloat)right
+{
+    UIEdgeInsets contentInset = [self contentInset];
+
+    contentInset.right = right;
+
+    [self setContentInset:contentInset];
+}
+
 #if TARGET_OS_IOS
 - (NSInteger)currentPage
 {

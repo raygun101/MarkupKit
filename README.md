@@ -1534,7 +1534,14 @@ MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` 
 `UIStackView` requires iOS 9 or later.
 
 ### UIScrollView
-MarkupKit adds the following property to `UIScrollView` to help simplify interaction with paged scroll views. 
+MarkupKit adds the following properties to `UIScrollView` to allow the scroll view's content insets to be set individually:
+
+    @property (nonatomic) CGFloat contentInsetTop;
+    @property (nonatomic) CGFloat contentInsetLeft;
+    @property (nonatomic) CGFloat contentInsetBottom;
+    @property (nonatomic) CGFloat contentInsetRight;
+
+Additionally, MarkupKit adds this property to help simplify interaction with paged scroll views: 
 
     @property (nonatomic, readonly) NSInteger currentPage;
 

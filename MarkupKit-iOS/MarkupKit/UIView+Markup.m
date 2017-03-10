@@ -507,7 +507,7 @@ static NSDictionary *anchorValues;
         return;
     } else if ([key isEqual:@"barStyle"]) {
         value = [barStyleValues objectForKey:value];
-    } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^*Insets?$"
+    } else if ([key isEqual:@"layoutMargins"] || [key rangeOfString:@"^.*Insets?$"
         options:NSRegularExpressionSearch].location != NSNotFound) {
         CGFloat inset = [value floatValue];
 

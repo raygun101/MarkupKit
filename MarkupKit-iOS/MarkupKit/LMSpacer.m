@@ -43,7 +43,7 @@
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
-    return nil;
+    return ([self backgroundColor] == nil) ? nil : [super hitTest:point withEvent:event];
 }
 
 @end
