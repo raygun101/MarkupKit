@@ -45,6 +45,8 @@ For example, the following markup creates an instance of `LMColumnView` containi
         <UILabel text="Hello, World!"/>
     </LMColumnView>
 
+![](README/hello-world.png)
+
 The same result could be achieved programmatically as shown below:
 
     let columnView = LMColumnView()
@@ -80,6 +82,8 @@ In addition to view instances, elements may also represent untyped data. For exa
         <segment title="Large"/>
         <segment title="Extra-Large"/>
     </UISegmentedControl>
+
+![](README/segmented-control.png)
 
 Each `<segment>` element triggers to a call to the following method, which is also added to `UIView` by MarkupKit:
 
