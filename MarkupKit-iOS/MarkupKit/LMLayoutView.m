@@ -166,7 +166,7 @@
 {
     UIView *view = [super hitTest:point withEvent:event];
 
-    if (view == self) {
+    if (view == self && [self backgroundColor] == nil) {
         view = nil;
     }
 
