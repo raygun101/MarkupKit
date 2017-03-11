@@ -1002,7 +1002,7 @@ This value specifies that subviews will be arranged relative to the view's layou
 
 Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
 
-Layout views do not consume touch events. Touches that occur within a layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. This allows layout views to be "stacked", which is discussed in more detail later.
+By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view causes the view to begin consuming events.
 
 `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` so that layout views can be easily constructed in markup. Additionally, layout views can be nested to create complex layouts that automatically adjust to orientation or screen size changes. 
 
@@ -1210,7 +1210,7 @@ Because spacer views are so common, MarkupKit provides a dedicated `UIView` subc
         <LMSpacer/>
     </LMRowView>
 
-Like layout views, spacer views do not consume touch events, so they will not interfere with any user interface elements that appear underneath them.
+Like layout views, spacer views do not consume touch events by default, so they will not interfere with any user interface elements that appear underneath them. Assigning a non-`nil` background color to a spacer view causes the view to begin consuming events.
  
 See _LMSpacerView.h_ for more information.
 
@@ -1223,8 +1223,6 @@ For example, the following markup creates a layer view containing two subviews. 
         <UIImageView image="world.png" contentMode="scaleAspectFit"/>
         <UILabel text="Hello, World!" textAlignment="center"/>
     </LMLayerView>
-
-However, layer views are not limited to defining background images. Because layout and spacer views do not consume touch events, they can be used to create interactive content that "floats"  over other user interface elements without preventing the user from interacting with the underlying content. 
 
 See _LMLayerView.h_ for more information.
 
