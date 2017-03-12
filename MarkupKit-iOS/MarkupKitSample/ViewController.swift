@@ -103,6 +103,8 @@ class ViewController: LMTableViewController {
             detailViewController.detailLabel.text = row["detail"] as? String
 
             present(detailViewController, animated: true)
+        } else {
+            super.tableView(tableView, didSelectRowAt: indexPath)
         }
     }
 }
