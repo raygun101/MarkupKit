@@ -23,6 +23,12 @@ static NSString * const kSectionSelectionModeTarget = @"sectionSelectionMode";
 
 static NSString * const kBackgroundViewTarget = @"backgroundView";
 
+static NSString * const kSectionHeaderTag = @"sectionHeader";
+static NSString * const kSectionHeaderTitleKey = @"title";
+
+static NSString * const kSectionFooterTag = @"sectionFooter";
+static NSString * const kSectionFooterTitleKey = @"title";
+
 static NSString * const kTableHeaderViewTarget = @"tableHeaderView";
 static NSString * const kTableFooterViewTarget = @"tableFooterView";
 
@@ -44,6 +50,9 @@ typedef enum {
 
 @property (nonatomic) NSString* name;
 @property (nonatomic) LMTableViewSelectionMode selectionMode;
+
+@property (nonatomic) NSString *headerTitle;
+@property (nonatomic) NSString *footerTitle;
 
 @property (nonatomic) UIView *headerView;
 @property (nonatomic) UIView *footerView;
@@ -129,6 +138,26 @@ typedef enum {
     [[_sections objectAtIndex:section] setSelectionMode:selectionMode];
 }
 
+- (NSString *)titleForHeaderInSection:(NSInteger)section
+{
+    return [[_sections objectAtIndex:section] headerTitle];
+}
+
+- (void)setTitle:(NSString *)title forHeaderInSection:(NSInteger)section
+{
+    [[_sections objectAtIndex:section] setHeaderTitle:title];
+}
+
+- (NSString *)titleForFooterInSection:(NSInteger)section
+{
+    return [[_sections objectAtIndex:section] footerTitle];
+}
+
+- (void)setTitle:(NSString *)title forFooterInSection:(NSInteger)section
+{
+    [[_sections objectAtIndex:section] setFooterTitle:title];
+}
+
 - (UIView *)viewForHeaderInSection:(NSInteger)section
 {
     return [[_sections objectAtIndex:section] headerView];
@@ -144,9 +173,9 @@ typedef enum {
     return [[_sections objectAtIndex:section] footerView];
 }
 
-- (void)setView:(UIView *)footerView forFooterInSection:(NSInteger)section
+- (void)setView:(UIView *)view forFooterInSection:(NSInteger)section
 {
-    [[_sections objectAtIndex:section] setFooterView:footerView];
+    [[_sections objectAtIndex:section] setFooterView:view];
 }
 
 - (void)insertCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -172,6 +201,16 @@ typedef enum {
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:indexPath.row];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[_sections objectAtIndex:section] headerTitle];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [[_sections objectAtIndex:section] footerTitle];
 }
 
 #if TARGET_OS_IOS
@@ -270,6 +309,23 @@ typedef enum {
         _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
         _elementDisposition = kElementSectionFooterView;
+    }
+}
+
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
+{
+    if ([tag isEqual:kSectionHeaderTag]) {
+        NSString *title = [properties objectForKey:kSectionHeaderTitleKey];
+
+        if (title != nil) {
+            [self setTitle:title forHeaderInSection:[self numberOfSectionsInTableView:self] - 1];
+        }
+    } else if ([tag isEqual:kSectionFooterTag]) {
+        NSString *title = [properties objectForKey:kSectionFooterTitleKey];
+
+        if (title != nil) {
+            [self setTitle:title forFooterInSection:[self numberOfSectionsInTableView:self] - 1];
+        }
     }
 }
 

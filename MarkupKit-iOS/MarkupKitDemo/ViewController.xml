@@ -18,8 +18,7 @@ limitations under the License.
 
 <LMTableView style="groupedTableView">
     <!-- Image view -->
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Image View"/>
+    <sectionHeader title="Image View"/>
 
     <LMTableViewCell selectionStyle="none">
         <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="210"/>
@@ -27,8 +26,8 @@ limitations under the License.
 
     <!-- Button -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Button"/>
+
+    <sectionHeader title="Button"/>
 
     <LMTableViewCell selectionStyle="none">
         <UIButton style="systemButton" title="Press Me" onPrimaryActionTriggered="showGreeting"/>
@@ -38,8 +37,8 @@ limitations under the License.
 
     <!-- Switch -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Switch"/>
+
+    <sectionHeader title="Switch"/>
 
     <UITableViewCell textLabel.text="On/Off" selectionStyle="none">
         <UISwitch/>
@@ -49,8 +48,8 @@ limitations under the License.
 
     <!-- Text fields -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Text Fields"/>
+
+    <sectionHeader title="Text Fields"/>
 
     <LMTableViewCell selectionStyle="none">
         <UITextField placeholder="Text"/>
@@ -106,8 +105,8 @@ limitations under the License.
     <!-- Radio buttons -->
     <?sectionBreak?>
     <?sectionSelectionMode singleCheckmark?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Radio Buttons"/>
+
+    <sectionHeader title="Radio Buttons"/>
 
     <UITableViewCell textLabel.text="Small"/>
     <UITableViewCell textLabel.text="Medium"/>
@@ -117,8 +116,8 @@ limitations under the License.
     <!-- Checkboxes -->
     <?sectionBreak?>
     <?sectionSelectionMode multipleCheckmarks?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Checkboxes"/>
+
+    <sectionHeader title="Checkboxes"/>
 
     <UITableViewCell textLabel.text="Dog"/>
     <UITableViewCell textLabel.text="Cat" checked="true"/>
@@ -128,8 +127,8 @@ limitations under the License.
 
     <!-- Segmented control -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Segmented Control"/>
+
+    <sectionHeader title="Segmented Control"/>
 
     <LMTableViewCell selectionStyle="none">
         <LMRowView>
@@ -148,8 +147,8 @@ limitations under the License.
 
     <!-- Date picker -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Date Picker"/>
+
+    <sectionHeader title="Date Picker"/>
 
     <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <UIDatePicker datePickerMode="date"/>
@@ -157,8 +156,8 @@ limitations under the License.
 
     <!-- Custom picker -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Custom Picker"/>
+
+    <sectionHeader title="Custom Picker"/>
 
     <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
         <LMPickerView>
@@ -183,8 +182,8 @@ limitations under the License.
 
     <!-- Collection view -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Collection View"/>
+
+    <sectionHeader title="Collection View"/>
 
     <LMTableViewCell selectionStyle="none">
         <LMCollectionView style="flowLayoutCollectionView" id="collectionView" height="64"
@@ -198,8 +197,8 @@ limitations under the License.
 
     <!-- Stepper -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Stepper"/>
+
+    <sectionHeader title="Stepper"/>
 
     <LMTableViewCell selectionStyle="none">
         <LMRowView>
@@ -211,8 +210,8 @@ limitations under the License.
 
     <!-- Slider -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Slider"/>
+
+    <sectionHeader title="Slider"/>
 
     <LMTableViewCell selectionStyle="none">
         <UISlider id="slider" onValueChanged="sliderValueChanged:"/>
@@ -220,8 +219,8 @@ limitations under the License.
 
     <!-- Page control -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Page Control"/>
+
+    <sectionHeader title="Page Control"/>
 
     <LMTableViewCell selectionStyle="none">
         <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="red" currentPageIndicatorTintColor="green"/>
@@ -229,8 +228,8 @@ limitations under the License.
 
     <!-- Progress view -->
     <?sectionBreak?>
-    <?sectionHeaderView?>
-    <UITableViewHeaderFooterView textLabel.text="Progress View"/>
+
+    <sectionHeader title="Progress View"/>
 
     <LMTableViewCell selectionStyle="none">
         <UIProgressView id="progressView" style="defaultProgressView"/>
