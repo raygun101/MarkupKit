@@ -581,20 +581,28 @@ The `sectionBreak` processing instruction inserts a new section in a table view.
         <UITableViewCell textLabel.text="Row 2c"/>
     </LMTableView>
 
-The `sectionHeaderView` processing instruction assigns a header view to the current section. It corresponds to a call to the `setView:forHeaderInSection:` method of `LMTableView`. The view element immediately following the PI is used as the header view for the section. For example, the following markup adds a section header view to the default section:
+The `sectionHeader` element assigns a header title to the current section. It corresponds to a call to the `setTitle:forHeaderInSection:` method of `LMTableView`. For example, the following markup adds a section header title to the default section:
 
     <LMTableView style="groupedTableView">
-        <?sectionHeaderView?>
-        <UITableViewHeaderFooterView textLabel.text="Section 1"/>
+        <sectionHeader title="Section 1"/>
 
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 1"/>
         <UITableViewCell textLabel.text="Row 1"/>
     </LMTableView>
 
+Alternatively, the `sectionHeaderView` processing instruction can be used to assign a custom header view to the current section. It corresponds to a call to the `setView:forHeaderInSection:` method of `LMTableView`. The view element immediately following the PI is used as the header view for the section. For example:
+
+    <LMTableView style="groupedTableView">
+        <?sectionHeaderView?>
+        <UITableViewHeaderFooterView textLabel.text="Section 1"/>
+
+        ...
+    </LMTableView>
+
 Note that, although this example uses an instance of `UITableViewHeaderFooterView` as a header view, this is not strictly required. Any `UIView` subclass can be used as a section header.
 
-The `sectionFooterView` processing instruction assigns a footer view to the current section. It corresponds to a call to the `setView:forFooterInSection:` method of `LMTableView`. As with header views, footers views are not limited to instances of any particular type; any `UIView` subclass can be used.
+Similarly, the `sectionFooter` element or the `sectionFooterView` processing instruction can be used to assign a footer title or custom footer view to the current section, respectively. As with header views, footers views are not limited to instances of any particular type; any `UIView` subclass can be used.
 
 Finally, the `sectionName` processing instruction is used to associate a name with a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. For example:
 
