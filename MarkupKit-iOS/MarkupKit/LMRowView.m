@@ -72,16 +72,16 @@ static NSDictionary *baselineValues;
         [subview setContentCompressionResistancePriority:verticalContentCompressionResistancePriority forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
-        UILayoutPriority horizontalCompressionResistancePriority, horizontalContentHuggingPriority;
+        UILayoutPriority horizontalContentCompressionResistancePriority, horizontalContentHuggingPriority;
         if (isnan([subview weight])) {
-            horizontalCompressionResistancePriority = UILayoutPriorityRequired;
+            horizontalContentCompressionResistancePriority = UILayoutPriorityRequired;
             horizontalContentHuggingPriority = unweightedHorizontalContentHuggingPriority;
         } else {
-            horizontalCompressionResistancePriority = UILayoutPriorityDefaultLow;
+            horizontalContentCompressionResistancePriority = UILayoutPriorityDefaultLow;
             horizontalContentHuggingPriority = UILayoutPriorityDefaultLow;
         }
 
-        [subview setContentCompressionResistancePriority:horizontalCompressionResistancePriority forAxis:UILayoutConstraintAxisHorizontal];
+        [subview setContentCompressionResistancePriority:horizontalContentCompressionResistancePriority forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:horizontalContentHuggingPriority forAxis:UILayoutConstraintAxisHorizontal];
     }
 
