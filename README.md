@@ -23,7 +23,7 @@ Creating this view in Interface Builder would be an arduous task. Creating it pr
 
 Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior. 
 
-This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the MarkupKit framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
+This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
 MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
@@ -67,7 +67,7 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
     - (void)appendMarkupElementView:(UIView *)view;
 
-This method is called on the superview of each view declared in the document (except for the root, which has no superview) to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
+This method is called on the superview of each view declared in the document to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
 
 Note that if a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
 
@@ -87,7 +87,7 @@ In addition to view instances, elements may also represent untyped data. For exa
 
 Each `<segment>` element triggers to a call to the following method, which is also added to `UIView` by MarkupKit:
 
-    - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
+    - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary<NSString *, NSString *> *)properties;
 
 The element's name, "segment", is passed in the `tag` argument, and a key/value pair representing the "title" attribute is included in the `properties` dictionary. 
 
@@ -175,14 +175,14 @@ The value of any attribute whose name is equal to or ends with "font" is convert
 * As an explicitly named font, using the full name of the font followed by a space and the font size
 * As a text style; e.g. "body"
 
-For example, the following markup creates a `UILabel` that reads "This is Helvetica 24 text" and sets its font to 24-point Helvetica:
+For example, the following markup creates a `UILabel` whose font is set to 24-point Helvetica:
 
     <UILabel text="This is Helvetica 24 text" font="Helvetica 24"/>
 
 The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
 
 #### Text Styles
-A text style refers to either an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used thoroughout the application in place of the actual font names.
+A text style refers to either an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used throughout the application in place of the actual font names.
 
 For example, the following property list defines a text style named "monospaced":
 
@@ -278,9 +278,9 @@ Bindings must be released before the owner is deallocated as well as any time th
         unbindAll()
     }
 
-Note that it may not be possible to establish a two-way binding in all cases. Internally, data binding uses [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html) (KVO) to register and respond to property change events. Although many UIKit types support KVO, not all do. In such cases, the view will still respond to changes in the owner, but the owner will not be automatically updated to reflect changes in the view.
+Note that it may not be possible to establish a two-way binding in all cases. Internally, data binding uses [key-value observing](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html) (KVO) to register and respond to property change events. Although many UIKit types support KVO, not all do. In such cases, the view will still respond to changes in the owner, but the owner will not be automatically updated to reflect changes in the view.
 
-Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to `UIResponder`. See _UIResponder.h_ for more information.
+Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See _UIResponder.h_ for more information.
 
 ### Factory Methods
 Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling `buttonWithType:`, and `UITableView` instances are initialized with `initWithFrame:style:`.
