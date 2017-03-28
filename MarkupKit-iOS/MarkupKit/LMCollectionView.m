@@ -31,6 +31,17 @@ typedef enum {
     return [[LMCollectionView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) collectionViewLayout:[UICollectionViewFlowLayout new]];
 }
 
+- (instancetype)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout
+{
+    self = [super initWithFrame:frame collectionViewLayout:layout];
+
+    if (self) {
+        [self setBackgroundColor:[UIColor whiteColor]];
+    }
+
+    return self;
+}
+
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:kBackgroundViewTarget]) {

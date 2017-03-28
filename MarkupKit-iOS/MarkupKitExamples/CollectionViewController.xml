@@ -32,4 +32,4 @@ limitations under the License.
 }?>
 <?end?>
 
-<LMCollectionView style="flowLayoutCollectionView" class="collectionView" backgroundColor="#ffffff"/>
+<LMCollectionView style="flowLayoutCollectionView" class="collectionView"/>

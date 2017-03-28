@@ -189,8 +189,7 @@ limitations under the License.
         <LMCollectionView style="flowLayoutCollectionView" id="collectionView" height="64"
             collectionViewLayout.scrollDirection="horizontal"
             collectionViewLayout.itemWidth="64" collectionViewLayout.itemHeight="64"
-            collectionViewLayout.minimumLineSpacing="4"
-            backgroundColor="#ffffff"/>
+            collectionViewLayout.minimumLineSpacing="4"/>
     </LMTableViewCell>
 
     <?case iOS?>
