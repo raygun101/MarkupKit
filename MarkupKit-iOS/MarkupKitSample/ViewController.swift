@@ -36,11 +36,6 @@ class ViewController: LMTableViewController {
         // Configure table view
         tableView.dataSource = self
         tableView.delegate = self
-
-        // Load row list from JSON
-        let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
-
-        rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
     }
 
     override func viewDidLoad() {
@@ -49,6 +44,11 @@ class ViewController: LMTableViewController {
         title = Bundle.main.localizedString(forKey: "title", value: nil, table: nil)
 
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
+
+        // Load row list
+        let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
+
+        rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
     }
 
     // Button press handler

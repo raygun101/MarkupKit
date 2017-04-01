@@ -26,7 +26,7 @@ class CustomCellViewController: UITableViewController {
         tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.self.description())
         tableView.estimatedRowHeight = 2
 
-        // Load pharmacy list from JSON
+        // Load pharmacy list
         let pharmacyListURL = Bundle.main.url(forResource: "pharmacies", withExtension: "json")
 
         pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: pharmacyListURL!)) as! [[String: AnyObject]]
