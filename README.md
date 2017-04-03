@@ -10,6 +10,11 @@ For example, the following markup creates an instance of `UILabel` and sets the 
 
     <UILabel text="Hello, World!"/>
 
+This markup is equivalent to the following Swift code:
+
+    let label = UILabel()
+    label.text = "Hello, World!"
+
 Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
 ![](README/periodic-table.png)
