@@ -86,8 +86,7 @@ static NSMutableDictionary *templateCache;
             options:0 format:nil error:&error];
 
         if (error != nil) {
-            [NSException raise:NSGenericException format:@"%@: %@", colorTablePath,
-                [[error userInfo] objectForKey:@"NSDebugDescription"]];
+            [NSException raise:NSGenericException format:@"%@: %@", colorTablePath, [error description]];
         }
 
         for (NSString *key in colorTableValues) {
@@ -106,8 +105,7 @@ static NSMutableDictionary *templateCache;
             options:0 format:nil error:&error];
 
         if (error != nil) {
-            [NSException raise:NSGenericException format:@"%@: %@", fontTablePath,
-                [[error userInfo] objectForKey:@"NSDebugDescription"]];
+            [NSException raise:NSGenericException format:@"%@: %@", fontTablePath, [error description]];
         }
 
         for (NSString *key in fontTableValues) {
@@ -301,8 +299,7 @@ static NSMutableDictionary *templateCache;
                 options:0 error:&error];
 
             if (error != nil) {
-                [NSException raise:NSGenericException format:@"%@: %@", path,
-                    [[error userInfo] objectForKey:@"NSDebugDescription"]];
+                [NSException raise:NSGenericException format:@"%@: %@", path, [error description]];
             }
 
             [templateCache setObject:templates forKey:name];
@@ -390,8 +387,7 @@ static NSMutableDictionary *templateCache;
                     options:0 error:&error];
 
                 if (error != nil) {
-                    [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber],
-                        [[error userInfo] objectForKey:@"NSDebugDescription"]];
+                    [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber], [error description]];
                 }
 
                 [LMViewBuilder mergeDictionary:dictionary into:_templates];
