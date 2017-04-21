@@ -71,8 +71,8 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func showLocation() {
-        let latitude = Double(latitudeTextField.text!)!
-        let longitude = Double(longitudeTextField.text!)!
+        let latitude = (latitudeTextField.text == nil || latitudeTextField.text!.isEmpty) ? 0 : Double(latitudeTextField.text!)!
+        let longitude = (longitudeTextField.text == nil || longitudeTextField.text!.isEmpty) ? 0 : Double(longitudeTextField.text!)!
         
         if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
             let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius * 1000, radius * 1000)
