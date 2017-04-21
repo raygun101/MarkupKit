@@ -60,6 +60,8 @@
 		374D82A11E4CEFDC00A45368 /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374D829D1E4CEFDC00A45368 /* IconCell.swift */; };
 		374D82A21E4CEFDC00A45368 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 374D829E1E4CEFDC00A45368 /* IconCell.xml */; };
 		374D82A41E4CF0E400A45368 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374D82A31E4CF0E400A45368 /* Icons.xcassets */; };
+		37596C1D1EAA2C2300D427B4 /* UILabel+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37596C1B1EAA2C2300D427B4 /* UILabel+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37596C1C1EAA2C2300D427B4 /* UILabel+Markup.m */; };
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -230,6 +232,8 @@
 		374D829D1E4CEFDC00A45368 /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IconCell.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/IconCell.swift"; sourceTree = "<group>"; };
 		374D829E1E4CEFDC00A45368 /* IconCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = IconCell.xml; path = "../../MarkupKit-iOS/MarkupKitDemo/IconCell.xml"; sourceTree = "<group>"; };
 		374D82A31E4CF0E400A45368 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitDemo/Icons.xcassets"; sourceTree = "<group>"; };
+		37596C1B1EAA2C2300D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UILabel+Markup.h"; sourceTree = "<group>"; };
+		37596C1C1EAA2C2300D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UILabel+Markup.m"; sourceTree = "<group>"; };
 		3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/AppDelegate.swift"; sourceTree = "<group>"; };
 		3763ACEF1DF713AE00E88F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.swift"; sourceTree = "<group>"; };
 		3763ACF01DF713AE00E88F7A /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ViewController.xml"; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 				37E57A0B1DF19090002984B9 /* UITextField+Markup.m */,
 				37E57A0C1DF19090002984B9 /* UIActivityIndicatorView+Markup.h */,
 				37E57A0D1DF19090002984B9 /* UIActivityIndicatorView+Markup.m */,
+				37596C1B1EAA2C2300D427B4 /* UILabel+Markup.h */,
+				37596C1C1EAA2C2300D427B4 /* UILabel+Markup.m */,
 				37E57A0E1DF19090002984B9 /* UIPickerView+Markup.h */,
 				37E57A0F1DF19090002984B9 /* UIPickerView+Markup.m */,
 				37E57A101DF19090002984B9 /* UIProgressView+Markup.h */,
@@ -665,6 +671,7 @@
 				37E57AB61DF1911F002984B9 /* UIActivityIndicatorView+Markup.h in Headers */,
 				37E57AB71DF1911F002984B9 /* UIPickerView+Markup.h in Headers */,
 				37E57AB81DF1911F002984B9 /* UIProgressView+Markup.h in Headers */,
+				37596C1D1EAA2C2300D427B4 /* UILabel+Markup.h in Headers */,
 				37E57AB91DF1911F002984B9 /* UISearchBar+Markup.h in Headers */,
 				37E57ABA1DF1911F002984B9 /* UIToolbar+Markup.h in Headers */,
 				37E57ABB1DF1911F002984B9 /* UIStackView+Markup.h in Headers */,
@@ -917,6 +924,7 @@
 				37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */,
 				37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */,
 				37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */,
+				37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */,
 				37E57A7A1DF190F1002984B9 /* LMLinearGradientView.m in Sources */,
 				37E57A7B1DF190F1002984B9 /* LMRadialGradientView.m in Sources */,
 				37E57A7D1DF190F1002984B9 /* LMScrollView.m in Sources */,

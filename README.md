@@ -1391,9 +1391,12 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
 Button content is programmatically configured using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
     @property (nonatomic, nullable) NSString *title;
+    @property (nonatomic, nullable) UIColor *titleColor;
+    @property (nonatomic, nullable) UIColor *titleShadowColor;
     @property (nonatomic, nullable) UIImage *image;
+    @property (nonatomic, nullable) UIImage *backgroundImage;
 
-These properties set the default state for their corresponding values. For example, the following markup creates a system button with a title of "Press Me!":
+These properties set the "normal" state for their corresponding values. For example, the following markup creates a system-style button with a normal title of "Press Me!":
 
     <UIButton style="systemButton" title="Press Me!"/>
 
@@ -1470,6 +1473,19 @@ This markup declares a text field with an associated `UIDatePicker` as an input 
     
 MarkupKit's support for `UIToolbar` is discussed in more detail below.
 
+### UILabel
+MarkupKit adds the following properties to `UILabel` to allow a label's shadow offset width and height to be configured independently:
+
+    @property (nonatomic) CGFloat shadowOffsetWidth;
+    @property (nonatomic) CGFloat shadowOffsetHeight;
+
+For example, the following markup creates a label with a shadow offset width and height of 3:
+
+    <UILabel text="Hello, World!" 
+        shadowColor="red" 
+        shadowOffsetWidth="3" 
+        shadowOffsetHeight="3"/>
+        
 ### UIPickerView
 MarkupKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` primarily so casting is not required when using an `LMPickerView` instance in markup. They also provide parity with similar methods added to `UITableView`:
 

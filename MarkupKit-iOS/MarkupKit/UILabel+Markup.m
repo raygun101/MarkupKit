@@ -12,22 +12,28 @@
 // limitations under the License.
 //
 
-#import <QuartzCore/QuartzCore.h>
+#import "UILabel+Markup.h"
 
-NS_ASSUME_NONNULL_BEGIN
+@implementation UILabel (Markup)
 
-@interface CALayer (Markup)
+- (CGFloat)shadowOffsetWidth
+{
+    return self.shadowOffset.width;
+}
 
-/**
- * The shadow offset width.
- */
-@property (nonatomic) CGFloat shadowOffsetWidth;
+- (void)setShadowOffsetWidth:(CGFloat)width
+{
+    self.shadowOffset = CGSizeMake(width, self.shadowOffset.height);
+}
 
-/**
- * The shadow offset height.
- */
-@property (nonatomic) CGFloat shadowOffsetHeight;
+- (CGFloat)shadowOffsetHeight
+{
+    return self.shadowOffset.height;
+}
+
+- (void)setShadowOffsetHeight:(CGFloat)height
+{
+    self.shadowOffset = CGSizeMake(self.shadowOffset.width, height);
+}
 
 @end
-
-NS_ASSUME_NONNULL_END

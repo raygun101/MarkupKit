@@ -54,7 +54,8 @@ limitations under the License.
             <LMRowView class="row.second">
                 <UILabel text="12345" class="large, blue"/>
                 <LMSpacer/>
-                <UIButton style="systemButton" title="@prompt"
+                <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
+                    titleLabel.shadowOffsetWidth="3" titleLabel.shadowOffsetHeight="3"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
                     onTouchUpInside="handleButtonTouchUpInside:"/>
             </LMRowView>

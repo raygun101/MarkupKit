@@ -51,6 +51,26 @@
     [self setTitle:title forState:UIControlStateNormal];
 }
 
+- (UIColor *)titleColor
+{
+    return [self titleColorForState:UIControlStateNormal];
+}
+
+- (void)setTitleColor:(UIColor *)titleColor
+{
+    [self setTitleColor:titleColor forState:UIControlStateNormal];
+}
+
+- (UIColor *)titleShadowColor
+{
+    return [self titleShadowColorForState:UIControlStateNormal];
+}
+
+- (void)setTitleShadowColor:(UIColor *)titleShadowColor
+{
+    [self setTitleShadowColor:titleShadowColor forState:UIControlStateNormal];
+}
+
 - (UIImage *)image
 {
     return [self imageForState:UIControlStateNormal];
@@ -59,6 +79,16 @@
 - (void)setImage:(UIImage *)image
 {
     [self setImage:image forState:UIControlStateNormal];
+}
+
+- (UIImage *)backgroundImage
+{
+    return [self backgroundImageForState:UIControlStateNormal];
+}
+
+- (void)setBackgroundImage:(UIImage *)backgroundImage
+{
+    [self setBackgroundImage:backgroundImage forState:UIControlStateNormal];
 }
 
 - (CGFloat)contentEdgeInsetTop

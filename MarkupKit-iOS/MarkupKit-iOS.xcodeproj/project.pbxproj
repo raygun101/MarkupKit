@@ -82,6 +82,8 @@
 		373BFB361DFB007B00BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D71DF1BA690064CC82 /* Colors.plist */; };
 		373BFB371DFB007B00BB7509 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D91DF1BA720064CC82 /* Fonts.plist */; };
 		373BFB381DFB007B00BB7509 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9971DF1B99E0064CC82 /* pharmacies.json */; };
+		37596C191EAA2C0600D427B4 /* UILabel+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37596C171EAA2C0600D427B4 /* UILabel+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37596C181EAA2C0600D427B4 /* UILabel+Markup.m */; };
 		3763063C1DF188BF00357E68 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB011DF18539006E6B3D /* LMLayoutView.m */; };
 		3763063D1DF188BF00357E68 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF51DF18539006E6B3D /* LMBoxView.m */; };
 		3763063E1DF188BF00357E68 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAFB1DF18539006E6B3D /* LMColumnView.m */; };
@@ -319,6 +321,8 @@
 
 /* Begin PBXFileReference section */
 		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
+		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
+		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
 		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -793,6 +797,8 @@
 				3799BB371DF18539006E6B3D /* UITextField+Markup.m */,
 				3799BB1C1DF18539006E6B3D /* UIActivityIndicatorView+Markup.h */,
 				3799BB1D1DF18539006E6B3D /* UIActivityIndicatorView+Markup.m */,
+				37596C171EAA2C0600D427B4 /* UILabel+Markup.h */,
+				37596C181EAA2C0600D427B4 /* UILabel+Markup.m */,
 				3799BB261DF18539006E6B3D /* UIPickerView+Markup.h */,
 				3799BB271DF18539006E6B3D /* UIPickerView+Markup.m */,
 				3799BB281DF18539006E6B3D /* UIProgressView+Markup.h */,
@@ -903,6 +909,7 @@
 				376306801DF188F400357E68 /* UIActivityIndicatorView+Markup.h in Headers */,
 				376306811DF188F400357E68 /* UIPickerView+Markup.h in Headers */,
 				376306821DF188F400357E68 /* UIProgressView+Markup.h in Headers */,
+				37596C191EAA2C0600D427B4 /* UILabel+Markup.h in Headers */,
 				376306831DF188F400357E68 /* UISearchBar+Markup.h in Headers */,
 				376306841DF188F400357E68 /* UIToolbar+Markup.h in Headers */,
 				376306851DF188F400357E68 /* UIStackView+Markup.h in Headers */,
@@ -1319,6 +1326,7 @@
 				37F899841E475E5700205A70 /* LMTableViewController.m in Sources */,
 				3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */,
 				3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */,
+				37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */,
 				3763065F1DF188BF00357E68 /* UITableView+Markup.m in Sources */,
 				376306601DF188BF00357E68 /* UITableViewCell+Markup.m in Sources */,
 				376306611DF188BF00357E68 /* UICollectionViewFlowLayout+Markup.m in Sources */,
