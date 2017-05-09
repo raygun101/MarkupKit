@@ -27,6 +27,8 @@ This guide introduces the MarkupKit framework and provides an overview of its ke
 
 MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
+For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
+
 # Contents
 * [Document Structure](#document-structure)
 * [MarkupKit Classes](#markupkit-classes)
