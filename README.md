@@ -234,23 +234,23 @@ Note that attribute values are converted to enum types based on the attribute's 
 ### Edge Insets
 The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
 
-Since edge inset structures aren't natively supported by KVC, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components.
+Since edge insets aren't natively supported by KVC, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components. For example, the following markup creates a column view whose top, left, bottom, and right layout margins are set to 20:
 
-For example, the following markup creates an instance of `LMTableViewCell` whose top, left, bottom, and right layout margins are set to 20:
-
-    <LMTableViewCell layoutMargins="20">
+    <LMColumnView layoutMargins="20">
         ...
-    </LMTableViewCell>
+    </LMColumnView>
 
 Edge inset properties of several other view types can also be specified using this shorthand. For example:
 
-    <UIButton style="systemButton" title="Press Me!" contentEdgeInsets="12"/>
-
-    <UITextView height="240" textContainerInset="7"/>    
+    <UIButton title="Press Me!" contentEdgeInsets="12"/>
     
-Additionally, MarkupKit adds properties to these view types that allow edge inset components to be specified individually; for example:
+Additionally, MarkupKit adds properties to these types that allow edge inset components to be specified individually. For example:
 
-    <UIButton style="systemButton" title="Press Me!" contentEdgeInsetTop="12"/>
+    <LMColumnView layoutMarginLeft="20" layoutMarginRight="20">
+        ...
+    </LMColumnView>
+    
+    <UIButton title="Press Me!" contentEdgeInsetTop="12" contentEdgeInsetBottom="12"/>
 
 These extensions are discussed in more detail later.
 
