@@ -569,7 +569,7 @@ For example, the following markup creates a "plain"-style table view containing 
 Note that, by default, grouped table views enable self-sizing behavior for section headers and footers, but plain table views do not.
 
 ### Section Management
-The `sectionBreak` processing instruction inserts a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. This markup creates a grouped table view containing two sections (the first section is created implicitly):
+The `sectionBreak` processing instruction creates a new section in a table view. It corresponds to a call to the `insertSection:` method of the `LMTableView` class. This markup creates a grouped table view containing two sections (the first section is created implicitly when the table view is initialized):
 
     <LMTableView style="groupedTableView">
         <UITableViewCell textLabel.text="Row 1a"/>
@@ -652,14 +652,14 @@ For example, the following markup creates a table view that allows a user to sel
         <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     </LMTableView>
 
-The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional arbitrary value with a cell. 
+The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional arbitrary value with a cell. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. 
 
-MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. The selection state for a given section can be accessed via the following methods:
+A section's selection can be accessed via the following methods:
 
     - (nullable id)valueForSection:(NSInteger)section;
     - (NSArray *)valuesForSection:(NSInteger)section;
 
-The first method returns the value associated with the first checked cell in a given section, and is typically used with the "singleCheckmark" selection mode. The second method returns the values associated with all checked cells in a given section and is typically used with the "multipleCheckmarks" mode.
+The first method returns the value associated with the first checked cell in the given section, and is typically used with the "singleCheckmark" selection mode. The second method returns the values associated with all checked cells in the section and is typically used with the "multipleCheckmarks" mode.
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
