@@ -658,10 +658,8 @@ Selection state is managed via several methods that `LMTableView` inherits Marku
 
     - (nullable NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
-    - (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
-    - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
-The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The remaining two methods, `rowForCellWithValue:inSection:` and `rowForCheckedCellInSection:`, return the index of a row within a given section whose cell has the given value or checked state, respectively. 
+The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section.
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
@@ -1580,8 +1578,6 @@ MarkupKit adds the following instance methods to the `UITableView` class. These 
 
     - (NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
-    - (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section;
-    - (NSInteger)rowForCheckedCellInSection:(NSInteger)section
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:

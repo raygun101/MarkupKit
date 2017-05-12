@@ -36,25 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)sectionWithName:(NSString *)name;
 
-/**
- * Returns the index of the first row in the given section whose cell value matches the given value.
- *
- * @param value The cell value.
- * @param section The section index.
- * 
- * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
- */
-- (NSInteger)rowForCellWithValue:(nullable id)value inSection:(NSInteger)section;
-
-/**
- * Returns the index of the first row in the given section whose cell is checked.
- *
- * @param section The section index.
- * 
- * @return The row index, or <code>NSNotFound</code> if a matching row was not found.
- */
-- (NSInteger)rowForCheckedCellInSection:(NSInteger)section;
-
 @end
 
 NS_ASSUME_NONNULL_END

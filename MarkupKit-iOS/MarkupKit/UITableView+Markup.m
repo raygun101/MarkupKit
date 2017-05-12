@@ -51,40 +51,6 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
     return (section < n) ? section : NSNotFound;
 }
 
-- (NSInteger)rowForCellWithValue:(id)value inSection:(NSInteger)section
-{
-    NSInteger row = 0, n = [self numberOfRowsInSection:section];
-
-    while (row < n) {
-        UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-
-        if ([[cell value] isEqual:value]) {
-            break;
-        }
-
-        row++;
-    }
-
-    return (row < n) ? row : NSNotFound;
-}
-
-- (NSInteger)rowForCheckedCellInSection:(NSInteger)section
-{
-    NSInteger row = 0, n = [self numberOfRowsInSection:section];
-
-    while (row < n) {
-        UITableViewCell *cell = [self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:section]];
-
-        if ([cell checked]) {
-            break;
-        }
-
-        row++;
-    }
-
-    return (row < n) ? row : NSNotFound;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 0;
