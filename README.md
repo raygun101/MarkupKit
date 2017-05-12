@@ -35,7 +35,7 @@ For additional information and examples, see the [wiki](https://github.com/gk-br
 * [Additional Information](#additional-information)
 
 # Document Structure
-MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of XML parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
+MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of an XML document parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
 
 ## Elements
 Elements in a MarkupKit document typically represent instances of `UIView` or its subclasses. As elements are read by the XML parser, the corresponding view types are dynamically instantiated and added to the view hierarchy. 
@@ -156,11 +156,11 @@ This markup creates an instance of `UILabel` whose text color will be set to the
 
 Named colors may also refer to the color preset methods of `UIColor`, such as `darkGrayColor`. The value is the name of the accessor method minus the "Color" suffix. 
 
-For example, the following markup would produce a system-style button whose tint color is set to the value returned by the `greenColor` method of `UIColor`:
+For example, the following markup would produce a system-style button whose tint color is set to the value returned by the `greenColor` method:
 
     <UIButton style="systemButton" tintColor="green"/>
 
-Color table entries take precedence over `UIColor` constants. For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by the `greenColor` method.
+Color table entries take precedence over `UIColor` constants. For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by `greenColor`.
 
 #### Pattern Images
 Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
@@ -184,7 +184,7 @@ For example, the following markup creates a `UILabel` whose font is set to 24-po
 The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
 
 #### Text Styles
-A text style refers to either an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent style names, and the values the associated fonts. The styles can be used throughout the application in place of the actual font names.
+A text style refers to either an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent text style names, and the values the associated fonts. The styles can be used throughout the application in place of the actual font names.
 
 For example, the following property list defines a text style named "monospaced":
 
@@ -212,7 +212,11 @@ The value of any attribute whose name is equal to or ends with "image" is conver
 
     <UIImageView image="background.png"/>
 
-Images are loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to the method. If the document's owner (usually the view controller) implements the `bundleForImages` method, the second argument will contain the value returned by this method. Otherwise, the application's main bundle will be used. Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the owner's `traitCollection` method. Otherwise, it will be `nil`.
+Images are loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to the method. 
+
+If the document's owner (usually the view controller) implements a method named `bundleForImages`, the second argument will contain the value returned by this method. MarkupKit adds an implementation of `bundleForImages` to the `UIResponder` class, so any subclass of `UIResponder` (including `UIViewController` and `UIView`) will automatically inherit the default implementation, which returns the application's main bundle. Subclasses can override this method to provide custom image loading behavior. If the owner does not implement `bundleForImages`, the main bundle will be used.
+
+Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the `traitCollection` method. Otherwise, it will be `nil`.
 
 Note that, because images are loaded via `imageNamed:inBundle:compatibleWithTraitCollection:`, image attributes may refer to image sets defined in an asset catalog. For example, if the asset catalog contains an image set named "PrintIcon", the following markup would create a button with a title of "Print" and an icon appropriate for the current device resolution:
 
@@ -227,7 +231,7 @@ Enumerated types are not automatically handled by KVC. However, MarkupKit provid
 
 Enumeration values in MarkupKit are abbreviated versions of their UIKit counterparts. The attribute value is simply the full name of the enum value minus the leading type name, with a lowercase first character. For example, "whileEditing" in the above example corresponds to the `UITextFieldViewModeWhileEditing` value of the `UITextFieldViewMode` enum. Similarly, "emailAddress" corresponds to the `UIKeyboardTypeEmailAddress` value of the `UIKeyboardType` enum. 
 
-Note that attribute values are converted to enum types based on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
+Note that attribute values are converted to enum types based on the attribute's name, not its value or associated property type (which generally cannot be determined at runtime). For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
 
     <UILabel text="whileEditing"/>
 
@@ -265,7 +269,7 @@ the following markup will produce an instance of `UILabel` with the value of its
 
 If a localized value is not found, the key will be used instead. This allows developers to easily identify missing string resources at runtime.
 
-If the document's owner implements the `bundleForStrings` method, localized string values will be loaded using the bundle returned by this method. Otherwise, they will be loaded using the application's main bundle.
+If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with the `bundleForImages` method discussed earlier, MarkupKit adds a default implementation of `bundleForStrings` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
 ### Data Binding
 Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view property will be automatically reflected in the other.
@@ -496,7 +500,9 @@ Note that neither size class-specific layouts nor template properties are automa
         }
     }
     
-If the owner implements the `bundleForView` method, view documents will be loaded from the bundle returned by this method. Otherwise, they will be loaded from the application's main bundle. Note that property templates and color and font tables are always loaded from the application's main bundle.
+If the owner implements a method named `bundleForView`, view documents will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
+
+Note that property templates and color and font tables are always loaded from the main bundle.
 
 ### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.
