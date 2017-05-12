@@ -25,4 +25,16 @@ class RadioButtonViewController: UITableViewController {
 
         title = "Radio Buttons"
     }
+
+    func submit() {
+        let value = tableView.value(forSection: 0) as! String
+
+        let message = String(format: "You selected %@.", value)
+
+        let alertController = UIAlertController(title: "Submitted", message: message, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alertController, animated: true)
+    }
 }

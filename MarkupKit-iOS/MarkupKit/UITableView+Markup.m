@@ -76,7 +76,11 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
         UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
 
         if ([cell checked]) {
-            [values addObject:[cell value]];
+            id value = [cell value];
+
+            if (value != nil) {
+                [values addObject:value];
+            }
         }
     }
 

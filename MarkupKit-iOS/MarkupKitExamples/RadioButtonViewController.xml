@@ -21,4 +21,10 @@ limitations under the License.
     <UITableViewCell textLabel.text="Medium" value="M"/>
     <UITableViewCell textLabel.text="Large" value="L" checked="true"/>
     <UITableViewCell textLabel.text="Extra-Large" value="XL"/>
+
+    <?sectionBreak?>
+
+    <LMTableViewCell>
+        <UIButton style="systemButton" title="Submit" onPrimaryActionTriggered="submit"/>
+    </LMTableViewCell>
 </LMTableView>

@@ -25,4 +25,16 @@ class CheckboxViewController: UITableViewController {
 
         title = "Checkboxes"
     }
+
+    func submit() {
+        let values = tableView.values(forSection: 0) as! [String]
+
+        let message = String(format: "You selected [%@].", values.joined(separator: ", "))
+
+        let alertController = UIAlertController(title: "Submitted", message: message, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alertController, animated: true)
+    }
 }
