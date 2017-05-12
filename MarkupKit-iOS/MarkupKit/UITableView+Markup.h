@@ -28,13 +28,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)nameForSection:(NSInteger)section;
 
 /**
- * Returns the index of the first section whose name matches the given name.
+ * Returns the index of the first section with a given name.
  *
  * @param name The section name.
  *
  * @return The section index, or <code>NSNotFound</code> if a matching section was not found.
  */
 - (NSInteger)sectionWithName:(NSString *)name;
+
+/**
+ * Returns the value associated with the first checked cell in a given section.
+ *
+ * @param section The section index.
+ *
+ * @return The associated cell value, or <code>nil</code> if no cell is checked.
+ */
+- (nullable id)valueForSection:(NSInteger)section;
+
+/**
+ * Returns the values associated with all checked cells in a given section.
+ *
+ * @param section The section index.
+ *
+ * @return The associated cell values. The array will be empty if no cells are checked.
+ */
+- (NSArray *)valuesForSection:(NSInteger)section;
 
 @end
 
