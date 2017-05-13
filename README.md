@@ -668,7 +668,7 @@ MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, whe
     - (NSArray *)valuesForSection:(NSInteger)section;
     - (void)setValues:(NSArray *)values forSection:(NSInteger)section;
 
-TODO
+The first two methods get and set a single selected value and are typically used with sections whose selection mode is set to "singleCheckmark". The second set of methods are used to get and set a list of selected values and are typically used with sections using the "multipleCheckmarks" selection mode.
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
@@ -1593,8 +1593,6 @@ MarkupKit adds the following instance methods to the `UITableView` class. These 
 
     - (NSArray *)valuesForSection:(NSInteger)section;
     - (void)setValues:(NSArray *)values forSection:(NSInteger)section;
-
-TODO
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:
