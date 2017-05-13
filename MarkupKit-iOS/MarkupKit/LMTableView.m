@@ -142,8 +142,8 @@ typedef enum {
 {
     id value = nil;
 
-    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+    for (NSUInteger i = 0, n = [[[_sections objectAtIndex:section] rows] count]; i < n; i++) {
+        UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:i];
 
         if ([cell checked]) {
             value = [cell value];
@@ -164,8 +164,8 @@ typedef enum {
 {
     NSMutableArray *values = [NSMutableArray new];
 
-    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+    for (NSUInteger i = 0, n = [[[_sections objectAtIndex:section] rows] count]; i < n; i++) {
+        UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:i];
 
         if ([cell checked]) {
             id value = [cell value];
@@ -246,7 +246,7 @@ typedef enum {
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:indexPath.row];
+    return [[[_sections objectAtIndex:[indexPath section]] rows] objectAtIndex:[indexPath row]];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

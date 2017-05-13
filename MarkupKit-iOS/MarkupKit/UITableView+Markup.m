@@ -58,7 +58,7 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 
 - (void)setValue:(nullable id)value forSection:(NSInteger)section
 {
-    [NSException raise:NSGenericException format:@"Method not supported."];
+    [NSException raise:NSGenericException format:@"Method not implemented."];
 }
 
 - (NSArray *)valuesForSection:(NSInteger)section
@@ -68,7 +68,7 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 
 - (void)setValues:(NSArray *)values forSection:(NSInteger)section
 {
-    [NSException raise:NSGenericException format:@"Method not supported."];
+    [NSException raise:NSGenericException format:@"Method not implemented."];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -78,8 +78,6 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [NSException raise:NSInternalInconsistencyException format:@"Unexpected request for table view cell."];
-
     return nil;
 }
 
