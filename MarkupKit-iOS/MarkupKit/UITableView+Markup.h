@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)nameForSection:(NSInteger)section;
 
 /**
- * Returns the index of the first section with a given name.
+ * Returns the index of the first section with the given name.
  *
  * @param name The section name.
  *
@@ -36,12 +36,38 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)sectionWithName:(NSString *)name;
 
-// TODO Documentation
-
+/**
+ * Returns the value associated with the first checked row in the given section.
+ *
+ * @param section The section index.
+ *
+ * @return The selected value, or <code>nil</code> if no row is checked.
+ */
 - (nullable id)valueForSection:(NSInteger)section;
+
+/**
+ * Checks all rows in the given section whose value matches the given value.
+ *
+ * @param value The value to select.
+ * @param section The section index.
+ */
 - (void)setValue:(nullable id)value forSection:(NSInteger)section;
 
+/**
+ * Returns the values associated with the checked rows in the given section.
+ *
+ * @param section The section index.
+ *
+ * @return The selected values. The array will be empty if no rows are checked.
+ */
 - (NSArray *)valuesForSection:(NSInteger)section;
+
+/**
+ * Checks all rows in the given section whose value matches any value in the given array.
+ *
+ * @param values The values to select.
+ * @param section The section index.
+ */
 - (void)setValues:(NSArray *)values forSection:(NSInteger)section;
 
 @end
