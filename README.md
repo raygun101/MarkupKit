@@ -660,7 +660,7 @@ For example, the following markup creates a table view that allows a user to sel
 
 The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional arbitrary value with a cell. 
 
-MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. This property should not be set directly. Its state is managed by the following `LMTableView` methods:
+MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. In general, this property should not be set directly. Its state is typically managed via the following `LMTableView` methods:
 
     - (nullable id)valueForSection:(NSInteger)section;
     - (void)setValue:(nullable id)value forSection:(NSInteger)section;

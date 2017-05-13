@@ -24,6 +24,8 @@ class CheckboxViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "Checkboxes"
+
+        tableView.setValues(["C", "T"], forSection: tableView.section(withName: "pets"))
     }
 
     func submit() {

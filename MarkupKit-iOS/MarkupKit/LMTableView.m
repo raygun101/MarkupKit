@@ -142,9 +142,7 @@ typedef enum {
 {
     id value = nil;
 
-    for (NSUInteger i = 0, n = [[[_sections objectAtIndex:section] rows] count]; i < n; i++) {
-        UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:i];
-
+    for (UITableViewCell *cell in [[_sections objectAtIndex:section] rows]) {
         if ([cell checked]) {
             value = [cell value];
 
@@ -157,16 +155,16 @@ typedef enum {
 
 - (void)setValue:(nullable id)value forSection:(NSInteger)section
 {
-    // TODO
+    for (UITableViewCell *cell in [[_sections objectAtIndex:section] rows]) {
+        [cell setChecked:[[cell value] isEqual:value]];
+    }
 }
 
 - (NSArray *)valuesForSection:(NSInteger)section
 {
     NSMutableArray *values = [NSMutableArray new];
 
-    for (NSUInteger i = 0, n = [[[_sections objectAtIndex:section] rows] count]; i < n; i++) {
-        UITableViewCell *cell = [[[_sections objectAtIndex:section] rows] objectAtIndex:i];
-
+    for (UITableViewCell *cell in [[_sections objectAtIndex:section] rows]) {
         if ([cell checked]) {
             id value = [cell value];
 
@@ -181,7 +179,13 @@ typedef enum {
 
 - (void)setValues:(NSArray *)values forSection:(NSInteger)section
 {
-    // TODO
+    for (UITableViewCell *cell in [[_sections objectAtIndex:section] rows]) {
+        id value = [cell value];
+
+        if (value != nil) {
+            [cell setChecked:[values containsObject:value]];
+        }
+    }
 }
 
 - (NSString *)titleForHeaderInSection:(NSInteger)section
@@ -278,10 +282,10 @@ typedef enum {
 
         case LMTableViewSelectionModeSingleCheckmark: {
             // Uncheck all cells except for current selection
+            NSInteger row = [indexPath row];
+
             NSArray *rows = [[_sections objectAtIndex:section] rows];
 
-            NSInteger row = [indexPath row];
-            
             for (NSUInteger i = 0, n = [rows count]; i < n; i++) {
                 [[rows objectAtIndex:i] setChecked:(i == row)];
             }

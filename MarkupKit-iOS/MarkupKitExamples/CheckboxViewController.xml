@@ -15,17 +15,18 @@ limitations under the License.
 -->
 
 <LMTableView style="groupedTableView">
+    <?sectionName pets?>
     <?sectionSelectionMode multipleCheckmarks?>
 
     <UITableViewCell textLabel.text="Dog" value="D"/>
-    <UITableViewCell textLabel.text="Cat" value="C" checked="true"/>
+    <UITableViewCell textLabel.text="Cat" value="C"/>
     <UITableViewCell textLabel.text="Fish" value="F"/>
     <UITableViewCell textLabel.text="Rabbit" value="R"/>
-    <UITableViewCell textLabel.text="Turtle" value="T" checked="true"/>
+    <UITableViewCell textLabel.text="Turtle" value="T"/>
 
     <?sectionBreak?>
 
-    <LMTableViewCell>
+    <LMTableViewCell selectionStyle="none">
         <UIButton style="systemButton" title="Submit" onPrimaryActionTriggered="submit"/>
     </LMTableViewCell>
 </LMTableView>

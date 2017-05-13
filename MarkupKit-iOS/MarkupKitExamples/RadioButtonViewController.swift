@@ -24,6 +24,8 @@ class RadioButtonViewController: UITableViewController {
         super.viewDidLoad()
 
         title = "Radio Buttons"
+
+        tableView.setValue("L", forSection: tableView.section(withName: "sizes"))
     }
 
     func submit() {
