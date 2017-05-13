@@ -138,6 +138,52 @@ typedef enum {
     [[_sections objectAtIndex:section] setSelectionMode:selectionMode];
 }
 
+- (id)valueForSection:(NSInteger)section
+{
+    id value = nil;
+
+    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
+        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+
+        if ([cell checked]) {
+            value = [cell value];
+
+            break;
+        }
+    }
+
+    return value;
+}
+
+- (void)setValue:(nullable id)value forSection:(NSInteger)section
+{
+    // TODO
+}
+
+- (NSArray *)valuesForSection:(NSInteger)section
+{
+    NSMutableArray *values = [NSMutableArray new];
+
+    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
+        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
+
+        if ([cell checked]) {
+            id value = [cell value];
+
+            if (value != nil) {
+                [values addObject:value];
+            }
+        }
+    }
+
+    return values;
+}
+
+- (void)setValues:(NSArray *)values forSection:(NSInteger)section
+{
+    // TODO
+}
+
 - (NSString *)titleForHeaderInSection:(NSInteger)section
 {
     return [[_sections objectAtIndex:section] headerTitle];

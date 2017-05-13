@@ -658,14 +658,17 @@ For example, the following markup creates a table view that allows a user to sel
         <UITableViewCell textLabel.text="Blue" value="#0000ff"/>
     </LMTableView>
 
-The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional arbitrary value with a cell. MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. 
+The `value` property is defined by the MarkupKit extensions to the `UITableViewCell` class. It is used to associate an optional arbitrary value with a cell. 
 
-A section's selection can be accessed via the following methods:
+MarkupKit also adds a boolean `checked` property to `UITableViewCell` which, when set, causes a checkmark to appear in the corresponding row. This property should not be set directly. Its state is managed by the following `LMTableView` methods:
 
     - (nullable id)valueForSection:(NSInteger)section;
-    - (NSArray *)valuesForSection:(NSInteger)section;
+    - (void)setValue:(nullable id)value forSection:(NSInteger)section;
 
-The first method returns the value associated with the first checked cell in the given section, and is typically used with the "singleCheckmark" selection mode. The second method returns the values associated with all checked cells in the section and is typically used with the "multipleCheckmarks" mode.
+    - (NSArray *)valuesForSection:(NSInteger)section;
+    - (void)setValues:(NSArray *)values forSection:(NSInteger)section;
+
+TODO
 
 ### Accessory Views
 The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
@@ -1584,10 +1587,14 @@ MarkupKit adds the following instance methods to the `UITableView` class. These 
 
     - (NSString *)nameForSection:(NSInteger)section;
     - (NSInteger)sectionWithName:(NSString *)name;
+    
     - (nullable id)valueForSection:(NSInteger)section;
-    - (NSArray *)valuesForSection:(NSInteger)section;
+    - (void)setValue:(nullable id)value forSection:(NSInteger)section;
 
-The first method, `nameForSection:`, returns the name associated with a given section, or `nil` if the section does not have a name. The second method, `sectionWithName:`, returns the index of a named section. The remaining two methods allow a caller to access the selection state for a given section.
+    - (NSArray *)valuesForSection:(NSInteger)section;
+    - (void)setValues:(NSArray *)values forSection:(NSInteger)section;
+
+TODO
 
 ### UITableViewCell 
 Instances of `UITableViewCell` are created programmatically using the `initWithStyle:reuseIdentifier:` method of `UITableViewCell`. MarkupKit adds the following factory methods to `UITableViewCell` to allow table view cells to be declared in markup:

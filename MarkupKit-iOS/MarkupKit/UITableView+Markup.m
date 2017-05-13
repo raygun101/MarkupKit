@@ -51,40 +51,24 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
     return (section < n) ? section : NSNotFound;
 }
 
-- (id)valueForSection:(NSInteger)section
+- (nullable id)valueForSection:(NSInteger)section
 {
-    id value = nil;
+    return nil;
+}
 
-    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-
-        if ([cell checked]) {
-            value = [cell value];
-
-            break;
-        }
-    }
-
-    return value;
+- (void)setValue:(nullable id)value forSection:(NSInteger)section
+{
+    [NSException raise:NSGenericException format:@"Method not supported."];
 }
 
 - (NSArray *)valuesForSection:(NSInteger)section
 {
-    NSMutableArray *values = [NSMutableArray new];
+    return nil;
+}
 
-    for (NSUInteger i = 0, n = [self numberOfRowsInSection:section]; i < n; i++) {
-        UITableViewCell *cell = [self tableView:self cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:section]];
-
-        if ([cell checked]) {
-            id value = [cell value];
-
-            if (value != nil) {
-                [values addObject:value];
-            }
-        }
-    }
-
-    return values;
+- (void)setValues:(NSArray *)values forSection:(NSInteger)section
+{
+    [NSException raise:NSGenericException format:@"Method not supported."];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

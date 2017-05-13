@@ -36,23 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)sectionWithName:(NSString *)name;
 
-/**
- * Returns the value associated with the first checked cell in a given section.
- *
- * @param section The section index.
- *
- * @return The associated cell value, or <code>nil</code> if no cell is checked.
- */
-- (nullable id)valueForSection:(NSInteger)section;
+// TODO Documentation
 
-/**
- * Returns the values associated with all checked cells in a given section.
- *
- * @param section The section index.
- *
- * @return The associated cell values. The array will be empty if no cells are checked.
- */
+- (nullable id)valueForSection:(NSInteger)section;
+- (void)setValue:(nullable id)value forSection:(NSInteger)section;
+
 - (NSArray *)valuesForSection:(NSInteger)section;
+- (void)setValues:(NSArray *)values forSection:(NSInteger)section;
 
 @end
 
