@@ -901,7 +901,12 @@ The `componentName` processing instruction assigns a name to a component. It cor
     </LMPickerView>
 
 ### Selection Management
-TODO
+The following `LMPickerView` methods can be used to manage selection state by row value rather than by row index:
+
+    - (nullable id)valueForComponent:(NSInteger)component;
+    - (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated;
+
+The first method returns the value associated with the selected row in a given component, and the second selects the row in the given component corresponding to the given value (the selection may optionally be animated).
 
 ### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed.
