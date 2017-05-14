@@ -36,6 +36,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)componentWithName:(NSString *)name;
 
+/**
+ * Returns the value associated with the selected row in the given component.
+ *
+ * @param component The component index.
+ *
+ * @return The selected value, or <code>nil</code> if no row is selected.
+ */
+- (nullable id)valueForComponent:(NSInteger)component;
+
+/**
+ * Selects the first row in the given component whose value matches the given value.
+ *
+ * @param value The value to select, or <code>nil</code> for no selection.
+ * @param component The component index.
+ */
+- (void)setValue:(nullable id)value forComponent:(NSInteger)component;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1502,9 +1502,8 @@ MarkupKit adds the following instance methods to the `UIPickerView` class. These
 
     - (NSString *)nameForComponent:(NSInteger)component;
     - (NSInteger)componentWithName:(NSString *)name;
-    - (NSString *)titleForRow:(NSInteger)row forComponent:(NSInteger)component;
-    - (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
-    - (NSInteger)rowWithValue:(id)value inComponent:(NSInteger)component;
+    - (nullable id)valueForComponent:(NSInteger)component;
+    - (void)setValue:(nullable id)value forComponent:(NSInteger)component;
 
 ### UIProgressView
 Instances of `UIProgressView` are created programmatically using the `initWithProgressViewStyle:` method. MarkupKit adds the following factory methods to `UIProgressView` to allow progress views to be declared in markup:

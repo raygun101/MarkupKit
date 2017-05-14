@@ -48,7 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Checks all rows in the given section whose value matches the given value.
  *
- * @param value The value to select.
+ * @param value The value to select, or <code>nil</code> for no selection.
  * @param section The section index.
  */
 - (void)setValue:(nullable id)value forSection:(NSInteger)section;
