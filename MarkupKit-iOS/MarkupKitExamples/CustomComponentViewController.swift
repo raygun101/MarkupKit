@@ -18,7 +18,7 @@ import MarkupKit
 class CustomComponentViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     let dynamicComponentName = "dynamic"
 
-    @IBOutlet var pickerView: UIPickerView!
+    @IBOutlet var pickerView: LMPickerView!
 
     @IBOutlet var sizeLabel: UILabel!
     @IBOutlet var colorLabel: UILabel!

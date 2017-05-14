@@ -77,6 +77,14 @@ __TVOS_PROHIBITED
 - (void)setTitle:(nullable NSString *)title forRow:(NSInteger)row forComponent:(NSInteger)component;
 
 /**
+ * Returns the value for the given row and component.
+ *
+ * @param row The row index.
+ * @param component The component index.
+ */
+- (nullable id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
+
+/**
  * Sets the value for the given row and component.
  * 
  * @param value The row value.

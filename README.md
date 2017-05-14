@@ -903,17 +903,19 @@ The `componentName` processing instruction assigns a name to a component. It cor
 ### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed.
 
-For example, the following markup declares a picker view containing static and dynamic components:
+For example, the following markup declares a picker view containing both static and dynamic components:
 
     <LMPickerView id="pickerView">
-        <?componentName static?>
+        <?componentName sizes?>
+        ...
+
+        <?componentName colors?>
         ...
 
         <?componentName dynamic?>
-        ...
     </LMPickerView>
 
-The controller class implements `numberOfComponentsInPickerView:`, `pickerView:numberOfRowsInComponent:`, and `pickerView:titleForRow:forComponent:` to provide the content for the dynamic component. It delegates all other behavior to the picker view itself:
+The controller class implements `numberOfComponentsInPickerView:`, `pickerView:numberOfRowsInComponent:`, and `pickerView:titleForRow:forComponent:` to provide the content for the dynamic component:
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return pickerView.numberOfComponents(in: pickerView)
