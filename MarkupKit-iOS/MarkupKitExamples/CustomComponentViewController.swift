@@ -61,11 +61,11 @@ class CustomComponentViewController: UIViewController, UIPickerViewDataSource, U
     }
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let title: String
+        let title: String?
         if (pickerView.name(forComponent: component) == dynamicComponentName) {
             title = String(row + 1)
         } else {
-            title = pickerView.title(forRow: row, forComponent:component)!
+            title = pickerView.pickerView(pickerView, titleForRow: row, forComponent: component)
         }
 
         return title
