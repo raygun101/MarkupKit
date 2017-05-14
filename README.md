@@ -900,6 +900,9 @@ The `componentName` processing instruction assigns a name to a component. It cor
         <row title="Purple" value="#ff00ff"/>
     </LMPickerView>
 
+### Selection Management
+TODO
+
 ### Custom Data Source/Delegate Implementations
 In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed.
 

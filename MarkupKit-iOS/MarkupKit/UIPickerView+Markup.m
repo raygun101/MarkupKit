@@ -41,7 +41,7 @@
     return nil;
 }
 
-- (void)setValue:(nullable id)value forComponent:(NSInteger)component
+- (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated 
 {
     [NSException raise:NSGenericException format:@"Method not implemented."];
 }
