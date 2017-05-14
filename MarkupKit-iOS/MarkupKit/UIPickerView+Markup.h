@@ -50,8 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param value The value to select, or <code>nil</code> for no selection.
  * @param component The component index.
+ * @param animated <code>YES</code> if the selection should be animated; <code>NO</code>, otherwise.
  */
-- (void)setValue:(nullable id)value forComponent:(NSInteger)component;
+- (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated;
 
 @end
 
