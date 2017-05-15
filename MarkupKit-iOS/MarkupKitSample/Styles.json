@@ -5,9 +5,7 @@
     },
 
     "cell.input": {
-        "selectionStyle": "none",
-        "layoutMarginTop": 12,
-        "layoutMarginBottom": 12
+        "selectionStyle": "none"
     },
 
     "label.heading": {

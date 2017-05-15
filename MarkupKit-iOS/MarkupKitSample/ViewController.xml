@@ -25,8 +25,8 @@ limitations under the License.
         <UITextField id="textField1" placeholder="@textField1"/>
     </LMTableViewCell>
 
-    <LMTableViewCell id="textField2" class="cell.input">
-        <UITextField placeholder="@textField2"/>
+    <LMTableViewCell class="cell.input">
+        <UITextField id="textField2" placeholder="@textField2"/>
     </LMTableViewCell>
 
     <?sectionFooterView?>
