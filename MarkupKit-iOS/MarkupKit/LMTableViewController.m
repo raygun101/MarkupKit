@@ -32,6 +32,16 @@
     return [[self tableView] tableView:tableView cellForRowAtIndexPath:indexPath];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [[self tableView] tableView:tableView titleForHeaderInSection:section];
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+{
+    return [[self tableView] tableView:tableView titleForFooterInSection:section];
+}
+
 #if TARGET_OS_IOS
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
