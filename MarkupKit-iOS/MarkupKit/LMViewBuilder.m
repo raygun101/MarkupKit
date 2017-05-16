@@ -35,8 +35,8 @@ static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
 
-static NSString * const kLocalizedStringPrefix = @"@";
 static NSString * const kBindingPrefix = @"$";
+static NSString * const kLocalizedStringPrefix = @"@";
 
 @interface LMIncludeContainer : UIView
 
@@ -517,11 +517,11 @@ static NSMutableDictionary *templateCache;
                 for (NSString *key in properties) {
                     NSString *value = [properties objectForKey:key];
 
-                    if ([value hasPrefix:kLocalizedStringPrefix]) {
-                        value = [bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil];
+                    if ([value hasPrefix:kBindingPrefix]) {
+                        [properties setObject:[_owner valueForKeyPath:[value substringFromIndex:[kBindingPrefix length]]] forKey:key];
+                    } else if ([value hasPrefix:kLocalizedStringPrefix]) {
+                        [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil] forKey:key];
                     }
-
-                    [properties setValue:value forKey:key];
                 }
 
                 [view processMarkupElement:elementName properties:properties];
@@ -573,11 +573,11 @@ static NSMutableDictionary *templateCache;
         for (NSString *key in properties) {
             NSString *value = [properties objectForKey:key];
 
-            if ([value hasPrefix:kLocalizedStringPrefix]) {
+            if ([value hasPrefix:kBindingPrefix]) {
+                [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
+            } else if ([value hasPrefix:kLocalizedStringPrefix]) {
                 [view setValue:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]]
                     value:nil table:nil] forKeyPath:key];
-            } else if ([value hasPrefix:kBindingPrefix]) {
-                [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
             } else {
                 [view applyMarkupPropertyValue:[self valueForValue:value withKeyPath:key] forKeyPath:key];
             }
