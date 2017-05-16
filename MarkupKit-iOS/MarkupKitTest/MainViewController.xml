@@ -54,12 +54,22 @@ limitations under the License.
             <?end?>
 
             <LMRowView class="row.second">
-                <UILabel text="12345" class="large, blue"/>
+                <UILabel text="$number" class="large, blue"/>
                 <LMSpacer/>
                 <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
                     titleLabel.shadowOffsetWidth="3" titleLabel.shadowOffsetHeight="3"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
                     onTouchUpInside="handleButtonTouchUpInside:"/>
+            </LMRowView>
+
+            <LMRowView>
+                <LMSpacer/>
+                    <UISegmentedControl>
+                        <segment title="$one"/>
+                        <segment title="$two"/>
+                        <segment title="$three"/>
+                    </UISegmentedControl>
+                <LMSpacer/>
             </LMRowView>
 
             <UIButton style="systemButton" title="@prompt" image="Right"

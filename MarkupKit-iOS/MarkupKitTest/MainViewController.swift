@@ -19,6 +19,12 @@ class MainViewController: UIViewController {
     @IBOutlet var greetingLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 
+    let number = "12345"
+
+    let one = "One"
+    let two = "Two"
+    let three = "Three"
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
