@@ -37,6 +37,7 @@ static NSString * const kOutletKey = @"id";
 
 static NSString * const kBindingPrefix = @"$";
 static NSString * const kLocalizedStringPrefix = @"@";
+static NSString * const kEscapePrefix = @"^";
 
 @interface LMIncludeContainer : UIView
 
@@ -521,6 +522,8 @@ static NSMutableDictionary *templateCache;
                         [properties setObject:[_owner valueForKeyPath:[value substringFromIndex:[kBindingPrefix length]]] forKey:key];
                     } else if ([value hasPrefix:kLocalizedStringPrefix]) {
                         [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil] forKey:key];
+                    } else if ([value hasPrefix:kEscapePrefix]) {
+                        [properties setObject:[value substringFromIndex:[kEscapePrefix length]] forKey:key];
                     }
                 }
 
@@ -576,8 +579,9 @@ static NSMutableDictionary *templateCache;
             if ([value hasPrefix:kBindingPrefix]) {
                 [_owner bind:[value substringFromIndex:[kBindingPrefix length]] toView:view withKeyPath:key];
             } else if ([value hasPrefix:kLocalizedStringPrefix]) {
-                [view setValue:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]]
-                    value:nil table:nil] forKeyPath:key];
+                [view setValue:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil] forKeyPath:key];
+            } else if ([value hasPrefix:kEscapePrefix]) {
+                [view setValue:[value substringFromIndex:[kEscapePrefix length]] forKeyPath:key];
             } else {
                 [view applyMarkupPropertyValue:[self valueForValue:value withKeyPath:key] forKeyPath:key];
             }

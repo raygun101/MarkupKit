@@ -39,7 +39,9 @@ limitations under the License.
             <LMRowView class="row.first">
                 <UILabel id="greetingLabel" class="label.greeting" text="@greeting"/>
                 <LMSpacer/>
-                <UILabel text="@missing.key" textAlignment="right" font="System 22"/>
+                <UILabel text="^$10.00" textAlignment="right" font="System 18"/>
+                <UILabel text="^@" textAlignment="center" font="System 18"/>
+                <UILabel text="@missing.key" textAlignment="left" font="System 18"/>
             </LMRowView>
 
             <foo>
