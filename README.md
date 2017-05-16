@@ -269,13 +269,25 @@ If a localized value is not found, the key will be used instead. This allows dev
 
 If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with the `bundleForImages` method discussed earlier, MarkupKit adds a default implementation of `bundleForStrings` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
+Note that a leading "@" character can be escaped by prepending a caret character to the text, as shown below:
+
+    <UILabel text="^@hello"/>
+
+This markup would produce a label containing the literal text "@hello", rather than the localized text to which the key "hello" refers in the string bundle.
+
 ### Data Binding
 Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view property will be automatically reflected in the other.
 
 For example, the following markup binds the `text` property of a text field to the `name` property of the owner:
 
     <UITextField text="$name"/>
- 
+    
+As with "@", a leading "$" character can be escaped using a caret:
+
+    <UILabel text="^$name"/>
+
+This markup would set the text of the label to the literal string "$name", rather than creating a binding.
+
 Bindings must be released before the owner is deallocated as well as any time the document is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
 
     deinit {
