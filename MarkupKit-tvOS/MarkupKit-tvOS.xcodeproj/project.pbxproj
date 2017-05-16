@@ -75,6 +75,7 @@
 		37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392361E50B06C00931587 /* CollectionViewController.xml */; };
 		37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B392371E50B06C00931587 /* ColorCell.swift */; };
 		37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392381E50B06C00931587 /* ColorCell.xml */; };
+		37D4BA4E1ECB874B000E4F9D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37D4BA4D1ECB874B000E4F9D /* Localizable.strings */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -294,6 +295,7 @@
 		37B392371E50B06C00931587 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorCell.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.swift"; sourceTree = "<group>"; };
 		37B392381E50B06C00931587 /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ColorCell.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.xml"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
+		37D4BA4D1ECB874B000E4F9D /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = "../../MarkupKit-iOS/MarkupKitDemo/Localizable.strings"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
 		37E579D51DF19090002984B9 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLayoutView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.m"; sourceTree = "<group>"; };
@@ -625,6 +627,7 @@
 				374D82A31E4CF0E400A45368 /* Icons.xcassets */,
 				37E57B311DF1B398002984B9 /* Assets.xcassets */,
 				37E57B331DF1B398002984B9 /* Info.plist */,
+				37D4BA4D1ECB874B000E4F9D /* Localizable.strings */,
 			);
 			path = MarkupKitDemo;
 			sourceTree = "<group>";
@@ -875,11 +878,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				374D82A01E4CEFDC00A45368 /* ViewController.xml in Resources */,
 				374D82A21E4CEFDC00A45368 /* IconCell.xml in Resources */,
 				3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */,
-				374D82A01E4CEFDC00A45368 /* ViewController.xml in Resources */,
 				37E57B321DF1B398002984B9 /* Assets.xcassets in Resources */,
 				374D82A41E4CF0E400A45368 /* Icons.xcassets in Resources */,
+				37D4BA4E1ECB874B000E4F9D /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

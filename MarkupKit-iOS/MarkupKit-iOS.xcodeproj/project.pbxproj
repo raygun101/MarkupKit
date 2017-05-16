@@ -1221,10 +1221,10 @@
 				37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */,
 				37E57B1F1DF1B1D8002984B9 /* IconCell.xml in Resources */,
 				37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */,
-				37B6AB121ECB3DCD004525E4 /* Localizable.strings in Resources */,
 				37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */,
 				37E57B091DF1B181002984B9 /* Assets.xcassets in Resources */,
 				37E57B0C1DF1B181002984B9 /* LaunchScreen.storyboard in Resources */,
+				37B6AB121ECB3DCD004525E4 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
