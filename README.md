@@ -791,6 +791,15 @@ The controller class extends `LMViewController` and overrides `tableView:numberO
             super.tableView(tableView, didSelectRowAt: indexPath)
         }
     }
+    
+Note that, unless the controller is defined in a storyboard, an `LMViewController` subclass must explicitly assign itself as the table view's data source and delegate in `loadView`:
+
+    override func loadView() {
+        view = LMViewBuilder.view(withName: "MyTableViewController", owner: self, root: nil)
+
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
 
 ## LMCollectionView and LMCollectionViewCell
 The `LMCollectionView` and `LMCollectionViewCell` classes facilitate the declaration of collection view content in markup. Both classes are discussed in more detail below.
