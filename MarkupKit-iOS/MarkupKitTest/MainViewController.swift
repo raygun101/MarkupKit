@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
 
     let number = "12345"
 
+    let prompt = NSAttributedString(string: "Press Me!")
+
     let one = "One"
     let two = "Two"
     let three = "Three"
@@ -35,6 +37,8 @@ class MainViewController: UIViewController {
         super.traitCollectionDidChange(previousTraitCollection)
 
         if (previousTraitCollection != nil) {
+            unbindAll()
+
             loadView()
             viewDidLoad()
         }

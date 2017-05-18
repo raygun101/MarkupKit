@@ -201,7 +201,6 @@
 		379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F41E40DECE00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */; };
-		37B6AB121ECB3DCD004525E4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37B6AB111ECB3DCD004525E4 /* Localizable.strings */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -220,6 +219,7 @@
 		37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* sample.jpg */; };
 		37E57B221DF1B1D8002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B1B1DF1B1D8002984B9 /* ViewController.swift */; };
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
+		37F70CEC1ECE49A000F3A861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F70CEE1ECE49A000F3A861 /* Localizable.strings */; };
 		37F899831E475E5700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899811E475E5700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899841E475E5700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899821E475E5700205A70 /* LMTableViewController.m */; };
 /* End PBXBuildFile section */
@@ -516,7 +516,6 @@
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
 		379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
 		379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
-		37B6AB111ECB3DCD004525E4 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -536,6 +535,7 @@
 		37E57B191DF1B1D8002984B9 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37E57B1B1DF1B1D8002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
+		37F70CED1ECE49A000F3A861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37F899811E475E5700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewController.h; sourceTree = "<group>"; };
 		37F899821E475E5700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -865,7 +865,7 @@
 				37E57B081DF1B181002984B9 /* Assets.xcassets */,
 				37E57B0A1DF1B181002984B9 /* LaunchScreen.storyboard */,
 				37E57B0D1DF1B181002984B9 /* Info.plist */,
-				37B6AB111ECB3DCD004525E4 /* Localizable.strings */,
+				37F70CEE1ECE49A000F3A861 /* Localizable.strings */,
 			);
 			path = MarkupKitDemo;
 			sourceTree = "<group>";
@@ -1224,7 +1224,7 @@
 				37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */,
 				37E57B091DF1B181002984B9 /* Assets.xcassets in Resources */,
 				37E57B0C1DF1B181002984B9 /* LaunchScreen.storyboard in Resources */,
-				37B6AB121ECB3DCD004525E4 /* Localizable.strings in Resources */,
+				37F70CEC1ECE49A000F3A861 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1450,6 +1450,14 @@
 				37E57B0B1DF1B181002984B9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		37F70CEE1ECE49A000F3A861 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				37F70CED1ECE49A000F3A861 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
