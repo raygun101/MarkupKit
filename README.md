@@ -276,17 +276,23 @@ Note that a leading "@" character can be escaped by prepending a caret character
 This markup would produce a label containing the literal text "@hello", rather than the localized text to which the key "hello" refers in the string bundle.
 
 ### Data Binding
-Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view property will be automatically reflected in the other.
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view will be automatically reflected in the other.
 
-For example, the following markup binds the `text` property of a text field to the `name` property of the owner:
+For example, an owning class might define a bindable property called `name` as follows:
+
+    class ViewController: UIViewController {
+        dynamic var name: String?
+
+        ...
+    }
+
+The following markup would create a binding between the `text` property of the text field and the owner's `name` property. Any updates to the text field would be reflected in `name`, and vice versa:
 
     <UITextField text="$name"/>
-    
-As with "@", a leading "$" character can be escaped using a caret:
+
+As with the "@" symbol, a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
 
     <UILabel text="^$name"/>
-
-This markup would set the text of the label to the literal string "$name", rather than creating a binding.
 
 Bindings must be released before the owner is deallocated as well as any time the document is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
 
@@ -449,14 +455,12 @@ MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class t
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
         <UITableViewHeaderFooterView textLabel.text="Section 1"/>        
-        
         ...
         
         <?sectionBreak?>
         
         <?sectionHeaderView?>
-        <UITableViewHeaderFooterView textLabel.text="Section 2"/>        
-
+        <UITableViewHeaderFooterView textLabel.text="Section 2"/>
         ...
     </LMTableView>
     
@@ -617,7 +621,6 @@ Alternatively, the `sectionHeaderView` processing instruction can be used to ass
     <LMTableView style="groupedTableView">
         <?sectionHeaderView?>
         <UITableViewHeaderFooterView textLabel.text="Section 1"/>
-
         ...
     </LMTableView>
 
@@ -791,7 +794,7 @@ The controller class extends `LMViewController` and overrides `tableView:numberO
             super.tableView(tableView, didSelectRowAt: indexPath)
         }
     }
-    
+
 Note that, unless the controller is defined in a storyboard, an `LMViewController` subclass must explicitly assign itself as the table view's data source and delegate in `loadView`:
 
     override func loadView() {
@@ -1422,6 +1425,7 @@ Button content is programmatically configured using methods such as `setTitle:fo
     @property (nonatomic, nullable) NSString *title;
     @property (nonatomic, nullable) UIColor *titleColor;
     @property (nonatomic, nullable) UIColor *titleShadowColor;
+    @property (nonatomic, nullable) NSAttributedString *attributedTitle;
     @property (nonatomic, nullable) UIImage *image;
     @property (nonatomic, nullable) UIImage *backgroundImage;
 

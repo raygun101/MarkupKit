@@ -59,6 +59,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nullable) UIColor *titleShadowColor UI_APPEARANCE_SELECTOR;
 
 /**
+ * The button's attributed title.
+ */
+@property (nonatomic, nullable) NSAttributedString *attributedTitle;
+
+/**
  * The button's image.
  */
 @property (nonatomic, nullable) UIImage *image;

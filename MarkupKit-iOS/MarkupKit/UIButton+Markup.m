@@ -71,6 +71,16 @@
     [self setTitleShadowColor:titleShadowColor forState:UIControlStateNormal];
 }
 
+- (NSAttributedString *)attributedTitle
+{
+    return [self attributedTitleForState:UIControlStateNormal];
+}
+
+- (void)setAttributedTitle:(NSAttributedString *)attributedTitle
+{
+    [self setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+}
+
 - (UIImage *)image
 {
     return [self imageForState:UIControlStateNormal];
