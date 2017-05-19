@@ -853,7 +853,6 @@
 				373BFB541DFB017100BB7509 /* FirstRowView.xml in Resources */,
 				373BFB551DFB017100BB7509 /* SecondRowView.xml in Resources */,
 				37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */,
-				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB561DFB017100BB7509 /* ThirdRowView.xml in Resources */,
 				373BFB571DFB017100BB7509 /* PharmacyCell.xml in Resources */,
 				373BFB581DFB017100BB7509 /* CustomSectionViewController.xml in Resources */,
@@ -863,17 +862,18 @@
 				373BFB5B1DFB017100BB7509 /* SizeClassViewController.xml in Resources */,
 				373BFB5C1DFB017100BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
 				373BFB5D1DFB017100BB7509 /* SizeClassViewController~vertical.xml in Resources */,
-				373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */,
-				37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */,
-				373BFB5F1DFB017100BB7509 /* chevy.png in Resources */,
+				379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */,
 				37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */,
+				37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */,
+				373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */,
+				373BFB5F1DFB017100BB7509 /* chevy.png in Resources */,
 				373BFB601DFB017100BB7509 /* mini.png in Resources */,
 				373BFB611DFB017100BB7509 /* vw.png in Resources */,
 				373BFB621DFB017100BB7509 /* sample.jpg in Resources */,
+				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
 				373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */,
 				373BFB661DFB017100BB7509 /* Colors.plist in Resources */,
-				379E4B411E4E42DA00FEDC2E /* PeriodicTableViewController.xml in Resources */,
 				373BFB671DFB017100BB7509 /* Fonts.plist in Resources */,
 				373BFB681DFB017100BB7509 /* pharmacies.json in Resources */,
 			);
@@ -915,8 +915,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */,
-				37B392391E50B06C00931587 /* CollectionViewController.swift in Sources */,
 				373BFB391DFB015000BB7509 /* AppDelegate.swift in Sources */,
 				373BFB3A1DFB015000BB7509 /* ViewController.swift in Sources */,
 				373BFB3B1DFB015000BB7509 /* RadioButtonViewController.swift in Sources */,
@@ -924,7 +922,6 @@
 				373BFB3D1DFB015000BB7509 /* GridViewController.swift in Sources */,
 				373BFB3E1DFB015000BB7509 /* AnchorViewController.swift in Sources */,
 				373BFB401DFB015000BB7509 /* ColorsAndFontsViewController.swift in Sources */,
-				379E4B401E4E42DA00FEDC2E /* PeriodicTableViewController.swift in Sources */,
 				373BFB411DFB015000BB7509 /* IncludesViewController.swift in Sources */,
 				373BFB421DFB015000BB7509 /* CustomCellViewController.swift in Sources */,
 				373BFB431DFB015000BB7509 /* PharmacyCell.swift in Sources */,
@@ -933,8 +930,11 @@
 				373BFB451DFB015000BB7509 /* LinearGradientViewController.swift in Sources */,
 				373BFB461DFB015000BB7509 /* RadialGradientViewController.swift in Sources */,
 				373BFB471DFB015000BB7509 /* SizeClassViewController.swift in Sources */,
-				373BFB481DFB015000BB7509 /* PlayerViewController.swift in Sources */,
+				379E4B401E4E42DA00FEDC2E /* PeriodicTableViewController.swift in Sources */,
+				37B392391E50B06C00931587 /* CollectionViewController.swift in Sources */,
+				37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */,
 				37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */,
+				373BFB481DFB015000BB7509 /* PlayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

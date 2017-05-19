@@ -27,7 +27,7 @@ limitations under the License.
         <item type="trash" action="trash"/>
     </UIToolbar>
 
-    <UILabel id="tabLabel" weight="1" textAlignment="center"/>
+    <UILabel id="tabLabel" weight="1" text="Select a tab or toolbar item." textAlignment="center"/>
 
     <UITabBar id="tabBar">
         <item type="featured" name="featured"/>
