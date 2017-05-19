@@ -1539,28 +1539,30 @@ For example, the following markup declares an instance of a default-style `UIPro
     <UIProgressView style="defaultProgressView"/>
 
 ### UIToolbar
-Toolbars are populated using the `items` property of `UIToobar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. The `item` element is used to add an item to a toolbar. The "title" attribute of the `item` tag can be used to specify an items's title:
+Toolbars are populated using the `items` property of `UIToolbar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. 
 
-    <UIToobar>
+The `item` element is used to add an item to a toolbar. The "title" attribute of the `item` tag can be used to specify an items's title:
+
+    <UIToolbar>
         <item title="OK"/>
         <item title="Cancel"/>
-    </UIToobar>
+    </UIToolbar>
 
 Similarly, the "image" attribute can be used to specify an image for an item:
 
-    <UIToobar>
+    <UIToolbar>
         <item image="ok.png"/>
         <item image="cancel.png"/>
-    </UIToobar>
+    </UIToolbar>
 
 Finally, the "type" attribute can be used to create a system-type toolbar item; for example:
 
-    <UIToobar>
+    <UIToolbar>
         <item type="play"/>
         <item type="pause"/>
         <item type="rewind"/>
         <item type="fastForward"/>        
-    </UIToobar>
+    </UIToolbar>
     
 The "action" attribute of the `item` tag can be used to associate an action with a toolbar item:
 
@@ -1578,6 +1580,41 @@ The action is not assigned to a specific target, so it will propagate up the res
 
     @IBAction func done(_ sender: UIBarButtonItem) {
         // User tapped done item
+    }
+
+### UITabBar and UITabBarItem
+Tab bars are populated using the `items` property of `UITabBar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow tab bar content to be configured in markup. 
+
+The `item` element is used to add an item to a tab bar. The "title", "image", and "selectedImage" attributes of the `item` tag can be used to specify the corresponding item properties:
+
+    <UITabBar>
+        <item title="Home" image="home.png" selectedImage="home_selected.png"/>
+        <item title="About" image="about.png" selectedImage="about_selected.png"/>
+        <item title="Contact Us" image="contact_us.png" selectedImage="contact_us_selected.png"/>
+    </UIToolbar>
+
+Additionally, the "type" attribute can be used to create a system-type tab bar item; for example:
+
+    <UITabBar>
+        <item type="featured"/>
+        <item type="recents"/>
+        <item type="bookmarks"/>
+    </UITabBar>
+
+Finally, MarkupKit adds a `name` property to the `UITabBarItem` class so selected tabs can be identified at run time:
+
+    <UILabel id="tabLabel" textAlignment="center"/>
+    
+    <UITabBar id="tabBar">
+        <item type="featured" name="featured"/>
+        <item type="recents" name="recents"/>
+        <item type="bookmarks" name="bookmarks"/>
+    </UITabBar>
+
+For example:
+
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        tabLabel.text = String(format: "You selected the \"%@\" tab.", item.name)
     }
 
 ### UIStackView
