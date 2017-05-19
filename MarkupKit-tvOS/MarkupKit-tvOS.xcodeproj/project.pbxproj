@@ -63,6 +63,8 @@
 		37596C1D1EAA2C2300D427B4 /* UILabel+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37596C1B1EAA2C2300D427B4 /* UILabel+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37596C1C1EAA2C2300D427B4 /* UILabel+Markup.m */; };
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
+		37659D4F1ECF57590043C9C1 /* UITabBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37659D4D1ECF57590043C9C1 /* UITabBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F71E40DF2A00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -279,6 +281,8 @@
 		3763AD3C1DF713AE00E88F7A /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pharmacies.json; path = "../../MarkupKit-iOS/MarkupKitExamples/pharmacies.json"; sourceTree = "<group>"; };
 		3763AD8C1DF714AF00E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = "../../MarkupKit-iOS/MarkupKitDemo/sample.jpg"; sourceTree = "<group>"; };
 		3763AD901DF7151900E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.jpg"; sourceTree = "<group>"; };
+		37659D4D1ECF57590043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBar+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITabBar+Markup.h"; sourceTree = "<group>"; };
+		37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UITabBar+Markup.m"; sourceTree = "<group>"; };
 		3787205F1DF70F53004FF42A /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378720681DF70F53004FF42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3787206A1DF70F53004FF42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -573,6 +577,8 @@
 				37E57A111DF19090002984B9 /* UIProgressView+Markup.m */,
 				37E57A121DF19090002984B9 /* UISearchBar+Markup.h */,
 				37E57A131DF19090002984B9 /* UISearchBar+Markup.m */,
+				37659D4D1ECF57590043C9C1 /* UITabBar+Markup.h */,
+				37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */,
 				37E57A141DF19090002984B9 /* UIToolbar+Markup.h */,
 				37E57A151DF19090002984B9 /* UIToolbar+Markup.m */,
 				37E57A161DF19090002984B9 /* UIStackView+Markup.h */,
@@ -639,6 +645,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37659D4F1ECF57590043C9C1 /* UITabBar+Markup.h in Headers */,
 				37E57A991DF1911F002984B9 /* MarkupKit.h in Headers */,
 				37E57A9A1DF1911F002984B9 /* LMLayoutView.h in Headers */,
 				37E57A9B1DF1911F002984B9 /* LMBoxView.h in Headers */,
@@ -947,6 +954,7 @@
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
 				37E57A8A1DF190F1002984B9 /* UIButton+Markup.m in Sources */,
 				37E57A8C1DF190F1002984B9 /* UISegmentedControl+Markup.m in Sources */,
+				37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */,
 				37E57A8D1DF190F1002984B9 /* UITextField+Markup.m in Sources */,
 				37E57A8E1DF190F1002984B9 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */,

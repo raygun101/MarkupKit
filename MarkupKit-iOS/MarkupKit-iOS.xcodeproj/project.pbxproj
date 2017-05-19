@@ -163,6 +163,8 @@
 		376306881DF188F400357E68 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB341DF18539006E6B3D /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306891DF188F400357E68 /* UICollectionViewFlowLayout+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB201DF18539006E6B3D /* UICollectionViewFlowLayout+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763068A1DF188F400357E68 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */; };
 		3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93D1DF1B66A0064CC82 /* Assets.xcassets */; };
 		3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */; };
 		3771E9461DF1B68A0064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
@@ -325,6 +327,8 @@
 		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
 		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
 		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
+		37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Markup.h"; sourceTree = "<group>"; };
+		37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Markup.m"; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3771E9401DF1B66A0064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -807,6 +811,8 @@
 				3799BB291DF18539006E6B3D /* UIProgressView+Markup.m */,
 				3799BB2C1DF18539006E6B3D /* UISearchBar+Markup.h */,
 				3799BB2D1DF18539006E6B3D /* UISearchBar+Markup.m */,
+				37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */,
+				37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */,
 				3799BB381DF18539006E6B3D /* UIToolbar+Markup.h */,
 				3799BB391DF18539006E6B3D /* UIToolbar+Markup.m */,
 				3799BB301DF18539006E6B3D /* UIStackView+Markup.h */,
@@ -877,6 +883,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */,
 				376306631DF188F400357E68 /* MarkupKit.h in Headers */,
 				376306641DF188F400357E68 /* LMLayoutView.h in Headers */,
 				376306651DF188F400357E68 /* LMBoxView.h in Headers */,
@@ -1328,6 +1335,7 @@
 				376306591DF188BF00357E68 /* UIPickerView+Markup.m in Sources */,
 				3763065A1DF188BF00357E68 /* UIProgressView+Markup.m in Sources */,
 				3763065B1DF188BF00357E68 /* UISearchBar+Markup.m in Sources */,
+				37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */,
 				3763065C1DF188BF00357E68 /* UIToolbar+Markup.m in Sources */,
 				3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */,
 				3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */,
