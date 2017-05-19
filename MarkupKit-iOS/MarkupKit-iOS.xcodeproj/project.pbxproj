@@ -199,6 +199,8 @@
 		3771EAA01DF1C2720064CC82 /* Styles2~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */; };
 		3771EAA11DF1C2D00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */; };
 		377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A69731DFB105500E06CD1 /* SlidersViewController.swift */; };
 		377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377A69741DFB105500E06CD1 /* SlidersViewController.xml */; };
 		379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F31E40DECE00C56838 /* UIResponder+Markup.m */; };
@@ -437,6 +439,8 @@
 		3771EA9A1DF1C2720064CC82 /* Styles2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles2.json; sourceTree = "<group>"; };
 		3771EA9B1DF1C2720064CC82 /* Styles2~horizontal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~horizontal.json"; sourceTree = "<group>"; };
 		3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
+		37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Markup.h"; sourceTree = "<group>"; };
+		37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Markup.m"; sourceTree = "<group>"; };
 		377A69731DFB105500E06CD1 /* SlidersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidersViewController.swift; sourceTree = "<group>"; };
 		377A69741DFB105500E06CD1 /* SlidersViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlidersViewController.xml; sourceTree = "<group>"; };
 		379214F31E40DECE00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Markup.m"; sourceTree = "<group>"; };
@@ -819,6 +823,8 @@
 				3799BB2D1DF18539006E6B3D /* UISearchBar+Markup.m */,
 				37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */,
 				37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */,
+				37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */,
+				37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */,
 				3799BB381DF18539006E6B3D /* UIToolbar+Markup.h */,
 				3799BB391DF18539006E6B3D /* UIToolbar+Markup.m */,
 				3799BB301DF18539006E6B3D /* UIStackView+Markup.h */,
@@ -889,7 +895,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */,
 				376306631DF188F400357E68 /* MarkupKit.h in Headers */,
 				376306641DF188F400357E68 /* LMLayoutView.h in Headers */,
 				376306651DF188F400357E68 /* LMBoxView.h in Headers */,
@@ -927,6 +932,8 @@
 				376306811DF188F400357E68 /* UIPickerView+Markup.h in Headers */,
 				376306821DF188F400357E68 /* UIProgressView+Markup.h in Headers */,
 				376306831DF188F400357E68 /* UISearchBar+Markup.h in Headers */,
+				37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */,
+				37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */,
 				376306841DF188F400357E68 /* UIToolbar+Markup.h in Headers */,
 				376306851DF188F400357E68 /* UIStackView+Markup.h in Headers */,
 				376306861DF188F400357E68 /* UIScrollView+Markup.h in Headers */,
@@ -1344,6 +1351,7 @@
 				3763065A1DF188BF00357E68 /* UIProgressView+Markup.m in Sources */,
 				3763065B1DF188BF00357E68 /* UISearchBar+Markup.m in Sources */,
 				37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */,
+				37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */,
 				3763065C1DF188BF00357E68 /* UIToolbar+Markup.m in Sources */,
 				3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */,
 				3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */,

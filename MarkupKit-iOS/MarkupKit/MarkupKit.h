@@ -58,6 +58,7 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/UIProgressView+Markup.h>
 #import <MarkupKit/UISearchBar+Markup.h>
 #import <MarkupKit/UITabBar+Markup.h>
+#import <MarkupKit/UITabBarItem+Markup.h>
 #import <MarkupKit/UIToolbar+Markup.h>
 #import <MarkupKit/UIStackView+Markup.h>
 #import <MarkupKit/UIScrollView+Markup.h>
