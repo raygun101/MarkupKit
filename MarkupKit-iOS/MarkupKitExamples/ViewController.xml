@@ -47,7 +47,6 @@ limitations under the License.
 
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
     <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
-    <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
 
     <?case iOS?>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
@@ -55,4 +54,5 @@ limitations under the License.
     <?end?>
 
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
+    <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
 </LMTableView>

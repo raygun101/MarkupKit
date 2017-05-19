@@ -33,6 +33,7 @@ class BarsViewController: UIViewController, UITabBarDelegate {
         tabBar.delegate = self
     }
 
+    #if os(iOS)
     func compose() {
         performAction(name: "compose")
     }
@@ -60,6 +61,7 @@ class BarsViewController: UIViewController, UITabBarDelegate {
 
         present(alertController, animated: true, completion: nil)
     }
+    #endif
 
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         tabLabel.text = String(format: "You selected the \"%@\" tab.", item.name)

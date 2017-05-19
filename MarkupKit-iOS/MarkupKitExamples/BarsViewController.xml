@@ -15,6 +15,7 @@ limitations under the License.
 -->
 
 <LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+    <?case iOS?>
     <UIToolbar>
         <item type="compose" action="compose"/>
         <item type="flexibleSpace"/>
@@ -26,8 +27,9 @@ limitations under the License.
         <item type="flexibleSpace"/>
         <item type="trash" action="trash"/>
     </UIToolbar>
+    <?end?>
 
-    <UILabel id="tabLabel" weight="1" text="Select a tab or toolbar item." textAlignment="center"/>
+    <UILabel id="tabLabel" weight="1" text="Select a tab." textAlignment="center"/>
 
     <UITabBar id="tabBar">
         <item type="featured" name="featured"/>
