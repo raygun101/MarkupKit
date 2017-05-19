@@ -165,6 +165,8 @@
 		3763068A1DF188F400357E68 /* UIVisualEffectView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB3C1DF18539006E6B3D /* UIVisualEffectView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */; };
+		37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D511ECF59290043C9C1 /* BarsViewController.swift */; };
+		37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D521ECF59290043C9C1 /* BarsViewController.xml */; };
 		3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93D1DF1B66A0064CC82 /* Assets.xcassets */; };
 		3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */; };
 		3771E9461DF1B68A0064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
@@ -329,6 +331,8 @@
 		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Markup.h"; sourceTree = "<group>"; };
 		37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Markup.m"; sourceTree = "<group>"; };
+		37659D511ECF59290043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsViewController.swift; sourceTree = "<group>"; };
+		37659D521ECF59290043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BarsViewController.xml; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3771E9401DF1B66A0064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -683,6 +687,8 @@
 				3771E9F01DF1BAC20064CC82 /* MapViewController.xml */,
 				3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */,
 				3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */,
+				37659D511ECF59290043C9C1 /* BarsViewController.swift */,
+				37659D521ECF59290043C9C1 /* BarsViewController.xml */,
 				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
 				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
 				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
@@ -1171,6 +1177,7 @@
 				373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */,
 				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
 				373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */,
+				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
 				373BFB2D1DFB007B00BB7509 /* chevy.png in Resources */,
 				373BFB2E1DFB007B00BB7509 /* mini.png in Resources */,
 				373BFB2F1DFB007B00BB7509 /* vw.png in Resources */,
@@ -1283,6 +1290,7 @@
 				373BFB081DFB003800BB7509 /* WebViewController.swift in Sources */,
 				373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */,
 				373BFB0A1DFB003800BB7509 /* PlayerViewController.swift in Sources */,
+				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

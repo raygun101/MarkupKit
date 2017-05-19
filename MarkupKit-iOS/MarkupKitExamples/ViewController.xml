@@ -54,4 +54,5 @@ limitations under the License.
     <?end?>
 
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
+    <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
 </LMTableView>

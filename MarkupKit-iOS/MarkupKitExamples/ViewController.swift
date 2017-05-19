@@ -100,6 +100,8 @@ class ViewController: UITableViewController {
             #endif
         } else if (value == "playerView") {
             navigationController!.pushViewController(PlayerViewController(), animated: true)
+        } else if (value == "bars") {
+            navigationController!.pushViewController(BarsViewController(), animated: true)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }

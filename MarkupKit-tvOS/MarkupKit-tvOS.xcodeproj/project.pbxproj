@@ -65,6 +65,8 @@
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
 		37659D4F1ECF57590043C9C1 /* UITabBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37659D4D1ECF57590043C9C1 /* UITabBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */; };
+		37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D551ECF59600043C9C1 /* BarsViewController.swift */; };
+		37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D561ECF59600043C9C1 /* BarsViewController.xml */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F71E40DF2A00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -283,6 +285,8 @@
 		3763AD901DF7151900E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.jpg"; sourceTree = "<group>"; };
 		37659D4D1ECF57590043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBar+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITabBar+Markup.h"; sourceTree = "<group>"; };
 		37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UITabBar+Markup.m"; sourceTree = "<group>"; };
+		37659D551ECF59600043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarsViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.swift"; sourceTree = "<group>"; };
+		37659D561ECF59600043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BarsViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.xml"; sourceTree = "<group>"; };
 		3787205F1DF70F53004FF42A /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		378720681DF70F53004FF42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3787206A1DF70F53004FF42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -457,6 +461,8 @@
 				3763ACFA1DF713AE00E88F7A /* PharmacyCell.xml */,
 				3763AD051DF713AE00E88F7A /* CustomSectionViewController.swift */,
 				3763AD061DF713AE00E88F7A /* CustomSectionViewController.xml */,
+				37659D551ECF59600043C9C1 /* BarsViewController.swift */,
+				37659D561ECF59600043C9C1 /* BarsViewController.xml */,
 				3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */,
 				3763AD001DF713AE00E88F7A /* EffectViewController.xml */,
 				3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */,
@@ -851,6 +857,7 @@
 				373BFB5C1DFB017100BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
 				373BFB5D1DFB017100BB7509 /* SizeClassViewController~vertical.xml in Resources */,
 				373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */,
+				37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */,
 				373BFB5F1DFB017100BB7509 /* chevy.png in Resources */,
 				37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */,
 				373BFB601DFB017100BB7509 /* mini.png in Resources */,
@@ -920,6 +927,7 @@
 				373BFB461DFB015000BB7509 /* RadialGradientViewController.swift in Sources */,
 				373BFB471DFB015000BB7509 /* SizeClassViewController.swift in Sources */,
 				373BFB481DFB015000BB7509 /* PlayerViewController.swift in Sources */,
+				37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

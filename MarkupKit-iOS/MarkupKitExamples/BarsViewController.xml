@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  BarsViewController.xml
+  MarkupKit-iOS
+
+  Created by Greg Brown on 5/19/17.
+
+-->
+
+<LMColumnView backgroundColor="#ffffff">
+    <!-- TODO -->
+</LMColumnView>
