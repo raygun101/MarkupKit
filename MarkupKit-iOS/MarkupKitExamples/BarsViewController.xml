@@ -29,5 +29,11 @@ limitations under the License.
 
     <LMSpacer/>
 
-    <UITabBar/>
+    <UITabBar>
+        <item type="featured"/>
+        <item type="recents"/>
+        <item type="bookmarks"/>
+        <item type="search"/>
+        <item type="downloads"/>
+    </UITabBar>
 </LMColumnView>

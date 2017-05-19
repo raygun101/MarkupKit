@@ -13,7 +13,97 @@
 //
 
 #import "UITabBar+Markup.h"
+#import "NSObject+Markup.h"
+
+static NSDictionary *tabBarItemPositioningValues;
+
+static NSString * const kItemTag = @"item";
+
+static NSString * const kItemTypeKey = @"type";
+static NSString * const kItemTitleKey = @"title";
+static NSString * const kItemImageKey = @"image";
+static NSString * const kItemSelectedImageKey = @"selectedImage";
 
 @implementation UITabBar (Markup)
+
++ (void)initialize
+{
+    tabBarItemPositioningValues = @{
+        @"automatic": @(UITabBarItemPositioningAutomatic),
+        @"fill": @(UITabBarItemPositioningFill),
+        @"centered": @(UITabBarItemPositioningCentered)
+    };
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"itemPositioning"]) {
+        value = [tabBarItemPositioningValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
+}
+
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
+{
+    if ([tag isEqual:kItemTag]) {
+        NSMutableArray *items = [NSMutableArray arrayWithArray:[self items]];
+
+        UITabBarItem *item = nil;
+
+        NSString *type = [properties objectForKey:kItemTypeKey];
+
+        if (type != nil) {
+            UITabBarSystemItem tabBarSystemItem;
+            if ([type isEqual:@"more"]) {
+                tabBarSystemItem = UITabBarSystemItemMore;
+            } else if ([type isEqual:@"favorites"]) {
+                tabBarSystemItem = UITabBarSystemItemFavorites;
+            } else if ([type isEqual:@"featured"]) {
+                tabBarSystemItem = UITabBarSystemItemFeatured;
+            } else if ([type isEqual:@"topRated"]) {
+                tabBarSystemItem = UITabBarSystemItemTopRated;
+            } else if ([type isEqual:@"recents"]) {
+                tabBarSystemItem = UITabBarSystemItemRecents;
+            } else if ([type isEqual:@"contacts"]) {
+                tabBarSystemItem = UITabBarSystemItemContacts;
+            } else if ([type isEqual:@"history"]) {
+                tabBarSystemItem = UITabBarSystemItemHistory;
+            } else if ([type isEqual:@"bookmarks"]) {
+                tabBarSystemItem = UITabBarSystemItemBookmarks;
+            } else if ([type isEqual:@"search"]) {
+                tabBarSystemItem = UITabBarSystemItemSearch;
+            } else if ([type isEqual:@"downloads"]) {
+                tabBarSystemItem = UITabBarSystemItemDownloads;
+            } else if ([type isEqual:@"mostRecent"]) {
+                tabBarSystemItem = UITabBarSystemItemMostRecent;
+            } else if ([type isEqual:@"mostViewed"]) {
+                tabBarSystemItem = UITabBarSystemItemMostViewed;
+            } else {
+                return;
+            }
+
+            item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItem tag:0];
+        } else {
+            NSString *title = [properties objectForKey:kItemTitleKey];
+            NSString *image = [properties objectForKey:kItemImageKey];
+            NSString *selectedImage = [properties objectForKey:kItemSelectedImageKey];
+
+            item = [[UITabBarItem alloc] initWithTitle:title
+                image:(image == nil) ? nil : [UIImage imageNamed:image]
+                selectedImage:(selectedImage == nil) ? nil : [UIImage imageNamed:selectedImage]];
+        }
+
+        if (item != nil) {
+            // TODO Set key
+
+            [items addObject:item];
+        }
+
+        [self setItems:items];
+
+        [self sizeToFit];
+    }
+}
 
 @end

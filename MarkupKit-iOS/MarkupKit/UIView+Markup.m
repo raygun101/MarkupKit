@@ -432,21 +432,6 @@ static NSDictionary *anchorValues;
     [self setLayoutMargins:layoutMargins];
 }
 
-- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
-{
-    // No-op
-}
-
-- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
-{
-    // No-op
-}
-
-- (void)appendMarkupElementView:(UIView *)view
-{
-    // No-op
-}
-
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"contentMode"]) {
@@ -538,6 +523,21 @@ static NSDictionary *anchorValues;
     }
 
     [super applyMarkupPropertyValue:value forKey:key];
+}
+
+- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+{
+    // No-op
+}
+
+- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
+{
+    // No-op
+}
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    // No-op
 }
 
 @end
