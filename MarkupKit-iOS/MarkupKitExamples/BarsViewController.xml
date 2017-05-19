@@ -27,13 +27,13 @@ limitations under the License.
         <item type="trash" action="trash"/>
     </UIToolbar>
 
-    <LMSpacer/>
+    <UILabel id="tabLabel" weight="1" textAlignment="center"/>
 
-    <UITabBar>
-        <item type="featured"/>
-        <item type="recents"/>
-        <item type="bookmarks"/>
-        <item type="search"/>
-        <item type="downloads"/>
+    <UITabBar id="tabBar">
+        <item type="featured" name="featured"/>
+        <item type="recents" name="recents"/>
+        <item type="bookmarks" name="bookmarks"/>
+        <item type="search" name="search"/>
+        <item type="downloads" name="downloads"/>
     </UITabBar>
 </LMColumnView>

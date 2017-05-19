@@ -14,6 +14,18 @@
 
 #import "UITabBarItem+Markup.h"
 
+#import <objc/message.h>
+
 @implementation UITabBarItem (Markup)
+
+- (NSString *)name
+{
+    return objc_getAssociatedObject(self, @selector(name));
+}
+
+- (void)setName:(NSString *)name
+{
+    objc_setAssociatedObject(self, @selector(name), name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end

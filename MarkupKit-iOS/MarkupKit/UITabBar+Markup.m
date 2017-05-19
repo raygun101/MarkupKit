@@ -13,6 +13,7 @@
 //
 
 #import "UITabBar+Markup.h"
+#import "UITabBarItem+Markup.h"
 #import "NSObject+Markup.h"
 
 static NSDictionary *tabBarItemPositioningValues;
@@ -23,6 +24,7 @@ static NSString * const kItemTypeKey = @"type";
 static NSString * const kItemTitleKey = @"title";
 static NSString * const kItemImageKey = @"image";
 static NSString * const kItemSelectedImageKey = @"selectedImage";
+static NSString * const kItemNameKey = @"name";
 
 @implementation UITabBar (Markup)
 
@@ -94,11 +96,9 @@ static NSString * const kItemSelectedImageKey = @"selectedImage";
                 selectedImage:(selectedImage == nil) ? nil : [UIImage imageNamed:selectedImage]];
         }
 
-        if (item != nil) {
-            // TODO Set key
+        [item setName:[properties objectForKey:kItemNameKey]];
 
-            [items addObject:item];
-        }
+        [items addObject:item];
 
         [self setItems:items];
 

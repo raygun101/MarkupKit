@@ -18,7 +18,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UITabBarItem (Markup)
 
-// TODO
+/**
+ * The name associated with the tab bar item, or <code>nil</code> for no name.
+ */
+@property (nonatomic) NSString *name;
 
 @end
 

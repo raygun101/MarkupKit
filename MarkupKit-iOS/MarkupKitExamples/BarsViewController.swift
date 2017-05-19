@@ -15,7 +15,10 @@
 import UIKit
 import MarkupKit
 
-class BarsViewController: UIViewController {
+class BarsViewController: UIViewController, UITabBarDelegate {
+    @IBOutlet var tabLabel: UILabel!
+    @IBOutlet var tabBar: UITabBar!
+    
     override func loadView() {
         view = LMViewBuilder.view(withName:"BarsViewController", owner: self, root: nil)
     }
@@ -26,6 +29,8 @@ class BarsViewController: UIViewController {
         title = "Bars"
 
         edgesForExtendedLayout = UIRectEdge()
+
+        tabBar.delegate = self
     }
 
     func compose() {
@@ -49,10 +54,14 @@ class BarsViewController: UIViewController {
     }
 
     func performAction(name: String) {
-        let alertController = UIAlertController(title: "Action", message: String(format: "You selected \"%@\".", name), preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Action Performed", message: String(format: "You selected \"%@\".", name), preferredStyle: .alert)
 
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
 
         present(alertController, animated: true, completion: nil)
+    }
+
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        tabLabel.text = String(format: "You selected the \"%@\" tab.", item.name)
     }
 }
