@@ -43,7 +43,7 @@ class ViewController: LMTableViewController {
 
         title = Bundle.main.localizedString(forKey: "title", value: nil, table: nil)
 
-        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.self.description())
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.description())
 
         // Load row list
         let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
@@ -78,7 +78,7 @@ class ViewController: LMTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
-            let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.self.description()) as! CustomCell
+            let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.description(), for: indexPath) as! CustomCell
 
             customCell.content = rows[indexPath.row]
 

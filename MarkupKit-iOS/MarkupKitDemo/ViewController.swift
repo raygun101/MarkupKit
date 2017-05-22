@@ -54,7 +54,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
 
         collectionView.dataSource = self
         
-        collectionView?.register(IconCell.self, forCellWithReuseIdentifier: IconCell.self.description())
+        collectionView?.register(IconCell.self, forCellWithReuseIdentifier: IconCell.description())
 
         #if os(iOS)
         slider.minimumValue = Float(stepper.minimumValue)
@@ -108,7 +108,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCell.self.description(), for: indexPath) as! IconCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: IconCell.description(), for: indexPath) as! IconCell
 
         cell.imageView.image = UIImage(named: icons[indexPath.item])
 

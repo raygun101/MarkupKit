@@ -23,7 +23,7 @@ class CustomCellViewController: UITableViewController {
         title = "Custom Cell View"
         
         // Configure table view
-        tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.self.description())
+        tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.description())
         tableView.estimatedRowHeight = 2
 
         // Load pharmacy list
@@ -47,7 +47,7 @@ class CustomCellViewController: UITableViewController {
         let pharmacy = pharmacies[index]
 
         // Configure cell with pharmacy data
-        let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.self.description()) as! PharmacyCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.description(), for: indexPath) as! PharmacyCell
 
         cell.name = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
 
