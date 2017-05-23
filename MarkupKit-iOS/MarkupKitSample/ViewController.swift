@@ -80,7 +80,10 @@ class ViewController: LMTableViewController {
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
             let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.description(), for: indexPath) as! CustomCell
 
-            customCell.content = rows[indexPath.row]
+            let row = rows[indexPath.row]
+
+            customCell.heading = row["heading"] as? String
+            customCell.detail = row["detail"] as? String
 
             cell = customCell
         } else {
