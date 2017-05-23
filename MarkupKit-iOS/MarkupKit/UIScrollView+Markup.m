@@ -94,7 +94,19 @@ static NSDictionary *keyboardDismissModeValues;
 #if TARGET_OS_IOS
 - (NSInteger)currentPage
 {
-    return [self isPagingEnabled] ? (NSInteger)[self contentOffset].x / [self frame].size.width : 0;
+    return (NSInteger)[self contentOffset].x / [self frame].size.width;
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage
+{
+    [self setCurrentPage:currentPage animated:NO];
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
+{
+    CGRect frame = [self frame];
+
+    [self scrollRectToVisible:CGRectMake(frame.size.width * currentPage, 0, frame.size.width, frame.size.height) animated:animated];
 }
 #endif
 

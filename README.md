@@ -1004,9 +1004,7 @@ Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the he
 See [LMScrollView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMScrollView.h) for more information.
 
 ## LMPageView
-The `LMPageView` class extends the standard `UIScrollView` class to enable the declaration of paged scroll view content. By default, an `LMPageView` instance enables paging on itself and disables scrolling.  
-
-For example, the following markup declares a page view containing three pages. Pages appear in the order in which they are declared:
+The `LMPageView` class extends the standard `UIScrollView` class to enable the declaration of paged scroll view content. For example, the following markup declares a page view containing three pages. Pages appear in the order in which they are declared:
 
     <LMPageView>
         <UILabel text="Page 1" textAlignment="center"/>
@@ -1014,13 +1012,13 @@ For example, the following markup declares a page view containing three pages. P
         <UILabel text="Page 3" textAlignment="center"/>
     </LMPageView>
 
-Page views are commonly used as the bottom layer in a layer view; a layer containing a `UIPageControl` is typically placed above the page view to reflect the current page number. MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
+MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.currentPage
     }
-
-Layer views are discussed in more detail later.
+    
+MarkupKit's extensions to `UIScrollView` are discussed in more detail later.
 
 `LMPageView` is available in iOS only. See [LMPageView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPageView.h) for more information.
 
@@ -1637,11 +1635,11 @@ MarkupKit adds the following properties to `UIScrollView` to allow the scroll vi
     @property (nonatomic) CGFloat contentInsetBottom;
     @property (nonatomic) CGFloat contentInsetRight;
 
-Additionally, MarkupKit adds this property to help simplify interaction with paged scroll views: 
+Additionally, MarkupKit adds this property and method to help simplify interaction with paged scroll views (including `LMPageView`): 
 
-    @property (nonatomic, readonly) NSInteger currentPage;
-
-If the scroll view is in paging mode, the property returns the index of the current page. Otherwise, it returns 0.
+    @property (nonatomic) NSInteger currentPage;
+    
+    - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated;
 
 ### UITableView
 MarkupKit adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`:
