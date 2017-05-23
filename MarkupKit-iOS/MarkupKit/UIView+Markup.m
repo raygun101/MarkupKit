@@ -142,7 +142,8 @@ static NSDictionary *anchorValues;
         @"left": @(LMAnchorLeft),
         @"right": @(LMAnchorRight),
         @"leading": @(LMAnchorLeading),
-        @"trailing": @(LMAnchorTrailing)
+        @"trailing": @(LMAnchorTrailing),
+        @"all": @(LMAnchorAll)
     };
 }
 
