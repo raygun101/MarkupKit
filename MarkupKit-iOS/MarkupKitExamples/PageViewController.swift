@@ -33,6 +33,10 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
         pageView.delegate = self
     }
 
+    func updatePage() {
+        pageView.currentPage = pageControl.currentPage
+    }
+
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         pageControl.currentPage = scrollView.currentPage
     }

@@ -31,9 +31,8 @@ limitations under the License.
 
     <LMColumnView>
         <LMSpacer/>
-        <UIPageControl id="pageControl" numberOfPages="3"
-            pageIndicatorTintColor="#ffff0077" currentPageIndicatorTintColor="#ffff00ff"
-            userInteractionEnabled="false"/>
+        <UIPageControl id="pageControl" numberOfPages="3" onValueChanged="updatePage"
+            pageIndicatorTintColor="#ffff0077" currentPageIndicatorTintColor="#ffff00ff"/>
     </LMColumnView>
 </LMLayerView>
 
