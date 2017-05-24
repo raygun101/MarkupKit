@@ -16,7 +16,7 @@ import UIKit
 import WebKit
 import MarkupKit
 
-class WebViewController: UIViewController {
+class WebViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var webView: WKWebView!
     @IBOutlet var urlTextField: UITextField!
     
@@ -30,6 +30,8 @@ class WebViewController: UIViewController {
         title = "Web View"
 
         edgesForExtendedLayout = UIRectEdge()
+
+        urlTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +60,15 @@ class WebViewController: UIViewController {
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-    
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        loadURL()
+
+        return false
+    }
+
     func keyboardWillShow(_ notification: Notification) {
         let layoutView = view as! LMLayoutView
 
