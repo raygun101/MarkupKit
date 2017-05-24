@@ -57,14 +57,14 @@
             multiplier:1 constant:topSpacing]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-            multiplier:1 constant:0]];
+            multiplier:1 constant:-bottomSpacing]];
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
             relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
             multiplier:1 constant:0]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
             relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-            multiplier:1 constant:-bottomSpacing]];
+            multiplier:1 constant:0]];
     }
 
     return constraints;

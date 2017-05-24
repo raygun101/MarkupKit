@@ -60,11 +60,15 @@ class WebViewController: UIViewController {
     }
     
     func keyboardWillShow(_ notification: Notification) {
-        (view as! LMColumnView).bottomSpacing = ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size.height
+        let layoutView = view as! LMLayoutView
+
+        layoutView.bottomSpacing = ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size.height
     }
     
     func keyboardWillHide(_ notification: Notification) {
-        (view as! LMColumnView).bottomSpacing = 0
+        let layoutView = view as! LMLayoutView
+
+        layoutView.bottomSpacing = 0
     }
     
     @IBAction func loadURL() {
