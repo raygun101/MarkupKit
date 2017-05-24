@@ -25,20 +25,6 @@
     [self setNeedsUpdateConstraints];
 }
 
-- (void)setTopSpacing:(CGFloat)topSpacing
-{
-    _topSpacing = topSpacing;
-
-    [self setNeedsUpdateConstraints];
-}
-
-- (void)setBottomSpacing:(CGFloat)bottomSpacing
-{
-    _bottomSpacing = bottomSpacing;
-
-    [self setNeedsUpdateConstraints];
-}
-
 - (void)layoutSubviews
 {
     // Don't give subviews a higher horizontal content compression resistance priority than this view's
@@ -63,8 +49,6 @@
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    CGFloat spacing = [self spacing];
-
     NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
     if ([self layoutMarginsRelativeArrangement]) {
         topAttribute = NSLayoutAttributeTopMargin;
@@ -78,6 +62,10 @@
         rightAttribute = NSLayoutAttributeRight;
     }
 
+    CGFloat topSpacing = [self topSpacing];
+
+    CGFloat spacing = [self spacing];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -90,7 +78,7 @@
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:_topSpacing]];
+                multiplier:1 constant:topSpacing]];
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
@@ -139,7 +127,7 @@
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-            multiplier:1 constant:-_bottomSpacing]];
+            multiplier:1 constant:-[self bottomSpacing]]];
     }
 
     return constraints;

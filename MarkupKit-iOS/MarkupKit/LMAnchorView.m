@@ -70,6 +70,9 @@
         trailingAttribute = NSLayoutAttributeTrailing;
     }
 
+    CGFloat topSpacing = [self topSpacing];
+    CGFloat bottomSpacing = [self bottomSpacing];
+
     for (UIView *subview in _arrangedSubviews) {
         LMAnchor anchor = [subview anchor];
 
@@ -77,13 +80,13 @@
             if (anchor & LMAnchorTop) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                    multiplier:1 constant:0]];
+                    multiplier:1 constant:topSpacing]];
             }
 
             if (anchor & LMAnchorBottom) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-                    multiplier:1 constant:0]];
+                    multiplier:1 constant:-bottomSpacing]];
             }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterY

@@ -1032,7 +1032,7 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 * `LMLayerView` - arranges subviews in layers, like a stack of transparencies
 * `LMAnchorView` - optionally anchors subviews to one or more edges
 
-These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly.
+These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly. They can be nested to create complex layouts that automatically adjust to orientation or screen size changes.
 
 All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
     
@@ -1040,7 +1040,7 @@ All layout view types extend the abstract `LMLayoutView` class, which defines th
     - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
     - (void)removeArrangedSubview:(UIView *)view;
 
-These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. A read-only property that returns the current list of arranged subviews is also provided:
+These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself so that layout views can be constructed in markup. A read-only property that returns the current list of arranged subviews is also provided:
 
     @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
 
@@ -1050,13 +1050,27 @@ These methods manage the list of the layout view's "arranged subviews", which ar
 
 This value specifies that subviews will be arranged relative to the view's layout margins. The default value is `true`. However, in some cases, `UIKit` provides default non-overridable values for a view's margins. In these cases, setting this flag to `false` instructs the view to ignore margins altogether and align subviews to the layout view's edges directly. 
 
+Additionally, `LMLayoutView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
+
+    @property (nonatomic) CGFloat topSpacing;
+    @property (nonatomic) CGFloat bottomSpacing;
+    
+These properties can be used to ensure that the view's content is not obscured by another user interface element such as the status bar or a navigation bar. For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top and bottom spacing to the length of the controller's top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        let layoutView = view as! LMLayoutView
+
+        layoutView.topSpacing = topLayoutGuide.length
+        layoutView.bottomSpacing = bottomLayoutGuide.length
+    }
+
 Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
 
 By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view causes the view to begin consuming events.
 
-`LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` so that layout views can be easily constructed in markup. Additionally, layout views can be nested to create complex layouts that automatically adjust to orientation or screen size changes. 
-
-All three layout view types are discussed in more detail in the following sections. See [LMLayoutView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLayoutView.h) for more information.
+See [LMLayoutView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLayoutView.h) for more information.
 
 ## LMRowView and LMColumnView
 The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following property:
@@ -1141,23 +1155,6 @@ For example, the following markup would produce a grid containing three rows arr
     </LMColumnView>
 
 The `weight` values ensure that the second label in each row is allocated all of the remaining space within the row after the size of the first label has been determined. Weights are discussed in more detail below.
-
-Finally, `LMColumnView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
-
-    @property (nonatomic) CGFloat topSpacing;
-    @property (nonatomic) CGFloat bottomSpacing;
-    
-These properties can be used to ensure that the column view's content is not obscured by another user interface element such as the status bar or a navigation bar. 
-
-For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top spacing to the length of the controller's top layout guide, ensuring that the first subview is positioned below the guide:
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        columnView.topSpacing = topLayoutGuide.length
-    }
-
-Bottom spacing can be set similarly using the controller's bottom layout guide.
 
 See [LMColumnView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMColumnView.h) for more information.
 

@@ -107,6 +107,9 @@ static NSDictionary *baselineValues;
         trailingAttribute = NSLayoutAttributeTrailing;
     }
 
+    CGFloat topSpacing = [self topSpacing];
+    CGFloat bottomSpacing = [self bottomSpacing];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -161,19 +164,19 @@ static NSDictionary *baselineValues;
         if (_alignToBaseline) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:topSpacing]];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                 relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:-bottomSpacing]];
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:topSpacing]];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:-bottomSpacing]];
         }
 
         previousSubview = subview;

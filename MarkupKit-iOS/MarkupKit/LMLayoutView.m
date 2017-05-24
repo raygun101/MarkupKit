@@ -114,6 +114,20 @@
     [self setNeedsUpdateConstraints];
 }
 
+- (void)setTopSpacing:(CGFloat)topSpacing
+{
+    _topSpacing = topSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setBottomSpacing:(CGFloat)bottomSpacing
+{
+    _bottomSpacing = bottomSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
 - (UIView *)viewForBaselineLayout
 {
     return ([_arrangedSubviews count] == 0) ? [super viewForBaselineLayout] : [[_arrangedSubviews firstObject] viewForBaselineLayout];

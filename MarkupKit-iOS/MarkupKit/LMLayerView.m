@@ -48,10 +48,13 @@
         rightAttribute = NSLayoutAttributeRight;
     }
 
+    CGFloat topSpacing = [self topSpacing];
+    CGFloat bottomSpacing = [self bottomSpacing];
+
     for (UIView *subview in _arrangedSubviews) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
             relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-            multiplier:1 constant:0]];
+            multiplier:1 constant:topSpacing]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:0]];
@@ -61,7 +64,7 @@
             multiplier:1 constant:0]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
             relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-            multiplier:1 constant:0]];
+            multiplier:1 constant:-bottomSpacing]];
     }
 
     return constraints;
