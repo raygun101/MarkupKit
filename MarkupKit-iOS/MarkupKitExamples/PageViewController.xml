@@ -14,18 +14,18 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMPageView id="pageView">
-        <LMColumnView layoutMargins="40" backgroundColor="#ff0000">
-            <UIImageView image="chevy.png" contentMode="center" backgroundColor="#ffffff"/>
+        <LMColumnView layoutMargins="40" backgroundColor="red">
+            <UIImageView image="chevy.png" contentMode="center" backgroundColor="white"/>
         </LMColumnView>
 
-        <LMColumnView layoutMargins="40" backgroundColor="#00ff00">
-            <UIImageView image="mini.png" contentMode="center" backgroundColor="#ffffff"/>
+        <LMColumnView layoutMargins="40" backgroundColor="green">
+            <UIImageView image="mini.png" contentMode="center" backgroundColor="white"/>
         </LMColumnView>
 
-        <LMColumnView layoutMargins="40" backgroundColor="#0000ff">
-            <UIImageView image="vw.png" contentMode="center" backgroundColor="#ffffff"/>
+        <LMColumnView layoutMargins="40" backgroundColor="blue">
+            <UIImageView image="vw.png" contentMode="center" backgroundColor="white"/>
         </LMColumnView>
     </LMPageView>
 

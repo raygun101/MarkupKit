@@ -34,7 +34,7 @@ limitations under the License.
 }?>
 <?end?>
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMAnchorView layoutMargins="16">
         <UILabel class="label" text="Top Left" anchor="top, left"/>
         <UILabel class="label" text="Top" anchor="top"/>

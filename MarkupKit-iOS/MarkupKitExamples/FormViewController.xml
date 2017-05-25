@@ -33,7 +33,7 @@ limitations under the License.
     }
 }?>
 
-<LMScrollView fitToWidth="true" backgroundColor="#ffffff">
+<LMScrollView fitToWidth="true" backgroundColor="white">
     <LMColumnView alignToGrid="true" layoutMargins="20">
         <LMRowView alignToBaseline="true">
             <UILabel class="label" text="Name"/>

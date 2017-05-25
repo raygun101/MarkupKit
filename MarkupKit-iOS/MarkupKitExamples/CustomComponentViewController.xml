@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMColumnView layoutMargins="20">
         <LMPickerView id="pickerView">
             <?componentName sizes?>
@@ -38,8 +38,7 @@ limitations under the License.
         </LMPickerView>
 
         <LMRowView layoutMarginTop="10" layoutMarginBottom="10"
-            layer.borderColor="#cccccc"
-            layer.borderWidth="0.5">
+            layer.borderColor="#cccccc" layer.borderWidth="0.5">
             <UILabel id="sizeLabel" font="caption1" textAlignment="center" weight="1"/>
             <UILabel id="colorLabel" font="caption1" textAlignment="center" weight="1"/>
             <UILabel id="numberLabel" font="caption1" textAlignment="center" weight="1"/>

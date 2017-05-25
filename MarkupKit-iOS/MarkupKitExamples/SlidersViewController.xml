@@ -26,7 +26,7 @@ limitations under the License.
     }
 }?>
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMColumnView layoutMargins="20" spacing="20">
         <LMColumnView class="columnView.border" alignToGrid="true" layoutMargins="10">
             <LMRowView>

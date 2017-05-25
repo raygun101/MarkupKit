@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="#ffffff">
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMScrollView fitToWidth="true">
         <LMColumnView layoutMargins="10">
             <UILabel id="label1" numberOfLines="0" lineBreakMode="byWordWrapping"/>
