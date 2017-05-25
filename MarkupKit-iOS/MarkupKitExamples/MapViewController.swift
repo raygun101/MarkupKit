@@ -16,7 +16,7 @@ import UIKit
 import MapKit
 import MarkupKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var mapView: MKMapView!
     @IBOutlet var latitudeTextField: UITextField!
     @IBOutlet var longitudeTextField: UITextField!
@@ -33,6 +33,9 @@ class MapViewController: UIViewController {
         title = "Map View"
 
         edgesForExtendedLayout = UIRectEdge()
+
+        latitudeTextField.delegate = self
+        longitudeTextField.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +63,14 @@ class MapViewController: UIViewController {
         
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+
+        showLocation()
+
+        return false
     }
 
     func keyboardWillShow(_ notification: Notification) {
