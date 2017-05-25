@@ -27,7 +27,7 @@ This guide introduces the MarkupKit framework and provides an overview of its ke
 
 MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
-For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
+For additional information and examples, including code templates, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
 # Contents
 * [Document Structure](#document-structure)
@@ -1055,7 +1055,7 @@ Additionally, `LMLayoutView` defines two properties that specify the amount of s
     @property (nonatomic) CGFloat topSpacing;
     @property (nonatomic) CGFloat bottomSpacing;
     
-These properties can be used to ensure that the view's content is not obscured by another user interface element such as the status bar or a navigation bar. For example, a view controller class might override the `viewWillLayoutSubviews` method to set the top and bottom spacing to the length of the controller's top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
+These properties are typically used in conjuction with `layoutMarginsRelativeArrangement` to ensure that a view's content is not obscured by other user interface elements such as the status bar or a navigation bar. For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
