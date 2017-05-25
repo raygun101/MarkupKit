@@ -19,4 +19,8 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
 
         // TODO: Perform any post-load configuration
     }
+
+    deinit {
+        unbindAll()
+    }
 }

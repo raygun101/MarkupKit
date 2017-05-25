@@ -22,4 +22,8 @@ class ___FILEBASENAMEASIDENTIFIER___: LMTableViewController {
 
         // TODO: Perform any post-load configuration
     }
+
+    deinit {
+        unbindAll()
+    }
 }
