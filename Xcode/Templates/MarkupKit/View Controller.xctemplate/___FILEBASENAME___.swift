@@ -23,4 +23,13 @@ class ___FILEBASENAMEASIDENTIFIER___: UIViewController {
     deinit {
         unbindAll()
     }
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        let layoutView = view as! LMLayoutView
+
+        layoutView.topSpacing = topLayoutGuide.length
+        layoutView.bottomSpacing = bottomLayoutGuide.length
+    }
 }
