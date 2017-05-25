@@ -81,7 +81,7 @@ limitations under the License.
                 layer.cornerRadius="6"
                 onTouchUpInside="handleButtonTouchUpInside:"/>
 
-            <LMRowView alignToBaseline="true" backgroundColor="#ff00ff">
+            <LMRowView alignToBaseline="true" topSpacing="20" bottomSpacing="10" backgroundColor="#ff00ff">
                 <LMSpacer/>
                 <UILabel text="abcd" font="Helvetica 16"/>
                 <UILabel text="efg" font="Helvetica 32" backgroundColor="yellow"/>
