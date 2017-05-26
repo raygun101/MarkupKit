@@ -21,6 +21,10 @@
 {
     // Ensure that subviews resize
     for (UIView *subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         LMAnchor anchor = [subview anchor];
 
         UILayoutPriority verticalPriority;
@@ -74,6 +78,10 @@
     CGFloat bottomSpacing = [self bottomSpacing];
 
     for (UIView *subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         LMAnchor anchor = [subview anchor];
 
         if (anchor & LMAnchorTop || anchor & LMAnchorBottom) {

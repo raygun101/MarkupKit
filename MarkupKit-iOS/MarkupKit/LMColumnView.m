@@ -33,6 +33,10 @@
 
     // Ensure that subviews resize according to weight
     for (UIView * subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         [subview setContentCompressionResistancePriority:horizontalContentCompressionResistancePriority forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 

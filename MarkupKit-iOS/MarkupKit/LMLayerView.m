@@ -20,6 +20,10 @@
 {
     // Ensure that subviews resize
     for (UIView * subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         
@@ -52,6 +56,10 @@
     CGFloat bottomSpacing = [self bottomSpacing];
 
     for (UIView *subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
             relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
             multiplier:1 constant:topSpacing]];

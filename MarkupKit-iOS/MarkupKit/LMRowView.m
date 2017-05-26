@@ -69,6 +69,10 @@ static NSDictionary *baselineValues;
     }
 
     for (UIView * subview in _arrangedSubviews) {
+        if ([subview isHidden]) {
+            continue;
+        }
+
         [subview setContentCompressionResistancePriority:verticalContentCompressionResistancePriority forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
