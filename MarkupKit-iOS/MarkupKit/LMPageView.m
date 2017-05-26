@@ -94,6 +94,20 @@
     [super willRemoveSubview:subview];
 }
 
+- (void)layoutSubviews
+{
+    // Ensure that pages resize
+    for (UIView * page in _pages) {
+        [page setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        [page setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        
+        [page setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+        [page setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+    }
+
+    [super layoutSubviews];
+}
+
 - (void)setNeedsUpdateConstraints
 {
     if (_constraints != nil) {
