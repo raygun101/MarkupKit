@@ -71,8 +71,9 @@ class WebViewController: UIViewController, UITextFieldDelegate {
 
     func keyboardWillShow(_ notification: Notification) {
         let layoutView = view as! LMLayoutView
+        let frame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! CGRect
 
-        layoutView.bottomSpacing = ((notification as NSNotification).userInfo![UIKeyboardFrameBeginUserInfoKey]! as AnyObject).cgRectValue.size.height
+        layoutView.bottomSpacing = frame.height
     }
     
     func keyboardWillHide(_ notification: Notification) {

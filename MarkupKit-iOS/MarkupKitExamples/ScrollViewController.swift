@@ -31,8 +31,8 @@ class ScrollViewController: UIViewController {
         let textPath = Bundle.main.path(forResource: "sample", ofType: "txt")
         let text = try? String(contentsOfFile: textPath!, encoding: String.Encoding.ascii)
 
-        label1.text = text as String?
-        label2.text = text as String?
+        label1.text = text
+        label2.text = text
     }
 
     @IBAction func showGreeting() {
