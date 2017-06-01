@@ -13,27 +13,17 @@
 //
 
 import UIKit
-import MarkupKit
 
 /**
- * Custom table view cell.
+ * Model class representing a table row.
  */
-class CustomCell: LMTableViewCell {
-    // View model
-    dynamic var row: Row!
+class Row: NSObject {
+    var heading: String?
+    var detail: String?
 
-    // Initializers
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    init(dictionary: [String: AnyObject]) {
+        super.init()
 
-        LMViewBuilder.view(withName: "CustomCell", owner: self, root: self)
-    }
-
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-    }
-
-    deinit {
-        unbindAll()
+        setValuesForKeys(dictionary)
     }
 }

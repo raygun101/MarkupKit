@@ -25,7 +25,7 @@ class ViewController: LMTableViewController {
     @IBOutlet var footerSwitch: UISwitch!
 
     // Properties
-    var rows: [[String: AnyObject]]!
+    var rows: [Row]!
 
     let dynamicSectionName = "dynamic"
 
@@ -48,7 +48,11 @@ class ViewController: LMTableViewController {
         // Load row list
         let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
 
-        rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
+        let rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
+
+        self.rows = rows.map({
+            return Row(dictionary: $0)
+        })
     }
 
     // Button press handler
@@ -80,10 +84,7 @@ class ViewController: LMTableViewController {
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
             let customCell = tableView.dequeueReusableCell(withIdentifier: CustomCell.description(), for: indexPath) as! CustomCell
 
-            let row = rows[indexPath.row]
-
-            customCell.heading = row["heading"] as? String
-            customCell.detail = row["detail"] as? String
+            customCell.row = rows[indexPath.row]
 
             cell = customCell
         } else {
@@ -102,8 +103,8 @@ class ViewController: LMTableViewController {
 
             detailViewController.loadView()
 
-            detailViewController.headingLabel.text = row["heading"] as? String
-            detailViewController.detailLabel.text = row["detail"] as? String
+            detailViewController.headingLabel.text = row.heading
+            detailViewController.detailLabel.text = row.detail
 
             present(detailViewController, animated: true)
         } else {
