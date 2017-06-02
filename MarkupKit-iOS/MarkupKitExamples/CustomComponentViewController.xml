@@ -38,7 +38,7 @@ limitations under the License.
         </LMPickerView>
 
         <LMRowView layoutMarginTop="10" layoutMarginBottom="10"
-            layer.borderColor="#cccccc" layer.borderWidth="0.5">
+            layer.borderWidth="0.5" layer.borderColor="#cccccc">
             <UILabel id="sizeLabel" font="caption1" textAlignment="center" weight="1"/>
             <UILabel id="colorLabel" font="caption1" textAlignment="center" weight="1"/>
             <UILabel id="numberLabel" font="caption1" textAlignment="center" weight="1"/>

@@ -21,16 +21,16 @@ limitations under the License.
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="@staticContent"/>
 
-    <LMTableViewCell class="cell.input">
+    <LMTableViewCell class="inputCell">
         <UITextField id="textField1" placeholder="@textField1"/>
     </LMTableViewCell>
 
-    <LMTableViewCell class="cell.input">
+    <LMTableViewCell class="inputCell">
         <UITextField id="textField2" placeholder="@textField2"/>
     </LMTableViewCell>
 
     <?sectionFooterView?>
-    <UITableViewCell class="cell.footer" textLabel.text="@switch">
+    <UITableViewCell class="footerCell" textLabel.text="@switch">
         <UISwitch id="footerSwitch"/>
     </UITableViewCell>
 

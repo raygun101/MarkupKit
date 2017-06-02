@@ -15,12 +15,7 @@ limitations under the License.
 -->
 
 <?properties {
-    "columnView.border": {
-        "layer.borderColor": "#cccccc",
-        "layer.borderWidth": 0.5
-    },
-
-    "slider.color": {
+    "colorSlider": {
         "minimumValue": 0.0,
         "maximumValue": 1.0
     }
@@ -28,22 +23,24 @@ limitations under the License.
 
 <LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
     <LMColumnView layoutMargins="20" spacing="20">
-        <LMColumnView class="columnView.border" alignToGrid="true" layoutMargins="10">
+        <LMColumnView alignToGrid="true" layoutMargins="10"
+            layer.borderWidth="0.5" layer.borderColor="#cccccc">
             <LMRowView>
                 <UILabel text="Red"/>
-                <UISlider id="redSlider" class="slider.color" onValueChanged="sliderValueChanged:"/>
+                <UISlider id="redSlider" class="colorSlider" onValueChanged="sliderValueChanged:"/>
             </LMRowView>
             <LMRowView>
                 <UILabel text="Green"/>
-                <UISlider id="greenSlider" class="slider.color" onValueChanged="sliderValueChanged:"/>
+                <UISlider id="greenSlider" class="colorSlider" onValueChanged="sliderValueChanged:"/>
             </LMRowView>
             <LMRowView>
                 <UILabel text="Blue"/>
-                <UISlider id="blueSlider" class="slider.color" onValueChanged="sliderValueChanged:"/>
+                <UISlider id="blueSlider" class="colorSlider" onValueChanged="sliderValueChanged:"/>
             </LMRowView>
         </LMColumnView>
 
-        <LMColumnView class="columnView.border" layoutMargins="10" weight="1">
+        <LMColumnView layoutMargins="10" weight="1"
+            layer.borderWidth="0.5" layer.borderColor="#cccccc">
             <UIView id="colorView"/>
         </LMColumnView>
     </LMColumnView>
