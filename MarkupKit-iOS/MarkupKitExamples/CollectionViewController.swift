@@ -34,7 +34,7 @@ class CollectionViewController: UICollectionViewController {
 
         edgesForExtendedLayout = UIRectEdge()
 
-        collectionView?.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.description())
+        collectionView!.register(ColorCell.self, forCellWithReuseIdentifier: ColorCell.description())
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

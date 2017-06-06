@@ -54,7 +54,7 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
 
         collectionView.dataSource = self
         
-        collectionView?.register(IconCell.self, forCellWithReuseIdentifier: IconCell.description())
+        collectionView.register(IconCell.self, forCellWithReuseIdentifier: IconCell.description())
 
         #if os(iOS)
         slider.minimumValue = Float(stepper.minimumValue)
