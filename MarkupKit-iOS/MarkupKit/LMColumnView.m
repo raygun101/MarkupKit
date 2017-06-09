@@ -66,8 +66,6 @@
         trailingAttribute = NSLayoutAttributeTrailing;
     }
 
-    CGFloat topSpacing = [self topSpacing];
-
     CGFloat leadingSpacing = [self leadingSpacing];
     CGFloat trailingSpacing = [self trailingSpacing];
 
@@ -85,7 +83,7 @@
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:topSpacing]];
+                multiplier:1 constant:[self topSpacing]]];
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom

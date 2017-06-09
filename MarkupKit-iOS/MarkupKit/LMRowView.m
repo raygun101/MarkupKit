@@ -96,8 +96,6 @@ static NSDictionary *baselineValues;
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    CGFloat spacing = [self spacing];
-
     NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
     if ([self layoutMarginsRelativeArrangement]) {
         topAttribute = NSLayoutAttributeTopMargin;
@@ -114,6 +112,8 @@ static NSDictionary *baselineValues;
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
 
+    CGFloat spacing = [self spacing];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -126,7 +126,7 @@ static NSDictionary *baselineValues;
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
-                multiplier:1 constant:0]];
+                multiplier:1 constant:[self leadingSpacing]]];
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
@@ -190,7 +190,7 @@ static NSDictionary *baselineValues;
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
-            multiplier:1 constant:0]];
+            multiplier:1 constant:-[self trailingSpacing]]];
     }
 
     return constraints;
