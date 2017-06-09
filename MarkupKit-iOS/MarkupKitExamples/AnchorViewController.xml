@@ -34,20 +34,20 @@ limitations under the License.
 }?>
 <?end?>
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
-    <LMAnchorView layoutMargins="16">
-        <UILabel class="label" text="Top Left" anchor="top, left"/>
-        <UILabel class="label" text="Top" anchor="top"/>
-        <UILabel class="label" text="Top Right" anchor="top, right"/>
+<LMAnchorView layoutMarginsRelativeArrangement="false"
+    topSpacing="16" bottomSpacing="16" leadingSpacing="16" trailingSpacing="16"
+    backgroundColor="white">
+    <UILabel class="label" text="Top Leading" anchor="top, leading"/>
+    <UILabel class="label" text="Top" anchor="top"/>
+    <UILabel class="label" text="Top Trailing" anchor="top, trailing"/>
 
-        <UILabel class="label" text="Left" anchor="left"/>
+    <UILabel class="label" text="Leading" anchor="leading"/>
 
-        <UILabel class="label" text="None"/>
+    <UILabel class="label" text="None"/>
 
-        <UILabel class="label" text="Right" anchor="right"/>
+    <UILabel class="label" text="Trailing" anchor="trailing"/>
 
-        <UILabel class="label" text="Bottom Left" anchor="bottom, left"/>
-        <UILabel class="label" text="Bottom" anchor="bottom"/>
-        <UILabel class="label" text="Bottom Right" anchor="bottom, right"/>
-    </LMAnchorView>
-</LMLayerView>
+    <UILabel class="label" text="Bottom Leading" anchor="bottom, leading"/>
+    <UILabel class="label" text="Bottom" anchor="bottom"/>
+    <UILabel class="label" text="Bottom Trailing" anchor="bottom, trailing"/>
+</LMAnchorView>

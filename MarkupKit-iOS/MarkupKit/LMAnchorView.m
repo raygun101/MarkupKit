@@ -76,6 +76,8 @@
 
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
+    CGFloat leadingSpacing = [self leadingSpacing];
+    CGFloat trailingSpacing = [self trailingSpacing];
 
     for (UIView *subview in _arrangedSubviews) {
         if ([subview isHidden]) {
@@ -119,13 +121,13 @@
             if (anchor & LMAnchorLeading) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
-                    multiplier:1 constant:0]];
+                    multiplier:1 constant:leadingSpacing]];
             }
 
             if (anchor & LMAnchorTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
-                    multiplier:1 constant:0]];
+                    multiplier:1 constant:-trailingSpacing]];
             }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX

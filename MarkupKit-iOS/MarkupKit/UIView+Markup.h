@@ -42,7 +42,7 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
     LMAnchorTrailing    = 1 << 5,
 
     /** All anchors. */
-    LMAnchorAll = 0xFFFFFFFF
+    LMAnchorAll = LMAnchorTop | LMAnchorBottom | LMAnchorLeading | LMAnchorTrailing
 };
 
 @interface UIView (Markup)
