@@ -39,21 +39,23 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to layer view edges
-    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
+    NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
     if ([self layoutMarginsRelativeArrangement]) {
         topAttribute = NSLayoutAttributeTopMargin;
         bottomAttribute = NSLayoutAttributeBottomMargin;
-        leftAttribute = NSLayoutAttributeLeftMargin;
-        rightAttribute = NSLayoutAttributeRightMargin;
+        leadingAttribute = NSLayoutAttributeLeadingMargin;
+        trailingAttribute = NSLayoutAttributeTrailingMargin;
     } else {
         topAttribute = NSLayoutAttributeTop;
         bottomAttribute = NSLayoutAttributeBottom;
-        leftAttribute = NSLayoutAttributeLeft;
-        rightAttribute = NSLayoutAttributeRight;
+        leadingAttribute = NSLayoutAttributeLeading;
+        trailingAttribute = NSLayoutAttributeTrailing;
     }
 
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
+    CGFloat leadingSpacing = [self leadingSpacing];
+    CGFloat trailingSpacing = [self trailingSpacing];
 
     for (UIView *subview in _arrangedSubviews) {
         if ([subview isHidden]) {
@@ -67,12 +69,12 @@
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:-bottomSpacing]];
 
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
-            multiplier:1 constant:0]];
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-            multiplier:1 constant:0]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+            multiplier:1 constant:leadingSpacing]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+            multiplier:1 constant:-trailingSpacing]];
     }
 
     return constraints;
