@@ -1161,7 +1161,7 @@ See [LMColumnView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit
 ### Fixed Dimensions
 Although views are typically arranged based on their intrinsic content sizes, it is occasionally necessary to assign a fixed value for a particular view dimension. MarkupKit adds the following properties to `UIView` to facilitate explicit size definition:
 
-    @property (nonatomic) CGFloat width;    
+    @property (nonatomic) CGFloat width;
     @property (nonatomic) CGFloat height;
     
 For example, the following markup declares an image view whose `height` property is set to 240 pixels:
@@ -1169,6 +1169,10 @@ For example, the following markup declares an image view whose `height` property
     <UIImageView image="world.png" contentMode="scaleAspectFit" height="240"/>
     
 If the image is smaller or larger than 240 pixels tall, it will be scaled up or down to fit within this height. Since the content mode is set to "scaleAspectFit", the width will be adjusted accordingly so that the image retains the correct aspect ratio.
+
+Alternatively, the following property can be used to allow a view's dimensions to vary while maintaining a fixed aspect ratio:
+
+    @property (nonatomic) CGFloat aspectRatio;
 
 ### Bounded Dimensions
 MarkupKit also adds the following properties to `UIView`, which are used to define bounded values for a given dimension:
@@ -1186,9 +1190,6 @@ For example, the following markup declares a `UILabel` instance with a minimum w
         minimumWidth="120" maximumWidth="240"/>
         
 This ensures that the label will be at least 120 pixels and at most 240 pixels wide.
-
-### Aspect Ratio
-TODO
 
 ### View Weights
 Often, a row or column view will be given more space than it needs to accommodate the intrinsic sizes of its subviews. MarkupKit adds the following property to `UIView` that is used to determine how the extra space should be allocated:

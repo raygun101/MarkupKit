@@ -127,6 +127,10 @@ limitations under the License.
             <?case iOS?>
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"
                 layer.shadowOpacity="0.5" layer.shadowOffsetHeight="8" layer.shadowRadius="10"/>
+
+            <LMAnchorView>
+                <UIView anchor="top, bottom" width="80" aspectRatio="1.0" backgroundColor="#0000ff"/>
+            </LMAnchorView>
         </LMColumnView>
     </LMLayerView>
 </root>
