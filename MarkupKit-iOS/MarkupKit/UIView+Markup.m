@@ -163,7 +163,7 @@ static NSDictionary *anchorValues;
     if (!isnan(width)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(width, 0)];
+            multiplier:1 constant:width];
     } else {
         constraint = nil;
     }
@@ -189,7 +189,7 @@ static NSDictionary *anchorValues;
     if (!isnan(minimumWidth)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(minimumWidth, 0)];
+            multiplier:1 constant:minimumWidth];
     } else {
         constraint = nil;
     }
@@ -215,7 +215,7 @@ static NSDictionary *anchorValues;
     if (!isnan(maximumWidth)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(maximumWidth, 0)];
+            multiplier:1 constant:maximumWidth];
     } else {
         constraint = nil;
     }
@@ -241,7 +241,7 @@ static NSDictionary *anchorValues;
     if (!isnan(height)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(height, 0)];
+            multiplier:1 constant:height];
     } else {
         constraint = nil;
     }
@@ -267,7 +267,7 @@ static NSDictionary *anchorValues;
     if (!isnan(minimumHeight)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(minimumHeight, 0)];
+            multiplier:1 constant:minimumHeight];
     } else {
         constraint = nil;
     }
@@ -293,7 +293,7 @@ static NSDictionary *anchorValues;
     if (!isnan(maximumHeight)) {
         constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
             relatedBy:NSLayoutRelationLessThanOrEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:MAX(maximumHeight, 0)];
+            multiplier:1 constant:maximumHeight];
     } else {
         constraint = nil;
     }
@@ -301,6 +301,32 @@ static NSDictionary *anchorValues;
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(maximumHeight), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (CGFloat)aspectRatio
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(aspectRatio));
+
+    return (constraint == nil) ? NAN : [constraint constant];
+}
+
+- (void)setAspectRatio:(CGFloat)aspectRatio
+{
+    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(aspectRatio));
+
+    [constraint setActive:NO];
+
+    if (!isnan(aspectRatio)) {
+        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeHeight
+            multiplier:aspectRatio constant:0];
+    } else {
+        constraint = nil;
+    }
+
+    [constraint setActive:YES];
+
+    objc_setAssociatedObject(self, @selector(aspectRatio), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (CGFloat)weight
@@ -312,10 +338,6 @@ static NSDictionary *anchorValues;
 
 - (void)setWeight:(CGFloat)weight
 {
-    if (weight <= 0) {
-        return;
-    }
-
     objc_setAssociatedObject(self, @selector(weight), isnan(weight) ? nil : [NSNumber numberWithFloat:weight],
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 

@@ -1187,6 +1187,9 @@ For example, the following markup declares a `UILabel` instance with a minimum w
         
 This ensures that the label will be at least 120 pixels and at most 240 pixels wide.
 
+### Aspect Ratio
+TODO
+
 ### View Weights
 Often, a row or column view will be given more space than it needs to accommodate the intrinsic sizes of its subviews. MarkupKit adds the following property to `UIView` that is used to determine how the extra space should be allocated:
 
