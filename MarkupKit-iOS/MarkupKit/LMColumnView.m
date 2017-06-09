@@ -53,20 +53,23 @@
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
+    NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
     if ([self layoutMarginsRelativeArrangement]) {
         topAttribute = NSLayoutAttributeTopMargin;
         bottomAttribute = NSLayoutAttributeBottomMargin;
-        leftAttribute = NSLayoutAttributeLeftMargin;
-        rightAttribute = NSLayoutAttributeRightMargin;
+        leadingAttribute = NSLayoutAttributeLeadingMargin;
+        trailingAttribute = NSLayoutAttributeTrailingMargin;
     } else {
         topAttribute = NSLayoutAttributeTop;
         bottomAttribute = NSLayoutAttributeBottom;
-        leftAttribute = NSLayoutAttributeLeft;
-        rightAttribute = NSLayoutAttributeRight;
+        leadingAttribute = NSLayoutAttributeLeading;
+        trailingAttribute = NSLayoutAttributeTrailing;
     }
 
     CGFloat topSpacing = [self topSpacing];
+
+    CGFloat leadingSpacing = [self leadingSpacing];
+    CGFloat trailingSpacing = [self trailingSpacing];
 
     CGFloat spacing = [self spacing];
 
@@ -102,12 +105,12 @@
         }
 
         // Align to parent
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
-            multiplier:1 constant:0]];
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
-            multiplier:1 constant:0]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+            multiplier:1 constant:leadingSpacing]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+            multiplier:1 constant:-trailingSpacing]];
 
         // Align subviews
         if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {

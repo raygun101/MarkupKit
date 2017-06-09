@@ -128,6 +128,20 @@
     [self setNeedsUpdateConstraints];
 }
 
+- (void)setLeadingSpacing:(CGFloat)leadingSpacing
+{
+    _leadingSpacing = leadingSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setTrailingSpacing:(CGFloat)trailingSpacing
+{
+    _trailingSpacing = trailingSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
 - (UIView *)viewForBaselineLayout
 {
     return ([_arrangedSubviews count] == 0) ? [super viewForBaselineLayout] : [[_arrangedSubviews firstObject] viewForBaselineLayout];

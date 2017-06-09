@@ -1050,12 +1050,14 @@ These methods manage the list of the layout view's "arranged subviews", which ar
 
 This value specifies that subviews will be arranged relative to the view's layout margins. The default value is `true`. However, in some cases, `UIKit` provides default non-overridable values for a view's margins. In these cases, setting this flag to `false` instructs the view to ignore margins altogether and align subviews to the layout view's edges directly. 
 
-Additionally, `LMLayoutView` defines two properties that specify the amount of space that should be reserved at the top and bottom of the view, respectively:
+Additionally, `LMLayoutView` defines four properties that specify the amount of additional space that should be reserved at the top/bottom and leading/trailing edges of the view, respectively:
 
     @property (nonatomic) CGFloat topSpacing;
     @property (nonatomic) CGFloat bottomSpacing;
+    @property (nonatomic) CGFloat leadingSpacing;
+    @property (nonatomic) CGFloat trailingSpacing;
     
-These properties are typically used in conjuction with `layoutMarginsRelativeArrangement` to ensure that a view's content is not obscured by other user interface elements such as the status bar or a navigation bar. For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
+The vertical spacing properties are often used in conjuction with `layoutMarginsRelativeArrangement` to ensure that a view's content is not obscured by other user interface elements such as the status bar or a navigation bar. For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -1065,6 +1067,8 @@ These properties are typically used in conjuction with `layoutMarginsRelativeArr
         layoutView.topSpacing = topLayoutGuide.length
         layoutView.bottomSpacing = bottomLayoutGuide.length
     }
+    
+The horizontal spacing properties can be used to create locale-aware margins.
 
 Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
 
