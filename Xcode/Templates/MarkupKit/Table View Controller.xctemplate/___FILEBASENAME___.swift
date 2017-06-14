@@ -10,6 +10,10 @@ import UIKit
 import MarkupKit
 
 class ___FILEBASENAMEASIDENTIFIER___: LMTableViewController {
+    deinit {
+        unbindAll()
+    }
+
     override func loadView() {
         view = LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: nil)
 
@@ -21,9 +25,5 @@ class ___FILEBASENAMEASIDENTIFIER___: LMTableViewController {
         super.viewDidLoad()
 
         // TODO: Perform any post-load configuration
-    }
-
-    deinit {
-        unbindAll()
     }
 }
