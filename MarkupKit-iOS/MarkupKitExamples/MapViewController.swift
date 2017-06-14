@@ -61,7 +61,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
 
         let defaultNotificationCenter = NotificationCenter.default
         
-        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
