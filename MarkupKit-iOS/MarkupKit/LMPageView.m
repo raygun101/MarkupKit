@@ -20,6 +20,8 @@
     NSMutableArray *_pages;
     NSInteger _currentPage;
 
+    BOOL _animating;
+
     NSArray *_constraints;
 }
 
@@ -30,6 +32,7 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
+    [self setDelegate:self]; \
     [self setPagingEnabled:YES];\
     [self setShowsHorizontalScrollIndicator:NO];\
     [self setShowsVerticalScrollIndicator:NO];\
@@ -94,6 +97,22 @@
     [self removePage:subview];
 
     [super willRemoveSubview:subview];
+}
+
+- (void)setBounds:(CGRect)bounds
+{
+    [super setBounds:bounds];
+
+    if (![self isDragging] && !_animating) {
+        [self setContentOffset:CGPointMake(_currentPage * [self bounds].size.width, [self contentOffset].y)];
+    }
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
+{
+    [super setCurrentPage:currentPage animated:animated];
+
+    _animating = YES;
 }
 
 - (void)layoutSubviews
@@ -182,6 +201,18 @@
     }
 
     [super updateConstraints];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    _currentPage = [self currentPage];
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
+{
+    _currentPage = [self currentPage];
+
+    _animating = NO;
 }
 
 - (void)appendMarkupElementView:(UIView *)view

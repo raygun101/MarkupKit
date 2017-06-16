@@ -33,18 +33,18 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
         pageView.delegate = self
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        updatePage()
-    }
-
     func updatePage() {
         pageView.setCurrentPage(pageControl.currentPage, animated: true)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        scrollView.scrollViewDidEndDecelerating(scrollView)
+
         pageControl.currentPage = scrollView.currentPage
+    }
+
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+        scrollView.scrollViewDidEndScrollingAnimation(scrollView)
     }
 }
 
