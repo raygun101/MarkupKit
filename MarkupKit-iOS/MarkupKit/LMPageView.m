@@ -30,7 +30,6 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
-    [self setDelegate:self];\
     [self setPagingEnabled:YES];\
     [self setShowsHorizontalScrollIndicator:NO];\
     [self setShowsVerticalScrollIndicator:NO];\
