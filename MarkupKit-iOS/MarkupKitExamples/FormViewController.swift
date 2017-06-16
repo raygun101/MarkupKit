@@ -27,6 +27,10 @@ class FormViewController: UIViewController {
 
     @IBOutlet var notesTextView: UITextView!
 
+    deinit {
+        unbindAll()
+    }
+
     override func loadView() {
         view = LMViewBuilder.view(withName: "FormViewController", owner: self, root: nil)
     }
@@ -40,10 +44,6 @@ class FormViewController: UIViewController {
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Submit", style: .plain,
             target: self, action: #selector(submitForm))
-    }
-
-    deinit {
-        unbindAll()
     }
 
     func submitForm() {
