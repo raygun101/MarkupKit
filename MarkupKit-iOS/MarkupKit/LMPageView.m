@@ -15,8 +15,14 @@
 #import "LMPageView.h"
 #import "UIScrollView+Markup.h"
 
+@interface LMPageView () <UIScrollViewDelegate>
+
+@end
+
 @implementation LMPageView
 {
+    id<UIScrollViewDelegate> __weak _delegate;
+
     NSMutableArray *_pages;
     NSInteger _currentPage;
 
@@ -32,7 +38,7 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
-    [self setDelegate:self]; \
+    [super setDelegate:self]; \
     [self setPagingEnabled:YES];\
     [self setShowsHorizontalScrollIndicator:NO];\
     [self setShowsVerticalScrollIndicator:NO];\
@@ -54,6 +60,11 @@
     if (self) INIT
 
     return self;
+}
+
+- (void)setDelegate:(id<UITableViewDelegate>)delegate
+{
+    _delegate = delegate;
 }
 
 - (NSArray *)pages
@@ -210,6 +221,10 @@
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     _currentPage = [self currentPage];
+
+    if ([_delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
+        [_delegate scrollViewDidEndDecelerating:scrollView];
+    }
 }
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
@@ -217,6 +232,24 @@
     _currentPage = [self currentPage];
 
     _animating = NO;
+
+    if ([_delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
+        [_delegate scrollViewDidEndScrollingAnimation:scrollView];
+    }
+}
+
+- (BOOL)respondsToSelector:(SEL)selector
+{
+    return [super respondsToSelector:selector] || [_delegate respondsToSelector:selector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)invocation
+{
+    if ([_delegate respondsToSelector:[invocation selector]]) {
+        [invocation invokeWithTarget:_delegate];
+    } else {
+        [super forwardInvocation:invocation];
+    }
 }
 
 - (void)appendMarkupElementView:(UIView *)view

@@ -38,14 +38,10 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        scrollView.scrollViewDidEndDecelerating(scrollView)
-
         pageControl.currentPage = scrollView.currentPage
     }
 
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        scrollView.scrollViewDidEndScrollingAnimation(scrollView)
-
         pageControl.currentPage = scrollView.currentPage
     }
 }
