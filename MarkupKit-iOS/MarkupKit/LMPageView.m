@@ -13,10 +13,12 @@
 //
 
 #import "LMPageView.h"
+#import "UIScrollView+Markup.h"
 
 @implementation LMPageView
 {
     NSMutableArray *_pages;
+    NSInteger _currentPage;
 
     NSArray *_constraints;
 }
@@ -28,9 +30,10 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
-    [super setPagingEnabled:YES];\
-    [super setShowsHorizontalScrollIndicator:NO];\
-    [super setShowsVerticalScrollIndicator:NO];\
+    [self setDelegate:self];\
+    [self setPagingEnabled:YES];\
+    [self setShowsHorizontalScrollIndicator:NO];\
+    [self setShowsVerticalScrollIndicator:NO];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

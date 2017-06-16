@@ -94,7 +94,7 @@ static NSDictionary *keyboardDismissModeValues;
 #if TARGET_OS_IOS
 - (NSInteger)currentPage
 {
-    return (NSInteger)[self contentOffset].x / [self frame].size.width;
+    return (NSInteger)[self contentOffset].x / [self bounds].size.width;
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage
@@ -104,9 +104,7 @@ static NSDictionary *keyboardDismissModeValues;
 
 - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
 {
-    CGRect frame = [self frame];
-
-    [self scrollRectToVisible:CGRectMake(frame.size.width * currentPage, 0, frame.size.width, frame.size.height) animated:animated];
+    [self setContentOffset:CGPointMake([self bounds].size.width * currentPage, 0) animated:YES];
 }
 #endif
 

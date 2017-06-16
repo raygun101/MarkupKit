@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UIScrollView (Markup)
+@interface UIScrollView (Markup) <UIScrollViewDelegate>
 
 /**
  * The top content inset.

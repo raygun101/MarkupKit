@@ -40,7 +40,7 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
     }
 
     func updatePage() {
-        pageView.currentPage = pageControl.currentPage
+        pageView.setCurrentPage(pageControl.currentPage, animated: true)
     }
 
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

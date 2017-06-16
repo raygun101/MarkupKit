@@ -46,8 +46,8 @@ static NSString * const kRowValueKey = @"value";
 
 #define INIT {\
     _components = [NSMutableArray new];\
-    [super setDataSource:self];\
-    [super setDelegate:self];\
+    [self setDataSource:self];\
+    [self setDelegate:self];\
     [self insertComponent:0];\
 }
 

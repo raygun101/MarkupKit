@@ -80,12 +80,12 @@ typedef enum {
 
 #define INIT {\
     _sections = [NSMutableArray new];\
-    [super setDataSource:self];\
-    [super setDelegate:self];\
-    [super setEstimatedRowHeight:ESTIMATED_HEIGHT];\
+    [self setDataSource:self];\
+    [self setDelegate:self];\
+    [self setEstimatedRowHeight:ESTIMATED_HEIGHT];\
     if ([self style] == UITableViewStyleGrouped) {\
-        [super setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
-        [super setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
+        [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
+        [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
     }\
     [self insertSection:0];\
 }
