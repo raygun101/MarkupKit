@@ -45,6 +45,8 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
 
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         scrollView.scrollViewDidEndScrollingAnimation(scrollView)
+
+        pageControl.currentPage = scrollView.currentPage
     }
 }
 

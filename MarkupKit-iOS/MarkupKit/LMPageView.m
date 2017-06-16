@@ -112,7 +112,11 @@
 {
     [super setCurrentPage:currentPage animated:animated];
 
-    _animating = YES;
+    if (!animated) {
+        _currentPage = currentPage;
+    }
+
+    _animating = animated;
 }
 
 - (void)layoutSubviews
