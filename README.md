@@ -708,9 +708,22 @@ The `tableHeaderView` and `tableFooterView` processing instructions are used to 
     </LMTableView>
 
 ### Custom Data Source/Delegate Implementations
-In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, in many cases, an application may need to present both static and dynamic content within the same table view, or respond to delegate events such as `tableView:didSelectRowAtIndexPath:`. In such cases, the table view controller can register itself as the table view's data source or delegate and forward calls to the table view implementation as needed.
+In order to support static content declaration, `LMTableView` acts as its own data source and delegate. However, in many cases, an application may need to present both static and dynamic content within the same table view, or respond to delegate events such as `tableView:didSelectRowAtIndexPath:`. In such cases, the table view controller can register itself as the table view's data source or delegate and forward calls to the table view implementation as needed. `LMTableView` implements the following methods of the `UITableViewDataSource` and `UITableViewDelegate` protocols:
 
-While it is possible for controllers to perform this delegation manually, in most cases it is not required. The `LMTableViewController` class discussed later provides default implementations of data source and delegate methods that simply delegate to the table view. As a result, view controllers that manage an `LMTableView` instance can generally just extend `LMTableViewController` and override the appropriate methods, delegating to the base class as necessary.
+    - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+    - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+    - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+    - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+    - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
+
+    - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+    - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+    - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+    - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
+    - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+    - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+
+While it is possible for controllers to perform this delegation manually, in most cases it is not required. The `LMTableViewController` class discussed later provides default implementations of these methods that simply delegate to the table view. As a result, view controllers that manage an `LMTableView` instance can generally just extend `LMTableViewController` and override the appropriate methods, delegating to the base class as necessary.
 
 ### Custom Cell Content
 The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
@@ -934,7 +947,12 @@ The following `LMPickerView` methods can be used to manage selection state by co
 The first method returns the value associated with the selected row in a given component, and the second selects the row in the given component corresponding to the given value (the selection may optionally be animated).
 
 ### Custom Data Source/Delegate Implementations
-In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed.
+In order to support static content declaration, `LMPickerView` acts as its own data source and delegate. However, an application-specific data source or delegate may be set on an `LMPickerView` instance to provide custom component content or handle component selection events. The implementing class should delegate to the given picker view instance as needed. `LMPickerView` implements the following data source and delegate methods:
+
+    - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView;
+    - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component;
+
+    - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 
 For example, the following markup declares a picker view containing both static and dynamic components:
 
