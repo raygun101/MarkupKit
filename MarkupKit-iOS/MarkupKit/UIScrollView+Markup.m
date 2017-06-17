@@ -15,8 +15,18 @@
 #import "UIScrollView+Markup.h"
 #import "NSObject+Markup.h"
 
+#import <objc/message.h>
+
+static NSString * const kRefreshControlTarget = @"refreshControl";
+
+typedef enum {
+    kElementRefreshControl
+} __ElementDisposition;
+
 static NSDictionary *indicatorStyleValues;
 static NSDictionary *keyboardDismissModeValues;
+
+#define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
 
 @implementation UIScrollView (Markup)
 
@@ -107,6 +117,35 @@ static NSDictionary *keyboardDismissModeValues;
     [self setContentOffset:CGPointMake([self bounds].size.width * currentPage, 0) animated:YES];
 }
 #endif
+
+- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+{
+    __ElementDisposition elementDisposition;
+    if ([target isEqual:kRefreshControlTarget]) {
+        elementDisposition = kElementRefreshControl;
+    } else {
+        return;
+    }
+
+    objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, [NSNumber numberWithInt:elementDisposition], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    NSNumber *elementDisposition = objc_getAssociatedObject(self, ELEMENT_DISPOSITION_KEY);
+
+    if (elementDisposition != nil) {
+        switch ([elementDisposition intValue]) {
+            case kElementRefreshControl: {
+                [self setRefreshControl:(UIRefreshControl *)view];
+
+                break;
+            }
+        }
+    }
+
+    objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
