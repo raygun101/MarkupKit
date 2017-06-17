@@ -30,7 +30,7 @@ class CheckboxViewController: UITableViewController {
         tableView.setValues(["C", "T"], forSection: tableView.section(withName: petSectionName))
     }
 
-    func submit() {
+    @IBAction func submit() {
         let values = tableView.values(forSection: tableView.section(withName: petSectionName)) as! [String]
 
         let message = String(format: "You selected [%@].", values.joined(separator: ", "))

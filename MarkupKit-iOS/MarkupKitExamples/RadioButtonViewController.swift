@@ -30,7 +30,7 @@ class RadioButtonViewController: UITableViewController {
         tableView.setValue("L", forSection: tableView.section(withName: sizeSectionName))
     }
 
-    func submit() {
+    @IBAction func submit() {
         let value = tableView.value(forSection: tableView.section(withName: sizeSectionName)) as! String
 
         let message = String(format: "You selected %@.", value)
