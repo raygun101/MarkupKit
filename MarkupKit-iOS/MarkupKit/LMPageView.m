@@ -119,6 +119,7 @@
     }
 }
 
+#if TARGET_OS_IOS
 - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
 {
     [super setCurrentPage:currentPage animated:animated];
@@ -129,6 +130,7 @@
 
     _animating = animated;
 }
+#endif
 
 - (void)layoutSubviews
 {
