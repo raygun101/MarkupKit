@@ -15,18 +15,9 @@
 #import "LMPageView.h"
 #import "UIScrollView+Markup.h"
 
-@interface LMPageView () <UIScrollViewDelegate>
-
-@end
-
 @implementation LMPageView
 {
-    id<UIScrollViewDelegate> __weak _delegate;
-
     NSMutableArray *_pages;
-    NSInteger _currentPage;
-
-    BOOL _animating;
 
     NSArray *_constraints;
 }
@@ -38,7 +29,6 @@
 
 #define INIT {\
     _pages = [NSMutableArray new];\
-    [super setDelegate:self]; \
     [self setPagingEnabled:YES];\
     [self setShowsHorizontalScrollIndicator:NO];\
     [self setShowsVerticalScrollIndicator:NO];\
@@ -60,11 +50,6 @@
     if (self) INIT
 
     return self;
-}
-
-- (void)setDelegate:(id<UITableViewDelegate>)delegate
-{
-    _delegate = delegate;
 }
 
 - (NSArray *)pages
@@ -109,28 +94,6 @@
 
     [super willRemoveSubview:subview];
 }
-
-- (void)setBounds:(CGRect)bounds
-{
-    [super setBounds:bounds];
-
-    if (![self isDragging] && !_animating) {
-        [self setContentOffset:CGPointMake(_currentPage * [self bounds].size.width, [self contentOffset].y)];
-    }
-}
-
-#if TARGET_OS_IOS
-- (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
-{
-    if (!animated) {
-        _currentPage = currentPage;
-    }
-
-    _animating = animated;
-
-    [super setCurrentPage:currentPage animated:animated];
-}
-#endif
 
 - (void)layoutSubviews
 {
@@ -218,44 +181,6 @@
     }
 
     [super updateConstraints];
-}
-
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
-{
-    #if TARGET_OS_IOS
-    _currentPage = [self currentPage];
-    #endif
-
-    if ([_delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
-        [_delegate scrollViewDidEndDecelerating:scrollView];
-    }
-}
-
-- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
-{
-    #if TARGET_OS_IOS
-    _currentPage = [self currentPage];
-    #endif
-
-    _animating = NO;
-
-    if ([_delegate respondsToSelector:@selector(scrollViewDidEndScrollingAnimation:)]) {
-        [_delegate scrollViewDidEndScrollingAnimation:scrollView];
-    }
-}
-
-- (BOOL)respondsToSelector:(SEL)selector
-{
-    return [super respondsToSelector:selector] || [_delegate respondsToSelector:selector];
-}
-
-- (void)forwardInvocation:(NSInvocation *)invocation
-{
-    if ([_delegate respondsToSelector:[invocation selector]]) {
-        [invocation invokeWithTarget:_delegate];
-    } else {
-        [super forwardInvocation:invocation];
-    }
 }
 
 - (void)appendMarkupElementView:(UIView *)view
