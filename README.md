@@ -1646,6 +1646,14 @@ Additionally, MarkupKit adds this property and method to help simplify interacti
     
     - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated;
 
+Finally, the `refreshControl` processing instruction can be used to declaratively associate a refresh control with a scroll view instance; for example:
+
+    <LMScrollView fitToWidth="true">
+        <?refreshControl?>
+        <UIRefreshControl onValueChanged="refresh:"/>
+        ...
+    </LMScrollView>
+
 ### UITableView
 MarkupKit adds the following instance methods to the `UITableView` class. These methods are added to `UITableView` primarily so casting is not required when using an `LMTableView` instance with `UITableViewController`:
 
