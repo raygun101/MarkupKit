@@ -137,7 +137,9 @@ static NSDictionary *keyboardDismissModeValues;
     if (elementDisposition != nil) {
         switch ([elementDisposition intValue]) {
             case kElementRefreshControl: {
+                #if TARGET_OS_IOS
                 [self setRefreshControl:(UIRefreshControl *)view];
+                #endif
 
                 break;
             }
