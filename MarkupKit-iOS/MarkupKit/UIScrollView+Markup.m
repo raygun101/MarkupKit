@@ -104,7 +104,7 @@ static NSDictionary *keyboardDismissModeValues;
 #if TARGET_OS_IOS
 - (NSInteger)currentPage
 {
-    return (NSInteger)[self contentOffset].x / [self bounds].size.width;
+    return (NSInteger)([self contentOffset].x / [self bounds].size.width);
 }
 
 - (void)setCurrentPage:(NSInteger)currentPage

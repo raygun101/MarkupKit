@@ -122,13 +122,13 @@
 #if TARGET_OS_IOS
 - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
 {
-    [super setCurrentPage:currentPage animated:animated];
-
     if (!animated) {
         _currentPage = currentPage;
     }
 
     _animating = animated;
+
+    [super setCurrentPage:currentPage animated:animated];
 }
 #endif
 
