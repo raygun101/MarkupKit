@@ -222,7 +222,9 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
+    #if TARGET_OS_IOS
     _currentPage = [self currentPage];
+    #endif
 
     if ([_delegate respondsToSelector:@selector(scrollViewDidEndDecelerating:)]) {
         [_delegate scrollViewDidEndDecelerating:scrollView];
@@ -231,7 +233,9 @@
 
 - (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView
 {
+    #if TARGET_OS_IOS
     _currentPage = [self currentPage];
+    #endif
 
     _animating = NO;
 
