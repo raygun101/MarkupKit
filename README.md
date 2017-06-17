@@ -1019,6 +1019,8 @@ When `fitToWidth` is set to `true`, the scroll view will ensure that the width o
 
 Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
 
+Note that, similar to `UIStackView`, assigning a new content view does not remove the previous content view as a subview of the scroll view. To completely remove a content view, call `removeFromSuperview` on the view.
+
 See [LMScrollView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMScrollView.h) for more information.
 
 ## LMPageView
@@ -1037,6 +1039,8 @@ MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to ea
     }
     
 MarkupKit's extensions to `UIScrollView` are discussed in more detail later.
+
+Note that, similar to `UIStackView`, the `removePage:` method does not remove the given view as a subview of the page view. To completely remove a page view, call `removeFromSuperview` on the view.
 
 `LMPageView` is available in iOS only. See [LMPageView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPageView.h) for more information.
 
@@ -1061,6 +1065,8 @@ All layout view types extend the abstract `LMLayoutView` class, which defines th
 These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself so that layout views can be constructed in markup. A read-only property that returns the current list of arranged subviews is also provided:
 
     @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
+
+Note that, as with `UIStackView`, the `removeArrangedSubview:` method does not remove the given view as a subview of the layout view. To completely remove an arranged subview, call `removeFromSuperview` on the view.
 
 `LMLayoutView` additionally defines the following property:
 

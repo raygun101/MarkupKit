@@ -114,7 +114,7 @@ static NSDictionary *keyboardDismissModeValues;
 
 - (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
 {
-    [self setContentOffset:CGPointMake([self bounds].size.width * currentPage, 0) animated:YES];
+    [self setContentOffset:CGPointMake([self bounds].size.width * currentPage, 0) animated:animated];
 }
 #endif
 
