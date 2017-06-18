@@ -33,12 +33,6 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
         pageView.delegate = self
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        updatePage()
-    }
-
     func updatePage() {
         pageView.setCurrentPage(pageControl.currentPage, animated: true)
     }

@@ -20,6 +20,8 @@
     NSMutableArray *_pages;
 
     NSArray *_constraints;
+
+    NSInteger _currentPage;
 }
 
 + (BOOL)requiresConstraintBasedLayout
@@ -86,6 +88,33 @@
 
         [self setNeedsUpdateConstraints];
     }
+}
+
+- (NSInteger)currentPage
+{
+    return _currentPage;
+}
+
+- (void)setCurrentPage:(NSInteger)currentPage animated:(BOOL)animated
+{
+    [super setCurrentPage:currentPage animated:animated];
+
+    _currentPage = currentPage;
+}
+
+- (void)setContentOffset:(CGPoint)contentOffset
+{
+    [super setContentOffset:contentOffset];
+
+    if ([self isDecelerating]) {
+        _currentPage = [super currentPage];
+    }
+}
+
+- (void)setContentSize:(CGSize)contentSize {
+    [super setContentSize:contentSize];
+
+    [super setCurrentPage:_currentPage];
 }
 
 - (void)willRemoveSubview:(UIView *)subview
