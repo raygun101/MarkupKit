@@ -43,15 +43,6 @@ static NSDictionary *baselineValues;
     [self setNeedsUpdateConstraints];
 }
 
-- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqual:@"baseline"]) {
-        value = [baselineValues objectForKey:value];
-    }
-
-    [super applyMarkupPropertyValue:value forKey:key];
-}
-
 - (void)layoutSubviews
 {
     // Don't give subviews a higher vertical content compression resistance priority than this view's
@@ -194,6 +185,15 @@ static NSDictionary *baselineValues;
     }
 
     return constraints;
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"baseline"]) {
+        value = [baselineValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

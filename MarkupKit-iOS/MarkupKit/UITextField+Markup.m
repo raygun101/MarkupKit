@@ -53,6 +53,17 @@ static NSDictionary *textFieldViewModeValues;
     };
 }
 
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"borderStyle"]) {
+        value = [textBorderStyleValues objectForKey:value];
+    } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
+        value = [textFieldViewModeValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
+}
+
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     __ElementDisposition elementDisposition;
@@ -108,17 +119,6 @@ static NSDictionary *textFieldViewModeValues;
     }
 
     objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqual:@"borderStyle"]) {
-        value = [textBorderStyleValues objectForKey:value];
-    } else if ([key isEqual:@"clearButtonMode"] || [key isEqual:@"leftViewMode"] || [key isEqual:@"rightViewMode"]) {
-        value = [textFieldViewModeValues objectForKey:value];
-    }
-
-    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

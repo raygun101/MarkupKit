@@ -118,6 +118,17 @@ static NSDictionary *keyboardDismissModeValues;
 }
 #endif
 
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"indicatorStyle"]) {
+        value = [indicatorStyleValues objectForKey:value];
+    } else if ([key isEqual:@"keyboardDismissMode"]) {
+        value = [keyboardDismissModeValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
+}
+
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     __ElementDisposition elementDisposition;
@@ -147,17 +158,6 @@ static NSDictionary *keyboardDismissModeValues;
     }
 
     objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqual:@"indicatorStyle"]) {
-        value = [indicatorStyleValues objectForKey:value];
-    } else if ([key isEqual:@"keyboardDismissMode"]) {
-        value = [keyboardDismissModeValues objectForKey:value];
-    }
-
-    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end
