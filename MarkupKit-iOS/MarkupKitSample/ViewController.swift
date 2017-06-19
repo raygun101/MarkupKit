@@ -48,7 +48,7 @@ class ViewController: LMTableViewController {
         // Load row list
         let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
 
-        let rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: AnyObject]]
+        let rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: Any]]
 
         self.rows = rows.map({
             return Row(dictionary: $0)

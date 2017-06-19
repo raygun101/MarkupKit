@@ -15,7 +15,7 @@
 import UIKit
 
 class CustomCellViewController: UITableViewController {
-    var pharmacies: [[String: AnyObject]]!
+    var pharmacies: [[String: Any]]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,7 @@ class CustomCellViewController: UITableViewController {
         // Load pharmacy list
         let pharmacyListURL = Bundle.main.url(forResource: "pharmacies", withExtension: "json")
 
-        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: pharmacyListURL!)) as! [[String: AnyObject]]
+        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: pharmacyListURL!)) as! [[String: Any]]
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

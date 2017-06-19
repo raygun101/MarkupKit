@@ -50,7 +50,7 @@ class FormViewController: UIViewController {
         view.endEditing(true)
 
         // Simulate form submission
-        let form: [String: Any?] = [
+        let form: [String: Any] = [
             "address": [
                 "name": address.name,
                 "street": address.street,
