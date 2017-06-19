@@ -21,7 +21,7 @@ class Row: NSObject {
     var heading: String?
     var detail: String?
 
-    init(dictionary: [String: AnyObject]) {
+    init(dictionary: [String: Any]) {
         super.init()
 
         setValuesForKeys(dictionary)
