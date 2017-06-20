@@ -13,6 +13,7 @@
 //
 
 #import "LMTableView.h"
+#import "UIView+Markup.h"
 #import "UITableView+Markup.h"
 #import "UITableViewCell+Markup.h"
 
@@ -359,6 +360,10 @@ typedef enum {
         _elementDisposition = kElementSectionHeaderView;
     } else if ([target isEqual:kSectionFooterViewTarget]) {
         _elementDisposition = kElementSectionFooterView;
+    } else {
+        _elementDisposition = INT_MAX;
+
+        [super processMarkupInstruction:target data:data];
     }
 }
 
@@ -376,6 +381,8 @@ typedef enum {
         if (title != nil) {
             [self setTitle:title forFooterInSection:[self numberOfSectionsInTableView:self] - 1];
         }
+    } else {
+        [super processMarkupElement:tag properties:properties];
     }
 }
 
@@ -422,6 +429,12 @@ typedef enum {
 
         case kElementSectionFooterView: {
             [self setView:view forFooterInSection:section];
+
+            break;
+        }
+
+        default: {
+            [super appendMarkupElementView:view];
 
             break;
         }

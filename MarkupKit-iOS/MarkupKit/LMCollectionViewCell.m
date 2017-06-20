@@ -13,6 +13,7 @@
 //
 
 #import "LMCollectionViewCell.h"
+#import "UIView+Markup.h"
 
 static NSString * const kBackgroundViewTarget = @"backgroundView";
 static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
@@ -45,6 +46,10 @@ typedef enum {
         _elementDisposition = kElementBackgroundView;
     } else if ([target isEqual:kSelectedBackgroundViewTarget]) {
         _elementDisposition = kElementSelectedBackgroundView;
+    } else {
+        _elementDisposition = INT_MAX;
+
+        [super processMarkupInstruction:target data:data];
     }
 }
 
@@ -104,6 +109,12 @@ typedef enum {
 
         case kElementSelectedBackgroundView: {
             [self setSelectedBackgroundView:view];
+
+            break;
+        }
+
+        default: {
+            [super appendMarkupElementView:view];
 
             break;
         }
