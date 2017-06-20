@@ -13,8 +13,9 @@
 //
 
 #import "LMPickerView.h"
-#import "UIPickerView+Markup.h"
 #import "NSObject+Markup.h"
+#import "UIView+Markup.h"
+#import "UIPickerView+Markup.h"
 
 static NSString * const kComponentSeparatorTarget = @"componentSeparator";
 static NSString * const kComponentNameTarget = @"componentName";
@@ -164,6 +165,8 @@ static NSString * const kRowValueKey = @"value";
         [self insertComponent:[self numberOfComponents]];
     } else if ([target isEqual:kComponentNameTarget]) {
         [self setName:data forComponent:[self numberOfComponents] - 1];
+    } else {
+        [super processMarkupInstruction:target data:data];
     }
 }
 
@@ -178,6 +181,8 @@ static NSString * const kRowValueKey = @"value";
             [self insertRow:[self pickerView:self numberOfRowsInComponent:component] inComponent:component
                 withTitle:title value:[properties objectForKey:kRowValueKey]];
         }
+    } else {
+        [super processMarkupElement:tag properties:properties];
     }
 }
 

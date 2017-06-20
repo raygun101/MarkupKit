@@ -14,6 +14,7 @@
 
 #import "UIScrollView+Markup.h"
 #import "NSObject+Markup.h"
+#import "UIView+Markup.h"
 
 #import <objc/message.h>
 
@@ -135,7 +136,9 @@ static NSDictionary *keyboardDismissModeValues;
     if ([target isEqual:kRefreshControlTarget]) {
         elementDisposition = kElementRefreshControl;
     } else {
-        return;
+        elementDisposition = INT_MAX;
+
+        [super processMarkupInstruction:target data:data];
     }
 
     objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, [NSNumber numberWithInt:elementDisposition], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -151,6 +154,12 @@ static NSDictionary *keyboardDismissModeValues;
                 #if TARGET_OS_IOS
                 [self setRefreshControl:(UIRefreshControl *)view];
                 #endif
+
+                break;
+            }
+
+            default: {
+                [super appendMarkupElementView:view];
 
                 break;
             }

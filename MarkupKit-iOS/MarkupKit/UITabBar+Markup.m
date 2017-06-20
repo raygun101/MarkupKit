@@ -15,6 +15,7 @@
 #import "UITabBar+Markup.h"
 #import "UITabBarItem+Markup.h"
 #import "NSObject+Markup.h"
+#import "UIView+Markup.h"
 
 static NSDictionary *tabBarItemPositioningValues;
 
@@ -103,6 +104,8 @@ static NSString * const kItemNameKey = @"name";
         [self setItems:items];
 
         [self sizeToFit];
+    } else {
+        [super processMarkupElement:tag properties:properties];
     }
 }
 

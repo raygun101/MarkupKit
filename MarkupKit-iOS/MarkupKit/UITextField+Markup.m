@@ -14,6 +14,7 @@
 
 #import "UITextField+Markup.h"
 #import "NSObject+Markup.h"
+#import "UIView+Markup.h"
 
 #import <objc/message.h>
 
@@ -76,7 +77,9 @@ static NSDictionary *textFieldViewModeValues;
     } else if ([target isEqual:kInputAccessoryViewTarget]) {
         elementDisposition = kElementInputAccessoryView;
     } else {
-        return;
+        elementDisposition = INT_MAX;
+
+        [super processMarkupInstruction:target data:data];
     }
 
     objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, [NSNumber numberWithInt:elementDisposition], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -113,6 +116,12 @@ static NSDictionary *textFieldViewModeValues;
             case kElementInputAccessoryView: {
                 [self setInputAccessoryView:view];
                 
+                break;
+            }
+
+            default: {
+                [super appendMarkupElementView:view];
+
                 break;
             }
         }
