@@ -515,7 +515,7 @@ static NSMutableDictionary *templateCache;
             id view = [_views lastObject];
 
             if ([view isKindOfClass:[UIView self]]) {
-                for (NSString *key in properties) {
+                for (NSString *key in [properties allKeys]) {
                     NSString *value = [properties objectForKey:key];
 
                     if ([value hasPrefix:kBindingPrefix]) {
