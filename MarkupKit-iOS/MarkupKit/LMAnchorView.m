@@ -28,7 +28,7 @@
         LMAnchor anchor = [subview anchor];
 
         UILayoutPriority verticalPriority;
-        if ((anchor & LMAnchorTop) && (anchor & LMAnchorBottom)) {
+        if (anchor & LMAnchorTop && anchor & LMAnchorBottom) {
             verticalPriority = UILayoutPriorityDefaultLow;
         } else {
             verticalPriority = UILayoutPriorityRequired;
@@ -38,8 +38,8 @@
         [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
 
         UILayoutPriority horizontalPriority;
-        if (((anchor & LMAnchorLeft) && (anchor & LMAnchorRight))
-            || ((anchor & LMAnchorLeading) && (anchor & LMAnchorTrailing))) {
+        if ((anchor & LMAnchorLeft && anchor & LMAnchorRight)
+            || (anchor & LMAnchorLeading && anchor & LMAnchorTrailing)) {
             horizontalPriority = UILayoutPriorityDefaultLow;
         } else {
             horizontalPriority = UILayoutPriorityRequired;
