@@ -38,7 +38,7 @@
         [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
 
         UILayoutPriority horizontalPriority;
-        if (((anchor & LMAnchorTop) && (anchor & LMAnchorBottom))
+        if (((anchor & LMAnchorLeft) && (anchor & LMAnchorRight))
             || ((anchor & LMAnchorLeading) && (anchor & LMAnchorTrailing))) {
             horizontalPriority = UILayoutPriorityDefaultLow;
         } else {

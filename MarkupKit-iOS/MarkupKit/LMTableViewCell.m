@@ -66,11 +66,14 @@ typedef enum {
             [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
             [view setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
+            [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            [view setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+
             UIView *contentView = [self contentView];
 
             [contentView addSubview:view];
 
-            // Pin text field to cell edges
+            // Pin content to cell edges
             NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
             if ([self layoutMarginsRelativeArrangement]) {
                 topAttribute = NSLayoutAttributeTopMargin;

@@ -17,8 +17,8 @@ import MarkupKit
 
 class ViewController: UITableViewController, UICollectionViewDataSource {
     #if os(iOS)
-    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var dateTextField: UITextField!
+    @IBOutlet var datePicker: UIDatePicker!
 
     @IBOutlet var sizeTextField: UITextField!
     @IBOutlet var sizePickerView: LMPickerView!

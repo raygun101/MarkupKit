@@ -64,11 +64,11 @@ limitations under the License.
 
             <LMRowView>
                 <LMSpacer/>
-                    <UISegmentedControl>
-                        <segment title="$one"/>
-                        <segment title="$two"/>
-                        <segment title="$three"/>
-                    </UISegmentedControl>
+                <UISegmentedControl>
+                    <segment title="$one"/>
+                    <segment title="$two"/>
+                    <segment title="$three"/>
+                </UISegmentedControl>
                 <LMSpacer/>
             </LMRowView>
 
@@ -114,7 +114,7 @@ limitations under the License.
                 <LMSpacer/>
             </LMRowView>
             
-            <LMRowView layoutMargins="12" backgroundColor="#ffffff">
+            <LMLayerView layoutMargins="12" backgroundColor="#ffffff">
                 <UITextField placeholder="@password" secureTextEntry="true" leftViewMode="always" rightViewMode="unlessEditing">
                     <?leftView?>
                     <UIImageView image="Left"/>
@@ -122,7 +122,7 @@ limitations under the License.
                     <?rightView?>
                     <UIImageView image="Right"/>
                 </UITextField>
-            </LMRowView>
+            </LMLayerView>
 
             <?case iOS?>
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"
