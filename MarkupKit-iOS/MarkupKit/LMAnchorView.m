@@ -27,26 +27,22 @@
 
         LMAnchor anchor = [subview anchor];
 
-        UILayoutPriority verticalPriority;
         if (anchor & LMAnchorTop && anchor & LMAnchorBottom) {
-            verticalPriority = UILayoutPriorityDefaultLow;
+            [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
+            [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
         } else {
-            verticalPriority = UILayoutPriorityRequired;
+            [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+            [subview setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
         }
 
-        [subview setContentCompressionResistancePriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
-        [subview setContentHuggingPriority:verticalPriority forAxis:UILayoutConstraintAxisVertical];
-
-        UILayoutPriority horizontalPriority;
         if ((anchor & LMAnchorLeft && anchor & LMAnchorRight)
             || (anchor & LMAnchorLeading && anchor & LMAnchorTrailing)) {
-            horizontalPriority = UILayoutPriorityDefaultLow;
+            [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+            [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
         } else {
-            horizontalPriority = UILayoutPriorityRequired;
+            [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+            [subview setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         }
-
-        [subview setContentCompressionResistancePriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
-        [subview setContentHuggingPriority:horizontalPriority forAxis:UILayoutConstraintAxisHorizontal];
     }
 
     [super layoutSubviews];
