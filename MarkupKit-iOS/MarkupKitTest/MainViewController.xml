@@ -83,15 +83,15 @@ limitations under the License.
 
             <LMRowView alignToBaseline="true" topSpacing="20" bottomSpacing="10" backgroundColor="#ff00ff">
                 <LMSpacer/>
-                <UILabel text="abcd" font="Helvetica 16"/>
+                <UILabel text="abcd" font="Helvetica 16" backgroundColor="yellow"/>
                 <UILabel text="efg" font="Helvetica 32" backgroundColor="yellow"/>
-                <UILabel text="hijk" font="Helvetica 24"/>
+                <UILabel text="hijk" font="Helvetica 24" backgroundColor="yellow"/>
                 <LMSpacer/>
             </LMRowView>
 
             <LMRowView layoutMargins="12" backgroundColor="#ffff00">
                 <LMSpacer/>
-                <UILabel text="abcd" font="Helvetica 16" textAlignment="abcde"/>
+                <UILabel text="abcd" font="Helvetica 16" textAlignment="abcde" backgroundColor="#00ffff"/>
                 <UILabel width="45" text="efg hijk lmnop" font="Helvetica 16" numberOfLines="0" backgroundColor="#00ffff"/>
                 <LMSpacer/>
             </LMRowView>
