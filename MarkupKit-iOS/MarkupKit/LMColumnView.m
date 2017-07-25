@@ -32,6 +32,7 @@
             continue;
         }
 
+        // TODO Only do this if horizontal alignment is "fill"
         [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
 
@@ -101,6 +102,7 @@
         }
 
         // Align to parent
+        // TODO Only do this if horizontal alignment is "fill"
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
             relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
             multiplier:1 constant:leadingSpacing]];
@@ -126,6 +128,7 @@
         previousSubview = subview;
     }
 
+    // TODO Handle top, bottom, and center cases
     // Align final view to bottom edge
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom

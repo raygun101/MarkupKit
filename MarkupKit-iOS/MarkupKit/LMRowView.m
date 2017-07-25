@@ -50,6 +50,7 @@ static NSDictionary *baselineValues;
             continue;
         }
 
+        // TODO Only do this if vertical alignment is "fill"    
         [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
         [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
 
@@ -138,6 +139,7 @@ static NSDictionary *baselineValues;
         }
 
         // Align to parent
+        // TODO Only do this if vertical alignment is "fill"
         if (_alignToBaseline) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
@@ -159,6 +161,7 @@ static NSDictionary *baselineValues;
         previousSubview = subview;
     }
 
+    // TODO Handle leading, trailing, and center cases
     // Align final view to trailing edge
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
