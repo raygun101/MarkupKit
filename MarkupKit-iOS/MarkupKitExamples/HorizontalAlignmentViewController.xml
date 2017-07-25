@@ -14,11 +14,21 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?case iOS?>
 <?properties {
     "heading": {
         "font": "System 14"
-    },
+    }
+}?>
+<?case tvOS?>
+<?properties {
+    "heading": {
+        "font": "System 20"
+    }
+}?>
+<?end?>
 
+<?properties {
     "cell": {
         "layoutMargins": 8,
         "layer.borderWidth": 0.5,
@@ -31,37 +41,37 @@ limitations under the License.
         <UILabel class="heading" text="Leading"/>
 
         <LMRowView class="cell" horizontalAlignment="leading">
-            <UIImageView image="EmailIcon"/>
-            <UIImageView image="FaxIcon"/>
-            <UIImageView image="PhoneIcon"/>
+            <UIImageView image="EmailIcon" tintColor="black"/>
+            <UIImageView image="FaxIcon" tintColor="black"/>
+            <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMRowView>
 
         <LMColumnView class="cell" horizontalAlignment="leading">
-            <UIImageView image="EmailIcon"/>
-            <UIImageView image="FaxIcon"/>
-            <UIImageView image="PhoneIcon"/>
+            <UIImageView image="EmailIcon" tintColor="black"/>
+            <UIImageView image="FaxIcon" tintColor="black"/>
+            <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMColumnView>
 
         <UILabel class="heading" text="Trailing"/>
 
         <LMRowView class="cell" horizontalAlignment="trailing">
-            <UIImageView image="EmailIcon"/>
-            <UIImageView image="FaxIcon"/>
-            <UIImageView image="PhoneIcon"/>
+            <UIImageView image="EmailIcon" tintColor="black"/>
+            <UIImageView image="FaxIcon" tintColor="black"/>
+            <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMRowView>
 
         <LMColumnView class="cell" horizontalAlignment="trailing">
-            <UIImageView image="EmailIcon"/>
-            <UIImageView image="FaxIcon"/>
-            <UIImageView image="PhoneIcon"/>
+            <UIImageView image="EmailIcon" tintColor="black"/>
+            <UIImageView image="FaxIcon" tintColor="black"/>
+            <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMColumnView>
 
         <UILabel class="heading" text="Center"/>
 
         <LMColumnView class="cell" horizontalAlignment="center">
-            <UIImageView image="EmailIcon"/>
-            <UIImageView image="FaxIcon"/>
-            <UIImageView image="PhoneIcon"/>
+            <UIImageView image="EmailIcon" tintColor="black"/>
+            <UIImageView image="FaxIcon" tintColor="black"/>
+            <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMColumnView>
     </LMColumnView>
 </LMScrollView>

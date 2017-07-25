@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3718A3D11F27E47F0035C398 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */; };
+		3718A3D21F27E47F0035C398 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */; };
+		3718A3D31F27E47F0035C398 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718A3CF1F27E47F0035C398 /* VerticalAlignmentViewController.swift */; };
+		3718A3D41F27E47F0035C398 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3718A3D01F27E47F0035C398 /* VerticalAlignmentViewController.xml */; };
 		371E236F1E042E8F00A29425 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = 371E236E1E042E8F00A29425 /* sample.mov */; };
 		373BFB391DFB015000BB7509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACEE1DF713AE00E88F7A /* AppDelegate.swift */; };
 		373BFB3A1DFB015000BB7509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACEF1DF713AE00E88F7A /* ViewController.swift */; };
@@ -231,6 +235,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalAlignmentViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.swift"; sourceTree = "<group>"; };
+		3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HorizontalAlignmentViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.xml"; sourceTree = "<group>"; };
+		3718A3CF1F27E47F0035C398 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerticalAlignmentViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/VerticalAlignmentViewController.swift"; sourceTree = "<group>"; };
+		3718A3D01F27E47F0035C398 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = VerticalAlignmentViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/VerticalAlignmentViewController.xml"; sourceTree = "<group>"; };
 		371E236E1E042E8F00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = sample.mov; path = "../../MarkupKit-iOS/MarkupKitExamples/sample.mov"; sourceTree = "<group>"; };
 		373BFAEA1DFAF4E900BB7509 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = ColorsAndFonts.json; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts.json"; sourceTree = "<group>"; };
 		373BFAEB1DFAF4E900BB7509 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "ColorsAndFonts~vertical.json"; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
@@ -485,6 +493,10 @@
 				3763AD261DF713AE00E88F7A /* PlayerViewController.xml */,
 				37659D551ECF59600043C9C1 /* BarsViewController.swift */,
 				37659D561ECF59600043C9C1 /* BarsViewController.xml */,
+				3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */,
+				3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */,
+				3718A3CF1F27E47F0035C398 /* VerticalAlignmentViewController.swift */,
+				3718A3D01F27E47F0035C398 /* VerticalAlignmentViewController.xml */,
 				3763AD351DF713AE00E88F7A /* chevy.png */,
 				3763AD361DF713AE00E88F7A /* mini.png */,
 				3763AD371DF713AE00E88F7A /* vw.png */,
@@ -866,6 +878,8 @@
 				37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */,
 				373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */,
 				37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */,
+				3718A3D21F27E47F0035C398 /* HorizontalAlignmentViewController.xml in Resources */,
+				3718A3D41F27E47F0035C398 /* VerticalAlignmentViewController.xml in Resources */,
 				373BFB5F1DFB017100BB7509 /* chevy.png in Resources */,
 				373BFB601DFB017100BB7509 /* mini.png in Resources */,
 				373BFB611DFB017100BB7509 /* vw.png in Resources */,
@@ -935,6 +949,8 @@
 				37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */,
 				373BFB481DFB015000BB7509 /* PlayerViewController.swift in Sources */,
 				37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */,
+				3718A3D11F27E47F0035C398 /* HorizontalAlignmentViewController.swift in Sources */,
+				3718A3D31F27E47F0035C398 /* VerticalAlignmentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
