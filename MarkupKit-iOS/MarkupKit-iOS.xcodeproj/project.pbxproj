@@ -208,6 +208,10 @@
 		3793AC861EE0A83500C686CF /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793AC851EE0A83500C686CF /* Row.swift */; };
 		379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */; };
+		37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */; };
+		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
+		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
+		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -530,6 +534,10 @@
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
 		379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
 		379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
+		37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalAlignmentViewController.swift; sourceTree = "<group>"; };
+		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
+		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
+		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -638,6 +646,10 @@
 				3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */,
 				3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */,
 				3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */,
+				37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */,
+				37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */,
+				37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */,
+				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
 				3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */,
 				3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */,
 				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
@@ -1165,8 +1177,10 @@
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
 				377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */,
+				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				373BFB191DFB007B00BB7509 /* ColorPickerViewController.xml in Resources */,
 				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
+				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
 				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
 				373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */,
 				373BFB1D1DFB007B00BB7509 /* CustomSectionViewController.xml in Resources */,
@@ -1278,9 +1292,11 @@
 				373BFAF21DFB003800BB7509 /* GridViewController.swift in Sources */,
 				373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */,
 				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
+				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
 				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
 				377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */,
 				373BFAF71DFB003800BB7509 /* SelectionViewController.swift in Sources */,
+				37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */,
 				373BFAF81DFB003800BB7509 /* ColorPickerViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,
 				373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */,

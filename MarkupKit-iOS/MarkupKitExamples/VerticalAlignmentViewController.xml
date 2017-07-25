@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  VerticalAlignmentViewController.xml
+  MarkupKit-iOS
+
+  Created by Greg Brown on 7/25/17.
+
+-->
+
+<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
+    <!-- 
+    TODO: Declare view content 
+    -->
+</LMLayerView>
