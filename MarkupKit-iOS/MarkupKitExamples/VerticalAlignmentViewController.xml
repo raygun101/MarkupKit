@@ -23,11 +23,64 @@ limitations under the License.
         "layoutMargins": 8,
         "layer.borderWidth": 0.5,
         "layer.borderColor": "lightGray"
+    },
+
+    "divider": {
+        "width": 0.5,
+        "backgroundColor": "lightGray"
     }
 }?>
 
-<LMScrollView fitToWidth="true" panGestureRecognizer.allowedTouchTypes="direct, indirect" backgroundColor="#ffffff">
+<LMScrollView fitToHeight="true" panGestureRecognizer.allowedTouchTypes="direct, indirect" backgroundColor="#ffffff">
     <LMRowView layoutMargins="8">
-        <!-- TODO -->
+        <LMColumnView>
+            <UILabel class="heading" text="Top"/>
+
+            <LMRowView weight="1">
+                <LMColumnView verticalAlignment="top">
+                    <UIImageView image="EmailIcon"/>
+                    <UIImageView image="FaxIcon"/>
+                    <UIImageView image="PhoneIcon"/>
+                </LMColumnView>
+                
+                <LMRowView verticalAlignment="top">
+                    <UIImageView image="EmailIcon"/>
+                    <UIImageView image="FaxIcon"/>
+                    <UIImageView image="PhoneIcon"/>
+                </LMRowView>
+            </LMRowView>
+        </LMColumnView>
+
+        <LMSpacer class="divider"/>
+
+        <LMColumnView>
+            <UILabel class="heading" text="Bottom"/>
+
+            <LMRowView weight="1">
+                <LMColumnView verticalAlignment="bottom">
+                    <UIImageView image="EmailIcon"/>
+                    <UIImageView image="FaxIcon"/>
+                    <UIImageView image="PhoneIcon"/>
+                </LMColumnView>
+                
+                <LMRowView verticalAlignment="bottom">
+                    <UIImageView image="EmailIcon"/>
+                    <UIImageView image="FaxIcon"/>
+                    <UIImageView image="PhoneIcon"/>
+                </LMRowView>
+            </LMRowView>
+        </LMColumnView>
+
+        <LMSpacer class="divider"/>
+
+        <LMColumnView>
+            <UILabel class="heading" text="Center"/>
+
+            <LMRowView weight="1" verticalAlignment="center">
+                <UIImageView image="EmailIcon"/>
+                <UIImageView image="FaxIcon"/>
+                <UIImageView image="PhoneIcon"/>
+            </LMRowView>
+        </LMColumnView>
     </LMRowView>
 </LMScrollView>
