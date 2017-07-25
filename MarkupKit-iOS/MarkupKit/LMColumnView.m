@@ -79,7 +79,7 @@
         }
 
         // Align to siblings
-        // TODO Handle top, bottom, and center cases
+        // TODO Handle top and bottom cases
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
@@ -129,8 +129,8 @@
         previousSubview = subview;
     }
 
-    // TODO Handle top, bottom, and center cases
     // Align final view to bottom edge
+    // TODO Handle top and bottom cases
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute

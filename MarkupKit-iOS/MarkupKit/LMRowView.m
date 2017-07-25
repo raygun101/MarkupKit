@@ -97,7 +97,7 @@ static NSDictionary *baselineValues;
         }
 
         // Align to siblings
-        // TODO Handle leading, trailing, and center cases
+        // TODO Handle leading and trailing cases
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
@@ -162,8 +162,8 @@ static NSDictionary *baselineValues;
         previousSubview = subview;
     }
 
-    // TODO Handle leading, trailing, and center cases
     // Align final view to trailing edge
+    // TODO Handle leading and trailing cases
     if (previousSubview != nil) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
