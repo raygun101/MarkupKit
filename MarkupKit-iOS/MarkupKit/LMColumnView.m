@@ -79,6 +79,7 @@
         }
 
         // Align to siblings
+        // TODO Handle top, bottom, and center cases
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
@@ -102,7 +103,7 @@
         }
 
         // Align to parent
-        // TODO Only do this if horizontal alignment is "fill"
+        // TODO Only do this if horizontal alignment is "fill"; otherwise, handle leading, trailing, and center cases
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
             relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
             multiplier:1 constant:leadingSpacing]];

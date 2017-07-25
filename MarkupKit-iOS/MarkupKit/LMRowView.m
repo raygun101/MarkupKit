@@ -97,6 +97,7 @@ static NSDictionary *baselineValues;
         }
 
         // Align to siblings
+        // TODO Handle leading, trailing, and center cases
         if (previousSubview == nil) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                 relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
@@ -139,7 +140,7 @@ static NSDictionary *baselineValues;
         }
 
         // Align to parent
-        // TODO Only do this if vertical alignment is "fill"
+        // TODO Only do this if vertical alignment is "fill"; otherwise, handle top, bottom, and center cases
         if (_alignToBaseline) {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
