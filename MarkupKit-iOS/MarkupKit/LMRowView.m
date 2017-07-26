@@ -29,6 +29,15 @@ static NSDictionary *baselineValues;
     };
 }
 
+- (void)setHorizontalAlignment:(LMHorizontalAlignment)horizontalAlignment
+{
+    if (horizontalAlignment == LMHorizontalAlignmentCenter) {
+        [NSException raise:NSInvalidArgumentException format:@"Invalid horizontal alignment."];
+    }
+
+    [super setHorizontalAlignment:horizontalAlignment];
+}
+
 - (void)setAlignToBaseline:(BOOL)alignToBaseline
 {
     _alignToBaseline = alignToBaseline;
@@ -45,13 +54,17 @@ static NSDictionary *baselineValues;
 
 - (void)layoutSubviews
 {
+    LMVerticalAlignment verticalAlignment = [self verticalAlignment];
+
     for (UIView * subview in _arrangedSubviews) {
         if ([subview isHidden]) {
             continue;
         }
 
-        [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
-        [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+        if (verticalAlignment == LMVerticalAlignmentFill) {
+            [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisVertical];
+            [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisVertical];
+        }
 
         if (isnan([subview weight])) {
             [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
@@ -82,6 +95,9 @@ static NSDictionary *baselineValues;
         trailingAttribute = NSLayoutAttributeTrailing;
     }
 
+    LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
+    LMVerticalAlignment verticalAlignment = [self verticalAlignment];
+
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
 
@@ -97,9 +113,11 @@ static NSDictionary *baselineValues;
 
         // Align to siblings
         if (previousSubview == nil) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
-                multiplier:1 constant:[self leadingSpacing]]];
+            if (horizontalAlignment != LMHorizontalAlignmentTrailing) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    multiplier:1 constant:[self leadingSpacing]]];
+            }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
@@ -138,29 +156,71 @@ static NSDictionary *baselineValues;
         }
 
         // Align to parent
-        if (_alignToBaseline) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:topSpacing]];
+        switch (verticalAlignment) {
+            case LMVerticalAlignmentFill: {
+                if (_alignToBaseline) {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
+                        multiplier:1 constant:topSpacing]];
 
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
-                multiplier:1 constant:-bottomSpacing]];
-        } else {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:topSpacing]];
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
+                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
+                        multiplier:1 constant:-bottomSpacing]];
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                        multiplier:1 constant:topSpacing]];
 
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
-                multiplier:1 constant:-bottomSpacing]];
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+                        multiplier:1 constant:-bottomSpacing]];
+                }
+
+                break;
+            }
+
+            case LMVerticalAlignmentTop: {
+                if (_alignToBaseline) {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
+                        multiplier:1 constant:topSpacing]];
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                        multiplier:1 constant:topSpacing]];
+                }
+
+                break;
+            }
+
+            case LMVerticalAlignmentBottom: {
+                if (_alignToBaseline) {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
+                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
+                        multiplier:1 constant:-bottomSpacing]];
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+                        multiplier:1 constant:-bottomSpacing]];
+                }
+
+                break;
+            }
+
+            case LMVerticalAlignmentCenter: {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterY
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY
+                    multiplier:1 constant:0]];
+
+                break;
+            }
         }
 
         previousSubview = subview;
     }
 
     // Align final view to trailing edge
-    if (previousSubview != nil) {
+    if (previousSubview != nil && horizontalAlignment != LMHorizontalAlignmentLeading) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
             multiplier:1 constant:-[self trailingSpacing]]];

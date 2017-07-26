@@ -102,6 +102,10 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(PlayerViewController(), animated: true)
         } else if (value == "bars") {
             navigationController!.pushViewController(BarsViewController(), animated: true)
+        } else if (value == "horizontalAlignment") {
+            navigationController!.pushViewController(HorizontalAlignmentViewController(), animated: true)
+        } else if (value == "verticalAlignment") {
+            navigationController!.pushViewController(VerticalAlignmentViewController(), animated: true)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }

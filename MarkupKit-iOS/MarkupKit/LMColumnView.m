@@ -18,6 +18,15 @@
 
 @implementation LMColumnView
 
+- (void)setVerticalAlignment:(LMVerticalAlignment)verticalAlignment
+{
+    if (verticalAlignment == LMVerticalAlignmentCenter) {
+        [NSException raise:NSInvalidArgumentException format:@"Invalid vertical alignment."];
+    }
+
+    [super setVerticalAlignment:verticalAlignment];
+}
+
 - (void)setAlignToGrid:(BOOL)alignToGrid
 {
     _alignToGrid = alignToGrid;
@@ -27,13 +36,17 @@
 
 - (void)layoutSubviews
 {
+    LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
+
     for (UIView * subview in _arrangedSubviews) {
         if ([subview isHidden]) {
             continue;
         }
 
-        [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
-        [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        if (horizontalAlignment == LMHorizontalAlignmentFill) {
+            [subview setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+            [subview setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+        }
 
         if (isnan([subview weight])) {
             [subview setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
@@ -64,6 +77,9 @@
         trailingAttribute = NSLayoutAttributeTrailing;
     }
 
+    LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
+    LMVerticalAlignment verticalAlignment = [self verticalAlignment];
+
     CGFloat leadingSpacing = [self leadingSpacing];
     CGFloat trailingSpacing = [self trailingSpacing];
 
@@ -79,9 +95,11 @@
 
         // Align to siblings
         if (previousSubview == nil) {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
-                multiplier:1 constant:[self topSpacing]]];
+            if (verticalAlignment != LMVerticalAlignmentBottom) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                    multiplier:1 constant:[self topSpacing]]];
+            }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
@@ -101,12 +119,42 @@
         }
 
         // Align to parent
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
-            multiplier:1 constant:leadingSpacing]];
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
-            multiplier:1 constant:-trailingSpacing]];
+        switch (horizontalAlignment) {
+            case LMHorizontalAlignmentFill: {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    multiplier:1 constant:leadingSpacing]];
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+                    multiplier:1 constant:-trailingSpacing]];
+
+                break;
+            }
+
+            case LMHorizontalAlignmentLeading: {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    multiplier:1 constant:leadingSpacing]];
+
+                break;
+            }
+
+            case LMHorizontalAlignmentTrailing: {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+                    multiplier:1 constant:-trailingSpacing]];
+
+                break;
+            }
+
+            case LMHorizontalAlignmentCenter: {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterX
+                    multiplier:1 constant:0]];
+
+                break;
+            }
+        }
 
         // Align subviews
         if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
@@ -127,7 +175,7 @@
     }
 
     // Align final view to bottom edge
-    if (previousSubview != nil) {
+    if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:-[self bottomSpacing]]];

@@ -13,10 +13,31 @@
 //
 
 #import "LMBoxView.h"
+#import "NSObject+Markup.h"
+
+static NSDictionary *horizontalAlignmentValues;
+static NSDictionary *verticalAlignmentValues;
 
 #define DEFAULT_SPACING 8
 
 @implementation LMBoxView
+
++ (void)initialize
+{
+    horizontalAlignmentValues = @{
+        @"fill": @(LMHorizontalAlignmentFill),
+        @"leading": @(LMHorizontalAlignmentLeading),
+        @"trailing": @(LMHorizontalAlignmentTrailing),
+        @"center": @(LMHorizontalAlignmentCenter)
+    };
+
+    verticalAlignmentValues = @{
+        @"fill": @(LMVerticalAlignmentFill),
+        @"top": @(LMVerticalAlignmentTop),
+        @"bottom": @(LMVerticalAlignmentBottom),
+        @"center": @(LMVerticalAlignmentCenter)
+    };
+}
 
 #define INIT {\
     _spacing = DEFAULT_SPACING;\
@@ -40,11 +61,36 @@
     return self;
 }
 
+- (void)setHorizontalAlignment:(LMHorizontalAlignment)horizontalAlignment
+{
+    _horizontalAlignment = horizontalAlignment;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setVerticalAlignment:(LMVerticalAlignment)verticalAlignment
+{
+    _verticalAlignment = verticalAlignment;
+
+    [self setNeedsUpdateConstraints];
+}
+
 - (void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
 
     [self setNeedsUpdateConstraints];
+}
+
+- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
+{
+    if ([key isEqual:@"horizontalAlignment"]) {
+        value = [horizontalAlignmentValues objectForKey:value];
+    } else if ([key isEqual:@"verticalAlignment"]) {
+        value = [verticalAlignmentValues objectForKey:value];
+    }
+
+    [super applyMarkupPropertyValue:value forKey:key];
 }
 
 @end

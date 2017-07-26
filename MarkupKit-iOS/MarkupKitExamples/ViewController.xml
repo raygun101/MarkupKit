@@ -55,4 +55,7 @@ limitations under the License.
 
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
     <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
+
+    <UITableViewCell textLabel.text="Horizontal Alignment" accessoryType="disclosureIndicator" value="horizontalAlignment"/>
+    <UITableViewCell textLabel.text="Vertical Alignment" accessoryType="disclosureIndicator" value="verticalAlignment"/>
 </LMTableView>

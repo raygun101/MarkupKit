@@ -208,6 +208,10 @@
 		3793AC861EE0A83500C686CF /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793AC851EE0A83500C686CF /* Row.swift */; };
 		379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */; };
+		37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */; };
+		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
+		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
+		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -530,6 +534,10 @@
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
 		379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
 		379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
+		37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalAlignmentViewController.swift; sourceTree = "<group>"; };
+		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
+		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
+		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -696,6 +704,10 @@
 				3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */,
 				37659D511ECF59290043C9C1 /* BarsViewController.swift */,
 				37659D521ECF59290043C9C1 /* BarsViewController.xml */,
+				37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */,
+				37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */,
+				37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */,
+				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
 				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
 				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
 				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
@@ -1187,6 +1199,8 @@
 				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
 				373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */,
 				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
+				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
+				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				373BFB2D1DFB007B00BB7509 /* chevy.png in Resources */,
 				373BFB2E1DFB007B00BB7509 /* mini.png in Resources */,
 				373BFB2F1DFB007B00BB7509 /* vw.png in Resources */,
@@ -1302,6 +1316,8 @@
 				373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */,
 				373BFB0A1DFB003800BB7509 /* PlayerViewController.swift in Sources */,
 				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
+				37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */,
+				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
