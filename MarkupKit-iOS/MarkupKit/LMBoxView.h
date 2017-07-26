@@ -20,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
  * Horizontal alignment options.
  */
 typedef NS_ENUM(NSInteger, LMHorizontalAlignment) {
+    /** Fill horizontal alignment. */
+    LMHorizontalAlignmentFill,
+
     /** Leading horizontal alignment. */
     LMHorizontalAlignmentLeading,
 
@@ -27,16 +30,16 @@ typedef NS_ENUM(NSInteger, LMHorizontalAlignment) {
     LMHorizontalAlignmentTrailing,
 
     /** Center horizontal alignment. */
-    LMHorizontalAlignmentCenter,
-
-    /** Fill horizontal alignment. */
-    LMHorizontalAlignmentFill
+    LMHorizontalAlignmentCenter
 };
 
 /**
  * Vertical alignment options.
  */
 typedef NS_ENUM(NSInteger, LMVerticalAlignment) {
+    /** Fill vertical alignment. */
+    LMVerticalAlignmentFill,
+
     /** Top vertical alignment. */
     LMVerticalAlignmentTop,
 
@@ -44,10 +47,7 @@ typedef NS_ENUM(NSInteger, LMVerticalAlignment) {
     LMVerticalAlignmentBottom,
 
     /** Center vertical alignment. */
-    LMVerticalAlignmentCenter,
-
-    /** Fill vertical alignment. */
-    LMVerticalAlignmentFill
+    LMVerticalAlignmentCenter
 };
 
 /**

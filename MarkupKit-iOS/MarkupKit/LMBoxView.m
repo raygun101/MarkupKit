@@ -25,17 +25,17 @@ static NSDictionary *verticalAlignmentValues;
 + (void)initialize
 {
     horizontalAlignmentValues = @{
+        @"fill": @(LMHorizontalAlignmentFill),
         @"leading": @(LMHorizontalAlignmentLeading),
         @"trailing": @(LMHorizontalAlignmentTrailing),
-        @"center": @(LMHorizontalAlignmentCenter),
-        @"fill": @(LMHorizontalAlignmentFill)
+        @"center": @(LMHorizontalAlignmentCenter)
     };
 
     verticalAlignmentValues = @{
+        @"fill": @(LMVerticalAlignmentFill),
         @"top": @(LMVerticalAlignmentTop),
         @"bottom": @(LMVerticalAlignmentBottom),
-        @"center": @(LMVerticalAlignmentCenter),
-        @"fill": @(LMVerticalAlignmentFill)
+        @"center": @(LMVerticalAlignmentCenter)
     };
 }
 

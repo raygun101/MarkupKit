@@ -18,12 +18,20 @@ limitations under the License.
 <?properties {
     "heading": {
         "font": "System 14"
+    },
+
+    "divider": {
+        "width": 0.5
     }
 }?>
 <?case tvOS?>
 <?properties {
     "heading": {
         "font": "System 20"
+    },
+
+    "divider": {
+        "width": 1
     }
 }?>
 <?end?>
@@ -32,12 +40,11 @@ limitations under the License.
     "cell": {
         "layoutMargins": 8,
         "layer.borderWidth": 0.5,
-        "layer.borderColor": "lightGray"
+        "layer.borderColor": "#cccccc"
     },
 
     "divider": {
-        "width": 0.5,
-        "backgroundColor": "lightGray"
+        "backgroundColor": "#666666"
     }
 }?>
 
@@ -47,13 +54,13 @@ limitations under the License.
             <UILabel class="heading" text="Top"/>
 
             <LMRowView weight="1">
-                <LMColumnView verticalAlignment="top">
+                <LMColumnView class="cell" verticalAlignment="top">
                     <UIImageView image="EmailIcon" tintColor="black"/>
                     <UIImageView image="FaxIcon" tintColor="black"/>
                     <UIImageView image="PhoneIcon" tintColor="black"/>
                 </LMColumnView>
                 
-                <LMRowView verticalAlignment="top">
+                <LMRowView class="cell" verticalAlignment="top">
                     <UIImageView image="EmailIcon" tintColor="black"/>
                     <UIImageView image="FaxIcon" tintColor="black"/>
                     <UIImageView image="PhoneIcon" tintColor="black"/>
@@ -67,13 +74,13 @@ limitations under the License.
             <UILabel class="heading" text="Bottom"/>
 
             <LMRowView weight="1">
-                <LMColumnView verticalAlignment="bottom">
+                <LMColumnView class="cell" verticalAlignment="bottom">
                     <UIImageView image="EmailIcon" tintColor="black"/>
                     <UIImageView image="FaxIcon" tintColor="black"/>
                     <UIImageView image="PhoneIcon" tintColor="black"/>
                 </LMColumnView>
                 
-                <LMRowView verticalAlignment="bottom">
+                <LMRowView class="cell" verticalAlignment="bottom">
                     <UIImageView image="EmailIcon" tintColor="black"/>
                     <UIImageView image="FaxIcon" tintColor="black"/>
                     <UIImageView image="PhoneIcon" tintColor="black"/>
@@ -86,7 +93,7 @@ limitations under the License.
         <LMColumnView>
             <UILabel class="heading" text="Center"/>
 
-            <LMRowView weight="1" verticalAlignment="center">
+            <LMRowView class="cell" weight="1" verticalAlignment="center">
                 <UIImageView image="EmailIcon" tintColor="black"/>
                 <UIImageView image="FaxIcon" tintColor="black"/>
                 <UIImageView image="PhoneIcon" tintColor="black"/>

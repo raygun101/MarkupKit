@@ -1101,15 +1101,32 @@ By default, layout views do not consume touch events. Touches that occur within 
 See [LMLayoutView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLayoutView.h) for more information.
 
 ## LMRowView and LMColumnView
-The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following property:
+The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or vertical line, respectively. Both classes extend the abstract `LMBoxView` class, which itself extends `LMLayoutView` and adds the following properties:
+
+    @property (nonatomic) LMHorizontalAlignment horizontalAlignment;
+    @property (nonatomic) LMVerticalAlignment verticalAlignment;
 
     @property (nonatomic) CGFloat spacing;
 
-This property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between subelements; for column views, it refers to the vertical space between subviews.
+The first two properties specify the horizontal and vertical alignment, respectively, of the box view's arranged subviews. Horizontal alignment options include the following:
 
-Subviews are always pinned along the view's primary axis (horizontal for row views and vertical for column views). This ensures that there is no ambiguity regarding a subview's placement and allows the auto layout system to correctly calculate the view's size and position. 
+* `LMHorizontalAlignmentFill`
+* `LMHorizontalAlignmentLeading`
+* `LMHorizontalAlignmentTrailing`
+* `LMHorizontalAlignmentCenter`
 
-Spacer views can be used to align subviews within a row or column as needed. This is discussed in more detail later.
+Vertical alignment options are as follows:
+
+* `LMVerticalAlignmentFill`
+* `LMVerticalAlignmentTop`
+* `LMVerticalAlignmentBottom`
+* `LMVerticalAlignmentCenter`
+
+Both values are set to "fill" by default, which pins subviews along both of the box view's axes and ensures that there is no ambiguity regarding any subview's placement. Other values will cause subviews to be pinned to a single edge or centered along the given axis.
+
+Spacer views can also be used to align subviews within a row or column. This is discussed in more detail later.
+
+The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between the subviews; for column views, it refers to the vertical space between the views.
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
@@ -1120,7 +1137,7 @@ The `LMRowView` class arranges its subviews in a horizontal line. Subviews are l
         <UILabel text="Three"/>
     </LMRowView>
 
-The top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. 
+If the row view's vertical alignment is set to "fill" (the default), the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. Otherwise, the subviews will be aligned according to the specified value.
 
 `LMRowView ` defines the following additional property, which specifies that subviews should be baseline-aligned: 
 
@@ -1155,7 +1172,7 @@ The `LMColumnView` class arranges its subviews in a vertical line. Subviews are 
         <UILabel text="Three"/>
     </LMColumnView>
 
-The left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width.
+If the column view's horizontal alignment is set to "fill" (the default), the left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width. Otherwise, the subviews will be aligned according to the specified value.
 
 `LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like a spreadsheet: 
 

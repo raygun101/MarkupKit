@@ -18,12 +18,20 @@ limitations under the License.
 <?properties {
     "heading": {
         "font": "System 14"
+    },
+
+    "divider": {
+        "height": 0.5
     }
 }?>
 <?case tvOS?>
 <?properties {
     "heading": {
         "font": "System 20"
+    },
+
+    "divider": {
+        "height": 1
     }
 }?>
 <?end?>
@@ -32,7 +40,11 @@ limitations under the License.
     "cell": {
         "layoutMargins": 8,
         "layer.borderWidth": 0.5,
-        "layer.borderColor": "lightGray"
+        "layer.borderColor": "#cccccc"
+    },
+
+    "divider": {
+        "backgroundColor": "#666666"
     }
 }?>
 
@@ -52,6 +64,8 @@ limitations under the License.
             <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMColumnView>
 
+        <LMSpacer class="divider"/>
+
         <UILabel class="heading" text="Trailing"/>
 
         <LMRowView class="cell" horizontalAlignment="trailing">
@@ -65,6 +79,8 @@ limitations under the License.
             <UIImageView image="FaxIcon" tintColor="black"/>
             <UIImageView image="PhoneIcon" tintColor="black"/>
         </LMColumnView>
+
+        <LMSpacer class="divider"/>
 
         <UILabel class="heading" text="Center"/>
 
