@@ -203,6 +203,8 @@
 		37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */; };
 		377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A69731DFB105500E06CD1 /* SlidersViewController.swift */; };
 		377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377A69741DFB105500E06CD1 /* SlidersViewController.xml */; };
+		378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */; };
+		378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */; };
 		379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F31E40DECE00C56838 /* UIResponder+Markup.m */; };
 		379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379214F41E40DECE00C56838 /* UIResponder+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3793AC861EE0A83500C686CF /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793AC851EE0A83500C686CF /* Row.swift */; };
@@ -448,6 +450,8 @@
 		37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Markup.m"; sourceTree = "<group>"; };
 		377A69731DFB105500E06CD1 /* SlidersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidersViewController.swift; sourceTree = "<group>"; };
 		377A69741DFB105500E06CD1 /* SlidersViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlidersViewController.xml; sourceTree = "<group>"; };
+		378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
+		378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnimationViewController.xml; sourceTree = "<group>"; };
 		379214F31E40DECE00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Markup.m"; sourceTree = "<group>"; };
 		379214F41E40DECE00C56838 /* UIResponder+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+Markup.h"; sourceTree = "<group>"; };
 		3793AC851EE0A83500C686CF /* Row.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Row.swift; sourceTree = "<group>"; };
@@ -708,6 +712,8 @@
 				37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */,
 				37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */,
 				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
+				378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */,
+				378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */,
 				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
 				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
 				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
@@ -1201,6 +1207,7 @@
 				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
 				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
 				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
+				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
 				373BFB2D1DFB007B00BB7509 /* chevy.png in Resources */,
 				373BFB2E1DFB007B00BB7509 /* mini.png in Resources */,
 				373BFB2F1DFB007B00BB7509 /* vw.png in Resources */,
@@ -1318,6 +1325,7 @@
 				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
 				37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */,
 				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
+				378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

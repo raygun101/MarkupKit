@@ -1218,6 +1218,18 @@ If the image is smaller or larger than 240 pixels tall, it will be scaled up or 
 Alternatively, the following property can be used to allow a view's dimensions to vary while maintaining a fixed aspect ratio:
 
     @property (nonatomic) CGFloat aspectRatio;
+    
+Note that, because they are implemented internally using layout constraints, changes to these properties can be animated. For example:
+
+    func toggleDetail() {
+        view.layoutIfNeeded()
+
+        detailView.height = detailSwitch.isOn ? 175 : 0
+
+        UIView.animate(withDuration: 0.33, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
 
 ### Bounded Dimensions
 MarkupKit also adds the following properties to `UIView`, which are used to define bounded values for a given dimension:
