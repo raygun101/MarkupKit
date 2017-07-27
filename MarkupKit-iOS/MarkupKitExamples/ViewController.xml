@@ -58,4 +58,8 @@ limitations under the License.
 
     <UITableViewCell textLabel.text="Horizontal Alignment" accessoryType="disclosureIndicator" value="horizontalAlignment"/>
     <UITableViewCell textLabel.text="Vertical Alignment" accessoryType="disclosureIndicator" value="verticalAlignment"/>
+
+    <?case iOS?>
+    <UITableViewCell textLabel.text="Animation" accessoryType="disclosureIndicator" value="animation"/>
+    <?end?>
 </LMTableView>
