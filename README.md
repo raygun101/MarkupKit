@@ -650,11 +650,27 @@ Vertical alignment options are as follows:
 * `LMVerticalAlignmentBottom`
 * `LMVerticalAlignmentCenter`
 
-Both values are set to "fill" by default, which pins subviews along both of the box view's axes and ensures that there is no ambiguity regarding any subview's placement. Other values will cause subviews to be pinned to a single edge or centered along the given axis.
+Both values are set to "fill" by default, which pins subviews along both of the box view's axes and ensures that there is no ambiguity regarding any subview's placement. Other values will cause subviews to be pinned to a single edge or centered along the given axis. 
+
+For example, this markup creates a row view containing three labels that are aligned horizontally to the row's leading edge and vertically to the top of the row:
+
+    <LMRowView horizontalAlignment="leading" verticalAlignment="top">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+    </LMRowView>
 
 Spacer views can also be used to align subviews within a row or column. This is discussed in more detail later.
 
-The `spacing` property represents the amount of spacing between successive subviews. For row views, this refers to the horizontal space between the subviews; for column views, it refers to the vertical space between the views.
+The `spacing` property represents the amount of space reserved between successive subviews. For row views, this refers to the horizontal space between the subviews; for column views, it refers to the vertical space between the views. The default value is 8. 
+
+The following markup creates a row view whose labels will be separated by a gap of 16 pixels:
+
+    <LMRowView spacing="16">
+        <UILabel text="One"/>
+        <UILabel text="Two"/>
+        <UILabel text="Three"/>
+    </LMRowView>
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
@@ -671,7 +687,7 @@ If the row view's vertical alignment is set to "fill" (the default), the top and
 
     @property (nonatomic) BOOL alignToBaseline;
 
-This markup creates a row view containing three labels, all with different font sizes:
+For example, this markup creates a row view containing three labels, all with different font sizes:
 
     <LMRowView alignToBaseline="true">
         <UILabel text="One" font="Helvetica 12"/>
@@ -702,7 +718,7 @@ The `LMColumnView` class arranges its subviews in a vertical line. Subviews are 
 
 If the column view's horizontal alignment is set to "fill" (the default), the left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width. Otherwise, the subviews will be aligned according to the specified value.
 
-`LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like a spreadsheet: 
+`LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like an HTML table: 
 
     @property (nonatomic) BOOL alignToGrid;
 
@@ -713,21 +729,19 @@ For example, the following markup would produce a grid containing three rows arr
     <LMColumnView alignToGrid="true">
         <LMRowView>
             <UILabel text="First row"/>
-            <UILabel weight="1" text="This is row number one."/>
+            <UILabel text="This is row number one."/>
         </LMRowView>
 
         <LMRowView>
             <UILabel text="Second row"/>
-            <UILabel weight="1" text="This is row number two."/>
+            <UILabel text="This is row number two."/>
         </LMRowView>
 
         <LMRowView>
             <UILabel text="Third row"/>
-            <UILabel weight="1" text="This is row number three."/>
+            <UILabel text="This is row number three."/>
         </LMRowView>
     </LMColumnView>
-
-The `weight` values ensure that the second label in each row is allocated all of the remaining space within the row after the size of the first label has been determined. Weights are discussed in more detail below.
 
 See [LMColumnView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMColumnView.h) for more information.
 
@@ -769,11 +783,11 @@ MarkupKit also adds the following properties to `UIView`, which are used to defi
 
 Specifying a minimum width or height value ensures that the corresponding dimension is greater than or equal to the given value. Similarly, specifying a maximum width or height ensures that the corresponding dimension is less than or equal to the given value.
 
-For example, the following markup declares a `UILabel` instance with a minimum width of 120 and a maximum width of 240:
+For example, the following markup declares a `UILabel` instance with a `minimumWidth` value of 120 and a `maximumWidth` value of 240:
 
     <UILabel text="Lorem ipsum dolor sit amet..." numberOfLines="0"
         minimumWidth="120" maximumWidth="240"/>
-        
+
 This ensures that the label will be at least 120 pixels and at most 240 pixels wide.
 
 ### View Weights
@@ -853,7 +867,18 @@ See [LMLayerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-
 ## LMAnchorView
 The `LMAnchorView` class optionally anchors subviews to one or more of its own edges. Although it is possible to achieve similar layouts using a combination of row, column, layer, and spacer views, anchor views may offer a simpler alternative in some cases. 
 
-Anchors are specified as a comma-separated list of edges to which the view will be anchored within its parent. For example, the following markup creates an anchor view containing four labels anchored to its top, left, right, and bottom edges. The labels will all be inset by 16 pixels:
+Anchors are specified as a comma-separated list of edges to which the view will be anchored within its parent. Anchor options include the following:
+
+* `LMAnchorNone`
+* `LMAnchorTop`
+* `LMAnchorBottom`
+* `LMAnchorLeft`
+* `LMAnchorRight`
+* `LMAnchorLeading`
+* `LMAnchorTrailing`
+* `LMAnchorAll`
+
+For example, the following markup creates an anchor view containing four labels anchored to its top, left, right, and bottom edges. The labels will all be inset by 16 pixels:
 
     <LMAnchorView layoutMargins="16">
         <UILabel text="Top" anchor="top"/>
