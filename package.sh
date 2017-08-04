@@ -29,7 +29,7 @@ lipo -create $FRAMEWORK-tvOS/$BUILD/Release-appletvos/$FRAMEWORK_PATH/$FRAMEWORK
 
 tar -czv -C $FRAMEWORK-tvOS/$BUILD/Release-universal -f $FRAMEWORK-tvOS.tar.gz $FRAMEWORK_PATH $FRAMEWORK_PATH.dSYM
 
-# Templates
-rm -f XcodeTemplates.tar.gz
+# Xcode
+rm -f Xcode.tar.gz
 
-tar -czv -f XcodeTemplates.tar.gz Xcode
+tar -czv -f Xcode.tar.gz Xcode

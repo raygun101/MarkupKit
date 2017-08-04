@@ -37,7 +37,7 @@ class AnimationViewController: UIViewController {
         detailView.height = 0
     }
 
-    func toggleDetail() {
+    @IBAction func toggleDetail() {
         view.layoutIfNeeded()
 
         detailView.height = detailSwitch.isOn ? 175 : 0
