@@ -89,6 +89,18 @@ limitations under the License.
                 <LMSpacer/>
             </LMRowView>
 
+            <LMColumnView alignToBaseline="true" spacing="12" backgroundColor="#ffff00">
+                <UILabel text="abcd" font="Helvetica 16" backgroundColor="green"/>
+                <UILabel text="efg" font="Helvetica 32" backgroundColor="green"/>
+                <UILabel text="hijk" font="Helvetica 24" backgroundColor="green"/>
+            </LMColumnView>
+
+            <UIStackView axis="vertical" spacing="12" baselineRelativeArrangement="true" backgroundColor="#00ffff">
+                <UILabel text="abcd" font="Helvetica 16" backgroundColor="orange"/>
+                <UILabel text="efg" font="Helvetica 32" backgroundColor="orange"/>
+                <UILabel text="hijk" font="Helvetica 24" backgroundColor="orange"/>
+            </UIStackView>
+
             <LMRowView layoutMargins="12" backgroundColor="#ffff00">
                 <LMSpacer/>
                 <UILabel text="abcd" font="Helvetica 16" textAlignment="abcde" backgroundColor="#00ffff"/>

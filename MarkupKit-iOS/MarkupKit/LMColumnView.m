@@ -85,6 +85,8 @@
 
     CGFloat spacing = [self spacing];
 
+    BOOL alignToBaseline = [self alignToBaseline];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -96,14 +98,21 @@
         // Align to siblings
         if (previousSubview == nil) {
             if (verticalAlignment != LMVerticalAlignmentBottom) {
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview
+                    attribute:alignToBaseline ? NSLayoutAttributeFirstBaseline : NSLayoutAttributeTop
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
                     multiplier:1 constant:[self topSpacing]]];
             }
         } else {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
-                multiplier:1 constant:spacing]];
+            if (alignToBaseline) {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
+                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
+                    multiplier:1 constant:spacing]];
+            } else {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
+                    multiplier:1 constant:spacing]];
+            }
         }
 
         CGFloat weight = [subview weight];
@@ -176,7 +185,8 @@
 
     // Align final view to bottom edge
     if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview
+            attribute:alignToBaseline ? NSLayoutAttributeLastBaseline : NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:-[self bottomSpacing]]];
     }

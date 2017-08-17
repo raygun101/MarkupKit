@@ -38,13 +38,6 @@ static NSDictionary *baselineValues;
     [super setHorizontalAlignment:horizontalAlignment];
 }
 
-- (void)setAlignToBaseline:(BOOL)alignToBaseline
-{
-    _alignToBaseline = alignToBaseline;
-
-    [self setNeedsUpdateConstraints];
-}
-
 - (void)setBaseline:(LMBaseline)baseline
 {
     _baseline = baseline;
@@ -103,6 +96,8 @@ static NSDictionary *baselineValues;
 
     CGFloat spacing = [self spacing];
 
+    BOOL alignToBaseline = [self alignToBaseline];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -123,7 +118,7 @@ static NSDictionary *baselineValues;
                 relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
                 multiplier:1 constant:spacing]];
 
-            if (_alignToBaseline) {
+            if (alignToBaseline) {
                 NSLayoutAttribute baselineAttribute;
                 switch (_baseline) {
                     case LMBaselineFirst: {
@@ -158,7 +153,7 @@ static NSDictionary *baselineValues;
         // Align to parent
         switch (verticalAlignment) {
             case LMVerticalAlignmentFill: {
-                if (_alignToBaseline) {
+                if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
                         multiplier:1 constant:topSpacing]];
@@ -180,7 +175,7 @@ static NSDictionary *baselineValues;
             }
 
             case LMVerticalAlignmentTop: {
-                if (_alignToBaseline) {
+                if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
                         multiplier:1 constant:topSpacing]];
@@ -194,7 +189,7 @@ static NSDictionary *baselineValues;
             }
 
             case LMVerticalAlignmentBottom: {
-                if (_alignToBaseline) {
+                if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                         relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
                         multiplier:1 constant:-bottomSpacing]];

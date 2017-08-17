@@ -70,6 +70,12 @@ typedef NS_ENUM(NSInteger, LMVerticalAlignment) {
  */
 @property (nonatomic) CGFloat spacing;
 
+/**
+ * Specifies that subviews should be baseline-aligned. The default value is
+ * <code>NO</code>.
+ */
+@property (nonatomic) BOOL alignToBaseline;
+
 @end
 
 NS_ASSUME_NONNULL_END

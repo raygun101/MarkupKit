@@ -82,6 +82,13 @@ static NSDictionary *verticalAlignmentValues;
     [self setNeedsUpdateConstraints];
 }
 
+- (void)setAlignToBaseline:(BOOL)alignToBaseline
+{
+    _alignToBaseline = alignToBaseline;
+
+    [self setNeedsUpdateConstraints];
+}
+
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"horizontalAlignment"]) {
