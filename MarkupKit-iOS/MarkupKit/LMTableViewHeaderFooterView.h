@@ -17,12 +17,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Table view cell that hosts custom content.
+ * Table view header/footer view that hosts custom content.
  */
-@interface LMTableViewCell : UITableViewCell
+@interface LMTableViewHeaderFooterView : UITableViewHeaderFooterView
 
 /**
- * Specifies that the cell's content will be arranged relative to its layout margins.
+ * Specifies that the view's content will be arranged relative to its layout margins.
  * The default value is <code>YES</code>.
  */
 @property (nonatomic) BOOL layoutMarginsRelativeArrangement;

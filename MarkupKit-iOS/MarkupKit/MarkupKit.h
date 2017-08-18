@@ -36,6 +36,7 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/LMPageView.h>
 #import <MarkupKit/LMTableView.h>
 #import <MarkupKit/LMTableViewCell.h>
+#import <MarkupKit/LMTableViewHeaderFooterView.h>
 #import <MarkupKit/LMTableViewController.h>
 #import <MarkupKit/LMCollectionView.h>
 #import <MarkupKit/LMCollectionViewCell.h>

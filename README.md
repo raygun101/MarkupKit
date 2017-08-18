@@ -474,9 +474,9 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMSpacer` - view that creates flexible space between other views
 * `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
 * `LMAnchorView` - view that optionally anchors subviews to one or more edges
-* `LMTableView`/`LMTableViewCell` - `UITableView` and `UITableViewCell` subclasses, respectively, that facilitate the declaration of table view content
+* `LMTableView`, `LMTableViewCell`, and `LMTableViewHeaderFooterView` - `UITableView`, `UITableViewCell`, and `UITableViewHeaderFooterView` subclasses, respectively, that facilitate the declaration of table view content
 * `LMTableViewController` - `UITableViewController` subclass that simplifies management of an `LMTableView`
-* `LMCollectionView`/`LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
+* `LMCollectionView` and `LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
 * `LMPageView` - subclass of `UIScrollView` that facilitates the declaration of paged content
@@ -905,10 +905,12 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
-## LMTableView and LMTableViewCell
-The `LMTableView` and `LMTableViewCell` classes facilitate the declaration of table view content in markup. `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.
+## LMTableView, LMTableViewCell, and LMTableViewHeaderFooterView
+`LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.
 
-`LMTableViewCell` is a subclass of `UITableViewCell` that provides a vehicle for custom cell content. It automatically applies constraints to its content to enable self-sizing behavior. MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
+`LMTableViewCell` and `LMTableViewHeaderFooterView` are `UITableViewCell` and `UITableViewHeaderFooterView` subclasses, respectively, that provide a vehicle for custom table view content. They automatically apply constraints to their content to enable self-sizing behavior. 
+
+MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
 
 ### Declaration
 `LMTableView` provides two factory methods that are used to construct new table view instances in markup:
@@ -1059,7 +1061,7 @@ In order to support static content declaration, `LMTableView` acts as its own da
 While it is possible for controllers to perform this delegation manually, in most cases it is not required. The `LMTableViewController` class discussed later provides default implementations of these methods that simply delegate to the table view. As a result, view controllers that manage an `LMTableView` instance can generally just extend `LMTableViewController` and override the appropriate methods, delegating to the base class as necessary.
 
 ### Custom Cell Content
-The `LMTableViewCell` class supports the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
+The `LMTableViewCell` class facilitates the declaration of custom table view cell content in markup. It can be used when the content options provided by the default `UITableViewCell` class are not sufficient. As discussed earlier, `LMTableViewCell` automatically applies constraints to its content to enable self-sizing behavior.
 
 For example, the following markup creates a plain table view whose single cell contains a `UIDatePicker`. The date picker will be automatically sized to fill the width and height of the cell:
 
@@ -1094,6 +1096,23 @@ The child of the root tag represents the cell's content. It can be any valid vie
 * `multipleSelectionBackgroundView` - sets the cell's multiple selection background view
 
 See [LMTableView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMTableView.h) and [LMTableViewCell.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMTableViewCell.h) for more information.
+
+### Custom Header/Footer Content
+The `LMTableViewHeaderFooterView` class facilitates the declaration of custom table view header and footer content in markup. Like `LMTableViewCell`, it can be used when the content options provided by the default `UITableViewHeaderFooterView` class are not sufficient. `LMTableViewHeaderFooterView` also automatically applies constraints to its content to enable self-sizing behavior.
+
+For example, the following markup declares a custom footer view containing a label and a switch:
+
+    <LMTableView style="groupedTableView">
+        ...
+        
+        <?sectionFooterView?>
+        <LMTableViewHeaderFooterView>
+            <LMRowView>
+                <UILabel weight="1" text="On/Off"/>
+                <UISwitch/>
+            </LMRowView>
+        </LMTableViewHeaderFooterView>
+    </LMTableView>
 
 ## LMTableViewController
 `LMTableViewController` is a subclass of `UITableViewController` that simplifies management of an `LMTableView` instance. By default, it delegates data source and delegate operations to the table view itself. Subclasses can override the default implementations to provide custom table view content or respond to table view events such as row selection and edit requests.

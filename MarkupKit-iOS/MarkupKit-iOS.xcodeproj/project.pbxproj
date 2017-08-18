@@ -214,6 +214,8 @@
 		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
 		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
 		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
+		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
@@ -542,6 +544,8 @@
 		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
 		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
+		37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewHeaderFooterView.h; sourceTree = "<group>"; };
+		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -802,6 +806,8 @@
 				3799BB131DF18539006E6B3D /* LMTableView.m */,
 				3799BB141DF18539006E6B3D /* LMTableViewCell.h */,
 				3799BB151DF18539006E6B3D /* LMTableViewCell.m */,
+				37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */,
+				37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */,
 				37F899811E475E5700205A70 /* LMTableViewController.h */,
 				37F899821E475E5700205A70 /* LMTableViewController.m */,
 				3799BAF61DF18539006E6B3D /* LMCollectionView.h */,
@@ -933,6 +939,7 @@
 				376306711DF188F400357E68 /* LMPlayerView.h in Headers */,
 				376306721DF188F400357E68 /* LMTableView.h in Headers */,
 				376306731DF188F400357E68 /* LMTableViewCell.h in Headers */,
+				37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */,
 				37F899831E475E5700205A70 /* LMTableViewController.h in Headers */,
 				376306741DF188F400357E68 /* LMCollectionView.h in Headers */,
 				376306751DF188F400357E68 /* LMCollectionViewCell.h in Headers */,
@@ -1358,6 +1365,7 @@
 				376306491DF188BF00357E68 /* LMPlayerView.m in Sources */,
 				3763064A1DF188BF00357E68 /* LMTableView.m in Sources */,
 				3763064B1DF188BF00357E68 /* LMTableViewCell.m in Sources */,
+				37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */,
 				37F899841E475E5700205A70 /* LMTableViewController.m in Sources */,
 				3763064C1DF188BF00357E68 /* LMCollectionView.m in Sources */,
 				3763064D1DF188BF00357E68 /* LMCollectionViewCell.m in Sources */,

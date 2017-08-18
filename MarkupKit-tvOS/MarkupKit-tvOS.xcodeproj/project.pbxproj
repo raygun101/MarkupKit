@@ -85,6 +85,8 @@
 		37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392361E50B06C00931587 /* CollectionViewController.xml */; };
 		37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B392371E50B06C00931587 /* ColorCell.swift */; };
 		37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392381E50B06C00931587 /* ColorCell.xml */; };
+		37BB5C8B1F47398C0089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C891F47398C0089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37BB5C8C1F47398C0089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C8A1F47398C0089139F /* LMTableViewHeaderFooterView.m */; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -314,6 +316,8 @@
 		37B392361E50B06C00931587 /* CollectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CollectionViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/CollectionViewController.xml"; sourceTree = "<group>"; };
 		37B392371E50B06C00931587 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorCell.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.swift"; sourceTree = "<group>"; };
 		37B392381E50B06C00931587 /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = ColorCell.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/ColorCell.xml"; sourceTree = "<group>"; };
+		37BB5C891F47398C0089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewHeaderFooterView.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.h"; sourceTree = "<group>"; };
+		37BB5C8A1F47398C0089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewHeaderFooterView.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.m"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
@@ -559,6 +563,8 @@
 				37E579F11DF19090002984B9 /* LMTableView.m */,
 				37E579F21DF19090002984B9 /* LMTableViewCell.h */,
 				37E579F31DF19090002984B9 /* LMTableViewCell.m */,
+				37BB5C891F47398C0089139F /* LMTableViewHeaderFooterView.h */,
+				37BB5C8A1F47398C0089139F /* LMTableViewHeaderFooterView.m */,
 				37F899851E475E8700205A70 /* LMTableViewController.h */,
 				37F899861E475E8700205A70 /* LMTableViewController.m */,
 				37E579F41DF19090002984B9 /* LMCollectionView.h */,
@@ -686,6 +692,7 @@
 				37E57AA71DF1911F002984B9 /* LMPlayerView.h in Headers */,
 				37E57AA81DF1911F002984B9 /* LMTableView.h in Headers */,
 				37E57AA91DF1911F002984B9 /* LMTableViewCell.h in Headers */,
+				37BB5C8B1F47398C0089139F /* LMTableViewHeaderFooterView.h in Headers */,
 				37F899871E475E8700205A70 /* LMTableViewController.h in Headers */,
 				37E57AAA1DF1911F002984B9 /* LMCollectionView.h in Headers */,
 				37E57AAB1DF1911F002984B9 /* LMCollectionViewCell.h in Headers */,
@@ -972,6 +979,7 @@
 				37E57A7F1DF190F1002984B9 /* LMPlayerView.m in Sources */,
 				37E57A801DF190F1002984B9 /* LMTableView.m in Sources */,
 				37E57A811DF190F1002984B9 /* LMTableViewCell.m in Sources */,
+				37BB5C8C1F47398C0089139F /* LMTableViewHeaderFooterView.m in Sources */,
 				37F899881E475E8700205A70 /* LMTableViewController.m in Sources */,
 				37E57A821DF190F1002984B9 /* LMCollectionView.m in Sources */,
 				37E57A831DF190F1002984B9 /* LMCollectionViewCell.m in Sources */,
