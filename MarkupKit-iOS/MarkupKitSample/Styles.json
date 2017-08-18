@@ -3,11 +3,6 @@
         "selectionStyle": "none"
     },
 
-    "footerCell": {
-        "textLabel.font": "caption2",
-        "textLabel.color": "#808080"
-    },
-
     "headingLabel": {
         "font": "headline",
         "textColor": "#444444",
