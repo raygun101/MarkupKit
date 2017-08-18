@@ -83,10 +83,13 @@ typedef enum {
     _sections = [NSMutableArray new];\
     [self setDataSource:self];\
     [self setDelegate:self];\
-    [self setEstimatedRowHeight:ESTIMATED_HEIGHT];\
-    if ([self style] == UITableViewStyleGrouped) {\
-        [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
-        [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
+    NSOperatingSystemVersion operatingSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];\
+    if (operatingSystemVersion.majorVersion <= 10) {\
+        [self setEstimatedRowHeight:ESTIMATED_HEIGHT];\
+        if ([self style] == UITableViewStyleGrouped) {\
+            [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
+            [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
+        }\
     }\
     [self insertSection:0];\
 }
