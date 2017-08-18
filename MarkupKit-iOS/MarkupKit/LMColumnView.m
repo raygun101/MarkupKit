@@ -98,8 +98,7 @@
         // Align to siblings
         if (previousSubview == nil) {
             if (verticalAlignment != LMVerticalAlignmentBottom) {
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview
-                    attribute:alignToBaseline ? NSLayoutAttributeFirstBaseline : NSLayoutAttributeTop
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
                     multiplier:1 constant:[self topSpacing]]];
             }
@@ -185,8 +184,7 @@
 
     // Align final view to bottom edge
     if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
-        [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview
-            attribute:alignToBaseline ? NSLayoutAttributeLastBaseline : NSLayoutAttributeBottom
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
             multiplier:1 constant:-[self bottomSpacing]]];
     }
