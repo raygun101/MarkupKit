@@ -455,6 +455,80 @@ static NSDictionary *anchorValues;
     [self setLayoutMargins:layoutMargins];
 }
 
+- (CGFloat)layoutMarginLeading
+{
+    CGFloat leading;
+    if (@available(iOS 11, *)) {
+        leading = [self directionalLayoutMargins].leading;
+    } else {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
+            leading = [self layoutMargins].left;
+        } else {
+            leading = [self layoutMargins].right;
+        }
+    }
+
+    return leading;
+}
+
+- (void)setLayoutMarginLeading:(CGFloat)leading
+{
+    if (@available(iOS 11, *)) {
+        NSDirectionalEdgeInsets directionalLayoutMargins = [self directionalLayoutMargins];
+
+        directionalLayoutMargins.leading = leading;
+
+        [self setDirectionalLayoutMargins:directionalLayoutMargins];
+    } else {
+        UIEdgeInsets layoutMargins = [self layoutMargins];
+
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
+            layoutMargins.left = leading;
+        } else {
+            layoutMargins.right = leading;
+        }
+
+        [self setLayoutMargins:layoutMargins];
+    }
+}
+
+- (CGFloat)layoutMarginTrailing
+{
+    CGFloat trailing;
+    if (@available(iOS 11, *)) {
+        trailing = [self directionalLayoutMargins].trailing;
+    } else {
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
+            trailing = [self layoutMargins].right;
+        } else {
+            trailing = [self layoutMargins].left;
+        }
+    }
+
+    return trailing;
+}
+
+- (void)setLayoutMarginTrailing:(CGFloat)trailing
+{
+    if (@available(iOS 11, *)) {
+        NSDirectionalEdgeInsets directionalLayoutMargins = [self directionalLayoutMargins];
+
+        directionalLayoutMargins.trailing = trailing;
+
+        [self setDirectionalLayoutMargins:directionalLayoutMargins];
+    } else {
+        UIEdgeInsets layoutMargins = [self layoutMargins];
+
+        if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
+            layoutMargins.right = trailing;
+        } else {
+            layoutMargins.left = trailing;
+        }
+
+        [self setLayoutMargins:layoutMargins];
+    }
+}
+
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"contentMode"]) {

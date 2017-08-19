@@ -133,6 +133,16 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
 @property (nonatomic) CGFloat layoutMarginRight;
 
 /**
+ * The leading layout margin.
+ */
+@property (nonatomic) CGFloat layoutMarginLeading;
+
+/**
+ * The trailing layout margin.
+ */
+@property (nonatomic) CGFloat layoutMarginTrailing;
+
+/**
  * Processes a markup instruction.
  *
  * @param target The markup instruction's target.

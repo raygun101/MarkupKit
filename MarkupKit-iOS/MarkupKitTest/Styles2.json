@@ -6,7 +6,10 @@
     },
 
     "secondRow": {
-        "layoutMargins": 6,
+        "layoutMarginTop": 6,
+        "layoutMarginBottom": 6,
+        "layoutMarginLeading": 24,
+        "layoutMarginTrailing": 48,
         "layer.borderWidth": 4,
         "layer.borderColor": "#00ffff"
     },
