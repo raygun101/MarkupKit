@@ -139,7 +139,7 @@ This markup creates a column view whose background color is set to a semi-transp
     </LMColumnView>
 
 #### Named Colors
-A named color value may refer either to a color in the application's color table or to a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] values. The names can be used thoroughout the application in place of the actual hex values.
+A named color value may refer to a color set in an asset catalog, an entry in the application's color table, or to a color constant defined by the `UIColor` class. The color table is an optional collection of key-value pairs defined in a file named _Colors.plist_. If present, this file must be located in the application's main bundle. The table's keys represent color names, and the values the associated RGB[A] values. The names can be used thoroughout the application in place of the actual hex values.
 
 For example, the following property list defines a color named "darkRed":
 
@@ -160,7 +160,15 @@ For example, the following markup would produce a system-style button whose tint
 
     <UIButton style="systemButton" tintColor="green"/>
 
-Color table entries take precedence over `UIColor` constants. For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by `greenColor`.
+Named colors are evaluated in the following order:
+
+* Color set
+* Color table
+* Color constant
+
+For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by `greenColor`.
+
+TODO Discuss bundle customization support
 
 #### Pattern Images
 Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
