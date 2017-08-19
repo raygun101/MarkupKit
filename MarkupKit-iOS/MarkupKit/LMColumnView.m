@@ -105,7 +105,7 @@
         } else {
             if (alignToBaseline) {
                 if (isnan(spacing)) {
-                    if (@available(iOS 11.0, *)) {
+                    if (@available(iOS 11.0, tvOS 11, *)) {
                         [constraints addObject:[[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1]];
                     }
                 } else {
@@ -115,7 +115,7 @@
                 }
             } else {
                 if (isnan(spacing)) {
-                    if (@available(iOS 11.0, *)) {
+                    if (@available(iOS 11.0, tvOS 11, *)) {
                         [constraints addObject:[[subview topAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview bottomAnchor] multiplier:1]];
                     }
                 } else {

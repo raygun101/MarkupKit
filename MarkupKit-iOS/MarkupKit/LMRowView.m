@@ -115,7 +115,7 @@ static NSDictionary *baselineValues;
             }
         } else {
             if (isnan(spacing)) {
-                if (@available(iOS 11.0, *)) {
+                if (@available(iOS 11.0, tvOS 11, *)) {
                     [constraints addObject:[[subview leadingAnchor] constraintEqualToSystemSpacingAfterAnchor:[previousSubview trailingAnchor] multiplier:1]];
                 }
             } else {

@@ -40,11 +40,10 @@ static NSDictionary *verticalAlignmentValues;
 }
 
 #define INIT {\
-    NSOperatingSystemVersion operatingSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];\
-    if (operatingSystemVersion.majorVersion <= 10) {\
-        _spacing = DEFAULT_SPACING;\
-    } else {\
+    if (@available(iOS 11.0, tvOS 11, *)) {\
         _spacing = NAN;\
+    } else {\
+        _spacing = DEFAULT_SPACING;\
     }\
 }
 
