@@ -208,7 +208,7 @@ static NSMutableDictionary *templateCache;
         if (image != nil) {
             color = [UIColor colorWithPatternImage:image];
         } else {
-            if (@available(iOS 11, *)) {
+            if (@available(iOS 11, tvOS 11, *)) {
                 color = [UIColor colorNamed:value];
             }
 

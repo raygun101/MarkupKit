@@ -24,8 +24,9 @@ typedef enum {
     kElementRefreshControl
 } __ElementDisposition;
 
-static NSDictionary *indicatorStyleValues;
-static NSDictionary *keyboardDismissModeValues;
+static NSDictionary *scrollViewIndicatorStyleValues;
+static NSDictionary *scrollViewKeyboardDismissModeValues;
+static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
 
 #define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
 
@@ -33,17 +34,26 @@ static NSDictionary *keyboardDismissModeValues;
 
 + (void)initialize
 {
-    indicatorStyleValues = @{
+    scrollViewIndicatorStyleValues = @{
         @"default": @(UIScrollViewIndicatorStyleDefault),
         @"black": @(UIScrollViewIndicatorStyleBlack),
         @"white": @(UIScrollViewIndicatorStyleWhite)
     };
 
-    keyboardDismissModeValues = @{
+    scrollViewKeyboardDismissModeValues = @{
         @"none": @(UIScrollViewKeyboardDismissModeNone),
         @"onDrag": @(UIScrollViewKeyboardDismissModeOnDrag),
         @"interactive": @(UIScrollViewKeyboardDismissModeInteractive)
     };
+
+    if (@available(iOS 11, tvOS 11, *)) {
+        scrollViewContentInsetAdjustmentBehaviorValues = @{
+            @"automatic": @(UIScrollViewContentInsetAdjustmentAutomatic),
+            @"scrollableAxes": @(UIScrollViewContentInsetAdjustmentScrollableAxes),
+            @"never": @(UIScrollViewContentInsetAdjustmentNever),
+            @"always": @(UIScrollViewContentInsetAdjustmentAlways)
+        };
+    }
 }
 
 - (CGFloat)contentInsetTop
@@ -122,9 +132,11 @@ static NSDictionary *keyboardDismissModeValues;
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"indicatorStyle"]) {
-        value = [indicatorStyleValues objectForKey:value];
+        value = [scrollViewIndicatorStyleValues objectForKey:value];
     } else if ([key isEqual:@"keyboardDismissMode"]) {
-        value = [keyboardDismissModeValues objectForKey:value];
+        value = [scrollViewKeyboardDismissModeValues objectForKey:value];
+    } else if ([key isEqual:@"contentInsetAdjustmentBehavior"]) {
+        value = [scrollViewContentInsetAdjustmentBehaviorValues objectForKey:value];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];

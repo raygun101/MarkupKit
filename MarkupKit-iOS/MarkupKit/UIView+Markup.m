@@ -458,7 +458,7 @@ static NSDictionary *anchorValues;
 - (CGFloat)layoutMarginLeading
 {
     CGFloat leading;
-    if (@available(iOS 11, *)) {
+    if (@available(iOS 11, tvOS 11, *)) {
         leading = [self directionalLayoutMargins].leading;
     } else {
         if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
@@ -473,7 +473,7 @@ static NSDictionary *anchorValues;
 
 - (void)setLayoutMarginLeading:(CGFloat)leading
 {
-    if (@available(iOS 11, *)) {
+    if (@available(iOS 11, tvOS 11, *)) {
         NSDirectionalEdgeInsets directionalLayoutMargins = [self directionalLayoutMargins];
 
         directionalLayoutMargins.leading = leading;
@@ -495,7 +495,7 @@ static NSDictionary *anchorValues;
 - (CGFloat)layoutMarginTrailing
 {
     CGFloat trailing;
-    if (@available(iOS 11, *)) {
+    if (@available(iOS 11, tvOS 11, *)) {
         trailing = [self directionalLayoutMargins].trailing;
     } else {
         if ([UIView userInterfaceLayoutDirectionForSemanticContentAttribute:[self semanticContentAttribute]] == UIUserInterfaceLayoutDirectionLeftToRight) {
@@ -510,7 +510,7 @@ static NSDictionary *anchorValues;
 
 - (void)setLayoutMarginTrailing:(CGFloat)trailing
 {
-    if (@available(iOS 11, *)) {
+    if (@available(iOS 11, tvOS 11, *)) {
         NSDirectionalEdgeInsets directionalLayoutMargins = [self directionalLayoutMargins];
 
         directionalLayoutMargins.trailing = trailing;
