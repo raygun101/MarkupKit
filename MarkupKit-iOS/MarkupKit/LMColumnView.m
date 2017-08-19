@@ -104,13 +104,25 @@
             }
         } else {
             if (alignToBaseline) {
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
-                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
-                    multiplier:1 constant:spacing]];
+                if (isnan(spacing)) {
+                    if (@available(iOS 11.0, *)) {
+                        [constraints addObject:[[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1]];
+                    }
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
+                        relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
+                        multiplier:1 constant:spacing]];
+                }
             } else {
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
-                    multiplier:1 constant:spacing]];
+                if (isnan(spacing)) {
+                    if (@available(iOS 11.0, *)) {
+                        [constraints addObject:[[subview topAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview bottomAnchor] multiplier:1]];
+                    }
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
+                        multiplier:1 constant:spacing]];
+                }
             }
         }
 

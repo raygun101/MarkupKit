@@ -633,8 +633,10 @@ The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or v
 
     @property (nonatomic) LMHorizontalAlignment horizontalAlignment;
     @property (nonatomic) LMVerticalAlignment verticalAlignment;
-
+    
     @property (nonatomic) CGFloat spacing;
+    
+    @property (nonatomic) BOOL alignToBaseline;
 
 The first two properties specify the horizontal and vertical alignment, respectively, of the box view's arranged subviews. Horizontal alignment options include the following:
 
@@ -662,15 +664,17 @@ For example, this markup creates a row view containing three labels that are ali
 
 Spacer views can also be used to align subviews within a row or column. This is discussed in more detail later.
 
-The `spacing` property represents the amount of space reserved between successive subviews. For row views, this refers to the horizontal space between the subviews; for column views, it refers to the vertical space between the views. The default value is 8. 
-
-The following markup creates a row view whose labels will be separated by a gap of 16 pixels:
+The `spacing` property represents the amount of space reserved between successive subviews. For row views, this refers to the horizontal space between the subviews; for column views, it refers to the vertical space between the views. For example, the following markup creates a row view whose labels will each be separated by a gap of 16 pixels:
 
     <LMRowView spacing="16">
         <UILabel text="One"/>
         <UILabel text="Two"/>
         <UILabel text="Three"/>
     </LMRowView>
+
+In iOS 10 and earlier, the default spacing value is 8. In iOS 11 and later, the system default is used.
+
+The `alignToBaseline` property can be used to manage how subviews are vertically aligned with respect to one another. This is discussed in more detail below. Baseline alignmnent is disabled by default.
 
 ### LMRowView
 The `LMRowView` class arranges its subviews in a horizontal line. Subviews are laid out from leading to trailing edge in the order in which they are declared. For example, the following markup creates a row view containing three labels:
@@ -683,19 +687,13 @@ The `LMRowView` class arranges its subviews in a horizontal line. Subviews are l
 
 If the row view's vertical alignment is set to "fill" (the default), the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. Otherwise, the subviews will be aligned according to the specified value.
 
-`LMRowView ` defines the following additional property, which specifies that subviews should be baseline-aligned: 
-
-    @property (nonatomic) BOOL alignToBaseline;
-
-For example, this markup creates a row view containing three labels, all with different font sizes:
+This markup creates a row view containing three labels with different font sizes. Because `alignToBaseline` is set to `true`, the baselines of all three labels will line up:
 
     <LMRowView alignToBaseline="true">
-        <UILabel text="One" font="Helvetica 12"/>
-        <UILabel text="Two" font="Helvetica 24"/>
-        <UILabel text="Three" font="Helvetica 48"/>
+        <UILabel text="abcd" font="Helvetica 12"/>
+        <UILabel text="efg" font="Helvetica 24"/>
+        <UILabel text="hijk" font="Helvetica 48"/>
     </LMRowView>
-    
-Because `alignToBaseline` is set to `true`, the baselines of all three labels will line up.
 
 Further, the baseline to which subviews will be aligned can be controlled by the `baseline` property. The default value is "first", meaning that subviews will be aligned to the first baseline. However, it is also possible to align subviews to the last baseline; for example:
 
@@ -718,6 +716,15 @@ The `LMColumnView` class arranges its subviews in a vertical line. Subviews are 
 
 If the column view's horizontal alignment is set to "fill" (the default), the left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width. Otherwise, the subviews will be aligned according to the specified value.
 
+This markup creates a column view containing three labels with different font sizes. Because `alignToBaseline` is set to `true`, the labels will be spaced vertically according to their first and last baselines rather than their bounding rectangles:
+
+    <LMColumnView alignToBaseline="true">
+        <UILabel text="abcd" font="Helvetica 16"/>
+        <UILabel text="efg" font="Helvetica 32"/>
+        <UILabel text="hijk" font="Helvetica 24"/>
+    </LMColumnView>
+
+#### Grid Alignment
 `LMColumnView` defines the following additional property, which specifies that nested subviews should be vertically aligned in a grid, like an HTML table: 
 
     @property (nonatomic) BOOL alignToGrid;

@@ -40,7 +40,12 @@ static NSDictionary *verticalAlignmentValues;
 }
 
 #define INIT {\
-    _spacing = DEFAULT_SPACING;\
+    NSOperatingSystemVersion operatingSystemVersion = [[NSProcessInfo processInfo] operatingSystemVersion];\
+    if (operatingSystemVersion.majorVersion <= 10) {\
+        _spacing = DEFAULT_SPACING;\
+    } else {\
+        _spacing = NAN;\
+    }\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

@@ -114,9 +114,15 @@ static NSDictionary *baselineValues;
                     multiplier:1 constant:[self leadingSpacing]]];
             }
         } else {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
-                multiplier:1 constant:spacing]];
+            if (isnan(spacing)) {
+                if (@available(iOS 11.0, *)) {
+                    [constraints addObject:[[subview leadingAnchor] constraintEqualToSystemSpacingAfterAnchor:[previousSubview trailingAnchor] multiplier:1]];
+                }
+            } else {
+                [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
+                    relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
+                    multiplier:1 constant:spacing]];
+            }
 
             if (alignToBaseline) {
                 NSLayoutAttribute baselineAttribute;
