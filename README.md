@@ -234,7 +234,7 @@ Note that attribute values are converted to enum types based on the attribute's 
     <UILabel text="whileEditing"/>
 
 ### Edge Insets
-The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure. 
+The `UIView` class allows a caller to specify the amount of space that should be reserved around all of its subviews when laying out its contents. This value is called the view's "layout margins" and is represented by an instance of the `UIEdgeInsets` structure (or `NSDirectionalEdgeInsets` in iOS 11 and later). 
 
 Since edge insets aren't natively supported by KVC, MarkupKit provides a shorthand for specifying layout margin values. The "layoutMargins" attribute accepts a single numeric value that will be applied to all of the structure's components. For example, the following markup creates a column view whose top, left, bottom, and right layout margins are set to 20:
 
@@ -621,6 +621,8 @@ The vertical spacing properties are often used in conjuction with `layoutMargins
     }
     
 The horizontal spacing properties can be used to create locale-aware margins.
+
+The `layoutMarginLeading` and `layoutMarginTrailing` properties MarkupKit adds to `UIView` can also be used to create locale-aware margins. In iOS 11, these properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the current text direction.
 
 Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
 
