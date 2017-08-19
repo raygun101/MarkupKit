@@ -203,23 +203,23 @@ static NSMutableDictionary *templateCache;
             color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
         }
     } else {
-        if (@available(iOS 11, *)) {
-            color = [UIColor colorNamed:value];
-        }
+        UIImage *image = [UIImage imageNamed:value];
 
-        if (color == nil) {
-            color = [colorTable objectForKey:value];
+        if (image != nil) {
+            color = [UIColor colorWithPatternImage:image];
+        } else {
+            if (@available(iOS 11, *)) {
+                color = [UIColor colorNamed:value];
+            }
 
             if (color == nil) {
-                NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
+                color = [colorTable objectForKey:value];
 
-                if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
-                    color = [[UIColor self] valueForKey:selectorName];
-                } else {
-                    UIImage *image = [UIImage imageNamed:value];
+                if (color == nil) {
+                    NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
 
-                    if (image != nil) {
-                        color = [UIColor colorWithPatternImage:image];
+                    if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
+                        color = [[UIColor self] valueForKey:selectorName];
                     }
                 }
             }
