@@ -75,7 +75,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
 
     func keyboardWillShow(_ notification: Notification) {
         let layoutView = view as! LMLayoutView
-        let frame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! CGRect
+        let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
         layoutView.bottomSpacing = frame.height
     }
