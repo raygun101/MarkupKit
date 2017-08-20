@@ -25,7 +25,7 @@ Using markup also helps to promote a clear separation of responsibility. Most, i
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires either iOS 8 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
+MarkupKit requires either iOS 9 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
 For additional information and examples, including code templates, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
 
@@ -710,8 +710,6 @@ Further, the baseline to which subviews will be aligned can be controlled by the
     <LMRowView alignToBaseline="true" baseline="last">
         ...
     </LMRowView>
-
-Note that the `baseline` property requires iOS 9 or later. On iOS 8, the first baseline will always be used.
 
 See [LMRowView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMRowView.h) for more information.
 
