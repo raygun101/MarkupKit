@@ -25,8 +25,11 @@ static NSDictionary *textAlignmentValues;
 static NSDictionary *textAutocapitalizationTypeValues;
 static NSDictionary *textAutocorrectionTypeValues;
 static NSDictionary *textSpellCheckingTypeValues;
-static NSDictionary *keyboardAppearanceValues;
+static NSDictionary *textSmartQuotesTypeValues;
+static NSDictionary *textSmartDashesTypeValues;
+static NSDictionary *textSmartInsertDeleteTypeValues;
 static NSDictionary *keyboardTypeValues;
+static NSDictionary *keyboardAppearanceValues;
 static NSDictionary *returnKeyTypeValues;
 static NSDictionary *barStyleValues;
 
@@ -94,10 +97,24 @@ static NSDictionary *anchorValues;
         @"no": @(UITextSpellCheckingTypeNo)
     };
 
-    keyboardAppearanceValues = @{
-        @"default": @(UIKeyboardAppearanceDefault),
-        @"dark": @(UIKeyboardAppearanceDark),
-        @"light": @(UIKeyboardAppearanceLight)
+    if (@available(iOS 11.0, tvOS 11, *)) {
+        textSmartQuotesTypeValues = @{
+            @"default": @(UITextSmartQuotesTypeDefault),
+            @"no": @(UITextSmartQuotesTypeNo),
+            @"yes": @(UITextSmartQuotesTypeYes)
+        };
+
+        textSmartDashesTypeValues = @{
+            @"default": @(UITextSmartDashesTypeDefault),
+            @"no": @(UITextSmartDashesTypeNo),
+            @"yes": @(UITextSmartDashesTypeYes)
+        };
+
+        textSmartInsertDeleteTypeValues = @{
+            @"default": @(UITextSmartInsertDeleteTypeDefault),
+            @"no": @(UITextSmartInsertDeleteTypeNo),
+            @"yes": @(UITextSmartInsertDeleteTypeYes)
+        };
     };
 
     keyboardTypeValues = @{
@@ -112,6 +129,12 @@ static NSDictionary *anchorValues;
         @"decimalPad": @(UIKeyboardTypeDecimalPad),
         @"twitter": @(UIKeyboardTypeTwitter),
         @"webSearch": @(UIKeyboardTypeWebSearch)
+    };
+
+    keyboardAppearanceValues = @{
+        @"default": @(UIKeyboardAppearanceDefault),
+        @"dark": @(UIKeyboardAppearanceDark),
+        @"light": @(UIKeyboardAppearanceLight)
     };
 
     returnKeyTypeValues = @{
@@ -563,11 +586,33 @@ static NSDictionary *anchorValues;
         }
 
         return;
-    } else if ([key isEqual:@"keyboardAppearance"]) {
-        value = [keyboardAppearanceValues objectForKey:value];
+    } else if ([key isEqual:@"smartQuotesType"]) {
+        value = [textSmartQuotesTypeValues objectForKey:value];
 
         if (value != nil) {
-            [(UIView<UITextInputTraits> *)self setKeyboardAppearance:[value integerValue]];
+            if (@available(iOS 11.0, tvOS 11, *)) {
+                [(UIView<UITextInputTraits> *)self setSmartQuotesType:[value integerValue]];
+            }
+        }
+
+        return;
+    } else if ([key isEqual:@"smartDashesType"]) {
+        value = [textSmartDashesTypeValues objectForKey:value];
+
+        if (value != nil) {
+            if (@available(iOS 11.0, tvOS 11, *)) {
+                [(UIView<UITextInputTraits> *)self setSmartDashesType:[value integerValue]];
+            }
+        }
+
+        return;
+    } else if ([key isEqual:@"smartInsertDeleteType"]) {
+        value = [textSmartInsertDeleteTypeValues objectForKey:value];
+
+        if (value != nil) {
+            if (@available(iOS 11.0, tvOS 11, *)) {
+                [(UIView<UITextInputTraits> *)self setSmartInsertDeleteType:[value integerValue]];
+            }
         }
 
         return;
@@ -576,6 +621,14 @@ static NSDictionary *anchorValues;
 
         if (value != nil) {
             [(UIView<UITextInputTraits> *)self setKeyboardType:[value integerValue]];
+        }
+
+        return;
+    } else if ([key isEqual:@"keyboardAppearance"]) {
+        value = [keyboardAppearanceValues objectForKey:value];
+
+        if (value != nil) {
+            [(UIView<UITextInputTraits> *)self setKeyboardAppearance:[value integerValue]];
         }
 
         return;

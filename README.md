@@ -921,7 +921,7 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
 ## LMTableView, LMTableViewCell, and LMTableViewHeaderFooterView
-`LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. An `LMTableView` instance is configured to use self-sizing cells by default, allowing it to be used as a general-purpose layout device.
+`LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. `LMTableView` enables self-sizing content by default, allowing it to be used as a general-purpose layout device.
 
 `LMTableViewCell` and `LMTableViewHeaderFooterView` are `UITableViewCell` and `UITableViewHeaderFooterView` subclasses, respectively, that provide a vehicle for custom table view content. They automatically apply constraints to their content to enable self-sizing behavior. 
 
@@ -975,8 +975,6 @@ Alternatively, the `sectionHeaderView` processing instruction can be used to ass
     </LMTableView>
 
 Similarly, the `sectionFooter` element or the `sectionFooterView` processing instruction can be used to assign a footer title or custom footer view to the current section, respectively. 
-
-Note that, by default, grouped table views enable self-sizing behavior for section header and footer views, but plain table views do not.
 
 Finally, the `sectionName` processing instruction is used to associate a name with a section. It corresponds to a call to the `setName:forSection:` method of `LMTableView`. For example:
 
@@ -1505,6 +1503,8 @@ The following properties are added to allow the components of a view's layout ma
     @property (nonatomic) CGFloat layoutMarginLeft;
     @property (nonatomic) CGFloat layoutMarginBottom;
     @property (nonatomic) CGFloat layoutMarginRight;
+    @property (nonatomic) CGFloat layoutMarginLeading;
+    @property (nonatomic) CGFloat layoutMarginTrailing;
 
 Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 

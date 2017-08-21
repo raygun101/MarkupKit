@@ -85,10 +85,12 @@ typedef enum {
     [self setDelegate:self];\
     if ([self estimatedRowHeight] != UITableViewAutomaticDimension) {\
         [self setEstimatedRowHeight:ESTIMATED_HEIGHT];\
-        if ([self style] == UITableViewStyleGrouped) {\
-            [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
-            [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
-        }\
+    }\
+    if ([self estimatedSectionHeaderHeight] != UITableViewAutomaticDimension) {\
+        [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
+    }\
+    if ([self estimatedSectionFooterHeight] != UITableViewAutomaticDimension) {\
+        [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
     }\
     [self insertSection:0];\
 }

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView>
+<LMTableView estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
     <?sectionSelectionMode singleCheckmark?>
 
     <UITableViewCell textLabel.text="Red" value="#ff0000"/>
