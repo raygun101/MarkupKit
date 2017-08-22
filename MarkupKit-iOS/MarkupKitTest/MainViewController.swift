@@ -44,8 +44,8 @@ class MainViewController: UIViewController {
         }
     }
 
-    @IBAction func handleButtonTouchUpInside(_ sender: UIButton) {
-        present(UINavigationController(rootViewController: RowViewController()), animated: true)
+    @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
+        NSLog("Button pressed.")
     }
 
     @IBAction func handleSwitchValueChanged(_ sender: UISwitch) {

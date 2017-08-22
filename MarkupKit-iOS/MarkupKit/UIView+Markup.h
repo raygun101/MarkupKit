@@ -123,26 +123,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
 @property (nonatomic) CGFloat layoutMarginTrailing;
 
 /**
- * The amount of space to reserve at the top of the view. The default is 0.
- */
-@property (nonatomic) CGFloat topPadding;
-
-/**
- * The amount of space to reserve at the bottom of the view. The default is 0.
- */
-@property (nonatomic) CGFloat bottomPadding;
-
-/**
- * The amount of space to reserve at the view's leading edge. The default is 0.
- */
-@property (nonatomic) CGFloat leadingPadding;
-
-/**
- * The amount of space to reserve at the view's trailing edge. The default is 0.
- */
-@property (nonatomic) CGFloat trailingPadding;
-
-/**
  * The view's horizontal content compression resistance priority.
  */
 @property (nonatomic) CGFloat horizontalContentCompressionResistancePriority;
