@@ -382,46 +382,6 @@ static NSDictionary *anchorValues;
     [[self superview] setNeedsUpdateConstraints];
 }
 
-- (CGFloat)horizontalContentCompressionResistancePriority
-{
-    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (void)setHorizontalContentCompressionResistancePriority:(CGFloat)priority
-{
-    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (CGFloat)horizontalContentHuggingPriority
-{
-    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (void)setHorizontalContentHuggingPriority:(CGFloat)priority
-{
-    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (CGFloat)verticalContentCompressionResistancePriority
-{
-    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisVertical];
-}
-
-- (void)setVerticalContentCompressionResistancePriority:(CGFloat)priority
-{
-    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisVertical];
-}
-
-- (CGFloat)verticalContentHuggingPriority
-{
-    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisVertical];
-}
-
-- (void)setVerticalContentHuggingPriority:(CGFloat)priority
-{
-    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisVertical];
-}
-
 - (CGFloat)layoutMarginTop
 {
     return [self layoutMargins].top;
@@ -550,6 +510,106 @@ static NSDictionary *anchorValues;
 
         [self setLayoutMargins:layoutMargins];
     }
+}
+
+- (CGFloat)topPadding
+{
+    NSNumber *topPadding = objc_getAssociatedObject(self, @selector(topPadding));
+
+    return (topPadding == nil) ? 0 : [topPadding floatValue];
+}
+
+- (void)setTopPadding:(CGFloat)topPadding
+{
+    objc_setAssociatedObject(self, @selector(topPadding), isnan(topPadding) ? nil : [NSNumber numberWithFloat:topPadding],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)bottomPadding
+{
+    NSNumber *bottomPadding = objc_getAssociatedObject(self, @selector(bottomPadding));
+
+    return (bottomPadding == nil) ? 0 : [bottomPadding floatValue];
+}
+
+- (void)setBottomPadding:(CGFloat)bottomPadding
+{
+    objc_setAssociatedObject(self, @selector(bottomPadding), isnan(bottomPadding) ? nil : [NSNumber numberWithFloat:bottomPadding],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)leadingPadding
+{
+    NSNumber *leadingPadding = objc_getAssociatedObject(self, @selector(leadingPadding));
+
+    return (leadingPadding == nil) ? 0 : [leadingPadding floatValue];
+}
+
+- (void)setLeadingPadding:(CGFloat)leadingPadding
+{
+    objc_setAssociatedObject(self, @selector(leadingPadding), isnan(leadingPadding) ? nil : [NSNumber numberWithFloat:leadingPadding],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)trailingPadding
+{
+    NSNumber *trailingPadding = objc_getAssociatedObject(self, @selector(trailingPadding));
+
+    return (trailingPadding == nil) ? 0 : [trailingPadding floatValue];
+}
+
+- (void)setTrailingPadding:(CGFloat)trailingPadding
+{
+    objc_setAssociatedObject(self, @selector(trailingPadding), isnan(trailingPadding) ? nil : [NSNumber numberWithFloat:trailingPadding],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)horizontalContentCompressionResistancePriority
+{
+    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisHorizontal];
+}
+
+- (void)setHorizontalContentCompressionResistancePriority:(CGFloat)priority
+{
+    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisHorizontal];
+}
+
+- (CGFloat)horizontalContentHuggingPriority
+{
+    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisHorizontal];
+}
+
+- (void)setHorizontalContentHuggingPriority:(CGFloat)priority
+{
+    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisHorizontal];
+}
+
+- (CGFloat)verticalContentCompressionResistancePriority
+{
+    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisVertical];
+}
+
+- (void)setVerticalContentCompressionResistancePriority:(CGFloat)priority
+{
+    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisVertical];
+}
+
+- (CGFloat)verticalContentHuggingPriority
+{
+    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisVertical];
+}
+
+- (void)setVerticalContentHuggingPriority:(CGFloat)priority
+{
+    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key

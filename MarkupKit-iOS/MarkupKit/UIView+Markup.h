@@ -93,26 +93,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
 @property (nonatomic) LMAnchor anchor;
 
 /**
- * The view's horizontal content compression resistance priority.
- */
-@property (nonatomic) CGFloat horizontalContentCompressionResistancePriority;
-
-/**
- * The view's horizontal content hugging priority.
- */
-@property (nonatomic) CGFloat horizontalContentHuggingPriority;
-
-/**
- * The view's vertical content compression resistance priority.
- */
-@property (nonatomic) CGFloat verticalContentCompressionResistancePriority;
-
-/**
- * The view's vertical content hugging priority.
- */
-@property (nonatomic) CGFloat verticalContentHuggingPriority;
-
-/**
  * The top layout margin.
  */
 @property (nonatomic) CGFloat layoutMarginTop;
@@ -141,6 +121,46 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
  * The trailing layout margin.
  */
 @property (nonatomic) CGFloat layoutMarginTrailing;
+
+/**
+ * The amount of space to reserve at the top of the view. The default is 0.
+ */
+@property (nonatomic) CGFloat topPadding;
+
+/**
+ * The amount of space to reserve at the bottom of the view. The default is 0.
+ */
+@property (nonatomic) CGFloat bottomPadding;
+
+/**
+ * The amount of space to reserve at the view's leading edge. The default is 0.
+ */
+@property (nonatomic) CGFloat leadingPadding;
+
+/**
+ * The amount of space to reserve at the view's trailing edge. The default is 0.
+ */
+@property (nonatomic) CGFloat trailingPadding;
+
+/**
+ * The view's horizontal content compression resistance priority.
+ */
+@property (nonatomic) CGFloat horizontalContentCompressionResistancePriority;
+
+/**
+ * The view's horizontal content hugging priority.
+ */
+@property (nonatomic) CGFloat horizontalContentHuggingPriority;
+
+/**
+ * The view's vertical content compression resistance priority.
+ */
+@property (nonatomic) CGFloat verticalContentCompressionResistancePriority;
+
+/**
+ * The view's vertical content hugging priority.
+ */
+@property (nonatomic) CGFloat verticalContentHuggingPriority;
 
 /**
  * Processes a markup instruction.
