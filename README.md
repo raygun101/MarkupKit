@@ -654,6 +654,25 @@ For example, a view controller might override `viewWillLayoutSubviews` to set it
     
 In iOS 11, the top and bottom layout guide properties are deprecated, and the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` can be used to disable system-defined margins.
 
+### Padding
+MarkupKit adds the following properties to `UIView` that can be used to reserve additional space around an individual view:
+
+    @property (nonatomic) CGFloat topPadding;
+    @property (nonatomic) CGFloat bottomPadding;
+    @property (nonatomic) CGFloat leadingPadding;
+    @property (nonatomic) CGFloat trailingPadding;
+
+By default, they are set to zero. When specified, they are added to the layout view's internal spacing values.
+
+For example, the following markup creates a row view containing three labels:
+
+    <LMRowView spacing="4">
+        <UILabel text="abc"/>
+        <UILabel text="ghi" leadingPadding="8"/>
+    </LMRowView>
+
+The labels will be separated by a gap of 12 pixels, the sum of the row view's spacing plus the leading spacing of the second label.
+
 ### Touch Interaction
 By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view will cause the view to begin consuming events.
 
@@ -1526,6 +1545,13 @@ The following properties are added to allow the components of a view's layout ma
     @property (nonatomic) CGFloat layoutMarginRight;
     @property (nonatomic) CGFloat layoutMarginLeading;
     @property (nonatomic) CGFloat layoutMarginTrailing;
+
+Padding properties can be used to reserve additional space around an individual view:
+
+    @property (nonatomic) CGFloat topPadding;
+    @property (nonatomic) CGFloat bottomPadding;
+    @property (nonatomic) CGFloat leadingPadding;
+    @property (nonatomic) CGFloat trailingPadding;
 
 Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
