@@ -168,8 +168,6 @@ Named colors are evaluated in the following order:
 
 For example, if _Colors.plist_ defined a value for "green", the corresponding color would be used instead of the value returned by `greenColor`.
 
-TODO Discuss bundle customization support
-
 #### Pattern Images
 Pattern images are specified by providing the name of the name of the image to use as a repeating tile. For example, this markup creates a table view with a tiled background image named "tile.png":
 
@@ -592,32 +590,58 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 
 These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly. They can be nested to create complex layouts that automatically adjust to orientation or screen size changes.
 
-All layout view types extend the abstract `LMLayoutView` class, which defines the following methods:
+### Arranged Subviews
+All layout view types extend the abstract `LMLayoutView` class, which provides the following methods for managing its list of arranged subviews:
     
     - (void)addArrangedSubview:(UIView *)view;
     - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
     - (void)removeArrangedSubview:(UIView *)view;
 
-These methods manage the list of the layout view's "arranged subviews", which are the subviews whose size and position will be managed automatically by the layout view. `LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself so that layout views can be constructed in markup. A read-only property that returns the current list of arranged subviews is also provided:
+`LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself so that layout views can be constructed in markup. A read-only property that returns the current list of arranged subviews is also provided:
 
     @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
 
 Note that, as with `UIStackView`, the `removeArrangedSubview:` method does not remove the given view as a subview of the layout view. To completely remove an arranged subview, call `removeFromSuperview` on the view.
 
-`LMLayoutView` additionally defines the following property:
+Arranged subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
+
+### Layout Margins
+By default, the arranged subviews of a layout view are positioned relative to its layout margins. For example, the following markup creates a row view whose arranged subviews will be inset from its own edges by 12 pixels:
+
+    <LMRowView layoutMargins="12">
+        ...
+    </LMRowView>
+    
+MarkupKit adds the following properties to `UIView` to allow margin values to be set individually:
+
+    @property (nonatomic) CGFloat layoutMarginTop;
+    @property (nonatomic) CGFloat layoutMarginLeft;
+    @property (nonatomic) CGFloat layoutMarginBottom;
+    @property (nonatomic) CGFloat layoutMarginRight;
+    @property (nonatomic) CGFloat layoutMarginLeading;
+    @property (nonatomic) CGFloat layoutMarginTrailing;
+
+For example, this markup creates a layer view whose top and bottom margins are set to 8 pixels and whose leading and trailing margins are set to 16 pixels:
+
+    <LMRowView layoutMarginTop="8" layoutMarginBottom="8" layoutMarginLeading="16" layoutMarginTrailing="16">
+        ...
+    </LMRowView>
+
+In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the current text direction.
+
+#### System-Defined Margins
+A layout view's margins are initialized to zero by default. However, in iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the following property can be used to disable margin-relative layout:
 
     @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 
-This value specifies that subviews will be arranged relative to the view's layout margins. The default value is `true`. However, in some cases, `UIKit` provides default non-overridable values for a view's margins. In these cases, setting this flag to `false` instructs the view to ignore margins altogether and align subviews to the layout view's edges directly. 
-
-Additionally, `LMLayoutView` defines four properties that specify the amount of additional space that should be reserved at the top/bottom and leading/trailing edges of the view, respectively:
+When set to `false`, the view will ignore layout margins altogether and align subviews directly to its edges. The following properties can then be used instead to specify the amount of additional space that should be reserved at the top/bottom and leading/trailing edges of the view:
 
     @property (nonatomic) CGFloat topSpacing;
     @property (nonatomic) CGFloat bottomSpacing;
     @property (nonatomic) CGFloat leadingSpacing;
     @property (nonatomic) CGFloat trailingSpacing;
     
-The vertical spacing properties are often used in conjuction with `layoutMarginsRelativeArrangement` to ensure that a view's content is not obscured by other user interface elements such as the status bar or a navigation bar. For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
+For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -628,13 +652,10 @@ The vertical spacing properties are often used in conjuction with `layoutMargins
         layoutView.bottomSpacing = bottomLayoutGuide.length
     }
     
-The horizontal spacing properties can be used to create locale-aware margins.
+In iOS 11, the top and bottom layout guide properties are deprecated, and the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` can be used to disable system-defined margins.
 
-The `layoutMarginLeading` and `layoutMarginTrailing` properties MarkupKit adds to `UIView` can also be used to create locale-aware margins. In iOS 11, these properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the current text direction.
-
-Views whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their arranged subviews and automatically relayout as needed.
-
-By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view causes the view to begin consuming events.
+### Touch Interaction
+By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view will cause the view to begin consuming events.
 
 See [LMLayoutView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLayoutView.h) for more information.
 
