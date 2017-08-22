@@ -52,10 +52,6 @@ class ViewController: UITableViewController {
             #if os(iOS)
             navigationController!.pushViewController(SlidersViewController(), animated: true)
             #endif
-        } else if (value == "selectionView") {
-            #if os(iOS)
-            navigationController!.pushViewController(SelectionViewController(), animated: true)
-            #endif
         } else if (value == "scrollView") {
             #if os(iOS)
             navigationController!.pushViewController(ScrollViewController(), animated: true)

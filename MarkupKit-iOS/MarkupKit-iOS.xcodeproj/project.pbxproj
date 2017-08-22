@@ -26,8 +26,6 @@
 		373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */; };
 		373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */; };
 		373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */; };
-		373BFAF71DFB003800BB7509 /* SelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */; };
-		373BFAF81DFB003800BB7509 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */; };
 		373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */; };
 		373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9BD1DF1BA100064CC82 /* PageViewController.swift */; };
 		373BFAFB1DFB003800BB7509 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */; };
@@ -60,7 +58,6 @@
 		373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */; };
 		373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */; };
 		373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */; };
-		373BFB191DFB007B00BB7509 /* ColorPickerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */; };
 		373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */; };
 		373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9BE1DF1BA100064CC82 /* PageViewController.xml */; };
 		373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9941DF1B9990064CC82 /* PharmacyCell.xml */; };
@@ -387,9 +384,6 @@
 		3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadioButtonViewController.xml; sourceTree = "<group>"; };
 		3771E9871DF1B9580064CC82 /* CheckboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxViewController.swift; sourceTree = "<group>"; };
 		3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CheckboxViewController.xml; sourceTree = "<group>"; };
-		3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionViewController.swift; sourceTree = "<group>"; };
-		3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
-		3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorPickerViewController.xml; sourceTree = "<group>"; };
 		3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellViewController.swift; sourceTree = "<group>"; };
 		3771E9931DF1B9990064CC82 /* PharmacyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmacyCell.swift; sourceTree = "<group>"; };
 		3771E9941DF1B9990064CC82 /* PharmacyCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PharmacyCell.xml; sourceTree = "<group>"; };
@@ -686,9 +680,6 @@
 				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
 				377A69731DFB105500E06CD1 /* SlidersViewController.swift */,
 				377A69741DFB105500E06CD1 /* SlidersViewController.xml */,
-				3771E98B1DF1B97A0064CC82 /* SelectionViewController.swift */,
-				3771E98D1DF1B9820064CC82 /* ColorPickerViewController.swift */,
-				3771E98E1DF1B9820064CC82 /* ColorPickerViewController.xml */,
 				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
 				3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */,
 				3771E9BD1DF1BA100064CC82 /* PageViewController.swift */,
@@ -1217,7 +1208,6 @@
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
 				377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */,
-				373BFB191DFB007B00BB7509 /* ColorPickerViewController.xml in Resources */,
 				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
 				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
 				373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */,
@@ -1340,8 +1330,6 @@
 				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
 				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
 				377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */,
-				373BFAF71DFB003800BB7509 /* SelectionViewController.swift in Sources */,
-				373BFAF81DFB003800BB7509 /* ColorPickerViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,
 				373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */,
 				373BFAFB1DFB003800BB7509 /* CustomCellViewController.swift in Sources */,

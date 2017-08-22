@@ -24,7 +24,6 @@ limitations under the License.
 
     <?case iOS?>
     <UITableViewCell textLabel.text="Sliders" accessoryType="disclosureIndicator" value="sliders"/>
-    <UITableViewCell textLabel.text="Selection View" accessoryType="disclosureIndicator" value="selectionView"/>
     <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>
     <?end?>
