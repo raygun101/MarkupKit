@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Returns the name of the string table that will be used to localize string values.
  */
-- (NSString *)tableForStrings;
+- (nullable NSString *)tableForStrings;
 
 /**
  * Establishes a two-way binding between this object and an associated view instance.

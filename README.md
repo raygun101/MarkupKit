@@ -1548,6 +1548,7 @@ MarkupKit also adds these methods to `UIResponder` to allow a document owner to 
     - (NSBundle *)bundleForView;
     - (NSBundle *)bundleForImages;
     - (NSBundle *)bundleForStrings;
+    - (nullable NSString *)tableForStrings;
 
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons to be declared in markup:
