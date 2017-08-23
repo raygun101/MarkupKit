@@ -275,6 +275,8 @@ If a localized value is not found, the key will be used instead. This allows dev
 
 If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with the `bundleForImages` method discussed earlier, MarkupKit adds a default implementation of `bundleForStrings` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
+Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. The default implementation provided by `UIResponder` returns `nil`.
+
 Note that a leading "@" character can be escaped by prepending a caret character to the text, as shown below:
 
     <UILabel text="^@hello"/>
