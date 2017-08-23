@@ -45,6 +45,11 @@
     return [NSBundle mainBundle];
 }
 
+- (NSString *)tableForStrings
+{
+    return nil;
+}
+
 - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
     LMBinding *binding = [[LMBinding alloc] initWithOwner:self property:property view:view keyPath:keyPath];

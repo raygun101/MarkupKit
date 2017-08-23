@@ -446,6 +446,8 @@ static NSMutableDictionary *templateCache;
         bundle = [NSBundle mainBundle];
     }
 
+    NSString *table = [_owner tableForStrings];
+
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
@@ -501,7 +503,7 @@ static NSMutableDictionary *templateCache;
         } else if ([value hasPrefix:kBindingPrefix]) {
             [bindings setObject:[value substringFromIndex:[kBindingPrefix length]] forKey:key];
         } else if ([value hasPrefix:kLocalizedStringPrefix]) {
-            [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil] forKey:key];
+            [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:table] forKey:key];
         } else if ([value hasPrefix:kEscapePrefix]) {
             [properties setObject:[value substringFromIndex:[kEscapePrefix length]] forKey:key];
         } else {
