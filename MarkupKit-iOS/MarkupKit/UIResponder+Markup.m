@@ -86,6 +86,7 @@
 @end
 
 @implementation LMBinding
+
 - (instancetype)initWithOwner:(id)owner property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
