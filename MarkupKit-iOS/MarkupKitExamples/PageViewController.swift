@@ -31,6 +31,8 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
         edgesForExtendedLayout = UIRectEdge()
 
         pageView.delegate = self
+
+        pageControl.numberOfPages = pageView.pages.count
     }
 
     func updatePage() {

@@ -25,6 +25,7 @@ limitations under the License.
     <UITableViewCell textLabel.text="Vertical Alignment" accessoryType="disclosureIndicator" value="verticalAlignment"/>
     <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
+    <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
 
     <?sectionBreak?>
@@ -51,14 +52,6 @@ limitations under the License.
 
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
     <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
-
-    <?case iOS?>
-    <?sectionBreak?>
-    <sectionHeader title="Forms"/>
-    <UITableViewCell textLabel.text="Form View" accessoryType="disclosureIndicator" value="formView"/>
-    <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
-    <UITableViewCell textLabel.text="Sliders" accessoryType="disclosureIndicator" value="sliders"/>
-    <?end?>
 
     <?sectionBreak?>
     <sectionHeader title="Effects"/>

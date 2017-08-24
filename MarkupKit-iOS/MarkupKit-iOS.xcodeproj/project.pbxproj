@@ -27,7 +27,6 @@
 		373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */; };
 		373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */; };
 		373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */; };
-		373BFB021DFB003800BB7509 /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */; };
 		373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */; };
 		373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */; };
 		373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */; };
@@ -60,7 +59,6 @@
 		373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */; };
 		373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */; };
 		373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */; };
-		373BFB241DFB007B00BB7509 /* FormViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */; };
 		373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */; };
 		373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */; };
 		373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */; };
@@ -69,10 +67,6 @@
 		373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */; };
 		373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F01DF1BAC20064CC82 /* MapViewController.xml */; };
 		373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */; };
-		373BFB2D1DFB007B00BB7509 /* chevy.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CD1DF1BA4C0064CC82 /* chevy.png */; };
-		373BFB2E1DFB007B00BB7509 /* mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CE1DF1BA4C0064CC82 /* mini.png */; };
-		373BFB2F1DFB007B00BB7509 /* vw.png in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9CF1DF1BA4C0064CC82 /* vw.png */; };
-		373BFB301DFB007B00BB7509 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8E1DF714F600E88F7A /* sample.jpg */; };
 		373BFB311DFB007B00BB7509 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D41DF1BA570064CC82 /* sample.txt */; };
 		373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D91DF7225C00C46DF6 /* Icons.xcassets */; };
 		373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E96F1DF1B8B00064CC82 /* Assets.xcassets */; };
@@ -199,8 +193,6 @@
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */; };
-		377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377A69731DFB105500E06CD1 /* SlidersViewController.swift */; };
-		377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 377A69741DFB105500E06CD1 /* SlidersViewController.xml */; };
 		378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */; };
 		378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */; };
 		379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F31E40DECE00C56838 /* UIResponder+Markup.m */; };
@@ -212,6 +204,11 @@
 		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
 		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
 		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
+		37B2CD7C1F4F599B008F42FB /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD791F4F5906008F42FB /* orchard.jpg */; };
+		37B2CD7D1F4F599B008F42FB /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD771F4F5906008F42FB /* quebec.jpg */; };
+		37B2CD7E1F4F599B008F42FB /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD781F4F5906008F42FB /* lighthouse.jpg */; };
+		37B2CD7F1F4F599B008F42FB /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD7A1F4F5906008F42FB /* waterfall.jpg */; };
+		37B2CD801F4F599B008F42FB /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD7B1F4F5906008F42FB /* daisies.jpg */; };
 		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
@@ -338,7 +335,6 @@
 		37214D0B1F48BA6900637B17 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
 		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
-		3763AD8E1DF714F600E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Markup.h"; sourceTree = "<group>"; };
 		37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Markup.m"; sourceTree = "<group>"; };
 		37659D511ECF59290043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsViewController.swift; sourceTree = "<group>"; };
@@ -392,11 +388,6 @@
 		3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassViewController.xml; sourceTree = "<group>"; };
 		3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~horizontal.xml"; sourceTree = "<group>"; };
 		3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~vertical.xml"; sourceTree = "<group>"; };
-		3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
-		3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FormViewController.xml; sourceTree = "<group>"; };
-		3771E9CD1DF1BA4C0064CC82 /* chevy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chevy.png; sourceTree = "<group>"; };
-		3771E9CE1DF1BA4C0064CC82 /* mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mini.png; sourceTree = "<group>"; };
-		3771E9CF1DF1BA4C0064CC82 /* vw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vw.png; sourceTree = "<group>"; };
 		3771E9D41DF1BA570064CC82 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		3771E9D71DF1BA690064CC82 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		3771E9D91DF1BA720064CC82 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
@@ -446,8 +437,6 @@
 		3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
 		37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Markup.h"; sourceTree = "<group>"; };
 		37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Markup.m"; sourceTree = "<group>"; };
-		377A69731DFB105500E06CD1 /* SlidersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlidersViewController.swift; sourceTree = "<group>"; };
-		377A69741DFB105500E06CD1 /* SlidersViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SlidersViewController.xml; sourceTree = "<group>"; };
 		378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnimationViewController.xml; sourceTree = "<group>"; };
 		379214F31E40DECE00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Markup.m"; sourceTree = "<group>"; };
@@ -540,6 +529,11 @@
 		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
 		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
+		37B2CD771F4F5906008F42FB /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = quebec.jpg; path = ../../../../Desktop/examples/quebec.jpg; sourceTree = "<group>"; };
+		37B2CD781F4F5906008F42FB /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lighthouse.jpg; path = ../../../../Desktop/examples/lighthouse.jpg; sourceTree = "<group>"; };
+		37B2CD791F4F5906008F42FB /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = orchard.jpg; path = ../../../../Desktop/examples/orchard.jpg; sourceTree = "<group>"; };
+		37B2CD7A1F4F5906008F42FB /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = waterfall.jpg; path = ../../../../Desktop/examples/waterfall.jpg; sourceTree = "<group>"; };
+		37B2CD7B1F4F5906008F42FB /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = daisies.jpg; path = ../../../../Desktop/examples/daisies.jpg; sourceTree = "<group>"; };
 		37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -662,8 +656,6 @@
 				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
 				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
 				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
-				377A69731DFB105500E06CD1 /* SlidersViewController.swift */,
-				377A69741DFB105500E06CD1 /* SlidersViewController.xml */,
 				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
 				3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */,
 				3771E9BD1DF1BA100064CC82 /* PageViewController.swift */,
@@ -685,8 +677,6 @@
 				3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */,
 				3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */,
 				3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */,
-				3771E9C91DF1BA2C0064CC82 /* FormViewController.swift */,
-				3771E9CA1DF1BA2C0064CC82 /* FormViewController.xml */,
 				3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */,
 				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
 				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
@@ -711,11 +701,12 @@
 				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
 				378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */,
 				378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */,
-				3771E9CD1DF1BA4C0064CC82 /* chevy.png */,
-				3771E9CE1DF1BA4C0064CC82 /* mini.png */,
-				3771E9CF1DF1BA4C0064CC82 /* vw.png */,
-				3763AD8E1DF714F600E88F7A /* sample.jpg */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
+				37B2CD791F4F5906008F42FB /* orchard.jpg */,
+				37B2CD771F4F5906008F42FB /* quebec.jpg */,
+				37B2CD781F4F5906008F42FB /* lighthouse.jpg */,
+				37B2CD7A1F4F5906008F42FB /* waterfall.jpg */,
+				37B2CD7B1F4F5906008F42FB /* daisies.jpg */,
 				371E236C1E042E1D00A29425 /* sample.mov */,
 				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
@@ -1183,7 +1174,6 @@
 				373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */,
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
-				377A69761DFB105600E06CD1 /* SlidersViewController.xml in Resources */,
 				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
 				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
 				373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */,
@@ -1195,7 +1185,6 @@
 				373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */,
 				373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
 				373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */,
-				373BFB241DFB007B00BB7509 /* FormViewController.xml in Resources */,
 				373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */,
 				373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */,
 				373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */,
@@ -1208,11 +1197,12 @@
 				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
 				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
-				373BFB2D1DFB007B00BB7509 /* chevy.png in Resources */,
-				373BFB2E1DFB007B00BB7509 /* mini.png in Resources */,
-				373BFB2F1DFB007B00BB7509 /* vw.png in Resources */,
-				373BFB301DFB007B00BB7509 /* sample.jpg in Resources */,
 				373BFB311DFB007B00BB7509 /* sample.txt in Resources */,
+				37B2CD7C1F4F599B008F42FB /* orchard.jpg in Resources */,
+				37B2CD7D1F4F599B008F42FB /* quebec.jpg in Resources */,
+				37B2CD7E1F4F599B008F42FB /* lighthouse.jpg in Resources */,
+				37B2CD7F1F4F599B008F42FB /* waterfall.jpg in Resources */,
+				37B2CD801F4F599B008F42FB /* daisies.jpg in Resources */,
 				371E236D1E042E1D00A29425 /* sample.mov in Resources */,
 				373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */,
 				373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */,
@@ -1301,7 +1291,6 @@
 				373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */,
 				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
 				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
-				377A69751DFB105500E06CD1 /* SlidersViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,
 				373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */,
 				373BFAFB1DFB003800BB7509 /* CustomCellViewController.swift in Sources */,
@@ -1312,7 +1301,6 @@
 				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
 				373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */,
 				373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */,
-				373BFB021DFB003800BB7509 /* FormViewController.swift in Sources */,
 				373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */,
 				373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */,
 				373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */,

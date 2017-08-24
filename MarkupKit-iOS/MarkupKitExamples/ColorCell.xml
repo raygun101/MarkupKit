@@ -36,7 +36,7 @@ limitations under the License.
 
 <root layoutMargins="8">
     <?selectedBackgroundView?>
-    <UIView backgroundColor="#f0f8ff" layer.cornerRadius="8"/>
+    <UIView backgroundColor="#eeeeee" layer.cornerRadius="8"/>
 
     <LMColumnView>
         <UILabel text="$index" textAlignment="center" font="body"/>
