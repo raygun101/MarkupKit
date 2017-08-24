@@ -203,11 +203,11 @@
 		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
 		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
 		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
-		37B2CD7C1F4F599B008F42FB /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD791F4F5906008F42FB /* orchard.jpg */; };
-		37B2CD7D1F4F599B008F42FB /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD771F4F5906008F42FB /* quebec.jpg */; };
-		37B2CD7E1F4F599B008F42FB /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD781F4F5906008F42FB /* lighthouse.jpg */; };
-		37B2CD7F1F4F599B008F42FB /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD7A1F4F5906008F42FB /* waterfall.jpg */; };
-		37B2CD801F4F599B008F42FB /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD7B1F4F5906008F42FB /* daisies.jpg */; };
+		37B2CD951F4F5DF7008F42FB /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD921F4F5DCA008F42FB /* orchard.jpg */; };
+		37B2CD961F4F5DF7008F42FB /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD941F4F5DCB008F42FB /* quebec.jpg */; };
+		37B2CD971F4F5DF7008F42FB /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */; };
+		37B2CD981F4F5DF7008F42FB /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD931F4F5DCB008F42FB /* waterfall.jpg */; };
+		37B2CD991F4F5DF7008F42FB /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD901F4F5DCA008F42FB /* daisies.jpg */; };
 		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
@@ -527,11 +527,11 @@
 		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
 		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
-		37B2CD771F4F5906008F42FB /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = quebec.jpg; path = ../../../../Desktop/examples/quebec.jpg; sourceTree = "<group>"; };
-		37B2CD781F4F5906008F42FB /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = lighthouse.jpg; path = ../../../../Desktop/examples/lighthouse.jpg; sourceTree = "<group>"; };
-		37B2CD791F4F5906008F42FB /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = orchard.jpg; path = ../../../../Desktop/examples/orchard.jpg; sourceTree = "<group>"; };
-		37B2CD7A1F4F5906008F42FB /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = waterfall.jpg; path = ../../../../Desktop/examples/waterfall.jpg; sourceTree = "<group>"; };
-		37B2CD7B1F4F5906008F42FB /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = daisies.jpg; path = ../../../../Desktop/examples/daisies.jpg; sourceTree = "<group>"; };
+		37B2CD901F4F5DCA008F42FB /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daisies.jpg; sourceTree = "<group>"; };
+		37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lighthouse.jpg; sourceTree = "<group>"; };
+		37B2CD921F4F5DCA008F42FB /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orchard.jpg; sourceTree = "<group>"; };
+		37B2CD931F4F5DCB008F42FB /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
+		37B2CD941F4F5DCB008F42FB /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -700,11 +700,11 @@
 				378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */,
 				378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
-				37B2CD791F4F5906008F42FB /* orchard.jpg */,
-				37B2CD771F4F5906008F42FB /* quebec.jpg */,
-				37B2CD781F4F5906008F42FB /* lighthouse.jpg */,
-				37B2CD7A1F4F5906008F42FB /* waterfall.jpg */,
-				37B2CD7B1F4F5906008F42FB /* daisies.jpg */,
+				37B2CD921F4F5DCA008F42FB /* orchard.jpg */,
+				37B2CD941F4F5DCB008F42FB /* quebec.jpg */,
+				37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */,
+				37B2CD931F4F5DCB008F42FB /* waterfall.jpg */,
+				37B2CD901F4F5DCA008F42FB /* daisies.jpg */,
 				371E236C1E042E1D00A29425 /* sample.mov */,
 				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
@@ -1195,11 +1195,11 @@
 				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
 				373BFB311DFB007B00BB7509 /* sample.txt in Resources */,
-				37B2CD7C1F4F599B008F42FB /* orchard.jpg in Resources */,
-				37B2CD7D1F4F599B008F42FB /* quebec.jpg in Resources */,
-				37B2CD7E1F4F599B008F42FB /* lighthouse.jpg in Resources */,
-				37B2CD7F1F4F599B008F42FB /* waterfall.jpg in Resources */,
-				37B2CD801F4F599B008F42FB /* daisies.jpg in Resources */,
+				37B2CD951F4F5DF7008F42FB /* orchard.jpg in Resources */,
+				37B2CD961F4F5DF7008F42FB /* quebec.jpg in Resources */,
+				37B2CD971F4F5DF7008F42FB /* lighthouse.jpg in Resources */,
+				37B2CD981F4F5DF7008F42FB /* waterfall.jpg in Resources */,
+				37B2CD991F4F5DF7008F42FB /* daisies.jpg in Resources */,
 				371E236D1E042E1D00A29425 /* sample.mov in Resources */,
 				373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */,
 				373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */,
