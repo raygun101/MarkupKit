@@ -56,8 +56,6 @@
 
     [self addObserver:binding forKeyPath:property options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
 
-    [view addObserver:binding forKeyPath:keyPath options:NSKeyValueObservingOptionNew context:nil];
-
     [[self bindings] addObject:binding];
 }
 
@@ -67,8 +65,6 @@
 
     for (LMBinding *binding in bindings) {
         [self removeObserver:binding forKeyPath:[binding property] context:nil];
-
-        [[binding view] removeObserver:binding forKeyPath:[binding keyPath] context:nil];
     }
 
     [bindings removeAllObjects];
@@ -90,10 +86,6 @@
 @end
 
 @implementation LMBinding
-{
-    BOOL _update;
-}
-
 - (instancetype)initWithOwner:(id)owner property:(NSString *)property view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
@@ -111,20 +103,10 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if (!_update) {
-        _update = YES;
+    id value = [change objectForKey:NSKeyValueChangeNewKey];
 
-        id value = [change objectForKey:NSKeyValueChangeNewKey];
-
-        if (value != nil && value != [NSNull null]) {
-            if (object == _owner) {
-                [_view setValue:value forKeyPath:_keyPath];
-            } else {
-                [_owner setValue:value forKeyPath:_property];
-            }
-        }
-
-        _update = NO;
+    if (value != nil && value != [NSNull null]) {
+        [_view setValue:value forKeyPath:_keyPath];
     }
 }
 
