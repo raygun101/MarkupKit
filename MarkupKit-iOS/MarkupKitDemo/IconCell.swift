@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 class IconCell: LMCollectionViewCell {
-    var imageView: UIImageView!
+    @IBOutlet var imageView: UIImageView!
 
     override init(frame: CGRect) {
         super.init(frame: frame)
