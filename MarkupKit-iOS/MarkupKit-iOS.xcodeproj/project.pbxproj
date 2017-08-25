@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3715C2B01F503A60007D39C4 /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AD1F5039AE007D39C4 /* orchard.jpg */; };
+		3715C2B11F503A60007D39C4 /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AF1F5039AF007D39C4 /* quebec.jpg */; };
+		3715C2B21F503A60007D39C4 /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AC1F5039AE007D39C4 /* lighthouse.jpg */; };
+		3715C2B31F503A60007D39C4 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AE1F5039AF007D39C4 /* waterfall.jpg */; };
+		3715C2B41F503A60007D39C4 /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AB1F5039AE007D39C4 /* daisies.jpg */; };
 		371E236D1E042E1D00A29425 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = 371E236C1E042E1D00A29425 /* sample.mov */; };
 		373BFAEE1DFB003800BB7509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */; };
 		373BFAEF1DFB003800BB7509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97F1DF1B8FC0064CC82 /* ViewController.swift */; };
@@ -203,11 +208,6 @@
 		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
 		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
 		37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */; };
-		37B2CD951F4F5DF7008F42FB /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD921F4F5DCA008F42FB /* orchard.jpg */; };
-		37B2CD961F4F5DF7008F42FB /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD941F4F5DCB008F42FB /* quebec.jpg */; };
-		37B2CD971F4F5DF7008F42FB /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */; };
-		37B2CD981F4F5DF7008F42FB /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD931F4F5DCB008F42FB /* waterfall.jpg */; };
-		37B2CD991F4F5DF7008F42FB /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37B2CD901F4F5DCA008F42FB /* daisies.jpg */; };
 		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
@@ -330,6 +330,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3715C2AB1F5039AE007D39C4 /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daisies.jpg; sourceTree = "<group>"; };
+		3715C2AC1F5039AE007D39C4 /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lighthouse.jpg; sourceTree = "<group>"; };
+		3715C2AD1F5039AE007D39C4 /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orchard.jpg; sourceTree = "<group>"; };
+		3715C2AE1F5039AF007D39C4 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
+		3715C2AF1F5039AF007D39C4 /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
 		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
 		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
@@ -527,11 +532,6 @@
 		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
 		37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = VerticalAlignmentViewController.xml; sourceTree = "<group>"; };
-		37B2CD901F4F5DCA008F42FB /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daisies.jpg; sourceTree = "<group>"; };
-		37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lighthouse.jpg; sourceTree = "<group>"; };
-		37B2CD921F4F5DCA008F42FB /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orchard.jpg; sourceTree = "<group>"; };
-		37B2CD931F4F5DCB008F42FB /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
-		37B2CD941F4F5DCB008F42FB /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewHeaderFooterView.h; sourceTree = "<group>"; };
 		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
@@ -640,20 +640,20 @@
 				3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */,
 				3771E9871DF1B9580064CC82 /* CheckboxViewController.swift */,
 				3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */,
-				3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */,
-				3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */,
+				37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */,
+				37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */,
+				37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */,
+				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
 				3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */,
 				3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */,
-				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
-				3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */,
-				3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */,
-				3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */,
-				3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */,
-				3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */,
-				3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */,
-				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
-				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
-				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
+				3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */,
+				3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */,
+				3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */,
+				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
+				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
+				3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */,
+				3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */,
+				3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */,
 				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
 				3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */,
 				3771E9BD1DF1BA100064CC82 /* PageViewController.swift */,
@@ -665,22 +665,6 @@
 				3771E9AE1DF1B9E70064CC82 /* CustomSectionViewController.xml */,
 				3771E9B11DF1B9F10064CC82 /* CustomComponentViewController.swift */,
 				3771E9B21DF1B9F10064CC82 /* CustomComponentViewController.xml */,
-				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
-				3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */,
-				3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */,
-				3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */,
-				3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */,
-				3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */,
-				3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */,
-				3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */,
-				3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */,
-				3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */,
-				3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */,
-				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
-				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
-				3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */,
-				3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */,
-				3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */,
 				3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */,
 				3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */,
 				3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */,
@@ -693,18 +677,34 @@
 				3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */,
 				37659D511ECF59290043C9C1 /* BarsViewController.swift */,
 				37659D521ECF59290043C9C1 /* BarsViewController.xml */,
-				37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */,
-				37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */,
-				37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */,
-				37ABAF6B1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml */,
+				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
+				3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */,
+				3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */,
+				3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */,
+				3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */,
+				3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */,
 				378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */,
 				378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */,
+				3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */,
+				3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */,
+				3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */,
+				3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */,
+				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
+				3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */,
+				3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */,
+				3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */,
+				3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */,
+				3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */,
+				3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */,
+				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
+				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
+				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
-				37B2CD921F4F5DCA008F42FB /* orchard.jpg */,
-				37B2CD941F4F5DCB008F42FB /* quebec.jpg */,
-				37B2CD911F4F5DCA008F42FB /* lighthouse.jpg */,
-				37B2CD931F4F5DCB008F42FB /* waterfall.jpg */,
-				37B2CD901F4F5DCA008F42FB /* daisies.jpg */,
+				3715C2AD1F5039AE007D39C4 /* orchard.jpg */,
+				3715C2AF1F5039AF007D39C4 /* quebec.jpg */,
+				3715C2AC1F5039AE007D39C4 /* lighthouse.jpg */,
+				3715C2AE1F5039AF007D39C4 /* waterfall.jpg */,
+				3715C2AB1F5039AE007D39C4 /* daisies.jpg */,
 				371E236C1E042E1D00A29425 /* sample.mov */,
 				37BC06D91DF7225C00C46DF6 /* Icons.xcassets */,
 				3771E96F1DF1B8B00064CC82 /* Assets.xcassets */,
@@ -1161,8 +1161,31 @@
 				373BFB0B1DFB007B00BB7509 /* ViewController.xml in Resources */,
 				373BFB0C1DFB007B00BB7509 /* RadioButtonViewController.xml in Resources */,
 				373BFB0D1DFB007B00BB7509 /* CheckboxViewController.xml in Resources */,
-				373BFB0E1DFB007B00BB7509 /* GridViewController.xml in Resources */,
+				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
+				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				373BFB0F1DFB007B00BB7509 /* AnchorViewController.xml in Resources */,
+				373BFB0E1DFB007B00BB7509 /* GridViewController.xml in Resources */,
+				373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */,
+				373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */,
+				373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */,
+				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
+				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
+				373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */,
+				373BFB1D1DFB007B00BB7509 /* CustomSectionViewController.xml in Resources */,
+				373BFB1E1DFB007B00BB7509 /* CustomComponentViewController.xml in Resources */,
+				373BFB281DFB007B00BB7509 /* CollectionViewController.xml in Resources */,
+				373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */,
+				373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */,
+				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
+				373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */,
+				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
+				373BFB101DFB007B00BB7509 /* EffectViewController.xml in Resources */,
+				373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */,
+				373BFB201DFB007B00BB7509 /* RadialGradientViewController.xml in Resources */,
+				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
+				373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */,
+				373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
+				373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */,
 				373BFB111DFB007B00BB7509 /* ColorsAndFontsViewController.xml in Resources */,
 				373BFB121DFB007B00BB7509 /* ColorsAndFonts.json in Resources */,
 				373BFB131DFB007B00BB7509 /* ColorsAndFonts~vertical.json in Resources */,
@@ -1171,35 +1194,12 @@
 				373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */,
 				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
 				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
-				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
-				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
-				373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */,
-				373BFB1D1DFB007B00BB7509 /* CustomSectionViewController.xml in Resources */,
-				373BFB1E1DFB007B00BB7509 /* CustomComponentViewController.xml in Resources */,
-				373BFB101DFB007B00BB7509 /* EffectViewController.xml in Resources */,
-				373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */,
-				373BFB201DFB007B00BB7509 /* RadialGradientViewController.xml in Resources */,
-				373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */,
-				373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
-				373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */,
-				373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */,
-				373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */,
-				373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */,
-				373BFB281DFB007B00BB7509 /* CollectionViewController.xml in Resources */,
-				373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */,
-				373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */,
-				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
-				373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */,
-				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
-				37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */,
-				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
-				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
 				373BFB311DFB007B00BB7509 /* sample.txt in Resources */,
-				37B2CD951F4F5DF7008F42FB /* orchard.jpg in Resources */,
-				37B2CD961F4F5DF7008F42FB /* quebec.jpg in Resources */,
-				37B2CD971F4F5DF7008F42FB /* lighthouse.jpg in Resources */,
-				37B2CD981F4F5DF7008F42FB /* waterfall.jpg in Resources */,
-				37B2CD991F4F5DF7008F42FB /* daisies.jpg in Resources */,
+				3715C2B01F503A60007D39C4 /* orchard.jpg in Resources */,
+				3715C2B11F503A60007D39C4 /* quebec.jpg in Resources */,
+				3715C2B21F503A60007D39C4 /* lighthouse.jpg in Resources */,
+				3715C2B31F503A60007D39C4 /* waterfall.jpg in Resources */,
+				3715C2B41F503A60007D39C4 /* daisies.jpg in Resources */,
 				371E236D1E042E1D00A29425 /* sample.mov in Resources */,
 				373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */,
 				373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */,
@@ -1283,32 +1283,32 @@
 				373BFAEF1DFB003800BB7509 /* ViewController.swift in Sources */,
 				373BFAF01DFB003800BB7509 /* RadioButtonViewController.swift in Sources */,
 				373BFAF11DFB003800BB7509 /* CheckboxViewController.swift in Sources */,
-				373BFAF21DFB003800BB7509 /* GridViewController.swift in Sources */,
+				37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */,
+				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
 				373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */,
-				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
-				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
+				373BFAF21DFB003800BB7509 /* GridViewController.swift in Sources */,
+				373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */,
+				373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */,
+				373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,
 				373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */,
 				373BFAFB1DFB003800BB7509 /* CustomCellViewController.swift in Sources */,
 				373BFAFC1DFB003800BB7509 /* PharmacyCell.swift in Sources */,
 				373BFAFD1DFB003800BB7509 /* CustomSectionViewController.swift in Sources */,
 				373BFAFE1DFB003800BB7509 /* CustomComponentViewController.swift in Sources */,
-				373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */,
-				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
-				373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */,
-				373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */,
-				373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */,
-				373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */,
-				373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */,
 				373BFB061DFB003800BB7509 /* CollectionViewController.swift in Sources */,
 				373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */,
 				373BFB081DFB003800BB7509 /* WebViewController.swift in Sources */,
 				373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */,
 				373BFB0A1DFB003800BB7509 /* PlayerViewController.swift in Sources */,
 				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
-				37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */,
-				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
+				373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */,
+				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
+				373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */,
 				378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */,
+				373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */,
+				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
+				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
