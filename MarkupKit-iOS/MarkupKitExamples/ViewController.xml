@@ -25,31 +25,27 @@ limitations under the License.
     <UITableViewCell textLabel.text="Vertical Alignment" accessoryType="disclosureIndicator" value="verticalAlignment"/>
     <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
+    <?case iOS?>
     <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
+    <?end?>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
 
     <?sectionBreak?>
     <sectionHeader title="Content and Navigation"/>
-
     <?case iOS?>
     <UITableViewCell textLabel.text="Scroll View" accessoryType="disclosureIndicator" value="scrollView"/>
     <UITableViewCell textLabel.text="Page View" accessoryType="disclosureIndicator" value="pageView"/>
     <?end?>
-
     <UITableViewCell textLabel.text="Custom Cell View" accessoryType="disclosureIndicator" value="customCellView"/>
     <UITableViewCell textLabel.text="Custom Section View" accessoryType="disclosureIndicator" value="customSectionView"/>
-
     <?case iOS?>
     <UITableViewCell textLabel.text="Custom Component View" accessoryType="disclosureIndicator" value="customComponentView"/>
     <?end?>
-
     <UITableViewCell textLabel.text="Collection View" accessoryType="disclosureIndicator" value="collectionView"/>
-
     <?case iOS?>
     <UITableViewCell textLabel.text="Web View" accessoryType="disclosureIndicator" value="webView"/>
     <UITableViewCell textLabel.text="Map View" accessoryType="disclosureIndicator" value="mapView"/>
     <?end?>
-
     <UITableViewCell textLabel.text="Player View" accessoryType="disclosureIndicator" value="playerView"/>
     <UITableViewCell textLabel.text="Bars" accessoryType="disclosureIndicator" value="bars"/>
 

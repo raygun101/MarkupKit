@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2BA1F503AAF007D39C4 /* orchard.jpg */; };
 		3718A3D11F27E47F0035C398 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */; };
 		3718A3D21F27E47F0035C398 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */; };
 		3718A3D31F27E47F0035C398 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718A3CF1F27E47F0035C398 /* VerticalAlignmentViewController.swift */; };
@@ -233,6 +234,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3715C2BA1F503AAF007D39C4 /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = orchard.jpg; path = "../../MarkupKit-iOS/MarkupKitExamples/orchard.jpg"; sourceTree = "<group>"; };
 		3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalAlignmentViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.swift"; sourceTree = "<group>"; };
 		3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HorizontalAlignmentViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.xml"; sourceTree = "<group>"; };
 		3718A3CF1F27E47F0035C398 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VerticalAlignmentViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/VerticalAlignmentViewController.swift"; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				3763AD2E1DF713AE00E88F7A /* FirstRowView.xml */,
 				3763AD2F1DF713AE00E88F7A /* SecondRowView.xml */,
 				3763AD301DF713AE00E88F7A /* ThirdRowView.xml */,
+				3715C2BA1F503AAF007D39C4 /* orchard.jpg */,
 				371E236E1E042E8F00A29425 /* sample.mov */,
 				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
 				378720681DF70F53004FF42A /* Assets.xcassets */,
@@ -875,6 +878,7 @@
 				373BFB541DFB017100BB7509 /* FirstRowView.xml in Resources */,
 				373BFB551DFB017100BB7509 /* SecondRowView.xml in Resources */,
 				373BFB561DFB017100BB7509 /* ThirdRowView.xml in Resources */,
+				3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */,
 				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
 				373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */,
