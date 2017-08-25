@@ -16,9 +16,9 @@ import UIKit
 import MarkupKit
 
 class IncludesViewController: UIViewController {
-    var firstLabel: UILabel!
-    var secondLabel: UILabel!
-    var thirdLabel: UILabel!
+    @IBOutlet var firstLabel: UILabel!
+    @IBOutlet var secondLabel: UILabel!
+    @IBOutlet var thirdLabel: UILabel!
 
     override func loadView() {
         view = LMViewBuilder.view(withName: "IncludesViewController", owner: self, root: nil)

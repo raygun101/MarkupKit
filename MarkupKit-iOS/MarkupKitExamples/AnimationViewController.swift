@@ -16,8 +16,8 @@ import UIKit
 import MarkupKit
 
 class AnimationViewController: UIViewController {
-    var detailView: LMSpacer!
-    var detailSwitch: UISwitch!
+    @IBOutlet var detailView: LMColumnView!
+    @IBOutlet var detailSwitch: UISwitch!
 
     override func loadView() {
         view = LMViewBuilder.view(withName:"AnimationViewController", owner: self, root: nil)
