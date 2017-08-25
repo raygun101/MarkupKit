@@ -46,13 +46,9 @@ class ViewController: LMTableViewController {
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.description())
 
         // Load row list
-        let rowListURL = Bundle.main.url(forResource: "rows", withExtension: "json")
+        let jsonDecoder = JSONDecoder()
 
-        let rows = (try! JSONSerialization.jsonObject(with: try! Data(contentsOf: rowListURL!))) as! [[String: Any]]
-
-        self.rows = rows.map({
-            return Row(dictionary: $0)
-        })
+        rows = try! jsonDecoder.decode([Row].self, from: try! Data(contentsOf: Bundle.main.url(forResource: "rows", withExtension: "json")!))
     }
 
     // Button press handler
