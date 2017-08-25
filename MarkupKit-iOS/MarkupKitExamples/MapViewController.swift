@@ -42,16 +42,9 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
 
         let defaultNotificationCenter = NotificationCenter.default
-        
-        defaultNotificationCenter.addObserver(self,
-            selector: #selector(keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
-            object: nil)
 
-        defaultNotificationCenter.addObserver(self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
-            object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
 
         latitudeTextField.becomeFirstResponder()
     }
@@ -61,8 +54,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
 
         let defaultNotificationCenter = NotificationCenter.default
         
-        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
