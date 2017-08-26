@@ -17,7 +17,7 @@ This markup is equivalent to the following Swift code:
 
 Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
-![](README/periodic-table.png)
+<img src="README/periodic-table.png" width="820px"/>
 
 Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
@@ -47,7 +47,7 @@ For example, the following markup creates an instance of `LMColumnView` containi
         <UILabel text="Hello, World!"/>
     </LMColumnView>
 
-![](README/hello-world.png)
+<img src="README/hello-world.png" width="300px"/>
 
 The same result could be achieved programmatically as shown below:
 
@@ -85,7 +85,7 @@ In addition to view instances, elements may also represent untyped data. For exa
         <segment title="Extra-Large"/>
     </UISegmentedControl>
 
-![](README/segmented-control.png)
+<img src="README/segmented-control.png" width="300px"/>
 
 Each `<segment>` element triggers to a call to the following method, which is also added to `UIView` by MarkupKit:
 
