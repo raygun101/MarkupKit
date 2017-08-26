@@ -284,7 +284,7 @@ Note that a leading "@" character can be escaped by prepending a caret character
 This markup would produce a label containing the literal text "@hello", rather than the localized text to which the key "hello" refers in the string bundle.
 
 ### Data Binding
-Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are bi-directional, such that an update to either the owner or the view will be automatically reflected in the other.
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are implemented using [key-value observing](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html), so any KVO-compliant property defined by the owner can be bound to a view. 
 
 For example, an owning class might define a bindable property called `name` as follows:
 
@@ -294,7 +294,7 @@ For example, an owning class might define a bindable property called `name` as f
         ...
     }
 
-The following markup would create a binding between the `text` property of the text field and the owner's `name` property. Any updates to the text field would be reflected in `name`, and vice versa:
+The following markup would create a binding between the `text` property of the text field and the owner's `name` property. Any updates to `name` will be automatically reflected in the text field:
 
     <UITextField text="$name"/>
 
@@ -307,8 +307,6 @@ Bindings must be released before the owner is deallocated as well as any time th
     deinit {
         unbindAll()
     }
-
-Note that it may not be possible to establish a two-way binding in all cases. Internally, data binding uses [key-value observing](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html) (KVO) to register and respond to property change events. Although many UIKit types support KVO, not all do. In such cases, the view will still respond to changes in the owner, but the owner will not be automatically updated to reflect changes in the view.
 
 Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See [UIResponder+Markup.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/UIResponder%2BMarkup.h) for more information.
 
@@ -1539,7 +1537,7 @@ MarkupKit adds the following methods to `UIResponder` to support declarative dat
     - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
     - (void)unbindAll;
 
-The first method establishes a two-way binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
+The first method establishes a binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
 
 MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values are loaded:
 
