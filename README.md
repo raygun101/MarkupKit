@@ -499,14 +499,14 @@ The `name` parameter represents the name of the view to load. It is the file nam
 
 The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
 
-If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the owner's size class; for example, _LoginViewController~horizontal.xml_. Size classes are named as follows:
+If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the owner's size class. Size classes are named as follows:
 
 * Regular width, regular height - "normal"
 * Regular width, compact height - "horizontal"
 * Compact width, regular height - "vertical"
 * Compact width, compact height - "minimal"
 
-If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginViewController.xml_).
+For example, given a view named "LoginViewController" and a regular width/compact height controller, `LMViewBuilder` would first look for a document named _LoginViewController~horizontal.xml_. If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginViewController.xml_).
 
 Further, `LMViewBuilder` will apply any size class-specific property templates to the current document. For example, if a document imports a template collection as follows:
 
@@ -520,6 +520,8 @@ Note that neither size class-specific layouts nor template properties are automa
         super.traitCollectionDidChange(previousTraitCollection)
     
         if (previousTraitCollection != nil) {
+            unbindAll()
+            
             loadView()
             viewDidLoad()
         }
