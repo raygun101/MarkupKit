@@ -289,7 +289,7 @@ Attributes whose values begin with "$" represent data bindings. The text followi
 For example, an owning class might define a bindable property called `name` as follows:
 
     class ViewController: UIViewController {
-        dynamic var name: String?
+        @objc dynamic var name: String?
 
         ...
     }
