@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "chevy-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "chevy.png",
+      "filename" : "chevy@2x.png",
       "scale" : "2x"
     },
     {

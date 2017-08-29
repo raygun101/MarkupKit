@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "vw-1.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "vw.png",
+      "filename" : "vw@2x.png",
       "scale" : "2x"
     },
     {

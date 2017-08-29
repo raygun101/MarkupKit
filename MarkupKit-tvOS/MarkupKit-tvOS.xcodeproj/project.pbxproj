@@ -52,7 +52,6 @@
 		373BFB5D1DFB017100BB7509 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD121DF713AE00E88F7A /* SizeClassViewController~vertical.xml */; };
 		373BFB5E1DFB017100BB7509 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD261DF713AE00E88F7A /* PlayerViewController.xml */; };
 		373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */; };
-		373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 378720681DF70F53004FF42A /* Assets.xcassets */; };
 		373BFB661DFB017100BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
 		373BFB671DFB017100BB7509 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3B1DF713AE00E88F7A /* Fonts.plist */; };
 		373BFB681DFB017100BB7509 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3C1DF713AE00E88F7A /* pharmacies.json */; };
@@ -168,6 +167,7 @@
 		37E57B3D1DF1B40D002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */; };
 		37E57B421DF1B48D002984B9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37F549271F55AB9B001FEEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37F549261F55AB93001FEEA3 /* Assets.xcassets */; };
 		37F70CF11ECE4B6A00F3A861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F70CF01ECE4B6A00F3A861 /* Localizable.strings */; };
 		37F899871E475E8700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899851E475E8700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899881E475E8700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899861E475E8700205A70 /* LMTableViewController.m */; };
@@ -296,7 +296,6 @@
 		37770B361ECF6E0500C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarItem+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITabBarItem+Markup.h"; sourceTree = "<group>"; };
 		37770B371ECF6E0500C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarItem+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UITabBarItem+Markup.m"; sourceTree = "<group>"; };
 		3787205F1DF70F53004FF42A /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		378720681DF70F53004FF42A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3787206A1DF70F53004FF42A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		379214F71E40DF2A00C56838 /* UIResponder+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIResponder+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIResponder+Markup.h"; sourceTree = "<group>"; };
 		379214F81E40DF2A00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIResponder+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIResponder+Markup.m"; sourceTree = "<group>"; };
@@ -402,6 +401,7 @@
 		37E57B311DF1B398002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57B331DF1B398002984B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/AppDelegate.swift"; sourceTree = "<group>"; };
+		37F549261F55AB93001FEEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Assets.xcassets"; sourceTree = "<group>"; };
 		37F70CEF1ECE4B6A00F3A861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37F899851E475E8700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewController.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.h"; sourceTree = "<group>"; };
 		37F899861E475E8700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewController.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.m"; sourceTree = "<group>"; };
@@ -498,7 +498,7 @@
 				3715C2BA1F503AAF007D39C4 /* orchard.jpg */,
 				371E236E1E042E8F00A29425 /* sample.mov */,
 				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
-				378720681DF70F53004FF42A /* Assets.xcassets */,
+				37F549261F55AB93001FEEA3 /* Assets.xcassets */,
 				3787206A1DF70F53004FF42A /* Info.plist */,
 				3763AD3A1DF713AE00E88F7A /* Colors.plist */,
 				3763AD3B1DF713AE00E88F7A /* Fonts.plist */,
@@ -881,7 +881,7 @@
 				3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */,
 				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
-				373BFB651DFB017100BB7509 /* Assets.xcassets in Resources */,
+				37F549271F55AB9B001FEEA3 /* Assets.xcassets in Resources */,
 				373BFB661DFB017100BB7509 /* Colors.plist in Resources */,
 				373BFB671DFB017100BB7509 /* Fonts.plist in Resources */,
 				373BFB681DFB017100BB7509 /* pharmacies.json in Resources */,
