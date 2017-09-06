@@ -1555,6 +1555,7 @@ Instances of `UIButton` are created programmtically using the `buttonWithType:` 
     + (UIButton *)infoLightButton;
     + (UIButton *)infoDarkButton;
     + (UIButton *)contactAddButton;
+    + (UIButton *)plainButton;
 
 Button content is programmatically configured using methods such as `setTitle:forState:`, `setImage:forState:`, etc. MarkupKit adds the following properties to `UIButton` to allow this content to be defined in markup:
 
