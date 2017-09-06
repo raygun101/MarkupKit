@@ -48,7 +48,40 @@ typedef enum {
     if (elementDisposition != nil) {
         switch ([elementDisposition intValue]) {
             case kOverlayContentView: {
-                // TODO
+                #if TARGET_OS_TV
+                if (@available(tvOS 11, *)) {
+                    [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+                    [view setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+                    [view setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+
+                    [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+                    [view setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+
+                    UIView *overlayContentView = [self overlayContentView];
+
+                    [overlayContentView addSubview:view];
+
+                    // Pin overlay content to image view edges
+                    NSMutableArray *constraints = [NSMutableArray new];
+
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationEqual toItem:overlayContentView attribute:NSLayoutAttributeTopMargin
+                        multiplier:1 constant:0]];
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+                        relatedBy:NSLayoutRelationEqual toItem:overlayContentView attribute:NSLayoutAttributeBottomMargin
+                        multiplier:1 constant:0]];
+
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+                        relatedBy:NSLayoutRelationEqual toItem:overlayContentView attribute:NSLayoutAttributeLeftMargin
+                        multiplier:1 constant:0]];
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+                        relatedBy:NSLayoutRelationEqual toItem:overlayContentView attribute:NSLayoutAttributeRightMargin
+                        multiplier:1 constant:0]];
+
+                    [NSLayoutConstraint activateConstraints:constraints];
+                }
+                #endif
 
                 break;
             }
