@@ -112,7 +112,6 @@ static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
     [self setContentInset:contentInset];
 }
 
-#if TARGET_OS_IOS
 - (NSInteger)currentPage
 {
     return (NSInteger)([self contentOffset].x / [self bounds].size.width);
@@ -127,7 +126,6 @@ static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
 {
     [self setContentOffset:CGPointMake([self bounds].size.width * currentPage, 0) animated:animated];
 }
-#endif
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {

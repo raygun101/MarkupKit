@@ -41,6 +41,11 @@
     return [UIButton buttonWithType:UIButtonTypeContactAdd];
 }
 
++ (UIButton *)plainButton
+{
+    return [UIButton buttonWithType:UIButtonTypePlain];
+}
+
 - (NSString *)title
 {
     return [self titleForState:UIControlStateNormal];
