@@ -197,6 +197,8 @@
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */; };
+		377B4CA51F60924800D2A729 /* UIImageView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 377B4CA31F60924800D2A729 /* UIImageView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		377B4CA61F60924800D2A729 /* UIImageView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B4CA41F60924800D2A729 /* UIImageView+Markup.m */; };
 		378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */; };
 		378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */; };
 		379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379214F31E40DECE00C56838 /* UIResponder+Markup.m */; };
@@ -440,6 +442,8 @@
 		3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
 		37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Markup.h"; sourceTree = "<group>"; };
 		37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Markup.m"; sourceTree = "<group>"; };
+		377B4CA31F60924800D2A729 /* UIImageView+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Markup.h"; sourceTree = "<group>"; };
+		377B4CA41F60924800D2A729 /* UIImageView+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Markup.m"; sourceTree = "<group>"; };
 		378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationViewController.swift; sourceTree = "<group>"; };
 		378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnimationViewController.xml; sourceTree = "<group>"; };
 		379214F31E40DECE00C56838 /* UIResponder+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+Markup.m"; sourceTree = "<group>"; };
@@ -824,6 +828,8 @@
 				3799BB1D1DF18539006E6B3D /* UIActivityIndicatorView+Markup.m */,
 				37596C171EAA2C0600D427B4 /* UILabel+Markup.h */,
 				37596C181EAA2C0600D427B4 /* UILabel+Markup.m */,
+				377B4CA31F60924800D2A729 /* UIImageView+Markup.h */,
+				377B4CA41F60924800D2A729 /* UIImageView+Markup.m */,
 				3799BB261DF18539006E6B3D /* UIPickerView+Markup.h */,
 				3799BB271DF18539006E6B3D /* UIPickerView+Markup.m */,
 				3799BB281DF18539006E6B3D /* UIProgressView+Markup.h */,
@@ -939,6 +945,7 @@
 				3763067F1DF188F400357E68 /* UITextField+Markup.h in Headers */,
 				376306801DF188F400357E68 /* UIActivityIndicatorView+Markup.h in Headers */,
 				37596C191EAA2C0600D427B4 /* UILabel+Markup.h in Headers */,
+				377B4CA51F60924800D2A729 /* UIImageView+Markup.h in Headers */,
 				376306811DF188F400357E68 /* UIPickerView+Markup.h in Headers */,
 				376306821DF188F400357E68 /* UIProgressView+Markup.h in Headers */,
 				376306831DF188F400357E68 /* UISearchBar+Markup.h in Headers */,
@@ -1359,6 +1366,7 @@
 				376306571DF188BF00357E68 /* UITextField+Markup.m in Sources */,
 				376306581DF188BF00357E68 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */,
+				377B4CA61F60924800D2A729 /* UIImageView+Markup.m in Sources */,
 				376306591DF188BF00357E68 /* UIPickerView+Markup.m in Sources */,
 				3763065A1DF188BF00357E68 /* UIProgressView+Markup.m in Sources */,
 				3763065B1DF188BF00357E68 /* UISearchBar+Markup.m in Sources */,
