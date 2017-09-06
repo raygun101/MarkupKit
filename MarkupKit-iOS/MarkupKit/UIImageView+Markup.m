@@ -13,7 +13,55 @@
 //
 
 #import "UIImageView+Markup.h"
+#import "UIView+Markup.h"
+
+#import <objc/message.h>
+
+static NSString * const kOverlayContentViewTarget = @"overlayContentView";
+
+typedef enum {
+    kOverlayContentView
+} __ElementDisposition;
+
+#define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
 
 @implementation UIImageView (Markup)
+
+- (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
+{
+    __ElementDisposition elementDisposition;
+    if ([target isEqual:kOverlayContentViewTarget]) {
+        elementDisposition = kOverlayContentView;
+    } else {
+        elementDisposition = INT_MAX;
+
+        [super processMarkupInstruction:target data:data];
+    }
+
+    objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, [NSNumber numberWithInt:elementDisposition], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    NSNumber *elementDisposition = objc_getAssociatedObject(self, ELEMENT_DISPOSITION_KEY);
+
+    if (elementDisposition != nil) {
+        switch ([elementDisposition intValue]) {
+            case kOverlayContentView: {
+                // TODO
+
+                break;
+            }
+
+            default: {
+                [super appendMarkupElementView:view];
+
+                break;
+            }
+        }
+    }
+
+    objc_setAssociatedObject(self, ELEMENT_DISPOSITION_KEY, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
