@@ -19,13 +19,13 @@ class MainViewController: UIViewController {
     @IBOutlet var greetingLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 
-    let number = "12345"
+    @objc let number = "12345"
 
-    let prompt = NSAttributedString(string: "Press Me!")
+    @objc let one = "One"
+    @objc let two = "Two"
+    @objc let three = "Three"
 
-    let one = "One"
-    let two = "Two"
-    let three = "Three"
+    @objc let prompt = NSAttributedString(string: "Press Me!")
 
     override func viewDidLoad() {
         super.viewDidLoad()

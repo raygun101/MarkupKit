@@ -34,23 +34,23 @@ class BarsViewController: UIViewController, UITabBarDelegate {
     }
 
     #if os(iOS)
-    func compose() {
+    @objc func compose() {
         performAction(name: "compose")
     }
 
-    func reply() {
+    @objc func reply() {
         performAction(name: "reply")
     }
 
-    func organize() {
+    @objc func organize() {
         performAction(name: "organize")
     }
 
-    func search() {
+    @objc func search() {
         performAction(name: "search")
     }
 
-    func trash() {
+    @objc func trash() {
         performAction(name: "trash")
     }
 
