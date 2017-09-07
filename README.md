@@ -1655,7 +1655,19 @@ For example, the following markup creates a label with a shadow offset width and
         shadowColor="red" 
         shadowOffsetWidth="3" 
         shadowOffsetHeight="3"/>
-        
+
+### UIImageView
+In tvOS 11 and later, MarkupKit provides support for declaring image view overlay content:
+
+    <UIImageView id="imageView" contentMode="scaleAspectFit" tintColor="black">
+        <?case tvOS?>
+        <?overlayContent?>
+        <UILabel id="label" textColor="red" textAlignment="center" font="System-Bold 24"/>
+        <?end?>
+    </UIImageView>
+
+The content is automatically sized to match the image view's bounds.
+
 ### UIPickerView
 MarkupKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` primarily so casting is not required when using an `LMPickerView` instance in markup. They also provide parity with similar methods added to `UITableView`:
 

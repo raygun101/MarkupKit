@@ -17,10 +17,10 @@
 
 #import <objc/message.h>
 
-static NSString * const kOverlayContentViewTarget = @"overlayContentView";
+static NSString * const kOverlayContentTarget = @"overlayContent";
 
 typedef enum {
-    kOverlayContentView
+    kOverlayContent
 } __ElementDisposition;
 
 #define ELEMENT_DISPOSITION_KEY @encode(__ElementDisposition)
@@ -30,8 +30,8 @@ typedef enum {
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     __ElementDisposition elementDisposition;
-    if ([target isEqual:kOverlayContentViewTarget]) {
-        elementDisposition = kOverlayContentView;
+    if ([target isEqual:kOverlayContentTarget]) {
+        elementDisposition = kOverlayContent;
     } else {
         elementDisposition = INT_MAX;
 
@@ -47,7 +47,7 @@ typedef enum {
 
     if (elementDisposition != nil) {
         switch ([elementDisposition intValue]) {
-            case kOverlayContentView: {
+            case kOverlayContent: {
                 #if TARGET_OS_TV
                 if (@available(tvOS 11, *)) {
                     [view setTranslatesAutoresizingMaskIntoConstraints:NO];
