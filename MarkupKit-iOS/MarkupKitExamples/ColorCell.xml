@@ -14,6 +14,12 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+<?properties {
+    "colorSwatch": {
+        "layer.borderColor": "#000000"
+    }
+}?>
+
 <?case iOS?>
 <?properties {
     "colorSwatch": {
@@ -27,12 +33,6 @@ limitations under the License.
     }
 }?>
 <?end?>
-
-<?properties {
-    "colorSwatch": {
-        "layer.borderColor": "#000000"
-    }
-}?>
 
 <root layoutMargins="8">
     <?selectedBackgroundView?>
