@@ -270,17 +270,13 @@ the following markup will produce an instance of `UILabel` with the value of its
 
     <UILabel text="@hello"/>
 
-If a localized value is not found, the key will be used instead. This allows developers to easily identify missing string resources at runtime.
-
 If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with the `bundleForImages` method discussed earlier, MarkupKit adds a default implementation of `bundleForStrings` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
 Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. The default implementation provided by `UIResponder` returns `nil`.
 
-Note that a leading "@" character can be escaped by prepending a caret character to the text, as shown below:
+A leading "@" character can be escaped by prepending a caret character to the text. For example, this markup would produce a label containing the literal text "@hello":
 
     <UILabel text="^@hello"/>
-
-This markup would produce a label containing the literal text "@hello", rather than the localized text to which the key "hello" refers in the string bundle.
 
 ### Data Binding
 Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are implemented using [key-value observing](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html), so any KVO-compliant property defined by the owner can be bound to a view. 
