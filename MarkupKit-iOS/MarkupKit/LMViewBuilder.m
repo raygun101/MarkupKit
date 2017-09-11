@@ -132,16 +132,43 @@ static NSMutableDictionary *templateCache;
         bundle = [NSBundle mainBundle];
     }
 
+    NSString *sizeClass;
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-        NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
+        sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
+    } else {
+        sizeClass = nil;
+    }
 
-        if (sizeClass != nil) {
-            url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
-        }
+    if (sizeClass != nil) {
+        url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
     }
 
     if (url == nil) {
         url = [bundle URLForResource:name withExtension:@"xml"];
+
+        if (url == nil) {
+            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+
+            if ([baseURLs count] > 0) {
+                NSURL *baseURL = [baseURLs objectAtIndex:0];
+
+                if (sizeClass != nil) {
+                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] relativeToURL:baseURL];
+
+                    if (![url checkResourceIsReachableAndReturnError:nil]) {
+                        url = nil;
+                    }
+                }
+
+                if (url == nil) {
+                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", name] relativeToURL:baseURL];
+
+                    if (![url checkResourceIsReachableAndReturnError:nil]) {
+                        url = nil;
+                    }
+                }
+            }
+        }
     }
 
     UIView *view = nil;
