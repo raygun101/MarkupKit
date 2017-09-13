@@ -40,7 +40,11 @@ static NSDictionary *verticalAlignmentValues;
 }
 
 #define INIT {\
-    _spacing = DEFAULT_SPACING;\
+    if (@available(iOS 11.0, tvOS 11, *)) {\
+        _spacing = NAN;\
+    } else {\
+        _spacing = DEFAULT_SPACING;\
+    }\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -78,6 +82,13 @@ static NSDictionary *verticalAlignmentValues;
 - (void)setSpacing:(CGFloat)spacing
 {
     _spacing = spacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setAlignToBaseline:(BOOL)alignToBaseline
+{
+    _alignToBaseline = alignToBaseline;
 
     [self setNeedsUpdateConstraints];
 }

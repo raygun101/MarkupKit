@@ -17,12 +17,12 @@
 #import "UIView+Markup.h"
 #import "UIResponder+Markup.h"
 
+static NSString * const kSizeClassFormat = @"%@~%@";
+
 static NSString * const kNormalSizeClass = @"normal";
 static NSString * const kHorizontalSizeClass = @"horizontal";
 static NSString * const kVerticalSizeClass = @"vertical";
 static NSString * const kMinimalSizeClass = @"minimal";
-
-static NSString * const kSizeClassFormat = @"%@~%@";
 
 static NSString * const kCaseTarget = @"case";
 static NSString * const kEndTarget = @"end";
@@ -132,16 +132,43 @@ static NSMutableDictionary *templateCache;
         bundle = [NSBundle mainBundle];
     }
 
+    NSString *sizeClass;
     if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-        NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
+        sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
+    } else {
+        sizeClass = nil;
+    }
 
-        if (sizeClass != nil) {
-            url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
-        }
+    if (sizeClass != nil) {
+        url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
     }
 
     if (url == nil) {
         url = [bundle URLForResource:name withExtension:@"xml"];
+
+        if (url == nil) {
+            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+
+            if ([baseURLs count] > 0) {
+                NSURL *baseURL = [baseURLs objectAtIndex:0];
+
+                if (sizeClass != nil) {
+                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] relativeToURL:baseURL];
+
+                    if (![url checkResourceIsReachableAndReturnError:nil]) {
+                        url = nil;
+                    }
+                }
+
+                if (url == nil) {
+                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", name] relativeToURL:baseURL];
+
+                    if (![url checkResourceIsReachableAndReturnError:nil]) {
+                        url = nil;
+                    }
+                }
+            }
+        }
     }
 
     UIView *view = nil;
@@ -203,18 +230,24 @@ static NSMutableDictionary *templateCache;
             color = [UIColor colorWithRed:red / 255.0 green:green / 255.0 blue:blue / 255.0 alpha:alpha / 255.0];
         }
     } else {
-        color = [colorTable objectForKey:value];
+        UIImage *image = [UIImage imageNamed:value];
 
-        if (color == nil) {
-            NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
+        if (image != nil) {
+            color = [UIColor colorWithPatternImage:image];
+        } else {
+            if (@available(iOS 11, tvOS 11, *)) {
+                color = [UIColor colorNamed:value];
+            }
 
-            if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
-                color = [[UIColor self] valueForKey:selectorName];
-            } else {
-                UIImage *image = [UIImage imageNamed:value];
+            if (color == nil) {
+                color = [colorTable objectForKey:value];
 
-                if (image != nil) {
-                    color = [UIColor colorWithPatternImage:image];
+                if (color == nil) {
+                    NSString *selectorName = [NSString stringWithFormat:@"%@Color", value];
+
+                    if ([[UIColor self] respondsToSelector:NSSelectorFromString(selectorName)]) {
+                        color = [[UIColor self] valueForKey:selectorName];
+                    }
                 }
             }
         }
@@ -440,6 +473,8 @@ static NSMutableDictionary *templateCache;
         bundle = [NSBundle mainBundle];
     }
 
+    NSString *table = [_owner tableForStrings];
+
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
@@ -495,7 +530,7 @@ static NSMutableDictionary *templateCache;
         } else if ([value hasPrefix:kBindingPrefix]) {
             [bindings setObject:[value substringFromIndex:[kBindingPrefix length]] forKey:key];
         } else if ([value hasPrefix:kLocalizedStringPrefix]) {
-            [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:nil table:nil] forKey:key];
+            [properties setObject:[bundle localizedStringForKey:[value substringFromIndex:[kLocalizedStringPrefix length]] value:value table:table] forKey:key];
         } else if ([value hasPrefix:kEscapePrefix]) {
             [properties setObject:[value substringFromIndex:[kEscapePrefix length]] forKey:key];
         } else {
@@ -616,7 +651,17 @@ static NSMutableDictionary *templateCache;
             traitCollection = nil;
         }
 
-        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:traitCollection];
+        NSString *name = [value description];
+
+        value = [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
+
+        if (value == nil) {
+            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+
+            if ([baseURLs count] > 0) {
+                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:[baseURLs objectAtIndex:0]]]];
+            }
+        }
     }
 
     return value;

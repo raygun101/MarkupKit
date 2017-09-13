@@ -17,13 +17,7 @@ import UIKit
 /**
  * Model class representing a table row.
  */
-class Row: NSObject {
-    var heading: String?
-    var detail: String?
-
-    init(dictionary: [String: Any]) {
-        super.init()
-
-        setValuesForKeys(dictionary)
-    }
+class Row: NSObject, Decodable {
+    @objc dynamic var heading: String?
+    @objc dynamic var detail: String?
 }

@@ -29,6 +29,8 @@ class ScrollViewController: UIViewController {
         super.viewDidLoad()
 
         title = "Scroll View"
+
+        edgesForExtendedLayout = UIRectEdge()
         
         let textPath = Bundle.main.path(forResource: "sample", ofType: "txt")
         let text = try? String(contentsOfFile: textPath!, encoding: String.Encoding.ascii)

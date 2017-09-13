@@ -59,7 +59,7 @@ limitations under the License.
                 <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
                     titleLabel.shadowOffsetWidth="3" titleLabel.shadowOffsetHeight="3"
                     contentHorizontalAlignment="left" contentVerticalAlignment="center"
-                    onTouchUpInside="handleButtonTouchUpInside:"/>
+                    onPrimaryActionTriggered="handlePrimaryActionTriggered:"/>
             </LMRowView>
 
             <LMRowView>
@@ -79,7 +79,7 @@ limitations under the License.
                 layer.borderWidth="0.5"
                 layer.borderColor="#808080"
                 layer.cornerRadius="6"
-                onTouchUpInside="handleButtonTouchUpInside:"/>
+                onPrimaryActionTriggered="handlePrimaryActionTriggered:"/>
 
             <LMRowView alignToBaseline="true" topSpacing="20" bottomSpacing="10" backgroundColor="#ff00ff">
                 <LMSpacer/>
@@ -88,6 +88,12 @@ limitations under the License.
                 <UILabel text="hijk" font="Helvetica 24" backgroundColor="yellow"/>
                 <LMSpacer/>
             </LMRowView>
+
+            <LMColumnView alignToBaseline="true" backgroundColor="#ffff00">
+                <UILabel text="abcd" font="Helvetica 16" backgroundColor="green"/>
+                <UILabel text="efg" font="Helvetica 32" backgroundColor="green"/>
+                <UILabel text="hijk" font="Helvetica 24" backgroundColor="green"/>
+            </LMColumnView>
 
             <LMRowView layoutMargins="12" backgroundColor="#ffff00">
                 <LMSpacer/>

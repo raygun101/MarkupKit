@@ -85,6 +85,8 @@
 
     CGFloat spacing = [self spacing];
 
+    BOOL alignToBaseline = [self alignToBaseline];
+
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
@@ -101,9 +103,27 @@
                     multiplier:1 constant:[self topSpacing]]];
             }
         } else {
-            [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
-                multiplier:1 constant:spacing]];
+            if (alignToBaseline) {
+                if (isnan(spacing)) {
+                    if (@available(iOS 11.0, tvOS 11, *)) {
+                        [constraints addObject:[[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1]];
+                    }
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
+                        relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
+                        multiplier:1 constant:spacing]];
+                }
+            } else {
+                if (isnan(spacing)) {
+                    if (@available(iOS 11.0, tvOS 11, *)) {
+                        [constraints addObject:[[subview topAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview bottomAnchor] multiplier:1]];
+                    }
+                } else {
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
+                        relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
+                        multiplier:1 constant:spacing]];
+                }
+            }
         }
 
         CGFloat weight = [subview weight];

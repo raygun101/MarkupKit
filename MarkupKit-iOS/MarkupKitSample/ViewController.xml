@@ -30,9 +30,12 @@ limitations under the License.
     </LMTableViewCell>
 
     <?sectionFooterView?>
-    <UITableViewCell class="footerCell" textLabel.text="@switch">
-        <UISwitch id="footerSwitch"/>
-    </UITableViewCell>
+    <LMTableViewHeaderFooterView>
+        <LMRowView>
+            <UILabel weight="1" text="@switch" textColor="#808080" font="caption2"/>
+            <UISwitch/>
+        </LMRowView>
+    </LMTableViewHeaderFooterView>
 
     <?sectionBreak?>
     <LMTableViewCell selectionStyle="none">

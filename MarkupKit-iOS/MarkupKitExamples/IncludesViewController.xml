@@ -15,8 +15,14 @@ limitations under the License.
 -->
 
 <?properties {
+    "icon": {
+        "contentMode": "scaleAspectFit"
+    },
+
     "label": {
-        "font": "title2"
+        "font": "System 12",
+        "textAlignment": "center",
+        "numberOfLines": 0
     }
 }?>
 

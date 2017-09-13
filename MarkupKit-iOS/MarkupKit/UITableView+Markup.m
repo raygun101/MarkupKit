@@ -17,6 +17,7 @@
 #import "NSObject+Markup.h"
 
 static NSDictionary *tableViewCellSeparatorStyleValues;
+static NSDictionary *tableViewSeparatorInsetReferenceValues;
 
 @implementation UITableView (Markup)
 
@@ -29,6 +30,13 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
         @"singleLineEtched": @(UITableViewCellSeparatorStyleSingleLineEtched)
         #endif
     };
+
+    if (@available(iOS 11, tvOS 11, *)) {
+        tableViewSeparatorInsetReferenceValues = @{
+            @"fromCellEdges": @(UITableViewSeparatorInsetFromCellEdges),
+            @"fromAutomaticInsets": @(UITableViewSeparatorInsetFromAutomaticInsets)
+        };
+    }
 }
 
 - (NSString *)nameForSection:(NSInteger)section
@@ -85,6 +93,8 @@ static NSDictionary *tableViewCellSeparatorStyleValues;
 {
     if ([key isEqual:@"separatorStyle"]) {
         value = [tableViewCellSeparatorStyleValues objectForKey:value];
+    } else if ([key isEqual:@"separatorInsetReference"]) {
+        value = [tableViewSeparatorInsetReferenceValues objectForKey:value];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];

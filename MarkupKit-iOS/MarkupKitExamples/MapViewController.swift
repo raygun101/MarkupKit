@@ -42,16 +42,9 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
 
         let defaultNotificationCenter = NotificationCenter.default
-        
-        defaultNotificationCenter.addObserver(self,
-            selector: #selector(keyboardWillShow(_:)),
-            name: NSNotification.Name.UIKeyboardWillShow,
-            object: nil)
 
-        defaultNotificationCenter.addObserver(self,
-            selector: #selector(keyboardWillHide(_:)),
-            name: NSNotification.Name.UIKeyboardWillHide,
-            object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
 
         latitudeTextField.becomeFirstResponder()
     }
@@ -61,8 +54,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
 
         let defaultNotificationCenter = NotificationCenter.default
         
-        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        defaultNotificationCenter.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: .UIKeyboardWillShow, object: nil)
+        defaultNotificationCenter.removeObserver(self, name: .UIKeyboardWillHide, object: nil)
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -73,14 +66,14 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         return false
     }
 
-    func keyboardWillShow(_ notification: Notification) {
+    @objc func keyboardWillShow(_ notification: Notification) {
         let layoutView = view as! LMLayoutView
-        let frame = notification.userInfo![UIKeyboardFrameBeginUserInfoKey] as! CGRect
+        let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
         layoutView.bottomSpacing = frame.height
     }
     
-    func keyboardWillHide(_ notification: Notification) {
+    @objc func keyboardWillHide(_ notification: Notification) {
         let layoutView = view as! LMLayoutView
 
         layoutView.bottomSpacing = 0

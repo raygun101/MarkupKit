@@ -15,7 +15,7 @@ limitations under the License.
 -->
 
 <LMAnchorView layoutMarginsRelativeArrangement="false">
-    <UIImageView image="sample.jpg" anchor="all" contentMode="scaleAspectFill" clipsToBounds="true"/>
+    <UIImageView image="daisies.jpg" anchor="all" contentMode="scaleAspectFill" clipsToBounds="true"/>
 
     <LMColumnView anchor="left, right, bottom" spacing="0" backgroundColor="#00000088">
         <LMColumnView id="detailView" layoutMargins="8" spacing="0" verticalAlignment="top" clipsToBounds="true">

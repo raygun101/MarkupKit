@@ -19,7 +19,7 @@ limitations under the License.
     <sectionHeader title="@imageView"/>
 
     <LMTableViewCell selectionStyle="none">
-        <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="210"/>
+        <UIImageView image="sample.jpg" contentMode="scaleAspectFit" height="180"/>
     </LMTableViewCell>
 
     <!-- Button -->
@@ -220,7 +220,7 @@ limitations under the License.
     <sectionHeader title="@pageControl"/>
 
     <LMTableViewCell selectionStyle="none">
-        <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="red" currentPageIndicatorTintColor="green"/>
+        <UIPageControl id="pageControl" numberOfPages="11" pageIndicatorTintColor="lightGray" currentPageIndicatorTintColor="black"/>
     </LMTableViewCell>
 
     <!-- Progress view -->

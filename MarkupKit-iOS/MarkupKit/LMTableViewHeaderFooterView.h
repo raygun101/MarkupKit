@@ -12,19 +12,21 @@
 // limitations under the License.
 //
 
-import UIKit
-import MarkupKit
+#import <UIKit/UIKit.h>
 
-class ColorPickerViewController: UITableViewController {
-    override func loadView() {
-        view = LMViewBuilder.view(withName: "ColorPickerViewController", owner: self, root: nil)
-    }
+NS_ASSUME_NONNULL_BEGIN
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+/**
+ * Table view header/footer view that hosts custom content.
+ */
+@interface LMTableViewHeaderFooterView : UITableViewHeaderFooterView
 
-        tableView.layoutIfNeeded()
+/**
+ * Specifies that the view's content will be arranged relative to its layout margins.
+ * The default value is <code>YES</code>.
+ */
+@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
 
-        preferredContentSize = tableView.contentSize
-    }
-}
+@end
+
+NS_ASSUME_NONNULL_END
