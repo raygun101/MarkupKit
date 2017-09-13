@@ -17,12 +17,12 @@
 #import "UIView+Markup.h"
 #import "UIResponder+Markup.h"
 
+static NSString * const kSizeClassFormat = @"%@~%@";
+
 static NSString * const kNormalSizeClass = @"normal";
 static NSString * const kHorizontalSizeClass = @"horizontal";
 static NSString * const kVerticalSizeClass = @"vertical";
 static NSString * const kMinimalSizeClass = @"minimal";
-
-static NSString * const kSizeClassFormat = @"%@~%@";
 
 static NSString * const kCaseTarget = @"case";
 static NSString * const kEndTarget = @"end";
@@ -651,7 +651,17 @@ static NSMutableDictionary *templateCache;
             traitCollection = nil;
         }
 
-        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:traitCollection];
+        NSString *name = [value description];
+
+        value = [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
+
+        if (value == nil) {
+            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
+
+            if ([baseURLs count] > 0) {
+                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:[baseURLs objectAtIndex:0]]]];
+            }
+        }
     }
 
     return value;
