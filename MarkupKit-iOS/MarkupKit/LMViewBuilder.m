@@ -151,6 +151,12 @@ static NSMutableDictionary *templateCache;
 
             if ([baseURLs count] > 0) {
                 NSURL *baseURL = [baseURLs objectAtIndex:0];
+                
+                NSString *path = [owner pathForView];
+
+                if (path != nil) {
+                    baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", path] relativeToURL:baseURL];
+                }
 
                 if (sizeClass != nil) {
                     url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] relativeToURL:baseURL];
@@ -659,7 +665,15 @@ static NSMutableDictionary *templateCache;
             NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
 
             if ([baseURLs count] > 0) {
-                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:[baseURLs objectAtIndex:0]]]];
+                NSURL *baseURL = [baseURLs objectAtIndex:0];
+
+                NSString *path = [_owner pathForImages];
+
+                if (path != nil) {
+                    baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", path] relativeToURL:baseURL];
+                }
+
+                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:baseURL]]];
             }
         }
     }

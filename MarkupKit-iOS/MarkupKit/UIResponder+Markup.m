@@ -50,6 +50,16 @@
     return nil;
 }
 
+- (NSString *)pathForView
+{
+    return nil;
+}
+
+- (NSString *)pathForImages
+{
+    return nil;
+}
+
 - (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
     LMBinding *binding = [[LMBinding alloc] initWithOwner:self property:property view:view keyPath:keyPath];

@@ -39,6 +39,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)tableForStrings;
 
 /**
+ * Returns the path that will be used to load the view document, or <code>nil</code> to use the base path.
+ */
+- (nullable NSString *)pathForView;
+
+/**
+ * Returns the path that will be used to load images, or <code>nil</code> to use the base path.
+ */
+- (nullable NSString *)pathForImages;
+
+/**
  * Establishes a two-way binding between this object and an associated view instance.
  *
  * @param property The key path of a property in this object.
