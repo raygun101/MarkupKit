@@ -221,7 +221,7 @@ If the document's owner (usually the view controller) implements a method named 
 
 Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the `traitCollection` method. Otherwise, it will be `nil`.
     
-If a matching image is not found in the identified bundle, it will be loaded from the application's _Library/Application Support_ folder. If the owner defines a `pathForImages` method, the value returned by this method will be appended to the folder path when loading the image. A trailing slash character is not required.
+If a matching image is not found in the identified bundle, it will be loaded from the application's _Library/Application Support_ folder. If the owner defines a `pathForImages` method, the value returned by this method will be appended to the folder URL.
 
 ### Enumerations
 Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing, and presents a software keyboard suitable for entering email addresses:
@@ -522,7 +522,7 @@ Note that neither size class-specific layouts nor template properties are automa
     
 If the owner implements a method named `bundleForView`, the view document will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
 
-If a matching document is not found in the identified bundle, `LMViewBuilder` will look in the application's _Library/Application Support_ folder, first for a size class-specific layout, then for the default layout. If the owner defines a `pathForView` method, the value returned by this method will be appended to the folder path when loading the view. A trailing slash character is not required.
+If a matching document is not found in the identified bundle, `LMViewBuilder` will look in the application's _Library/Application Support_ folder, first for a size class-specific layout, then for the default layout. If the owner defines a `pathForView` method, the value returned by this method will be appended to the folder URL.
 
 Note that property templates and color and font tables are always loaded from the main bundle.
 

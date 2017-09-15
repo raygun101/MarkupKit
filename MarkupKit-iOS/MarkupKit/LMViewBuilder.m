@@ -155,7 +155,7 @@ static NSMutableDictionary *templateCache;
                 NSString *path = [owner pathForView];
 
                 if (path != nil) {
-                    baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", path] relativeToURL:baseURL];
+                    baseURL = [NSURL URLWithString:path relativeToURL:baseURL];
                 }
 
                 if (sizeClass != nil) {
@@ -670,7 +670,7 @@ static NSMutableDictionary *templateCache;
                 NSString *path = [_owner pathForImages];
 
                 if (path != nil) {
-                    baseURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/", path] relativeToURL:baseURL];
+                    baseURL = [NSURL URLWithString:path relativeToURL:baseURL];
                 }
 
                 value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:baseURL]]];
