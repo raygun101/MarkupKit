@@ -151,7 +151,7 @@ static NSMutableDictionary *templateCache;
 
             if ([baseURLs count] > 0) {
                 NSURL *baseURL = [baseURLs objectAtIndex:0];
-                
+
                 if (sizeClass != nil) {
                     url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] relativeToURL:baseURL];
 
