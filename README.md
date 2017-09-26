@@ -520,7 +520,7 @@ Note that neither size class-specific layouts nor template properties are automa
         }
     }
     
-If the owner implements a method named `bundleForView`, view documents will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
+If the owner implements a method named `bundleForView`, the view document will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
 
 If a matching document is not found in the identified bundle, `LMViewBuilder` will look in the application's _Library/Application Support_ folder, first for a size class-specific layout, then for the default layout.
 

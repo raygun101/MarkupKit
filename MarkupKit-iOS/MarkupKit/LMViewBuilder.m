@@ -153,7 +153,10 @@ static NSMutableDictionary *templateCache;
                 NSURL *baseURL = [baseURLs objectAtIndex:0];
 
                 if (sizeClass != nil) {
-                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] relativeToURL:baseURL];
+                    NSString *fileName = [NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]];
+                    NSString *encodedFileName = [fileName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+                    
+                    url = [NSURL URLWithString:encodedFileName relativeToURL:baseURL];
 
                     if (![url checkResourceIsReachableAndReturnError:nil]) {
                         url = nil;
@@ -161,7 +164,10 @@ static NSMutableDictionary *templateCache;
                 }
 
                 if (url == nil) {
-                    url = [NSURL URLWithString:[NSString stringWithFormat:@"%@.xml", name] relativeToURL:baseURL];
+                    NSString *fileName = [NSString stringWithFormat:@"%@.xml", name];
+                    NSString *encodedFileName = [fileName stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+                    
+                    url = [NSURL URLWithString:encodedFileName relativeToURL:baseURL];
 
                     if (![url checkResourceIsReachableAndReturnError:nil]) {
                         url = nil;
@@ -659,7 +665,9 @@ static NSMutableDictionary *templateCache;
             NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
 
             if ([baseURLs count] > 0) {
-                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:name relativeToURL:[baseURLs objectAtIndex:0]]]];
+                NSString *encodedName = [name stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]];
+                
+                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:encodedName relativeToURL:[baseURLs objectAtIndex:0]]]];
             }
         }
     }
