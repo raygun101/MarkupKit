@@ -15,7 +15,7 @@ class ___FILEBASENAMEASIDENTIFIER___: LMTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
-        LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: self)
+        LMViewBuilder.view(withName: "___FILEBASENAMEASIDENTIFIER___", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {
