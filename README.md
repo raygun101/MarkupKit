@@ -1124,6 +1124,8 @@ The child of the root tag represents the cell's content. It can be any valid vie
 * `selectedBackgroundView` - sets the cell's selected background view
 * `multipleSelectionBackgroundView` - sets the cell's multiple selection background view
 
+When the `selectionStyle` property of an `LMTableViewCell` instance is set to "none", the cell will not consume touch events. Touches that occur within the cell but do not intersect with a subview are ignored, preventing selection.
+
 See [LMTableView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMTableView.h) and [LMTableViewCell.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMTableViewCell.h) for more information.
 
 ### Custom Header/Footer Content
