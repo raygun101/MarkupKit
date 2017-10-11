@@ -407,64 +407,6 @@ static NSMutableDictionary *templateCache;
     return _templates;
 }
 
-- (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
-{
-    if ([target isEqual:kCaseTarget]) {
-        _target = data;
-    } else if ([target isEqual:kEndTarget]) {
-        _target = nil;
-    } else {
-        if (_target != nil && ![_target isEqual:[[UIDevice currentDevice] systemName]]) {
-            return;
-        }
-
-        if ([target isEqual:kPropertiesTarget]) {
-            // Merge templates
-            if ([data hasPrefix:@"{"]) {
-                NSError *error = nil;
-
-                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
-                    options:0 error:&error];
-
-                if (error != nil) {
-                    [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber], [error description]];
-                }
-
-                [LMViewBuilder mergeDictionary:dictionary into:_templates];
-            } else {
-                UITraitCollection *traitCollection;
-                if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-                    traitCollection = [_owner traitCollection];
-                } else {
-                    traitCollection = nil;
-                }
-
-                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:traitCollection] into:_templates];
-            }
-        } else if ([target isEqual:kIncludeTarget]) {
-            // Push include
-            if ([_views count] > 0) {
-                id superview = [_views lastObject];
-
-                if ([superview isKindOfClass:[UIView self]]) {
-                    LMIncludeContainer *container = [LMIncludeContainer new];
-
-                    [superview appendMarkupElementView:container];
-
-                    [_includes addObject:[[LMInclude alloc] initWithContainer:container name:data]];
-                }
-            }
-        } else {
-            // Notify view
-            id view = [_views lastObject];
-
-            if ([view isKindOfClass:[UIView self]]) {
-                [view processMarkupInstruction:target data:data];
-            }
-        }
-    }
-}
-
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
     namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName
     attributes:(NSDictionary *)attributes
@@ -712,6 +654,64 @@ static NSMutableDictionary *templateCache;
 
     [NSException raise:NSGenericException format:@"Unexpected character content near line %ld.",
         (long)[parser lineNumber]];
+}
+
+- (void)parser:(NSXMLParser *)parser foundProcessingInstructionWithTarget:(NSString *)target data:(NSString *)data
+{
+    if ([target isEqual:kCaseTarget]) {
+        _target = data;
+    } else if ([target isEqual:kEndTarget]) {
+        _target = nil;
+    } else {
+        if (_target != nil && ![_target isEqual:[[UIDevice currentDevice] systemName]]) {
+            return;
+        }
+
+        if ([target isEqual:kPropertiesTarget]) {
+            // Merge templates
+            if ([data hasPrefix:@"{"]) {
+                NSError *error = nil;
+
+                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                    options:0 error:&error];
+
+                if (error != nil) {
+                    [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber], [error description]];
+                }
+
+                [LMViewBuilder mergeDictionary:dictionary into:_templates];
+            } else {
+                UITraitCollection *traitCollection;
+                if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
+                    traitCollection = [_owner traitCollection];
+                } else {
+                    traitCollection = nil;
+                }
+
+                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:traitCollection] into:_templates];
+            }
+        } else if ([target isEqual:kIncludeTarget]) {
+            // Push include
+            if ([_views count] > 0) {
+                id superview = [_views lastObject];
+
+                if ([superview isKindOfClass:[UIView self]]) {
+                    LMIncludeContainer *container = [LMIncludeContainer new];
+
+                    [superview appendMarkupElementView:container];
+
+                    [_includes addObject:[[LMInclude alloc] initWithContainer:container name:data]];
+                }
+            }
+        } else {
+            // Notify view
+            id view = [_views lastObject];
+
+            if ([view isKindOfClass:[UIView self]]) {
+                [view processMarkupInstruction:target data:data];
+            }
+        }
+    }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCDATA:(NSData *)CDATABlock

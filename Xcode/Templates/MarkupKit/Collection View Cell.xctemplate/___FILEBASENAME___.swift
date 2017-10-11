@@ -15,7 +15,7 @@ class ___FILEBASENAMEASIDENTIFIER___: LMCollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        LMViewBuilder.view(withName:"___FILEBASENAMEASIDENTIFIER___", owner: self, root: self)
+        LMViewBuilder.view(withName: "___FILEBASENAMEASIDENTIFIER___", owner: self, root: self)
     }
 
     required init?(coder decoder: NSCoder) {
