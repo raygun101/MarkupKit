@@ -40,7 +40,7 @@ static NSDictionary *verticalAlignmentValues;
 }
 
 #define INIT {\
-    if (@available(iOS 11.0, tvOS 11, *)) {\
+    if (@available(iOS 11, tvOS 11, *)) {\
         _spacing = NAN;\
     } else {\
         _spacing = DEFAULT_SPACING;\

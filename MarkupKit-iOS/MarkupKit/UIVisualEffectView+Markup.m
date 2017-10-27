@@ -38,12 +38,26 @@
 
 + (UIVisualEffectView *)regularBlurEffectView
 {
-    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+    UIVisualEffectView *regularBlurEffectView;
+    if (@available(iOS 10, tvOS 10, *)) {
+        regularBlurEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
+    } else {
+        regularBlurEffectView = nil;
+    }
+
+    return regularBlurEffectView;
 }
 
 + (UIVisualEffectView *)prominentBlurEffectView
 {
-    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
+    UIVisualEffectView *prominentBlurEffectView;
+    if (@available(iOS 10, tvOS 10, *)) {
+        prominentBlurEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
+    } else {
+        prominentBlurEffectView = nil;
+    }
+
+    return prominentBlurEffectView;
 }
 
 @end

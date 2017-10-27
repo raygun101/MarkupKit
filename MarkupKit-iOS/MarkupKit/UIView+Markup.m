@@ -97,7 +97,7 @@ static NSDictionary *anchorValues;
         @"no": @(UITextSpellCheckingTypeNo)
     };
 
-    if (@available(iOS 11.0, tvOS 11, *)) {
+    if (@available(iOS 11, tvOS 11, *)) {
         textSmartQuotesTypeValues = @{
             @"default": @(UITextSmartQuotesTypeDefault),
             @"no": @(UITextSmartQuotesTypeNo),
@@ -590,7 +590,7 @@ static NSDictionary *anchorValues;
         value = [textSmartQuotesTypeValues objectForKey:value];
 
         if (value != nil) {
-            if (@available(iOS 11.0, tvOS 11, *)) {
+            if (@available(iOS 11, tvOS 11, *)) {
                 [(UIView<UITextInputTraits> *)self setSmartQuotesType:[value integerValue]];
             }
         }
@@ -600,7 +600,7 @@ static NSDictionary *anchorValues;
         value = [textSmartDashesTypeValues objectForKey:value];
 
         if (value != nil) {
-            if (@available(iOS 11.0, tvOS 11, *)) {
+            if (@available(iOS 11, tvOS 11, *)) {
                 [(UIView<UITextInputTraits> *)self setSmartDashesType:[value integerValue]];
             }
         }
@@ -610,7 +610,7 @@ static NSDictionary *anchorValues;
         value = [textSmartInsertDeleteTypeValues objectForKey:value];
 
         if (value != nil) {
-            if (@available(iOS 11.0, tvOS 11, *)) {
+            if (@available(iOS 11, tvOS 11, *)) {
                 [(UIView<UITextInputTraits> *)self setSmartInsertDeleteType:[value integerValue]];
             }
         }

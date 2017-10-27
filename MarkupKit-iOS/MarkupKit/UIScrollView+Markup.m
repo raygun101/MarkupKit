@@ -162,7 +162,9 @@ static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
         switch ([elementDisposition intValue]) {
             case kElementRefreshControl: {
                 #if TARGET_OS_IOS
-                [self setRefreshControl:(UIRefreshControl *)view];
+                if (@available(iOS 10, *)) {
+                    [self setRefreshControl:(UIRefreshControl *)view];
+                }
                 #endif
 
                 break;

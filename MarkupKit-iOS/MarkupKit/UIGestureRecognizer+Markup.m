@@ -34,8 +34,7 @@ static NSDictionary *touchTypeValues;
 
     touchTypeValues = @{
         @"direct": @(UITouchTypeDirect),
-        @"indirect": @(UITouchTypeIndirect),
-        @"stylus": @(UITouchTypeStylus)
+        @"indirect": @(UITouchTypeIndirect)
     };
 }
 
