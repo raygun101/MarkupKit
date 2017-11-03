@@ -30,7 +30,7 @@ class CustomCell: LMTableViewCell {
     }
 
     required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
+        return nil
     }
 
     deinit {
