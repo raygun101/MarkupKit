@@ -15,12 +15,10 @@
 #import "LMSpacer.h"
 #import "UIView+Markup.h"
 
-#define DEFAULT_WEIGHT 1
-
 @implementation LMSpacer
 
 #define INIT {\
-    [self setWeight:DEFAULT_WEIGHT];\
+    [self setWeight:1];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame

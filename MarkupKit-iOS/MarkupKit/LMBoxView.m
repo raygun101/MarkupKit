@@ -18,8 +18,6 @@
 static NSDictionary *horizontalAlignmentValues;
 static NSDictionary *verticalAlignmentValues;
 
-#define DEFAULT_SPACING 8
-
 @implementation LMBoxView
 
 + (void)initialize
@@ -43,7 +41,7 @@ static NSDictionary *verticalAlignmentValues;
     if (@available(iOS 11, tvOS 11, *)) {\
         _spacing = NAN;\
     } else {\
-        _spacing = DEFAULT_SPACING;\
+        _spacing = 8;\
     }\
 }
 

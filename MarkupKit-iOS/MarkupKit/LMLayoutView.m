@@ -15,9 +15,7 @@
 #import "LMLayoutView.h"
 #import "UIView+Markup.h"
 
-#define DEFAULT_LAYOUT_MARGINS UIEdgeInsetsZero
-
-#define HIDDEN_KEY "hidden"
+NSString * const kHiddenKey = @"hidden";
 
 @implementation LMLayoutView
 {
@@ -32,7 +30,7 @@
 #define INIT {\
     _arrangedSubviews = [NSMutableArray new];\
     _layoutMarginsRelativeArrangement = YES;\
-    [self setLayoutMargins:DEFAULT_LAYOUT_MARGINS];\
+    [self setLayoutMargins:UIEdgeInsetsZero];\
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -72,7 +70,7 @@
 
         [_arrangedSubviews insertObject:view atIndex:index];
 
-        [view addObserver:self forKeyPath:@HIDDEN_KEY options:0 context:nil];
+        [view addObserver:self forKeyPath:kHiddenKey options:0 context:nil];
 
         [self setNeedsUpdateConstraints];
     } else {
@@ -85,7 +83,7 @@
     NSUInteger index = [_arrangedSubviews indexOfObject:view];
 
     if (index != NSNotFound) {
-        [view removeObserver:self forKeyPath:@HIDDEN_KEY];
+        [view removeObserver:self forKeyPath:kHiddenKey];
 
         [_arrangedSubviews removeObjectAtIndex:index];
 
@@ -95,7 +93,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqual:@HIDDEN_KEY]) {
+    if ([keyPath isEqual:kHiddenKey]) {
         [self setNeedsUpdateConstraints];
     }
 }
