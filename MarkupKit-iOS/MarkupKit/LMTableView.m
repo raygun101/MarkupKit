@@ -36,8 +36,6 @@ static NSString * const kTableFooterViewTarget = @"tableFooterView";
 static NSString * const kSectionHeaderViewTarget = @"sectionHeaderView";
 static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
 
-#define ESTIMATED_HEIGHT 2
-
 typedef enum {
     kElementDefault,
     kElementBackgroundView,
@@ -78,6 +76,8 @@ typedef enum {
 {
     return [[LMTableView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) style:UITableViewStyleGrouped];
 }
+
+#define ESTIMATED_HEIGHT 2
 
 #define INIT {\
     _sections = [NSMutableArray new];\
