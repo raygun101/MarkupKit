@@ -19,10 +19,10 @@ import MarkupKit
  * Custom table view cell.
  */
 class CustomCell: LMTableViewCell {
-    // View model
+    // Row data
     @objc dynamic var row: Row!
 
-    // Initializers
+    // View initialization
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 

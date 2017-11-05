@@ -175,7 +175,6 @@
 		3771E9571DF1B77D0064CC82 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9551DF1B77D0064CC82 /* DetailViewController.swift */; };
 		3771E9581DF1B77D0064CC82 /* DetailViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9561DF1B77D0064CC82 /* DetailViewController.xml */; };
 		3771E95D1DF1B79A0064CC82 /* rows.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E95B1DF1B79A0064CC82 /* rows.json */; };
-		3771E95E1DF1B79A0064CC82 /* Styles.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E95C1DF1B79A0064CC82 /* Styles.json */; };
 		3771E95F1DF1B7D10064CC82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9611DF1B7D10064CC82 /* Localizable.strings */; };
 		3771E9781DF1B8C00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
 		3771E9791DF1B8C00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -356,7 +355,6 @@
 		3771E9551DF1B77D0064CC82 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		3771E9561DF1B77D0064CC82 /* DetailViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DetailViewController.xml; sourceTree = "<group>"; };
 		3771E95B1DF1B79A0064CC82 /* rows.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rows.json; sourceTree = "<group>"; };
-		3771E95C1DF1B79A0064CC82 /* Styles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles.json; sourceTree = "<group>"; };
 		3771E9601DF1B7D10064CC82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3771E9661DF1B8B00064CC82 /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E96F1DF1B8B00064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -624,7 +622,6 @@
 				3771E9521DF1B7580064CC82 /* CustomCell.xml */,
 				3771E9551DF1B77D0064CC82 /* DetailViewController.swift */,
 				3771E9561DF1B77D0064CC82 /* DetailViewController.xml */,
-				3771E95C1DF1B79A0064CC82 /* Styles.json */,
 				3771E93D1DF1B66A0064CC82 /* Assets.xcassets */,
 				3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */,
 				3771E9421DF1B66A0064CC82 /* Info.plist */,
@@ -1153,7 +1150,6 @@
 				3771E9501DF1B73C0064CC82 /* ViewController.xml in Resources */,
 				3771E9541DF1B7580064CC82 /* CustomCell.xml in Resources */,
 				3771E9581DF1B77D0064CC82 /* DetailViewController.xml in Resources */,
-				3771E95E1DF1B79A0064CC82 /* Styles.json in Resources */,
 				3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */,
 				3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771E95F1DF1B7D10064CC82 /* Localizable.strings in Resources */,

@@ -24,7 +24,7 @@ class ViewController: LMTableViewController {
     @IBOutlet var textField2: UITextField!
     @IBOutlet var footerSwitch: UISwitch!
 
-    // Properties
+    // Row data
     var rows: [Row]!
 
     let dynamicSectionName = "dynamic"
@@ -33,7 +33,6 @@ class ViewController: LMTableViewController {
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
-        // Configure table view
         tableView.dataSource = self
         tableView.delegate = self
     }
@@ -45,7 +44,6 @@ class ViewController: LMTableViewController {
 
         tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.description())
 
-        // Load row list
         let jsonDecoder = JSONDecoder()
 
         rows = try! jsonDecoder.decode([Row].self, from: try! Data(contentsOf: Bundle.main.url(forResource: "rows", withExtension: "json")!))
