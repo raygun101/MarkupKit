@@ -93,14 +93,9 @@ class ViewController: LMTableViewController {
     // Delegate
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
-            let row = rows[indexPath.row]
-
             let detailViewController = DetailViewController()
 
-            detailViewController.loadView()
-
-            detailViewController.headingLabel.text = row.heading
-            detailViewController.detailLabel.text = row.detail
+            detailViewController.row = rows[indexPath.row]
 
             present(detailViewController, animated: true)
         } else {

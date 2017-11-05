@@ -23,9 +23,19 @@ class DetailViewController: UIViewController {
     @IBOutlet var headingLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
 
+    // Row data
+    var row: Row!
+
     // View initialization
     override func loadView() {
         view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: nil)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        headingLabel.text = row.heading
+        detailLabel.text = row.detail
     }
 
     override func viewWillLayoutSubviews() {
