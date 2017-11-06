@@ -49,7 +49,7 @@ static NSDictionary *baselineValues;
 {
     LMVerticalAlignment verticalAlignment = [self verticalAlignment];
 
-    for (UIView * subview in _arrangedSubviews) {
+    for (UIView * subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }
@@ -101,7 +101,7 @@ static NSDictionary *baselineValues;
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
-    for (UIView *subview in _arrangedSubviews) {
+    for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }

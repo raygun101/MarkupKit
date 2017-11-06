@@ -28,7 +28,6 @@ NSString * const kHiddenKey = @"hidden";
 }
 
 #define INIT {\
-    _arrangedSubviews = [NSMutableArray new];\
     _layoutMarginsRelativeArrangement = YES;\
     [self setLayoutMargins:UIEdgeInsetsZero];\
 }
@@ -51,44 +50,23 @@ NSString * const kHiddenKey = @"hidden";
     return self;
 }
 
-- (NSArray *)arrangedSubviews
+- (void)didAddSubview:(UIView *)subview
 {
-    return [_arrangedSubviews copy];
+    [super didAddSubview:subview];
+
+    [subview setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [subview addObserver:self forKeyPath:kHiddenKey options:0 context:nil];
+
+    [self setNeedsUpdateConstraints];
 }
 
-- (void)addArrangedSubview:(UIView *)view
+- (void)willRemoveSubview:(UIView *)subview
 {
-    [self insertArrangedSubview:view atIndex:[_arrangedSubviews count]];
-}
+    [super willRemoveSubview:subview];
 
-- (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index
-{
-    if ([_arrangedSubviews indexOfObject:view] == NSNotFound) {
-        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+    [subview removeObserver:self forKeyPath:kHiddenKey];
 
-        [self addSubview:view];
-
-        [_arrangedSubviews insertObject:view atIndex:index];
-
-        [view addObserver:self forKeyPath:kHiddenKey options:0 context:nil];
-
-        [self setNeedsUpdateConstraints];
-    } else {
-        [NSException raise:NSInvalidArgumentException format:@"View is already an arranged subview."];
-    }
-}
-
-- (void)removeArrangedSubview:(UIView *)view
-{
-    NSUInteger index = [_arrangedSubviews indexOfObject:view];
-
-    if (index != NSNotFound) {
-        [view removeObserver:self forKeyPath:kHiddenKey];
-
-        [_arrangedSubviews removeObjectAtIndex:index];
-
-        [self setNeedsUpdateConstraints];
-    }
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -96,13 +74,6 @@ NSString * const kHiddenKey = @"hidden";
     if ([keyPath isEqual:kHiddenKey]) {
         [self setNeedsUpdateConstraints];
     }
-}
-
-- (void)willRemoveSubview:(UIView *)subview
-{
-    [self removeArrangedSubview:subview];
-
-    [super willRemoveSubview:subview];
 }
 
 - (void)setLayoutMarginsRelativeArrangement:(BOOL)layoutMarginsRelativeArrangement
@@ -142,17 +113,23 @@ NSString * const kHiddenKey = @"hidden";
 
 - (UIView *)viewForBaselineLayout
 {
-    return ([_arrangedSubviews count] == 0) ? [super viewForBaselineLayout] : [[_arrangedSubviews firstObject] viewForBaselineLayout];
+    NSArray *subviews = [self subviews];
+
+    return ([subviews count] == 0) ? [super viewForBaselineLayout] : [[subviews firstObject] viewForBaselineLayout];
 }
 
 - (UIView *)viewForFirstBaselineLayout
 {
-    return ([_arrangedSubviews count] == 0) ? [super viewForFirstBaselineLayout] : [[_arrangedSubviews firstObject] viewForFirstBaselineLayout];
+    NSArray *subviews = [self subviews];
+
+    return ([subviews count] == 0) ? [super viewForFirstBaselineLayout] : [[subviews firstObject] viewForFirstBaselineLayout];
 }
 
 - (UIView *)viewForLastBaselineLayout
 {
-    return ([_arrangedSubviews count] == 0) ? [super viewForLastBaselineLayout] : [[_arrangedSubviews lastObject] viewForLastBaselineLayout];
+    NSArray *subviews = [self subviews];
+
+    return ([subviews count] == 0) ? [super viewForLastBaselineLayout] : [[subviews lastObject] viewForLastBaselineLayout];
 }
 
 - (void)setNeedsUpdateConstraints
@@ -161,10 +138,6 @@ NSString * const kHiddenKey = @"hidden";
         [NSLayoutConstraint deactivateConstraints:_constraints];
 
         _constraints = nil;
-    }
-
-    if ([_arrangedSubviews count] == 0) {
-        return;
     }
 
     [super setNeedsUpdateConstraints];
@@ -201,7 +174,7 @@ NSString * const kHiddenKey = @"hidden";
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    [self addArrangedSubview:view];
+    [self addSubview:view];
 }
 
 @end

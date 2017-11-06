@@ -20,7 +20,7 @@
 - (void)layoutSubviews
 {
     // Ensure that subviews resize
-    for (UIView *subview in _arrangedSubviews) {
+    for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }
@@ -75,7 +75,7 @@
     CGFloat leadingSpacing = [self leadingSpacing];
     CGFloat trailingSpacing = [self trailingSpacing];
 
-    for (UIView *subview in _arrangedSubviews) {
+    for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }

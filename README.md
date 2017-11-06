@@ -55,12 +55,12 @@ The same result could be achieved programmatically as shown below:
     let imageView = UIImageView()
     imageView.image = UIImage(named: "world.png")
     
-    columnView.addArrangedSubview(imageView)
+    columnView.addSubview(imageView)
     
     let label = UILabel()
     label.text = "Hello, World!"
     
-    columnView.addArrangedSubview(label)
+    columnView.addSubview(label)
 
 Although the two examples produce identical results, the markup version is much more concise and easier to read.
 
@@ -68,7 +68,7 @@ MarkupKit adds the following method to the `UIView` class to facilitate construc
 
     - (void)appendMarkupElementView:(UIView *)view;
 
-This method is called on the superview of each view declared in the document to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself. 
+This method is called on the superview of each view declared in the document to add the view to its parent. The default implementation does nothing; subclasses must override this method to implement view-specific behavior. For example, `LMColumnView` overrides `appendMarkupElementView:` to call `addSubview:` on itself. 
 
 Note that if a view's type is defined in a module, the fully qualified class name must be used in the view declaration; e.g.:
 
@@ -585,23 +585,12 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 
 These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly. They can be nested to create complex layouts that automatically adjust to orientation or screen size changes.
 
-### Arranged Subviews
-All layout view types extend the abstract `LMLayoutView` class, which provides the following methods for managing its list of arranged subviews:
-    
-    - (void)addArrangedSubview:(UIView *)view;
-    - (void)insertArrangedSubview:(UIView *)view atIndex:(NSUInteger)index;
-    - (void)removeArrangedSubview:(UIView *)view;
+All layout view types extend the abstract `LMLayoutView` class, which overrides `appendMarkupElementView:` to call `addSubview:` on itself so that layout views can be constructed in markup. 
 
-`LMLayoutView` overrides `appendMarkupElementView:` to call `addArrangedSubview:` on itself so that layout views can be constructed in markup. A read-only property that returns the current list of arranged subviews is also provided:
-
-    @property (nonatomic, readonly, copy) NSArray *arrangedSubviews;
-
-Note that, as with `UIStackView`, the `removeArrangedSubview:` method does not remove the given view as a subview of the layout view. To completely remove an arranged subview, call `removeFromSuperview` on the view.
-
-Arranged subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
+Subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
 
 ### Layout Margins
-By default, the arranged subviews of a layout view are positioned relative to its layout margins. For example, the following markup creates a row view whose arranged subviews will be inset from its own edges by 12 pixels:
+By default, a layout view's subviews are positioned relative to its layout margins. For example, the following markup creates a row view whose subviews will be inset from its own edges by 12 pixels:
 
     <LMRowView layoutMargins="12">
         ...
@@ -636,7 +625,7 @@ When set to `false`, the view will ignore layout margins altogether and align su
     @property (nonatomic) CGFloat leadingSpacing;
     @property (nonatomic) CGFloat trailingSpacing;
     
-For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any arranged subviews are positioned between the guides:
+For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -664,7 +653,7 @@ The `LMRowView` and `LMColumnView` classes lay out subviews in a horizontal or v
     
     @property (nonatomic) BOOL alignToBaseline;
 
-The first two properties specify the horizontal and vertical alignment, respectively, of the box view's arranged subviews. Horizontal alignment options include the following:
+The first two properties specify the horizontal and vertical alignment, respectively, of the box view's subviews. Horizontal alignment options include the following:
 
 * `LMHorizontalAlignmentFill`
 * `LMHorizontalAlignmentLeading`

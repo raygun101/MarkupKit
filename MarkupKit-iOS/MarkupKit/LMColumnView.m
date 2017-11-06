@@ -38,7 +38,7 @@
 {
     LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
 
-    for (UIView * subview in _arrangedSubviews) {
+    for (UIView * subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }
@@ -90,7 +90,7 @@
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
-    for (UIView *subview in _arrangedSubviews) {
+    for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
         }
@@ -178,8 +178,8 @@
 
         // Align subviews
         if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
-            NSArray *nestedSubviews = ((LMLayoutView *)subview)->_arrangedSubviews;
-            NSArray *previousNestedSubviews = ((LMLayoutView *)previousSubview)->_arrangedSubviews;
+            NSArray *nestedSubviews = [subview subviews];
+            NSArray *previousNestedSubviews = [previousSubview subviews];
 
             for (NSUInteger i = 0, n = MIN([nestedSubviews count], [previousNestedSubviews count]); i < n; i++) {
                 UIView *nestedSubview = [nestedSubviews objectAtIndex:i];
