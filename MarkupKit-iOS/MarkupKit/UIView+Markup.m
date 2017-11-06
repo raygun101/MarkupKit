@@ -512,46 +512,6 @@ static NSDictionary *anchorValues;
     }
 }
 
-- (CGFloat)horizontalContentCompressionResistancePriority
-{
-    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (void)setHorizontalContentCompressionResistancePriority:(CGFloat)priority
-{
-    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (CGFloat)horizontalContentHuggingPriority
-{
-    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (void)setHorizontalContentHuggingPriority:(CGFloat)priority
-{
-    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisHorizontal];
-}
-
-- (CGFloat)verticalContentCompressionResistancePriority
-{
-    return [self contentCompressionResistancePriorityForAxis:UILayoutConstraintAxisVertical];
-}
-
-- (void)setVerticalContentCompressionResistancePriority:(CGFloat)priority
-{
-    [self setContentCompressionResistancePriority:priority forAxis:UILayoutConstraintAxisVertical];
-}
-
-- (CGFloat)verticalContentHuggingPriority
-{
-    return [self contentHuggingPriorityForAxis:UILayoutConstraintAxisVertical];
-}
-
-- (void)setVerticalContentHuggingPriority:(CGFloat)priority
-{
-    [self setContentHuggingPriority:priority forAxis:UILayoutConstraintAxisVertical];
-}
-
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"contentMode"]) {
@@ -647,17 +607,6 @@ static NSDictionary *anchorValues;
         CGFloat inset = [value floatValue];
 
         value = [NSValue valueWithUIEdgeInsets:UIEdgeInsetsMake(inset, inset, inset, inset)];
-    } else if ([key rangeOfString:@"^(?:horizontal|vertical)Content(?:CompressionResistance|Hugging)Priority$"
-        options:NSRegularExpressionSearch].location != NSNotFound) {
-        if ([value isEqual:@"required"]) {
-            value = @(UILayoutPriorityRequired);
-        } else if ([value isEqual:@"defaultHigh"]) {
-            value = @(UILayoutPriorityDefaultHigh);
-        } else if ([value isEqual:@"defaultLow"]) {
-            value = @(UILayoutPriorityDefaultLow);
-        } else if ([value isEqual:@"fittingSizeLevel"]) {
-            value = @(UILayoutPriorityFittingSizeLevel);
-        }
     } else if ([key isEqual:@"anchor"]) {
         NSArray *components = [value componentsSeparatedByString:@","];
 

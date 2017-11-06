@@ -48,10 +48,6 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(AnchorViewController(), animated: true)
         } else if (value == "gridView") {
             navigationController!.pushViewController(GridViewController(), animated: true)
-        } else if (value == "stackView") {
-            #if os(iOS)
-            navigationController!.pushViewController(SimpleStackViewController(), animated: true)
-            #endif
         } else if (value == "periodicTable") {
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
         } else if (value == "scrollView") {

@@ -25,9 +25,6 @@ limitations under the License.
     <UITableViewCell textLabel.text="Vertical Alignment" accessoryType="disclosureIndicator" value="verticalAlignment"/>
     <UITableViewCell textLabel.text="Anchor View" accessoryType="disclosureIndicator" value="anchorView"/>
     <UITableViewCell textLabel.text="Grid View" accessoryType="disclosureIndicator" value="gridView"/>
-    <?case iOS?>
-    <UITableViewCell textLabel.text="Stack View" accessoryType="disclosureIndicator" value="stackView"/>
-    <?end?>
     <UITableViewCell textLabel.text="Periodic Table" accessoryType="disclosureIndicator" value="periodicTable"/>
 
     <?sectionBreak?>

@@ -1764,18 +1764,6 @@ For example:
         tabLabel.text = String(format: "You selected the \"%@\" tab.", item.name)
     }
 
-### UIStackView
-MarkupKit adds an implementation of `appendMarkupElementView:` to `UIStackView` that simply calls `addArrangedSubview:` on itself. This allows stack view content to be specified in markup; for example:
-
-    <UIStackView axis="horizontal">
-        <UILabel text="One"/>
-        <UILabel text="Two"/>
-        <UILabel text="Three"/>
-        <LMSpacer/>
-    </UIStackView>
-
-`UIStackView` requires iOS 9 or later.
-
 ### UIScrollView
 MarkupKit adds the following properties to `UIScrollView` to allow the scroll view's content insets to be set individually:
 

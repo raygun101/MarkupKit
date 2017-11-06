@@ -31,8 +31,6 @@
 		373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */; };
 		373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */; };
 		373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */; };
-		373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */; };
-		373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */; };
 		373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */; };
 		373BFB061DFB003800BB7509 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */; };
 		373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */; };
@@ -63,8 +61,6 @@
 		373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */; };
 		373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */; };
 		373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */; };
-		373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */; };
-		373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */; };
 		373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */; };
 		373BFB281DFB007B00BB7509 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */; };
 		373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */; };
@@ -113,7 +109,6 @@
 		3763065A1DF188BF00357E68 /* UIProgressView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB291DF18539006E6B3D /* UIProgressView+Markup.m */; };
 		3763065B1DF188BF00357E68 /* UISearchBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB2D1DF18539006E6B3D /* UISearchBar+Markup.m */; };
 		3763065C1DF188BF00357E68 /* UIToolbar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB391DF18539006E6B3D /* UIToolbar+Markup.m */; };
-		3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB311DF18539006E6B3D /* UIStackView+Markup.m */; };
 		3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB2B1DF18539006E6B3D /* UIScrollView+Markup.m */; };
 		3763065F1DF188BF00357E68 /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB331DF18539006E6B3D /* UITableView+Markup.m */; };
 		376306601DF188BF00357E68 /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB351DF18539006E6B3D /* UITableViewCell+Markup.m */; };
@@ -153,7 +148,6 @@
 		376306821DF188F400357E68 /* UIProgressView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB281DF18539006E6B3D /* UIProgressView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306831DF188F400357E68 /* UISearchBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB2C1DF18539006E6B3D /* UISearchBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306841DF188F400357E68 /* UIToolbar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB381DF18539006E6B3D /* UIToolbar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306851DF188F400357E68 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB301DF18539006E6B3D /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306861DF188F400357E68 /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB2A1DF18539006E6B3D /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306871DF188F400357E68 /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB321DF18539006E6B3D /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306881DF188F400357E68 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB341DF18539006E6B3D /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -418,10 +412,6 @@
 		3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
 		3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
 		3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnchorViewController.xml; sourceTree = "<group>"; };
-		3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStackViewController.swift; sourceTree = "<group>"; };
-		3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SimpleStackViewController.xml; sourceTree = "<group>"; };
-		3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NestedStackViewController.swift; sourceTree = "<group>"; };
-		3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = NestedStackViewController.xml; sourceTree = "<group>"; };
 		3771EA761DF1C1D70064CC82 /* MarkupKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771EA7D1DF1C1D70064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3771EA7F1DF1C1D70064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -514,8 +504,6 @@
 		3799BB2D1DF18539006E6B3D /* UISearchBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISearchBar+Markup.m"; sourceTree = "<group>"; };
 		3799BB2E1DF18539006E6B3D /* UISegmentedControl+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Markup.h"; sourceTree = "<group>"; };
 		3799BB2F1DF18539006E6B3D /* UISegmentedControl+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Markup.m"; sourceTree = "<group>"; };
-		3799BB301DF18539006E6B3D /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStackView+Markup.h"; sourceTree = "<group>"; };
-		3799BB311DF18539006E6B3D /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStackView+Markup.m"; sourceTree = "<group>"; };
 		3799BB321DF18539006E6B3D /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+Markup.h"; sourceTree = "<group>"; };
 		3799BB331DF18539006E6B3D /* UITableView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+Markup.m"; sourceTree = "<group>"; };
 		3799BB341DF18539006E6B3D /* UITableViewCell+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+Markup.h"; sourceTree = "<group>"; };
@@ -649,10 +637,6 @@
 				3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */,
 				3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */,
 				3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */,
-				3771EA0B1DF1BB550064CC82 /* SimpleStackViewController.swift */,
-				3771EA0C1DF1BB550064CC82 /* SimpleStackViewController.xml */,
-				3771EA0F1DF1BB720064CC82 /* NestedStackViewController.swift */,
-				3771EA101DF1BB720064CC82 /* NestedStackViewController.xml */,
 				3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */,
 				3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */,
 				3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */,
@@ -839,8 +823,6 @@
 				37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */,
 				3799BB381DF18539006E6B3D /* UIToolbar+Markup.h */,
 				3799BB391DF18539006E6B3D /* UIToolbar+Markup.m */,
-				3799BB301DF18539006E6B3D /* UIStackView+Markup.h */,
-				3799BB311DF18539006E6B3D /* UIStackView+Markup.m */,
 				3799BB2A1DF18539006E6B3D /* UIScrollView+Markup.h */,
 				3799BB2B1DF18539006E6B3D /* UIScrollView+Markup.m */,
 				3799BB321DF18539006E6B3D /* UITableView+Markup.h */,
@@ -949,7 +931,6 @@
 				37659D4B1ECF56E30043C9C1 /* UITabBar+Markup.h in Headers */,
 				37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */,
 				376306841DF188F400357E68 /* UIToolbar+Markup.h in Headers */,
-				376306851DF188F400357E68 /* UIStackView+Markup.h in Headers */,
 				376306861DF188F400357E68 /* UIScrollView+Markup.h in Headers */,
 				376306871DF188F400357E68 /* UITableView+Markup.h in Headers */,
 				376306881DF188F400357E68 /* UITableViewCell+Markup.h in Headers */,
@@ -1168,8 +1149,6 @@
 				37ABAF6D1F27BDA50010A7B3 /* VerticalAlignmentViewController.xml in Resources */,
 				373BFB0F1DFB007B00BB7509 /* AnchorViewController.xml in Resources */,
 				373BFB0E1DFB007B00BB7509 /* GridViewController.xml in Resources */,
-				373BFB251DFB007B00BB7509 /* SimpleStackViewController.xml in Resources */,
-				373BFB261DFB007B00BB7509 /* NestedStackViewController.xml in Resources */,
 				373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */,
 				373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */,
 				373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */,
@@ -1290,8 +1269,6 @@
 				37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */,
 				373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */,
 				373BFAF21DFB003800BB7509 /* GridViewController.swift in Sources */,
-				373BFB031DFB003800BB7509 /* SimpleStackViewController.swift in Sources */,
-				373BFB041DFB003800BB7509 /* NestedStackViewController.swift in Sources */,
 				373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */,
 				373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */,
 				373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */,
@@ -1369,7 +1346,6 @@
 				37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */,
 				37770B351ECF6DD900C5B491 /* UITabBarItem+Markup.m in Sources */,
 				3763065C1DF188BF00357E68 /* UIToolbar+Markup.m in Sources */,
-				3763065D1DF188BF00357E68 /* UIStackView+Markup.m in Sources */,
 				3763065E1DF188BF00357E68 /* UIScrollView+Markup.m in Sources */,
 				3763065F1DF188BF00357E68 /* UITableView+Markup.m in Sources */,
 				376306601DF188BF00357E68 /* UITableViewCell+Markup.m in Sources */,
