@@ -17,7 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Layout view that provides a margin-independent root of a view hierarchy.
+ * Layout view that provides a margin-independent root for a view hierarchy.
  */
 @interface LMRootView : LMLayoutView
 
