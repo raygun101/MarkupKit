@@ -887,14 +887,12 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
 ## LMRootView
-In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class provides the following properties, which can be used to reserve additional space at the top or bottom of the root view:
+In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its actual edges rather than its margins and provides the following properties, which can be used to reserve additional space at the top or bottom of the view:
 
     @property (nonatomic) CGFloat topSpacing;
     @property (nonatomic) CGFloat bottomSpacing;
 
-For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
-
-TODO Override loadView() to demonstrate usage
+For example, a view controller might override `viewWillLayoutSubviews` to set its root view's top and bottom spacing to the length of its top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()

@@ -31,17 +31,6 @@ class ViewController: UIViewController {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if (previousTraitCollection != nil) {
-            unbindAll()
-
-            loadView()
-            viewDidLoad()
-        }
-    }
-
     @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
         NSLog("Button pressed.")
     }

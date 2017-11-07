@@ -177,15 +177,12 @@
 		3771EA831DF1C1D70064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA811DF1C1D70064CC82 /* LaunchScreen.storyboard */; };
 		3771EA891DF1C2070064CC82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA881DF1C2070064CC82 /* AppDelegate.swift */; };
 		3771EA8C1DF1C20F0064CC82 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA8A1DF1C20F0064CC82 /* Colors.plist */; };
-		3771EA8D1DF1C20F0064CC82 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA8B1DF1C20F0064CC82 /* Fonts.plist */; };
 		3771EA901DF1C2440064CC82 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA921DF1C2440064CC82 /* Localizable.strings */; };
-		3771EA951DF1C2630064CC82 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA931DF1C2630064CC82 /* MainViewController.swift */; };
-		3771EA961DF1C2630064CC82 /* MainViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA941DF1C2630064CC82 /* MainViewController.xml */; };
+		3771EA951DF1C2630064CC82 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA931DF1C2630064CC82 /* ViewController.swift */; };
+		3771EA961DF1C2630064CC82 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA941DF1C2630064CC82 /* ViewController.xml */; };
 		3771EA981DF1C26B0064CC82 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA971DF1C26B0064CC82 /* waterfall.jpg */; };
 		3771EA9D1DF1C2720064CC82 /* Styles1.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA991DF1C2720064CC82 /* Styles1.json */; };
 		3771EA9E1DF1C2720064CC82 /* Styles2.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9A1DF1C2720064CC82 /* Styles2.json */; };
-		3771EA9F1DF1C2720064CC82 /* Styles2~horizontal.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9B1DF1C2720064CC82 /* Styles2~horizontal.json */; };
-		3771EAA01DF1C2720064CC82 /* Styles2~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */; };
 		3771EAA11DF1C2D00064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
 		3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		37770B341ECF6DD900C5B491 /* UITabBarItem+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -419,15 +416,12 @@
 		3771EA841DF1C1D70064CC82 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3771EA881DF1C2070064CC82 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3771EA8A1DF1C20F0064CC82 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
-		3771EA8B1DF1C20F0064CC82 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
 		3771EA911DF1C2440064CC82 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		3771EA931DF1C2630064CC82 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		3771EA941DF1C2630064CC82 /* MainViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MainViewController.xml; sourceTree = "<group>"; };
+		3771EA931DF1C2630064CC82 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3771EA941DF1C2630064CC82 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
 		3771EA971DF1C26B0064CC82 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
 		3771EA991DF1C2720064CC82 /* Styles1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles1.json; sourceTree = "<group>"; };
 		3771EA9A1DF1C2720064CC82 /* Styles2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Styles2.json; sourceTree = "<group>"; };
-		3771EA9B1DF1C2720064CC82 /* Styles2~horizontal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~horizontal.json"; sourceTree = "<group>"; };
-		3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Styles2~vertical.json"; sourceTree = "<group>"; };
 		37770B321ECF6DD900C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Markup.h"; sourceTree = "<group>"; };
 		37770B331ECF6DD900C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Markup.m"; sourceTree = "<group>"; };
 		377B4CA31F60924800D2A729 /* UIImageView+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+Markup.h"; sourceTree = "<group>"; };
@@ -706,19 +700,16 @@
 			isa = PBXGroup;
 			children = (
 				3771EA881DF1C2070064CC82 /* AppDelegate.swift */,
-				3771EA931DF1C2630064CC82 /* MainViewController.swift */,
-				3771EA941DF1C2630064CC82 /* MainViewController.xml */,
+				3771EA931DF1C2630064CC82 /* ViewController.swift */,
+				3771EA941DF1C2630064CC82 /* ViewController.xml */,
 				3771EA7C1DF1C1D70064CC82 /* Main.storyboard */,
 				3771EA971DF1C26B0064CC82 /* waterfall.jpg */,
 				3771EA991DF1C2720064CC82 /* Styles1.json */,
 				3771EA9A1DF1C2720064CC82 /* Styles2.json */,
-				3771EA9B1DF1C2720064CC82 /* Styles2~horizontal.json */,
-				3771EA9C1DF1C2720064CC82 /* Styles2~vertical.json */,
 				3771EA7F1DF1C1D70064CC82 /* Assets.xcassets */,
 				3771EA811DF1C1D70064CC82 /* LaunchScreen.storyboard */,
 				3771EA841DF1C1D70064CC82 /* Info.plist */,
 				3771EA8A1DF1C20F0064CC82 /* Colors.plist */,
-				3771EA8B1DF1C20F0064CC82 /* Fonts.plist */,
 				3771EA921DF1C2440064CC82 /* Localizable.strings */,
 			);
 			path = MarkupKitTest;
@@ -1196,17 +1187,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3771EA961DF1C2630064CC82 /* MainViewController.xml in Resources */,
+				3771EA961DF1C2630064CC82 /* ViewController.xml in Resources */,
 				3771EA7E1DF1C1D70064CC82 /* Main.storyboard in Resources */,
 				3771EA981DF1C26B0064CC82 /* waterfall.jpg in Resources */,
 				3771EA9D1DF1C2720064CC82 /* Styles1.json in Resources */,
 				3771EA9E1DF1C2720064CC82 /* Styles2.json in Resources */,
-				3771EA9F1DF1C2720064CC82 /* Styles2~horizontal.json in Resources */,
-				3771EAA01DF1C2720064CC82 /* Styles2~vertical.json in Resources */,
 				3771EA801DF1C1D70064CC82 /* Assets.xcassets in Resources */,
 				3771EA831DF1C1D70064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771EA8C1DF1C20F0064CC82 /* Colors.plist in Resources */,
-				3771EA8D1DF1C20F0064CC82 /* Fonts.plist in Resources */,
 				3771EA901DF1C2440064CC82 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1297,7 +1285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3771EA891DF1C2070064CC82 /* AppDelegate.swift in Sources */,
-				3771EA951DF1C2630064CC82 /* MainViewController.swift in Sources */,
+				3771EA951DF1C2630064CC82 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
