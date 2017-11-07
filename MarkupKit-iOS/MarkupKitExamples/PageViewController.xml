@@ -14,14 +14,16 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMAnchorView backgroundColor="white">
-    <LMPageView id="pageView" anchor="all">
-        <UIImageView image="quebec.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
-        <UIImageView image="lighthouse.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
-        <UIImageView image="waterfall.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
-    </LMPageView>
+<LMRootView backgroundColor="white">
+    <LMAnchorView>
+        <LMPageView id="pageView" anchor="all">
+            <UIImageView image="quebec.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
+            <UIImageView image="lighthouse.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
+            <UIImageView image="waterfall.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
+        </LMPageView>
 
-    <UIPageControl id="pageControl" anchor="bottom"
-        pageIndicatorTintColor="#ffff0077" currentPageIndicatorTintColor="#ffff00ff"
-        onValueChanged="updatePage"/>
-</LMAnchorView>
+        <UIPageControl id="pageControl" anchor="bottom"
+            pageIndicatorTintColor="#ffff0077" currentPageIndicatorTintColor="#ffff00ff"
+            onValueChanged="updatePage"/>
+    </LMAnchorView>
+</LMRootView>

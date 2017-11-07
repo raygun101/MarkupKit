@@ -34,7 +34,7 @@ limitations under the License.
 }?>
 <?end?>
 
-<LMLayerView backgroundColor="white">
+<LMRootView backgroundColor="white">
     <LMAnchorView topSpacing="16" bottomSpacing="16" leadingSpacing="16" trailingSpacing="16">
         <UIView class="cell" anchor="all"/>
 
@@ -52,4 +52,4 @@ limitations under the License.
         <UILabel class="cell" text="Bottom" anchor="bottom"/>
         <UILabel class="cell" text="Bottom Trailing" anchor="bottom, trailing"/>
     </LMAnchorView>
-</LMLayerView>
+</LMRootView>

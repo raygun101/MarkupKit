@@ -17,9 +17,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * Layout view that arranges subviews in layers.
+ * Layout view that provides a margin-independent root of a view hierarchy.
  */
-@interface LMLayerView : LMLayoutView
+@interface LMRootView : LMLayoutView
 
 @end
 

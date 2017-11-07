@@ -89,7 +89,6 @@
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
 		37E57A751DF190F1002984B9 /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579DB1DF19090002984B9 /* LMRowView.m */; };
-		37E57A761DF190F1002984B9 /* LMLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579DD1DF19090002984B9 /* LMLayerView.m */; };
 		37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579DF1DF19090002984B9 /* LMAnchorView.m */; };
 		37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E11DF19090002984B9 /* LMSpacer.m */; };
 		37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E31DF19090002984B9 /* LMGradientView.m */; };
@@ -113,7 +112,6 @@
 		37E57A8E1DF190F1002984B9 /* UIActivityIndicatorView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A0D1DF19090002984B9 /* UIActivityIndicatorView+Markup.m */; };
 		37E57A901DF190F1002984B9 /* UIProgressView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A111DF19090002984B9 /* UIProgressView+Markup.m */; };
 		37E57A911DF190F1002984B9 /* UISearchBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A131DF19090002984B9 /* UISearchBar+Markup.m */; };
-		37E57A931DF190F1002984B9 /* UIStackView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A171DF19090002984B9 /* UIStackView+Markup.m */; };
 		37E57A941DF190F1002984B9 /* UIScrollView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A191DF19090002984B9 /* UIScrollView+Markup.m */; };
 		37E57A951DF190F1002984B9 /* UITableView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A1B1DF19090002984B9 /* UITableView+Markup.m */; };
 		37E57A961DF190F1002984B9 /* UITableViewCell+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E57A1D1DF19090002984B9 /* UITableViewCell+Markup.m */; };
@@ -124,7 +122,6 @@
 		37E57A9B1DF1911F002984B9 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579D61DF19090002984B9 /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57A9C1DF1911F002984B9 /* LMColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579D81DF19090002984B9 /* LMColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57A9D1DF1911F002984B9 /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579DA1DF19090002984B9 /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37E57A9E1DF1911F002984B9 /* LMLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579DC1DF19090002984B9 /* LMLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57A9F1DF1911F002984B9 /* LMAnchorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579DE1DF19090002984B9 /* LMAnchorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA01DF1911F002984B9 /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E01DF19090002984B9 /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA11DF1911F002984B9 /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E21DF19090002984B9 /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,7 +150,6 @@
 		37E57AB81DF1911F002984B9 /* UIProgressView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A101DF19090002984B9 /* UIProgressView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AB91DF1911F002984B9 /* UISearchBar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A121DF19090002984B9 /* UISearchBar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57ABA1DF1911F002984B9 /* UIToolbar+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A141DF19090002984B9 /* UIToolbar+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37E57ABB1DF1911F002984B9 /* UIStackView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A161DF19090002984B9 /* UIStackView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57ABC1DF1911F002984B9 /* UIScrollView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A181DF19090002984B9 /* UIScrollView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57ABD1DF1911F002984B9 /* UITableView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A1A1DF19090002984B9 /* UITableView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57ABE1DF1911F002984B9 /* UITableViewCell+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E57A1C1DF19090002984B9 /* UITableViewCell+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -169,6 +165,8 @@
 		37E57B3D1DF1B40D002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */; };
 		37E57B421DF1B48D002984B9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37F136761FB139AD00651E12 /* LMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F136741FB139AC00651E12 /* LMRootView.m */; };
+		37F136771FB139E600651E12 /* LMRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F136751FB139AD00651E12 /* LMRootView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F549271F55AB9B001FEEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37F549261F55AB93001FEEA3 /* Assets.xcassets */; };
 		37F70CF11ECE4B6A00F3A861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F70CF01ECE4B6A00F3A861 /* Localizable.strings */; };
 		37F899871E475E8700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899851E475E8700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -325,8 +323,6 @@
 		37E579D91DF19090002984B9 /* LMColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMColumnView.m; path = "../../MarkupKit-iOS/MarkupKit/LMColumnView.m"; sourceTree = "<group>"; };
 		37E579DA1DF19090002984B9 /* LMRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMRowView.h; path = "../../MarkupKit-iOS/MarkupKit/LMRowView.h"; sourceTree = "<group>"; };
 		37E579DB1DF19090002984B9 /* LMRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMRowView.m; path = "../../MarkupKit-iOS/MarkupKit/LMRowView.m"; sourceTree = "<group>"; };
-		37E579DC1DF19090002984B9 /* LMLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayerView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayerView.h"; sourceTree = "<group>"; };
-		37E579DD1DF19090002984B9 /* LMLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLayerView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLayerView.m"; sourceTree = "<group>"; };
 		37E579DE1DF19090002984B9 /* LMAnchorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMAnchorView.h; path = "../../MarkupKit-iOS/MarkupKit/LMAnchorView.h"; sourceTree = "<group>"; };
 		37E579DF1DF19090002984B9 /* LMAnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMAnchorView.m; path = "../../MarkupKit-iOS/MarkupKit/LMAnchorView.m"; sourceTree = "<group>"; };
 		37E579E01DF19090002984B9 /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMSpacer.h; path = "../../MarkupKit-iOS/MarkupKit/LMSpacer.h"; sourceTree = "<group>"; };
@@ -405,6 +401,8 @@
 		37E57B311DF1B398002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57B331DF1B398002984B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/AppDelegate.swift"; sourceTree = "<group>"; };
+		37F136741FB139AC00651E12 /* LMRootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LMRootView.m; path = "../../MarkupKit-iOS/MarkupKit/LMRootView.m"; sourceTree = "<group>"; };
+		37F136751FB139AD00651E12 /* LMRootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMRootView.h; path = "../../MarkupKit-iOS/MarkupKit/LMRootView.h"; sourceTree = "<group>"; };
 		37F549261F55AB93001FEEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Assets.xcassets"; sourceTree = "<group>"; };
 		37F70CEF1ECE4B6A00F3A861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37F899851E475E8700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewController.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewController.h"; sourceTree = "<group>"; };
@@ -534,10 +532,10 @@
 				37E579D91DF19090002984B9 /* LMColumnView.m */,
 				37E579DA1DF19090002984B9 /* LMRowView.h */,
 				37E579DB1DF19090002984B9 /* LMRowView.m */,
-				37E579DC1DF19090002984B9 /* LMLayerView.h */,
-				37E579DD1DF19090002984B9 /* LMLayerView.m */,
 				37E579DE1DF19090002984B9 /* LMAnchorView.h */,
 				37E579DF1DF19090002984B9 /* LMAnchorView.m */,
+				37F136751FB139AD00651E12 /* LMRootView.h */,
+				37F136741FB139AC00651E12 /* LMRootView.m */,
 				37E579E01DF19090002984B9 /* LMSpacer.h */,
 				37E579E11DF19090002984B9 /* LMSpacer.m */,
 				37E579E21DF19090002984B9 /* LMGradientView.h */,
@@ -677,8 +675,8 @@
 				37E57A9B1DF1911F002984B9 /* LMBoxView.h in Headers */,
 				37E57A9C1DF1911F002984B9 /* LMColumnView.h in Headers */,
 				37E57A9D1DF1911F002984B9 /* LMRowView.h in Headers */,
-				37E57A9E1DF1911F002984B9 /* LMLayerView.h in Headers */,
 				37E57A9F1DF1911F002984B9 /* LMAnchorView.h in Headers */,
+				37F136771FB139E600651E12 /* LMRootView.h in Headers */,
 				37E57AA01DF1911F002984B9 /* LMSpacer.h in Headers */,
 				37E57AA11DF1911F002984B9 /* LMGradientView.h in Headers */,
 				37E57AA21DF1911F002984B9 /* LMLinearGradientView.h in Headers */,
@@ -714,7 +712,6 @@
 				37659D4F1ECF57590043C9C1 /* UITabBar+Markup.h in Headers */,
 				37770B381ECF6E0500C5B491 /* UITabBarItem+Markup.h in Headers */,
 				37E57ABA1DF1911F002984B9 /* UIToolbar+Markup.h in Headers */,
-				37E57ABB1DF1911F002984B9 /* UIStackView+Markup.h in Headers */,
 				37E57ABC1DF1911F002984B9 /* UIScrollView+Markup.h in Headers */,
 				37E57ABD1DF1911F002984B9 /* UITableView+Markup.h in Headers */,
 				37E57ABE1DF1911F002984B9 /* UITableViewCell+Markup.h in Headers */,
@@ -964,8 +961,8 @@
 				37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */,
 				37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */,
 				37E57A751DF190F1002984B9 /* LMRowView.m in Sources */,
-				37E57A761DF190F1002984B9 /* LMLayerView.m in Sources */,
 				37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */,
+				37F136761FB139AD00651E12 /* LMRootView.m in Sources */,
 				37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */,
 				37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */,
 				37E57A7A1DF190F1002984B9 /* LMLinearGradientView.m in Sources */,
@@ -996,7 +993,6 @@
 				377B4CA91F60936E00D2A729 /* UIImageView+Markup.m in Sources */,
 				37E57A901DF190F1002984B9 /* UIProgressView+Markup.m in Sources */,
 				37E57A911DF190F1002984B9 /* UISearchBar+Markup.m in Sources */,
-				37E57A931DF190F1002984B9 /* UIStackView+Markup.m in Sources */,
 				37E57A941DF190F1002984B9 /* UIScrollView+Markup.m in Sources */,
 				37E57A951DF190F1002984B9 /* UITableView+Markup.m in Sources */,
 				37E57A961DF190F1002984B9 /* UITableViewCell+Markup.m in Sources */,

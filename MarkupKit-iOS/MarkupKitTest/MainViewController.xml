@@ -32,10 +32,10 @@ limitations under the License.
 }?>
 
 <root fitToWidth="true">
-    <LMLayerView>
-        <UIView backgroundColor="Background"/>
+    <LMAnchorView>
+        <UIView anchor="all" backgroundColor="Background"/>
         
-        <LMColumnView layoutMargins="20">
+        <LMColumnView anchor="all" layoutMargins="20">
             <LMRowView class="firstRow">
                 <UILabel id="greetingLabel" class="greetingLabel" text="@greeting"/>
                 <LMSpacer/>
@@ -120,15 +120,15 @@ limitations under the License.
                 <LMSpacer/>
             </LMRowView>
             
-            <LMLayerView layoutMargins="12" backgroundColor="#ffffff">
-                <UITextField placeholder="@password" secureTextEntry="true" leftViewMode="always" rightViewMode="unlessEditing">
+            <LMAnchorView layoutMargins="12" backgroundColor="#ffffff">
+                <UITextField anchor="all" placeholder="@password" secureTextEntry="true" leftViewMode="always" rightViewMode="unlessEditing">
                     <?leftView?>
                     <UIImageView image="Left"/>
 
                     <?rightView?>
                     <UIImageView image="Right"/>
                 </UITextField>
-            </LMLayerView>
+            </LMAnchorView>
 
             <?case iOS?>
             <UIImageView id="imageView" image="waterfall.jpg" hidden="true" contentMode="scaleAspectFit"
@@ -138,6 +138,6 @@ limitations under the License.
                 <UIView anchor="top, bottom" width="80" aspectRatio="1.0" backgroundColor="#0000ff"/>
             </LMAnchorView>
         </LMColumnView>
-    </LMLayerView>
+    </LMAnchorView>
 </root>
 

@@ -14,19 +14,19 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView>
+<LMRootView>
     <UIImageView image="orchard.jpg" contentMode="scaleAspectFill"/>
 
     <LMRowView>
-        <LMLayerView weight="0.4">
-            <UIVisualEffectView style="extraLightBlurEffectView"/>
+        <LMAnchorView weight="0.4">
+            <UIVisualEffectView style="extraLightBlurEffectView" anchor="all"/>
 
-            <LMColumnView layoutMargins="12" backgroundColor="#00aa0022">
+            <LMColumnView anchor="all" layoutMargins="12" backgroundColor="#00aa0022">
                 <UILabel text="An extra-light blur effect view over an image view" textColor="#002200aa"
                     textAlignment="center" numberOfLines="0"/>
             </LMColumnView>
-        </LMLayerView>
+        </LMAnchorView>
 
         <LMSpacer weight="0.6"/>
     </LMRowView>
-</LMLayerView>
+</LMRootView>

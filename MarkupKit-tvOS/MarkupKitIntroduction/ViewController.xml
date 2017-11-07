@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView>
+<LMRootView>
     <LMColumnView layoutMargins="48" spacing="96">
         <LMRowView>
             <LMSpacer/>
@@ -26,4 +26,4 @@ limitations under the License.
 
         <LMSpacer/>
     </LMColumnView>
-</LMLayerView>
+</LMRootView>

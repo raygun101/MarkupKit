@@ -16,11 +16,11 @@ limitations under the License.
 
 <?properties ColorsAndFonts?>
 
-<LMLayerView backgroundColor="background">
+<LMRootView backgroundColor="background">
     <LMColumnView layoutMargins="20">
         <LMSpacer/>
         <UIImageView class="imageView" image="CheckCircleIcon"/>
         <UILabel class="label" text="Lorem ipsum dolor sit amet"/>
         <LMSpacer/>
     </LMColumnView>
-</LMLayerView>
+</LMRootView>

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView backgroundColor="white">
+<LMRootView backgroundColor="white">
     <LMColumnView layoutMargins="20">
         <LMPickerView id="pickerView">
             <?componentName sizes?>
@@ -46,4 +46,4 @@ limitations under the License.
 
         <LMSpacer/>
     </LMColumnView>
-</LMLayerView>
+</LMRootView>

@@ -80,7 +80,7 @@
 		3763063D1DF188BF00357E68 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF51DF18539006E6B3D /* LMBoxView.m */; };
 		3763063E1DF188BF00357E68 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAFB1DF18539006E6B3D /* LMColumnView.m */; };
 		3763063F1DF188BF00357E68 /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB0D1DF18539006E6B3D /* LMRowView.m */; };
-		376306401DF188BF00357E68 /* LMLayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAFF1DF18539006E6B3D /* LMLayerView.m */; };
+		376306401DF188BF00357E68 /* LMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAFF1DF18539006E6B3D /* LMRootView.m */; };
 		376306411DF188BF00357E68 /* LMAnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF31DF18539006E6B3D /* LMAnchorView.m */; };
 		376306421DF188BF00357E68 /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB111DF18539006E6B3D /* LMSpacer.m */; };
 		376306431DF188BF00357E68 /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAFD1DF18539006E6B3D /* LMGradientView.m */; };
@@ -119,7 +119,7 @@
 		376306651DF188F400357E68 /* LMBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF41DF18539006E6B3D /* LMBoxView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306661DF188F400357E68 /* LMColumnView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAFA1DF18539006E6B3D /* LMColumnView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306671DF188F400357E68 /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB0C1DF18539006E6B3D /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306681DF188F400357E68 /* LMLayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAFE1DF18539006E6B3D /* LMLayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376306681DF188F400357E68 /* LMRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAFE1DF18539006E6B3D /* LMRootView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306691DF188F400357E68 /* LMAnchorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF21DF18539006E6B3D /* LMAnchorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763066A1DF188F400357E68 /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB101DF18539006E6B3D /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763066B1DF188F400357E68 /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAFC1DF18539006E6B3D /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -454,8 +454,8 @@
 		3799BAFB1DF18539006E6B3D /* LMColumnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMColumnView.m; sourceTree = "<group>"; };
 		3799BAFC1DF18539006E6B3D /* LMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMGradientView.h; sourceTree = "<group>"; };
 		3799BAFD1DF18539006E6B3D /* LMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMGradientView.m; sourceTree = "<group>"; };
-		3799BAFE1DF18539006E6B3D /* LMLayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayerView.h; sourceTree = "<group>"; };
-		3799BAFF1DF18539006E6B3D /* LMLayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayerView.m; sourceTree = "<group>"; };
+		3799BAFE1DF18539006E6B3D /* LMRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRootView.h; sourceTree = "<group>"; };
+		3799BAFF1DF18539006E6B3D /* LMRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRootView.m; sourceTree = "<group>"; };
 		3799BB001DF18539006E6B3D /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLayoutView.h; sourceTree = "<group>"; };
 		3799BB011DF18539006E6B3D /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLayoutView.m; sourceTree = "<group>"; };
 		3799BB021DF18539006E6B3D /* LMLinearGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLinearGradientView.h; sourceTree = "<group>"; };
@@ -749,10 +749,10 @@
 				3799BAFB1DF18539006E6B3D /* LMColumnView.m */,
 				3799BB0C1DF18539006E6B3D /* LMRowView.h */,
 				3799BB0D1DF18539006E6B3D /* LMRowView.m */,
-				3799BAFE1DF18539006E6B3D /* LMLayerView.h */,
-				3799BAFF1DF18539006E6B3D /* LMLayerView.m */,
 				3799BAF21DF18539006E6B3D /* LMAnchorView.h */,
 				3799BAF31DF18539006E6B3D /* LMAnchorView.m */,
+				3799BAFE1DF18539006E6B3D /* LMRootView.h */,
+				3799BAFF1DF18539006E6B3D /* LMRootView.m */,
 				3799BB101DF18539006E6B3D /* LMSpacer.h */,
 				3799BB111DF18539006E6B3D /* LMSpacer.m */,
 				3799BAFC1DF18539006E6B3D /* LMGradientView.h */,
@@ -894,8 +894,8 @@
 				376306651DF188F400357E68 /* LMBoxView.h in Headers */,
 				376306661DF188F400357E68 /* LMColumnView.h in Headers */,
 				376306671DF188F400357E68 /* LMRowView.h in Headers */,
-				376306681DF188F400357E68 /* LMLayerView.h in Headers */,
 				376306691DF188F400357E68 /* LMAnchorView.h in Headers */,
+				376306681DF188F400357E68 /* LMRootView.h in Headers */,
 				3763066A1DF188F400357E68 /* LMSpacer.h in Headers */,
 				3763066B1DF188F400357E68 /* LMGradientView.h in Headers */,
 				3763066C1DF188F400357E68 /* LMLinearGradientView.h in Headers */,
@@ -1309,8 +1309,8 @@
 				3763063D1DF188BF00357E68 /* LMBoxView.m in Sources */,
 				3763063E1DF188BF00357E68 /* LMColumnView.m in Sources */,
 				3763063F1DF188BF00357E68 /* LMRowView.m in Sources */,
-				376306401DF188BF00357E68 /* LMLayerView.m in Sources */,
 				376306411DF188BF00357E68 /* LMAnchorView.m in Sources */,
+				376306401DF188BF00357E68 /* LMRootView.m in Sources */,
 				376306421DF188BF00357E68 /* LMSpacer.m in Sources */,
 				376306431DF188BF00357E68 /* LMGradientView.m in Sources */,
 				376306441DF188BF00357E68 /* LMLinearGradientView.m in Sources */,

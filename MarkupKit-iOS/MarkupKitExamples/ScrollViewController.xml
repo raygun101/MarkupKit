@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMLayerView backgroundColor="white">
+<LMRootView backgroundColor="white">
     <LMAnchorView>
         <LMScrollView anchor="all" fitToWidth="true">
             <?refreshControl?>
@@ -33,4 +33,4 @@ limitations under the License.
                 onPrimaryActionTriggered="showGreeting"/>
         </LMColumnView>
     </LMAnchorView>
-</LMLayerView>
+</LMRootView>

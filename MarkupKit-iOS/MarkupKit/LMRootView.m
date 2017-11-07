@@ -12,9 +12,9 @@
 // limitations under the License.
 //
 
-#import "LMLayerView.h"
+#import "LMRootView.h"
 
-@implementation LMLayerView
+@implementation LMRootView
 
 - (void)layoutSubviews
 {
