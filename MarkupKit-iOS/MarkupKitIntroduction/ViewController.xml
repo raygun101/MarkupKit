@@ -14,7 +14,8 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView topSpacing="32" bottomSpacing="32" spacing="64">
+<LMColumnView>
+    <LMSpacer/>
     <UIButton style="systemButton" title="Say Hello" onPrimaryActionTriggered="sayHello"/>
     <UILabel id="greetingLabel" font="headline" textAlignment="center"/>
     <LMSpacer/>

@@ -41,10 +41,10 @@ class DetailViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
 
-        let layoutView = view as! LMLayoutView
+        let rootView = view as! LMRootView
 
-        layoutView.topSpacing = topLayoutGuide.length
-        layoutView.bottomSpacing = bottomLayoutGuide.length
+        rootView.topSpacing = topLayoutGuide.length
+        rootView.bottomSpacing = bottomLayoutGuide.length
     }
 
     // Done button press handler

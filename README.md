@@ -469,8 +469,8 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMViewBuilder` - processes a markup document, deserializing its contents into a view hierarchy that can be used by an iOS application
 * `LMRowView` and `LMColumnView` - layout views that arrange subviews in a horizontal or vertical line, respectively
 * `LMSpacer` - view that creates flexible space between other views
-* `LMLayerView` - layout view that arranges subviews in layers, like a stack of transparencies
 * `LMAnchorView` - view that optionally anchors subviews to one or more edges
+* `LMRootView` - layout view that provides a margin-independent root for a view hierarchy
 * `LMTableView`, `LMTableViewCell`, and `LMTableViewHeaderFooterView` - `UITableView`, `UITableViewCell`, and `UITableViewHeaderFooterView` subclasses, respectively, that facilitate the declaration of table view content
 * `LMTableViewController` - `UITableViewController` subclass that simplifies management of an `LMTableView`
 * `LMCollectionView` and `LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
@@ -580,23 +580,21 @@ Auto layout in iOS is implemented primarily via layout constraints, which, while
 
 * `LMRowView` - arranges subviews in a horizontal line
 * `LMColumnView` - arranges subviews in a vertical line
-* `LMLayerView` - arranges subviews in layers, like a stack of transparencies
 * `LMAnchorView` - optionally anchors subviews to one or more edges
+* `LMRootView` - provides a margin-independent root for a view hierarchy
 
 These classes use layout constraints internally, allowing developers to easily take advantage of auto layout while eliminating the need to manage constraints directly. They can be nested to create complex layouts that automatically adjust to orientation or screen size changes.
 
-All layout view types extend the abstract `LMLayoutView` class, which overrides `appendMarkupElementView:` to call `addSubview:` on itself so that layout views can be constructed in markup. 
-
-Subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
+Note that subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
 
 ### Layout Margins
-By default, a layout view's subviews are positioned relative to its layout margins. For example, the following markup creates a row view whose subviews will be inset from its own edges by 12 pixels:
+A layout view's subviews are positioned relative to its layout margins, which are initialized to 0 by default. The following markup creates a row view whose subviews will be inset from its own edges by 12 pixels:
 
     <LMRowView layoutMargins="12">
         ...
     </LMRowView>
     
-MarkupKit adds the following properties to `UIView` to allow margin values to be set individually:
+MarkupKit also adds the following properties to `UIView` so that margin values can be set individually:
 
     @property (nonatomic) CGFloat layoutMarginTop;
     @property (nonatomic) CGFloat layoutMarginLeft;
@@ -612,31 +610,6 @@ For example, this markup creates a layer view whose top and bottom margins are s
     </LMRowView>
 
 In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the current text direction.
-
-#### System-Defined Margins
-A layout view's margins are initialized to zero by default. However, in iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the following property can be used to disable margin-relative layout:
-
-    @property (nonatomic) BOOL layoutMarginsRelativeArrangement;
-
-When set to `false`, the view will ignore layout margins altogether and align subviews directly to its edges. The following properties can then be used instead to specify the amount of additional space that should be reserved at the top/bottom and leading/trailing edges of the view:
-
-    @property (nonatomic) CGFloat topSpacing;
-    @property (nonatomic) CGFloat bottomSpacing;
-    @property (nonatomic) CGFloat leadingSpacing;
-    @property (nonatomic) CGFloat trailingSpacing;
-    
-For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
-
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-
-        let layoutView = view as! LMLayoutView
-
-        layoutView.topSpacing = topLayoutGuide.length
-        layoutView.bottomSpacing = bottomLayoutGuide.length
-    }
-    
-In iOS 11, the top and bottom layout guide properties are deprecated, and the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` can be used to disable system-defined margins.
 
 ### Touch Interaction
 By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view will cause the view to begin consuming events.
@@ -872,18 +845,6 @@ Like layout views, spacer views do not consume touch events by default, so they 
  
 See [LMSpacer.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMSpacer.h) for more information.
 
-## LMLayerView
-The `LMLayerView` class simply arranges its subviews in layers, like a stack of transparencies. The subviews are all automatically sized to fill the layer view.
-
-For example, the following markup creates a layer view containing two subviews. The `UIImageView` instance, since it is declared first, appears beneath the `UILabel` instance, effectively creating a background for the label:
-
-    <LMLayerView>
-        <UIImageView image="world.png" contentMode="scaleAspectFit"/>
-        <UILabel text="Hello, World!" textAlignment="center"/>
-    </LMLayerView>
-
-See [LMLayerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLayerView.h) for more information.
-
 ## LMAnchorView
 The `LMAnchorView` class optionally anchors subviews to one or more of its own edges. Although it is possible to achieve similar layouts using a combination of row, column, layer, and spacer views, anchor views may offer a simpler alternative in some cases. 
 
@@ -924,6 +885,27 @@ Additionally, subviews may be anchored to multiple edges for a given dimension. 
 If no anchor is specified for a given dimension, the subview will be centered within the anchor view for that dimension.
 
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
+
+## LMRootView
+In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class provides the following properties, which can be used to reserve additional space at the top or bottom of the root view:
+
+    @property (nonatomic) CGFloat topSpacing;
+    @property (nonatomic) CGFloat bottomSpacing;
+
+For example, a view controller might override `viewWillLayoutSubviews` to set its view's top and bottom spacing to the length of its own top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
+
+TODO Override loadView() to demonstrate usage
+
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+
+        let rootView = view as! LMRootView
+
+        rootView = topLayoutGuide.length
+        rootView = bottomLayoutGuide.length
+    }
+
+Top and bottom layout guides are deprecated in iOS 11. Applications targeting iOS 11 and later can use the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` instead of `LMRootView` to disable system-defined margins.
 
 ## LMTableView, LMTableViewCell, and LMTableViewHeaderFooterView
 `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. `LMTableView` enables self-sizing content by default, allowing it to be used as a general-purpose layout device.

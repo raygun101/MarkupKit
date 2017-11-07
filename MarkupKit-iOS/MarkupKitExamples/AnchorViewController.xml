@@ -35,7 +35,7 @@ limitations under the License.
 <?end?>
 
 <LMRootView backgroundColor="white">
-    <LMAnchorView topSpacing="16" bottomSpacing="16" leadingSpacing="16" trailingSpacing="16">
+    <LMAnchorView layoutMargins="16">
         <UIView class="cell" anchor="all"/>
 
         <UILabel class="cell" text="Top Leading" anchor="top, leading"/>
