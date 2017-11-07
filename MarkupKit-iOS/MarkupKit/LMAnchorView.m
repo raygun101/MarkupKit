@@ -53,23 +53,6 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to anchor view edges
-    NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute, leadingAttribute, trailingAttribute;
-    if ([self layoutMarginsRelativeArrangement]) {
-        topAttribute = NSLayoutAttributeTopMargin;
-        bottomAttribute = NSLayoutAttributeBottomMargin;
-        leftAttribute = NSLayoutAttributeLeftMargin;
-        rightAttribute = NSLayoutAttributeRightMargin;
-        leadingAttribute = NSLayoutAttributeLeadingMargin;
-        trailingAttribute = NSLayoutAttributeTrailingMargin;
-    } else {
-        topAttribute = NSLayoutAttributeTop;
-        bottomAttribute = NSLayoutAttributeBottom;
-        leftAttribute = NSLayoutAttributeLeft;
-        rightAttribute = NSLayoutAttributeRight;
-        leadingAttribute = NSLayoutAttributeLeading;
-        trailingAttribute = NSLayoutAttributeTrailing;
-    }
-
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
     CGFloat leadingSpacing = [self leadingSpacing];
@@ -85,13 +68,13 @@
         if (anchor & LMAnchorTop || anchor & LMAnchorBottom) {
             if (anchor & LMAnchorTop) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
                     multiplier:1 constant:topSpacing]];
             }
 
             if (anchor & LMAnchorBottom) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
                     multiplier:1 constant:-bottomSpacing]];
             }
         } else {
@@ -104,25 +87,25 @@
             || anchor & LMAnchorLeading || anchor & LMAnchorTrailing) {
             if (anchor & LMAnchorLeft) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeft
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leftAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeftMargin
                     multiplier:1 constant:0]];
             }
 
             if (anchor & LMAnchorRight) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeRight
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:rightAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRightMargin
                     multiplier:1 constant:0]];
             }
 
             if (anchor & LMAnchorLeading) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
                     multiplier:1 constant:leadingSpacing]];
             }
 
             if (anchor & LMAnchorTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
                     multiplier:1 constant:-trailingSpacing]];
             }
         } else {

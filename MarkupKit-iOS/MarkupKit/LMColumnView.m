@@ -64,19 +64,6 @@
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
-    if ([self layoutMarginsRelativeArrangement]) {
-        topAttribute = NSLayoutAttributeTopMargin;
-        bottomAttribute = NSLayoutAttributeBottomMargin;
-        leadingAttribute = NSLayoutAttributeLeadingMargin;
-        trailingAttribute = NSLayoutAttributeTrailingMargin;
-    } else {
-        topAttribute = NSLayoutAttributeTop;
-        bottomAttribute = NSLayoutAttributeBottom;
-        leadingAttribute = NSLayoutAttributeLeading;
-        trailingAttribute = NSLayoutAttributeTrailing;
-    }
-
     LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
     LMVerticalAlignment verticalAlignment = [self verticalAlignment];
 
@@ -99,7 +86,7 @@
         if (previousSubview == nil) {
             if (verticalAlignment != LMVerticalAlignmentBottom) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
                     multiplier:1 constant:[self topSpacing]]];
             }
         } else {
@@ -142,10 +129,10 @@
         switch (horizontalAlignment) {
             case LMHorizontalAlignmentFill: {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
                     multiplier:1 constant:leadingSpacing]];
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
                     multiplier:1 constant:-trailingSpacing]];
 
                 break;
@@ -153,7 +140,7 @@
 
             case LMHorizontalAlignmentLeading: {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
                     multiplier:1 constant:leadingSpacing]];
 
                 break;
@@ -161,7 +148,7 @@
 
             case LMHorizontalAlignmentTrailing: {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
                     multiplier:1 constant:-trailingSpacing]];
 
                 break;
@@ -197,7 +184,7 @@
     // Align final view to bottom edge
     if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
             multiplier:1 constant:-[self bottomSpacing]]];
     }
 

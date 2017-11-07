@@ -75,19 +75,6 @@ static NSDictionary *baselineValues;
 {
     NSMutableArray *constraints = [NSMutableArray new];
 
-    NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
-    if ([self layoutMarginsRelativeArrangement]) {
-        topAttribute = NSLayoutAttributeTopMargin;
-        bottomAttribute = NSLayoutAttributeBottomMargin;
-        leadingAttribute = NSLayoutAttributeLeadingMargin;
-        trailingAttribute = NSLayoutAttributeTrailingMargin;
-    } else {
-        topAttribute = NSLayoutAttributeTop;
-        bottomAttribute = NSLayoutAttributeBottom;
-        leadingAttribute = NSLayoutAttributeLeading;
-        trailingAttribute = NSLayoutAttributeTrailing;
-    }
-
     LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
     LMVerticalAlignment verticalAlignment = [self verticalAlignment];
 
@@ -110,7 +97,7 @@ static NSDictionary *baselineValues;
         if (previousSubview == nil) {
             if (horizontalAlignment != LMHorizontalAlignmentTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-                    relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+                    relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
                     multiplier:1 constant:[self leadingSpacing]]];
             }
         } else {
@@ -161,19 +148,19 @@ static NSDictionary *baselineValues;
             case LMVerticalAlignmentFill: {
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
+                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeTopMargin
                         multiplier:1 constant:topSpacing]];
 
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
+                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeBottomMargin
                         multiplier:1 constant:-bottomSpacing]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                        relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
                         multiplier:1 constant:topSpacing]];
 
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                        relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
                         multiplier:1 constant:-bottomSpacing]];
                 }
 
@@ -183,11 +170,11 @@ static NSDictionary *baselineValues;
             case LMVerticalAlignmentTop: {
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:topAttribute
+                        relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeTopMargin
                         multiplier:1 constant:topSpacing]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-                        relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
                         multiplier:1 constant:topSpacing]];
                 }
 
@@ -197,11 +184,11 @@ static NSDictionary *baselineValues;
             case LMVerticalAlignmentBottom: {
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:bottomAttribute
+                        relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeBottomMargin
                         multiplier:1 constant:-bottomSpacing]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-                        relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+                        relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
                         multiplier:1 constant:-bottomSpacing]];
                 }
 
@@ -223,7 +210,7 @@ static NSDictionary *baselineValues;
     // Align final view to trailing edge
     if (previousSubview != nil && horizontalAlignment != LMHorizontalAlignmentLeading) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
             multiplier:1 constant:-[self trailingSpacing]]];
     }
 

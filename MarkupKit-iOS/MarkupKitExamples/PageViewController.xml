@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMAnchorView layoutMarginsRelativeArrangement="false" backgroundColor="white">
+<LMAnchorView backgroundColor="white">
     <LMPageView id="pageView" anchor="all">
         <UIImageView image="quebec.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
         <UIImageView image="lighthouse.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>

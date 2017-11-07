@@ -28,7 +28,6 @@ NSString * const kHiddenKey = @"hidden";
 }
 
 #define INIT {\
-    _layoutMarginsRelativeArrangement = YES;\
     [self setLayoutMargins:UIEdgeInsetsZero];\
 }
 
@@ -74,13 +73,6 @@ NSString * const kHiddenKey = @"hidden";
     if ([keyPath isEqual:kHiddenKey]) {
         [self setNeedsUpdateConstraints];
     }
-}
-
-- (void)setLayoutMarginsRelativeArrangement:(BOOL)layoutMarginsRelativeArrangement
-{
-    _layoutMarginsRelativeArrangement = layoutMarginsRelativeArrangement;
-
-    [self setNeedsUpdateConstraints];
 }
 
 - (void)setTopSpacing:(CGFloat)topSpacing

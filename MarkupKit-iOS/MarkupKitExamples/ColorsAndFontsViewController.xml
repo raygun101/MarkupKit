@@ -16,7 +16,7 @@ limitations under the License.
 
 <?properties ColorsAndFonts?>
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="background">
+<LMLayerView backgroundColor="background">
     <LMColumnView layoutMargins="20">
         <LMSpacer/>
         <UIImageView class="imageView" image="CheckCircleIcon"/>

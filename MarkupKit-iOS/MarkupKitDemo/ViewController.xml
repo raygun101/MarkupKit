@@ -150,7 +150,7 @@ limitations under the License.
 
     <sectionHeader title="@datePicker"/>
 
-    <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
+    <LMTableViewCell selectionStyle="none">
         <UIDatePicker datePickerMode="date"/>
     </LMTableViewCell>
 
@@ -159,7 +159,7 @@ limitations under the License.
 
     <sectionHeader title="@customPicker"/>
 
-    <LMTableViewCell selectionStyle="none" layoutMarginsRelativeArrangement="false">
+    <LMTableViewCell selectionStyle="none">
         <LMPickerView>
             <?componentName sizes?>
             <row title="@small"/>

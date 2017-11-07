@@ -22,12 +22,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface LMLayoutView : UIView
 
 /**
- * Specifies that subviews will be arranged relative to the view's layout margins.
- * The default value is <code>YES</code>.
- */
-@property (nonatomic) BOOL layoutMarginsRelativeArrangement;
-
-/**
  * The amount of space to reserve at the top of the view. The default is 0.
  */
 @property (nonatomic) CGFloat topSpacing;

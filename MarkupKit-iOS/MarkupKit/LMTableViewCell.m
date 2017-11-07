@@ -31,17 +31,6 @@ typedef enum {
     __ElementDisposition _elementDisposition;
 }
 
-- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-
-    if (self) {
-        _layoutMarginsRelativeArrangement = YES;
-    }
-
-    return self;
-}
-
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     UIView *view = [super hitTest:point withEvent:event];
@@ -85,33 +74,20 @@ typedef enum {
             [contentView addSubview:view];
 
             // Pin content to cell edges
-            NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
-            if ([self layoutMarginsRelativeArrangement]) {
-                topAttribute = NSLayoutAttributeTopMargin;
-                bottomAttribute = NSLayoutAttributeBottomMargin;
-                leftAttribute = NSLayoutAttributeLeftMargin;
-                rightAttribute = NSLayoutAttributeRightMargin;
-            } else {
-                topAttribute = NSLayoutAttributeTop;
-                bottomAttribute = NSLayoutAttributeBottom;
-                leftAttribute = NSLayoutAttributeLeft;
-                rightAttribute = NSLayoutAttributeRight;
-            }
-
             NSMutableArray *constraints = [NSMutableArray new];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:topAttribute
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTopMargin
                 multiplier:1 constant:0]];
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:bottomAttribute
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottomMargin
                 multiplier:1 constant:0]];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:leftAttribute
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeftMargin
                 multiplier:1 constant:0]];
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:rightAttribute
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeRightMargin
                 multiplier:1 constant:0]];
 
             [NSLayoutConstraint activateConstraints:constraints];

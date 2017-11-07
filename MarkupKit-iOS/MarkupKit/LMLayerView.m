@@ -39,19 +39,6 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to layer view edges
-    NSLayoutAttribute topAttribute, bottomAttribute, leadingAttribute, trailingAttribute;
-    if ([self layoutMarginsRelativeArrangement]) {
-        topAttribute = NSLayoutAttributeTopMargin;
-        bottomAttribute = NSLayoutAttributeBottomMargin;
-        leadingAttribute = NSLayoutAttributeLeadingMargin;
-        trailingAttribute = NSLayoutAttributeTrailingMargin;
-    } else {
-        topAttribute = NSLayoutAttributeTop;
-        bottomAttribute = NSLayoutAttributeBottom;
-        leadingAttribute = NSLayoutAttributeLeading;
-        trailingAttribute = NSLayoutAttributeTrailing;
-    }
-
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
     CGFloat leadingSpacing = [self leadingSpacing];
@@ -63,17 +50,17 @@
         }
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:topAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
             multiplier:1 constant:topSpacing]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:bottomAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
             multiplier:1 constant:-bottomSpacing]];
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:leadingAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading
             multiplier:1 constant:leadingSpacing]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
-            relatedBy:NSLayoutRelationEqual toItem:self attribute:trailingAttribute
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing
             multiplier:1 constant:-trailingSpacing]];
     }
 

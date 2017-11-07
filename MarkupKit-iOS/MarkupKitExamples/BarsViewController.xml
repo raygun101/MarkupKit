@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView layoutMarginsRelativeArrangement="false" backgroundColor="white">
+<LMColumnView backgroundColor="white">
     <?case iOS?>
     <UIToolbar>
         <item type="compose" action="compose"/>
