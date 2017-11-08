@@ -188,27 +188,9 @@ For example, the following markup creates a `UILabel` whose font is set to 24-po
 
 The current system font can be specified by using "System" as the font name. "System-Bold" and "System-Italic" are also supported.
 
-#### Text Styles
-A text style refers either to an entry in the application's font table or to a system-defined text style. The font table is an optional collection of key-value pairs defined in a file named _Fonts.plist_. If present, this file must be located in the application's main bundle. The table's keys represent text style names, and the values the associated fonts. The styles can be used throughout the application in place of the actual font names.
-
-For example, the following property list defines a text style named "monospaced":
-
-    <plist version="1.0">
-    <dict>
-        <key>monospaced</key>
-        <string>Courier 12</string>
-    </dict>
-    </plist>
-
-This markup creates an instance of `UILabel` whose font will be set to the value to which "monospaced" refers in the property list, "Courier 12":
-
-    <UILabel text="This is monospaced text" font="monospaced"/>
-
-Style names may also refer to system-defined text styles such as `UIFontTextStyleHeadline`. The value is the name of the style constant minus the leading "UIFontTextStyle" prefix, with a leading lowercase letter. For example, the following markup would produce a label whose font is set to whatever is currently associated with the system's "headline" text style:
+Text styles such as `UIFontTextStyleHeadline` are represented using the name of the style constant minus the leading "UIFontTextStyle" prefix, with a leading lowercase letter. For example:
 
     <UILabel text="This is headline text" font="headline"/>
-
-Font table entries take precedence over system style constants. For example, if _Fonts.plist_ defined a value for "headline", the corresponding font would be used instead of the value associated with the `UIFontTextStyleHeadline` constant.
     
 ### Images
 The value of any attribute whose name is equal to or ends with "image" is converted to an instance of `UIImage` before the property value is set. For example, the following markup creates an instance of `UIImageView` and sets the value of its `image` property to an image named "background.png":
@@ -338,8 +320,6 @@ Templates are added to a MarkupKit document using the `properties` processing in
 
     <?properties Styles?>
 
-Note that if the document's owner implements the `UITraitEnvironment` protocol, any size class-specific property overrides (e.g. _Styles~horizontal.json_) will also be added to the document. Size class-specific properties are discussed in more detail later.
-
 Inline templates simply embed the entire template definition within the processing instruction:
 
     <?properties {
@@ -466,40 +446,10 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 The `name` parameter represents the name of the view to load. It is the file name of the XML document containing the view declaration, minus the _.xml_ extension.
 
 The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
-
-If the owner implements the `UITraitEnvironment` protocol, `viewWithName:owner:root:` will first look for an XML document corresponding to the size class reported by the owner's [trait collection](https://developer.apple.com/documentation/uikit/uitraitcollection). Size classes are named as follows:
-
-* Regular width, regular height - "normal"
-* Regular width, compact height - "horizontal"
-* Compact width, regular height - "vertical"
-* Compact width, compact height - "minimal"
-
-For example, given a view named "LoginViewController" and a regular width/compact height controller, `LMViewBuilder` would first look for a document named _LoginViewController~horizontal.xml_. If a size class-specific document is not found, `LMViewBuilder` will fall back to the default document name (e.g. _LoginViewController.xml_).
-
-Further, `LMViewBuilder` will apply any size class-specific property templates to the current document. For example, if a document imports a template collection as follows:
-
-    <?properties Styles?>
-    
-`LMViewBuilder` will first load any properties defined in _Styles.json_, then any properties defined by the template document corresponding to the owner's size class, if present (e.g. _Styles~horizontal.json_). This allows an application to define properties that apply only to a particular size class as well as override values specified in the default template, if desired.
-
-Note that neither size class-specific layouts nor template properties are automatically applied when the owner's size class changes. The application is responsible for reloading the document as needed; for example:
-
-    override func traitCollectionDidChange(previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-    
-        if (previousTraitCollection != nil) {
-            unbindAll()
-            
-            loadView()
-            viewDidLoad()
-        }
-    }
     
 If the owner implements a method named `bundleForView`, the view document will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
 
-If a matching document is not found in the identified bundle, `LMViewBuilder` will look in the application's _Library/Application Support_ folder, first for a size class-specific layout, then for the default layout.
-
-Note that property templates and color and font tables are always loaded from the main bundle.
+Note that property templates and color tables are always loaded from the main bundle.
 
 ### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.
