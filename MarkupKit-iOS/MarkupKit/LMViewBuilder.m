@@ -503,20 +503,21 @@ static NSMutableDictionary *templateCache;
 
         if ([target isEqual:kPropertiesTarget]) {
             // Merge templates
+            NSDictionary *dictionary;
             if ([data hasPrefix:@"{"]) {
                 NSError *error = nil;
 
-                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error];
 
                 if (error != nil) {
                     [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber], [error description]];
                 }
-
-                [LMViewBuilder mergeDictionary:dictionary into:_templates];
             } else {
-                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data] into:_templates];
+                dictionary = [LMViewBuilder templatesWithName:data];
             }
+
+            [LMViewBuilder mergeDictionary:dictionary into:_templates];
         } else {
             // Notify view
             id view = [_views lastObject];
