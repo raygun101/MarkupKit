@@ -36,7 +36,6 @@ static NSString * const kEscapePrefix = @"^";
 @end
 
 static NSMutableDictionary *colorTable;
-
 static NSMutableDictionary *templateCache;
 
 @implementation LMViewBuilder
@@ -187,15 +186,6 @@ static NSMutableDictionary *templateCache;
     }
 
     return font;
-}
-
-+ (NSDictionary *)templatesWithName:(NSString *)name traitCollection:(UITraitCollection *)traitCollection
-{
-    NSMutableDictionary *templates = [NSMutableDictionary new];
-
-    [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:name] into:templates];
-
-    return templates;
 }
 
 + (NSDictionary *)templatesWithName:(NSString *)name
@@ -455,14 +445,7 @@ static NSMutableDictionary *templateCache;
             bundle = [NSBundle mainBundle];
         }
 
-        UITraitCollection *traitCollection;
-        if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-            traitCollection = [_owner traitCollection];
-        } else {
-            traitCollection = nil;
-        }
-
-        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:traitCollection];
+        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:[_owner traitCollection]];
     }
 
     return value;
@@ -532,14 +515,7 @@ static NSMutableDictionary *templateCache;
 
                 [LMViewBuilder mergeDictionary:dictionary into:_templates];
             } else {
-                UITraitCollection *traitCollection;
-                if ([_owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-                    traitCollection = [_owner traitCollection];
-                } else {
-                    traitCollection = nil;
-                }
-
-                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data traitCollection:traitCollection] into:_templates];
+                [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:data] into:_templates];
             }
         } else {
             // Notify view
