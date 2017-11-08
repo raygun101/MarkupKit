@@ -564,27 +564,7 @@ is equivalent to the following markup:
 </LMScrollView>    
 ```
 
-The `root` argument is typically used when a document's root view is defined by an external source. For example, a view controller that is instantiated programmatically typically creates its own view instance in `loadView`. It defines the view entirely in markup, passing a `nil` value for `root`:
-
-```swift
-override func loadView() {
-    view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
-}
-```
-
-However, a view controller that is defined by a storyboard already has an established view instance when `viewDidLoad` is called. The controller can pass itself as the view's owner and the value of its `view` property as the `root` argument:
-
-```swift
-override func viewDidLoad() {
-    super.viewDidLoad()
-
-    LMViewBuilder.view(withName: "ViewController", owner: self, root: view)
-}
-```
-
-This allows the navigational structure of the application (i.e. segues) to be defined in a storyboard, but the content of individual views to be defined in markup.
-
-The `root` argument is also commonly used when implementing custom table or collection view view cells. In this case, the cell instance passes itself as both the owner and the root when loading the view: 
+The `root` argument is typically used when implementing custom table or collection view view cells. In this case, the cell instance passes itself as both the owner and the root when loading the view: 
 
 ```swift
 override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -595,7 +575,7 @@ override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 ```
 
 ### Color and Font Values
-`LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values:
+`LMViewBuilder` additionally defines the following two class methods, which it uses internally to decode color and font values:
 
 ```objc
 + (UIColor *)colorValue:(NSString *)value;
@@ -976,14 +956,14 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
 ## LMRootView
-In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its actual edges rather than its margins and provides the following properties, which can be used to reserve additional space at the top or bottom of the view:
+In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its edges instead of its margins, and provides the following properties that can be used to reserve additional space at the top or bottom of the view, respectively:
 
 ```objc
 @property (nonatomic) CGFloat topSpacing;
 @property (nonatomic) CGFloat bottomSpacing;
 ```
 
-For example, a view controller might override `viewWillLayoutSubviews` to set its root view's top and bottom spacing to the length of its top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
+For example, a view controller might override `viewWillLayoutSubviews` to set the root view's top and bottom spacing to the length of its top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
 
 ```swift
 override func viewWillLayoutSubviews() {
@@ -1162,13 +1142,17 @@ In order to support static content declaration, `LMTableView` acts as its own da
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 - (NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section
 
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 ```
