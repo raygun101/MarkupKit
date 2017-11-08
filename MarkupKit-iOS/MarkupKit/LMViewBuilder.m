@@ -55,7 +55,6 @@ static NSMutableDictionary *templateCache;
     NSMutableDictionary *_templates;
 
     NSMutableArray *_views;
-    NSMutableArray *_includes;
 
     NSString *_target;
 }
@@ -104,11 +103,6 @@ static NSMutableDictionary *templateCache;
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
-{
-    return [LMViewBuilder viewWithName:name owner:owner root:root templates:nil];
-}
-
-+ (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root templates:(NSDictionary *)templates
 {
     NSURL *url = nil;
 
@@ -164,7 +158,7 @@ static NSMutableDictionary *templateCache;
     UIView *view = nil;
 
     if (url != nil) {
-        LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root templates:templates];
+        LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
 
         NSXMLParser *parser = [[NSXMLParser alloc] initWithContentsOfURL:url];
 
@@ -347,7 +341,7 @@ static NSMutableDictionary *templateCache;
     return nil;
 }
 
-- (instancetype)initWithOwner:(id)owner root:(UIView *)root templates:(NSDictionary *)templates
+- (instancetype)initWithOwner:(id)owner root:(UIView *)root
 {
     self = [super init];
 
@@ -357,12 +351,7 @@ static NSMutableDictionary *templateCache;
 
         _templates = [NSMutableDictionary new];
 
-        if (templates != nil) {
-            [_templates addEntriesFromDictionary:templates];
-        }
-        
         _views = [NSMutableArray new];
-        _includes = [NSMutableArray new];
 
         _target = nil;
     }
@@ -373,11 +362,6 @@ static NSMutableDictionary *templateCache;
 - (UIView *)root
 {
     return _root;
-}
-
-- (NSArray *)includes
-{
-    return _includes;
 }
 
 - (NSDictionary *)templates
