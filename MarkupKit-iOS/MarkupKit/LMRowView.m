@@ -78,9 +78,6 @@ static NSDictionary *baselineValues;
     LMHorizontalAlignment horizontalAlignment = [self horizontalAlignment];
     LMVerticalAlignment verticalAlignment = [self verticalAlignment];
 
-    CGFloat topSpacing = [self topSpacing];
-    CGFloat bottomSpacing = [self bottomSpacing];
-
     CGFloat spacing = [self spacing];
 
     BOOL alignToBaseline = [self alignToBaseline];
@@ -98,7 +95,7 @@ static NSDictionary *baselineValues;
             if (horizontalAlignment != LMHorizontalAlignmentTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
-                    multiplier:1 constant:[self leadingSpacing]]];
+                    multiplier:1 constant:0]];
             }
         } else {
             if (isnan(spacing)) {
@@ -149,19 +146,19 @@ static NSDictionary *baselineValues;
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                        multiplier:1 constant:topSpacing]];
+                        multiplier:1 constant:0]];
 
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                         relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-                        multiplier:1 constant:-bottomSpacing]];
+                        multiplier:1 constant:0]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                        multiplier:1 constant:topSpacing]];
+                        multiplier:1 constant:0]];
 
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                         relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-                        multiplier:1 constant:-bottomSpacing]];
+                        multiplier:1 constant:0]];
                 }
 
                 break;
@@ -171,11 +168,11 @@ static NSDictionary *baselineValues;
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                        multiplier:1 constant:topSpacing]];
+                        multiplier:1 constant:0]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                        multiplier:1 constant:topSpacing]];
+                        multiplier:1 constant:0]];
                 }
 
                 break;
@@ -185,11 +182,11 @@ static NSDictionary *baselineValues;
                 if (alignToBaseline) {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                         relatedBy:NSLayoutRelationLessThanOrEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-                        multiplier:1 constant:-bottomSpacing]];
+                        multiplier:1 constant:0]];
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                         relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-                        multiplier:1 constant:-bottomSpacing]];
+                        multiplier:1 constant:0]];
                 }
 
                 break;
@@ -211,7 +208,7 @@ static NSDictionary *baselineValues;
     if (previousSubview != nil && horizontalAlignment != LMHorizontalAlignmentLeading) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
-            multiplier:1 constant:-[self trailingSpacing]]];
+            multiplier:1 constant:0]];
     }
 
     return constraints;

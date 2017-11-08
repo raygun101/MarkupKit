@@ -21,26 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface LMLayoutView : UIView
 
-/**
- * The amount of space to reserve at the top of the view. The default is 0.
- */
-@property (nonatomic) CGFloat topSpacing;
-
-/**
- * The amount of space to reserve at the bottom of the view. The default is 0.
- */
-@property (nonatomic) CGFloat bottomSpacing;
-
-/**
- * The amount of space to reserve at the view's leading edge. The default is 0.
- */
-@property (nonatomic) CGFloat leadingSpacing;
-
-/**
- * The amount of space to reserve at the view's trailing edge. The default is 0.
- */
-@property (nonatomic) CGFloat trailingSpacing;
-
 @end
 
 NS_ASSUME_NONNULL_END

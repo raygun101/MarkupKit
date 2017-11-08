@@ -16,6 +16,20 @@
 
 @implementation LMRootView
 
+- (void)setTopSpacing:(CGFloat)topSpacing
+{
+    _topSpacing = topSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setBottomSpacing:(CGFloat)bottomSpacing
+{
+    _bottomSpacing = bottomSpacing;
+
+    [self setNeedsUpdateConstraints];
+}
+
 - (void)layoutSubviews
 {
     // Ensure that subviews resize
@@ -41,8 +55,6 @@
     // Align subview edges to layer view edges
     CGFloat topSpacing = [self topSpacing];
     CGFloat bottomSpacing = [self bottomSpacing];
-    CGFloat leadingSpacing = [self leadingSpacing];
-    CGFloat trailingSpacing = [self trailingSpacing];
 
     for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
@@ -58,10 +70,10 @@
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading
-            multiplier:1 constant:leadingSpacing]];
+            multiplier:1 constant:0]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing
-            multiplier:1 constant:-trailingSpacing]];
+            multiplier:1 constant:0]];
     }
 
     return constraints;

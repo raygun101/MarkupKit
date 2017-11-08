@@ -53,11 +53,6 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to anchor view edges
-    CGFloat topSpacing = [self topSpacing];
-    CGFloat bottomSpacing = [self bottomSpacing];
-    CGFloat leadingSpacing = [self leadingSpacing];
-    CGFloat trailingSpacing = [self trailingSpacing];
-
     for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
@@ -69,13 +64,13 @@
             if (anchor & LMAnchorTop) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                    multiplier:1 constant:topSpacing]];
+                    multiplier:1 constant:0]];
             }
 
             if (anchor & LMAnchorBottom) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-                    multiplier:1 constant:-bottomSpacing]];
+                    multiplier:1 constant:0]];
             }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterY
@@ -100,13 +95,13 @@
             if (anchor & LMAnchorLeading) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
-                    multiplier:1 constant:leadingSpacing]];
+                    multiplier:1 constant:0]];
             }
 
             if (anchor & LMAnchorTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTrailing
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
-                    multiplier:1 constant:-trailingSpacing]];
+                    multiplier:1 constant:0]];
             }
         } else {
             [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeCenterX
