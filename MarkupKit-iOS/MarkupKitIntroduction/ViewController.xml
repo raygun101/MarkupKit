@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMColumnView layoutMargins="32">
+<LMColumnView layoutMargins="32" backgroundColor="white">
     <UIButton style="systemButton" title="Say Hello" onPrimaryActionTriggered="sayHello"/>
     <UILabel id="greetingLabel" font="headline" textAlignment="center"/>
     <LMSpacer/>
