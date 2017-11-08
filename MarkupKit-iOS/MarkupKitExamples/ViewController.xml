@@ -53,10 +53,4 @@ limitations under the License.
     <?case iOS?>
     <UITableViewCell textLabel.text="Animation" accessoryType="disclosureIndicator" value="animation"/>
     <?end?>
-
-    <?sectionBreak?>
-    <sectionHeader title="Additional"/>
-    <UITableViewCell textLabel.text="Size Classes" accessoryType="disclosureIndicator" value="sizeClassView"/>
-    <UITableViewCell textLabel.text="Colors and Fonts" accessoryType="disclosureIndicator" value="colorsAndFonts"/>
-    <UITableViewCell textLabel.text="Includes" accessoryType="disclosureIndicator" value="includes"/>
 </LMTableView>

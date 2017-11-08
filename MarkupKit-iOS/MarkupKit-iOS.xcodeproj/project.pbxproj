@@ -20,8 +20,6 @@
 		373BFAF21DFB003800BB7509 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A91DF1B9DA0064CC82 /* GridViewController.swift */; };
 		373BFAF31DFB003800BB7509 /* AnchorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */; };
 		373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */; };
-		373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */; };
-		373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */; };
 		373BFAF91DFB003800BB7509 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9A51DF1B9D10064CC82 /* ScrollViewController.swift */; };
 		373BFAFA1DFB003800BB7509 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9BD1DF1BA100064CC82 /* PageViewController.swift */; };
 		373BFAFB1DFB003800BB7509 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9911DF1B98F0064CC82 /* CustomCellViewController.swift */; };
@@ -30,7 +28,6 @@
 		373BFAFE1DFB003800BB7509 /* CustomComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B11DF1B9F10064CC82 /* CustomComponentViewController.swift */; };
 		373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */; };
 		373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9B91DF1BA070064CC82 /* RadialGradientViewController.swift */; };
-		373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */; };
 		373BFB051DFB003800BB7509 /* PeriodicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DB1DF1BA920064CC82 /* PeriodicTableViewController.swift */; };
 		373BFB061DFB003800BB7509 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9DF1DF1BA9C0064CC82 /* CollectionViewController.swift */; };
 		373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */; };
@@ -43,14 +40,6 @@
 		373BFB0E1DFB007B00BB7509 /* GridViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9AA1DF1B9DA0064CC82 /* GridViewController.xml */; };
 		373BFB0F1DFB007B00BB7509 /* AnchorViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */; };
 		373BFB101DFB007B00BB7509 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */; };
-		373BFB111DFB007B00BB7509 /* ColorsAndFontsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */; };
-		373BFB121DFB007B00BB7509 /* ColorsAndFonts.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */; };
-		373BFB131DFB007B00BB7509 /* ColorsAndFonts~vertical.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */; };
-		373BFB141DFB007B00BB7509 /* IncludesViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */; };
-		373BFB151DFB007B00BB7509 /* ColumnView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */; };
-		373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */; };
-		373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */; };
-		373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */; };
 		373BFB1A1DFB007B00BB7509 /* ScrollViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9A61DF1B9D10064CC82 /* ScrollViewController.xml */; };
 		373BFB1B1DFB007B00BB7509 /* PageViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9BE1DF1BA100064CC82 /* PageViewController.xml */; };
 		373BFB1C1DFB007B00BB7509 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9941DF1B9990064CC82 /* PharmacyCell.xml */; };
@@ -58,9 +47,6 @@
 		373BFB1E1DFB007B00BB7509 /* CustomComponentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9B21DF1B9F10064CC82 /* CustomComponentViewController.xml */; };
 		373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9B61DF1B9FD0064CC82 /* LinearGradientViewController.xml */; };
 		373BFB201DFB007B00BB7509 /* RadialGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */; };
-		373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */; };
-		373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */; };
-		373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */; };
 		373BFB271DFB007B00BB7509 /* PeriodicTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9DC1DF1BA920064CC82 /* PeriodicTableViewController.xml */; };
 		373BFB281DFB007B00BB7509 /* CollectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */; };
 		373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */; };
@@ -378,10 +364,6 @@
 		3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = RadialGradientViewController.xml; sourceTree = "<group>"; };
 		3771E9BD1DF1BA100064CC82 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3771E9BE1DF1BA100064CC82 /* PageViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PageViewController.xml; sourceTree = "<group>"; };
-		3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizeClassViewController.swift; sourceTree = "<group>"; };
-		3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SizeClassViewController.xml; sourceTree = "<group>"; };
-		3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~horizontal.xml"; sourceTree = "<group>"; };
-		3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "SizeClassViewController~vertical.xml"; sourceTree = "<group>"; };
 		3771E9D41DF1BA570064CC82 /* sample.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sample.txt; sourceTree = "<group>"; };
 		3771E9D71DF1BA690064CC82 /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Colors.plist; sourceTree = "<group>"; };
 		3771E9D91DF1BA720064CC82 /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Fonts.plist; sourceTree = "<group>"; };
@@ -397,16 +379,6 @@
 		3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WebViewController.xml; sourceTree = "<group>"; };
 		3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3771E9F01DF1BAC20064CC82 /* MapViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = MapViewController.xml; sourceTree = "<group>"; };
-		3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncludesViewController.swift; sourceTree = "<group>"; };
-		3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = IncludesViewController.xml; sourceTree = "<group>"; };
-		3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = FirstRowView.xml; sourceTree = "<group>"; };
-		3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = SecondRowView.xml; sourceTree = "<group>"; };
-		3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ThirdRowView.xml; sourceTree = "<group>"; };
-		3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColumnView.xml; sourceTree = "<group>"; };
-		3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ColorsAndFonts.json; sourceTree = "<group>"; };
-		3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorsAndFontsViewController.swift; sourceTree = "<group>"; };
-		3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorsAndFontsViewController.xml; sourceTree = "<group>"; };
-		3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ColorsAndFonts~vertical.json"; sourceTree = "<group>"; };
 		3771EA071DF1BB1D0064CC82 /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnchorViewController.swift; sourceTree = "<group>"; };
 		3771EA081DF1BB1D0064CC82 /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = AnchorViewController.xml; sourceTree = "<group>"; };
 		3771EA761DF1C1D70064CC82 /* MarkupKitTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -664,20 +636,6 @@
 				3771E9BA1DF1BA070064CC82 /* RadialGradientViewController.xml */,
 				378EFBC21F2A91C800F09CF7 /* AnimationViewController.swift */,
 				378EFBC31F2A91C800F09CF7 /* AnimationViewController.xml */,
-				3771E9C11DF1BA200064CC82 /* SizeClassViewController.swift */,
-				3771E9C21DF1BA200064CC82 /* SizeClassViewController.xml */,
-				3771E9C31DF1BA200064CC82 /* SizeClassViewController~horizontal.xml */,
-				3771E9C41DF1BA200064CC82 /* SizeClassViewController~vertical.xml */,
-				3771EA001DF1BB090064CC82 /* ColorsAndFontsViewController.swift */,
-				3771EA011DF1BB090064CC82 /* ColorsAndFontsViewController.xml */,
-				3771E9FF1DF1BB090064CC82 /* ColorsAndFonts.json */,
-				3771EA021DF1BB090064CC82 /* ColorsAndFonts~vertical.json */,
-				3771E9F31DF1BACC0064CC82 /* IncludesViewController.swift */,
-				3771E9F41DF1BACC0064CC82 /* IncludesViewController.xml */,
-				3771E9FD1DF1BAFE0064CC82 /* ColumnView.xml */,
-				3771E9F71DF1BAD70064CC82 /* FirstRowView.xml */,
-				3771E9F91DF1BADE0064CC82 /* SecondRowView.xml */,
-				3771E9FB1DF1BAE70064CC82 /* ThirdRowView.xml */,
 				3771E9D41DF1BA570064CC82 /* sample.txt */,
 				3715C2AD1F5039AE007D39C4 /* orchard.jpg */,
 				3715C2AF1F5039AF007D39C4 /* quebec.jpg */,
@@ -1156,17 +1114,6 @@
 				373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */,
 				373BFB201DFB007B00BB7509 /* RadialGradientViewController.xml in Resources */,
 				378EFBC51F2A91C800F09CF7 /* AnimationViewController.xml in Resources */,
-				373BFB211DFB007B00BB7509 /* SizeClassViewController.xml in Resources */,
-				373BFB221DFB007B00BB7509 /* SizeClassViewController~horizontal.xml in Resources */,
-				373BFB231DFB007B00BB7509 /* SizeClassViewController~vertical.xml in Resources */,
-				373BFB111DFB007B00BB7509 /* ColorsAndFontsViewController.xml in Resources */,
-				373BFB121DFB007B00BB7509 /* ColorsAndFonts.json in Resources */,
-				373BFB131DFB007B00BB7509 /* ColorsAndFonts~vertical.json in Resources */,
-				373BFB141DFB007B00BB7509 /* IncludesViewController.xml in Resources */,
-				373BFB151DFB007B00BB7509 /* ColumnView.xml in Resources */,
-				373BFB161DFB007B00BB7509 /* FirstRowView.xml in Resources */,
-				373BFB171DFB007B00BB7509 /* SecondRowView.xml in Resources */,
-				373BFB181DFB007B00BB7509 /* ThirdRowView.xml in Resources */,
 				373BFB311DFB007B00BB7509 /* sample.txt in Resources */,
 				3715C2B01F503A60007D39C4 /* orchard.jpg in Resources */,
 				3715C2B11F503A60007D39C4 /* quebec.jpg in Resources */,
@@ -1274,9 +1221,6 @@
 				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
 				373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */,
 				378EFBC41F2A91C800F09CF7 /* AnimationViewController.swift in Sources */,
-				373BFB011DFB003800BB7509 /* SizeClassViewController.swift in Sources */,
-				373BFAF51DFB003800BB7509 /* ColorsAndFontsViewController.swift in Sources */,
-				373BFAF61DFB003800BB7509 /* IncludesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

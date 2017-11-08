@@ -88,12 +88,6 @@ class ViewController: UITableViewController {
             #if os(iOS)
             navigationController!.pushViewController(AnimationViewController(), animated: true)
             #endif
-        } else if (value == "sizeClassView") {
-            navigationController!.pushViewController(SizeClassViewController(), animated: true)
-        } else if (value == "colorsAndFonts") {
-            navigationController!.pushViewController(ColorsAndFontsViewController(), animated: true)
-        } else if (value == "includes") {
-            navigationController!.pushViewController(IncludesViewController(), animated: true)
         } else {
             tableView.deselectRow(at: indexPath, animated: true)
         }
