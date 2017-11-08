@@ -17,13 +17,6 @@
 #import "UIView+Markup.h"
 #import "UIResponder+Markup.h"
 
-static NSString * const kSizeClassFormat = @"%@~%@";
-
-static NSString * const kNormalSizeClass = @"normal";
-static NSString * const kHorizontalSizeClass = @"horizontal";
-static NSString * const kVerticalSizeClass = @"vertical";
-static NSString * const kMinimalSizeClass = @"minimal";
-
 static NSString * const kCaseTarget = @"case";
 static NSString * const kEndTarget = @"end";
 static NSString * const kPropertiesTarget = @"properties";
@@ -84,7 +77,7 @@ static NSMutableDictionary *templateCache;
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
 {
-    NSURL *url = nil;
+    UIView *view = nil;
 
     NSBundle *bundle = [owner bundleForView];
 
@@ -92,50 +85,7 @@ static NSMutableDictionary *templateCache;
         bundle = [NSBundle mainBundle];
     }
 
-    NSString *sizeClass;
-    if ([owner conformsToProtocol:@protocol(UITraitEnvironment)]) {
-        sizeClass = [LMViewBuilder sizeClassForTraitCollection:[owner traitCollection]];
-    } else {
-        sizeClass = nil;
-    }
-
-    if (sizeClass != nil) {
-        url = [bundle URLForResource:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass] withExtension:@"xml"];
-    }
-
-    if (url == nil) {
-        url = [bundle URLForResource:name withExtension:@"xml"];
-
-        if (url == nil) {
-            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
-
-            if ([baseURLs count] > 0) {
-                NSURL *baseURL = [baseURLs objectAtIndex:0];
-
-                if (sizeClass != nil) {
-                    NSString *fileName = [NSString stringWithFormat:@"%@.xml", [NSString stringWithFormat:kSizeClassFormat, name, sizeClass]];
-
-                    url = [baseURL URLByAppendingPathComponent:fileName isDirectory:YES];
-
-                    if (![url checkResourceIsReachableAndReturnError:nil]) {
-                        url = nil;
-                    }
-                }
-
-                if (url == nil) {
-                    NSString *fileName = [NSString stringWithFormat:@"%@.xml", name];
-
-                    url = [baseURL URLByAppendingPathComponent:fileName isDirectory:YES];
-
-                    if (![url checkResourceIsReachableAndReturnError:nil]) {
-                        url = nil;
-                    }
-                }
-            }
-        }
-    }
-
-    UIView *view = nil;
+    NSURL *url = [bundle URLForResource:name withExtension:@"xml"];
 
     if (url != nil) {
         LMViewBuilder *viewBuilder = [[LMViewBuilder alloc] initWithOwner:owner root:root];
@@ -149,27 +99,6 @@ static NSMutableDictionary *templateCache;
     }
 
     return view;
-}
-
-+ (NSString *)sizeClassForTraitCollection:(UITraitCollection *)traitCollection
-{
-    UIUserInterfaceSizeClass horizontalSizeClass = [traitCollection horizontalSizeClass];
-    UIUserInterfaceSizeClass verticalSizeClass = [traitCollection verticalSizeClass];
-
-    NSString *sizeClass;
-    if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
-        sizeClass = kNormalSizeClass;
-    } else if (horizontalSizeClass == UIUserInterfaceSizeClassRegular && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-        sizeClass = kHorizontalSizeClass;
-    } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassRegular) {
-        sizeClass = kVerticalSizeClass;
-    } else if (horizontalSizeClass == UIUserInterfaceSizeClassCompact && verticalSizeClass == UIUserInterfaceSizeClassCompact) {
-        sizeClass = kMinimalSizeClass;
-    } else {
-        sizeClass = nil;
-    }
-
-    return sizeClass;
 }
 
 + (UIColor *)colorValue:(NSString *)value
@@ -217,7 +146,7 @@ static NSMutableDictionary *templateCache;
 + (UIFont *)fontValue:(NSString *)value
 {
     UIFont *font = nil;
-    
+
     if ([value isEqual:@"title1"]) {
         font = [UIFont preferredFontForTextStyle:UIFontTextStyleTitle1];
     } else if ([value isEqual:@"title2"]) {
@@ -265,12 +194,6 @@ static NSMutableDictionary *templateCache;
     NSMutableDictionary *templates = [NSMutableDictionary new];
 
     [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:name] into:templates];
-
-    NSString *sizeClass = [LMViewBuilder sizeClassForTraitCollection:traitCollection];
-
-    if (sizeClass != nil) {
-        [LMViewBuilder mergeDictionary:[LMViewBuilder templatesWithName:[NSString stringWithFormat:kSizeClassFormat, name, sizeClass]] into:templates];
-    }
 
     return templates;
 }
@@ -539,20 +462,7 @@ static NSMutableDictionary *templateCache;
             traitCollection = nil;
         }
 
-        NSString *name = [value description];
-
-        value = [UIImage imageNamed:name inBundle:bundle compatibleWithTraitCollection:traitCollection];
-
-        if (value == nil) {
-            NSArray *baseURLs = [[NSFileManager defaultManager] URLsForDirectory:NSApplicationSupportDirectory inDomains:NSUserDomainMask];
-
-            if ([baseURLs count] > 0) {
-                NSURL *baseURL = [baseURLs objectAtIndex:0];
-                NSURL *url = [baseURL URLByAppendingPathComponent:name isDirectory:YES];
-
-                value = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-            }
-        }
+        value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:traitCollection];
     }
 
     return value;
