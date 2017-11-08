@@ -408,31 +408,6 @@ Note that the `sender` argument is optional; if the trailing colon is omitted fr
         // User tapped button
     }
 
-## Includes
-Includes allow content defined in another markup document to be "included" or "imported" into the current document. They enable the structure of a user interface to be modularized; for example, to break up a complex document into smaller, more manageable pieces.
-
-Includes are specified using the `include` processing instruction. The PI's data value represents the name of the document to include. For example, the following processing instruction would import a document named _FirstRow.xml_ into the current document:
-
-    <LMColumnView>
-        <?include FirstRow?>
-        ...
-    </LMColumnView>
-
-The content of the included document is handled the same as if it had been defined inline within the parent document. The include's root view is appended to the view instance containing the PI, and all outlets and actions defined by the include are assigned to the parent's owner. Property templates defined by the parent document are visible to includes, but templates defined by an include are only visible to the include itself (as well as to any nested includes).
-
-Includes are often used to create size class-specific layouts. The common elements of a user interface are defined in a parent document, while elements that are specific to a particular form factor or orientation are delegated to one or more includes.
-
-For example, given the following markup, a document named _SecondRow~horizontal.xml_ would be loaded on a device that is currently presenting a regular width and compact height:
-
-    <LMColumnView>
-        ...
-        <?include SecondRow?>
-    </LMColumnView>
-
-However, if the device was presenting a compact width and regular height, the document named _SecondRow~vertical.xml_ would be loaded instead.
-
-Size class-specific layouts are discussed in more detail later.
-
 ## Conditional Processing
 In most cases, a markup document created for an iOS application can be used as is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on the target platform. Content following the PI will only be processed if the current operating system matches the target. For example:
 
@@ -445,7 +420,7 @@ In most cases, a markup document created for an iOS application can be used as i
 The optional `end` PI terminates a case. If unspecified, OS-specific processing will continue until the end of the document is reached.
 
 ## View-Specific Processing Instructions
-In addition to the document-wide `properties` and `include` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
+In addition to the document-wide `properties` and `case` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer declarations and section breaks:
 
