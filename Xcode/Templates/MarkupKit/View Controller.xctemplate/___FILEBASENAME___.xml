@@ -8,8 +8,8 @@
   ___COPYRIGHT___
 -->
 
-<LMLayerView layoutMarginsRelativeArrangement="false" backgroundColor="white">
+<LMRootView backgroundColor="white">
     <!-- 
     TODO: Declare view content 
     -->
-</LMLayerView>
+</LMRootView>
