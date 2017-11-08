@@ -44,7 +44,6 @@ static NSMutableDictionary *templateCache;
     UIView *_root;
 
     NSMutableDictionary *_templates;
-
     NSMutableArray *_views;
 
     NSString *_target;
@@ -227,11 +226,6 @@ static NSMutableDictionary *templateCache;
     }
 }
 
-- (instancetype)init
-{
-    return nil;
-}
-
 - (instancetype)initWithOwner:(id)owner root:(UIView *)root
 {
     self = [super init];
@@ -241,7 +235,6 @@ static NSMutableDictionary *templateCache;
         _root = root;
 
         _templates = [NSMutableDictionary new];
-
         _views = [NSMutableArray new];
 
         _target = nil;
@@ -253,11 +246,6 @@ static NSMutableDictionary *templateCache;
 - (UIView *)root
 {
     return _root;
-}
-
-- (NSDictionary *)templates
-{
-    return _templates;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName
@@ -543,4 +531,3 @@ static NSMutableDictionary *templateCache;
 }
 
 @end
-
