@@ -29,29 +29,25 @@
     return YES;
 }
 
-#define INIT {\
-    _pages = [NSMutableArray new];\
-    [self setPagingEnabled:YES];\
-    [self setShowsHorizontalScrollIndicator:NO];\
-    [self setShowsVerticalScrollIndicator:NO];\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
 
-    if (self) INIT
+    if (self) {
+        _pages = [NSMutableArray new];
+
+        [self setPagingEnabled:YES];
+
+        [self setShowsHorizontalScrollIndicator:NO];
+        [self setShowsVerticalScrollIndicator:NO];
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (NSArray *)pages

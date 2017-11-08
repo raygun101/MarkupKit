@@ -45,29 +45,25 @@ static NSString * const kRowValueKey = @"value";
     NSMutableArray *_components;
 }
 
-#define INIT {\
-    _components = [NSMutableArray new];\
-    [self setDataSource:self];\
-    [self setDelegate:self];\
-    [self insertComponent:0];\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
 
-    if (self) INIT
+    if (self) {
+        _components = [NSMutableArray new];
+
+        [self setDataSource:self];
+        [self setDelegate:self];
+        
+        [self insertComponent:0];
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (void)insertComponent:(NSInteger)component

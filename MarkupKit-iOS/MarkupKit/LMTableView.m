@@ -79,38 +79,37 @@ typedef enum {
 
 #define ESTIMATED_HEIGHT 2
 
-#define INIT {\
-    _sections = [NSMutableArray new];\
-    [self setDataSource:self];\
-    [self setDelegate:self];\
-    if ([self estimatedRowHeight] != UITableViewAutomaticDimension) {\
-        [self setEstimatedRowHeight:ESTIMATED_HEIGHT];\
-    }\
-    if ([self estimatedSectionHeaderHeight] != UITableViewAutomaticDimension) {\
-        [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];\
-    }\
-    if ([self estimatedSectionFooterHeight] != UITableViewAutomaticDimension) {\
-        [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];\
-    }\
-    [self insertSection:0];\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style
 {
     self = [super initWithFrame:frame style:style];
 
-    if (self) INIT
+    if (self) {
+        _sections = [NSMutableArray new];
+
+        [self setDataSource:self];
+        [self setDelegate:self];
+
+        if ([self estimatedRowHeight] != UITableViewAutomaticDimension) {
+            [self setEstimatedRowHeight:ESTIMATED_HEIGHT];
+        }
+
+        if ([self estimatedSectionHeaderHeight] != UITableViewAutomaticDimension) {
+            [self setEstimatedSectionHeaderHeight:ESTIMATED_HEIGHT];
+        }
+
+        if ([self estimatedSectionFooterHeight] != UITableViewAutomaticDimension) {
+            [self setEstimatedSectionFooterHeight:ESTIMATED_HEIGHT];
+        }
+
+        [self insertSection:0];
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (void)insertSection:(NSInteger)section

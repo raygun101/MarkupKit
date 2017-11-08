@@ -37,30 +37,24 @@ static NSDictionary *verticalAlignmentValues;
     };
 }
 
-#define INIT {\
-    if (@available(iOS 11, tvOS 11, *)) {\
-        _spacing = NAN;\
-    } else {\
-        _spacing = 8;\
-    }\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
 
-    if (self) INIT
+    if (self) {
+        if (@available(iOS 11, tvOS 11, *)) {
+            _spacing = NAN;
+        } else {
+            _spacing = 8;
+        }
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (void)setHorizontalAlignment:(LMHorizontalAlignment)horizontalAlignment

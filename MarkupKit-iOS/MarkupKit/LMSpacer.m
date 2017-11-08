@@ -17,26 +17,20 @@
 
 @implementation LMSpacer
 
-#define INIT {\
-    [self setWeight:1];\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
 
-    if (self) INIT
+    if (self) {
+        [self setWeight:1];
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event

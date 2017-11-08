@@ -27,26 +27,20 @@ NSString * const kHiddenKey = @"hidden";
     return YES;
 }
 
-#define INIT {\
-    [self setLayoutMargins:UIEdgeInsetsZero];\
-}
-
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
 
-    if (self) INIT
+    if (self) {
+        [self setLayoutMargins:UIEdgeInsetsZero];
+    }
 
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)decoder
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
 {
-    self = [super initWithCoder:decoder];
-
-    if (self) INIT
-
-    return self;
+    return nil;
 }
 
 - (void)didAddSubview:(UIView *)subview
