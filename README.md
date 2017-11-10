@@ -599,7 +599,7 @@ These classes use layout constraints internally, allowing developers to easily t
 Note that subviews whose `hidden` property is set to `true` are ignored when performing layout. Layout views listen for changes to this property on their subviews and automatically relayout as needed.
 
 ### Layout Margins
-A layout view's subviews are positioned relative to its layout margins, which are initialized to 0 by default. The following markup creates a row view whose subviews will be inset from its own edges by 12 pixels:
+A layout view's subviews are typically positioned relative to its layout margins, which are initialized to 0 by default. The following markup creates a row view whose subviews will be inset from its own edges by 12 pixels:
 
 ```xml
 <LMRowView layoutMargins="12">
