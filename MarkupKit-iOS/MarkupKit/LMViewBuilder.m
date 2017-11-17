@@ -352,15 +352,7 @@ static NSMutableDictionary *templateCache;
             bundle = [NSBundle mainBundle];
         }
 
-        @try {
-            view = [[bundle loadNibNamed:name owner:_owner options:nil] firstObject];
-        } @catch (NSException *exception) {
-            // No-op
-        }
-
-        if (view == nil) {
-            [NSException raise:NSGenericException format:@"Unable to load nib \"%@\".", name];
-        }
+        view = [[bundle loadNibNamed:name owner:nil options:nil] firstObject];
     } else {
         Class type = NSClassFromString(elementName);
 

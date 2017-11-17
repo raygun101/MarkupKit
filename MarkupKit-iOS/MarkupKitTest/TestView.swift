@@ -16,4 +16,8 @@ import UIKit
 
 class TestView: UIView {
     @IBOutlet var label: UILabel!
+
+    @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
+        NSLog("TestView button pressed.")
+    }
 }
