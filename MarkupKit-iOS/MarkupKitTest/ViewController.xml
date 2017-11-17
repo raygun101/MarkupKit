@@ -62,8 +62,6 @@ limitations under the License.
                     onPrimaryActionTriggered="handlePrimaryActionTriggered:"/>
             </LMRowView>
 
-            <nib name="TestView" label.text="TestView label" label.textColor="red" backgroundColor="orange"/>
-            
             <LMRowView>
                 <LMSpacer/>
                 <UISegmentedControl>

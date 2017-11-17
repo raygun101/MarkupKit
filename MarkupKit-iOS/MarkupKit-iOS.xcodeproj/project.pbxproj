@@ -13,8 +13,6 @@
 		3715C2B31F503A60007D39C4 /* waterfall.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AE1F5039AF007D39C4 /* waterfall.jpg */; };
 		3715C2B41F503A60007D39C4 /* daisies.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AB1F5039AE007D39C4 /* daisies.jpg */; };
 		371E236D1E042E1D00A29425 /* sample.mov in Resources */ = {isa = PBXBuildFile; fileRef = 371E236C1E042E1D00A29425 /* sample.mov */; };
-		373B63481FBF6661000FD54C /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373B63471FBF6661000FD54C /* TestView.swift */; };
-		373B634A1FBF666F000FD54C /* TestView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 373B63491FBF666F000FD54C /* TestView.xib */; };
 		373BFAEE1DFB003800BB7509 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97D1DF1B8E40064CC82 /* AppDelegate.swift */; };
 		373BFAEF1DFB003800BB7509 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E97F1DF1B8FC0064CC82 /* ViewController.swift */; };
 		373BFAF01DFB003800BB7509 /* RadioButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9831DF1B9460064CC82 /* RadioButtonViewController.swift */; };
@@ -316,8 +314,6 @@
 		3715C2AE1F5039AF007D39C4 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
 		3715C2AF1F5039AF007D39C4 /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
-		373B63471FBF6661000FD54C /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
-		373B63491FBF666F000FD54C /* TestView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestView.xib; sourceTree = "<group>"; };
 		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
 		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
 		37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Markup.h"; sourceTree = "<group>"; };
@@ -664,8 +660,6 @@
 				3771EA881DF1C2070064CC82 /* AppDelegate.swift */,
 				3771EA931DF1C2630064CC82 /* ViewController.swift */,
 				3771EA941DF1C2630064CC82 /* ViewController.xml */,
-				373B63471FBF6661000FD54C /* TestView.swift */,
-				373B63491FBF666F000FD54C /* TestView.xib */,
 				3771EA7C1DF1C1D70064CC82 /* Main.storyboard */,
 				3771EA971DF1C26B0064CC82 /* waterfall.jpg */,
 				3771EA991DF1C2720064CC82 /* Styles1.json */,
@@ -1148,7 +1142,6 @@
 				3771EA801DF1C1D70064CC82 /* Assets.xcassets in Resources */,
 				3771EA831DF1C1D70064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771EA8C1DF1C20F0064CC82 /* Colors.plist in Resources */,
-				373B634A1FBF666F000FD54C /* TestView.xib in Resources */,
 				3771EA901DF1C2440064CC82 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1235,7 +1228,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				373B63481FBF6661000FD54C /* TestView.swift in Sources */,
 				3771EA891DF1C2070064CC82 /* AppDelegate.swift in Sources */,
 				3771EA951DF1C2630064CC82 /* ViewController.swift in Sources */,
 			);

@@ -22,9 +22,7 @@ static NSString * const kEndTarget = @"end";
 static NSString * const kPropertiesTarget = @"properties";
 
 static NSString * const kRootTag = @"root";
-static NSString * const kNibTag = @"nib";
 
-static NSString * const kNameKey = @"name";
 static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
@@ -277,9 +275,7 @@ static NSMutableDictionary *templateCache;
     for (NSString *key in attributes) {
         NSString *value = [attributes objectForKey:key];
 
-        if ([key isEqual:kNameKey]) {
-            name = value;
-        } else if ([key isEqual:kFactoryKey]) {
+        if ([key isEqual:kFactoryKey]) {
             factory = value;
         } else if ([key isEqual:kTemplateKey]) {
             template = value;
@@ -341,18 +337,6 @@ static NSMutableDictionary *templateCache;
         }
 
         view = _root;
-    } else if ([elementName isEqual:kNibTag]) {
-        if (name == nil) {
-            [NSException raise:NSGenericException format:@"Nib name is required."];
-        }
-
-        NSBundle *bundle = [_owner bundleForNibs];
-
-        if (bundle == nil) {
-            bundle = [NSBundle mainBundle];
-        }
-
-        view = [[bundle loadNibNamed:name owner:nil options:nil] firstObject];
     } else {
         Class type = NSClassFromString(elementName);
 

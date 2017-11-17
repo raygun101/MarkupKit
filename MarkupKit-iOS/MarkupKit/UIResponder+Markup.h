@@ -24,11 +24,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSBundle *)bundleForView;
 
 /**
- * Returns the bundle that will be used to load nib files.
- */
-- (NSBundle *)bundleForNibs;
-
-/**
  * Returns the bundle that will be used to load images.
  */
 - (NSBundle *)bundleForImages;
