@@ -22,7 +22,9 @@ static NSString * const kEndTarget = @"end";
 static NSString * const kPropertiesTarget = @"properties";
 
 static NSString * const kRootTag = @"root";
+static NSString * const kNibTag = @"nib";
 
+static NSString * const kNameKey = @"name";
 static NSString * const kFactoryKey = @"style";
 static NSString * const kTemplateKey = @"class";
 static NSString * const kOutletKey = @"id";
@@ -264,6 +266,7 @@ static NSMutableDictionary *templateCache;
 
     NSString *table = [_owner tableForStrings];
 
+    NSString *name = nil;
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
@@ -274,7 +277,9 @@ static NSMutableDictionary *templateCache;
     for (NSString *key in attributes) {
         NSString *value = [attributes objectForKey:key];
 
-        if ([key isEqual:kFactoryKey]) {
+        if ([key isEqual:kNameKey]) {
+            name = value;
+        } else if ([key isEqual:kFactoryKey]) {
             factory = value;
         } else if ([key isEqual:kTemplateKey]) {
             template = value;
@@ -328,43 +333,38 @@ static NSMutableDictionary *templateCache;
     }
 
     // Determine element type
-    Class type;
-    if ([_views count] == 0 && [elementName isEqual:kRootTag]) {
+    UIView *view = nil;
+
+    if ([elementName isEqual:kRootTag]) {
         if (_root == nil) {
             [NSException raise:NSGenericException format:@"Root view is not defined."];
         }
 
-        type = [_root class];
-    } else {
-        type = NSClassFromString(elementName);
-    }
-
-    if (type == nil) {
-        // Notify view
-        if ([_views count] > 0) {
-            id view = [_views lastObject];
-
-            if ([view isKindOfClass:[UIView self]]) {
-                // Apply bindings
-                for (NSString *key in bindings) {
-                    [properties setObject:[_owner valueForKeyPath:[bindings objectForKey:key]] forKey:key];
-                }
-
-                [view processMarkupElement:elementName properties:properties];
-            }
+        view = _root;
+    } else if ([elementName isEqual:kNibTag]) {
+        if (name == nil) {
+            [NSException raise:NSGenericException format:@"Nib name is required."];
         }
 
-        [_views addObject:[NSNull null]];
-    } else {
-        // Create view
-        UIView *view;
-        if ([_views count] == 0 && _root != nil) {
-            view = _root;
-        } else {
-            if (![type isSubclassOfClass:[UIView self]]) {
-                [NSException raise:NSGenericException format:@"<%@> is not a valid element type.", elementName];
-            }
+        NSBundle *bundle = [_owner bundleForNibs];
 
+        if (bundle == nil) {
+            bundle = [NSBundle mainBundle];
+        }
+
+        @try {
+            view = [[bundle loadNibNamed:name owner:_owner options:nil] firstObject];
+        } @catch (NSException *exception) {
+            // No-op
+        }
+
+        if (view == nil) {
+            [NSException raise:NSGenericException format:@"Unable to load nib \"%@\".", name];
+        }
+    } else {
+        Class type = NSClassFromString(elementName);
+
+        if ([type isSubclassOfClass:[UIView self]]) {
             if (factory != nil) {
                 SEL selector = NSSelectorFromString(factory);
                 IMP method = [type methodForSelector:selector];
@@ -379,7 +379,9 @@ static NSMutableDictionary *templateCache;
                 [NSException raise:NSGenericException format:@"Unable to instantiate element <%@>.", elementName];
             }
         }
+    }
 
+    if (view != nil) {
         // Apply template properties
         if (template != nil) {
             NSArray *components = [template componentsSeparatedByString:@","];
@@ -417,6 +419,24 @@ static NSMutableDictionary *templateCache;
 
         // Push onto view stack
         [_views addObject:view];
+    } else {
+        // Process untyped element
+        if ([_views count] > 0) {
+            id superview = [_views lastObject];
+
+            if ([superview isKindOfClass:[UIView self]]) {
+                // Apply bindings
+                for (NSString *key in bindings) {
+                    [properties setObject:[_owner valueForKeyPath:[bindings objectForKey:key]] forKey:key];
+                }
+
+                // Notify superview
+                [superview processMarkupElement:elementName properties:properties];
+            }
+        }
+
+        // Push null view
+        [_views addObject:[NSNull null]];
     }
 }
 
@@ -451,18 +471,16 @@ static NSMutableDictionary *templateCache;
 
     [_views removeLastObject];
 
-    if ([_views count] > 0) {
-        // Add to superview
-        if ([view isKindOfClass:[UIView self]]) {
+    if ([view isKindOfClass:[UIView self]]) {
+        if ([_views count] > 0) {
+            // Add to superview
             id superview = [_views lastObject];
-            
+
             if ([superview isKindOfClass:[UIView self]]) {
                 [superview appendMarkupElementView:view];
             }
-        }
-    } else {
-        // Set root view
-        if ([view isKindOfClass:[UIView self]]) {
+        } else {
+            // Set root view
             _root = view;
         }
     }

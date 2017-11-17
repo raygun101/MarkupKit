@@ -35,6 +35,10 @@
     return [NSBundle bundleForClass:[self class]];
 }
 
+- (NSBundle *)bundleForNibs {
+    return [NSBundle mainBundle];
+}
+
 - (NSBundle *)bundleForImages
 {
     return [NSBundle mainBundle];
