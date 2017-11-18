@@ -264,7 +264,6 @@ static NSMutableDictionary *templateCache;
 
     NSString *table = [_owner tableForStrings];
 
-    NSString *name = nil;
     NSString *factory = nil;
     NSString *template = nil;
     NSString *outlet = nil;
