@@ -638,7 +638,7 @@ static NSDictionary *anchorValues;
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    [NSException raise:NSGenericException format:@"Unexpected element view in <%@> (\"%@\").",
+    [NSException raise:NSGenericException format:@"Unexpected element view in <%@> (<%@>).",
         NSStringFromClass([self class]), NSStringFromClass([view class])];
 }
 
