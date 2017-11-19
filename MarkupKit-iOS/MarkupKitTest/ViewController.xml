@@ -44,11 +44,6 @@ limitations under the License.
                 <UILabel text="@missing.key" textAlignment="left" font="System 18"/>
             </LMRowView>
 
-            <foo>
-                <bar/>
-                <UILabel text="I'm not here"/>
-            </foo>
-
             <?case macOS?>
             <NSTextField id="textField"/>
             <?end?>

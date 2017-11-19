@@ -626,17 +626,20 @@ static NSDictionary *anchorValues;
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
-    // No-op
+    [NSException raise:NSGenericException format:@"Unexpected instruction in <%@> (\"%@\").",
+        NSStringFromClass([self class]), target];
 }
 
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
-    // No-op
+    [NSException raise:NSGenericException format:@"Unexpected element in <%@> (\"%@\").",
+        NSStringFromClass([self class]), tag];
 }
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    // No-op
+    [NSException raise:NSGenericException format:@"Unexpected element view in <%@> (\"%@\").",
+        NSStringFromClass([self class]), NSStringFromClass([view class])];
 }
 
 @end
