@@ -15,7 +15,7 @@
     },
 
     "greetingLabel": {
-        "font": "title",
+        "font": "headline",
         "textColor": "#00ffff"
     }
 }

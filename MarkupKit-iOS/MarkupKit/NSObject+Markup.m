@@ -19,7 +19,7 @@
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if (value == nil || value == [NSNull null]) {
-        return;
+        [NSException raise:NSInvalidArgumentException format:@"Invalid markup property value for key \"%@\" of %@.", key, NSStringFromClass([self class])];
     }
 
     [self setValue:value forKey:key];

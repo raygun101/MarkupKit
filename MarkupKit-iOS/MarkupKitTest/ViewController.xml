@@ -92,7 +92,7 @@ limitations under the License.
 
             <LMRowView layoutMargins="12" backgroundColor="#ffff00">
                 <LMSpacer/>
-                <UILabel text="abcd" font="Helvetica 16" textAlignment="abcde" backgroundColor="#00ffff"/>
+                <UILabel text="abcd" font="Helvetica 16" textAlignment="center" backgroundColor="#00ffff"/>
                 <UILabel width="45" text="efg hijk lmnop" font="Helvetica 16" numberOfLines="0" backgroundColor="#00ffff"/>
                 <LMSpacer/>
             </LMRowView>
