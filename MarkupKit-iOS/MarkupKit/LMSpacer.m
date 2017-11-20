@@ -33,6 +33,11 @@
     return nil;
 }
 
+- (CGSize)intrinsicContentSize
+{
+    return CGSizeZero;
+}
+
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
     return ([self backgroundColor] == nil) ? nil : [super hitTest:point withEvent:event];
