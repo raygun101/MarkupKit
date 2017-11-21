@@ -16,7 +16,7 @@ limitations under the License.
 
 <LMTableView estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
     <?backgroundView?>
-    <UIActivityIndicatorView id="activityIndicatorView" activityIndicatorViewStyle="gray"/>
+    <UIActivityIndicatorView id="activityIndicatorView"/>
 
     <LMTableViewCell>
         <LMPlayerView id="playerView" maximumHeight="480"/>

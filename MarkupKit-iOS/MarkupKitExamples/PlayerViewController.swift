@@ -24,11 +24,12 @@ class PlayerViewController: LMTableViewController, LMPlayerViewDelegate {
     override func loadView() {
         view = LMViewBuilder.view(withName: "PlayerViewController", owner: self, root: nil)
 
-        tableView.dataSource = self
-        
         #if os(iOS)
         tableView.separatorStyle = .none
+        activityIndicatorView.activityIndicatorViewStyle = .gray
         #endif
+
+        tableView.dataSource = self
     }
 
     override func viewDidLoad() {
