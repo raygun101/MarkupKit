@@ -52,11 +52,6 @@ static NSDictionary *verticalAlignmentValues;
     return self;
 }
 
-- (id)awakeAfterUsingCoder:(NSCoder *)decoder
-{
-    return nil;
-}
-
 - (void)setHorizontalAlignment:(LMHorizontalAlignment)horizontalAlignment
 {
     _horizontalAlignment = horizontalAlignment;

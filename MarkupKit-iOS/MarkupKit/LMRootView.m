@@ -16,6 +16,11 @@
 
 @implementation LMRootView
 
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
+{
+    return self;
+}
+
 - (void)setTopSpacing:(CGFloat)topSpacing
 {
     _topSpacing = topSpacing;

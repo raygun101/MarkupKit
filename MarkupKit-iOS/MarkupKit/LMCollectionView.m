@@ -43,6 +43,11 @@ typedef enum {
     return self;
 }
 
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
+{
+    return nil;
+}
+
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
     if ([target isEqual:kBackgroundViewTarget]) {

@@ -41,6 +41,11 @@ static NSString * const kReadyForDisplayProperty = @"readyForDisplay";
     return self;
 }
 
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
+{
+    return nil;
+}
+
 - (void)dealloc
 {
     [[self layer] removeObserver:self forKeyPath:kReadyForDisplayProperty];

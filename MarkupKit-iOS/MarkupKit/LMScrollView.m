@@ -24,6 +24,11 @@
     return YES;
 }
 
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
+{
+    return nil;
+}
+
 - (void)setContentView:(UIView *)contentView
 {
     _contentView = contentView;

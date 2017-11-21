@@ -32,6 +32,11 @@
     return self;
 }
 
+- (id)awakeAfterUsingCoder:(NSCoder *)decoder
+{
+    return nil;
+}
+
 - (void)dealloc
 {
     CGGradientRelease(_gradient);
