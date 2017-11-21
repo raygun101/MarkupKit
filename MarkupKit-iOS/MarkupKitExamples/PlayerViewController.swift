@@ -25,6 +25,10 @@ class PlayerViewController: LMTableViewController, LMPlayerViewDelegate {
         view = LMViewBuilder.view(withName: "PlayerViewController", owner: self, root: nil)
 
         tableView.dataSource = self
+        
+        #if os(iOS)
+        tableView.separatorStyle = .none
+        #endif
     }
 
     override func viewDidLoad() {

@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<LMTableView estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0" separatorStyle="none">
+<LMTableView estimatedSectionHeaderHeight="0" estimatedSectionFooterHeight="0">
     <?backgroundView?>
     <UIActivityIndicatorView id="activityIndicatorView" activityIndicatorViewStyle="gray"/>
 
