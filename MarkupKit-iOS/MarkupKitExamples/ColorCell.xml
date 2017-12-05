@@ -34,7 +34,7 @@ limitations under the License.
 }?>
 <?end?>
 
-<root layoutMargins="8">
+<root>
     <?selectedBackgroundView?>
     <UIView backgroundColor="#eeeeee" layer.cornerRadius="8"/>
 

@@ -15,6 +15,7 @@
 #import "LMTableViewHeaderFooterView.h"
 #import "UIView+Markup.h"
 
+static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
 static NSString * const kBackgroundViewTarget = @"backgroundView";
 
 typedef enum {
@@ -24,12 +25,16 @@ typedef enum {
 
 @implementation LMTableViewHeaderFooterView
 {
+    BOOL _ignoreLayoutMargins;
+    
     __ElementDisposition _elementDisposition;
 }
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
-    if ([target isEqual:kBackgroundViewTarget]) {
+    if ([target isEqual:kIgnoreLayoutMarginsTarget]) {
+        _ignoreLayoutMargins = YES;
+    } else if ([target isEqual:kBackgroundViewTarget]) {
         _elementDisposition = kElementBackgroundView;
     } else {
         _elementDisposition = INT_MAX;
@@ -55,20 +60,33 @@ typedef enum {
             [contentView addSubview:view];
 
             // Pin content to view edges
+            NSLayoutAttribute topAttribute, bottomAttribute, leftAttribute, rightAttribute;
+            if (_ignoreLayoutMargins) {
+                topAttribute = NSLayoutAttributeTop;
+                bottomAttribute = NSLayoutAttributeBottom;
+                leftAttribute = NSLayoutAttributeLeft;
+                rightAttribute = NSLayoutAttributeRight;
+            } else {
+                topAttribute = NSLayoutAttributeTopMargin;
+                bottomAttribute = NSLayoutAttributeBottomMargin;
+                leftAttribute = NSLayoutAttributeLeftMargin;
+                rightAttribute = NSLayoutAttributeRightMargin;
+            }
+
             NSMutableArray *constraints = [NSMutableArray new];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeTopMargin
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:topAttribute
                 multiplier:1 constant:0]];
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeBottomMargin
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:bottomAttribute
                 multiplier:1 constant:0]];
 
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeLeftMargin
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:leftAttribute
                 multiplier:1 constant:0]];
             [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
-                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:NSLayoutAttributeRightMargin
+                relatedBy:NSLayoutRelationEqual toItem:contentView attribute:rightAttribute
                 multiplier:1 constant:0]];
 
             [NSLayoutConstraint activateConstraints:constraints];

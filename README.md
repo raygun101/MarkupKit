@@ -1196,6 +1196,7 @@ The child of the root tag represents the cell's content. It can be any valid vie
 
 `LMTableViewCell` also supports the following processing instructions, which can be used to specify the value of various background views:
 
+* `ignoreLayoutMargins` - instructs the cell to pin content to its edges instead of its margins
 * `backgroundView` - sets the cell's background view
 * `selectedBackgroundView` - sets the cell's selected background view
 * `multipleSelectionBackgroundView` - sets the cell's multiple selection background view
@@ -1222,6 +1223,8 @@ For example, the following markup declares a custom footer view containing a lab
     </LMTableViewHeaderFooterView>
 </LMTableView>
 ```
+
+`LMTableViewHeaderFooterView` also supports the `ignoreLayoutMargins` and `backgroundView` processing instructions.
 
 ## LMTableViewController
 `LMTableViewController` is a subclass of `UITableViewController` that simplifies management of an `LMTableView` instance. By default, it delegates data source and delegate operations to the table view itself. Subclasses can override the default implementations to provide custom table view content or respond to table view events such as row selection and edit requests.
@@ -1352,6 +1355,7 @@ Because the initializer passes the cell instance itself as the value of the `roo
 
 `LMCollectionViewCell` also supports the following processing instructions, which can be used to specify the value of various background views:
 
+* `ignoreLayoutMargins` - instructs the cell to pin content to its edges instead of its margins
 * `backgroundView` - sets the cell's background view
 * `selectedBackgroundView` - sets the cell's selected background view
 
