@@ -17,7 +17,12 @@ import MarkupKit
 
 class PeriodicTableViewController: UIViewController {
     override func loadView() {
-        view = LMViewBuilder.view(withName: "PeriodicTableViewController", owner: self, root: nil)
+        let scrollView = LMViewBuilder.view(withName: "PeriodicTableViewController", owner: self, root: nil) as? LMScrollView
+
+        if #available(iOS 11, tvOS 11, *) {
+            scrollView?.contentInsetAdjustmentBehavior = .always
+        }
+        view = scrollView
     }
 
     override func viewDidLoad() {

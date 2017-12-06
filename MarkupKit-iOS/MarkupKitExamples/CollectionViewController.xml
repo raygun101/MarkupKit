@@ -32,5 +32,4 @@ limitations under the License.
 }?>
 <?end?>
 
-<LMCollectionView style="flowLayoutCollectionView" class="collectionView"
-    collectionViewLayout.sectionInsetReference="fromSafeArea"/>
+<LMCollectionView style="flowLayoutCollectionView" class="collectionView"/>

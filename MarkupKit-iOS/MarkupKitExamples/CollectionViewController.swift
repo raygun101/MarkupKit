@@ -25,6 +25,12 @@ class CollectionViewController: UICollectionViewController {
 
     override func loadView() {
         collectionView = LMViewBuilder.view(withName: "CollectionViewController", owner: self, root: nil) as? UICollectionView
+
+        if #available(iOS 11, tvOS 11, *) {
+            let collectionViewFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
+
+            collectionViewFlowLayout?.sectionInsetReference = .fromSafeArea
+        }
     }
 
     override func viewDidLoad() {
