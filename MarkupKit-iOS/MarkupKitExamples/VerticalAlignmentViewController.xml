@@ -99,5 +99,17 @@ limitations under the License.
                 <UIImageView image="PhoneIcon" tintColor="black"/>
             </LMRowView>
         </LMColumnView>
+
+        <LMSpacer class="divider"/>
+
+        <LMColumnView>
+            <UILabel class="heading" text="Fill"/>
+
+            <LMColumnView class="cell">
+                <UIImageView weight="1" image="EmailIcon" contentMode="center" tintColor="black"/>
+                <UIImageView weight="1" image="FaxIcon" contentMode="center" tintColor="black"/>
+                <UIImageView weight="1" image="PhoneIcon" contentMode="center" tintColor="black"/>
+            </LMColumnView>
+        </LMColumnView>
     </LMRowView>
 </LMScrollView>
