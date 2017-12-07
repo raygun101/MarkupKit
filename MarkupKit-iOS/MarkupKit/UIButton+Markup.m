@@ -13,6 +13,7 @@
 //
 
 #import "UIButton+Markup.h"
+#import "UIView+Markup.h"
 
 @implementation UIButton (Markup)
 
@@ -272,6 +273,42 @@
     imageEdgeInsets.right = right;
 
     [self setImageEdgeInsets:imageEdgeInsets];
+}
+
+- (void)appendMarkupElementView:(UIView *)view
+{
+    if ([self buttonType] == UIButtonTypeCustom) {
+        [view setTranslatesAutoresizingMaskIntoConstraints:NO];
+
+        [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [view setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+
+        [view setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+        [view setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+
+        [self addSubview:view];
+
+        // Pin content to button edges
+        NSMutableArray *constraints = [NSMutableArray new];
+
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeTop
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
+            multiplier:1 constant:0]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
+            multiplier:1 constant:0]];
+
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeLeft
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeftMargin
+            multiplier:1 constant:0]];
+        [constraints addObject:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeRight
+            relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRightMargin
+            multiplier:1 constant:0]];
+
+        [NSLayoutConstraint activateConstraints:constraints];
+    } else {
+        [super appendMarkupElementView: view];
+    }
 }
 
 @end
