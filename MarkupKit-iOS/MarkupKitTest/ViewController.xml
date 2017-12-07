@@ -73,7 +73,6 @@ limitations under the License.
                     onPrimaryActionTriggered="handlePrimaryActionTriggered:">
                     <LMRowView>
                         <UILabel text="@prompt" textColor="#004400"/>
-                        <LMSpacer/>
                         <UIImageView image="Left" contentMode="scaleAspectFit" tintColor="#004400"/>
                     </LMRowView>
                 </UIButton>
