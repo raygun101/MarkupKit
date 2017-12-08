@@ -1728,7 +1728,7 @@ These properties set the "normal" state for their corresponding values. For exam
 <UIButton style="systemButton" title="Press Me!"/>
 ```
 
-Finally, MarkupKit adds the following properties that allow a button's content edge insets to be set individually:
+Additionally, MarkupKit adds the following properties that allow a button's content edge insets to be set individually:
 
 ```objc
 @property (nonatomic) CGFloat contentEdgeInsetTop;
@@ -1754,6 +1754,15 @@ For example:
     contentEdgeInsetLeft="8" 
     contentEdgeInsetRight="8"/>
 ```
+
+Finally, MarkupKit overrides the `appendMarkupElementView:` method of `UIButton` to allow custom button content to be defined in markup. For example, the following markup creates a button containing an image view and a label arranged in a vertical line:
+
+    <UIButton>
+        <LMColumnView>
+            <UIImageView image="world.png"/>
+            <UILabel text="Hello, World!"/>
+        </LMColumnView>
+    </UIButton>
 
 ### UISegmentedControl
 Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. The MarkupKit extension to `UISegmentedControl` overrides the `processMarkupElement:properties:` method to allow segmented control content to be configured in markup. 

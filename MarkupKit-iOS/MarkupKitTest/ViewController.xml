@@ -71,10 +71,10 @@ limitations under the License.
                 <LMSpacer/>
                 <UIButton layoutMargins="16" backgroundColor="#00aa00" layer.cornerRadius="6"
                     onPrimaryActionTriggered="handlePrimaryActionTriggered:">
-                    <LMRowView>
-                        <UILabel text="@prompt" textColor="#004400"/>
+                    <LMColumnView>
                         <UIImageView image="Left" contentMode="scaleAspectFit" tintColor="#004400"/>
-                    </LMRowView>
+                        <UILabel text="@prompt" textColor="#004400"/>
+                    </LMColumnView>
                 </UIButton>
                 <LMSpacer/>
             </LMRowView>
