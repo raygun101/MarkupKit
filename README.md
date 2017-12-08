@@ -750,9 +750,7 @@ This markup creates a column view containing three labels with different font si
 @property (nonatomic) BOOL alignToGrid;
 ```
 
-When this property is set to `true`, non-empty subviews of the column view must be `LMRowView` instances containing the cells for each row. Cells in contiguous rows will be resized to match the width of the widest cell in the column.
-
-For example, the following markup would produce a grid containing three rows arranged in two columns:
+When this property is set to `true`, subviews of successive rows will be sized to match the width of the widest subview in the column. For example, the following markup would produce a grid containing three rows arranged in two columns:
 
 ```xml
 <LMColumnView alignToGrid="true">
@@ -772,6 +770,8 @@ For example, the following markup would produce a grid containing three rows arr
     </LMRowView>
 </LMColumnView>
 ```
+
+Column view subviews that are not `LMRowView` instances are excluded from alignment. This allows them to be used as section breaks or headers, for example.
 
 See [LMColumnView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMColumnView.h) for more information.
 

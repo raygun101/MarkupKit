@@ -77,6 +77,8 @@
     UIView *previousSubview = nil;
     UIView *previousWeightedSubview = nil;
 
+    LMRowView *previousRowView = nil;
+
     for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
@@ -164,18 +166,22 @@
         }
 
         // Align subviews
-        if (_alignToGrid && [subview isKindOfClass:[LMRowView self]] && [previousSubview isKindOfClass:[LMRowView self]]) {
-            NSArray *nestedSubviews = [subview subviews];
-            NSArray *previousNestedSubviews = [previousSubview subviews];
+        if (_alignToGrid && [subview isKindOfClass:[LMRowView self]]) {
+            if (previousRowView != nil) {
+                NSArray *cellViews = [subview subviews];
+                NSArray *previousCellViews = [previousRowView subviews];
 
-            for (NSUInteger i = 0, n = MIN([nestedSubviews count], [previousNestedSubviews count]); i < n; i++) {
-                UIView *nestedSubview = [nestedSubviews objectAtIndex:i];
-                UIView *previousNestedSubview = [previousNestedSubviews objectAtIndex:i];
+                for (NSUInteger i = 0, n = MIN([cellViews count], [previousCellViews count]); i < n; i++) {
+                    UIView *cellView = [cellViews objectAtIndex:i];
+                    UIView *previousCellView = [previousCellViews objectAtIndex:i];
 
-                [constraints addObject:[NSLayoutConstraint constraintWithItem:nestedSubview attribute:NSLayoutAttributeWidth
-                    relatedBy:NSLayoutRelationEqual toItem:previousNestedSubview attribute:NSLayoutAttributeWidth
-                    multiplier:1 constant:0]];
+                    [constraints addObject:[NSLayoutConstraint constraintWithItem:cellView attribute:NSLayoutAttributeWidth
+                        relatedBy:NSLayoutRelationEqual toItem:previousCellView attribute:NSLayoutAttributeWidth
+                        multiplier:1 constant:0]];
+                }
             }
+
+            previousRowView = (LMRowView *)subview;
         }
 
         previousSubview = subview;
