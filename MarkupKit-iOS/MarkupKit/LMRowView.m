@@ -217,6 +217,17 @@ static NSDictionary *baselineValues;
     return constraints;
 }
 
+- (CGSize)intrinsicContentSize
+{
+    for (UIView *subview in [self subviews]) {
+        if (![subview isHidden]) {
+            return [super intrinsicContentSize];
+        }
+    }
+
+    return CGSizeMake(0, UIViewNoIntrinsicMetric);
+}
+
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"baseline"]) {

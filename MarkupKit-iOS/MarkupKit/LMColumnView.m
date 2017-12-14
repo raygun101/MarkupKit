@@ -197,4 +197,15 @@
     return constraints;
 }
 
+- (CGSize)intrinsicContentSize
+{
+    for (UIView *subview in [self subviews]) {
+        if (![subview isHidden]) {
+            return [super intrinsicContentSize];
+        }
+    }
+
+    return CGSizeMake(UIViewNoIntrinsicMetric, 0);
+}
+
 @end
