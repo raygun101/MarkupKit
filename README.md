@@ -514,12 +514,12 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMSpacer` - view that creates flexible space between other views
 * `LMAnchorView` - view that optionally anchors subviews to one or more edges
 * `LMRootView` - layout view that provides a margin-independent root for a view hierarchy
+* `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
+* `LMPageView` - subclass of `UIScrollView` that facilitates the declaration of paged content
 * `LMTableView`, `LMTableViewCell`, and `LMTableViewHeaderFooterView` - `UITableView`, `UITableViewCell`, and `UITableViewHeaderFooterView` subclasses, respectively, that facilitate the declaration of table view content
 * `LMTableViewController` - `UITableViewController` subclass that simplifies management of an `LMTableView`
 * `LMCollectionView` and `LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
-* `LMScrollView` - subclass of `UIScrollView` that automatically adapts to the size of its content
-* `LMPageView` - subclass of `UIScrollView` that facilitates the declaration of paged content
 * `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
 * `LMPlayerView` - view that presents an AV player
 
@@ -536,7 +536,7 @@ Extensions to several UIKit classes that enhance the classes' behavior or adapt 
 The `name` parameter represents the name of the view to load. It is the file name of the XML document containing the view declaration, minus the _.xml_ extension.
 
 The `owner` parameter represents the view's owner. It is often an instance of `UIViewController`, but this is not strictly required. For example, custom table and collection view cell types often specify themselves as the owner.
-    
+
 If the owner implements a method named `bundleForView`, the view document will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
 
 Note that property templates and color tables are always loaded from the main bundle.
@@ -552,7 +552,7 @@ For example, if an instance of `LMScrollView` is passed as the `root` argument t
 </root>
 ```
 
-is equivalent to the following markup:
+is equivalent to the following:
 
 ```xml
 <LMScrollView>
@@ -571,14 +571,14 @@ override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 ```
 
 ### Color and Font Values
-`LMViewBuilder` additionally defines the following two class methods, which it uses internally to decode color and font values:
+`LMViewBuilder` additionally defines the following two class methods, which it uses to decode color and font values, respectively:
 
 ```objc
 + (UIColor *)colorValue:(NSString *)value;
 + (UIFont *)fontValue:(NSString *)value;
 ```
 
-These methods may also be called by application code to translate MarkupKit-encoded color and font values to `UIColor` and `UIFont` instances, respectively. See [LMViewBuilder.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMViewBuilder.h) for more information.
+These methods may also be called by application code. See [LMViewBuilder.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMViewBuilder.h) for more information.
 
 ## LMLayoutView
 Auto layout is an iOS feature that allows developers to create applications that automatically adapt to device size, orientation, or content changes. An application built using auto layout generally has little or no hard-coded view positioning logic, but instead dynamically arranges user interface elements based on their preferred or "intrinsic" content sizes.
@@ -614,7 +614,7 @@ MarkupKit also adds the following properties to `UIView` so that margin values c
 @property (nonatomic) CGFloat layoutMarginTrailing;
 ```
 
-For example, this markup creates a layer view whose top and bottom margins are set to 8 pixels and whose leading and trailing margins are set to 16 pixels:
+For example, this markup creates a layer view whose top and bottom margins are set to 8 pixels, and whose leading and trailing margins are set to 16 pixels:
 
 ```swift
 <LMRowView layoutMarginTop="8" layoutMarginBottom="8" layoutMarginLeading="16" layoutMarginTrailing="16">
@@ -622,7 +622,7 @@ For example, this markup creates a layer view whose top and bottom margins are s
 </LMRowView>
 ```
 
-In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the current text direction.
+In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the system text direction.
 
 ### Touch Interaction
 By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view will cause the view to begin consuming events.
@@ -694,8 +694,9 @@ The `LMRowView` class arranges its subviews in a horizontal line. Subviews are l
 </LMRowView>
 ```
 
-If the row view's vertical alignment is set to "fill" (the default), the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. Otherwise, the subviews will be aligned according to the specified value.
+If the row view's vertical alignment is set to "fill" (the default), the top and bottom edges of each subview will be pinned to the top and bottom edges of the row (excluding layout margins), ensuring that all of the labels are the same height. Otherwise, the subviews will be vertically aligned according to the specified value.
 
+#### Baseline Alignment
 This markup creates a row view containing three labels with different font sizes. Because `alignToBaseline` is set to `true`, the baselines of all three labels will line up:
 
 ```xml
@@ -727,8 +728,9 @@ The `LMColumnView` class arranges its subviews in a vertical line. Subviews are 
 </LMColumnView>
 ```
 
-If the column view's horizontal alignment is set to "fill" (the default), the left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width. Otherwise, the subviews will be aligned according to the specified value.
+If the column view's horizontal alignment is set to "fill" (the default), the left and right edges of each subview will be pinned to the left and right edges of the column (excluding layout margins), ensuring that all of the labels are the same width. Otherwise, the subviews will be horizontally aligned according to the specified value.
 
+#### Baseline Alignment
 This markup creates a column view containing three labels with different font sizes. Because `alignToBaseline` is set to `true`, the labels will be spaced vertically according to their first and last baselines rather than their bounding rectangles:
 
 ```xml
@@ -772,7 +774,7 @@ Column view subviews that are not `LMRowView` instances are excluded from alignm
 See [LMColumnView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMColumnView.h) for more information.
 
 ### Fixed Dimensions
-Although views are typically arranged based on their intrinsic content sizes, it is occasionally necessary to assign a fixed value for a particular view dimension. MarkupKit adds the following properties to `UIView` to facilitate explicit size definition:
+Although views are typically arranged based on their intrinsic content sizes, it is occasionally necessary to assign a fixed value for a particular view dimension. MarkupKit adds the following properties to `UIView` to support explicit size definition:
 
 ```objc
 @property (nonatomic) CGFloat width;
@@ -974,6 +976,64 @@ override func viewWillLayoutSubviews() {
 
 Top and bottom layout guides are deprecated in iOS 11. Applications targeting iOS 11 and later can use the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` instead of `LMRootView` to disable system-defined margins.
 
+## LMScrollView
+The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of scrollable content in markup. It presents a single content view, optionally allowing the user to scroll in one or both directions.
+
+The scroll view's content is specified via the `contentView` property. The following `LMScrollView` properties determine how the content is presented:
+
+```objc
+@property (nonatomic) BOOL fitToWidth;
+@property (nonatomic) BOOL fitToHeight;
+```
+
+When both values are set to `false` (the default), the scroll view will automatically display scroll bars when needed, allowing the user to pan in both directions to see the content in its entirety. For example:
+
+```xml
+<LMScrollView>
+    <UIImageView image="large_image.png"/>
+</LMScrollView>
+```
+
+When `fitToWidth` is set to `true`, the scroll view will ensure that the width of its content matches its own width, causing the content to wrap and scroll in the vertical direction. The vertical scroll bar will be displayed when necessary, but the horizontal scroll bar will never be shown, since the width of the content will never exceed the width of the scroll view:
+
+```xml
+<LMScrollView fitToWidth="true">
+    <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
+        numberOfLines="0"/>
+</LMScrollView>
+```
+
+Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
+
+Note that, similar to `UIStackView`, assigning a new content view does not remove the previous content view as a subview of the scroll view. To completely remove a content view, call `removeFromSuperview` on the view.
+
+See [LMScrollView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMScrollView.h) for more information.
+
+## LMPageView
+The `LMPageView` class extends the standard `UIScrollView` class to enable the declaration of paged scroll view content. For example, the following markup declares a page view containing three pages. Pages appear in the order in which they are declared:
+
+```xml
+<LMPageView>
+    <UILabel text="Page 1" textAlignment="center"/>
+    <UILabel text="Page 2" textAlignment="center"/>
+    <UILabel text="Page 3" textAlignment="center"/>
+</LMPageView>
+```
+
+MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
+
+```swift
+func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    pageControl.currentPage = scrollView.currentPage
+}
+```
+
+MarkupKit's extensions to `UIScrollView` are discussed in more detail later.
+
+As with `LMScrollView`, the `removePage:` method does not remove the given view as a subview of the page view. To completely remove a page view, call `removeFromSuperview` on the view.
+
+`LMPageView` is available in iOS only. See [LMPageView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPageView.h) for more information.
+
 ## LMTableView, LMTableViewCell, and LMTableViewHeaderFooterView
 `LMTableView` is a subclass of `UITableView` that acts as its own data source and delegate, serving cells from a statically defined collection of table view sections. `LMTableView` enables self-sizing content by default, allowing it to be used as a general-purpose layout device.
 
@@ -982,7 +1042,7 @@ Top and bottom layout guides are deprecated in iOS 11. Applications targeting iO
 MarkupKit also provides extensions to the standard `UITableViewCell` class that allow it to be used in markup. This is discussed in more detail in a later section.
 
 ### Declaration
-`LMTableView` provides two factory methods that are used to construct new table view instances in markup:
+`LMTableView` provides two factory methods that are used to construct table view instances in markup:
 
 ```objc
 + (LMTableView *)plainTableView;
@@ -1490,64 +1550,6 @@ func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent c
 ```
 
 `LMPickerView` is available in iOS only. See [LMPickerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPickerView.h) for more information.
-
-## LMScrollView
-The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of scroll view content in markup. It presents a single scrollable content view, optionally allowing the user to scroll in one or both directions.
-
-The scroll view's content is specified via the `contentView` property. `LMScrollView` additionally defines the following two properties, which determine how the content is presented:
-
-```objc
-@property (nonatomic) BOOL fitToWidth;
-@property (nonatomic) BOOL fitToHeight;
-```
-
-When both values are set to `false` (the default), the scroll view will automatically display scroll bars when needed, allowing the user to pan in both directions to see the content in its entirety. For example:
-
-```xml
-<LMScrollView>
-    <UIImageView image="large_image.png"/>
-</LMScrollView>
-```
-
-When `fitToWidth` is set to `true`, the scroll view will ensure that the width of its content matches its own width, causing the content to wrap and scroll in the vertical direction. The vertical scroll bar will be displayed when necessary, but the horizontal scroll bar will never be shown, since the width of the content will never exceed the width of the scroll view:
-
-```xml
-<LMScrollView fitToWidth="true">
-    <UILabel text="Lorem ipsum dolor sit amet, consectetur adipiscing..."
-        numberOfLines="0"/>
-</LMScrollView>
-```
-
-Similarly, when `fitToHeight` is `true`, the scroll view will ensure that the height of its content matches its own height, causing the content to wrap and scroll in the horizontal direction. The vertical scroll bar will never be shown, and the horizontal scroll bar will appear when necessary.
-
-Note that, similar to `UIStackView`, assigning a new content view does not remove the previous content view as a subview of the scroll view. To completely remove a content view, call `removeFromSuperview` on the view.
-
-See [LMScrollView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMScrollView.h) for more information.
-
-## LMPageView
-The `LMPageView` class extends the standard `UIScrollView` class to enable the declaration of paged scroll view content. For example, the following markup declares a page view containing three pages. Pages appear in the order in which they are declared:
-
-```xml
-<LMPageView>
-    <UILabel text="Page 1" textAlignment="center"/>
-    <UILabel text="Page 2" textAlignment="center"/>
-    <UILabel text="Page 3" textAlignment="center"/>
-</LMPageView>
-```
-
-MarkupKit adds a `currentPage` property to `UIScrollView` that can be used to easily synchronize the scroll view's page index with the index shown by the page control; for example:
-
-```swift
-func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-    pageControl.currentPage = scrollView.currentPage
-}
-```
-
-MarkupKit's extensions to `UIScrollView` are discussed in more detail later.
-
-Note that, similar to `UIStackView`, the `removePage:` method does not remove the given view as a subview of the page view. To completely remove a page view, call `removeFromSuperview` on the view.
-
-`LMPageView` is available in iOS only. See [LMPageView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPageView.h) for more information.
 
 ## LMGradientView
 `LMGradientView` is the base class for views that facilitate the declaration of gradient effects. The gradient is automatically sized to fill the entire view.
