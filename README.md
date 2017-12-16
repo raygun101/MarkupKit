@@ -241,7 +241,7 @@ The value of any attribute whose name is equal to or ends with "image" is conver
 
 Images are typically loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to this method. 
 
-If the document's owner (usually the view controller) implements a method named `bundleForImages`, the second argument will contain the value returned by this method. MarkupKit adds an implementation of `bundleForImages` to the `UIResponder` class, so any subclass of `UIResponder` (including `UIViewController` and `UIView`) will automatically inherit the default implementation, which returns the application's main bundle. Subclasses can override this method to provide custom image loading behavior. If the owner does not implement `bundleForImages`, the main bundle will be used.
+If the document's owner (usually the view controller) implements a method named `bundleForImages`, the second argument will contain the value returned by this method. MarkupKit adds a default implementation of `bundleForImages` to the `UIResponder` class that returns the application's main bundle. Subclasses can override this method to provide custom image loading behavior. If the owner does not implement `bundleForImages`, the main bundle will be used.
 
 Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the `traitCollection` method. Otherwise, it will be `nil`.
     
@@ -249,14 +249,12 @@ Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third a
 Enumerated types are not automatically handled by KVC. However, MarkupKit provides translations for enumerations commonly used by UIKit. For example, the following markup creates an instance of `UITextField` that displays a clear button only while the user is editing, and presents a software keyboard suitable for entering email addresses:
 
 ```xml
-<UITextField placeholder="Email Address" 
-    clearButtonMode="whileEditing" 
-    keyboardType="emailAddress"/>
+<UITextField placeholder="Email Address" clearButtonMode="whileEditing" keyboardType="emailAddress"/>
 ```
 
-Enumeration values in MarkupKit are abbreviated versions of their UIKit counterparts. The attribute value is simply the full name of the enum value minus the leading type name, with a lowercase first character. For example, "whileEditing" in the above example corresponds to the `UITextFieldViewModeWhileEditing` value of the `UITextFieldViewMode` enum. Similarly, "emailAddress" corresponds to the `UIKeyboardTypeEmailAddress` value of the `UIKeyboardType` enum. 
+Enumeration values in MarkupKit are abbreviated versions of their UIKit counterparts. The attribute value is simply the full name of the enum value minus the leading type name, with a lowercase leading character. For example, "whileEditing" in the above example corresponds to the `UITextFieldViewModeWhileEditing` value of the `UITextFieldViewMode` enum. Similarly, "emailAddress" corresponds to the `UIKeyboardTypeEmailAddress` value of the `UIKeyboardType` enum. 
 
-Note that attribute values are converted to enum types based on the attribute's name, not its value or associated property type (which generally cannot be determined at runtime). For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
+Note that attribute values are converted to enum types based on the attribute's name, not its value or associated property type. For example, the following markup sets the value of the label's `text` property to the literal string "whileEditing":
 
 ```xml
 <UILabel text="whileEditing"/>
@@ -298,17 +296,17 @@ If an attribute's value begins with "@", MarkupKit attempts to look up a localiz
 "hello" = "Hello, World!";
 ```
 
-the following markup will produce an instance of `UILabel` with the value of its `text` property set to "Hello, World!":
+the following markup will produce an instance of `UILabel` whose `text` property is set to "Hello, World!":
 
 ```xml
 <UILabel text="@hello"/>
 ```
 
-If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with the `bundleForImages` method discussed earlier, MarkupKit adds a default implementation of `bundleForStrings` to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
+If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with `bundleForImages`, MarkupKit adds a default implementation of the `bundleForStrings` method to `UIResponder` that returns the application's main bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
-Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. The default implementation provided by `UIResponder` returns `nil`.
+Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. A default implementation provided by `UIResponder` returns `nil`.
 
-A leading "@" character can be escaped by prepending a caret character to the text. For example, this markup would produce a label containing the literal text "@hello":
+It is possible to escape a leading "@" character by prepending a caret ("^") to the text string. For example, this markup would produce a label containing the literal text "@hello":
 
 ```xml
 <UILabel text="^@hello"/>
@@ -327,19 +325,19 @@ class ViewController: UIViewController {
 }
 ```
 
-The following markup would create a binding between the `text` property of the text field and the owner's `name` property. Any updates to `name` will be automatically reflected in the text field:
+The following markup creates a binding between the `text` property of the text field and the owner's `name` property. Any updates to `name` will be automatically reflected in the text field:
 
 ```xml
 <UITextField text="$name"/>
 ```
 
-As with the "@" symbol, a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
+As with "@", a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
 
 ```xml
 <UILabel text="^$name"/>
 ```
 
-Bindings must be released before the owner is deallocated as well as any time the document is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
+Bindings must be released before the owner is deallocated, as well as any time the view is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
 
 ```swift
 deinit {
@@ -350,17 +348,15 @@ deinit {
 Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See [UIResponder+Markup.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/UIResponder%2BMarkup.h) for more information.
 
 ### Factory Methods
-Some UIKit classes can't be instantiated by simply invoking the `new` method on the type. For example, instances of `UIButton` are created by calling the `buttonWithType:` class method, and `UITableView` instances are initialized with `initWithFrame:style:`.
+Some views can't be instantiated by simply invoking the `new` method on the view type. For example, instances of `UIButton` are created by calling the `buttonWithType:` class method, and `UITableView` instances are initialized via `initWithFrame:style:`.
 
 To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is the name of a "factory method", a zero-argument class method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
 
-For example, the following markup creates an instance of a system-style `UIButton` by calling the `systemButton` method MarkupKit adds to the `UIButton` class:
+For example, the following markup creates an instance of a system-style `UIButton` by invoking the `systemButton` method MarkupKit adds to the `UIButton` class:
 
 ```xml
 <UIButton style="systemButton" title="Press Me!"/>
 ```
-
-Internally, this method calls `buttonWithType:`, passing a value of `UIButtonTypeSystem` for the `buttonType` argument, and returns the newly created button instance.
 
 The complete set of extensions MarkupKit adds to UIKit types is discussed in more detail later.
 
@@ -401,14 +397,14 @@ Inline templates simply embed the entire template definition within the processi
 }?>
 ```
 
-Inline templates are generally used when a set of properties are only applicable to the current document, and external templates are used when the properties may be shared by multiple documents. External templates are cached so that their contents do not need to be reloaded each time they are referenced.
+Inline templates are generally used when a set of properties are only applicable to the current document, and external templates when properties may be shared by multiple documents. Note that external templates are cached so that their contents do not need to be reloaded each time they are referenced.
 
-Multiple `properties` PIs may be specified in a single document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple template specifications, the contents of the templates are merged into a single dictionary. The most recently defined values take precedence.
+Multiple `properties` PIs may be specified in a single markup document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple PIs, their contents are merged into a single template dictionary, with the most recently defined values taking precedence.
 
 #### Applying Templates
 Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined within the current document. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
 
-For example, given the preceding template definition, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica with horizontally centered text:
+For example, given the preceding template definition, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica, with horizontally centered text:
 
 ```xml
 <UILabel class="greeting" text="Hello, World!"/>
@@ -420,12 +416,12 @@ Multiple templates can be applied to a view using a comma-separated list of temp
 <UILabel class="bold, red" text="Bold Red Label"/>
 ```
 
-Note that, although attribute values in XML are always represented as strings, the property values in a template definition can be any valid type; for example, if a property accepts a numeric type, the value can be defined as a number in the JSON document. However, this is not stricly necessary since strings will automatically be converted to the appropriate type by KVC.
+Note that, although attribute values in XML are always represented as strings, property values in a template definition can be any valid JSON type, such as numbers or booleans. However, this is not stricly necessary, since strings are automatically converted to the appropriate type by KVC.
 
 ### Outlets
 The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner, allowing the application to interact with it.
 
-For example, the following markup declares a table view containing a `UITextField`. The text field is assigned an ID of "textField":
+For example, the following markup creates a table view cell containing a `UITextField`. The text field is assigned an ID of "textField":
 
 ```xml
 <LMTableView>
@@ -490,7 +486,7 @@ In most cases, a markup document created for an iOS application can be used as i
 The optional `end` PI terminates a case. If unspecified, OS-specific processing will continue until the end of the document is reached.
 
 ## View-Specific Processing Instructions
-In addition to the document-wide `properties` and `case` directives discussed earlier, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
+In addition to document-wide directives like `properties` and `case`, MarkupKit also provides support for view-specific processing instructions. These allow developers to pass additional information to a view instance that can't be easily expressed as an attribute value or sub-element. 
 
 MarkupKit adds a `processMarkupInstruction:data:` method to the `UIView` class to facilitate PI handling at the view level. For example, `LMTableView` overrides this method to support section header and footer declarations and section breaks:
 
