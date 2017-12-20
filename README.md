@@ -976,6 +976,8 @@ override func viewWillLayoutSubviews() {
 
 Top and bottom layout guides are deprecated in iOS 11. Applications targeting iOS 11 and later can use the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` instead of `LMRootView` to disable system-defined margins.
 
+`LMRootView` is the only MarkupKit view type that can be used directly in a storyboard (i.e. initialized from an `NSCoder` instance). However, any view type can be used by nesting it within a root view.
+
 ## LMScrollView
 The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of scrollable content in markup. It presents a single content view, optionally allowing the user to scroll in one or both directions.
 
