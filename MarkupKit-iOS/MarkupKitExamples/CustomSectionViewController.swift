@@ -64,7 +64,7 @@ class CustomSectionViewController: LMTableViewController {
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let editActions: [UITableViewRowAction]
+        let editActions: [UITableViewRowAction]?
         if (tableView.name(forSection: indexPath.section) == dynamicSectionName) {
             editActions = [
                 UITableViewRowAction(style: .normal, title: "Select") { action, indexPath in
@@ -80,7 +80,7 @@ class CustomSectionViewController: LMTableViewController {
                 }
             ]
         } else {
-            editActions = super.tableView(tableView, editActionsForRowAt: indexPath)!
+            editActions = super.tableView(tableView, editActionsForRowAt: indexPath)
         }
 
         return editActions
