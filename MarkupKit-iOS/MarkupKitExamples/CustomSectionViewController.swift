@@ -60,7 +60,8 @@ class CustomSectionViewController: LMTableViewController {
 
     #if os(iOS)
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return (tableView.name(forSection: indexPath.section) == dynamicSectionName)
+        return (tableView.name(forSection: indexPath.section) == dynamicSectionName
+            || super.tableView(tableView, canEditRowAt: indexPath))
     }
 
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

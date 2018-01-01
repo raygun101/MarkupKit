@@ -59,6 +59,16 @@
 {
     return [tableView tableView:tableView editActionsForRowAtIndexPath:indexPath];
 }
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView leadingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(11_0)
+{
+    return [tableView tableView:tableView leadingSwipeActionsConfigurationForRowAtIndexPath:indexPath];
+}
+
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath NS_AVAILABLE_IOS(11_0)
+{
+    return [tableView tableView:tableView trailingSwipeActionsConfigurationForRowAtIndexPath:indexPath];
+}
 #endif
 
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath

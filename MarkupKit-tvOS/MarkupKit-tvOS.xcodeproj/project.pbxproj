@@ -351,8 +351,6 @@
 		37E57A131DF19090002984B9 /* UISearchBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISearchBar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UISearchBar+Markup.m"; sourceTree = "<group>"; };
 		37E57A141DF19090002984B9 /* UIToolbar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIToolbar+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIToolbar+Markup.h"; sourceTree = "<group>"; };
 		37E57A151DF19090002984B9 /* UIToolbar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIToolbar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIToolbar+Markup.m"; sourceTree = "<group>"; };
-		37E57A161DF19090002984B9 /* UIStackView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIStackView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIStackView+Markup.h"; sourceTree = "<group>"; };
-		37E57A171DF19090002984B9 /* UIStackView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIStackView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIStackView+Markup.m"; sourceTree = "<group>"; };
 		37E57A181DF19090002984B9 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIScrollView+Markup.h"; sourceTree = "<group>"; };
 		37E57A191DF19090002984B9 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37E57A1A1DF19090002984B9 /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITableView+Markup.h"; sourceTree = "<group>"; };
@@ -564,8 +562,6 @@
 				37770B371ECF6E0500C5B491 /* UITabBarItem+Markup.m */,
 				37E57A141DF19090002984B9 /* UIToolbar+Markup.h */,
 				37E57A151DF19090002984B9 /* UIToolbar+Markup.m */,
-				37E57A161DF19090002984B9 /* UIStackView+Markup.h */,
-				37E57A171DF19090002984B9 /* UIStackView+Markup.m */,
 				37E57A181DF19090002984B9 /* UIScrollView+Markup.h */,
 				37E57A191DF19090002984B9 /* UIScrollView+Markup.m */,
 				37E57A1A1DF19090002984B9 /* UITableView+Markup.h */,
