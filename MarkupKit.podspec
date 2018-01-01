@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = 'MarkupKit'
-  s.version         = '4.0.7'
+  s.version         = '4.0.8'
   s.license         = 'Apache License, Version 2.0'
   s.homepage        = 'https://github.com/gk-brown/MarkupKit'
   s.author          = 'Greg Brown'
