@@ -35,6 +35,10 @@ class ViewController: UIViewController {
         NSLog("Button pressed.")
     }
 
+    @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        NSLog("Segment selected: \(sender.value ?? "none")")
+    }
+
     @IBAction func handleSwitchValueChanged(_ sender: UISwitch) {
         imageView.isHidden = !sender.isOn
     }
