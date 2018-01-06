@@ -24,13 +24,26 @@ static NSString * const kSegmentValueKey = @"value";
 
 - (id)value
 {
-    // TODO Return value associated with selected segment
-    return nil;
+    NSInteger index = [self selectedSegmentIndex];
+
+    return (index == -1) ? nil : [self valueForSegmentAtIndex:index];
 }
 
 - (void)setValue:(id)value
 {
-    // TODO Select segment associated with given value
+    NSInteger index = -1;
+
+    if (value != nil) {
+        for (NSUInteger i = 0, n = [self numberOfSegments]; i < n; i++) {
+            if ([[self valueForSegmentAtIndex:i] isEqual:value]) {
+                index = i;
+
+                break;
+            }
+        }
+    }
+
+    [self setSelectedSegmentIndex:index];
 }
 
 - (id)valueForSegmentAtIndex:(NSUInteger)segment
@@ -43,8 +56,6 @@ static NSString * const kSegmentValueKey = @"value";
 {
     // TODO
 }
-
-// TODO Override insert segment methods to insert entries into the values array?
 
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
