@@ -18,8 +18,33 @@
 static NSString * const kSegmentTag = @"segment";
 static NSString * const kSegmentTitleKey = @"title";
 static NSString * const kSegmentImageKey = @"image";
+static NSString * const kSegmentValueKey = @"value";
 
 @implementation UISegmentedControl (Markup)
+
+- (id)value
+{
+    // TODO Return value associated with selected segment
+    return nil;
+}
+
+- (void)setValue:(id)value
+{
+    // TODO Select segment associated with given value
+}
+
+- (id)valueForSegmentAtIndex:(NSUInteger)segment
+{
+    // TODO
+    return nil;
+}
+
+- (void)setValue:(id)value forSegmentAtIndex:(NSUInteger)segment
+{
+    // TODO
+}
+
+// TODO Override insert segment methods to insert entries into the values array?
 
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
@@ -37,6 +62,8 @@ static NSString * const kSegmentImageKey = @"image";
                 [self insertSegmentWithImage:[UIImage imageNamed:image] atIndex:index animated:NO];
             }
         }
+
+        [self setValue: [properties objectForKey:kSegmentValueKey] forSegmentAtIndex:index];
     } else {
         [super processMarkupElement:tag properties:properties];
     }

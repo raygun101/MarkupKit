@@ -1787,6 +1787,27 @@ Similarly, the "image" attribute can be used to specify an image for a segment:
 </UISegmentedControl>
 ```
 
+Additionally, MarkupKit adds the following properties and methods to `UISegmentedControl` that can be used to manage selection state by value rather than by segment index:
+
+```objc
+@property (nonatomic, nullable) id value;
+
+- (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
+- (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+```
+
+The `value` property returns the value associated with the selected segment in a given component. Setting the property automatically selects the segment with the associated value.
+
+Segment values may be optionally declared in markup as follows:
+
+```xml
+<UISegmentedControl>
+    <segment title="Red" value="#ff0000"/>
+    <segment title="Green" value="#00ff00"/>
+    <segment title="Blue" value="#0000ff"/>
+</UISegmentedControl>
+```
+
 ### UITextField
 MarkupKit adds support for the following processing instructions to `UITextField` to allow the text field's associated views to be configured in markup:
 

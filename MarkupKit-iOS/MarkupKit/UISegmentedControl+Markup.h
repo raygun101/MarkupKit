@@ -18,6 +18,26 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UISegmentedControl (Markup)
 
+/**
+ * The value associated with the selected segment.
+ */
+@property (nonatomic, nullable) id value;
+
+/**
+ * Returns the value for the given segment.
+ *
+ * @param segment The segment index.
+ */
+- (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
+
+/**
+ * Sets the value for the given segment.
+ *
+ * @param value The segment value.
+ * @param segment The segment index.
+ */
+- (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+
 @end
 
 NS_ASSUME_NONNULL_END
