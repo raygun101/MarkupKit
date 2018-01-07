@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         segmentedControl.value = "2"
+
+        segmentedControl.insertSegment(withTitle: "Four", value: "4", at: 3, animated: false)
     }
 
     @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
