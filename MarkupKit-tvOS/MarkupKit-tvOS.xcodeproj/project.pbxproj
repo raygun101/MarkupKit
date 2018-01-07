@@ -53,6 +53,8 @@
 		37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */; };
 		37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D551ECF59600043C9C1 /* BarsViewController.swift */; };
 		37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D561ECF59600043C9C1 /* BarsViewController.xml */; };
+		376E729720025DF900740BBD /* LMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 376E729520025DF900740BBD /* LMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E729620025DF900740BBD /* LMSegmentedControl.m */; };
 		37770B381ECF6E0500C5B491 /* UITabBarItem+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37770B361ECF6E0500C5B491 /* UITabBarItem+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37770B391ECF6E0500C5B491 /* UITabBarItem+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37770B371ECF6E0500C5B491 /* UITabBarItem+Markup.m */; };
 		377B4CA91F60936E00D2A729 /* UIImageView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 377B4CA81F60936E00D2A729 /* UIImageView+Markup.m */; };
@@ -265,6 +267,8 @@
 		37659D4E1ECF57590043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UITabBar+Markup.m"; sourceTree = "<group>"; };
 		37659D551ECF59600043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarsViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.swift"; sourceTree = "<group>"; };
 		37659D561ECF59600043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BarsViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.xml"; sourceTree = "<group>"; };
+		376E729520025DF900740BBD /* LMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMSegmentedControl.h; path = "../../MarkupKit-iOS/MarkupKit/LMSegmentedControl.h"; sourceTree = "<group>"; };
+		376E729620025DF900740BBD /* LMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMSegmentedControl.m; path = "../../MarkupKit-iOS/MarkupKit/LMSegmentedControl.m"; sourceTree = "<group>"; };
 		37770B361ECF6E0500C5B491 /* UITabBarItem+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarItem+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITabBarItem+Markup.h"; sourceTree = "<group>"; };
 		37770B371ECF6E0500C5B491 /* UITabBarItem+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarItem+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UITabBarItem+Markup.m"; sourceTree = "<group>"; };
 		377B4CA71F60936E00D2A729 /* UIImageView+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "UIImageView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIImageView+Markup.h"; sourceTree = "<group>"; };
@@ -500,6 +504,8 @@
 				37E579E51DF19090002984B9 /* LMLinearGradientView.m */,
 				37E579E61DF19090002984B9 /* LMRadialGradientView.h */,
 				37E579E71DF19090002984B9 /* LMRadialGradientView.m */,
+				376E729520025DF900740BBD /* LMSegmentedControl.h */,
+				376E729620025DF900740BBD /* LMSegmentedControl.m */,
 				37E579E81DF19090002984B9 /* LMPickerView.h */,
 				37E579E91DF19090002984B9 /* LMPickerView.m */,
 				37E579EA1DF19090002984B9 /* LMScrollView.h */,
@@ -656,6 +662,7 @@
 				37E57AB21DF1911F002984B9 /* UIButton+Markup.h in Headers */,
 				37E57AB31DF1911F002984B9 /* UIDatePicker+Markup.h in Headers */,
 				37E57AB41DF1911F002984B9 /* UISegmentedControl+Markup.h in Headers */,
+				376E729720025DF900740BBD /* LMSegmentedControl.h in Headers */,
 				37E57AB51DF1911F002984B9 /* UITextField+Markup.h in Headers */,
 				37E57AB61DF1911F002984B9 /* UIActivityIndicatorView+Markup.h in Headers */,
 				37596C1D1EAA2C2300D427B4 /* UILabel+Markup.h in Headers */,
@@ -912,6 +919,7 @@
 				37E57A801DF190F1002984B9 /* LMTableView.m in Sources */,
 				37E57A811DF190F1002984B9 /* LMTableViewCell.m in Sources */,
 				37BB5C8C1F47398C0089139F /* LMTableViewHeaderFooterView.m in Sources */,
+				376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */,
 				37F899881E475E8700205A70 /* LMTableViewController.m in Sources */,
 				37E57A821DF190F1002984B9 /* LMCollectionView.m in Sources */,
 				37E57A831DF190F1002984B9 /* LMCollectionViewCell.m in Sources */,

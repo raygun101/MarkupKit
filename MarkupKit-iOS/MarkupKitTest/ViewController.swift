@@ -19,6 +19,8 @@ class ViewController: UIViewController {
     @IBOutlet var greetingLabel: UILabel!
     @IBOutlet var imageView: UIImageView!
 
+    @IBOutlet var segmentedControl: LMSegmentedControl!
+
     @objc let number = "12345"
 
     @objc let one = "One"
@@ -31,11 +33,17 @@ class ViewController: UIViewController {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
     }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        segmentedControl.value = "2"
+    }
+
     @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
         NSLog("Button pressed.")
     }
 
-    @IBAction func handleSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+    @IBAction func handleSegmentedControlValueChanged(_ sender: LMSegmentedControl) {
         NSLog("Segment selected: \(sender.value ?? "none")")
     }
 

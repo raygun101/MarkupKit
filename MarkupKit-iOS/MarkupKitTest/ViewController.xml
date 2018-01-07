@@ -59,11 +59,11 @@ limitations under the License.
 
             <LMRowView>
                 <LMSpacer/>
-                <UISegmentedControl onValueChanged="handleSegmentedControlValueChanged:">
+                <LMSegmentedControl id="segmentedControl" onValueChanged="handleSegmentedControlValueChanged:">
                     <segment title="$one" value="1"/>
                     <segment title="$two" value="2"/>
                     <segment title="$three" value="3"/>
-                </UISegmentedControl>
+                </LMSegmentedControl>
                 <LMSpacer/>
             </LMRowView>
 

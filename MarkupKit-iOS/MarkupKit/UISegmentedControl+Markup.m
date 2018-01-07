@@ -24,27 +24,22 @@ static NSString * const kSegmentValueKey = @"value";
 
 - (void)insertSegmentWithTitle:(nullable NSString *)title value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
 {
-    [self insertSegmentWithTitle:title atIndex:segment animated:animated];
-
-    [self setValue:value forSegmentAtIndex:segment];
+    [NSException raise:NSGenericException format:@"Method not implemented."];
 }
 
 - (void)insertSegmentWithImage:(nullable UIImage *)image value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
 {
-    [self insertSegmentWithImage:image atIndex:segment animated:animated];
-
-    [self setValue:value forSegmentAtIndex:segment];
+    [NSException raise:NSGenericException format:@"Method not implemented."];
 }
 
 - (id)valueForSegmentAtIndex:(NSUInteger)segment
 {
-    // TODO
     return nil;
 }
 
 - (void)setValue:(id)value forSegmentAtIndex:(NSUInteger)segment
 {
-    // TODO
+    [NSException raise:NSGenericException format:@"Method not implemented."];
 }
 
 - (id)value
@@ -88,7 +83,13 @@ static NSString * const kSegmentValueKey = @"value";
             }
         }
 
-        [self setValue: [properties objectForKey:kSegmentValueKey] forSegmentAtIndex:index];
+        if (index < [self numberOfSegments]) {
+            id value = [properties objectForKey:kSegmentValueKey];
+
+            if (value != nil) {
+                [self setValue:value forSegmentAtIndex:index];
+            }
+        }
     } else {
         [super processMarkupElement:tag properties:properties];
     }

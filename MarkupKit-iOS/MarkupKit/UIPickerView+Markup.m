@@ -36,14 +36,38 @@
     return (component < n) ? component : NSNotFound;
 }
 
-- (nullable id)valueForComponent:(NSInteger)component
+- (id)valueForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return nil;
 }
 
-- (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated 
+- (void)setValue:(id)value forRow:(NSInteger)row forComponent:(NSInteger)component
 {
     [NSException raise:NSGenericException format:@"Method not implemented."];
+}
+
+- (nullable id)valueForComponent:(NSInteger)component
+{
+    NSInteger row = [self selectedRowInComponent:component];
+
+    return (row == -1) ? nil : [self valueForRow:row forComponent:component];
+}
+
+- (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated
+{
+    NSInteger row = -1;
+
+    if (value != nil) {
+        for (NSUInteger i = 0, n = [self numberOfRowsInComponent:component]; i < n; i++) {
+            if ([[self valueForRow:i forComponent:component] isEqual:value]) {
+                row = i;
+
+                break;
+            }
+        }
+    }
+
+    [self selectRow:row inComponent:component animated:animated];
 }
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView

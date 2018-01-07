@@ -143,6 +143,8 @@
 		37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */; };
 		37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D511ECF59290043C9C1 /* BarsViewController.swift */; };
 		37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D521ECF59290043C9C1 /* BarsViewController.xml */; };
+		376E729320025D7100740BBD /* LMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 376E729120025D7100740BBD /* LMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E729220025D7100740BBD /* LMSegmentedControl.m */; };
 		3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93D1DF1B66A0064CC82 /* Assets.xcassets */; };
 		3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */; };
 		3771E9461DF1B68A0064CC82 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAD91DF18389006E6B3D /* MarkupKit.framework */; };
@@ -320,6 +322,8 @@
 		37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Markup.m"; sourceTree = "<group>"; };
 		37659D511ECF59290043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsViewController.swift; sourceTree = "<group>"; };
 		37659D521ECF59290043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BarsViewController.xml; sourceTree = "<group>"; };
+		376E729120025D7100740BBD /* LMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMSegmentedControl.h; sourceTree = "<group>"; };
+		376E729220025D7100740BBD /* LMSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMSegmentedControl.m; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3771E93D1DF1B66A0064CC82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3771E9401DF1B66A0064CC82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -710,6 +714,8 @@
 				3799BB031DF18539006E6B3D /* LMLinearGradientView.m */,
 				3799BB0A1DF18539006E6B3D /* LMRadialGradientView.h */,
 				3799BB0B1DF18539006E6B3D /* LMRadialGradientView.m */,
+				376E729120025D7100740BBD /* LMSegmentedControl.h */,
+				376E729220025D7100740BBD /* LMSegmentedControl.m */,
 				3799BB061DF18539006E6B3D /* LMPickerView.h */,
 				3799BB071DF18539006E6B3D /* LMPickerView.m */,
 				3799BB0E1DF18539006E6B3D /* LMScrollView.h */,
@@ -870,6 +876,7 @@
 				3763067C1DF188F400357E68 /* UIButton+Markup.h in Headers */,
 				3763067D1DF188F400357E68 /* UIDatePicker+Markup.h in Headers */,
 				3763067E1DF188F400357E68 /* UISegmentedControl+Markup.h in Headers */,
+				376E729320025D7100740BBD /* LMSegmentedControl.h in Headers */,
 				3763067F1DF188F400357E68 /* UITextField+Markup.h in Headers */,
 				376306801DF188F400357E68 /* UIActivityIndicatorView+Markup.h in Headers */,
 				37596C191EAA2C0600D427B4 /* UILabel+Markup.h in Headers */,
@@ -1269,6 +1276,7 @@
 				376306551DF188BF00357E68 /* UIDatePicker+Markup.m in Sources */,
 				376306561DF188BF00357E68 /* UISegmentedControl+Markup.m in Sources */,
 				376306571DF188BF00357E68 /* UITextField+Markup.m in Sources */,
+				376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */,
 				376306581DF188BF00357E68 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */,
 				377B4CA61F60924800D2A729 /* UIImageView+Markup.m in Sources */,
