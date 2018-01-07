@@ -1820,9 +1820,6 @@ Finally, MarkupKit overrides the `appendMarkupElementView:` method of `UIButton`
 MarkupKit adds the following methods and properties to the `UISegmentedControl` class. These methods are added to `UISegmentedControl` primarily so casting is not required when using an `LMSegmentedControl` instance in markup. However, the mutator methods are only implemented by `LMSegmentedControl`:
 
 ```objc
-- (void)insertSegmentWithTitle:(nullable NSString *)title value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
-- (void)insertSegmentWithImage:(nullable UIImage *)image value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
-
 - (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
 - (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
 

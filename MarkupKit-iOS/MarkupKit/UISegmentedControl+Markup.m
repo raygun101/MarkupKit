@@ -22,16 +22,6 @@ static NSString * const kSegmentValueKey = @"value";
 
 @implementation UISegmentedControl (Markup)
 
-- (void)insertSegmentWithTitle:(nullable NSString *)title value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
-{
-    [NSException raise:NSGenericException format:@"Method not implemented."];
-}
-
-- (void)insertSegmentWithImage:(nullable UIImage *)image value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
-{
-    [NSException raise:NSGenericException format:@"Method not implemented."];
-}
-
 - (id)valueForSegmentAtIndex:(NSUInteger)segment
 {
     return nil;
