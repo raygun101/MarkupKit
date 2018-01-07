@@ -208,6 +208,9 @@
 		37E57B201DF1B1D8002984B9 /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B191DF1B1D8002984B9 /* sample.jpg */; };
 		37E57B221DF1B1D8002984B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B1B1DF1B1D8002984B9 /* ViewController.swift */; };
 		37E57B231DF1B1D8002984B9 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37E57B1C1DF1B1D8002984B9 /* ViewController.xml */; };
+		37EADB672002A66200C5189D /* LMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB662002A66200C5189D /* LMSegmentedControl.swift */; };
+		37EADB692002A67900C5189D /* LMPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB682002A67800C5189D /* LMPageView.swift */; };
+		37EADB6B2002A68600C5189D /* UISegmentedControl+Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB6A2002A68600C5189D /* UISegmentedControl+Markup.swift */; };
 		37F70CEC1ECE49A000F3A861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F70CEE1ECE49A000F3A861 /* Localizable.strings */; };
 		37F899831E475E5700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899811E475E5700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899841E475E5700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899821E475E5700205A70 /* LMTableViewController.m */; };
@@ -513,6 +516,9 @@
 		37E57B191DF1B1D8002984B9 /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample.jpg; sourceTree = "<group>"; };
 		37E57B1B1DF1B1D8002984B9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		37E57B1C1DF1B1D8002984B9 /* ViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ViewController.xml; sourceTree = "<group>"; };
+		37EADB662002A66200C5189D /* LMSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMSegmentedControl.swift; sourceTree = "<group>"; };
+		37EADB682002A67800C5189D /* LMPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMPageView.swift; sourceTree = "<group>"; };
+		37EADB6A2002A68600C5189D /* UISegmentedControl+Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Markup.swift"; sourceTree = "<group>"; };
 		37F70CED1ECE49A000F3A861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37F899811E475E5700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewController.h; sourceTree = "<group>"; };
 		37F899821E475E5700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewController.m; sourceTree = "<group>"; };
@@ -716,12 +722,14 @@
 				3799BB0B1DF18539006E6B3D /* LMRadialGradientView.m */,
 				376E729120025D7100740BBD /* LMSegmentedControl.h */,
 				376E729220025D7100740BBD /* LMSegmentedControl.m */,
+				37EADB662002A66200C5189D /* LMSegmentedControl.swift */,
 				3799BB061DF18539006E6B3D /* LMPickerView.h */,
 				3799BB071DF18539006E6B3D /* LMPickerView.m */,
 				3799BB0E1DF18539006E6B3D /* LMScrollView.h */,
 				3799BB0F1DF18539006E6B3D /* LMScrollView.m */,
 				3799BB041DF18539006E6B3D /* LMPageView.h */,
 				3799BB051DF18539006E6B3D /* LMPageView.m */,
+				37EADB682002A67800C5189D /* LMPageView.swift */,
 				3799BB081DF18539006E6B3D /* LMPlayerView.h */,
 				3799BB091DF18539006E6B3D /* LMPlayerView.m */,
 				3799BB121DF18539006E6B3D /* LMTableView.h */,
@@ -758,6 +766,7 @@
 				3799BB251DF18539006E6B3D /* UIDatePicker+Markup.m */,
 				3799BB2E1DF18539006E6B3D /* UISegmentedControl+Markup.h */,
 				3799BB2F1DF18539006E6B3D /* UISegmentedControl+Markup.m */,
+				37EADB6A2002A68600C5189D /* UISegmentedControl+Markup.swift */,
 				3799BB361DF18539006E6B3D /* UITextField+Markup.h */,
 				3799BB371DF18539006E6B3D /* UITextField+Markup.m */,
 				3799BB1C1DF18539006E6B3D /* UIActivityIndicatorView+Markup.h */,
@@ -1040,6 +1049,7 @@
 					};
 					3799BAD81DF18389006E6B3D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					37E57AC41DF191B1002984B9 = {
@@ -1253,6 +1263,7 @@
 				376306421DF188BF00357E68 /* LMSpacer.m in Sources */,
 				376306431DF188BF00357E68 /* LMGradientView.m in Sources */,
 				376306441DF188BF00357E68 /* LMLinearGradientView.m in Sources */,
+				37EADB672002A66200C5189D /* LMSegmentedControl.swift in Sources */,
 				376306451DF188BF00357E68 /* LMRadialGradientView.m in Sources */,
 				376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */,
 				376306461DF188BF00357E68 /* LMPickerView.m in Sources */,
@@ -1269,11 +1280,13 @@
 				3763064F1DF188BF00357E68 /* NSObject+Markup.m in Sources */,
 				376306501DF188BF00357E68 /* NSString+Markup.m in Sources */,
 				376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */,
+				37EADB6B2002A68600C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */,
 				379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				376306521DF188BF00357E68 /* UIView+Markup.m in Sources */,
 				376306531DF188BF00357E68 /* UIControl+Markup.m in Sources */,
 				376306541DF188BF00357E68 /* UIButton+Markup.m in Sources */,
+				37EADB692002A67900C5189D /* LMPageView.swift in Sources */,
 				376306551DF188BF00357E68 /* UIDatePicker+Markup.m in Sources */,
 				376306561DF188BF00357E68 /* UISegmentedControl+Markup.m in Sources */,
 				376306571DF188BF00357E68 /* UITextField+Markup.m in Sources */,
@@ -1422,6 +1435,7 @@
 		3771E9431DF1B66A0064CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1479,6 +1493,7 @@
 		3771E9441DF1B66A0064CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1529,6 +1544,7 @@
 		3771E9761DF1B8B00064CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1586,6 +1602,7 @@
 		3771E9771DF1B8B00064CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1636,6 +1653,7 @@
 		3771EA861DF1C1D70064CC82 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1693,6 +1711,7 @@
 		3771EA871DF1C1D70064CC82 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1795,6 +1814,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1849,6 +1870,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1920,6 +1942,7 @@
 		37E57AD41DF191B1002984B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1977,6 +2000,7 @@
 		37E57AD51DF191B1002984B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2027,6 +2051,7 @@
 		37E57B0F1DF1B181002984B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -2084,6 +2109,7 @@
 		37E57B101DF1B181002984B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;

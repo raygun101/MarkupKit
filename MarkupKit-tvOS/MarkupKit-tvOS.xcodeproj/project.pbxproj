@@ -153,6 +153,8 @@
 		37E57B3D1DF1B40D002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */; };
 		37E57B421DF1B48D002984B9 /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
 		37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37EADB6D2002A69800C5189D /* UISegmentedControl+Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB6C2002A69800C5189D /* UISegmentedControl+Markup.swift */; };
+		37EADB6F2002A6A500C5189D /* LMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB6E2002A6A500C5189D /* LMSegmentedControl.swift */; };
 		37F136761FB139AD00651E12 /* LMRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F136741FB139AC00651E12 /* LMRootView.m */; };
 		37F136771FB139E600651E12 /* LMRootView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F136751FB139AD00651E12 /* LMRootView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F549271F55AB9B001FEEA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37F549261F55AB93001FEEA3 /* Assets.xcassets */; };
@@ -370,6 +372,8 @@
 		37E57B311DF1B398002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57B331DF1B398002984B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37E57B3C1DF1B40D002984B9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../MarkupKit-iOS/MarkupKitDemo/AppDelegate.swift"; sourceTree = "<group>"; };
+		37EADB6C2002A69800C5189D /* UISegmentedControl+Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISegmentedControl+Markup.swift"; path = "../../MarkupKit-iOS/MarkupKit/UISegmentedControl+Markup.swift"; sourceTree = "<group>"; };
+		37EADB6E2002A6A500C5189D /* LMSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LMSegmentedControl.swift; path = "../../MarkupKit-iOS/MarkupKit/LMSegmentedControl.swift"; sourceTree = "<group>"; };
 		37F136741FB139AC00651E12 /* LMRootView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = LMRootView.m; path = "../../MarkupKit-iOS/MarkupKit/LMRootView.m"; sourceTree = "<group>"; };
 		37F136751FB139AD00651E12 /* LMRootView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LMRootView.h; path = "../../MarkupKit-iOS/MarkupKit/LMRootView.h"; sourceTree = "<group>"; };
 		37F549261F55AB93001FEEA3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Assets.xcassets"; sourceTree = "<group>"; };
@@ -501,6 +505,7 @@
 				37E579E71DF19090002984B9 /* LMRadialGradientView.m */,
 				376E729520025DF900740BBD /* LMSegmentedControl.h */,
 				376E729620025DF900740BBD /* LMSegmentedControl.m */,
+				37EADB6E2002A6A500C5189D /* LMSegmentedControl.swift */,
 				37E579E81DF19090002984B9 /* LMPickerView.h */,
 				37E579EA1DF19090002984B9 /* LMScrollView.h */,
 				37E579EB1DF19090002984B9 /* LMScrollView.m */,
@@ -540,6 +545,7 @@
 				37E57A061DF19090002984B9 /* UIDatePicker+Markup.h */,
 				37E57A081DF19090002984B9 /* UISegmentedControl+Markup.h */,
 				37E57A091DF19090002984B9 /* UISegmentedControl+Markup.m */,
+				37EADB6C2002A69800C5189D /* UISegmentedControl+Markup.swift */,
 				37E57A0A1DF19090002984B9 /* UITextField+Markup.h */,
 				37E57A0B1DF19090002984B9 /* UITextField+Markup.m */,
 				37E57A0C1DF19090002984B9 /* UIActivityIndicatorView+Markup.h */,
@@ -765,6 +771,7 @@
 					};
 					3799BAE61DF18396006E6B3D = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					37E57AE51DF192AE002984B9 = {
@@ -899,6 +906,7 @@
 				37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */,
 				37E57A751DF190F1002984B9 /* LMRowView.m in Sources */,
 				37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */,
+				37EADB6F2002A6A500C5189D /* LMSegmentedControl.swift in Sources */,
 				37F136761FB139AD00651E12 /* LMRootView.m in Sources */,
 				37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */,
 				376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */,
@@ -918,6 +926,7 @@
 				37E57A861DF190F1002984B9 /* NSString+Markup.m in Sources */,
 				37E57A871DF190F1002984B9 /* CALayer+Markup.m in Sources */,
 				379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */,
+				37EADB6D2002A69800C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				379E4B4D1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				37E57A881DF190F1002984B9 /* UIView+Markup.m in Sources */,
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
@@ -994,6 +1003,7 @@
 		3787206B1DF70F53004FF42A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1051,6 +1061,7 @@
 		3787206C1DF70F53004FF42A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1152,6 +1163,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1206,6 +1219,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 10.0;
 				VALIDATE_PRODUCT = YES;
@@ -1278,6 +1292,7 @@
 		37E57AF31DF192AE002984B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1335,6 +1350,7 @@
 		37E57AF41DF192AE002984B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1385,6 +1401,7 @@
 		37E57B351DF1B398002984B9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1442,6 +1459,7 @@
 		37E57B361DF1B398002984B9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

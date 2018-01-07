@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param segment The segment index.
  */
-- (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
+- (nullable id)valueForSegmentAtIndex:(NSUInteger)segment NS_REFINED_FOR_SWIFT;
 
 /**
  * Sets the value for the given segment.
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param value The segment value.
  * @param segment The segment index.
  */
-- (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+- (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment NS_REFINED_FOR_SWIFT;
 
 /**
  * The value associated with the selected segment.
