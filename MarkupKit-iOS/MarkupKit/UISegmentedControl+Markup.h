@@ -19,9 +19,24 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UISegmentedControl (Markup)
 
 /**
- * The value associated with the selected segment.
+ * Inserts a segment with an associated value.
+ *
+ * @param title The segment title.
+ * @param value The segment value.
+ * @param segment The segment index.
+ * @param animated <code>YES</code> if the insertion should be animated; <code>NO</code>, otherwise.
  */
-@property (nonatomic, nullable) id value;
+- (void)insertSegmentWithTitle:(nullable NSString *)title value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
+
+/**
+ * Inserts a segment with an associated value.
+ *
+ * @param image The segment image.
+ * @param value The segment value.
+ * @param segment The segment value.
+ * @param animated <code>YES</code> if the insertion should be animated; <code>NO</code>, otherwise.
+ */
+- (void)insertSegmentWithImage:(nullable UIImage *)image value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
 
 /**
  * Returns the value for the given segment.
@@ -37,6 +52,11 @@ NS_ASSUME_NONNULL_BEGIN
  * @param segment The segment index.
  */
 - (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+
+/**
+ * The value associated with the selected segment.
+ */
+@property (nonatomic, nullable) id value;
 
 @end
 

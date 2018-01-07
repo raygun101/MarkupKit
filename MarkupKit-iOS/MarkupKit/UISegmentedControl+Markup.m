@@ -22,6 +22,31 @@ static NSString * const kSegmentValueKey = @"value";
 
 @implementation UISegmentedControl (Markup)
 
+- (void)insertSegmentWithTitle:(nullable NSString *)title value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
+{
+    [self insertSegmentWithTitle:title atIndex:segment animated:animated];
+
+    [self setValue:value forSegmentAtIndex:segment];
+}
+
+- (void)insertSegmentWithImage:(nullable UIImage *)image value:(id)value atIndex:(NSUInteger)segment animated:(BOOL)animated
+{
+    [self insertSegmentWithImage:image atIndex:segment animated:animated];
+
+    [self setValue:value forSegmentAtIndex:segment];
+}
+
+- (id)valueForSegmentAtIndex:(NSUInteger)segment
+{
+    // TODO
+    return nil;
+}
+
+- (void)setValue:(id)value forSegmentAtIndex:(NSUInteger)segment
+{
+    // TODO
+}
+
 - (id)value
 {
     NSInteger index = [self selectedSegmentIndex];
@@ -44,17 +69,6 @@ static NSString * const kSegmentValueKey = @"value";
     }
 
     [self setSelectedSegmentIndex:index];
-}
-
-- (id)valueForSegmentAtIndex:(NSUInteger)segment
-{
-    // TODO
-    return nil;
-}
-
-- (void)setValue:(id)value forSegmentAtIndex:(NSUInteger)segment
-{
-    // TODO
 }
 
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties

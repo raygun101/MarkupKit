@@ -1790,10 +1790,13 @@ Similarly, the "image" attribute can be used to specify an image for a segment:
 Additionally, MarkupKit adds the following properties and methods to `UISegmentedControl` that can be used to manage selection state by value rather than by segment index:
 
 ```objc
-@property (nonatomic, nullable) id value;
+- (void)insertSegmentWithTitle:(nullable NSString *)title value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
+- (void)insertSegmentWithImage:(nullable UIImage *)image value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
 
 - (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
 - (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+
+@property (nonatomic, nullable) id value;
 ```
 
 The `value` property returns the value associated with the selected segment in a given component. Setting the property automatically selects the segment with the associated value.
