@@ -310,11 +310,9 @@
 		37E579E61DF19090002984B9 /* LMRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMRadialGradientView.h; path = "../../MarkupKit-iOS/MarkupKit/LMRadialGradientView.h"; sourceTree = "<group>"; };
 		37E579E71DF19090002984B9 /* LMRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMRadialGradientView.m; path = "../../MarkupKit-iOS/MarkupKit/LMRadialGradientView.m"; sourceTree = "<group>"; };
 		37E579E81DF19090002984B9 /* LMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMPickerView.h; path = "../../MarkupKit-iOS/MarkupKit/LMPickerView.h"; sourceTree = "<group>"; };
-		37E579E91DF19090002984B9 /* LMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMPickerView.m; path = "../../MarkupKit-iOS/MarkupKit/LMPickerView.m"; sourceTree = "<group>"; };
 		37E579EA1DF19090002984B9 /* LMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMScrollView.h; path = "../../MarkupKit-iOS/MarkupKit/LMScrollView.h"; sourceTree = "<group>"; };
 		37E579EB1DF19090002984B9 /* LMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMScrollView.m; path = "../../MarkupKit-iOS/MarkupKit/LMScrollView.m"; sourceTree = "<group>"; };
 		37E579EC1DF19090002984B9 /* LMPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMPageView.h; path = "../../MarkupKit-iOS/MarkupKit/LMPageView.h"; sourceTree = "<group>"; };
-		37E579ED1DF19090002984B9 /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMPageView.m; path = "../../MarkupKit-iOS/MarkupKit/LMPageView.m"; sourceTree = "<group>"; };
 		37E579EE1DF19090002984B9 /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMPlayerView.h; path = "../../MarkupKit-iOS/MarkupKit/LMPlayerView.h"; sourceTree = "<group>"; };
 		37E579EF1DF19090002984B9 /* LMPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMPlayerView.m; path = "../../MarkupKit-iOS/MarkupKit/LMPlayerView.m"; sourceTree = "<group>"; };
 		37E579F01DF19090002984B9 /* LMTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableView.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableView.h"; sourceTree = "<group>"; };
@@ -340,7 +338,6 @@
 		37E57A041DF19090002984B9 /* UIButton+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIButton+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIButton+Markup.h"; sourceTree = "<group>"; };
 		37E57A051DF19090002984B9 /* UIButton+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIButton+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIButton+Markup.m"; sourceTree = "<group>"; };
 		37E57A061DF19090002984B9 /* UIDatePicker+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDatePicker+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIDatePicker+Markup.h"; sourceTree = "<group>"; };
-		37E57A071DF19090002984B9 /* UIDatePicker+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDatePicker+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIDatePicker+Markup.m"; sourceTree = "<group>"; };
 		37E57A081DF19090002984B9 /* UISegmentedControl+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISegmentedControl+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UISegmentedControl+Markup.h"; sourceTree = "<group>"; };
 		37E57A091DF19090002984B9 /* UISegmentedControl+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISegmentedControl+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UISegmentedControl+Markup.m"; sourceTree = "<group>"; };
 		37E57A0A1DF19090002984B9 /* UITextField+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITextField+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITextField+Markup.h"; sourceTree = "<group>"; };
@@ -348,13 +345,11 @@
 		37E57A0C1DF19090002984B9 /* UIActivityIndicatorView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIActivityIndicatorView+Markup.h"; sourceTree = "<group>"; };
 		37E57A0D1DF19090002984B9 /* UIActivityIndicatorView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIActivityIndicatorView+Markup.m"; sourceTree = "<group>"; };
 		37E57A0E1DF19090002984B9 /* UIPickerView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIPickerView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIPickerView+Markup.h"; sourceTree = "<group>"; };
-		37E57A0F1DF19090002984B9 /* UIPickerView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIPickerView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIPickerView+Markup.m"; sourceTree = "<group>"; };
 		37E57A101DF19090002984B9 /* UIProgressView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIProgressView+Markup.h"; sourceTree = "<group>"; };
 		37E57A111DF19090002984B9 /* UIProgressView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIProgressView+Markup.m"; sourceTree = "<group>"; };
 		37E57A121DF19090002984B9 /* UISearchBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UISearchBar+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UISearchBar+Markup.h"; sourceTree = "<group>"; };
 		37E57A131DF19090002984B9 /* UISearchBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UISearchBar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UISearchBar+Markup.m"; sourceTree = "<group>"; };
 		37E57A141DF19090002984B9 /* UIToolbar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIToolbar+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIToolbar+Markup.h"; sourceTree = "<group>"; };
-		37E57A151DF19090002984B9 /* UIToolbar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIToolbar+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIToolbar+Markup.m"; sourceTree = "<group>"; };
 		37E57A181DF19090002984B9 /* UIScrollView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIScrollView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UIScrollView+Markup.h"; sourceTree = "<group>"; };
 		37E57A191DF19090002984B9 /* UIScrollView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/UIScrollView+Markup.m"; sourceTree = "<group>"; };
 		37E57A1A1DF19090002984B9 /* UITableView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/UITableView+Markup.h"; sourceTree = "<group>"; };
@@ -507,11 +502,9 @@
 				376E729520025DF900740BBD /* LMSegmentedControl.h */,
 				376E729620025DF900740BBD /* LMSegmentedControl.m */,
 				37E579E81DF19090002984B9 /* LMPickerView.h */,
-				37E579E91DF19090002984B9 /* LMPickerView.m */,
 				37E579EA1DF19090002984B9 /* LMScrollView.h */,
 				37E579EB1DF19090002984B9 /* LMScrollView.m */,
 				37E579EC1DF19090002984B9 /* LMPageView.h */,
-				37E579ED1DF19090002984B9 /* LMPageView.m */,
 				37E579EE1DF19090002984B9 /* LMPlayerView.h */,
 				37E579EF1DF19090002984B9 /* LMPlayerView.m */,
 				37E579F01DF19090002984B9 /* LMTableView.h */,
@@ -545,7 +538,6 @@
 				37E57A041DF19090002984B9 /* UIButton+Markup.h */,
 				37E57A051DF19090002984B9 /* UIButton+Markup.m */,
 				37E57A061DF19090002984B9 /* UIDatePicker+Markup.h */,
-				37E57A071DF19090002984B9 /* UIDatePicker+Markup.m */,
 				37E57A081DF19090002984B9 /* UISegmentedControl+Markup.h */,
 				37E57A091DF19090002984B9 /* UISegmentedControl+Markup.m */,
 				37E57A0A1DF19090002984B9 /* UITextField+Markup.h */,
@@ -557,7 +549,6 @@
 				377B4CA71F60936E00D2A729 /* UIImageView+Markup.h */,
 				377B4CA81F60936E00D2A729 /* UIImageView+Markup.m */,
 				37E57A0E1DF19090002984B9 /* UIPickerView+Markup.h */,
-				37E57A0F1DF19090002984B9 /* UIPickerView+Markup.m */,
 				37E57A101DF19090002984B9 /* UIProgressView+Markup.h */,
 				37E57A111DF19090002984B9 /* UIProgressView+Markup.m */,
 				37E57A121DF19090002984B9 /* UISearchBar+Markup.h */,
@@ -567,7 +558,6 @@
 				37770B361ECF6E0500C5B491 /* UITabBarItem+Markup.h */,
 				37770B371ECF6E0500C5B491 /* UITabBarItem+Markup.m */,
 				37E57A141DF19090002984B9 /* UIToolbar+Markup.h */,
-				37E57A151DF19090002984B9 /* UIToolbar+Markup.m */,
 				37E57A181DF19090002984B9 /* UIScrollView+Markup.h */,
 				37E57A191DF19090002984B9 /* UIScrollView+Markup.m */,
 				37E57A1A1DF19090002984B9 /* UITableView+Markup.h */,
@@ -933,14 +923,14 @@
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
 				37E57A8A1DF190F1002984B9 /* UIButton+Markup.m in Sources */,
 				37E57A8C1DF190F1002984B9 /* UISegmentedControl+Markup.m in Sources */,
-				37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */,
-				37770B391ECF6E0500C5B491 /* UITabBarItem+Markup.m in Sources */,
 				37E57A8D1DF190F1002984B9 /* UITextField+Markup.m in Sources */,
 				37E57A8E1DF190F1002984B9 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */,
 				377B4CA91F60936E00D2A729 /* UIImageView+Markup.m in Sources */,
 				37E57A901DF190F1002984B9 /* UIProgressView+Markup.m in Sources */,
 				37E57A911DF190F1002984B9 /* UISearchBar+Markup.m in Sources */,
+				37659D501ECF57590043C9C1 /* UITabBar+Markup.m in Sources */,
+				37770B391ECF6E0500C5B491 /* UITabBarItem+Markup.m in Sources */,
 				37E57A941DF190F1002984B9 /* UIScrollView+Markup.m in Sources */,
 				37E57A951DF190F1002984B9 /* UITableView+Markup.m in Sources */,
 				37E57A961DF190F1002984B9 /* UITableViewCell+Markup.m in Sources */,
