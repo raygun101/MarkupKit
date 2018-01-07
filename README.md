@@ -519,6 +519,7 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMTableView`, `LMTableViewCell`, and `LMTableViewHeaderFooterView` - `UITableView`, `UITableViewCell`, and `UITableViewHeaderFooterView` subclasses, respectively, that facilitate the declaration of table view content
 * `LMTableViewController` - `UITableViewController` subclass that simplifies management of an `LMTableView`
 * `LMCollectionView` and `LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
+* `LMSegmentedControl` - `UISegmentedControl` subclass that facilitates the declaration of segmented control content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
 * `LMPlayerView` - view that presents an AV player
@@ -1421,6 +1422,55 @@ Because the initializer passes the cell instance itself as the value of the `roo
 
 See [LMCollectionView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMCollectionView.h) and [LMCollectionViewCell.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMCollectionViewCell.h) for more information.
 
+## LMSegmentedControl
+`LMSegmentedControl` is a subclass of `UISegmentedControl` that supports the declaration of segmented control content. 
+
+The `segment` element is used to add a segment to a segmented control. The "title" attribute can be used to specify a segment's title:
+
+```xml
+<LMSegmentedControl>
+    <segment title="Yes"/>
+    <segment title="No"/>
+</LMSegmentedControl>
+```
+
+Similarly, the "image" attribute can be used to specify an image for a segment:
+
+```xml
+<LMSegmentedControl>
+    <segment image="yes.png"/>
+    <segment image="no.png"/>
+</LMSegmentedControl>
+```
+
+`LMSegmentedControl` provides the following methods for managing selection state by value rather than by segment index:
+
+```objc
+- (void)insertSegmentWithTitle:(nullable NSString *)title value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
+- (void)insertSegmentWithImage:(nullable UIImage *)image value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
+
+- (nullable id)valueForSegmentAtIndex:(NSUInteger)segment;
+- (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
+```
+
+Segment values may be declared in markup as follows:
+
+```xml
+<UISegmentedControl>
+    <segment title="Red" value="#ff0000"/>
+    <segment title="Green" value="#00ff00"/>
+    <segment title="Blue" value="#0000ff"/>
+</UISegmentedControl>
+```
+
+The `value` property returns the value associated with the selected segment: 
+
+```objc
+@property (nonatomic, nullable) id value;
+```
+
+Setting this property automatically selects the segment with the associated value. For example, setting the `value` property of the segmented control declared above to "#00ff00" would select the second segment.
+
 ## LMPickerView
 `LMPickerView` is a subclass of `UIPickerView` that acts as its own data source and delegate, serving content from a statically-defined collection of row and component titles. For example, the following markup declares a picker view containing four rows reprenting size options:
 
@@ -1435,7 +1485,7 @@ See [LMCollectionView.h](https://github.com/gk-brown/MarkupKit/blob/master/Marku
 
 The `row` element corresponds to a call to the `insertRow:inComponent:withTitle:value:` method of `LMPickerView`. The value of the `row` tag's "title" attribute is used as the title of the row. 
 
-An optional value can also be associated with row, as shown below:
+An optional value can also be associated with each row:
 
 ```xml
 <LMPickerView>
@@ -1446,7 +1496,7 @@ An optional value can also be associated with row, as shown below:
 </LMPickerView>
 ```
 
-This allows an application to present an optionally localized, human-readable value in the picker view while internally maintaining a system-level key or ID for the row.
+This allows an application to manage a picker view's selection state by key rather than by row index. Selection management is discussed in more detail below.
 
 ### Component Management
 The `componentSeparator` processing instruction inserts a new component into the picker view. It corresponds to a call to the `insertComponent:` method of `LMPickerView`. The following markup declares a picker view containing two components, the first of which contains a set of size options, and the second containing color options (the first component is created implicitly when the picker view is initialized):
@@ -1767,27 +1817,7 @@ Finally, MarkupKit overrides the `appendMarkupElementView:` method of `UIButton`
     </UIButton>
 
 ### UISegmentedControl
-Instances of `UISegmentedControl` are populated using the `insertSegmentWithTitle:atIndex:animated:` and `insertSegmentWithImage:atIndex:animated` methods. The MarkupKit extension to `UISegmentedControl` overrides the `processMarkupElement:properties:` method to allow segmented control content to be configured in markup. 
-
-The `segment` element is used to add a segment to a segmented control. The "title" attribute can be used to specify a the segment's title:
-
-```xml
-<UISegmentedControl>
-    <segment title="Yes"/>
-    <segment title="No"/>
-</UISegmentedControl>
-```
-
-Similarly, the "image" attribute can be used to specify an image for a segment:
-
-```xml
-<UISegmentedControl>
-    <segment image="yes.png"/>
-    <segment image="no.png"/>
-</UISegmentedControl>
-```
-
-Additionally, MarkupKit adds the following properties and methods to `UISegmentedControl` that can be used to manage selection state by value rather than by segment index:
+MarkupKit adds the following methods and properties to the `UISegmentedControl` class. These methods are added to `UISegmentedControl` primarily so casting is not required when using an `LMSegmentedControl` instance in markup. However, the mutator methods are only implemented by `LMSegmentedControl`:
 
 ```objc
 - (void)insertSegmentWithTitle:(nullable NSString *)title value:(nullable id)value atIndex:(NSUInteger)segment animated:(BOOL)animated;
@@ -1797,18 +1827,6 @@ Additionally, MarkupKit adds the following properties and methods to `UISegmente
 - (void)setValue:(nullable id)value forSegmentAtIndex:(NSUInteger)segment;
 
 @property (nonatomic, nullable) id value;
-```
-
-The `value` property returns the value associated with the selected segment in a given component. Setting the property automatically selects the segment with the associated value.
-
-Segment values may be optionally declared in markup as follows:
-
-```xml
-<UISegmentedControl>
-    <segment title="Red" value="#ff0000"/>
-    <segment title="Green" value="#00ff00"/>
-    <segment title="Blue" value="#0000ff"/>
-</UISegmentedControl>
 ```
 
 ### UITextField
@@ -1880,7 +1898,7 @@ In tvOS 11 and later, MarkupKit provides support for declaring image view overla
 The content is automatically sized to match the image view's bounds.
 
 ### UIPickerView
-MarkupKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` primarily so casting is not required when using an `LMPickerView` instance in markup. They also provide parity with similar methods added to `UITableView`:
+MarkupKit adds the following instance methods to the `UIPickerView` class. These methods are added to `UIPickerView` primarily so casting is not required when using an `LMPickerView` instance in markup. However, the mutator methods are only implemented by `LMPickerView`:
 
 ```objc
 - (NSString *)nameForComponent:(NSInteger)component;
