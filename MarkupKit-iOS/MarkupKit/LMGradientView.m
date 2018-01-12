@@ -26,7 +26,8 @@
     self = [super initWithFrame:frame];
 
     if (self) {
-        [self setBackgroundColor:[UIColor clearColor]];
+        [self setOpaque:NO];
+        [self setContentMode:UIViewContentModeRedraw];
     }
 
     return self;
