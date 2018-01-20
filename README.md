@@ -241,7 +241,7 @@ The value of any attribute whose name is equal to or ends with "image" is conver
 
 Images are typically loaded using the `imageNamed:inBundle:compatibleWithTraitCollection:` method of the `UIImage` class. The attribute value is passed as the first argument to this method. 
 
-If the document's owner (usually the view controller) implements a method named `bundleForImages`, the second argument will contain the value returned by this method. MarkupKit adds a default implementation of `bundleForImages` to `UIResponder` that returns the bundle from which the class was loaded. Subclasses can override this method to provide custom image loading behavior. If the owner does not implement `bundleForImages`, the main bundle will be used.
+If the document's owner (usually the view controller) implements a method named `bundleForImages`, the second argument will contain the value returned by this method. MarkupKit adds a default implementation of `bundleForImages` to `UIResponder` that returns the bundle from which the view was loaded. Subclasses can override this method to provide custom image loading behavior. If the owner does not implement `bundleForImages`, the main bundle will be used.
 
 Finally, if the owner conforms to the `UITraitEnvironment` protocol, the third argument will contain the value returned by the `traitCollection` method. Otherwise, it will be `nil`.
     
@@ -302,7 +302,7 @@ the following markup will produce an instance of `UILabel` whose `text` property
 <UILabel text="@hello"/>
 ```
 
-If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with `bundleForImages`, MarkupKit adds a default implementation of `bundleForStrings ` to `UIResponder` that returns the class bundle. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
+If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with `bundleForImages`, MarkupKit adds a default implementation of `bundleForStrings ` to `UIResponder` that returns the bundle that loaded the view. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
 
 Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. A default implementation provided by `UIResponder` returns `nil`.
 
