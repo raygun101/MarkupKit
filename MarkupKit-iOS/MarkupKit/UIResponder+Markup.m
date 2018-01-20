@@ -37,12 +37,12 @@
 
 - (NSBundle *)bundleForImages
 {
-    return [NSBundle mainBundle];
+    return [self bundleForView];
 }
 
 - (NSBundle *)bundleForStrings
 {
-    return [NSBundle mainBundle];
+    return [self bundleForView];
 }
 
 - (NSString *)tableForStrings
