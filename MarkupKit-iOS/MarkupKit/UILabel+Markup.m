@@ -16,6 +16,18 @@
 
 @implementation UILabel (Markup)
 
++ (UILabel *)topAlignedLabel
+{
+    // TODO
+    return [UILabel new];
+}
+
++ (UILabel *)bottomAlignedLabel
+{
+    // TODO
+    return [UILabel new];
+}
+
 - (CGFloat)shadowOffsetWidth
 {
     return self.shadowOffset.width;

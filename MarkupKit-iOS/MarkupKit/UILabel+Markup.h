@@ -19,6 +19,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface UILabel (Markup)
 
 /**
+ * Creates a top-aligned label.
+ */
++ (UILabel *)topAlignedLabel;
+
+/**
+ * Creates a bottom-aligned label.
+ */
++ (UILabel *)bottomAlignedLabel;
+
+/**
  * The shadow offset width.
  */
 @property (nonatomic) CGFloat shadowOffsetWidth;

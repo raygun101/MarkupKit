@@ -1864,7 +1864,20 @@ This markup declares a text field with an associated `UIDatePicker` as an input 
 MarkupKit's support for `UIToolbar` is discussed in more detail below.
 
 ### UILabel
-MarkupKit adds the following properties to `UILabel` to allow a label's shadow offset width and height to be configured independently:
+MarkupKit adds the following factory methods to the `UILabel` class to support the declaration of top and bottom-aligned labels, respectively:
+
+```objc
++ (UILabel *)topAlignedLabel;
++ (UILabel *)bottomAlignedLabel;
+```
+
+For example:
+
+```xml
+<UILabel style="topAlignedLabel" text="Top-Aligned Text"/>
+```
+
+Additionally, MarkupKit adds the following properties to `UILabel` to allow a label's shadow offset width and height to be configured independently:
 
 ```objc
 @property (nonatomic) CGFloat shadowOffsetWidth;
