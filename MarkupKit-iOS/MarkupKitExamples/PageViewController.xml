@@ -22,7 +22,7 @@ limitations under the License.
             <UIImageView image="waterfall.jpg" contentMode="scaleAspectFill" clipsToBounds="true"/>
         </LMPageView>
 
-        <UIPageControl id="pageControl" anchor="bottom"
+        <UIPageControl id="pageControl" anchor="bottom, left, right"
             pageIndicatorTintColor="#ffff0077" currentPageIndicatorTintColor="#ffff00ff"
             onValueChanged="updatePage"/>
     </LMAnchorView>

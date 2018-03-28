@@ -35,7 +35,7 @@ class PageViewController: UIViewController, UIScrollViewDelegate {
         pageControl.numberOfPages = pageView.pages.count
     }
 
-    func updatePage() {
+    @IBAction func updatePage() {
         pageView.setCurrentPage(pageControl.currentPage, animated: true)
     }
 
