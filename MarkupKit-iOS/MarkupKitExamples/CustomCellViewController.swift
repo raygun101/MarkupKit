@@ -22,18 +22,11 @@ class CustomCellViewController: UITableViewController {
 
         title = "Custom Cell View"
         
-        // Configure table view
-        tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.description())
         tableView.estimatedRowHeight = 2
 
-        // Load pharmacy list
-        let pharmacyListURL = Bundle.main.url(forResource: "pharmacies", withExtension: "json")
+        tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.description())
 
-        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: pharmacyListURL!)) as! [[String: Any]]
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: Bundle.main.url(forResource: "pharmacies", withExtension: "json")!)) as! [[String: Any]]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -41,15 +34,11 @@ class CustomCellViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Get pharmacy data
-        let index = indexPath.row
-        
-        let pharmacy = pharmacies[index]
+        let pharmacy = pharmacies[indexPath.row]
 
-        // Configure cell with pharmacy data
         let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.description(), for: indexPath) as! PharmacyCell
 
-        cell.name = String(format: "%d. %@", index + 1, pharmacy["name"] as! String)
+        cell.name = String(format: "%d. %@", indexPath.row + 1, pharmacy["name"] as! String)
 
         cell.distance = String(format: "%.2f miles", pharmacy["distance"] as! Double)
 

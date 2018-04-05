@@ -41,10 +41,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let defaultNotificationCenter = NotificationCenter.default
-
-        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
 
         latitudeTextField.becomeFirstResponder()
     }
@@ -77,8 +75,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func showLocation() {
-        let latitude = (latitudeTextField.text == nil || latitudeTextField.text!.isEmpty) ? 0 : Double(latitudeTextField.text!)!
-        let longitude = (longitudeTextField.text == nil || longitudeTextField.text!.isEmpty) ? 0 : Double(longitudeTextField.text!)!
+        let latitude = Double(latitudeTextField.text ?? "") ?? 0
+        let longitude = Double(longitudeTextField.text ?? "") ?? 0
         
         if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
             let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius * 1000, radius * 1000)
