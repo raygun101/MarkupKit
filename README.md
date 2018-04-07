@@ -18,6 +18,8 @@ let label = UILabel()
 label.text = "Hello, World!"
 ```
 
+In addition to support for all system-provided view types, MarkupKit includes a set of `UIView` subclasses that make working with auto layout much easier. It also supports custom (i.e. application-specific) view types. 
+
 ### Improves Productivity
 Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
