@@ -32,7 +32,7 @@ This guide introduces the MarkupKit framework and provides an overview of its ke
 
 MarkupKit requires either iOS 9 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
-For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
+Many code samples are included in the [project workspace](https://github.com/gk-brown/MarkupKit/archive/master.zip). For additional information and examples, including a "getting started" tutorial, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
 
 _Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!_
 
