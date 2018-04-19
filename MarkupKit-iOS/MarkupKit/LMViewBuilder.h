@@ -28,17 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
  * @param owner The view's owner, or <code>nil</code> for no owner.
  * @param root The root view, or <code>nil</code> for no root view.
  *
- * @return The named view, or <code>nil</code> if a view with the given name does not exist.
+ * @return The named view, or <code>nil</code> if the view could not be loaded.
  */
 + (nullable UIView *)viewWithName:(NSString *)name owner:(nullable id)owner root:(nullable UIView *)root;
-
-/**
- * Previews a named view.
- *
- * @param name The name of the view to preview.
- * @param root The root view.
- */
-+ (void)previewForViewWithName:(NSString *)name root:(UIView *)root;
 
 /**
  * Decodes a color value.

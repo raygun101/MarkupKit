@@ -16,19 +16,9 @@ import UIKit
 import MarkupKit
 
 /**
- * Master view.
+ * Table view controller.
  */
-@IBDesignable
-class MasterView: LMTableView {
-    override func prepareForInterfaceBuilder() {
-        LMViewBuilder.previewForView(withName: "MasterViewController", root: self)
-    }
-}
-
-/**
- * Master view controller.
- */
-class MasterViewController: LMTableViewController {
+class ViewController: LMTableViewController {
     // Outlets
     @IBOutlet var textField1: UITextField!
     @IBOutlet var textField2: UITextField!
@@ -41,9 +31,7 @@ class MasterViewController: LMTableViewController {
 
     // View initialization
     override func loadView() {
-        view = MasterView(frame: CGRect(), style: .grouped)
-
-        LMViewBuilder.view(withName: "MasterViewController", owner: self, root: view)
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
         tableView.dataSource = self
         tableView.delegate = self

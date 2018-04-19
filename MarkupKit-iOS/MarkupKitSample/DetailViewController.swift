@@ -18,16 +18,6 @@ import MarkupKit
 /**
  * Detail view.
  */
-@IBDesignable
-class DetailView: LMRootView {
-    override func prepareForInterfaceBuilder() {
-        LMViewBuilder.previewForView(withName: "DetailViewController", root: self)
-    }
-}
-
-/**
- * Detail view controller.
- */
 class DetailViewController: UIViewController {
     // Outlets
     @IBOutlet var headingLabel: UILabel!
@@ -38,9 +28,7 @@ class DetailViewController: UIViewController {
 
     // View initialization
     override func loadView() {
-        view = LMRootView()
-        
-        LMViewBuilder.view(withName: "DetailViewController", owner: self, root: view)
+        view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: nil)
     }
 
     override func viewDidLoad() {
