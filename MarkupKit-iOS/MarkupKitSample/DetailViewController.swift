@@ -26,7 +26,11 @@ class DetailViewController: UIViewController {
     // Row data
     var row: Row!
 
-    // View initialization
+    // View management
+    var rootView: LMRootView! {
+        return view as! LMRootView
+    }
+
     override func loadView() {
         view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: nil)
     }
@@ -40,8 +44,6 @@ class DetailViewController: UIViewController {
 
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-
-        let rootView = view as! LMRootView
 
         rootView.topSpacing = topLayoutGuide.length
         rootView.bottomSpacing = bottomLayoutGuide.length

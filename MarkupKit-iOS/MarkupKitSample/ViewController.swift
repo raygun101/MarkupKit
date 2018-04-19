@@ -29,7 +29,7 @@ class ViewController: LMTableViewController {
 
     let dynamicSectionName = "dynamic"
 
-    // View initialization
+    // View management
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
 
