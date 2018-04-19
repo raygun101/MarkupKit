@@ -28,7 +28,7 @@ class DetailViewController: UIViewController {
 
     // View management
     override func loadView() {
-        view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: nil)
+        view = LMViewBuilder.view(withName: "DetailViewController", owner: self, root: LMRootView())
     }
 
     override func viewDidLoad() {
@@ -50,6 +50,21 @@ class DetailViewController: UIViewController {
     // Done button press handler
     @IBAction func doneButtonPressed() {
         dismiss(animated: true)
+    }
+}
+
+/**
+ * Detail view controller preview.
+ */
+@IBDesignable
+class DetailViewControllerPreview: LMRootView {
+    override func prepareForInterfaceBuilder() {
+        let owner = DetailViewController(nibName: nil, bundle: nil)
+
+        LMViewBuilder.view(withName: "DetailViewController", owner: owner, root: self)
+
+        owner.headingLabel.text = "Heading"
+        owner.detailLabel.text = "Detail"
     }
 }
 

@@ -143,6 +143,7 @@
 		37659D4C1ECF56E30043C9C1 /* UITabBar+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */; };
 		37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D511ECF59290043C9C1 /* BarsViewController.swift */; };
 		37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D521ECF59290043C9C1 /* BarsViewController.xml */; };
+		3767951B2089094800B8AEF5 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3767951A2089094800B8AEF5 /* DetailViewController.xib */; };
 		376E729320025D7100740BBD /* LMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 376E729120025D7100740BBD /* LMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E729220025D7100740BBD /* LMSegmentedControl.m */; };
 		3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E93D1DF1B66A0064CC82 /* Assets.xcassets */; };
@@ -325,6 +326,7 @@
 		37659D4A1ECF56E30043C9C1 /* UITabBar+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Markup.m"; sourceTree = "<group>"; };
 		37659D511ECF59290043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsViewController.swift; sourceTree = "<group>"; };
 		37659D521ECF59290043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BarsViewController.xml; sourceTree = "<group>"; };
+		3767951A2089094800B8AEF5 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		376E729120025D7100740BBD /* LMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMSegmentedControl.h; sourceTree = "<group>"; };
 		376E729220025D7100740BBD /* LMSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMSegmentedControl.m; sourceTree = "<group>"; };
 		3771E9341DF1B66A0064CC82 /* MarkupKitSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -586,6 +588,7 @@
 				3771E9521DF1B7580064CC82 /* CustomCell.xml */,
 				3771E9551DF1B77D0064CC82 /* DetailViewController.swift */,
 				3771E9561DF1B77D0064CC82 /* DetailViewController.xml */,
+				3767951A2089094800B8AEF5 /* DetailViewController.xib */,
 				3771E93D1DF1B66A0064CC82 /* Assets.xcassets */,
 				3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */,
 				3771E9421DF1B66A0064CC82 /* Info.plist */,
@@ -1101,6 +1104,7 @@
 				3771E9411DF1B66A0064CC82 /* LaunchScreen.storyboard in Resources */,
 				3771E95F1DF1B7D10064CC82 /* Localizable.strings in Resources */,
 				3771E95D1DF1B79A0064CC82 /* rows.json in Resources */,
+				3767951B2089094800B8AEF5 /* DetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
