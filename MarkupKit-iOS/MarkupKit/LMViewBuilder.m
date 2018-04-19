@@ -80,7 +80,7 @@ static NSMutableDictionary *templateCache;
     NSBundle *bundle = [owner bundleForView];
 
     if (bundle == nil) {
-        bundle = [NSBundle mainBundle];
+        bundle = (root == nil) ? [NSBundle mainBundle] : [root bundleForView];
     }
 
     NSURL *url = [bundle URLForResource:name withExtension:@"xml"];
@@ -97,6 +97,40 @@ static NSMutableDictionary *templateCache;
     }
 
     return view;
+}
+
++ (void)previewForViewWithName:(NSString *)name root:(UIView *)root
+{
+    @try {
+        [self viewWithName:name owner:nil root:root];
+    }
+    @catch (NSException *exception) {
+        UILabel *label = [UILabel new];
+
+        [label setText:[exception reason]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setFont:[UIFont systemFontOfSize:12]];
+        [label setNumberOfLines:0];
+
+        [label setBackgroundColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.25 * 255]];
+
+        [root addSubview:label];
+
+        [NSLayoutConstraint activateConstraints:@[
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop
+                relatedBy:NSLayoutRelationEqual toItem:root attribute:NSLayoutAttributeTop
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom
+                relatedBy:NSLayoutRelationEqual toItem:root attribute:NSLayoutAttributeBottom
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeading
+                relatedBy:NSLayoutRelationEqual toItem:root attribute:NSLayoutAttributeLeading
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTrailing
+                relatedBy:NSLayoutRelationEqual toItem:root attribute:NSLayoutAttributeTrailing
+                multiplier:1 constant:0]
+        ]];
+    }
 }
 
 + (UIColor *)colorValue:(NSString *)value
@@ -259,7 +293,7 @@ static NSMutableDictionary *templateCache;
     NSBundle *bundle = [_owner bundleForStrings];
 
     if (bundle == nil) {
-        bundle = [NSBundle mainBundle];
+        bundle = (_root == nil) ? [NSBundle mainBundle] : [_root bundleForStrings];
     }
 
     NSString *table = [_owner tableForStrings];
@@ -425,7 +459,7 @@ static NSMutableDictionary *templateCache;
         NSBundle *bundle = [_owner bundleForImages];
 
         if (bundle == nil) {
-            bundle = [NSBundle mainBundle];
+            bundle = (_root == nil) ? [NSBundle mainBundle] : [_root bundleForImages];
         }
 
         value = [UIImage imageNamed:[value description] inBundle:bundle compatibleWithTraitCollection:[_owner traitCollection]];
