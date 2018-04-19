@@ -19,7 +19,11 @@ import MarkupKit
 class WebViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var webView: WKWebView!
     @IBOutlet var urlTextField: UITextField!
-    
+
+    var rootView: LMRootView! {
+        return view as! LMRootView
+    }
+
     override func loadView() {
         view = LMViewBuilder.view(withName: "WebViewController", owner: self, root: nil)
     }
@@ -60,15 +64,12 @@ class WebViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
-        let rootView = view as! LMRootView
         let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
         rootView.bottomSpacing = frame.height
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        let rootView = view as! LMRootView
-
         rootView.bottomSpacing = 0
     }
     
