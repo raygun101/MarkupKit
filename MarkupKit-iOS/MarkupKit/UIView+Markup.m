@@ -642,4 +642,38 @@ static NSDictionary *anchorValues;
         NSStringFromClass([self class]), NSStringFromClass([view class])];
 }
 
+- (void)preview:(NSString *)viewName owner:(nullable id)owner
+{
+    @try {
+        [LMViewBuilder viewWithName:viewName owner:owner root:self];
+    }
+    @catch (NSException *exception) {
+        UILabel *label = [UILabel new];
+
+        [label setText:[exception reason]];
+        [label setTextAlignment:NSTextAlignmentCenter];
+        [label setFont:[UIFont systemFontOfSize:12]];
+        [label setNumberOfLines:0];
+
+        [label setBackgroundColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.25 * 255]];
+
+        [self addSubview:label];
+
+        [NSLayoutConstraint activateConstraints:@[
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTop
+                relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeBottom
+                relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeLeading
+                relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading
+                multiplier:1 constant:0],
+            [NSLayoutConstraint constraintWithItem:label attribute:NSLayoutAttributeTrailing
+                relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing
+                multiplier:1 constant:0]
+        ]];
+    }
+}
+
 @end

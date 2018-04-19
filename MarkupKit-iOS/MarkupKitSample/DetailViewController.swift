@@ -65,7 +65,7 @@ class DetailViewControllerPreview: LMRootView {
     override func prepareForInterfaceBuilder() {
         let owner = DetailViewController(nibName: nil, bundle: nil)
 
-        LMViewBuilder.view(withName: "DetailViewController", owner: owner, root: self)
+        preview("DetailViewController", owner: owner)
 
         owner.iconImageView.image = UIImage(named: "BeachIcon", in: Bundle(for: type(of: self)), compatibleWith: nil)
         
