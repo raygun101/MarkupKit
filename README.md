@@ -1730,13 +1730,23 @@ The following properties are added to allow the components of a view's layout ma
 @property (nonatomic) CGFloat layoutMarginTrailing;
 ```
 
-Finally, the `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
+The `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
 
 ```objc
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data;
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties;
 - (void)appendMarkupElementView:(UIView *)view;
 ```
+
+Finally, MarkupKit adds the following method to `UIView` to support live preview in Xcode:
+
+```objc
+- (void)preview:(NSString *)viewName owner:(nullable id)owner;
+```
+
+View classes tagged with `IB_DESIGNABLE` or `@IBDesignable` can call this method from within `prepareForInterfaceBuilder` to validate markup changes at design time, avoiding the need to launch the simulator. The first argument contains the name of the view document to preview, and the second is an optional argument containing the document's owner. 
+
+If an error occurs while loading the document, a label containing the error message will be overlaid on top of the view instance, allowing typos and other errors to be quickly identified.
 
 ### UIResponder
 MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
