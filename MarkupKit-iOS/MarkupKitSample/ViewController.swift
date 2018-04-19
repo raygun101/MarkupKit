@@ -16,7 +16,7 @@ import UIKit
 import MarkupKit
 
 /**
- * Table view controller.
+ * Main view controller.
  */
 class ViewController: LMTableViewController {
     // Outlets
