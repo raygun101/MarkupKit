@@ -20,7 +20,7 @@ limitations under the License.
     }
 }?>
 
-<LMTableView style="groupedTableView">
+<root>
     <!-- Static content -->
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="@staticContent"/>
@@ -53,4 +53,4 @@ limitations under the License.
 
     <?sectionHeaderView?>
     <UITableViewHeaderFooterView textLabel.text="@dynamicContent"/>
-</LMTableView>
+</root>
