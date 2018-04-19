@@ -652,10 +652,10 @@ static NSDictionary *anchorValues;
 
         [label setText:[exception reason]];
         [label setTextAlignment:NSTextAlignmentCenter];
-        [label setFont:[UIFont systemFontOfSize:12]];
+        [label setFont:[UIFont systemFontOfSize:14]];
         [label setNumberOfLines:0];
 
-        [label setBackgroundColor:[UIColor colorWithRed:255 green:255 blue:255 alpha:0.25 * 255]];
+        [label setBackgroundColor:[UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.75]];
 
         [self addSubview:label];
 
