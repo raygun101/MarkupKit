@@ -1,13 +1,16 @@
 [
     {
+        "icon": "BarIcon",
         "heading": "Lorem ipsum dolor sit amet",
         "detail": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
     },
     {
+        "icon": "RestaurantIcon",
         "heading": "Ut enim ad minim veniam",
         "detail": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
+        "icon": "BeachIcon",
         "heading": "Duis aute irure dolor in reprehenderit in voluptate velit.",
         "detail": "Esse cillum dolore eu fugiat nulla pariatur."
     }

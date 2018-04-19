@@ -60,6 +60,7 @@
 		373BFB361DFB007B00BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D71DF1BA690064CC82 /* Colors.plist */; };
 		373BFB371DFB007B00BB7509 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D91DF1BA720064CC82 /* Fonts.plist */; };
 		373BFB381DFB007B00BB7509 /* pharmacies.json in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9971DF1B99E0064CC82 /* pharmacies.json */; };
+		373EF94120890FEB00537E5D /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373EF94020890FEB00537E5D /* Icons.xcassets */; };
 		37596C191EAA2C0600D427B4 /* UILabel+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37596C171EAA2C0600D427B4 /* UILabel+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37596C181EAA2C0600D427B4 /* UILabel+Markup.m */; };
 		3763063C1DF188BF00357E68 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB011DF18539006E6B3D /* LMLayoutView.m */; };
@@ -320,6 +321,7 @@
 		3715C2AE1F5039AF007D39C4 /* waterfall.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = waterfall.jpg; sourceTree = "<group>"; };
 		3715C2AF1F5039AF007D39C4 /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
+		373EF94020890FEB00537E5D /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37596C171EAA2C0600D427B4 /* UILabel+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Markup.h"; sourceTree = "<group>"; };
 		37596C181EAA2C0600D427B4 /* UILabel+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Markup.m"; sourceTree = "<group>"; };
 		37659D491ECF56E30043C9C1 /* UITabBar+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Markup.h"; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				3771E9551DF1B77D0064CC82 /* DetailViewController.swift */,
 				3771E9561DF1B77D0064CC82 /* DetailViewController.xml */,
 				3767951A2089094800B8AEF5 /* DetailViewController.xib */,
+				373EF94020890FEB00537E5D /* Icons.xcassets */,
 				3771E93D1DF1B66A0064CC82 /* Assets.xcassets */,
 				3771E93F1DF1B66A0064CC82 /* LaunchScreen.storyboard */,
 				3771E9421DF1B66A0064CC82 /* Info.plist */,
@@ -1098,6 +1101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3771E9501DF1B73C0064CC82 /* ViewController.xml in Resources */,
+				373EF94120890FEB00537E5D /* Icons.xcassets in Resources */,
 				3771E9541DF1B7580064CC82 /* CustomCell.xml in Resources */,
 				3771E9581DF1B77D0064CC82 /* DetailViewController.xml in Resources */,
 				3771E93E1DF1B66A0064CC82 /* Assets.xcassets in Resources */,

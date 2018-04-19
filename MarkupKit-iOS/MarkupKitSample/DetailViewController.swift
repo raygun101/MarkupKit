@@ -20,6 +20,8 @@ import MarkupKit
  */
 class DetailViewController: UIViewController {
     // Outlets
+    @IBOutlet var iconImageView: UIImageView!
+
     @IBOutlet var headingLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
 
@@ -33,6 +35,8 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        iconImageView.image = row.icon
 
         headingLabel.text = row.heading
         detailLabel.text = row.detail
@@ -63,8 +67,10 @@ class DetailViewControllerPreview: LMRootView {
 
         LMViewBuilder.view(withName: "DetailViewController", owner: owner, root: self)
 
-        owner.headingLabel.text = "Heading"
-        owner.detailLabel.text = "Detail"
+        owner.iconImageView.image = UIImage(named: "BeachIcon", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        
+        owner.headingLabel.text = "Heading Text"
+        owner.detailLabel.text = "Detail Message"
     }
 }
 

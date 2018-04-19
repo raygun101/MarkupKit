@@ -17,7 +17,24 @@ import UIKit
 /**
  * Model class representing a table row.
  */
-class Row: NSObject, Decodable {
-    @objc dynamic var heading: String?
-    @objc dynamic var detail: String?
+final class Row: NSObject, Decodable {
+    @objc dynamic var icon: UIImage?
+
+    @objc dynamic var heading: String
+    @objc dynamic var detail: String
+
+    enum CodingKeys: String, CodingKey {
+        case icon
+        case heading
+        case detail
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        icon = UIImage(named: try values.decode(String.self, forKey: .icon))
+        
+        heading = try values.decode(String.self, forKey: .heading)
+        detail = try values.decode(String.self, forKey: .detail)
+    }
 }
