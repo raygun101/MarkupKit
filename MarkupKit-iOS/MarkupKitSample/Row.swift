@@ -18,10 +18,10 @@ import UIKit
  * Model class representing a table row.
  */
 final class Row: NSObject, Decodable {
-    @objc dynamic var icon: UIImage?
+    @objc let icon: UIImage?
 
-    @objc dynamic var heading: String
-    @objc dynamic var detail: String
+    @objc let heading: String
+    @objc let detail: String
 
     enum CodingKeys: String, CodingKey {
         case icon

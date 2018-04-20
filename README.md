@@ -39,9 +39,22 @@ Many code samples are included in the [project workspace](https://github.com/gk-
 _Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!_
 
 # Contents
+* [Installation](#installation)
 * [Document Structure](#document-structure)
 * [MarkupKit Classes](#markupkit-classes)
 * [Additional Information](#additional-information)
+
+# Installation
+MarkupKit is distributed as a universal binary that will run in the iOS simulator as well as on an actual device. To install:
+
+* Download the [latest release](https://github.com/gk-brown/MarkupKit/releases) archive and expand
+* In Xcode, select the project root node in the Project Navigator view
+* Select the application target
+* Select the "General" tab
+* Drag _MarkupKit.framework_ to the "Embedded Binaries" section
+* In the dialog that appears, ensure that "Copy items if needed" is checked and click "Finish"
+
+Note that the framework binary must be "trimmed" prior to App Store submission. See the [deployment](https://github.com/gk-brown/MarkupKit/wiki/Deployment) section of the wiki for more information.
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of an XML document parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
