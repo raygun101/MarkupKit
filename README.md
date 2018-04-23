@@ -384,28 +384,9 @@ Often, when constructing a user interface, the same set of property values are a
 
 MarkupKit allows developers to abstract common sets of property definitions into CSS-like "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
 
-Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON), and may be either inline or external. Inline templates are defined within the markup document itself, and external templates are specified in a separate file.
+Property templates are specified using [JavaScript Object Notation](http://www.json.org) (JSON). Each template is represented by a dictionary object defined at the top level of the JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
 
-Each template is represented by a dictionary object defined at the top level of the JSON document. The dictionary's key represents the name of the template, and its contents represent the property values that will be set when the template is applied. 
-
-For example, the following JSON document defines a template named "greeting", which contains definitions for "font" and "textAlignment" properties:
-
-```json
-{
-    "greeting": {
-        "font": "Helvetica 24", 
-        "textAlignment": "center"
-    }
-}
-```
-
-Templates are added to a MarkupKit document using the `properties` processing instruction (PI). The following PI adds all properties defined by _Styles.json_ to the current document:
-
-```xml
-<?properties Styles?>
-```
-
-Inline templates simply embed the entire template definition within the processing instruction:
+Templates are added to a MarkupKit document using the `properties` processing instruction (PI). For example, the following PI defines a template named "greeting", which contains definitions for "font" and "textAlignment" properties:
 
 ```xml
 <?properties {
@@ -416,11 +397,6 @@ Inline templates simply embed the entire template definition within the processi
 }?>
 ```
 
-Inline templates are generally used when a set of properties are only applicable to the current document, and external templates when properties may be shared by multiple documents. Note that external templates are cached so that their contents do not need to be reloaded each time they are referenced.
-
-Multiple `properties` PIs may be specified in a single markup document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple PIs, their contents are merged into a single template dictionary, with the most recently defined values taking precedence.
-
-#### Applying Templates
 Templates are applied to view instances using the reserved "class" attribute. The value of this attribute refers to the name of a template defined within the current document. All property values defined by the template are applied to the view. Nested properties, such as "titleLabel.font", are supported.
 
 For example, given the preceding template definition, the following markup would produce a label reading "Hello, World!" in 24-point Helvetica, with horizontally centered text:
@@ -436,6 +412,8 @@ Multiple templates can be applied to a view using a comma-separated list of temp
 ```
 
 Note that, although attribute values in XML are always represented as strings, property values in a template definition can be any valid JSON type, such as numbers or booleans. However, this is not stricly necessary, since strings are automatically converted to the appropriate type by KVC.
+
+Multiple `properties` PIs may be specified in a single markup document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple PIs, their contents are merged into a single template dictionary, with the most recently defined values taking precedence.
 
 ### Outlets
 The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner, allowing the application to interact with it.
@@ -559,7 +537,7 @@ The `owner` parameter represents the view's owner. It is often an instance of `U
 
 If the owner implements a method named `bundleForView`, the view document will be loaded from the bundle returned by this method. MarkupKit adds a default implementation of `bundleForView` to `UIResponder` that returns the bundle that loaded the class. Subclasses can override this method to provide custom view loading behavior. If the owner does not implement `bundleForView`, the main bundle will be used. 
 
-Note that property templates and color tables are always loaded from the main bundle.
+Note that color tables are always loaded from the main bundle.
 
 ### Document Root
 The `root` parameter represents the value that will be used as the root view instance when the document is loaded. This value is often `nil`, meaning that the root view will be specified by the document itself. However, when non-`nil`, it means that the root view is being provided by the caller. In this case, the reserved `<root>` tag can be used as the document's root element to refer to this view.

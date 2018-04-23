@@ -14,12 +14,39 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
-<?properties Styles1?>
-<?case iOS?>
-<?properties Styles2?>
-<?end?>
+<?properties {
+    "firstRow": {
+        "backgroundColor": "darkRed"
+    },
 
-<?properties Missing?>
+    "secondRow": {
+        "backgroundColor": "#00ff00"
+    }
+}?>
+
+<?case iOS?>
+<?properties {
+    "firstRow": {
+        "layoutMargins": 6,
+        "layer.borderWidth": 4,
+        "layer.borderColor": "#ffff00"
+    },
+
+    "secondRow": {
+        "layoutMarginTop": 6,
+        "layoutMarginBottom": 6,
+        "layoutMarginLeading": 24,
+        "layoutMarginTrailing": 48,
+        "layer.borderWidth": 4,
+        "layer.borderColor": "#00ffff"
+    },
+
+    "greetingLabel": {
+        "font": "headline",
+        "textColor": "#00ffff"
+    }
+}?>
+<?end?>
 
 <?properties {
     "large": {

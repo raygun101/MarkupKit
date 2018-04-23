@@ -36,7 +36,6 @@ static NSString * const kEscapePrefix = @"^";
 @end
 
 static NSMutableDictionary *colorTable;
-static NSMutableDictionary *templateCache;
 
 @implementation LMViewBuilder
 {
@@ -69,8 +68,6 @@ static NSMutableDictionary *templateCache;
             [colorTable setObject:[LMViewBuilder colorValue:[colorTableValues objectForKey:key]] forKey:key];
         }
     }
-
-    templateCache = [NSMutableDictionary new];
 }
 
 + (UIView *)viewWithName:(NSString *)name owner:(id)owner root:(UIView *)root
@@ -185,45 +182,6 @@ static NSMutableDictionary *templateCache;
     }
 
     return font;
-}
-
-+ (NSDictionary *)templatesWithName:(NSString *)name
-{
-    NSDictionary *templates = [templateCache objectForKey:name];
-
-    if (templates == nil) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:name ofType:@"json"];
-
-        if (path != nil) {
-            NSError *error = nil;
-
-            templates = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:path]
-                options:0 error:&error];
-
-            if (error != nil) {
-                [NSException raise:NSGenericException format:@"%@: %@", path, [error description]];
-            }
-
-            [templateCache setObject:templates forKey:name];
-        }
-    }
-
-    return templates;
-}
-
-+ (void)mergeDictionary:(NSDictionary *)dictionary into:(NSMutableDictionary *)templates
-{
-    for (NSString *key in dictionary) {
-        NSMutableDictionary *template = (NSMutableDictionary *)[templates objectForKey:key];
-
-        if (template == nil) {
-            template = [NSMutableDictionary new];
-
-            [templates setObject:template forKey:key];
-        }
-
-        [template addEntriesFromDictionary:(NSDictionary *)[dictionary objectForKey:key]];
-    }
 }
 
 - (instancetype)initWithOwner:(id)owner root:(UIView *)root
@@ -484,21 +442,28 @@ static NSMutableDictionary *templateCache;
 
         if ([target isEqual:kPropertiesTarget]) {
             // Merge templates
-            NSDictionary *dictionary;
             if ([data hasPrefix:@"{"]) {
                 NSError *error = nil;
 
-                dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
+                NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:[data dataUsingEncoding:NSUTF8StringEncoding]
                     options:0 error:&error];
 
                 if (error != nil) {
                     [NSException raise:NSGenericException format:@"Line %ld: %@", (long)[parser lineNumber], [error description]];
                 }
-            } else {
-                dictionary = [LMViewBuilder templatesWithName:data];
-            }
 
-            [LMViewBuilder mergeDictionary:dictionary into:_templates];
+                for (NSString *key in dictionary) {
+                    NSMutableDictionary *template = (NSMutableDictionary *)[_templates objectForKey:key];
+
+                    if (template == nil) {
+                        template = [NSMutableDictionary new];
+
+                        [_templates setObject:template forKey:key];
+                    }
+
+                    [template addEntriesFromDictionary:(NSDictionary *)[dictionary objectForKey:key]];
+                }
+            }
         } else {
             // Notify view
             id view = [_views lastObject];
