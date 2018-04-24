@@ -41,11 +41,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Establishes a binding between this object and a view instance.
  *
- * @param property The key path of a property in this object.
- * @param view The view instance.
- * @param keyPath The key path of a property in the view.
+ * @param expression An expression representing the binding source.
+ * @param view The target view.
+ * @param keyPath The key path of a property in the view to which the expression will be bound.
  */
-- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
+- (void)bind:(NSString *)expression toView:(UIView *)view withKeyPath:(NSString *)keyPath;
 
 /**
  * Releases all bindings.

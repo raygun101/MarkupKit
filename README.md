@@ -332,7 +332,7 @@ It is possible to escape a leading "@" character by prepending a caret ("^") to 
 ```
 
 ### Data Binding
-Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents the key path of a property in the document's owner to which the corresponding view property will be bound. Bindings are implemented using [key-value observing](https://developer.apple.com/library/content/documentation/General/Conceptual/DevPedia-CocoaCore/KVO.html), so any KVO-compliant property defined by the owner can be bound to a view. 
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents an expression to which the corresponding view property will be bound. Binding expressions typically contain at least one reference to a key path in the document's owner, and are re-evaluated any time the value of a bound property changes. Internally, MarkupKit monitors property changes using [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html), and evaluates expressions using the Foundation-provided [`NSExpression`](https://developer.apple.com/documentation/foundation/nsexpression) class.
 
 For example, an owning class might define a bindable property called `name` as follows:
 
@@ -344,10 +344,10 @@ class ViewController: UIViewController {
 }
 ```
 
-The following markup creates a binding between the `text` property of the text field and the owner's `name` property. Any updates to `name` will be automatically reflected in the text field:
+The following markup creates a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any updates to `name` will be automatically reflected in the label:
 
 ```xml
-<UITextField text="$name"/>
+<UILabel text="$name"/>
 ```
 
 As with "@", a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
@@ -356,7 +356,7 @@ As with "@", a leading "$" character can be escaped using a caret. This markup w
 <UILabel text="^$name"/>
 ```
 
-Bindings must be released before the owner is deallocated, as well as any time the view is reloaded (for example, on an orientation change). Bindings are released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class. For example:
+Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
 
 ```swift
 deinit {
