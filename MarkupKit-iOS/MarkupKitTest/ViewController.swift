@@ -21,11 +21,12 @@ class ViewController: UIViewController {
 
     @IBOutlet var segmentedControl: LMSegmentedControl!
 
-    @objc let number = "12345"
+    @objc let number = 12345
+    @objc let values = [1, 2, 3, 4, 5]
 
     @objc let one = "One"
     @objc let two = "Two"
-    @objc let three = "Three"
+    @objc dynamic var three = "Three"
 
     @objc let prompt = NSAttributedString(string: "Press Me!")
 
@@ -43,6 +44,10 @@ class ViewController: UIViewController {
 
     @IBAction func handlePrimaryActionTriggered(_ sender: UIButton) {
         NSLog("Button pressed.")
+
+        three = "Five"
+
+        unbindAll()
     }
 
     @IBAction func handleSegmentedControlValueChanged(_ sender: LMSegmentedControl) {

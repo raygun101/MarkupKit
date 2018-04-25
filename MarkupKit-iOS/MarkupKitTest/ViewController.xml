@@ -76,7 +76,10 @@ limitations under the License.
             <?end?>
 
             <LMRowView class="secondRow">
-                <UILabel text="$number" class="large, blue"/>
+                <LMColumnView spacing="0">
+                    <UILabel text="$CAST(number, 'NSString')" class="large, blue"/>
+                    <UILabel text="$CAST(average:(values), 'NSString')" class="blue" textAlignment="right"/>
+                </LMColumnView>
                 <LMSpacer/>
                 <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
                     titleLabel.shadowOffsetWidth="3" titleLabel.shadowOffsetHeight="3"
@@ -93,6 +96,9 @@ limitations under the License.
                 </LMSegmentedControl>
                 <LMSpacer/>
             </LMRowView>
+
+            <UILabel text="$FUNCTION(one, 'stringByAppendingString:', FUNCTION(two, 'stringByAppendingString:', three))"
+                textAlignment="center" textColor="fireBrick" font="body"/>
 
             <LMRowView>
                 <LMSpacer/>
