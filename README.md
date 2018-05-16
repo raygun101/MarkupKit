@@ -379,7 +379,7 @@ For example, the following markup creates an instance of a system-style `UIButto
 
 The complete set of extensions MarkupKit adds to UIKit types is discussed in more detail later.
 
-### Template Properties
+### Property Templates
 Often, when constructing a user interface, the same set of property values are applied repeatedly to instances of a given type. For example, an application designer may want all buttons to have a similar appearance. While it is possible to simply duplicate the property definitions across each button instance, this is repetitive and does not allow the design to be easily modified later - every instance must be located and modified individually, which can be time consuming and error prone.
 
 MarkupKit allows developers to abstract common sets of property definitions into CSS-like "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
