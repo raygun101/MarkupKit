@@ -73,7 +73,7 @@ limitations under the License.
 
             <?inputAccessoryView?>
             <UIToolbar>
-                <item type="cancel" action="cancelDateEdit"/>
+                <item type="cancel" action="cancelEdit"/>
                 <item type="flexibleSpace"/>
                 <item type="done" action="updateDateText"/>
             </UIToolbar>
@@ -92,7 +92,7 @@ limitations under the License.
 
             <?inputAccessoryView?>
             <UIToolbar>
-                <item type="cancel" action="cancelSizeEdit"/>
+                <item type="cancel" action="cancelEdit"/>
                 <item type="flexibleSpace"/>
                 <item type="done" action="updateSizeText"/>
             </UIToolbar>

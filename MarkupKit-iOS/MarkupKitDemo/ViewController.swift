@@ -76,8 +76,8 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
     }
 
     #if os(iOS)
-    @IBAction func cancelDateEdit() {
-        dateTextField.resignFirstResponder()
+    @IBAction func cancelEdit() {
+        view.endEditing(false)
     }
 
     @IBAction func updateDateText() {
@@ -87,10 +87,6 @@ class ViewController: UITableViewController, UICollectionViewDataSource {
 
         dateTextField.text = dateFormatter.string(from: datePicker.date)
         dateTextField.resignFirstResponder()
-    }
-
-    @IBAction func cancelSizeEdit() {
-        sizeTextField.resignFirstResponder()
     }
 
     @IBAction func updateSizeText() {
