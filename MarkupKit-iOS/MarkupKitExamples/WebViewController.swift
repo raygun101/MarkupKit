@@ -66,11 +66,11 @@ class WebViewController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
-        rootView.bottomSpacing = frame.height
+        rootView.bottomPadding = frame.height
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
-        rootView.bottomSpacing = 0
+        rootView.bottomPadding = 0
     }
     
     @IBAction func loadURL() {
