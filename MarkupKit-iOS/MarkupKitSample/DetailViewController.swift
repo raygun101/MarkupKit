@@ -47,8 +47,8 @@ class DetailViewController: UIViewController {
 
         let rootView = view as! LMRootView
 
-        rootView.topSpacing = topLayoutGuide.length
-        rootView.bottomSpacing = bottomLayoutGuide.length
+        rootView.topPadding = topLayoutGuide.length
+        rootView.bottomPadding = bottomLayoutGuide.length
     }
 
     // Done button press handler

@@ -15,7 +15,7 @@ limitations under the License.
 -->
 
 <root backgroundColor="white">
-    <LMColumnView layoutMargins="32" spacing="24">
+    <LMColumnView layoutMargins="32" spacing="24" layer.borderWidth="0.5" layer.borderColor="gray">
         <UIImageView id="iconImageView" tintColor="black" contentMode="center"/>
         
         <UILabel id="headingLabel" font="title1" textAlignment="center" numberOfLines="0"/>

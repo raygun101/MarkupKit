@@ -512,6 +512,66 @@ static NSDictionary *anchorValues;
     }
 }
 
+- (CGFloat)topSpacing
+{
+    NSNumber *topSpacing = objc_getAssociatedObject(self, @selector(topSpacing));
+
+    return (topSpacing == nil) ? 0 : [topSpacing floatValue];
+}
+
+- (void)setTopSpacing:(CGFloat)topSpacing
+{
+    objc_setAssociatedObject(self, @selector(topSpacing), isnan(topSpacing) ? nil : [NSNumber numberWithFloat:topSpacing],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)bottomSpacing
+{
+    NSNumber *bottomSpacing = objc_getAssociatedObject(self, @selector(bottomSpacing));
+
+    return (bottomSpacing == nil) ? 0 : [bottomSpacing floatValue];
+}
+
+- (void)setBottomSpacing:(CGFloat)bottomSpacing
+{
+    objc_setAssociatedObject(self, @selector(bottomSpacing), isnan(bottomSpacing) ? nil : [NSNumber numberWithFloat:bottomSpacing],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)leadingSpacing
+{
+    NSNumber *leadingSpacing = objc_getAssociatedObject(self, @selector(leadingSpacing));
+
+    return (leadingSpacing == nil) ? 0 : [leadingSpacing floatValue];
+}
+
+- (void)setLeadingSpacing:(CGFloat)leadingSpacing
+{
+    objc_setAssociatedObject(self, @selector(leadingSpacing), isnan(leadingSpacing) ? nil : [NSNumber numberWithFloat:leadingSpacing],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (CGFloat)trailingSpacing
+{
+    NSNumber *trailingSpacing = objc_getAssociatedObject(self, @selector(trailingSpacing));
+
+    return (trailingSpacing == nil) ? 0 : [trailingSpacing floatValue];
+}
+
+- (void)setTrailingSpacing:(CGFloat)trailingSpacing
+{
+    objc_setAssociatedObject(self, @selector(trailingSpacing), isnan(trailingSpacing) ? nil : [NSNumber numberWithFloat:trailingSpacing],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
     if ([key isEqual:@"contentMode"]) {

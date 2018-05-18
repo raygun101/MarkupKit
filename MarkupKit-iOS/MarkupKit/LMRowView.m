@@ -98,17 +98,21 @@ static NSDictionary *baselineValues;
             if (horizontalAlignment != LMHorizontalAlignmentTrailing) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeadingMargin
-                    multiplier:1 constant:0]];
+                    multiplier:1 constant:[subview leadingSpacing]]];
             }
         } else {
             if (isnan(spacing)) {
                 if (@available(iOS 11, tvOS 11, *)) {
-                    [constraints addObject:[[subview leadingAnchor] constraintEqualToSystemSpacingAfterAnchor:[previousSubview trailingAnchor] multiplier:1]];
+                    NSLayoutConstraint *constraint = [[subview leadingAnchor] constraintEqualToSystemSpacingAfterAnchor:[previousSubview trailingAnchor] multiplier:1];
+
+                    [constraint setConstant:[constraint constant] + [subview leadingSpacing]];
+                    
+                    [constraints addObject:constraint];
                 }
             } else {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
-                    multiplier:1 constant:spacing]];
+                    multiplier:1 constant:spacing + [subview leadingSpacing]]];
             }
 
             if (alignToBaseline) {
@@ -211,7 +215,7 @@ static NSDictionary *baselineValues;
     if (previousSubview != nil && horizontalAlignment != LMHorizontalAlignmentLeading) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
-            multiplier:1 constant:0]];
+            multiplier:1 constant:[previousSubview trailingSpacing]]];
     }
 
     return constraints;

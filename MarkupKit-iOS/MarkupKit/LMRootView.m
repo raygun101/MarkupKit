@@ -13,6 +13,7 @@
 //
 
 #import "LMRootView.h"
+#import "UIView+Markup.h"
 
 @implementation LMRootView
 
@@ -21,16 +22,36 @@
     return self;
 }
 
+- (CGFloat)topSpacing
+{
+    return [self topPadding];
+}
+
 - (void)setTopSpacing:(CGFloat)topSpacing
 {
-    _topSpacing = topSpacing;
+    [self setTopPadding:topSpacing];
+}
 
-    [self setNeedsUpdateConstraints];
+- (CGFloat)bottomSpacing
+{
+    return [self bottomPadding];
 }
 
 - (void)setBottomSpacing:(CGFloat)bottomSpacing
 {
-    _bottomSpacing = bottomSpacing;
+    [self setBottomPadding:bottomSpacing];
+}
+
+- (void)setTopPadding:(CGFloat)topPadding
+{
+    _topPadding = topPadding;
+
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setBottomPadding:(CGFloat)bottomPadding
+{
+    _bottomPadding = bottomPadding;
 
     [self setNeedsUpdateConstraints];
 }
@@ -58,9 +79,6 @@
     NSMutableArray *constraints = [NSMutableArray new];
 
     // Align subview edges to layer view edges
-    CGFloat topSpacing = [self topSpacing];
-    CGFloat bottomSpacing = [self bottomSpacing];
-
     for (UIView *subview in [self subviews]) {
         if ([subview isHidden]) {
             continue;
@@ -68,10 +86,10 @@
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop
-            multiplier:1 constant:topSpacing]];
+            multiplier:1 constant:_topPadding]];
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom
-            multiplier:1 constant:-bottomSpacing]];
+            multiplier:1 constant:-_bottomPadding]];
 
         [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading

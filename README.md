@@ -679,6 +679,17 @@ The `spacing` property represents the amount of space reserved between successiv
 
 In iOS 10 and earlier, the default spacing value is 8. In iOS 11 and later, the system default is used.
 
+Additionally, MarkupKit adds the following properties to `UIView`, which can be used to create spacing on a per-subview basis:
+
+``` objc
+@property (nonatomic) CGFloat topSpacing;
+@property (nonatomic) CGFloat bottomSpacing;
+@property (nonatomic) CGFloat leadingSpacing;
+@property (nonatomic) CGFloat trailingSpacing;
+```
+
+The top and bottom values apply to vertical layouts (i.e. column views), and the leading and trailing values to horizontal layouts (i.e. row views).
+
 The `alignToBaseline` property can be used to manage how subviews are vertically aligned with respect to one another. This is discussed in more detail below. Baseline alignmnent is disabled by default.
 
 ### LMRowView
@@ -952,11 +963,11 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
 ## LMRootView
-In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its edges instead of its margins, and provides the following properties that can be used to reserve additional space at the top or bottom of the view, respectively:
+In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its edges instead of its margins, and provides the following properties that can be used to reserve additional space at the top and bottom of the view, respectively:
 
 ```objc
-@property (nonatomic) CGFloat topSpacing;
-@property (nonatomic) CGFloat bottomSpacing;
+@property (nonatomic) CGFloat topPadding;
+@property (nonatomic) CGFloat bottomPadding;
 ```
 
 For example, a view controller might override `viewWillLayoutSubviews` to set the root view's top and bottom spacing to the length of its top and bottom layout guides, respectively, ensuring that any subviews are positioned between the guides:
@@ -967,14 +978,14 @@ override func viewWillLayoutSubviews() {
 
     let rootView = view as! LMRootView
 
-    rootView = topLayoutGuide.length
-    rootView = bottomLayoutGuide.length
+    rootView.topPadding = topLayoutGuide.length
+    rootView.bottomPadding = bottomLayoutGuide.length
 }
 ```
 
 Top and bottom layout guides are deprecated in iOS 11. Applications targeting iOS 11 and later can use the `viewRespectsSystemMinimumLayoutMargins` property of `UIViewController` instead of `LMRootView` to disable system-defined margins.
 
-`LMRootView` is the only MarkupKit view type that can be used directly in a storyboard (i.e. initialized from an `NSCoder` instance). However, any view type can be used by nesting it within a root view.
+`LMRootView` is the only MarkupKit view type that can be used directly in a storyboard (i.e. initialized from an `NSCoder` instance). However, any view type can nested within a root view.
 
 ## LMScrollView
 The `LMScrollView` class extends the standard `UIScrollView` class to simplify the definition of scrollable content in markup. It presents a single content view, optionally allowing the user to scroll in one or both directions.
@@ -1719,6 +1730,15 @@ The following properties are added to allow the components of a view's layout ma
 @property (nonatomic) CGFloat layoutMarginRight;
 @property (nonatomic) CGFloat layoutMarginLeading;
 @property (nonatomic) CGFloat layoutMarginTrailing;
+```
+
+These properties are added to support per-subview spacing:
+
+``` objc
+@property (nonatomic) CGFloat topSpacing;
+@property (nonatomic) CGFloat bottomSpacing;
+@property (nonatomic) CGFloat leadingSpacing;
+@property (nonatomic) CGFloat trailingSpacing;
 ```
 
 The `processMarkupInstruction:data` and `appendMarkupElementView:` methods are added to support markup processing, as discussed earlier:
