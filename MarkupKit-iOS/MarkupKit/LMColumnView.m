@@ -95,16 +95,12 @@
             if (alignToBaseline) {
                 if (isnan(spacing)) {
                     if (@available(iOS 11, tvOS 11, *)) {
-                        NSLayoutConstraint *constraint = [[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1];
-
-                        [constraint setConstant:[constraint constant] + [previousSubview bottomSpacing] + [subview topSpacing]];
-
-                        [constraints addObject:constraint];
+                        [constraints addObject:[[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1]];
                     }
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
                         relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
-                        multiplier:1 constant:spacing + [previousSubview bottomSpacing] + [subview topSpacing]]];
+                        multiplier:1 constant:0]];
                 }
             } else {
                 if (isnan(spacing)) {

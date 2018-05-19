@@ -130,8 +130,8 @@ limitations under the License.
             </LMRowView>
 
             <LMColumnView alignToBaseline="true" backgroundColor="#ffff00">
-                <UILabel text="abcd" font="Helvetica 16" topSpacing="12" backgroundColor="green"/>
-                <UILabel text="efg" font="Helvetica 32" bottomSpacing="24" backgroundColor="green"/>
+                <UILabel text="abcd" font="Helvetica 16" backgroundColor="green"/>
+                <UILabel text="efg" font="Helvetica 32" backgroundColor="green"/>
                 <UILabel text="hijk" font="Helvetica 24" backgroundColor="green"/>
             </LMColumnView>
 
@@ -155,7 +155,7 @@ limitations under the License.
                 <UILabel text="three" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
             </LMColumnView>
 
-            <LMRowView backgroundColor="gray">
+            <LMRowView backgroundColor="gray" spacing="0">
                 <UILabel text="one" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
                 <UILabel text="two" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
                 <UILabel text="three" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
