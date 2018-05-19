@@ -28,7 +28,7 @@ Building an interface in markup can significantly reduce development time. For e
 Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
 ### Streamlines Development
-Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including expression-based model bindings) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
+Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including model binding expressions) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -41,7 +41,30 @@ _Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_
 # Contents
 * [Installation](#installation)
 * [Document Structure](#document-structure)
+    * [Elements](#elements)
+    * [Attributes](#attributes)
+    * [Factory Methods](#factory-methods)
+    * [Property Templates](#property-templates)
+    * [Outlets](#outlets)
+    * [Actions](#actions)
+    * [Localization](#localization)
+    * [Data Binding](#data-binding)
+    * [Conditional Processing](#conditional-processing)
+    * [View-Specific Processing Instructions](#view-specific-processing-instructions)
 * [MarkupKit Classes](#markupkit-classes)
+    * [LMViewBuilder](#lmviewbuilder)
+    * [LMRowView and LMColumnView](#lmrowview-and-lmcolumnview)
+    * [LMSpacer](#lmspacer)
+    * [LMAnchorView](#lmanchorview)
+    * [LMRootView](#lmrootview)
+    * [LMScrollView](#lmscrollview)
+    * [LMPageView](#lmpageview)
+    * [LMTableView, LMTableViewCell, and LMTableViewHeaderFooterView](#lmtableview-lmtableviewcell-and-lmtableviewheaderfooterview)
+    * [LMTableViewController](#lmtableviewcontroller)
+    * [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
+    * [LMSegmentedControl](#lmsegmentedcontrol)
+    * [LMPickerView](#lmpickerview)
+    * [LMPlayerView](#lmplayerview)
 * [Additional Information](#additional-information)
 
 # Installation
@@ -308,65 +331,7 @@ Additionally, MarkupKit adds properties to these types that allow edge inset com
 
 These extensions are discussed in more detail later.
 
-### Localization
-If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
-
-```
-"hello" = "Hello, World!";
-```
-
-the following markup will produce an instance of `UILabel` whose `text` property is set to "Hello, World!":
-
-```xml
-<UILabel text="@hello"/>
-```
-
-If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with `bundleForImages`, MarkupKit adds a default implementation of `bundleForStrings ` to `UIResponder` that returns the bundle that loaded the view. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
-
-Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. A default implementation provided by `UIResponder` returns `nil`.
-
-It is possible to escape a leading "@" character by prepending a caret ("^") to the text string. For example, this markup would produce a label containing the literal text "@hello":
-
-```xml
-<UILabel text="^@hello"/>
-```
-
-### Data Binding
-Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents an expression to which the corresponding view property will be bound. Binding expressions typically contain at least one reference to a key path in the document's owner, and are re-evaluated any time the value of a bound property changes. Internally, MarkupKit monitors property changes using [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html), and evaluates expressions using the Foundation-provided [`NSExpression`](https://developer.apple.com/documentation/foundation/nsexpression) class.
-
-For example, an owning class might define a bindable property called `name` as follows:
-
-```swift
-class ViewController: UIViewController {
-    @objc dynamic var name: String?
-
-    ...
-}
-```
-
-The following markup creates a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any updates to `name` will be automatically reflected in the label:
-
-```xml
-<UILabel text="$name"/>
-```
-
-As with "@", a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
-
-```xml
-<UILabel text="^$name"/>
-```
-
-Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
-
-```swift
-deinit {
-    unbindAll()
-}
-```
-
-Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See [UIResponder+Markup.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/UIResponder%2BMarkup.h) for more information.
-
-### Factory Methods
+## Factory Methods
 Some views can't be instantiated by simply invoking the `new` method on the view type. For example, instances of `UIButton` are created by calling the `buttonWithType:` class method, and `UITableView` instances are initialized via `initWithFrame:style:`.
 
 To handle these cases, MarkupKit supports a special attribute named "style". The value of this attribute is the name of a "factory method", a zero-argument class method that produces instances of a given type. MarkupKit adds a number of factory methods to classes such as `UIButton` and `UITableView` to enable these types to be constructed in markup.
@@ -379,7 +344,7 @@ For example, the following markup creates an instance of a system-style `UIButto
 
 The complete set of extensions MarkupKit adds to UIKit types is discussed in more detail later.
 
-### Property Templates
+## Property Templates
 Often, when constructing a user interface, the same set of property values are applied repeatedly to instances of a given type. For example, an application designer may want all buttons to have a similar appearance. While it is possible to simply duplicate the property definitions across each button instance, this is repetitive and does not allow the design to be easily modified later - every instance must be located and modified individually, which can be time consuming and error prone.
 
 MarkupKit allows developers to abstract common sets of property definitions into CSS-like "templates", which can then be applied by name to individual view instances. This makes it much easier to assign common property values as well as modify them later.
@@ -415,7 +380,7 @@ Note that, although attribute values in XML are always represented as strings, p
 
 Multiple `properties` PIs may be specified in a single markup document. Their contents are merged into a single collection of templates available to the document. If the same template is defined by multiple PIs, their contents are merged into a single template dictionary, with the most recently defined values taking precedence.
 
-### Outlets
+## Outlets
 The reserved "id" attribute can be used to assign a name to a view instance. This creates an "outlet" for the view that makes it accessible to calling code. Using KVC, MarkupKit "injects" the named view instance into the document's owner, allowing the application to interact with it.
 
 For example, the following markup creates a table view cell containing a `UITextField`. The text field is assigned an ID of "textField":
@@ -442,7 +407,7 @@ or in Swift, like this:
 
 In either case, when the document is loaded, the outlet will be populated with the text field instance, and the application can interact with it just as if it was defined in a storyboard or created programmatically.
 
-### Actions
+## Actions
 Most non-trivial applications need to respond in some way to user interaction. UIKit controls (subclasses of the `UIControl` class) fire events that notify an application when such interaction has occurred. For example, the `UIButton` class fires the `UIControlEventPrimaryActionTriggered` event when a button instance is tapped.
 
 While it would be possible for an application to register for events programmatically using outlets, MarkupKit provides a more convenient alternative. Any attribute whose name begins with "on" (but does not refer to a property) is considered a control event. The attribute value represents the name of the action that will be triggered when the event is fired. The attribute name is simply the "on" prefix followed by the name of the event, minus the "UIControlEvent" prefix.
@@ -468,6 +433,64 @@ Note that the `sender` argument is optional; if the trailing colon is omitted fr
     // User tapped button
 }
 ```
+
+## Localization
+If an attribute's value begins with "@", MarkupKit attempts to look up a localized version of the value before setting the property. For example, if an application has defined a localized greeting in _Localizable.strings_ as follows:
+
+```
+"hello" = "Hello, World!";
+```
+
+the following markup will produce an instance of `UILabel` whose `text` property is set to "Hello, World!":
+
+```xml
+<UILabel text="@hello"/>
+```
+
+If the document's owner implements a method named `bundleForStrings`, localized string values will be loaded using the bundle returned by this method. As with `bundleForImages`, MarkupKit adds a default implementation of `bundleForStrings ` to `UIResponder` that returns the bundle that loaded the view. Subclasses can override this method to provide custom string loading behavior. If the owner does not implement `bundleForStrings`, the main bundle will be used.
+
+Additionally, if the owner implements a method named `tableForStrings`, the name of the table returned by this method will be used to localize string values. If the owner does not implement this method or returns `nil`, the default string table (_Localizable.strings_) will be used. A default implementation provided by `UIResponder` returns `nil`.
+
+It is possible to escape a leading "@" character by prepending a caret ("^") to the text string. For example, this markup would produce a label containing the literal text "@hello":
+
+```xml
+<UILabel text="^@hello"/>
+```
+
+## Data Binding
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents an expression to which the corresponding view property will be bound. Binding expressions typically contain at least one reference to a key path in the document's owner, and are re-evaluated any time the value of a bound property changes. Internally, MarkupKit monitors property changes using [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html), and evaluates expressions using the Foundation-provided [`NSExpression`](https://developer.apple.com/documentation/foundation/nsexpression) class.
+
+For example, an owning class might define a bindable property called `name` as follows:
+
+```swift
+class ViewController: UIViewController {
+    @objc dynamic var name: String?
+
+    ...
+}
+```
+
+The following markup creates a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any updates to `name` will be automatically reflected in the label:
+
+```xml
+<UILabel text="$name"/>
+```
+
+As with "@", a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
+
+```xml
+<UILabel text="^$name"/>
+```
+
+Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
+
+```swift
+deinit {
+    unbindAll()
+}
+```
+
+Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See [UIResponder+Markup.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/UIResponder%2BMarkup.h) for more information.
 
 ## Conditional Processing
 In most cases, a markup document created for an iOS application can be used as is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on the target platform. Content following the PI will only be processed if the current operating system matches the target. For example:
