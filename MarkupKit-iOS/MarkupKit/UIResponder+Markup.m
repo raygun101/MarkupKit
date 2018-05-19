@@ -130,10 +130,10 @@
 
 - (void)unbindFrom:(id)owner
 {
-    [self unbindFromOwner:owner expression:_expression];
+    [self unbindFrom:owner expression:_expression];
 }
 
-- (void)unbindFromOwner:(id)owner expression:(NSExpression *)expression
+- (void)unbindFrom:(id)owner expression:(NSExpression *)expression
 {
     switch ([expression expressionType]) {
     case NSKeyPathExpressionType:
@@ -143,7 +143,7 @@
 
     case NSFunctionExpressionType:
         for (NSExpression *argument in [expression arguments]) {
-            [self unbindFromOwner:owner expression:argument];
+            [self unbindFrom:owner expression:argument];
         }
 
         break;
