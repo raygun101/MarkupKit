@@ -97,28 +97,28 @@
                     if (@available(iOS 11, tvOS 11, *)) {
                         NSLayoutConstraint *constraint = [[subview firstBaselineAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview lastBaselineAnchor] multiplier:1];
 
-                        [constraint setConstant:[constraint constant] + [subview topSpacing]];
+                        [constraint setConstant:[constraint constant] + [previousSubview bottomSpacing] + [subview topSpacing]];
 
                         [constraints addObject:constraint];
                     }
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeFirstBaseline
                         relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeLastBaseline
-                        multiplier:1 constant:spacing + [subview topSpacing]]];
+                        multiplier:1 constant:spacing + [previousSubview bottomSpacing] + [subview topSpacing]]];
                 }
             } else {
                 if (isnan(spacing)) {
                     if (@available(iOS 11, tvOS 11, *)) {
                         NSLayoutConstraint *constraint = [[subview topAnchor] constraintEqualToSystemSpacingBelowAnchor:[previousSubview bottomAnchor] multiplier:1];
 
-                        [constraint setConstant:[constraint constant] + [subview topSpacing]];
+                        [constraint setConstant:[constraint constant] + [previousSubview bottomSpacing] + [subview topSpacing]];
 
                         [constraints addObject:constraint];
                     }
                 } else {
                     [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                         relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeBottom
-                        multiplier:1 constant:spacing + [subview topSpacing]]];
+                        multiplier:1 constant:spacing + [previousSubview bottomSpacing] + [subview topSpacing]]];
                 }
             }
         }
@@ -199,7 +199,7 @@
     if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-            multiplier:1 constant:[previousSubview bottomSpacing]]];
+            multiplier:1 constant:-[previousSubview bottomSpacing]]];
     }
 
     return constraints;

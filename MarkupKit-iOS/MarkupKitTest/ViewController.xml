@@ -130,8 +130,8 @@ limitations under the License.
             </LMRowView>
 
             <LMColumnView alignToBaseline="true" backgroundColor="#ffff00">
-                <UILabel text="abcd" font="Helvetica 16" backgroundColor="green"/>
-                <UILabel text="efg" font="Helvetica 32" backgroundColor="green"/>
+                <UILabel text="abcd" font="Helvetica 16" topSpacing="12" backgroundColor="green"/>
+                <UILabel text="efg" font="Helvetica 32" bottomSpacing="24" backgroundColor="green"/>
                 <UILabel text="hijk" font="Helvetica 24" backgroundColor="green"/>
             </LMColumnView>
 
@@ -147,6 +147,19 @@ limitations under the License.
                 <UILabel text="hijklmnop" textAlignment="center" backgroundColor="#000066" textColor="#ffffff" minimumWidth="20" maximumWidth="40"/>
                 <UILabel text="qrs tuv wx y z" textAlignment="center" backgroundColor="#000066" textColor="#ffffff" maximumWidth="80"/>
                 <LMSpacer/>
+            </LMRowView>
+
+            <LMColumnView spacing="0" backgroundColor="gray">
+                <UILabel text="one" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="two" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="three" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
+            </LMColumnView>
+
+            <LMRowView backgroundColor="gray">
+                <UILabel text="one" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="two" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="three" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
+                <LMSpacer leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
             </LMRowView>
 
             <LMRowView>

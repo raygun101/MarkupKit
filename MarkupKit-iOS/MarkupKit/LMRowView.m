@@ -105,14 +105,14 @@ static NSDictionary *baselineValues;
                 if (@available(iOS 11, tvOS 11, *)) {
                     NSLayoutConstraint *constraint = [[subview leadingAnchor] constraintEqualToSystemSpacingAfterAnchor:[previousSubview trailingAnchor] multiplier:1];
 
-                    [constraint setConstant:[constraint constant] + [subview leadingSpacing]];
+                    [constraint setConstant:[constraint constant] + [previousSubview trailingSpacing] + [subview leadingSpacing]];
                     
                     [constraints addObject:constraint];
                 }
             } else {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeLeading
                     relatedBy:NSLayoutRelationEqual toItem:previousSubview attribute:NSLayoutAttributeTrailing
-                    multiplier:1 constant:spacing + [subview leadingSpacing]]];
+                    multiplier:1 constant:spacing + [previousSubview trailingSpacing] + [subview leadingSpacing]]];
             }
 
             if (alignToBaseline) {
@@ -215,7 +215,7 @@ static NSDictionary *baselineValues;
     if (previousSubview != nil && horizontalAlignment != LMHorizontalAlignmentLeading) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeTrailing
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailingMargin
-            multiplier:1 constant:[previousSubview trailingSpacing]]];
+            multiplier:1 constant:-[previousSubview trailingSpacing]]];
     }
 
     return constraints;
