@@ -28,7 +28,7 @@ Building an interface in markup can significantly reduce development time. For e
 Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
 ### Streamlines Development
-Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including model bindings) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
+Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including expression-based model bindings) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
