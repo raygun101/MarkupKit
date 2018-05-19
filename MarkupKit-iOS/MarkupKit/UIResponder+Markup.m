@@ -106,14 +106,13 @@
 - (void)bindTo:(id)owner
 {
     [self bindTo:owner expression:_expression];
-    [self applyWith:owner];
 }
 
 - (void)bindTo:(id)owner expression:(NSExpression *)expression
 {
     switch ([expression expressionType]) {
     case NSKeyPathExpressionType:
-        [owner addObserver:self forKeyPath:[expression keyPath] options:NSKeyValueObservingOptionNew context:nil];
+        [owner addObserver:self forKeyPath:[expression keyPath] options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
 
         break;
 
@@ -156,12 +155,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self applyWith:object];
-}
-
-- (void)applyWith:(id)owner
-{
-    id value = [_expression expressionValueWithObject:owner context:nil];
+    id value = [_expression expressionValueWithObject:object context:nil];
 
     if (value != nil && value != [NSNull null]) {
         [_view setValue:value forKeyPath:_keyPath];
