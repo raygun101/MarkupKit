@@ -18,16 +18,15 @@
 
 @interface LMBinding : NSObject
 
-@property (weak, nonatomic, readonly) id owner;
 @property (nonatomic, readonly) NSExpression *expression;
 
 @property (weak, nonatomic, readonly) UIView *view;
 @property (nonatomic, readonly) NSString *keyPath;
 
-- (instancetype)initWithOwner:(id)owner expression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath;
+- (instancetype)initWithExpression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath;
 
-- (void)bind;
-- (void)unbind;
+- (void)bindTo:(id)owner;
+- (void)unbindFrom:(id)owner;
 
 @end
 
@@ -55,9 +54,9 @@
 
 - (void)bind:(NSString *)expression toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
-    LMBinding *binding = [[LMBinding alloc] initWithOwner:self expression:expression view:view keyPath:keyPath];
+    LMBinding *binding = [[LMBinding alloc] initWithExpression:expression view:view keyPath:keyPath];
 
-    [binding bind];
+    [binding bindTo:self];
 
     [[self bindings] addObject:binding];
 }
@@ -67,7 +66,7 @@
     NSMutableArray *bindings = [self bindings];
 
     for (LMBinding *binding in bindings) {
-        [binding unbind];
+        [binding unbindFrom:self];
     }
 
     [bindings removeAllObjects];
@@ -90,12 +89,11 @@
 
 @implementation LMBinding
 
-- (instancetype)initWithOwner:(id)owner expression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath
+- (instancetype)initWithExpression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
 
     if (self) {
-        _owner = owner;
         _expression = [NSExpression expressionWithFormat:expression];
 
         _view = view;
@@ -105,23 +103,23 @@
     return self;
 }
 
-- (void)bind
+- (void)bindTo:(id)owner
 {
-    [self bindTo:_expression];    
-    [self apply];
+    [self bindTo:owner expression:_expression];
+    [self applyWith:owner];
 }
 
-- (void)bindTo:(NSExpression *)expression
+- (void)bindTo:(id)owner expression:(NSExpression *)expression
 {
     switch ([expression expressionType]) {
     case NSKeyPathExpressionType:
-        [_owner addObserver:self forKeyPath:[expression keyPath] options:NSKeyValueObservingOptionNew context:nil];
+        [owner addObserver:self forKeyPath:[expression keyPath] options:NSKeyValueObservingOptionNew context:nil];
 
         break;
 
     case NSFunctionExpressionType:
         for (NSExpression *argument in [expression arguments]) {
-            [self bindTo:argument];
+            [self bindTo:owner expression:argument];
         }
 
         break;
@@ -131,22 +129,22 @@
     }
 }
 
-- (void)unbind
+- (void)unbindFrom:(id)owner
 {
-    [self unbindFrom:_expression];
+    [self unbindFromOwner:owner expression:_expression];
 }
 
-- (void)unbindFrom:(NSExpression *)expression
+- (void)unbindFromOwner:(id)owner expression:(NSExpression *)expression
 {
     switch ([expression expressionType]) {
     case NSKeyPathExpressionType:
-        [_owner removeObserver:self forKeyPath:[expression keyPath] context:nil];
+        [owner removeObserver:self forKeyPath:[expression keyPath] context:nil];
 
         break;
 
     case NSFunctionExpressionType:
         for (NSExpression *argument in [expression arguments]) {
-            [self unbindFrom:argument];
+            [self unbindFromOwner:owner expression:argument];
         }
 
         break;
@@ -158,12 +156,12 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self apply];
+    [self applyWith:object];
 }
 
-- (void)apply
+- (void)applyWith:(id)owner
 {
-    id value = [_expression expressionValueWithObject:_owner context:nil];
+    id value = [_expression expressionValueWithObject:owner context:nil];
 
     if (value != nil && value != [NSNull null]) {
         [_view setValue:value forKeyPath:_keyPath];
