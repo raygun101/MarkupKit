@@ -1951,6 +1951,9 @@ MarkupKit adds the following instance methods to the `UIPickerView` class. These
 - (NSString *)nameForComponent:(NSInteger)component;
 - (NSInteger)componentWithName:(NSString *)name;
     
+- (nullable id)valueForRow:(NSInteger)row forComponent:(NSInteger)component;
+- (void)setValue:(nullable id)value forRow:(NSInteger)row forComponent:(NSInteger)component;
+    
 - (nullable id)valueForComponent:(NSInteger)component;
 - (void)setValue:(nullable id)value forComponent:(NSInteger)component animated:(BOOL)animated;
 ```
