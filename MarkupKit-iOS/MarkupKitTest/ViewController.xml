@@ -150,16 +150,16 @@ limitations under the License.
             </LMRowView>
 
             <LMColumnView spacing="0" backgroundColor="gray">
-                <UILabel text="one" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="one" bottomSpacing="12" backgroundColor="lightGray"/>
                 <UILabel text="two" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
-                <UILabel text="three" topSpacing="12" bottomSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="three" topSpacing="12" backgroundColor="lightGray"/>
             </LMColumnView>
 
             <LMRowView backgroundColor="gray" spacing="0">
-                <UILabel text="one" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
+                <UILabel text="one" trailingSpacing="12" backgroundColor="lightGray"/>
                 <UILabel text="two" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
                 <UILabel text="three" leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
-                <LMSpacer leadingSpacing="12" trailingSpacing="12" backgroundColor="lightGray"/>
+                <LMSpacer leadingSpacing="12" backgroundColor="lightGray"/>
             </LMRowView>
 
             <LMRowView>

@@ -89,7 +89,7 @@
             if (verticalAlignment != LMVerticalAlignmentBottom) {
                 [constraints addObject:[NSLayoutConstraint constraintWithItem:subview attribute:NSLayoutAttributeTop
                     relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTopMargin
-                    multiplier:1 constant:[subview topSpacing]]];
+                    multiplier:1 constant:0]];
             }
         } else {
             if (alignToBaseline) {
@@ -195,7 +195,7 @@
     if (previousSubview != nil && verticalAlignment != LMVerticalAlignmentTop) {
         [constraints addObject:[NSLayoutConstraint constraintWithItem:previousSubview attribute:NSLayoutAttributeBottom
             relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottomMargin
-            multiplier:1 constant:-[previousSubview bottomSpacing]]];
+            multiplier:1 constant:0]];
     }
 
     return constraints;
