@@ -36,7 +36,9 @@ MarkupKit requires either iOS 9 or later or tvOS 10 or later. The latest release
 
 Many code samples are included in the [project workspace](https://github.com/gk-brown/MarkupKit/archive/master.zip). For additional information and examples, including a "Hello World"-style tutorial introduction, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
 
-_Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!_
+_Feedback is welcome and encouraged. If you are using MarkupKit, **I want to hear from you**! Please feel free to share your thoughts in the [MarkupKit forum](https://gitter.im/MarkupKit/Lobby) on Gitter, or [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) directly with any questions, comments, or suggestions._
+
+_Also, if you like MarkupKit, **please consider [starring it](https://github.com/gk-brown/MarkupKit/stargazers)**! I develop this project in my spare time - stars are one of the ways you can let me know that I should continue to work on it!_
 
 # Contents
 * [Installation](#installation)
