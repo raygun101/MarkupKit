@@ -22,26 +22,6 @@
     return self;
 }
 
-- (CGFloat)topSpacing
-{
-    return [self topPadding];
-}
-
-- (void)setTopSpacing:(CGFloat)topSpacing
-{
-    [self setTopPadding:topSpacing];
-}
-
-- (CGFloat)bottomSpacing
-{
-    return [self bottomPadding];
-}
-
-- (void)setBottomSpacing:(CGFloat)bottomSpacing
-{
-    [self setBottomPadding:bottomSpacing];
-}
-
 - (void)setTopPadding:(CGFloat)topPadding
 {
     _topPadding = topPadding;
