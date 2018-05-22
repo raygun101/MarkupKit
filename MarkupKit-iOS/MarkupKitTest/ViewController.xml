@@ -77,8 +77,8 @@ limitations under the License.
 
             <LMRowView class="secondRow">
                 <LMColumnView spacing="0">
-                    <UILabel text="$number::number" class="large, blue"/>
-                    <UILabel text="$average:(values)::number;numberStyle=decimal;maximumFractionDigits=3" class="blue" textAlignment="right"/>
+                    <UILabel text="$number + 4::number" class="large, blue"/>
+                    <UILabel text="$average:(values) * 1.66667::number;numberStyle=decimal;maximumFractionDigits=3" class="blue" textAlignment="right"/>
                 </LMColumnView>
                 <LMSpacer/>
                 <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
