@@ -20,10 +20,6 @@ class WebViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var webView: WKWebView!
     @IBOutlet var urlTextField: UITextField!
 
-    var rootView: LMRootView! {
-        return view as! LMRootView
-    }
-
     override func loadView() {
         view = LMViewBuilder.view(withName: "WebViewController", owner: self, root: nil)
     }
@@ -66,10 +62,14 @@ class WebViewController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
+        let rootView = view as! LMRootView
+
         rootView.bottomPadding = frame.height
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
+        let rootView = view as! LMRootView
+        
         rootView.bottomPadding = 0
     }
     

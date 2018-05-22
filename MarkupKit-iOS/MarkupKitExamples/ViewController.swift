@@ -34,61 +34,83 @@ class ViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        let value = cell!.value as! String
 
-        if (value == "radioButtons") {
+        let value = cell!.value as? String
+
+        switch value {
+        case "radioButtons":
             navigationController!.pushViewController(RadioButtonViewController(), animated: true)
-        } else if (value == "checkboxes") {
+
+        case "checkboxes":
             navigationController!.pushViewController(CheckboxViewController(), animated: true)
-        } else if (value == "horizontalAlignment") {
+
+        case "horizontalAlignment":
             navigationController!.pushViewController(HorizontalAlignmentViewController(), animated: true)
-        } else if (value == "verticalAlignment") {
+
+        case "verticalAlignment":
             navigationController!.pushViewController(VerticalAlignmentViewController(), animated: true)
-        } else if (value == "anchorView") {
+
+        case "anchorView":
             navigationController!.pushViewController(AnchorViewController(), animated: true)
-        } else if (value == "gridView") {
+
+        case "gridView":
             navigationController!.pushViewController(GridViewController(), animated: true)
-        } else if (value == "periodicTable") {
+
+        case "periodicTable":
             navigationController!.pushViewController(PeriodicTableViewController(), animated: true)
-        } else if (value == "scrollView") {
+
+        case "scrollView":
             #if os(iOS)
             navigationController!.pushViewController(ScrollViewController(), animated: true)
             #endif
-        } else if (value == "pageView") {
+
+        case "pageView":
             #if os(iOS)
             navigationController!.pushViewController(PageViewController(), animated: true)
             #endif
-        } else if (value == "customCellView") {
+
+        case "customCellView":
             navigationController!.pushViewController(CustomCellViewController(), animated: true)
-        } else if (value == "customSectionView") {
+
+        case "customSectionView":
             navigationController!.pushViewController(CustomSectionViewController(), animated: true)
-        } else if (value == "customComponentView") {
+
+        case "customComponentView":
             #if os(iOS)
             navigationController!.pushViewController(CustomComponentViewController(), animated: true)
             #endif
-        } else if (value == "collectionView") {
+
+        case "collectionView":
             navigationController!.pushViewController(CollectionViewController(), animated: true)
-        } else if (value == "webView") {
+
+        case "webView":
             #if os(iOS)
             navigationController!.pushViewController(WebViewController(), animated: true)
             #endif
-        } else if (value == "mapView") {
+
+        case "mapView":
             #if os(iOS)
             navigationController!.pushViewController(MapViewController(), animated: true)
             #endif
-        } else if (value == "playerView") {
+
+        case "playerView":
             navigationController!.pushViewController(PlayerViewController(), animated: true)
-        } else if (value == "bars") {
+
+        case "bars":
             navigationController!.pushViewController(BarsViewController(), animated: true)
-        } else if (value == "effectView") {
+
+        case "effectView":
             navigationController!.pushViewController(EffectViewController(), animated: true)
-        } else if (value == "gradientViews") {
+
+        case "gradientViews":
             navigationController!.pushViewController(LinearGradientViewController(), animated: true)
-        } else if (value == "animation") {
+
+        case "animation":
             #if os(iOS)
             navigationController!.pushViewController(AnimationViewController(), animated: true)
             #endif
-        } else {
+
+        default:
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }

@@ -23,10 +23,6 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     
     let radius = 250.0
     
-    var rootView: LMRootView! {
-        return view as! LMRootView
-    }
-
     override func loadView() {
         view = LMViewBuilder.view(withName: "MapViewController", owner: self, root: nil)
     }
@@ -68,10 +64,14 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     @objc func keyboardWillShow(_ notification: Notification) {
         let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
 
+        let rootView = view as! LMRootView
+
         rootView.bottomPadding = frame.height
     }
     
     @objc func keyboardWillHide(_ notification: Notification) {
+        let rootView = view as! LMRootView
+        
         rootView.bottomPadding = 0
     }
     
