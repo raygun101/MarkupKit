@@ -52,6 +52,44 @@
     return nil;
 }
 
+- (NSFormatter *)formatterWithName:(NSString *)name
+{
+    NSFormatter *formatter;
+    if ([name isEqual:@"shortDate"]) {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+
+        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+        formatter = dateFormatter;
+    } else if ([name isEqual:@"mediumDate"]) {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+
+        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+        formatter = dateFormatter;
+    } else if ([name isEqual:@"longDate"]) {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+
+        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+        formatter = dateFormatter;
+    } else if ([name isEqual:@"fullDate"]) {
+        NSDateFormatter *dateFormatter = [NSDateFormatter new];
+
+        [dateFormatter setDateStyle:NSDateFormatterFullStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+
+        formatter = dateFormatter;
+    } else {
+        formatter = nil;
+    }
+
+    return formatter;
+}
+
 - (void)bind:(NSString *)expression toView:(UIView *)view withKeyPath:(NSString *)keyPath
 {
     LMBinding *binding = [[LMBinding alloc] initWithExpression:expression view:view keyPath:keyPath];
@@ -88,13 +126,22 @@
 @end
 
 @implementation LMBinding
+{
+    NSString *_format;
+}
 
 - (instancetype)initWithExpression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath
 {
     self = [super init];
 
     if (self) {
-        _expression = [NSExpression expressionWithFormat:expression];
+        NSArray *components = [expression componentsSeparatedByString:@"::"];
+
+        _expression = [NSExpression expressionWithFormat:components[0]];
+
+        if ([components count] > 1) {
+            _format = components[1];
+        }
 
         _view = view;
         _keyPath = keyPath;
@@ -156,6 +203,16 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     id value = [_expression expressionValueWithObject:object context:nil];
+
+    if (_format != nil) {
+        NSFormatter *formatter = [object formatterWithName:_format];
+
+        if (formatter != nil) {
+            value = [formatter stringForObjectValue:value];
+        } else {
+            value = [NSString stringWithFormat:_format, value];
+        }
+    }
 
     if (value != nil && value != [NSNull null]) {
         [_view setValue:value forKeyPath:_keyPath];

@@ -30,6 +30,8 @@ class ViewController: UIViewController {
 
     @objc let prompt = NSAttributedString(string: "Press Me!")
 
+    @objc let today = Date()
+
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)
     }

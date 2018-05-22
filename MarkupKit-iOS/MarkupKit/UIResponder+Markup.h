@@ -39,6 +39,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (nullable NSString *)tableForStrings;
 
 /**
+ * Returns a named formatter, or <code>nil</code> if no formatter with the given name exists.
+ */
+- (nullable NSFormatter *)formatterWithName:(NSString *)name;
+
+/**
  * Establishes a binding between this object and a view instance.
  *
  * @param expression An expression representing the binding source.
