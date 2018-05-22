@@ -1,7 +1,7 @@
 [
     {
         "name": "CVS",
-        "address1": "263 Washington Street",
+        "street": "263 Washington Street",
         "city": "Boston",
         "state": "MA",
         "zipCode": "02108",
@@ -12,7 +12,7 @@
     },
     {
         "name": "Walgreens",
-        "address1": "70 Summer Street",
+        "street": "70 Summer Street",
         "city": "Boston",
         "state": "MA",
         "zipCode": "02108",
@@ -23,7 +23,7 @@
     },
     {
         "name": "Rite Aid",
-        "address1": "710 East Broadway",
+        "street": "710 East Broadway",
         "city": "South Boston",
         "state": "MA",
         "zipCode": "02127",
@@ -34,7 +34,7 @@
     },
     {
         "name": "Stop & Shop Pharmacy",
-        "address1": "99 Charles Street",
+        "street": "99 Charles Street",
         "city": "Malden",
         "state": "MA",
         "zipCode": "02148",
@@ -45,7 +45,7 @@
     },
     {
         "name": "Elmwood Pharmacy",
-        "address1": "56 Pleasant Street",
+        "street": "56 Pleasant Street",
         "city": "Malden",
         "state": "MA",
         "zipCode": "02148",

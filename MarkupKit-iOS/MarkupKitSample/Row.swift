@@ -17,24 +17,17 @@ import UIKit
 /**
  * Model class representing a table row.
  */
-final class Row: NSObject, Decodable {
-    @objc let icon: UIImage?
+class Row: NSObject, Decodable {
+    @objc var iconName: String?
 
-    @objc let heading: String
-    @objc let detail: String
+    @objc var icon: UIImage? {
+        guard let iconName = self.iconName else {
+            return nil
+        }
 
-    enum CodingKeys: String, CodingKey {
-        case icon
-        case heading
-        case detail
+        return UIImage(named: iconName)
     }
 
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-
-        icon = UIImage(named: try values.decode(String.self, forKey: .icon))
-        
-        heading = try values.decode(String.self, forKey: .heading)
-        detail = try values.decode(String.self, forKey: .detail)
-    }
+    @objc var heading: String?
+    @objc var detail: String?
 }

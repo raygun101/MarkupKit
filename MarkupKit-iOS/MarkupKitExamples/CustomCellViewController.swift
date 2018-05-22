@@ -14,8 +14,27 @@
 
 import UIKit
 
+class Pharmacy: NSObject, Decodable {
+    @objc var name: String?
+
+    @objc var distance: Double = 0
+
+    @objc var street: String?
+    @objc var city: String?
+    @objc var state: String?
+    @objc var zipCode: String?
+
+    @objc var address: String {
+        return String(format: "%@\n%@ %@ %@", street!, city!, state!, zipCode!)
+    }
+
+    @objc var phone: String?
+    @objc var fax: String?
+    @objc var email: String?
+}
+
 class CustomCellViewController: UITableViewController {
-    var pharmacies: [[String: Any]]!
+    var pharmacies: [Pharmacy]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +45,9 @@ class CustomCellViewController: UITableViewController {
 
         tableView.register(PharmacyCell.self, forCellReuseIdentifier: PharmacyCell.description())
 
-        pharmacies = try! JSONSerialization.jsonObject(with: try! Data(contentsOf: Bundle.main.url(forResource: "pharmacies", withExtension: "json")!)) as! [[String: Any]]
+        let jsonDecoder = JSONDecoder()
+
+        pharmacies = try! jsonDecoder.decode([Pharmacy].self, from: try! Data(contentsOf: Bundle.main.url(forResource: "pharmacies", withExtension: "json")!))
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,41 +55,10 @@ class CustomCellViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let pharmacy = pharmacies[indexPath.row]
+        let pharmacyCell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.description(), for: indexPath) as! PharmacyCell
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: PharmacyCell.description(), for: indexPath) as! PharmacyCell
+        pharmacyCell.pharmacy = pharmacies[indexPath.row]
 
-        cell.name = String(format: "%d. %@", indexPath.row + 1, pharmacy["name"] as! String)
-
-        cell.distance = String(format: "%.2f miles", pharmacy["distance"] as! Double)
-
-        cell.address = String(format: "%@\n%@ %@ %@",
-            pharmacy["address1"] as! String,
-            pharmacy["city"] as! String, pharmacy["state"] as! String,
-            pharmacy["zipCode"] as! String)
-
-        let phoneNumberFormatter = PhoneNumberFormatter()
-
-        let phone = pharmacy["phone"] as? String
-        cell.phone = (phone == nil) ? nil : phoneNumberFormatter.string(for: phone!)
-
-        let fax = pharmacy["fax"] as? String
-        cell.fax = (fax == nil) ? nil : phoneNumberFormatter.string(for: fax!)
-
-        cell.email = pharmacy["email"] as? String
-
-        return cell
-    }
-}
-
-class PhoneNumberFormatter: Formatter {
-    override func string(for obj: Any?) -> String? {
-        let val = obj as! NSString
-
-        return String(format: "(%@) %@-%@",
-            val.substring(with: NSMakeRange(0, 3)),
-            val.substring(with: NSMakeRange(3, 3)),
-            val.substring(with: NSMakeRange(6, 4))
-        )
+        return pharmacyCell
     }
 }

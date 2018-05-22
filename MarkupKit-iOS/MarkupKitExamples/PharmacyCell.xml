@@ -17,24 +17,24 @@ limitations under the License.
 <root>
     <LMColumnView spacing="4" layoutMarginBottom="8">
         <LMRowView alignToBaseline="true" spacing="4">
-            <UILabel weight="1" text="$name" font="headline"/>
-            <UILabel text="$distance" font="body" textColor="#808080"/>
+            <UILabel weight="1" text="$pharmacy.name" font="headline"/>
+            <UILabel text="$pharmacy.distance::number;numberStyle=decimal" font="body" textColor="#808080"/>
         </LMRowView>
 
-        <UILabel text="$address" numberOfLines="0" font="body"/>
+        <UILabel text="$pharmacy.address" numberOfLines="0" font="body"/>
 
         <LMColumnView spacing="4">
             <LMRowView>
                 <UIImageView image="PhoneIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
-                <UILabel text="$phone" weight="1" font="caption1"/>
+                <UILabel text="$pharmacy.phone::phoneNumber" weight="1" font="caption1"/>
             </LMRowView>
             <LMRowView>
                 <UIImageView image="FaxIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
-                <UILabel text="$fax" weight="1" font="caption1"/>
+                <UILabel text="$pharmacy.fax::phoneNumber" weight="1" font="caption1"/>
             </LMRowView>
             <LMRowView>
                 <UIImageView image="EmailIcon" tintColor="#121212" contentMode="scaleAspectFit"/>
-                <UILabel text="$email" weight="1" font="caption1"/>
+                <UILabel text="$pharmacy.email" weight="1" font="caption1"/>
             </LMRowView>
         </LMColumnView>
     </LMColumnView>

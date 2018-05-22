@@ -203,15 +203,15 @@
 {
     id value = [_expression expressionValueWithObject:object context:nil];
 
-    if (_formatterName != nil) {
-        NSFormatter *formatter = [object formatterWithName:_formatterName arguments:_formatterArguments];
-
-        if (formatter != nil) {
-            value = [formatter stringForObjectValue:value];
-        }
-    }
-
     if (value != nil && value != [NSNull null]) {
+        if (_formatterName != nil) {
+            NSFormatter *formatter = [object formatterWithName:_formatterName arguments:_formatterArguments];
+
+            if (formatter != nil) {
+                value = [formatter stringForObjectValue:value];
+            }
+        }
+
         [_view setValue:value forKeyPath:_keyPath];
     }
 }

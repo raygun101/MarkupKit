@@ -16,12 +16,7 @@ import UIKit
 import MarkupKit
 
 class PharmacyCell: LMTableViewCell {
-    @objc dynamic var name: String?
-    @objc dynamic var distance: String?
-    @objc dynamic var address: String?
-    @objc dynamic var phone: String?
-    @objc dynamic var fax: String?
-    @objc dynamic var email: String?
+    @objc dynamic var pharmacy: Pharmacy!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -35,5 +30,32 @@ class PharmacyCell: LMTableViewCell {
 
     deinit {
         unbindAll()
+    }
+
+    override func formatter(withName name: String, arguments: [String : Any]) -> Formatter? {
+        let formatter: Formatter?
+        switch name {
+        case "phoneNumber":
+            formatter = PhoneNumberFormatter()
+
+        default:
+            formatter = super.formatter(withName: name, arguments: arguments)
+        }
+
+        return formatter
+    }
+}
+
+class PhoneNumberFormatter: Formatter {
+    override func string(for object: Any?) -> String? {
+        guard let value = object as? NSString else {
+            return nil
+        }
+
+        return String(format: "(%@) %@-%@",
+            value.substring(with: NSMakeRange(0, 3)),
+            value.substring(with: NSMakeRange(3, 3)),
+            value.substring(with: NSMakeRange(6, 4))
+        )
     }
 }
