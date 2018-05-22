@@ -17,8 +17,6 @@ import UIKit
 class Pharmacy: NSObject, Decodable {
     @objc var name: String?
 
-    @objc var distance: Double = 0
-
     @objc var street: String?
     @objc var city: String?
     @objc var state: String?
@@ -60,5 +58,9 @@ class CustomCellViewController: UITableViewController {
         pharmacyCell.pharmacy = pharmacies[indexPath.row]
 
         return pharmacyCell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
