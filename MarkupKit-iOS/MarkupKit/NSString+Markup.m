@@ -31,4 +31,9 @@
     return [[NSNumber numberWithInteger:[self integerValue]] longValue];
 }
 
+- (unsigned long long) unsignedLongLongValue
+{
+    return [[NSNumber numberWithLongLong:[self longLongValue]] unsignedLongLongValue];
+}
+
 @end

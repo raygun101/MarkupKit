@@ -13,6 +13,7 @@
 //
 
 #import "UIResponder+Markup.h"
+#import "NSObject+Markup.h"
 
 #import <objc/message.h>
 
@@ -52,39 +53,19 @@
     return nil;
 }
 
-- (NSFormatter *)formatterWithName:(NSString *)name
+- (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments
 {
     NSFormatter *formatter;
-    if ([name isEqual:@"shortDate"]) {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-
-        [dateFormatter setDateStyle:NSDateFormatterShortStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-        formatter = dateFormatter;
-    } else if ([name isEqual:@"mediumDate"]) {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-
-        [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-        formatter = dateFormatter;
-    } else if ([name isEqual:@"longDate"]) {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-
-        [dateFormatter setDateStyle:NSDateFormatterLongStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-        formatter = dateFormatter;
-    } else if ([name isEqual:@"fullDate"]) {
-        NSDateFormatter *dateFormatter = [NSDateFormatter new];
-
-        [dateFormatter setDateStyle:NSDateFormatterFullStyle];
-        [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-
-        formatter = dateFormatter;
+    if ([name isEqual:@"date"]) {
+        formatter = [NSDateFormatter new];
+    } else if ([name isEqual:@"number"]) {
+        formatter = [NSNumberFormatter new];
     } else {
         formatter = nil;
+    }
+
+    for (NSString *key in arguments) {
+        [formatter applyMarkupPropertyValue:[arguments objectForKey:key] forKeyPath:key];
     }
 
     return formatter;
@@ -127,7 +108,8 @@
 
 @implementation LMBinding
 {
-    NSString *_format;
+    NSString *_formatterName;
+    NSDictionary *_formatterArguments;
 }
 
 - (instancetype)initWithExpression:(NSString *)expression view:(UIView *)view keyPath:(NSString *)keyPath
@@ -135,12 +117,29 @@
     self = [super init];
 
     if (self) {
-        NSArray *components = [expression componentsSeparatedByString:@"::"];
+        NSArray *expressionComponents = [expression componentsSeparatedByString:@"::"];
 
-        _expression = [NSExpression expressionWithFormat:components[0]];
+        _expression = [NSExpression expressionWithFormat:expressionComponents[0]];
 
-        if ([components count] > 1) {
-            _format = components[1];
+        if ([expressionComponents count] > 1) {
+            NSArray *formatComponents = [expressionComponents[1] componentsSeparatedByString:@";"];
+
+            _formatterName = [formatComponents[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+            NSMutableDictionary *formatterArguments = [NSMutableDictionary new];
+
+            for (NSUInteger i = 1, n = [formatComponents count]; i < n; i++) {
+                NSArray *argumentComponents = [formatComponents[i] componentsSeparatedByString:@"="];
+
+                if ([argumentComponents count] > 1) {
+                    NSString *key = [argumentComponents[0] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                    NSString *value = [argumentComponents[1] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+                    [formatterArguments setObject:value forKey:key];
+                }
+            }
+
+            _formatterArguments = formatterArguments;
         }
 
         _view = view;
@@ -204,13 +203,11 @@
 {
     id value = [_expression expressionValueWithObject:object context:nil];
 
-    if (_format != nil) {
-        NSFormatter *formatter = [object formatterWithName:_format];
+    if (_formatterName != nil) {
+        NSFormatter *formatter = [object formatterWithName:_formatterName arguments:_formatterArguments];
 
         if (formatter != nil) {
             value = [formatter stringForObjectValue:value];
-        } else {
-            value = [NSString stringWithFormat:_format, value];
         }
     }
 

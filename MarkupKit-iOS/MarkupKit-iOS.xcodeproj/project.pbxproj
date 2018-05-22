@@ -191,6 +191,10 @@
 		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
+		37C0F72120B47B65005E4281 /* NSDateFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37C0F72220B47B65005E4281 /* NSDateFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */; };
+		37C0F72520B47B7B005E4281 /* NSNumberFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37C0F72620B47B7B005E4281 /* NSNumberFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
 		37E57ADA1DF19248002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57AD71DF19248002984B9 /* AppDelegate.swift */; };
@@ -499,6 +503,10 @@
 		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
+		37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Markup.h"; sourceTree = "<group>"; };
+		37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Markup.m"; sourceTree = "<group>"; };
+		37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumberFormatter+Markup.h"; sourceTree = "<group>"; };
+		37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumberFormatter+Markup.m"; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57ACE1DF191B1002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57AD11DF191B1002984B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -750,6 +758,10 @@
 				3799BB191DF18539006E6B3D /* NSObject+Markup.m */,
 				3799BB1A1DF18539006E6B3D /* NSString+Markup.h */,
 				3799BB1B1DF18539006E6B3D /* NSString+Markup.m */,
+				37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */,
+				37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */,
+				37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */,
+				37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */,
 				3799BAF01DF18539006E6B3D /* CALayer+Markup.h */,
 				3799BAF11DF18539006E6B3D /* CALayer+Markup.m */,
 				379214F41E40DECE00C56838 /* UIResponder+Markup.h */,
@@ -878,6 +890,8 @@
 				376306761DF188F400357E68 /* LMViewBuilder.h in Headers */,
 				376306771DF188F400357E68 /* NSObject+Markup.h in Headers */,
 				376306781DF188F400357E68 /* NSString+Markup.h in Headers */,
+				37C0F72120B47B65005E4281 /* NSDateFormatter+Markup.h in Headers */,
+				37C0F72520B47B7B005E4281 /* NSNumberFormatter+Markup.h in Headers */,
 				376306791DF188F400357E68 /* CALayer+Markup.h in Headers */,
 				379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */,
 				379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */,
@@ -1263,12 +1277,13 @@
 				376306421DF188BF00357E68 /* LMSpacer.m in Sources */,
 				376306431DF188BF00357E68 /* LMGradientView.m in Sources */,
 				376306441DF188BF00357E68 /* LMLinearGradientView.m in Sources */,
-				37EADB672002A66200C5189D /* LMSegmentedControl.swift in Sources */,
 				376306451DF188BF00357E68 /* LMRadialGradientView.m in Sources */,
 				376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */,
+				37EADB672002A66200C5189D /* LMSegmentedControl.swift in Sources */,
 				376306461DF188BF00357E68 /* LMPickerView.m in Sources */,
 				376306471DF188BF00357E68 /* LMScrollView.m in Sources */,
 				376306481DF188BF00357E68 /* LMPageView.m in Sources */,
+				37EADB692002A67900C5189D /* LMPageView.swift in Sources */,
 				376306491DF188BF00357E68 /* LMPlayerView.m in Sources */,
 				3763064A1DF188BF00357E68 /* LMTableView.m in Sources */,
 				3763064B1DF188BF00357E68 /* LMTableViewCell.m in Sources */,
@@ -1279,16 +1294,17 @@
 				3763064E1DF188BF00357E68 /* LMViewBuilder.m in Sources */,
 				3763064F1DF188BF00357E68 /* NSObject+Markup.m in Sources */,
 				376306501DF188BF00357E68 /* NSString+Markup.m in Sources */,
+				37C0F72220B47B65005E4281 /* NSDateFormatter+Markup.m in Sources */,
+				37C0F72620B47B7B005E4281 /* NSNumberFormatter+Markup.m in Sources */,
 				376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */,
-				37EADB6B2002A68600C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */,
 				379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				376306521DF188BF00357E68 /* UIView+Markup.m in Sources */,
 				376306531DF188BF00357E68 /* UIControl+Markup.m in Sources */,
 				376306541DF188BF00357E68 /* UIButton+Markup.m in Sources */,
-				37EADB692002A67900C5189D /* LMPageView.swift in Sources */,
 				376306551DF188BF00357E68 /* UIDatePicker+Markup.m in Sources */,
 				376306561DF188BF00357E68 /* UISegmentedControl+Markup.m in Sources */,
+				37EADB6B2002A68600C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				376306571DF188BF00357E68 /* UITextField+Markup.m in Sources */,
 				376306581DF188BF00357E68 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1A1EAA2C0600D427B4 /* UILabel+Markup.m in Sources */,

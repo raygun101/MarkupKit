@@ -77,8 +77,8 @@ limitations under the License.
 
             <LMRowView class="secondRow">
                 <LMColumnView spacing="0">
-                    <UILabel text="$number::%@" class="large, blue"/>
-                    <UILabel text="$average:(values)::%@" class="blue" textAlignment="right"/>
+                    <UILabel text="$number::number" class="large, blue"/>
+                    <UILabel text="$average:(values)::number;numberStyle=decimal;maximumFractionDigits=3" class="blue" textAlignment="right"/>
                 </LMColumnView>
                 <LMSpacer/>
                 <UIButton title="@prompt" titleColor="purple" titleShadowColor="yellow"
@@ -100,7 +100,7 @@ limitations under the License.
             <UILabel text="$FUNCTION(one, 'stringByAppendingString:', FUNCTION(two, 'stringByAppendingString:', three))"
                 textAlignment="center" textColor="fireBrick" font="body"/>
 
-            <UILabel text="$today::mediumDate" textAlignment="center" textColor="#448822" font="body"/>
+            <UILabel text="$today::date;dateStyle=medium;timeStyle=short" textAlignment="center" textColor="#448822" font="body"/>
 
             <LMRowView>
                 <LMSpacer/>

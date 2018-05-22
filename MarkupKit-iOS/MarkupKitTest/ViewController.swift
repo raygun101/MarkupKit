@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet var segmentedControl: LMSegmentedControl!
 
     @objc let number = 12345
-    @objc let values = [1, 2, 3, 4, 5]
+    @objc let values = [1, 2, 3, 4, 5, 6]
 
     @objc let one = "One"
     @objc let two = "Two"

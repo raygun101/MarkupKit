@@ -73,6 +73,10 @@
 		37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37B392381E50B06C00931587 /* ColorCell.xml */; };
 		37BB5C8B1F47398C0089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C891F47398C0089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C8C1F47398C0089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C8A1F47398C0089139F /* LMTableViewHeaderFooterView.m */; };
+		37C0F72B20B47BDF005E4281 /* NSNumberFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F72720B47BDF005E4281 /* NSNumberFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37C0F72C20B47BDF005E4281 /* NSDateFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72820B47BDF005E4281 /* NSDateFormatter+Markup.m */; };
+		37C0F72D20B47BDF005E4281 /* NSNumberFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72920B47BDF005E4281 /* NSNumberFormatter+Markup.m */; };
+		37C0F72E20B47BDF005E4281 /* NSDateFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F72A20B47BDF005E4281 /* NSDateFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57A721DF190F1002984B9 /* LMLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D51DF19090002984B9 /* LMLayoutView.m */; };
 		37E57A731DF190F1002984B9 /* LMBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D71DF19090002984B9 /* LMBoxView.m */; };
 		37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579D91DF19090002984B9 /* LMColumnView.m */; };
@@ -292,6 +296,10 @@
 		37BB5C891F47398C0089139F /* LMTableViewHeaderFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMTableViewHeaderFooterView.h; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.h"; sourceTree = "<group>"; };
 		37BB5C8A1F47398C0089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMTableViewHeaderFooterView.m; path = "../../MarkupKit-iOS/MarkupKit/LMTableViewHeaderFooterView.m"; sourceTree = "<group>"; };
 		37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Icons.xcassets; path = "../../MarkupKit-iOS/MarkupKitExamples/Icons.xcassets"; sourceTree = "<group>"; };
+		37C0F72720B47BDF005E4281 /* NSNumberFormatter+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSNumberFormatter+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/NSNumberFormatter+Markup.h"; sourceTree = "<group>"; };
+		37C0F72820B47BDF005E4281 /* NSDateFormatter+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/NSDateFormatter+Markup.m"; sourceTree = "<group>"; };
+		37C0F72920B47BDF005E4281 /* NSNumberFormatter+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSNumberFormatter+Markup.m"; path = "../../MarkupKit-iOS/MarkupKit/NSNumberFormatter+Markup.m"; sourceTree = "<group>"; };
+		37C0F72A20B47BDF005E4281 /* NSDateFormatter+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+Markup.h"; path = "../../MarkupKit-iOS/MarkupKit/NSDateFormatter+Markup.h"; sourceTree = "<group>"; };
 		37E579D31DF19090002984B9 /* MarkupKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarkupKit.h; path = "../../MarkupKit-iOS/MarkupKit/MarkupKit.h"; sourceTree = "<group>"; };
 		37E579D41DF19090002984B9 /* LMLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLayoutView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.h"; sourceTree = "<group>"; };
 		37E579D51DF19090002984B9 /* LMLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLayoutView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLayoutView.m"; sourceTree = "<group>"; };
@@ -530,6 +538,10 @@
 				37E579FB1DF19090002984B9 /* NSObject+Markup.m */,
 				37E579FC1DF19090002984B9 /* NSString+Markup.h */,
 				37E579FD1DF19090002984B9 /* NSString+Markup.m */,
+				37C0F72A20B47BDF005E4281 /* NSDateFormatter+Markup.h */,
+				37C0F72820B47BDF005E4281 /* NSDateFormatter+Markup.m */,
+				37C0F72720B47BDF005E4281 /* NSNumberFormatter+Markup.h */,
+				37C0F72920B47BDF005E4281 /* NSNumberFormatter+Markup.m */,
 				37E579FE1DF19090002984B9 /* CALayer+Markup.h */,
 				37E579FF1DF19090002984B9 /* CALayer+Markup.m */,
 				379214F71E40DF2A00C56838 /* UIResponder+Markup.h */,
@@ -651,6 +663,8 @@
 				37E57AAC1DF1911F002984B9 /* LMViewBuilder.h in Headers */,
 				37E57AAD1DF1911F002984B9 /* NSObject+Markup.h in Headers */,
 				37E57AAE1DF1911F002984B9 /* NSString+Markup.h in Headers */,
+				37C0F72E20B47BDF005E4281 /* NSDateFormatter+Markup.h in Headers */,
+				37C0F72B20B47BDF005E4281 /* NSNumberFormatter+Markup.h in Headers */,
 				37E57AAF1DF1911F002984B9 /* CALayer+Markup.h in Headers */,
 				379214F91E40DF2A00C56838 /* UIResponder+Markup.h in Headers */,
 				379E4B4C1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.h in Headers */,
@@ -906,10 +920,10 @@
 				37E57A741DF190F1002984B9 /* LMColumnView.m in Sources */,
 				37E57A751DF190F1002984B9 /* LMRowView.m in Sources */,
 				37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */,
-				37EADB6F2002A6A500C5189D /* LMSegmentedControl.swift in Sources */,
 				37F136761FB139AD00651E12 /* LMRootView.m in Sources */,
 				37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */,
 				376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */,
+				37EADB6F2002A6A500C5189D /* LMSegmentedControl.swift in Sources */,
 				37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */,
 				37E57A7A1DF190F1002984B9 /* LMLinearGradientView.m in Sources */,
 				37E57A7B1DF190F1002984B9 /* LMRadialGradientView.m in Sources */,
@@ -924,14 +938,16 @@
 				37E57A841DF190F1002984B9 /* LMViewBuilder.m in Sources */,
 				37E57A851DF190F1002984B9 /* NSObject+Markup.m in Sources */,
 				37E57A861DF190F1002984B9 /* NSString+Markup.m in Sources */,
+				37C0F72D20B47BDF005E4281 /* NSNumberFormatter+Markup.m in Sources */,
+				37C0F72C20B47BDF005E4281 /* NSDateFormatter+Markup.m in Sources */,
 				37E57A871DF190F1002984B9 /* CALayer+Markup.m in Sources */,
 				379214FA1E40DF2A00C56838 /* UIResponder+Markup.m in Sources */,
-				37EADB6D2002A69800C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				379E4B4D1E4E4D4F00FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				37E57A881DF190F1002984B9 /* UIView+Markup.m in Sources */,
 				37E57A891DF190F1002984B9 /* UIControl+Markup.m in Sources */,
 				37E57A8A1DF190F1002984B9 /* UIButton+Markup.m in Sources */,
 				37E57A8C1DF190F1002984B9 /* UISegmentedControl+Markup.m in Sources */,
+				37EADB6D2002A69800C5189D /* UISegmentedControl+Markup.swift in Sources */,
 				37E57A8D1DF190F1002984B9 /* UITextField+Markup.m in Sources */,
 				37E57A8E1DF190F1002984B9 /* UIActivityIndicatorView+Markup.m in Sources */,
 				37596C1E1EAA2C2300D427B4 /* UILabel+Markup.m in Sources */,
