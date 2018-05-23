@@ -30,7 +30,7 @@ Creating this view in Interface Builder would be an arduous task. Creating it pr
 ### Streamlines Development
 Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including model binding expressions) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
 
-Additionally, MarkupKit's live preview support allows developers to validate layout changes at design time, avoiding the need to launch the iOS simulator:
+Additionally, MarkupKit's live preview support allows developers to validate view updates at design time, avoiding the need to launch the iOS simulator:
 
 <img src="README/live-preview.png" width="960px" style="border: solid 0.5px #cccccc"/>
 
@@ -520,15 +520,15 @@ This markup binds the `text` property of the heading and detail views to the row
 ### Binding Formatters
 Binding expressions are also not limited to string values. For example, they can refer to numeric or date properties, and can even contain mathematical operations. It is not possible to bind the result of such expressions to string-based target properties directly. However, formatters can be used to convert a bound value to an appropriate textual representation. 
 
-Formatters are applied by appending a format specifier to a binding declaration. A format specifier contains the name of the formatter to apply, along with any associated arguments to the formatter. The specifier is separated from the actual expression by a double-colon ("::").
+Formatters are applied by appending a format specifier to a binding declaration. A format specifier contains the name of the formatter to apply, along with any associated arguments to the formatter. The format specification is separated from the actual expression by a double-colon ("::").
 
-For example, the following markup uses a date formatter to convert a person's date of birth to a short-format date string:
+For example, the following markup uses a date formatter to convert a person's date of birth (represented by an `NSDate` instance) to a short-format date string:
 
 ```xml
 <UILabel text="$person.dateOfBirth::date;dateStyle=short;timeStyle=none"/>
 ```
 
-This markup converts a double-precision value to a string using a maximum of three decimal places:
+This markup converts a double value to a string using a maximum of three decimal places:
 
 ```xml
 <UILabel text="$averageAge::number;numberStyle=decimal;maximumFractionDigits=3"/>
@@ -540,7 +540,7 @@ Formatters are obtained via the following method, which MarkupKit adds to `UIRes
 - (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments;
 ```
 
-This method is called on the document's owner any time the value of a formatted bound expression changes. The default implementation provides support for "date" and "number" formatters, which correspond to the `NSDateFormatter` and `NSNumberFormatter` Foundation classes, respectively. The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
+This method is called on the document's owner any time the value of a bound, formatted expression changes. The default implementation provides support for "date" and "number" formatters, which correspond to the `NSDateFormatter` and `NSNumberFormatter` Foundation classes, respectively. The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
 
 ### Releasing Bindings
 Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
@@ -2271,7 +2271,7 @@ For example, the following markup creates a system button with a shadow opacity 
 ```
 
 # Live Preview
-View classes tagged with `IB_DESIGNABLE` or `@IBDesignable` can call the `preview:owner:` method MarkupKit adds to the `UIView` class to preview markup changes at design time, avoiding the need to launch the iOS simulator. If an error occurs while loading the document, a label containing the error message will be overlaid on top of the view instance, allowing typos and other errors to be quickly identified.
+View classes tagged with `IB_DESIGNABLE` or `@IBDesignable` can call the `preview:owner:` method MarkupKit adds to the `UIView` class to preview markup changes at design time, avoiding the need to launch the iOS simulator. If an error occurs while loading the document, a label containing the error message will be overlaid on the view instance, allowing typos and other errors to be quickly identified.
 
 For example, the following view controller displays a simple greeting:
 
