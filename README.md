@@ -517,7 +517,7 @@ This markup binds the `text` property of the heading and detail views to the row
 </root>
 ```
 
-### Binding Formatters
+### Expression Formatters
 Binding expressions are also not limited to string values. For example, they can refer to numeric or date properties, and can even contain mathematical operations. It is not possible to bind the result of such expressions to string-based target properties directly. However, formatters can be used to convert a bound value to an appropriate textual representation. 
 
 Formatters are applied by appending a format specifier to a binding declaration. A format specifier contains the name of the formatter to apply, along with any associated arguments to the formatter. The format specification is separated from the actual expression by a double-colon ("::").
