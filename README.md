@@ -23,7 +23,7 @@ In addition to support for all system-provided view types, MarkupKit includes a 
 ### Improves Productivity
 Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
-<img src="README/periodic-table.png" width="820px" style="border: solid 0.5px #cccccc"/>
+<img src="README/periodic-table.png" width="820px"/>
 
 Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
@@ -32,7 +32,7 @@ Using markup also helps to promote a clear separation of responsibility. Most, i
 
 Additionally, MarkupKit's live preview support allows developers to validate view updates at design time, avoiding the need to launch the iOS simulator:
 
-<img src="README/live-preview.png" width="960px" style="border: solid 0.5px #cccccc"/>
+<img src="README/live-preview.png" width="960px"/>
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -2291,7 +2291,7 @@ class ViewController: UIViewController {
 }
 ```
 
-<img src="README/preview-simulator.png" width="250px" style="border: solid 0.5px #cccccc"/>
+<img src="README/preview-simulator.png" width="250px"/>
 
 The markup for the view is shown below:
 
@@ -2316,7 +2316,7 @@ class ViewControllerPreview: LMColumnView {
 }
 ```
 
-<img src="README/preview-xcode.png" width="960px" style="border: solid 0.5px #cccccc"/>
+<img src="README/preview-xcode.png" width="960px"/>
 
 Note that the view class and XIB file are only used at design time - the view controller is still responsible for loading the view document at run time.
 
