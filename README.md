@@ -30,7 +30,7 @@ Creating this view in Interface Builder would be an arduous task. Creating it pr
 ### Streamlines Development
 Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including model binding expressions) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
 
-Additionally, MarkupKit's live preview support allows developers to validate view changes at design time, avoiding the need to launch the iOS simulator:
+Additionally, MarkupKit's live preview support allows developers to validate layout changes at design time, avoiding the need to launch the iOS simulator:
 
 <img src="README/live-preview.png" width="960px" style="border: solid 0.5px #cccccc"/>
 
@@ -466,9 +466,9 @@ It is possible to escape a leading "@" character by prepending a caret ("^") to 
 ```
 
 ## Data Binding
-Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents an expression to which the corresponding view property will be bound. Binding expressions typically contain at least one reference to a key path in the document's owner, and are re-evaluated any time the value of a bound property changes. Internally, MarkupKit monitors property changes using [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html), and evaluates expressions using the Foundation-provided [`NSExpression`](https://developer.apple.com/documentation/foundation/nsexpression) class.
+Attributes whose values begin with "$" represent data bindings. The text following the "$" character represents an expression to which the corresponding view property will be bound. Any time the value of the bound expression changes, the target property in the view will be automatically updated. MarkupKit monitors property changes using [key-value observing](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html), and evaluates expressions using the Foundation framework's [`NSExpression`](https://developer.apple.com/documentation/foundation/nsexpression) class.
 
-For example, an owning class might define a bindable property called `name` as follows:
+For example, a view controller might define a bindable property called `name` as follows:
 
 ```swift
 class ViewController: UIViewController {
@@ -478,18 +478,71 @@ class ViewController: UIViewController {
 }
 ```
 
-The following markup creates a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any updates to `name` will be automatically reflected in the label:
+The following markup establishes a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any changes to `name` will be automatically reflected in the label:
 
 ```xml
 <UILabel text="$name"/>
 ```
 
-As with "@", a leading "$" character can be escaped using a caret. This markup would set the text of the label to the literal string "$name", rather than creating a binding:
+As with "@", a leading "$" character can be escaped using a caret. For example, this markup would set the text of the label to the literal string "$name", rather than creating a binding:
 
 ```xml
 <UILabel text="^$name"/>
 ```
 
+### Binding Expressions
+Binding expressions are not limited to simple properties. For example, a custom table view cell might use an instance of the following class as a model:
+
+```swift
+class Row: NSObject, Decodable {
+    @objc var heading: String?
+    @objc var detail: String?
+}
+
+class CustomCell: LMTableViewCell {
+    @objc dynamic var row: Row!
+    
+    ...
+}
+```
+
+This markup binds the `text` property of the heading and detail views to the row's `heading` and `detail` properties, respectively. Any time the value of `row` changes, the labels will be updated:
+
+```xml
+<root accessoryType="disclosureIndicator">
+    <LMColumnView>
+        <UILabel text="$row.heading"/>
+        <UILabel text="$row.detail"/>
+    </LMColumnView>
+</root>
+```
+
+### Binding Formatters
+Binding expressions are also not limited to string values. For example, they can refer to numeric or date properties, and can even contain mathematical operations. It is not possible to bind the result of such expressions to string-based target properties directly. However, formatters can be used to convert a bound value to an appropriate textual representation. 
+
+Formatters are applied by appending a format specifier to a binding declaration. A format specifier contains the name of the formatter to apply, along with any associated arguments to the formatter. The specifier is separated from the actual expression by a double-colon ("::").
+
+For example, the following markup uses a date formatter to convert a person's date of birth to a short-format date string:
+
+```xml
+<UILabel text="$person.dateOfBirth::date;dateStyle=short;timeStyle=none"/>
+```
+
+This markup converts a double-precision value to a string using a maximum of three decimal places:
+
+```xml
+<UILabel text="$averageAge::number;numberStyle=decimal;maximumFractionDigits=3"/>
+```
+
+Formatters are obtained via the following method, which MarkupKit adds to `UIResponder`:
+
+```objc
+- (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments;
+```
+
+This method is called on the document's owner any time the value of a formatted bound expression changes. The default implementation provides support for "date" and "number" formatters, which correspond to the `NSDateFormatter` and `NSNumberFormatter` Foundation classes, respectively. The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
+
+### Releasing Bindings
 Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
 
 ```swift
@@ -2265,7 +2318,7 @@ class ViewControllerPreview: LMColumnView {
 
 <img src="README/preview-xcode.png" width="960px" style="border: solid 0.5px #cccccc"/>
 
-Note that the view class is only used at design time - the view controller is still responsible for loading the view document at run time.
+Note that the view class and XIB file are only used at design time - the view controller is still responsible for loading the view document at run time.
 
 Live preview can significantly reduce development time, since it eliminates the round trip through the simulator that is typically required to test an update. Using live preview, successive updates can be quickly verified, and the simulator launched only when the desired layout has been achieved.
 
