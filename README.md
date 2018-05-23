@@ -23,12 +23,16 @@ In addition to support for all system-provided view types, MarkupKit includes a 
 ### Improves Productivity
 Building an interface in markup can significantly reduce development time. For example, the periodic table shown below was constructed using a combination of MarkupKit's layout views and `UILabel` instances:
 
-<img src="README/periodic-table.png" width="820px"/>
+<img src="README/periodic-table.png" width="820px" style="border: solid 0.5px #cccccc"/>
 
 Creating this view in Interface Builder would be an arduous task. Creating it programmatically would be even more difficult. However, in markup it is almost trivial. The complete source code for this example can be found [here](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKitExamples/PeriodicTableViewController.xml).
 
 ### Streamlines Development
 Using markup also helps to promote a clear separation of responsibility. Most, if not all, aspects of a view's presentation (including model binding expressions) can be specified in the view declaration, leaving the controller responsible solely for managing the view's behavior.
+
+Additionally, MarkupKit's live preview support allows developers to validate view changes at design time, avoiding the need to launch the iOS simulator:
+
+<img src="README/live-preview.png" width="960px" style="border: solid 0.5px #cccccc"/>
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -68,6 +72,7 @@ Also, if you like using MarkupKit, please consider [starring it](https://github.
     * [LMSegmentedControl](#lmsegmentedcontrol)
     * [LMPickerView](#lmpickerview)
     * [LMPlayerView](#lmplayerview)
+* [Live Preview](#live-preview)
 * [Additional Information](#additional-information)
 
 # Installation
@@ -1781,9 +1786,7 @@ Finally, MarkupKit adds the following method to `UIView` to support live preview
 - (void)preview:(NSString *)viewName owner:(nullable id)owner;
 ```
 
-View classes tagged with `IB_DESIGNABLE` or `@IBDesignable` can call this method from within `prepareForInterfaceBuilder` to validate markup changes at design time, avoiding the need to launch the simulator. The first argument contains the name of the view document to preview, and the second is an optional argument containing the document's owner. 
-
-If an error occurs while loading the document, a label containing the error message will be overlaid on top of the view instance, allowing typos and other errors to be quickly identified.
+Live preview is discussed in more detail later.
 
 ### UIResponder
 MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
@@ -2213,6 +2216,58 @@ For example, the following markup creates a system button with a shadow opacity 
     layer.shadowRadius="10" 
     layer.shadowOffsetHeight="3"/>
 ```
+
+# Live Preview
+View classes tagged with `IB_DESIGNABLE` or `@IBDesignable` can call the `preview:owner:` method MarkupKit adds to the `UIView` class to preview markup changes at design time, avoiding the need to launch the iOS simulator. If an error occurs while loading the document, a label containing the error message will be overlaid on top of the view instance, allowing typos and other errors to be quickly identified.
+
+For example, the following view controller displays a simple greeting:
+
+```swift
+class ViewController: UIViewController {
+    @IBOutlet var label: UILabel!
+
+    override func loadView() {
+        view = LMViewBuilder.view(withName: "ViewController", owner: self, root: LMColumnView())
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        label.text = "Hello, World!"
+    }
+}
+```
+
+<img src="README/preview-simulator.png" width="250px" style="border: solid 0.5px #cccccc"/>
+
+The markup for the view is shown below:
+
+```xml
+<root backgroundColor="white">
+    <UILabel id="label" textAlignment="center" textColor="red"/>
+</root>
+```
+
+The following view class can be used to preview the markup document directly within Xcode. The view's implementation of `prepareForInterfaceBuilder` provides placeholder content; a temporary controller instance is used to ensure that any outlets, actions, or bindings are handled properly:
+
+```swift
+@IBDesignable
+class ViewControllerPreview: LMColumnView {
+    override func prepareForInterfaceBuilder() {
+        let owner = ViewController(nibName: nil, bundle: nil)
+
+        preview("ViewController", owner: owner)
+
+        owner.label.text = "Hello, World!"
+    }
+}
+```
+
+<img src="README/preview-xcode.png" width="960px" style="border: solid 0.5px #cccccc"/>
+
+Note that the view class is only used at design time - the view controller is still responsible for loading the view document at run time.
+
+Live preview can significantly reduce development time, since it eliminates the round trip through the simulator that is typically required to test an update. Using live preview, successive updates can be quickly verified, and the simulator launched only when the desired layout has been achieved.
 
 # Additional Information
 For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
