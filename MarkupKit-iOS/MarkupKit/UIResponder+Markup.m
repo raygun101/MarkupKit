@@ -65,7 +65,11 @@
     } else if ([name isEqual:@"byteCount"]) {
         formatter = [NSByteCountFormatter new];
     } else if ([name isEqual:@"measurement"]) {
-        formatter = [NSMeasurementFormatter new];
+        if (@available(iOS 10, tvOS 10, *)) {
+            formatter = [NSMeasurementFormatter new];
+        } else {
+            formatter = nil;
+        }
     } else {
         formatter = nil;
     }
