@@ -549,7 +549,7 @@ This method is called on the document's owner any time the value of a bound, for
 * "byteCount" - `NSByteCountFormatter`
 * "measurement" - `NSMeasurementFormatter` (iOS 10+)
 
-The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
+The arguments represent the properties that will be set on the formatter to configure its behavior. Enum values are applied as decribed earlier for attributes. Owning classes can override this method to support custom formatters.
 
 ### Releasing Bindings
 Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:
