@@ -16,7 +16,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSNumberFormatter (Markup)
+@interface NSMeasurementFormatter (Markup)
 
 @end
 

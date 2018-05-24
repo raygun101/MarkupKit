@@ -72,6 +72,7 @@ Also, if you like using MarkupKit, please consider [starring it](https://github.
     * [LMSegmentedControl](#lmsegmentedcontrol)
     * [LMPickerView](#lmpickerview)
     * [LMPlayerView](#lmplayerview)
+    * [UIKit Extensions](uikit-extensions)
 * [Live Preview](#live-preview)
 * [Additional Information](#additional-information)
 
@@ -540,7 +541,15 @@ Formatters are obtained via the following method, which MarkupKit adds to `UIRes
 - (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments;
 ```
 
-This method is called on the document's owner any time the value of a bound, formatted expression changes. The default implementation provides support for "date" and "number" formatters, which correspond to the `NSDateFormatter` and `NSNumberFormatter` Foundation classes, respectively. The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
+This method is called on the document's owner any time the value of a bound, formatted expression changes. The default implementation provides support for the following formatter types:
+
+* "date" - `NSDateFormatter`
+* "number" - `NSNumberFormatter`
+* "personNameComponents" - `NSPersonNameComponentsFormatter`
+* "byteCount" - `NSByteCountFormatter`
+* "measurement" - `NSMeasurementFormatter` (iOS 10+)
+
+The arguments represent the properties that will be set on the formatter to configure its behavior. Owning classes can override this method to support custom formatters.
 
 ### Releasing Bindings
 Bindings must be released via a call to `unbindAll`, a method MarkupKit adds to the `UIResponder` class, before the owner is deallocated. For example:

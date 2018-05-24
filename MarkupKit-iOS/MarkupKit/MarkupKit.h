@@ -47,6 +47,7 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/NSString+Markup.h>
 #import <MarkupKit/NSDateFormatter+Markup.h>
 #import <MarkupKit/NSNumberFormatter+Markup.h>
+#import <MarkupKit/NSMeasurementFormatter+Markup.h>
 #import <MarkupKit/CALayer+Markup.h>
 #import <MarkupKit/UIResponder+Markup.h>
 #import <MarkupKit/UIGestureRecognizer+Markup.h>

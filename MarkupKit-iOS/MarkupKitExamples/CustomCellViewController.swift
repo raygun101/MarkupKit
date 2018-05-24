@@ -30,7 +30,7 @@ final class Pharmacy: NSObject, Decodable {
     @objc let fax: String
     @objc let email: String
 
-    @objc let distance: Double
+    @objc let distance: Measurement<UnitLength>
 
     enum CodingKeys: String, CodingKey {
         case name
@@ -58,7 +58,7 @@ final class Pharmacy: NSObject, Decodable {
         fax = try values.decode(String.self, forKey: .fax)
         email = try values.decode(String.self, forKey: .email)
 
-        distance = try values.decode(Double.self, forKey: .distance)
+        distance = Measurement(value: try values.decode(Double.self, forKey: .distance), unit: UnitLength.miles)
     }
 }
 

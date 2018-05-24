@@ -18,7 +18,7 @@ limitations under the License.
     <LMColumnView spacing="4">
         <LMRowView alignToBaseline="true" spacing="4">
             <UILabel weight="1" text="$pharmacy.name" font="headline"/>
-            <UILabel text="$pharmacy.distance::number" font="body" textColor="gray"/>
+            <UILabel text="$pharmacy.distance::measurement;unitStyle=long" font="body" textColor="gray"/>
         </LMRowView>
 
         <UILabel text="$pharmacy.address" numberOfLines="0" font="body"/>

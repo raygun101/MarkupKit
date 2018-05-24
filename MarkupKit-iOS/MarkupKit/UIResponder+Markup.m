@@ -60,6 +60,12 @@
         formatter = [NSDateFormatter new];
     } else if ([name isEqual:@"number"]) {
         formatter = [NSNumberFormatter new];
+    } else if ([name isEqual:@"personNameComponents"]) {
+        formatter = [NSPersonNameComponentsFormatter new];
+    } else if ([name isEqual:@"byteCount"]) {
+        formatter = [NSByteCountFormatter new];
+    } else if ([name isEqual:@"measurement"]) {
+        formatter = [NSMeasurementFormatter new];
     } else {
         formatter = nil;
     }
