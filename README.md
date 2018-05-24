@@ -543,8 +543,8 @@ Formatters are obtained via the following method, which MarkupKit adds to `UIRes
 
 This method is called on the document's owner any time the value of a bound, formatted expression changes. The default implementation provides support for the following formatter types:
 
-* "date" - `NSDateFormatter`
 * "number" - `NSNumberFormatter`
+* "date" - `NSDateFormatter`
 * "personNameComponents" - `NSPersonNameComponentsFormatter`
 * "byteCount" - `NSByteCountFormatter`
 * "measurement" - `NSMeasurementFormatter` (iOS 10+)

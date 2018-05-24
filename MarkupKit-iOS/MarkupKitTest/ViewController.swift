@@ -30,7 +30,19 @@ class ViewController: UIViewController {
 
     @objc let prompt = NSAttributedString(string: "Press Me!")
 
-    @objc let today = Date()
+    @objc let date = Date()
+
+    @objc let personNameComponents: PersonNameComponents = {
+        var personNameComponents = PersonNameComponents()
+
+        personNameComponents.givenName = "James"
+        personNameComponents.middleName = "Tiberius"
+        personNameComponents.familyName = "Kirk"
+
+        return personNameComponents
+    }()
+
+    @objc let byteCount = 3 * 1024 * 1024
 
     override func loadView() {
         view = LMViewBuilder.view(withName: "ViewController", owner: self, root: nil)

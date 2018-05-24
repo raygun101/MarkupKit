@@ -56,10 +56,10 @@
 - (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments
 {
     NSFormatter *formatter;
-    if ([name isEqual:@"date"]) {
-        formatter = [NSDateFormatter new];
-    } else if ([name isEqual:@"number"]) {
+    if ([name isEqual:@"number"]) {
         formatter = [NSNumberFormatter new];
+    } else if ([name isEqual:@"date"]) {
+        formatter = [NSDateFormatter new];
     } else if ([name isEqual:@"personNameComponents"]) {
         formatter = [NSPersonNameComponentsFormatter new];
     } else if ([name isEqual:@"byteCount"]) {

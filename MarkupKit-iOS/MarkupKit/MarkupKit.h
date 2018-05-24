@@ -45,8 +45,8 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/LMViewBuilder.h>
 #import <MarkupKit/NSObject+Markup.h>
 #import <MarkupKit/NSString+Markup.h>
-#import <MarkupKit/NSDateFormatter+Markup.h>
 #import <MarkupKit/NSNumberFormatter+Markup.h>
+#import <MarkupKit/NSDateFormatter+Markup.h>
 #import <MarkupKit/NSPersonNameComponentsFormatter+Markup.h>
 #import <MarkupKit/NSByteCountFormatter+Markup.h>
 #import <MarkupKit/NSMeasurementFormatter+Markup.h>
