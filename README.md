@@ -478,7 +478,7 @@ class ViewController: UIViewController {
 }
 ```
 
-The following markup establishes a binding between the `text` property of a `UILabel` instance and the owner's `name` property. Any changes to `name` will be automatically reflected in the label:
+The following markup establishes a binding between the `text` property of a `UILabel` instance and the controller's `name` property. Any changes to `name` will be automatically reflected in the label:
 
 ```xml
 <UILabel text="$name"/>

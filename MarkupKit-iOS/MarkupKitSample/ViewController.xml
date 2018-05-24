@@ -36,7 +36,7 @@ limitations under the License.
     <?sectionFooterView?>
     <LMTableViewHeaderFooterView>
         <LMRowView>
-            <UILabel weight="1" text="@switch" textColor="#808080" font="caption2"/>
+            <UILabel weight="1" text="@switch" textColor="gray" font="caption2"/>
             <UISwitch/>
         </LMRowView>
     </LMTableViewHeaderFooterView>

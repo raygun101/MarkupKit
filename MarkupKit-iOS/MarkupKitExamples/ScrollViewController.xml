@@ -29,7 +29,7 @@ limitations under the License.
         <LMColumnView anchor="bottom, left, right" layoutMargins="20">
             <UIButton style="systemButton" title="Press Me!"
                 backgroundColor="#ffffffee" contentEdgeInsets="16" clipsToBounds="true"
-                layer.borderWidth="0.5" layer.borderColor="#808080" layer.cornerRadius="6"
+                layer.borderWidth="0.5" layer.borderColor="gray" layer.cornerRadius="6"
                 onPrimaryActionTriggered="showGreeting"/>
         </LMColumnView>
     </LMAnchorView>

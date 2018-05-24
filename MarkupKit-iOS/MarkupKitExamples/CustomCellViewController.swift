@@ -14,21 +14,52 @@
 
 import UIKit
 
-class Pharmacy: NSObject, Decodable {
-    @objc var name: String?
+final class Pharmacy: NSObject, Decodable {
+    @objc let name: String
 
-    @objc var street: String?
-    @objc var city: String?
-    @objc var state: String?
-    @objc var zipCode: String?
+    @objc let street: String
+    @objc let city: String
+    @objc let state: String
+    @objc let zipCode: String
 
     @objc var address: String {
-        return String(format: "%@\n%@ %@ %@", street!, city!, state!, zipCode!)
+        return String(format: "%@\n%@ %@ %@", street, city, state, zipCode)
     }
 
-    @objc var phone: String?
-    @objc var fax: String?
-    @objc var email: String?
+    @objc let phone: String
+    @objc let fax: String
+    @objc let email: String
+
+    @objc let distance: Double
+
+    enum CodingKeys: String, CodingKey {
+        case name
+        case street
+        case city
+        case state
+        case zipCode
+        case phone
+        case fax
+        case email
+        case distance
+    }
+
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        name = try values.decode(String.self, forKey: .name)
+
+        street = try values.decode(String.self, forKey: .street)
+        city = try values.decode(String.self, forKey: .city)
+        state = try values.decode(String.self, forKey: .state)
+        zipCode = try values.decode(String.self, forKey: .zipCode)
+
+        phone = try values.decode(String.self, forKey: .phone)
+        fax = try values.decode(String.self, forKey: .fax)
+        email = try values.decode(String.self, forKey: .email)
+
+        distance = try values.decode(Double.self, forKey: .distance)
+    }
 }
 
 class CustomCellViewController: UITableViewController {
