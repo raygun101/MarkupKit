@@ -12,12 +12,5 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import "UIKit+Markup.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
-@interface NSPersonNameComponentsFormatter (Markup)
-
-@end
-
-NS_ASSUME_NONNULL_END

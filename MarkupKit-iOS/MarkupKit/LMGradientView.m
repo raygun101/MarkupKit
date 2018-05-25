@@ -13,7 +13,7 @@
 //
 
 #import "LMGradientView.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 #import "LMViewBuilder.h"
 
 @implementation LMGradientView

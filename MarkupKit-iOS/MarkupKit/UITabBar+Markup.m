@@ -14,7 +14,7 @@
 
 #import "UITabBar+Markup.h"
 #import "UITabBarItem+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 #import "UIView+Markup.h"
 
 static NSDictionary *tabBarItemPositioningValues;

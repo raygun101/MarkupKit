@@ -13,7 +13,7 @@
 //
 
 #import "UIView+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 #import "LMViewBuilder.h"
 
 #import <objc/message.h>

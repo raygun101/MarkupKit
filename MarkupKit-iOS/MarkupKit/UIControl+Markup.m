@@ -13,7 +13,7 @@
 //
 
 #import "UIControl+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 static NSDictionary *controlContentHorizontalAlignmentValues;
 static NSDictionary *controlContentVerticalAlignmentValues;

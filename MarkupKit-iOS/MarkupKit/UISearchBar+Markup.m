@@ -13,7 +13,7 @@
 //
 
 #import "UISearchBar+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 static NSDictionary *searchBarStyleValues;
 

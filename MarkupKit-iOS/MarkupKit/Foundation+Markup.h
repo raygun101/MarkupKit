@@ -16,7 +16,32 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSMeasurementFormatter (Markup)
+@interface NSObject (Markup)
+
+/**
+ * Applies a markup property value.
+ *
+ * @param value The value to apply.
+ * @param key The property's key.
+ */
+- (void)applyMarkupPropertyValue:(nullable id)value forKey:(NSString *)key;
+
+/**
+ * Applies a markup property value.
+ *
+ * @param value The value to apply.
+ * @param keyPath The property's key path.
+ */
+- (void)applyMarkupPropertyValue:(nullable id)value forKeyPath:(NSString *)keyPath;
+
+@end
+
+@interface NSString (Markup)
+
+- (char)charValue;
+- (short)shortValue;
+- (long)longValue;
+- (unsigned long long) unsignedLongLongValue;
 
 @end
 

@@ -82,9 +82,6 @@
 		3763064C1DF188BF00357E68 /* LMCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF71DF18539006E6B3D /* LMCollectionView.m */; };
 		3763064D1DF188BF00357E68 /* LMCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF91DF18539006E6B3D /* LMCollectionViewCell.m */; };
 		3763064E1DF188BF00357E68 /* LMViewBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB171DF18539006E6B3D /* LMViewBuilder.m */; };
-		3763064F1DF188BF00357E68 /* NSObject+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB191DF18539006E6B3D /* NSObject+Markup.m */; };
-		376306501DF188BF00357E68 /* NSString+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB1B1DF18539006E6B3D /* NSString+Markup.m */; };
-		376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF11DF18539006E6B3D /* CALayer+Markup.m */; };
 		376306521DF188BF00357E68 /* UIView+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB3B1DF18539006E6B3D /* UIView+Markup.m */; };
 		376306531DF188BF00357E68 /* UIControl+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB231DF18539006E6B3D /* UIControl+Markup.m */; };
 		376306541DF188BF00357E68 /* UIButton+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB1F1DF18539006E6B3D /* UIButton+Markup.m */; };
@@ -121,9 +118,6 @@
 		376306741DF188F400357E68 /* LMCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF61DF18539006E6B3D /* LMCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306751DF188F400357E68 /* LMCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF81DF18539006E6B3D /* LMCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306761DF188F400357E68 /* LMViewBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB161DF18539006E6B3D /* LMViewBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306771DF188F400357E68 /* NSObject+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB181DF18539006E6B3D /* NSObject+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306781DF188F400357E68 /* NSString+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB1A1DF18539006E6B3D /* NSString+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306791DF188F400357E68 /* CALayer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF01DF18539006E6B3D /* CALayer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763067A1DF188F400357E68 /* UIView+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB3A1DF18539006E6B3D /* UIView+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763067B1DF188F400357E68 /* UIControl+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB221DF18539006E6B3D /* UIControl+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763067C1DF188F400357E68 /* UIButton+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB1E1DF18539006E6B3D /* UIButton+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -184,12 +178,6 @@
 		3793AC861EE0A83500C686CF /* Row.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3793AC851EE0A83500C686CF /* Row.swift */; };
 		379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */; };
-		37A3D50C20B7540D008F076E /* NSMeasurementFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A3D50A20B7540D008F076E /* NSMeasurementFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A3D50D20B7540D008F076E /* NSMeasurementFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D50B20B7540D008F076E /* NSMeasurementFormatter+Markup.m */; };
-		37A3D51420B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A3D51220B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A3D51520B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D51320B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.m */; };
-		37A3D51820B75BEA008F076E /* NSByteCountFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37A3D51620B75BEA008F076E /* NSByteCountFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37A3D51920B75BEA008F076E /* NSByteCountFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37A3D51720B75BEA008F076E /* NSByteCountFormatter+Markup.m */; };
 		37ABAF681F27BD850010A7B3 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */; };
 		37ABAF691F27BD850010A7B3 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */; };
 		37ABAF6C1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */; };
@@ -197,10 +185,6 @@
 		37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37BB5C851F472E680089139F /* LMTableViewHeaderFooterView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */; };
 		37BC06D81DF7219500C46DF6 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D71DF7219500C46DF6 /* Icons.xcassets */; };
-		37C0F72120B47B65005E4281 /* NSDateFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37C0F72220B47B65005E4281 /* NSDateFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */; };
-		37C0F72520B47B7B005E4281 /* NSNumberFormatter+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37C0F72620B47B7B005E4281 /* NSNumberFormatter+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */; };
 		37E57ACF1DF191B1002984B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E57ACE1DF191B1002984B9 /* Assets.xcassets */; };
 		37E57AD21DF191B1002984B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E57AD01DF191B1002984B9 /* LaunchScreen.storyboard */; };
 		37E57ADA1DF19248002984B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E57AD71DF19248002984B9 /* AppDelegate.swift */; };
@@ -221,6 +205,12 @@
 		37EADB672002A66200C5189D /* LMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB662002A66200C5189D /* LMSegmentedControl.swift */; };
 		37EADB692002A67900C5189D /* LMPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB682002A67800C5189D /* LMPageView.swift */; };
 		37EADB6B2002A68600C5189D /* UISegmentedControl+Markup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EADB6A2002A68600C5189D /* UISegmentedControl+Markup.swift */; };
+		37F6697A20B825BA00B305CF /* Foundation+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6697820B825BA00B305CF /* Foundation+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F6697B20B825BA00B305CF /* Foundation+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F6697920B825BA00B305CF /* Foundation+Markup.m */; };
+		37F6697E20B825EB00B305CF /* QuartzCore+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6697C20B825EB00B305CF /* QuartzCore+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F6697F20B825EB00B305CF /* QuartzCore+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F6697D20B825EB00B305CF /* QuartzCore+Markup.m */; };
+		37F6698220B8260000B305CF /* UIKit+Markup.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F6698020B8260000B305CF /* UIKit+Markup.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		37F6698320B8260000B305CF /* UIKit+Markup.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F6698120B8260000B305CF /* UIKit+Markup.m */; };
 		37F70CEC1ECE49A000F3A861 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 37F70CEE1ECE49A000F3A861 /* Localizable.strings */; };
 		37F899831E475E5700205A70 /* LMTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 37F899811E475E5700205A70 /* LMTableViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37F899841E475E5700205A70 /* LMTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 37F899821E475E5700205A70 /* LMTableViewController.m */; };
@@ -423,8 +413,6 @@
 		3799BAD91DF18389006E6B3D /* MarkupKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MarkupKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3799BADC1DF18389006E6B3D /* MarkupKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkupKit.h; sourceTree = "<group>"; };
 		3799BADD1DF18389006E6B3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3799BAF01DF18539006E6B3D /* CALayer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Markup.h"; sourceTree = "<group>"; };
-		3799BAF11DF18539006E6B3D /* CALayer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Markup.m"; sourceTree = "<group>"; };
 		3799BAF21DF18539006E6B3D /* LMAnchorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMAnchorView.h; sourceTree = "<group>"; };
 		3799BAF31DF18539006E6B3D /* LMAnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMAnchorView.m; sourceTree = "<group>"; };
 		3799BAF41DF18539006E6B3D /* LMBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMBoxView.h; sourceTree = "<group>"; };
@@ -463,10 +451,6 @@
 		3799BB151DF18539006E6B3D /* LMTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewCell.m; sourceTree = "<group>"; };
 		3799BB161DF18539006E6B3D /* LMViewBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMViewBuilder.h; sourceTree = "<group>"; };
 		3799BB171DF18539006E6B3D /* LMViewBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMViewBuilder.m; sourceTree = "<group>"; };
-		3799BB181DF18539006E6B3D /* NSObject+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Markup.h"; sourceTree = "<group>"; };
-		3799BB191DF18539006E6B3D /* NSObject+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Markup.m"; sourceTree = "<group>"; };
-		3799BB1A1DF18539006E6B3D /* NSString+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Markup.h"; sourceTree = "<group>"; };
-		3799BB1B1DF18539006E6B3D /* NSString+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Markup.m"; sourceTree = "<group>"; };
 		3799BB1C1DF18539006E6B3D /* UIActivityIndicatorView+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActivityIndicatorView+Markup.h"; sourceTree = "<group>"; };
 		3799BB1D1DF18539006E6B3D /* UIActivityIndicatorView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActivityIndicatorView+Markup.m"; sourceTree = "<group>"; };
 		3799BB1E1DF18539006E6B3D /* UIButton+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Markup.h"; sourceTree = "<group>"; };
@@ -501,12 +485,6 @@
 		3799BB3D1DF18539006E6B3D /* UIVisualEffectView+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIVisualEffectView+Markup.m"; sourceTree = "<group>"; };
 		379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIGestureRecognizer+Markup.h"; sourceTree = "<group>"; };
 		379E4B471E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIGestureRecognizer+Markup.m"; sourceTree = "<group>"; };
-		37A3D50A20B7540D008F076E /* NSMeasurementFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMeasurementFormatter+Markup.h"; sourceTree = "<group>"; };
-		37A3D50B20B7540D008F076E /* NSMeasurementFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMeasurementFormatter+Markup.m"; sourceTree = "<group>"; };
-		37A3D51220B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSPersonNameComponentsFormatter+Markup.h"; sourceTree = "<group>"; };
-		37A3D51320B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSPersonNameComponentsFormatter+Markup.m"; sourceTree = "<group>"; };
-		37A3D51620B75BEA008F076E /* NSByteCountFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSByteCountFormatter+Markup.h"; sourceTree = "<group>"; };
-		37A3D51720B75BEA008F076E /* NSByteCountFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSByteCountFormatter+Markup.m"; sourceTree = "<group>"; };
 		37ABAF661F27BD850010A7B3 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalAlignmentViewController.swift; sourceTree = "<group>"; };
 		37ABAF671F27BD850010A7B3 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = HorizontalAlignmentViewController.xml; sourceTree = "<group>"; };
 		37ABAF6A1F27BDA50010A7B3 /* VerticalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalAlignmentViewController.swift; sourceTree = "<group>"; };
@@ -515,10 +493,6 @@
 		37BB5C861F472E680089139F /* LMTableViewHeaderFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewHeaderFooterView.m; sourceTree = "<group>"; };
 		37BC06D71DF7219500C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		37BC06D91DF7225C00C46DF6 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+Markup.h"; sourceTree = "<group>"; };
-		37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+Markup.m"; sourceTree = "<group>"; };
-		37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSNumberFormatter+Markup.h"; sourceTree = "<group>"; };
-		37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSNumberFormatter+Markup.m"; sourceTree = "<group>"; };
 		37E57AC51DF191B1002984B9 /* MarkupKitIntroduction.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitIntroduction.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E57ACE1DF191B1002984B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E57AD11DF191B1002984B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -539,6 +513,12 @@
 		37EADB662002A66200C5189D /* LMSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMSegmentedControl.swift; sourceTree = "<group>"; };
 		37EADB682002A67800C5189D /* LMPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LMPageView.swift; sourceTree = "<group>"; };
 		37EADB6A2002A68600C5189D /* UISegmentedControl+Markup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UISegmentedControl+Markup.swift"; sourceTree = "<group>"; };
+		37F6697820B825BA00B305CF /* Foundation+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Foundation+Markup.h"; sourceTree = "<group>"; };
+		37F6697920B825BA00B305CF /* Foundation+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Markup.m"; sourceTree = "<group>"; };
+		37F6697C20B825EB00B305CF /* QuartzCore+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QuartzCore+Markup.h"; sourceTree = "<group>"; };
+		37F6697D20B825EB00B305CF /* QuartzCore+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "QuartzCore+Markup.m"; sourceTree = "<group>"; };
+		37F6698020B8260000B305CF /* UIKit+Markup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIKit+Markup.h"; sourceTree = "<group>"; };
+		37F6698120B8260000B305CF /* UIKit+Markup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIKit+Markup.m"; sourceTree = "<group>"; };
 		37F70CED1ECE49A000F3A861 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		37F899811E475E5700205A70 /* LMTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMTableViewController.h; sourceTree = "<group>"; };
 		37F899821E475E5700205A70 /* LMTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMTableViewController.m; sourceTree = "<group>"; };
@@ -766,22 +746,12 @@
 				3799BAF91DF18539006E6B3D /* LMCollectionViewCell.m */,
 				3799BB161DF18539006E6B3D /* LMViewBuilder.h */,
 				3799BB171DF18539006E6B3D /* LMViewBuilder.m */,
-				3799BB181DF18539006E6B3D /* NSObject+Markup.h */,
-				3799BB191DF18539006E6B3D /* NSObject+Markup.m */,
-				3799BB1A1DF18539006E6B3D /* NSString+Markup.h */,
-				3799BB1B1DF18539006E6B3D /* NSString+Markup.m */,
-				37C0F72320B47B7B005E4281 /* NSNumberFormatter+Markup.h */,
-				37C0F72420B47B7B005E4281 /* NSNumberFormatter+Markup.m */,
-				37C0F71F20B47B65005E4281 /* NSDateFormatter+Markup.h */,
-				37C0F72020B47B65005E4281 /* NSDateFormatter+Markup.m */,
-				37A3D51220B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.h */,
-				37A3D51320B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.m */,
-				37A3D51620B75BEA008F076E /* NSByteCountFormatter+Markup.h */,
-				37A3D51720B75BEA008F076E /* NSByteCountFormatter+Markup.m */,
-				37A3D50A20B7540D008F076E /* NSMeasurementFormatter+Markup.h */,
-				37A3D50B20B7540D008F076E /* NSMeasurementFormatter+Markup.m */,
-				3799BAF01DF18539006E6B3D /* CALayer+Markup.h */,
-				3799BAF11DF18539006E6B3D /* CALayer+Markup.m */,
+				37F6697820B825BA00B305CF /* Foundation+Markup.h */,
+				37F6697920B825BA00B305CF /* Foundation+Markup.m */,
+				37F6697C20B825EB00B305CF /* QuartzCore+Markup.h */,
+				37F6697D20B825EB00B305CF /* QuartzCore+Markup.m */,
+				37F6698020B8260000B305CF /* UIKit+Markup.h */,
+				37F6698120B8260000B305CF /* UIKit+Markup.m */,
 				379214F41E40DECE00C56838 /* UIResponder+Markup.h */,
 				379214F31E40DECE00C56838 /* UIResponder+Markup.m */,
 				379E4B461E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h */,
@@ -906,14 +876,6 @@
 				376306741DF188F400357E68 /* LMCollectionView.h in Headers */,
 				376306751DF188F400357E68 /* LMCollectionViewCell.h in Headers */,
 				376306761DF188F400357E68 /* LMViewBuilder.h in Headers */,
-				376306771DF188F400357E68 /* NSObject+Markup.h in Headers */,
-				376306781DF188F400357E68 /* NSString+Markup.h in Headers */,
-				37C0F72520B47B7B005E4281 /* NSNumberFormatter+Markup.h in Headers */,
-				37C0F72120B47B65005E4281 /* NSDateFormatter+Markup.h in Headers */,
-				37A3D51420B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.h in Headers */,
-				37A3D51820B75BEA008F076E /* NSByteCountFormatter+Markup.h in Headers */,
-				37A3D50C20B7540D008F076E /* NSMeasurementFormatter+Markup.h in Headers */,
-				376306791DF188F400357E68 /* CALayer+Markup.h in Headers */,
 				379214F61E40DECE00C56838 /* UIResponder+Markup.h in Headers */,
 				379E4B481E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.h in Headers */,
 				3763067A1DF188F400357E68 /* UIView+Markup.h in Headers */,
@@ -936,6 +898,9 @@
 				376306881DF188F400357E68 /* UITableViewCell+Markup.h in Headers */,
 				376306891DF188F400357E68 /* UICollectionViewFlowLayout+Markup.h in Headers */,
 				3763068A1DF188F400357E68 /* UIVisualEffectView+Markup.h in Headers */,
+				37F6697A20B825BA00B305CF /* Foundation+Markup.h in Headers */,
+				37F6697E20B825EB00B305CF /* QuartzCore+Markup.h in Headers */,
+				37F6698220B8260000B305CF /* UIKit+Markup.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1313,14 +1278,6 @@
 				3763064C1DF188BF00357E68 /* LMCollectionView.m in Sources */,
 				3763064D1DF188BF00357E68 /* LMCollectionViewCell.m in Sources */,
 				3763064E1DF188BF00357E68 /* LMViewBuilder.m in Sources */,
-				3763064F1DF188BF00357E68 /* NSObject+Markup.m in Sources */,
-				376306501DF188BF00357E68 /* NSString+Markup.m in Sources */,
-				37C0F72620B47B7B005E4281 /* NSNumberFormatter+Markup.m in Sources */,
-				37C0F72220B47B65005E4281 /* NSDateFormatter+Markup.m in Sources */,
-				37A3D51520B75B8A008F076E /* NSPersonNameComponentsFormatter+Markup.m in Sources */,
-				37A3D51920B75BEA008F076E /* NSByteCountFormatter+Markup.m in Sources */,
-				37A3D50D20B7540D008F076E /* NSMeasurementFormatter+Markup.m in Sources */,
-				376306511DF188BF00357E68 /* CALayer+Markup.m in Sources */,
 				379214F51E40DECE00C56838 /* UIResponder+Markup.m in Sources */,
 				379E4B491E4E4CC400FEDC2E /* UIGestureRecognizer+Markup.m in Sources */,
 				376306521DF188BF00357E68 /* UIView+Markup.m in Sources */,
@@ -1344,6 +1301,9 @@
 				376306601DF188BF00357E68 /* UITableViewCell+Markup.m in Sources */,
 				376306611DF188BF00357E68 /* UICollectionViewFlowLayout+Markup.m in Sources */,
 				376306621DF188BF00357E68 /* UIVisualEffectView+Markup.m in Sources */,
+				37F6697B20B825BA00B305CF /* Foundation+Markup.m in Sources */,
+				37F6697F20B825EB00B305CF /* QuartzCore+Markup.m in Sources */,
+				37F6698320B8260000B305CF /* UIKit+Markup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

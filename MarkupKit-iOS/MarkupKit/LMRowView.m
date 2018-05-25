@@ -14,7 +14,7 @@
 
 #import "LMRowView.h"
 #import "LMColumnView.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 #import "UIView+Markup.h"
 
 static NSDictionary *baselineValues;

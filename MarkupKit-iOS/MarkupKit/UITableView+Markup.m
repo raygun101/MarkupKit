@@ -14,7 +14,7 @@
 
 #import "UITableView+Markup.h"
 #import "UITableViewCell+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 static NSDictionary *tableViewCellSeparatorStyleValues;
 static NSDictionary *tableViewSeparatorInsetReferenceValues;

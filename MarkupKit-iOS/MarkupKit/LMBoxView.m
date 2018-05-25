@@ -13,7 +13,7 @@
 //
 
 #import "LMBoxView.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 static NSDictionary *horizontalAlignmentValues;
 static NSDictionary *verticalAlignmentValues;

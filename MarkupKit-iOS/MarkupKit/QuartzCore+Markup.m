@@ -12,28 +12,37 @@
 // limitations under the License.
 //
 
-#import "NSDateFormatter+Markup.h"
-#import "NSObject+Markup.h"
+#import "QuartzCore+Markup.h"
+#import "Foundation+Markup.h"
 
-static NSDictionary *dateFormatterStyleValues;
+#import <UIKit/UIColor.h>
 
-@implementation NSDateFormatter (Markup)
+@implementation CALayer (Markup)
 
-+ (void)initialize
+- (CGFloat)shadowOffsetWidth
 {
-    dateFormatterStyleValues = @{
-        @"none": @(NSDateFormatterNoStyle),
-        @"short": @(NSDateFormatterShortStyle),
-        @"medium": @(NSDateFormatterMediumStyle),
-        @"long": @(NSDateFormatterLongStyle),
-        @"full": @(NSDateFormatterFullStyle)
-    };
+    return self.shadowOffset.width;
+}
+
+- (void)setShadowOffsetWidth:(CGFloat)width
+{
+    self.shadowOffset = CGSizeMake(width, self.shadowOffset.height);
+}
+
+- (CGFloat)shadowOffsetHeight
+{
+    return self.shadowOffset.height;
+}
+
+- (void)setShadowOffsetHeight:(CGFloat)height
+{
+    self.shadowOffset = CGSizeMake(self.shadowOffset.width, height);
 }
 
 - (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
 {
-    if ([key isEqual:@"dateStyle"] || [key isEqual:@"timeStyle"]) {
-        value = [dateFormatterStyleValues objectForKey:value];
+    if ([value isKindOfClass:[UIColor self]]) {
+        value = (id)[value CGColor];
     }
 
     [super applyMarkupPropertyValue:value forKey:key];

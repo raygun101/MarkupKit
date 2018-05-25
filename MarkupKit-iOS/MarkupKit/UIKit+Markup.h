@@ -12,17 +12,8 @@
 // limitations under the License.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-
-@interface NSString (Markup)
-
-- (char)charValue;
-- (short)shortValue;
-- (long)longValue;
-- (unsigned long long) unsignedLongLongValue;
-
-@end
 
 NS_ASSUME_NONNULL_END

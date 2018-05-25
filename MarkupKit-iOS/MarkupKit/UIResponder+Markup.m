@@ -13,7 +13,7 @@
 //
 
 #import "UIResponder+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 #import <objc/message.h>
 

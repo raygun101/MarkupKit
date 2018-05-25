@@ -13,7 +13,7 @@
 //
 
 #import "UICollectionViewFlowLayout+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 static NSDictionary *collectionViewScrollDirectionValues;
 static NSDictionary *collectionViewFlowLayoutSectionInsetReferenceValues;

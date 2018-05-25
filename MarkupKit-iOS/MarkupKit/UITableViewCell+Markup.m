@@ -13,7 +13,7 @@
 //
 
 #import "UITableViewCell+Markup.h"
-#import "NSObject+Markup.h"
+#import "Foundation+Markup.h"
 
 #import <objc/message.h>
 

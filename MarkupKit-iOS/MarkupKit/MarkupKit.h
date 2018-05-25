@@ -43,14 +43,9 @@ FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 #import <MarkupKit/LMCollectionViewCell.h>
 #import <MarkupKit/LMPlayerView.h>
 #import <MarkupKit/LMViewBuilder.h>
-#import <MarkupKit/NSObject+Markup.h>
-#import <MarkupKit/NSString+Markup.h>
-#import <MarkupKit/NSNumberFormatter+Markup.h>
-#import <MarkupKit/NSDateFormatter+Markup.h>
-#import <MarkupKit/NSPersonNameComponentsFormatter+Markup.h>
-#import <MarkupKit/NSByteCountFormatter+Markup.h>
-#import <MarkupKit/NSMeasurementFormatter+Markup.h>
-#import <MarkupKit/CALayer+Markup.h>
+#import <MarkupKit/Foundation+Markup.h>
+#import <MarkupKit/QuartzCore+Markup.h>
+#import <MarkupKit/UIKit+Markup.h>
 #import <MarkupKit/UIResponder+Markup.h>
 #import <MarkupKit/UIGestureRecognizer+Markup.h>
 #import <MarkupKit/UIView+Markup.h>
