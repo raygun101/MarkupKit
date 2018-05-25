@@ -64,9 +64,9 @@
 
 @end
 
-static NSDictionary *numberFormatterStyleValues;
-
 @implementation NSNumberFormatter (Markup)
+
+static NSDictionary *numberFormatterStyleValues;
 
 + (void)initialize
 {
@@ -95,9 +95,9 @@ static NSDictionary *numberFormatterStyleValues;
 
 @end
 
-static NSDictionary *dateFormatterStyleValues;
-
 @implementation NSDateFormatter (Markup)
+
+static NSDictionary *dateFormatterStyleValues;
 
 + (void)initialize
 {
@@ -121,9 +121,9 @@ static NSDictionary *dateFormatterStyleValues;
 
 @end
 
-static NSDictionary *personNameComponentsFormatterStyleValues;
-
 @implementation NSPersonNameComponentsFormatter (Markup)
+
+static NSDictionary *personNameComponentsFormatterStyleValues;
 
 + (void)initialize
 {
@@ -145,10 +145,10 @@ static NSDictionary *personNameComponentsFormatterStyleValues;
 
 @end
 
+@implementation NSByteCountFormatter (Markup)
+
 static NSDictionary *byteCountFormatterUnitValues;
 static NSDictionary *byteCountFormatterCountStyleValues;
-
-@implementation NSByteCountFormatter (Markup)
 
 + (void)initialize
 {
@@ -196,10 +196,10 @@ static NSDictionary *byteCountFormatterCountStyleValues;
 
 @end
 
+@implementation NSMeasurementFormatter (Markup)
+
 static NSDictionary *measurementFormatterUnitOptionValues;
 static NSDictionary *formattingUnitStyles;
-
-@implementation NSMeasurementFormatter (Markup)
 
 + (void)initialize
 {

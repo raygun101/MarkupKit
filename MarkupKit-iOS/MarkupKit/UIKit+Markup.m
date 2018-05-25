@@ -230,10 +230,10 @@
 
 @end
 
+@implementation UIGestureRecognizer (Markup)
+
 static NSDictionary *pressTypeValues;
 static NSDictionary *touchTypeValues;
-
-@implementation UIGestureRecognizer (Markup)
 
 + (void)initialize
 {
@@ -282,6 +282,8 @@ static NSDictionary *touchTypeValues;
 
 @end
 
+@implementation UIView (Markup)
+
 static NSDictionary *viewContentModeValues;
 static NSDictionary *viewTintAdjustmentModeValues;
 static NSDictionary *lineBreakModeValues;
@@ -298,8 +300,6 @@ static NSDictionary *returnKeyTypeValues;
 static NSDictionary *barStyleValues;
 
 static NSDictionary *anchorValues;
-
-@implementation UIView (Markup)
 
 + (void)initialize
 {
@@ -1002,10 +1002,10 @@ static NSDictionary *anchorValues;
 
 @end
 
+@implementation UIControl (Markup)
+
 static NSDictionary *controlContentHorizontalAlignmentValues;
 static NSDictionary *controlContentVerticalAlignmentValues;
-
-@implementation UIControl (Markup)
 
 + (void)initialize
 {
@@ -1335,9 +1335,9 @@ static NSDictionary *controlContentVerticalAlignmentValues;
 
 @end
 
-static NSDictionary *datePickerModeValues;
-
 @implementation UIDatePicker (Markup)
+
+static NSDictionary *datePickerModeValues;
 
 + (void)initialize
 {
@@ -1360,12 +1360,12 @@ static NSDictionary *datePickerModeValues;
 
 @end
 
+@implementation UISegmentedControl (Markup)
+
 static NSString * const kSegmentTag = @"segment";
 static NSString * const kSegmentTitleKey = @"title";
 static NSString * const kSegmentImageKey = @"image";
 static NSString * const kSegmentValueKey = @"value";
-
-@implementation UISegmentedControl (Markup)
 
 - (id)valueForSegmentAtIndex:(NSUInteger)segment
 {
@@ -1432,6 +1432,8 @@ static NSString * const kSegmentValueKey = @"value";
 
 @end
 
+@implementation UITextField (Markup)
+
 static NSString * const kLeftViewTarget = @"leftView";
 static NSString * const kRightViewTarget = @"rightView";
 static NSString * const kInputViewTarget = @"inputView";
@@ -1446,8 +1448,6 @@ typedef enum {
 
 static NSDictionary *textBorderStyleValues;
 static NSDictionary *textFieldViewModeValues;
-
-@implementation UITextField (Markup)
 
 + (void)initialize
 {
@@ -1544,9 +1544,9 @@ static NSDictionary *textFieldViewModeValues;
 
 @end
 
-static NSDictionary *activityIndicatorViewStyleValues;
-
 @implementation UIActivityIndicatorView (Markup)
+
+static NSDictionary *activityIndicatorViewStyleValues;
 
 + (void)initialize
 {
@@ -1594,13 +1594,13 @@ static NSDictionary *activityIndicatorViewStyleValues;
 
 @end
 
+@implementation UIImageView (Markup)
+
 static NSString * const kOverlayContentTarget = @"overlayContent";
 
 typedef enum {
     kOverlayContent
 } __UIImageViewElementDisposition;
-
-@implementation UIImageView (Markup)
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
@@ -1756,9 +1756,9 @@ typedef enum {
 
 @end
 
-static NSDictionary *searchBarStyleValues;
-
 @implementation UISearchBar (Markup)
+
+static NSDictionary *searchBarStyleValues;
 
 + (void)initialize
 {
@@ -1780,6 +1780,8 @@ static NSDictionary *searchBarStyleValues;
 
 @end
 
+@implementation UITabBar (Markup)
+
 static NSDictionary *tabBarItemPositioningValues;
 
 static NSString * const kTabBarItemTag = @"item";
@@ -1789,8 +1791,6 @@ static NSString * const kTabBarItemTitleKey = @"title";
 static NSString * const kTabBarItemImageKey = @"image";
 static NSString * const kTabBarItemSelectedImageKey = @"selectedImage";
 static NSString * const kTabBarItemNameKey = @"name";
-
-@implementation UITabBar (Markup)
 
 + (void)initialize
 {
@@ -1888,6 +1888,8 @@ static NSString * const kTabBarItemNameKey = @"name";
 
 @end
 
+@implementation UIToolbar (Markup)
+
 static NSString * const kToolbarItemTag = @"item";
 
 static NSString * const kToolbarItemTypeKey = @"type";
@@ -1895,8 +1897,6 @@ static NSString * const kToolbarItemTitleKey = @"title";
 static NSString * const kToolbarItemImageKey = @"image";
 
 static NSString * const kItemActionKey = @"action";
-
-@implementation UIToolbar (Markup)
 
 - (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
 {
@@ -1995,6 +1995,8 @@ static NSString * const kItemActionKey = @"action";
 
 @end
 
+@implementation UIScrollView (Markup)
+
 static NSString * const kRefreshControlTarget = @"refreshControl";
 
 typedef enum {
@@ -2004,8 +2006,6 @@ typedef enum {
 static NSDictionary *scrollViewIndicatorStyleValues;
 static NSDictionary *scrollViewKeyboardDismissModeValues;
 static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
-
-@implementation UIScrollView (Markup)
 
 + (void)initialize
 {
@@ -2158,10 +2158,10 @@ static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
 
 @end
 
+@implementation UITableView (Markup)
+
 static NSDictionary *tableViewCellSeparatorStyleValues;
 static NSDictionary *tableViewSeparatorInsetReferenceValues;
-
-@implementation UITableView (Markup)
 
 + (void)initialize
 {
@@ -2244,10 +2244,10 @@ static NSDictionary *tableViewSeparatorInsetReferenceValues;
 
 @end
 
+@implementation UITableViewCell (Markup)
+
 static NSDictionary *tableViewCellAccessoryTypeValues;
 static NSDictionary *tableViewCellSelectionStyleValues;
-
-@implementation UITableViewCell (Markup)
 
 + (void)initialize
 {
@@ -2329,10 +2329,10 @@ static NSDictionary *tableViewCellSelectionStyleValues;
 
 @end
 
+@implementation UICollectionViewFlowLayout (Markup)
+
 static NSDictionary *collectionViewScrollDirectionValues;
 static NSDictionary *collectionViewFlowLayoutSectionInsetReferenceValues;
-
-@implementation UICollectionViewFlowLayout (Markup)
 
 + (void)initialize
 {
