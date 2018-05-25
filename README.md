@@ -1812,7 +1812,9 @@ The first method establishes a binding between the owner and an associated view 
 
 Finally, MarkupKit adds this method to `UIResponder` to allow a document owner to provide custom formatters for binding expressions:
 
+```objc
 - (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments;
+```
 
 ### UIView
 MarkupKit adds the following properties to `UIView`, which are used to define fixed or bounded values for a given dimension:
