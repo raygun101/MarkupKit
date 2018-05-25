@@ -14,8 +14,7 @@
 
 #import "LMViewBuilder.h"
 #import "Foundation+Markup.h"
-#import "UIView+Markup.h"
-#import "UIResponder+Markup.h"
+#import "UIKit+Markup.h"
 
 static NSString * const kCaseTarget = @"case";
 static NSString * const kEndTarget = @"end";

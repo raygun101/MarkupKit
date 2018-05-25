@@ -13,7 +13,7 @@
 //
 
 #import "LMTableViewController.h"
-#import "UITableView+Markup.h"
+#import "UIKit+Markup.h"
 
 @implementation LMTableViewController
 

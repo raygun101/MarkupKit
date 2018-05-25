@@ -13,9 +13,7 @@
 //
 
 #import "LMTableView.h"
-#import "UIView+Markup.h"
-#import "UITableView+Markup.h"
-#import "UITableViewCell+Markup.h"
+#import "UIKit+Markup.h"
 
 static NSString * const kSectionBreakTarget = @"sectionBreak";
 

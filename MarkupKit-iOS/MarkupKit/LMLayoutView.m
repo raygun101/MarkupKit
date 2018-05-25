@@ -13,7 +13,7 @@
 //
 
 #import "LMLayoutView.h"
-#import "UIView+Markup.h"
+#import "UIKit+Markup.h"
 
 NSString * const kHiddenKey = @"hidden";
 

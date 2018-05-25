@@ -13,7 +13,7 @@
 //
 
 #import "LMSpacer.h"
-#import "UIView+Markup.h"
+#import "UIKit+Markup.h"
 
 @implementation LMSpacer
 

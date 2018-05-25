@@ -13,7 +13,7 @@
 //
 
 #import "LMTableViewCell.h"
-#import "UIView+Markup.h"
+#import "UIKit+Markup.h"
 
 static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
 static NSString * const kBackgroundViewTarget = @"backgroundView";

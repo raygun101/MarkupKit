@@ -13,7 +13,7 @@
 //
 
 #import "LMPageView.h"
-#import "UIScrollView+Markup.h"
+#import "UIKit+Markup.h"
 
 @implementation LMPageView
 {

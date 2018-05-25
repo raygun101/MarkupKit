@@ -12,12 +12,14 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+import UIKit
 
-NS_ASSUME_NONNULL_BEGIN
+extension UISegmentedControl {
+    open func valueForSegment(at segment: Int) -> Any? {
+        return __valueForSegment(at: UInt(segment))
+    }
 
-@interface UIActivityIndicatorView (Markup)
-
-@end
-
-NS_ASSUME_NONNULL_END
+    open func setValue(_ value: Any?, forSegmentAt segment: Int) {
+        __setValue(value, forSegmentAt: UInt(segment))
+    }
+}

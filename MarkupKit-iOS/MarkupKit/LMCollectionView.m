@@ -13,7 +13,7 @@
 //
 
 #import "LMCollectionView.h"
-#import "UIView+Markup.h"
+#import "UIKit+Markup.h"
 
 static NSString * const kBackgroundViewTarget = @"backgroundView";
 

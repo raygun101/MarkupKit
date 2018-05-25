@@ -14,8 +14,7 @@
 
 #import "LMPickerView.h"
 #import "Foundation+Markup.h"
-#import "UIView+Markup.h"
-#import "UIPickerView+Markup.h"
+#import "UIKit+Markup.h"
 
 static NSString * const kComponentSeparatorTarget = @"componentSeparator";
 static NSString * const kComponentNameTarget = @"componentName";
