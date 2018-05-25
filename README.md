@@ -485,6 +485,8 @@ The following markup establishes a binding between the `text` property of a `UIL
 <UILabel text="$name"/>
 ```
 
+Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class.
+
 As with "@", a leading "$" character can be escaped using a caret. For example, this markup would set the text of the label to the literal string "$name", rather than creating a binding:
 
 ```xml
@@ -560,7 +562,7 @@ deinit {
 }
 ```
 
-Bindings may also be programmatically established by calling the `bind:toView:withKeyPath:` method MarkupKit adds to the `UIResponder` class. See [UIResponder+Markup.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/UIResponder%2BMarkup.h) for more information.
+This method removes all previously added observers.
 
 ## Conditional Processing
 In most cases, a markup document created for an iOS application can be used as is in tvOS. However, because not all UIKit types and properties are supported by tvOS, MarkupKit provides support for conditional processing. Using the `case` processing instruction, a document can conditionally include or exclude content based on the target platform. Content following the PI will only be processed if the current operating system matches the target. For example:
