@@ -1791,6 +1791,29 @@ See [LMPlayerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit
 ## UIKit Extensions
 MarkupKit provides extensions to several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.
 
+### UIResponder
+MarkupKit add the following methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values are loaded:
+
+```objc
+- (NSBundle *)bundleForView;
+- (NSBundle *)bundleForImages;
+- (NSBundle *)bundleForStrings;
+- (nullable NSString *)tableForStrings;
+```
+
+Additionally, MarkupKit adds these methods to support declarative data binding between a view and a document's owner:
+
+```objc
+- (void)bind:(NSString *)expression toView:(UIView *)view withKeyPath:(NSString *)keyPath;
+- (void)unbindAll;
+```
+
+The first method establishes a binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated.
+
+Finally, MarkupKit adds this method to `UIResponder` to allow a document owner to provide custom formatters for binding expressions:
+
+- (nullable NSFormatter *)formatterWithName:(NSString *)name arguments:(NSDictionary<NSString *, id> *)arguments;
+
 ### UIView
 MarkupKit adds the following properties to `UIView`, which are used to define fixed or bounded values for a given dimension:
 
@@ -1851,25 +1874,6 @@ Finally, MarkupKit adds the following method to `UIView` to support live preview
 ```
 
 Live preview is discussed in more detail later.
-
-### UIResponder
-MarkupKit adds the following methods to `UIResponder` to support declarative data binding between a view and a document's owner:
-
-```objc
-- (void)bind:(NSString *)property toView:(UIView *)view withKeyPath:(NSString *)keyPath;
-- (void)unbindAll;
-```
-
-The first method establishes a binding between the owner and an associated view instance. The second releases all bindings and must be called before the owner is deallocated, as well as any time the document is reloaded.
-
-MarkupKit also adds these methods to `UIResponder` to allow a document owner to customize the bundles from which view documents, images, and localized string values are loaded:
-
-```objc
-- (NSBundle *)bundleForView;
-- (NSBundle *)bundleForImages;
-- (NSBundle *)bundleForStrings;
-- (nullable NSString *)tableForStrings;
-```
 
 ### UIButton
 Instances of `UIButton` are created programmtically using the `buttonWithType:` method of `UIButton`. MarkupKit adds the following factory methods to `UIButton` to allow buttons to be declared in markup:
