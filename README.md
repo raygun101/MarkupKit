@@ -72,7 +72,7 @@ Also, if you like using MarkupKit, please consider [starring it](https://github.
     * [LMSegmentedControl](#lmsegmentedcontrol)
     * [LMPickerView](#lmpickerview)
     * [LMPlayerView](#lmplayerview)
-    * [UIKit Extensions](uikit-extensions)
+    * [UIKit Extensions](#uikit-extensions)
 * [Live Preview](#live-preview)
 * [Additional Information](#additional-information)
 
