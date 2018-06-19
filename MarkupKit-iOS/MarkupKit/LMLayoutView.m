@@ -69,13 +69,6 @@ NSString * const kHiddenKey = @"hidden";
     }
 }
 
-- (UIView *)viewForBaselineLayout
-{
-    NSArray *subviews = [self subviews];
-
-    return ([subviews count] == 0) ? [super viewForBaselineLayout] : [[subviews firstObject] viewForBaselineLayout];
-}
-
 - (UIView *)viewForFirstBaselineLayout
 {
     NSArray *subviews = [self subviews];

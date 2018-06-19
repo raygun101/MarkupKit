@@ -36,7 +36,7 @@ Additionally, MarkupKit's live preview support allows developers to validate vie
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires either iOS 9 or later or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
+MarkupKit requires either iOS 10 or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
 
 Many code samples are included in the [project workspace](https://github.com/gk-brown/MarkupKit/archive/master.zip). For additional information and examples, including a "Hello World"-style tutorial introduction, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
 
@@ -549,7 +549,7 @@ This method is called on the document's owner any time the value of a bound, for
 * "date" - `NSDateFormatter`
 * "personNameComponents" - `NSPersonNameComponentsFormatter`
 * "byteCount" - `NSByteCountFormatter`
-* "measurement" - `NSMeasurementFormatter` (iOS 10+)
+* "measurement" - `NSMeasurementFormatter`
 
 The arguments represent the properties that will be set on the formatter to configure its behavior. Enum values are applied as decribed earlier for attributes. Owning classes can override this method to support custom formatters.
 
@@ -715,7 +715,7 @@ For example, this markup creates a layer view whose top and bottom margins are s
 </LMRowView>
 ```
 
-In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10 and earlier, they are applied dynamically based on the system text direction.
+In iOS 11, the `layoutMarginLeading` and `layoutMarginTrailing` properties map directly to the view's directional edge insets. In iOS 10, they are applied dynamically based on the system text direction.
 
 ### Touch Interaction
 By default, layout views do not consume touch events. Touches that occur within the layout view but do not intersect with a subview are ignored, allowing the event to pass through the view. Assigning a non-`nil` background color to a layout view will cause the view to begin consuming events.
@@ -772,7 +772,7 @@ The `spacing` property represents the amount of space reserved between successiv
 </LMRowView>
 ```
 
-In iOS 10 and earlier, the default spacing value is 8. In iOS 11 and later, the system default is used.
+In iOS 10, the default spacing value is 8. In iOS 11 and later, the system default is used.
 
 Additionally, MarkupKit adds the following properties to `UIView`, which can be used to create spacing on a per-subview basis:
 
@@ -1058,7 +1058,7 @@ If no anchor is specified for a given dimension, the subview will be centered wi
 See [LMAnchorView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMAnchorView.h) for more information.
 
 ## LMRootView
-In iOS 10 and earlier, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its edges instead of its margins, and provides the following properties that can be used to reserve additional space at the top and bottom of the view, respectively:
+In iOS 10, `UIKit` may in some cases assign system-defined, non-overridable values for a view's margins. In such cases, the `LMRootView` class can be used. This class pins subviews to its edges instead of its margins, and provides the following properties that can be used to reserve additional space at the top and bottom of the view, respectively:
 
 ```objc
 @property (nonatomic) CGFloat topPadding;

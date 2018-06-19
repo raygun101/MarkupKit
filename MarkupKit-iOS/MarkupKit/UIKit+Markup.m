@@ -67,11 +67,7 @@
     } else if ([name isEqual:@"byteCount"]) {
         formatter = [NSByteCountFormatter new];
     } else if ([name isEqual:@"measurement"]) {
-        if (@available(iOS 10, tvOS 10, *)) {
-            formatter = [NSMeasurementFormatter new];
-        } else {
-            formatter = nil;
-        }
+        formatter = [NSMeasurementFormatter new];
     } else {
         formatter = nil;
     }
@@ -2137,9 +2133,7 @@ static NSDictionary *scrollViewContentInsetAdjustmentBehaviorValues;
         switch ([elementDisposition intValue]) {
             case kElementRefreshControl: {
                 #if TARGET_OS_IOS
-                if (@available(iOS 10, *)) {
-                    [self setRefreshControl:(UIRefreshControl *)view];
-                }
+                [self setRefreshControl:(UIRefreshControl *)view];
                 #endif
 
                 break;
@@ -2527,26 +2521,12 @@ static NSDictionary *collectionViewFlowLayoutSectionInsetReferenceValues;
 
 + (UIVisualEffectView *)regularBlurEffectView
 {
-    UIVisualEffectView *regularBlurEffectView;
-    if (@available(iOS 10, tvOS 10, *)) {
-        regularBlurEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
-    } else {
-        regularBlurEffectView = nil;
-    }
-
-    return regularBlurEffectView;
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleRegular]];
 }
 
 + (UIVisualEffectView *)prominentBlurEffectView
 {
-    UIVisualEffectView *prominentBlurEffectView;
-    if (@available(iOS 10, tvOS 10, *)) {
-        prominentBlurEffectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
-    } else {
-        prominentBlurEffectView = nil;
-    }
-
-    return prominentBlurEffectView;
+    return [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleProminent]];
 }
 
 @end
