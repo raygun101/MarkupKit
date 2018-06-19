@@ -71,7 +71,6 @@ Also, if you like using MarkupKit, please consider [starring it](https://github.
     * [LMCollectionView and LMCollectionViewCell](#lmcollectionview-and-lmcollectionviewcell)
     * [LMSegmentedControl](#lmsegmentedcontrol)
     * [LMPickerView](#lmpickerview)
-    * [LMPlayerView](#lmplayerview)
     * [UIKit Extensions](#uikit-extensions)
 * [Live Preview](#live-preview)
 * [Additional Information](#additional-information)
@@ -614,7 +613,6 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMSegmentedControl` - `UISegmentedControl` subclass that facilitates the declaration of segmented control content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
 * `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
-* `LMPlayerView` - view that presents an AV player
 
 Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -1770,23 +1768,6 @@ For example, the following markup creates a radial gradient view whose color val
 ```
 
 See [LMRadialGradientView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMRadialGradientView.h) for more information.
-
-## LMPlayerView
-`LMPlayerView` is a `UIView` subclass that presents an AV player. It is essentially just a thin wrapper around the `AVPlayerLayer` instance it uses as a core animation layer. It overrides the `layer` property to return an `AVPlayerLayer` so callers can access the properties and methods of this class without a cast:
-
-```objc
-@property (readonly, nonatomic) AVPlayerLayer *layer;
-```
-
-It also defines a delegate protocol, `LMPlayerViewDelegate`, that can be used to obtain state information about the player:
-
-```objc
-- (void)playerView:(LMPlayerView *)playerView isReadyForDisplay:(BOOL)readyForDisplay;
-```
-
-This protocol is simply a strongly typed wrapper around the player layer's `readyForDisplay` property, which uses key-value observing to notify listeners of state changes.
-
-See [LMPlayerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPlayerView.h) for more information.
 
 ## UIKit Extensions
 MarkupKit provides extensions to several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.

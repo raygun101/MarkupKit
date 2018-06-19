@@ -93,9 +93,6 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(MapViewController(), animated: true)
             #endif
 
-        case "playerView":
-            navigationController!.pushViewController(PlayerViewController(), animated: true)
-
         case "bars":
             navigationController!.pushViewController(BarsViewController(), animated: true)
 

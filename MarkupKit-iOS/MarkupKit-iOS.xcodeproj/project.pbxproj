@@ -33,7 +33,6 @@
 		373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */; };
 		373BFB081DFB003800BB7509 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9EB1DF1BAB50064CC82 /* WebViewController.swift */; };
 		373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */; };
-		373BFB0A1DFB003800BB7509 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */; };
 		373BFB0B1DFB007B00BB7509 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9801DF1B8FC0064CC82 /* ViewController.xml */; };
 		373BFB0C1DFB007B00BB7509 /* RadioButtonViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9841DF1B9460064CC82 /* RadioButtonViewController.xml */; };
 		373BFB0D1DFB007B00BB7509 /* CheckboxViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9881DF1B9580064CC82 /* CheckboxViewController.xml */; };
@@ -52,7 +51,6 @@
 		373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */; };
 		373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */; };
 		373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9F01DF1BAC20064CC82 /* MapViewController.xml */; };
-		373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */; };
 		373BFB311DFB007B00BB7509 /* sample.txt in Resources */ = {isa = PBXBuildFile; fileRef = 3771E9D41DF1BA570064CC82 /* sample.txt */; };
 		373BFB331DFB007B00BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06D91DF7225C00C46DF6 /* Icons.xcassets */; };
 		373BFB341DFB007B00BB7509 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3771E96F1DF1B8B00064CC82 /* Assets.xcassets */; };
@@ -74,7 +72,6 @@
 		376306461DF188BF00357E68 /* LMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB071DF18539006E6B3D /* LMPickerView.m */; };
 		376306471DF188BF00357E68 /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB0F1DF18539006E6B3D /* LMScrollView.m */; };
 		376306481DF188BF00357E68 /* LMPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB051DF18539006E6B3D /* LMPageView.m */; };
-		376306491DF188BF00357E68 /* LMPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB091DF18539006E6B3D /* LMPlayerView.m */; };
 		3763064A1DF188BF00357E68 /* LMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB131DF18539006E6B3D /* LMTableView.m */; };
 		3763064B1DF188BF00357E68 /* LMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB151DF18539006E6B3D /* LMTableViewCell.m */; };
 		3763064C1DF188BF00357E68 /* LMCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3799BAF71DF18539006E6B3D /* LMCollectionView.m */; };
@@ -94,7 +91,6 @@
 		3763066E1DF188F400357E68 /* LMPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB061DF18539006E6B3D /* LMPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3763066F1DF188F400357E68 /* LMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB0E1DF18539006E6B3D /* LMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306701DF188F400357E68 /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB041DF18539006E6B3D /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		376306711DF188F400357E68 /* LMPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB081DF18539006E6B3D /* LMPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306721DF188F400357E68 /* LMTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB121DF18539006E6B3D /* LMTableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306731DF188F400357E68 /* LMTableViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB141DF18539006E6B3D /* LMTableViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306741DF188F400357E68 /* LMCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF61DF18539006E6B3D /* LMCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -334,8 +330,6 @@
 		3771E9E01DF1BA9C0064CC82 /* CollectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CollectionViewController.xml; sourceTree = "<group>"; };
 		3771E9E11DF1BA9C0064CC82 /* ColorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorCell.swift; sourceTree = "<group>"; };
 		3771E9E21DF1BA9C0064CC82 /* ColorCell.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ColorCell.xml; sourceTree = "<group>"; };
-		3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PlayerViewController.xml; sourceTree = "<group>"; };
 		3771E9EB1DF1BAB50064CC82 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = WebViewController.xml; sourceTree = "<group>"; };
 		3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -381,8 +375,6 @@
 		3799BB051DF18539006E6B3D /* LMPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPageView.m; sourceTree = "<group>"; };
 		3799BB061DF18539006E6B3D /* LMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPickerView.h; sourceTree = "<group>"; };
 		3799BB071DF18539006E6B3D /* LMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPickerView.m; sourceTree = "<group>"; };
-		3799BB081DF18539006E6B3D /* LMPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMPlayerView.h; sourceTree = "<group>"; };
-		3799BB091DF18539006E6B3D /* LMPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMPlayerView.m; sourceTree = "<group>"; };
 		3799BB0A1DF18539006E6B3D /* LMRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRadialGradientView.h; sourceTree = "<group>"; };
 		3799BB0B1DF18539006E6B3D /* LMRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRadialGradientView.m; sourceTree = "<group>"; };
 		3799BB0C1DF18539006E6B3D /* LMRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRowView.h; sourceTree = "<group>"; };
@@ -548,8 +540,6 @@
 				3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */,
 				3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */,
 				3771E9F01DF1BAC20064CC82 /* MapViewController.xml */,
-				3771E9E71DF1BAA80064CC82 /* PlayerViewController.swift */,
-				3771E9E81DF1BAA80064CC82 /* PlayerViewController.xml */,
 				37659D511ECF59290043C9C1 /* BarsViewController.swift */,
 				37659D521ECF59290043C9C1 /* BarsViewController.xml */,
 				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
@@ -642,8 +632,6 @@
 				3799BB041DF18539006E6B3D /* LMPageView.h */,
 				3799BB051DF18539006E6B3D /* LMPageView.m */,
 				37EADB682002A67800C5189D /* LMPageView.swift */,
-				3799BB081DF18539006E6B3D /* LMPlayerView.h */,
-				3799BB091DF18539006E6B3D /* LMPlayerView.m */,
 				3799BB121DF18539006E6B3D /* LMTableView.h */,
 				3799BB131DF18539006E6B3D /* LMTableView.m */,
 				3799BB141DF18539006E6B3D /* LMTableViewCell.h */,
@@ -736,7 +724,6 @@
 				3763066E1DF188F400357E68 /* LMPickerView.h in Headers */,
 				3763066F1DF188F400357E68 /* LMScrollView.h in Headers */,
 				376306701DF188F400357E68 /* LMPageView.h in Headers */,
-				376306711DF188F400357E68 /* LMPlayerView.h in Headers */,
 				376306721DF188F400357E68 /* LMTableView.h in Headers */,
 				376306731DF188F400357E68 /* LMTableViewCell.h in Headers */,
 				37BB5C871F472E680089139F /* LMTableViewHeaderFooterView.h in Headers */,
@@ -973,7 +960,6 @@
 				373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */,
 				373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */,
 				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
-				373BFB2C1DFB007B00BB7509 /* PlayerViewController.xml in Resources */,
 				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
 				373BFB101DFB007B00BB7509 /* EffectViewController.xml in Resources */,
 				373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */,
@@ -1078,7 +1064,6 @@
 				373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */,
 				373BFB081DFB003800BB7509 /* WebViewController.swift in Sources */,
 				373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */,
-				373BFB0A1DFB003800BB7509 /* PlayerViewController.swift in Sources */,
 				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
 				373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */,
 				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
@@ -1116,7 +1101,6 @@
 				376306471DF188BF00357E68 /* LMScrollView.m in Sources */,
 				376306481DF188BF00357E68 /* LMPageView.m in Sources */,
 				37EADB692002A67900C5189D /* LMPageView.swift in Sources */,
-				376306491DF188BF00357E68 /* LMPlayerView.m in Sources */,
 				3763064A1DF188BF00357E68 /* LMTableView.m in Sources */,
 				3763064B1DF188BF00357E68 /* LMTableViewCell.m in Sources */,
 				37BB5C881F472E680089139F /* LMTableViewHeaderFooterView.m in Sources */,
