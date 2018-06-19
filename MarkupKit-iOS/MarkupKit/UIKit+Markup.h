@@ -67,25 +67,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 typedef NS_OPTIONS(NSUInteger, LMAnchor) {
     /** No anchor. */
-    LMAnchorNone        = 0,
+    LMAnchorNone = 0,
 
     /** Top anchor. */
-    LMAnchorTop         = 1 << 0,
+    LMAnchorTop = 1 << 0,
 
     /** Bottom anchor. */
-    LMAnchorBottom      = 1 << 1,
+    LMAnchorBottom = 1 << 1,
 
     /** Left anchor. */
-    LMAnchorLeft        = 1 << 2,
+    LMAnchorLeft = 1 << 2,
 
     /** Right anchor. */
-    LMAnchorRight       = 1 << 3,
+    LMAnchorRight = 1 << 3,
 
     /** Leading anchor. */
-    LMAnchorLeading     = 1 << 4,
+    LMAnchorLeading = 1 << 4,
 
     /** Trailing anchor. */
-    LMAnchorTrailing    = 1 << 5,
+    LMAnchorTrailing = 1 << 5,
 
     /** All anchors. */
     LMAnchorAll = LMAnchorTop | LMAnchorBottom | LMAnchorLeading | LMAnchorTrailing
