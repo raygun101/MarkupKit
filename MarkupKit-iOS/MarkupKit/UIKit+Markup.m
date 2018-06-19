@@ -1428,19 +1428,19 @@ static NSString * const kSegmentValueKey = @"value";
 
 @end
 
-@implementation UITextField (Markup)
-
-static NSString * const kLeftViewTarget = @"leftView";
-static NSString * const kRightViewTarget = @"rightView";
-static NSString * const kInputViewTarget = @"inputView";
-static NSString * const kInputAccessoryViewTarget = @"inputAccessoryView";
-
 typedef enum {
     kElementLeftView,
     kElementRightView,
     kElementInputView,
     kElementInputAccessoryView
 } __UITextFieldElementDisposition;
+
+@implementation UITextField (Markup)
+
+static NSString * const kLeftViewTarget = @"leftView";
+static NSString * const kRightViewTarget = @"rightView";
+static NSString * const kInputViewTarget = @"inputView";
+static NSString * const kInputAccessoryViewTarget = @"inputAccessoryView";
 
 static NSDictionary *textBorderStyleValues;
 static NSDictionary *textFieldViewModeValues;
@@ -1590,13 +1590,13 @@ static NSDictionary *activityIndicatorViewStyleValues;
 
 @end
 
-@implementation UIImageView (Markup)
-
-static NSString * const kOverlayContentTarget = @"overlayContent";
-
 typedef enum {
     kOverlayContent
 } __UIImageViewElementDisposition;
+
+@implementation UIImageView (Markup)
+
+static NSString * const kOverlayContentTarget = @"overlayContent";
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
@@ -1991,13 +1991,13 @@ static NSString * const kItemActionKey = @"action";
 
 @end
 
-@implementation UIScrollView (Markup)
-
-static NSString * const kRefreshControlTarget = @"refreshControl";
-
 typedef enum {
     kElementRefreshControl
 } __UIScrollViewElementDisposition;
+
+@implementation UIScrollView (Markup)
+
+static NSString * const kRefreshControlTarget = @"refreshControl";
 
 static NSDictionary *scrollViewIndicatorStyleValues;
 static NSDictionary *scrollViewKeyboardDismissModeValues;

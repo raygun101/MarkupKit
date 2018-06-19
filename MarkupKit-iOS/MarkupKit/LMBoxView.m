@@ -15,10 +15,10 @@
 #import "LMBoxView.h"
 #import "Foundation+Markup.h"
 
+@implementation LMBoxView
+
 static NSDictionary *horizontalAlignmentValues;
 static NSDictionary *verticalAlignmentValues;
-
-@implementation LMBoxView
 
 + (void)initialize
 {

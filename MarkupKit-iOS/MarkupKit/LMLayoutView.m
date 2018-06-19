@@ -15,12 +15,12 @@
 #import "LMLayoutView.h"
 #import "UIKit+Markup.h"
 
-NSString * const kHiddenKey = @"hidden";
-
 @implementation LMLayoutView
 {
     NSArray *_constraints;
 }
+
+static NSString * const kHiddenKey = @"hidden";
 
 + (BOOL)requiresConstraintBasedLayout
 {

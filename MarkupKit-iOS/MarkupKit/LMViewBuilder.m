@@ -16,20 +16,6 @@
 #import "Foundation+Markup.h"
 #import "UIKit+Markup.h"
 
-static NSString * const kCaseTarget = @"case";
-static NSString * const kEndTarget = @"end";
-static NSString * const kPropertiesTarget = @"properties";
-
-static NSString * const kRootTag = @"root";
-
-static NSString * const kFactoryKey = @"style";
-static NSString * const kTemplateKey = @"class";
-static NSString * const kOutletKey = @"id";
-
-static NSString * const kBindingPrefix = @"$";
-static NSString * const kLocalizedStringPrefix = @"@";
-static NSString * const kEscapePrefix = @"^";
-
 @interface LMViewBuilder () <NSXMLParserDelegate>
 
 @end
@@ -46,6 +32,20 @@ static NSMutableDictionary *colorTable;
 
     NSString *_target;
 }
+
+static NSString * const kCaseTarget = @"case";
+static NSString * const kEndTarget = @"end";
+static NSString * const kPropertiesTarget = @"properties";
+
+static NSString * const kRootTag = @"root";
+
+static NSString * const kFactoryKey = @"style";
+static NSString * const kTemplateKey = @"class";
+static NSString * const kOutletKey = @"id";
+
+static NSString * const kBindingPrefix = @"$";
+static NSString * const kLocalizedStringPrefix = @"@";
+static NSString * const kEscapePrefix = @"^";
 
 + (void)initialize
 {

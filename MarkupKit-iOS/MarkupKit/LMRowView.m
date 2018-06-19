@@ -17,9 +17,9 @@
 #import "Foundation+Markup.h"
 #import "UIKit+Markup.h"
 
-static NSDictionary *baselineValues;
-
 @implementation LMRowView
+
+static NSDictionary *baselineValues;
 
 + (void)initialize
 {

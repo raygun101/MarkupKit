@@ -16,13 +16,6 @@
 #import "Foundation+Markup.h"
 #import "UIKit+Markup.h"
 
-static NSString * const kComponentSeparatorTarget = @"componentSeparator";
-static NSString * const kComponentNameTarget = @"componentName";
-
-static NSString * const kRowTag = @"row";
-static NSString * const kRowTitleKey = @"title";
-static NSString * const kRowValueKey = @"value";
-
 @interface LMPickerViewRow : NSObject
 
 @property (nonatomic) NSString *title;
@@ -43,6 +36,13 @@ static NSString * const kRowValueKey = @"value";
 {
     NSMutableArray *_components;
 }
+
+static NSString * const kComponentSeparatorTarget = @"componentSeparator";
+static NSString * const kComponentNameTarget = @"componentName";
+
+static NSString * const kRowTag = @"row";
+static NSString * const kRowTitleKey = @"title";
+static NSString * const kRowValueKey = @"value";
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

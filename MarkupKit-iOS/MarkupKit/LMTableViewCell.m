@@ -15,11 +15,6 @@
 #import "LMTableViewCell.h"
 #import "UIKit+Markup.h"
 
-static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
-static NSString * const kBackgroundViewTarget = @"backgroundView";
-static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
-static NSString * const kMultipleSelectionBackgroundViewTarget = @"multipleSelectionBackgroundView";
-
 typedef enum {
     kElementDefault,
     kElementBackgroundView,
@@ -33,6 +28,11 @@ typedef enum {
 
     __ElementDisposition _elementDisposition;
 }
+
+static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
+static NSString * const kBackgroundViewTarget = @"backgroundView";
+static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
+static NSString * const kMultipleSelectionBackgroundViewTarget = @"multipleSelectionBackgroundView";
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {

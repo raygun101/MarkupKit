@@ -20,9 +20,9 @@
 #import <AVFoundation/AVAssetTrack.h>
 #import <AVFoundation/AVMediaFormat.h>
 
-static NSString * const kReadyForDisplayProperty = @"readyForDisplay";
-
 @implementation LMPlayerView
+
+static NSString * const kReadyForDisplayProperty = @"readyForDisplay";
 
 + (Class)layerClass {
     return [AVPlayerLayer self];

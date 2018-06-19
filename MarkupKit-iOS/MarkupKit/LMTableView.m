@@ -15,6 +15,37 @@
 #import "LMTableView.h"
 #import "UIKit+Markup.h"
 
+@interface LMTableViewSection : NSObject
+
+@property (nonatomic) NSString* name;
+@property (nonatomic) LMTableViewSelectionMode selectionMode;
+
+@property (nonatomic) NSString *headerTitle;
+@property (nonatomic) NSString *footerTitle;
+
+@property (nonatomic) UIView *headerView;
+@property (nonatomic) UIView *footerView;
+
+@property (nonatomic, readonly) NSMutableArray *rows;
+
+@end
+
+typedef enum {
+    kElementDefault,
+    kElementBackgroundView,
+    kElementTableHeaderView,
+    kElementTableFooterView,
+    kElementSectionHeaderView,
+    kElementSectionFooterView
+} __ElementDisposition;
+
+@implementation LMTableView
+{
+    NSMutableArray *_sections;
+
+    __ElementDisposition _elementDisposition;
+}
+
 static NSString * const kSectionBreakTarget = @"sectionBreak";
 
 static NSString * const kSectionNameTarget = @"sectionName";
@@ -33,37 +64,6 @@ static NSString * const kTableFooterViewTarget = @"tableFooterView";
 
 static NSString * const kSectionHeaderViewTarget = @"sectionHeaderView";
 static NSString * const kSectionFooterViewTarget = @"sectionFooterView";
-
-typedef enum {
-    kElementDefault,
-    kElementBackgroundView,
-    kElementTableHeaderView,
-    kElementTableFooterView,
-    kElementSectionHeaderView,
-    kElementSectionFooterView
-} __ElementDisposition;
-
-@interface LMTableViewSection : NSObject
-
-@property (nonatomic) NSString* name;
-@property (nonatomic) LMTableViewSelectionMode selectionMode;
-
-@property (nonatomic) NSString *headerTitle;
-@property (nonatomic) NSString *footerTitle;
-
-@property (nonatomic) UIView *headerView;
-@property (nonatomic) UIView *footerView;
-
-@property (nonatomic, readonly) NSMutableArray *rows;
-
-@end
-
-@implementation LMTableView
-{
-    NSMutableArray *_sections;
-
-    __ElementDisposition _elementDisposition;
-}
 
 + (LMTableView *)plainTableView
 {

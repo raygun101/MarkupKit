@@ -15,8 +15,6 @@
 #import "LMCollectionView.h"
 #import "UIKit+Markup.h"
 
-static NSString * const kBackgroundViewTarget = @"backgroundView";
-
 typedef enum {
     kElementDefault,
     kElementBackgroundView
@@ -26,6 +24,8 @@ typedef enum {
 {
     __ElementDisposition _elementDisposition;
 }
+
+static NSString * const kBackgroundViewTarget = @"backgroundView";
 
 + (LMCollectionView *)flowLayoutCollectionView
 {

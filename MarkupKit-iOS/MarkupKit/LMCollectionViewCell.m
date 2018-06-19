@@ -15,10 +15,6 @@
 #import "LMCollectionViewCell.h"
 #import "UIKit+Markup.h"
 
-static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
-static NSString * const kBackgroundViewTarget = @"backgroundView";
-static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
-
 typedef enum {
     kElementDefault,
     kElementBackgroundView,
@@ -31,6 +27,10 @@ typedef enum {
     
     __ElementDisposition _elementDisposition;
 }
+
+static NSString * const kIgnoreLayoutMarginsTarget = @"ignoreLayoutMargins";
+static NSString * const kBackgroundViewTarget = @"backgroundView";
+static NSString * const kSelectedBackgroundViewTarget = @"selectedBackgroundView";
 
 - (void)processMarkupInstruction:(NSString *)target data:(NSString *)data
 {
