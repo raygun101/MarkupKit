@@ -20,8 +20,6 @@
 
 @end
 
-static NSMutableDictionary *colorTable;
-
 @implementation LMViewBuilder
 {
     id _owner;
@@ -32,6 +30,8 @@ static NSMutableDictionary *colorTable;
 
     NSString *_target;
 }
+
+static NSMutableDictionary *colorTable;
 
 static NSString * const kCaseTarget = @"case";
 static NSString * const kEndTarget = @"end";
