@@ -1430,17 +1430,13 @@ static NSString * const kSegmentValueKey = @"value";
 
 typedef enum {
     kElementLeftView,
-    kElementRightView,
-    kElementInputView,
-    kElementInputAccessoryView
+    kElementRightView
 } __UITextFieldElementDisposition;
 
 @implementation UITextField (Markup)
 
 static NSString * const kLeftViewTarget = @"leftView";
 static NSString * const kRightViewTarget = @"rightView";
-static NSString * const kInputViewTarget = @"inputView";
-static NSString * const kInputAccessoryViewTarget = @"inputAccessoryView";
 
 static NSDictionary *textBorderStyleValues;
 static NSDictionary *textFieldViewModeValues;
@@ -1480,10 +1476,6 @@ static NSDictionary *textFieldViewModeValues;
         elementDisposition = kElementLeftView;
     } else if ([target isEqual:kRightViewTarget]) {
         elementDisposition = kElementRightView;
-    } else if ([target isEqual:kInputViewTarget]) {
-        elementDisposition = kElementInputView;
-    } else if ([target isEqual:kInputAccessoryViewTarget]) {
-        elementDisposition = kElementInputAccessoryView;
     } else {
         elementDisposition = INT_MAX;
 
@@ -1511,18 +1503,6 @@ static NSDictionary *textFieldViewModeValues;
                 [view sizeToFit];
 
                 [self setRightView:view];
-
-                break;
-            }
-
-            case kElementInputView: {
-                [self setInputView:view];
-
-                break;
-            }
-
-            case kElementInputAccessoryView: {
-                [self setInputAccessoryView:view];
 
                 break;
             }
@@ -1772,221 +1752,6 @@ static NSDictionary *searchBarStyleValues;
     }
 
     [super applyMarkupPropertyValue:value forKey:key];
-}
-
-@end
-
-@implementation UITabBar (Markup)
-
-static NSDictionary *tabBarItemPositioningValues;
-
-static NSString * const kTabBarItemTag = @"item";
-
-static NSString * const kTabBarItemTypeKey = @"type";
-static NSString * const kTabBarItemTitleKey = @"title";
-static NSString * const kTabBarItemImageKey = @"image";
-static NSString * const kTabBarItemSelectedImageKey = @"selectedImage";
-static NSString * const kTabBarItemNameKey = @"name";
-
-+ (void)initialize
-{
-    tabBarItemPositioningValues = @{
-        @"automatic": @(UITabBarItemPositioningAutomatic),
-        @"fill": @(UITabBarItemPositioningFill),
-        @"centered": @(UITabBarItemPositioningCentered)
-    };
-}
-
-- (void)applyMarkupPropertyValue:(id)value forKey:(NSString *)key
-{
-    if ([key isEqual:@"itemPositioning"]) {
-        value = [tabBarItemPositioningValues objectForKey:value];
-    }
-
-    [super applyMarkupPropertyValue:value forKey:key];
-}
-
-- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
-{
-    if ([tag isEqual:kTabBarItemTag]) {
-        NSMutableArray *items = [NSMutableArray arrayWithArray:[self items]];
-
-        UITabBarItem *item = nil;
-
-        NSString *type = [properties objectForKey:kTabBarItemTypeKey];
-
-        if (type != nil) {
-            UITabBarSystemItem tabBarSystemItem;
-            if ([type isEqual:@"more"]) {
-                tabBarSystemItem = UITabBarSystemItemMore;
-            } else if ([type isEqual:@"favorites"]) {
-                tabBarSystemItem = UITabBarSystemItemFavorites;
-            } else if ([type isEqual:@"featured"]) {
-                tabBarSystemItem = UITabBarSystemItemFeatured;
-            } else if ([type isEqual:@"topRated"]) {
-                tabBarSystemItem = UITabBarSystemItemTopRated;
-            } else if ([type isEqual:@"recents"]) {
-                tabBarSystemItem = UITabBarSystemItemRecents;
-            } else if ([type isEqual:@"contacts"]) {
-                tabBarSystemItem = UITabBarSystemItemContacts;
-            } else if ([type isEqual:@"history"]) {
-                tabBarSystemItem = UITabBarSystemItemHistory;
-            } else if ([type isEqual:@"bookmarks"]) {
-                tabBarSystemItem = UITabBarSystemItemBookmarks;
-            } else if ([type isEqual:@"search"]) {
-                tabBarSystemItem = UITabBarSystemItemSearch;
-            } else if ([type isEqual:@"downloads"]) {
-                tabBarSystemItem = UITabBarSystemItemDownloads;
-            } else if ([type isEqual:@"mostRecent"]) {
-                tabBarSystemItem = UITabBarSystemItemMostRecent;
-            } else if ([type isEqual:@"mostViewed"]) {
-                tabBarSystemItem = UITabBarSystemItemMostViewed;
-            } else {
-                return;
-            }
-
-            item = [[UITabBarItem alloc] initWithTabBarSystemItem:tabBarSystemItem tag:0];
-        } else {
-            NSString *title = [properties objectForKey:kTabBarItemTitleKey];
-            NSString *image = [properties objectForKey:kTabBarItemImageKey];
-            NSString *selectedImage = [properties objectForKey:kTabBarItemSelectedImageKey];
-
-            item = [[UITabBarItem alloc] initWithTitle:title
-                image:(image == nil) ? nil : [UIImage imageNamed:image]
-                selectedImage:(selectedImage == nil) ? nil : [UIImage imageNamed:selectedImage]];
-        }
-
-        [item setName:[properties objectForKey:kTabBarItemNameKey]];
-
-        [items addObject:item];
-
-        [self setItems:items];
-
-        [self sizeToFit];
-    } else {
-        [super processMarkupElement:tag properties:properties];
-    }
-}
-
-@end
-
-@implementation UITabBarItem (Markup)
-
-- (NSString *)name
-{
-    return objc_getAssociatedObject(self, @selector(name));
-}
-
-- (void)setName:(NSString *)name
-{
-    objc_setAssociatedObject(self, @selector(name), name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-@end
-
-@implementation UIToolbar (Markup)
-
-static NSString * const kToolbarItemTag = @"item";
-
-static NSString * const kToolbarItemTypeKey = @"type";
-static NSString * const kToolbarItemTitleKey = @"title";
-static NSString * const kToolbarItemImageKey = @"image";
-
-static NSString * const kItemActionKey = @"action";
-
-- (void)processMarkupElement:(NSString *)tag properties:(NSDictionary *)properties
-{
-    if ([tag isEqual:kToolbarItemTag]) {
-        NSMutableArray *items = [NSMutableArray arrayWithArray:[self items]];
-
-        SEL action = NSSelectorFromString([properties objectForKey:kItemActionKey]);
-
-        UIBarButtonItem *item = nil;
-
-        NSString *type = [properties objectForKey:kToolbarItemTypeKey];
-
-        if (type != nil) {
-            UIBarButtonSystemItem barButtonSystemItem;
-            if ([type isEqual:@"done"]) {
-                barButtonSystemItem = UIBarButtonSystemItemDone;
-            } else if ([type isEqual:@"cancel"]) {
-                barButtonSystemItem = UIBarButtonSystemItemCancel;
-            } else if ([type isEqual:@"edit"]) {
-                barButtonSystemItem = UIBarButtonSystemItemEdit;
-            } else if ([type isEqual:@"save"]) {
-                barButtonSystemItem = UIBarButtonSystemItemSave;
-            } else if ([type isEqual:@"add"]) {
-                barButtonSystemItem = UIBarButtonSystemItemAdd;
-            } else if ([type isEqual:@"flexibleSpace"]) {
-                barButtonSystemItem = UIBarButtonSystemItemFlexibleSpace;
-            } else if ([type isEqual:@"fixedSpace"]) {
-                barButtonSystemItem = UIBarButtonSystemItemFixedSpace;
-            } else if ([type isEqual:@"compose"]) {
-                barButtonSystemItem = UIBarButtonSystemItemCompose;
-            } else if ([type isEqual:@"reply"]) {
-                barButtonSystemItem = UIBarButtonSystemItemReply;
-            } else if ([type isEqual:@"action"]) {
-                barButtonSystemItem = UIBarButtonSystemItemAction;
-            } else if ([type isEqual:@"organize"]) {
-                barButtonSystemItem = UIBarButtonSystemItemOrganize;
-            } else if ([type isEqual:@"bookmarks"]) {
-                barButtonSystemItem = UIBarButtonSystemItemBookmarks;
-            } else if ([type isEqual:@"search"]) {
-                barButtonSystemItem = UIBarButtonSystemItemSearch;
-            } else if ([type isEqual:@"refresh"]) {
-                barButtonSystemItem = UIBarButtonSystemItemRefresh;
-            } else if ([type isEqual:@"stop"]) {
-                barButtonSystemItem = UIBarButtonSystemItemStop;
-            } else if ([type isEqual:@"camera"]) {
-                barButtonSystemItem = UIBarButtonSystemItemCamera;
-            } else if ([type isEqual:@"trash"]) {
-                barButtonSystemItem = UIBarButtonSystemItemTrash;
-            } else if ([type isEqual:@"play"]) {
-                barButtonSystemItem = UIBarButtonSystemItemPlay;
-            } else if ([type isEqual:@"pause"]) {
-                barButtonSystemItem = UIBarButtonSystemItemPause;
-            } else if ([type isEqual:@"rewind"]) {
-                barButtonSystemItem = UIBarButtonSystemItemRewind;
-            } else if ([type isEqual:@"fastForward"]) {
-                barButtonSystemItem = UIBarButtonSystemItemFastForward;
-            } else if ([type isEqual:@"undo"]) {
-                barButtonSystemItem = UIBarButtonSystemItemUndo;
-            } else if ([type isEqual:@"redo"]) {
-                barButtonSystemItem = UIBarButtonSystemItemRedo;
-            } else if ([type isEqual:@"pageCurl"]) {
-                barButtonSystemItem = UIBarButtonSystemItemPageCurl;
-            } else {
-                return;
-            }
-
-            item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:barButtonSystemItem
-                target:nil action:action];
-        } else {
-            NSString *title = [properties objectForKey:kToolbarItemTitleKey];
-
-            if (title != nil) {
-                item = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain
-                    target:nil action:action];
-            } else {
-                NSString *image = [properties objectForKey:kToolbarItemImageKey];
-
-                if (image != nil) {
-                    item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:image] style:UIBarButtonItemStylePlain
-                        target:nil action:action];
-                }
-            }
-        }
-
-        if (item != nil) {
-            [items addObject:item];
-        }
-
-        [self setItems:items];
-
-        [self sizeToFit];
-    } else {
-        [super processMarkupElement:tag properties:properties];
-    }
 }
 
 @end

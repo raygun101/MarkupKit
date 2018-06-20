@@ -45,8 +45,6 @@
 		374D82A21E4CEFDC00A45368 /* IconCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 374D829E1E4CEFDC00A45368 /* IconCell.xml */; };
 		374D82A41E4CF0E400A45368 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 374D82A31E4CF0E400A45368 /* Icons.xcassets */; };
 		3763AD8D1DF714AF00E88F7A /* sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD8C1DF714AF00E88F7A /* sample.jpg */; };
-		37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D551ECF59600043C9C1 /* BarsViewController.swift */; };
-		37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D561ECF59600043C9C1 /* BarsViewController.xml */; };
 		376E729720025DF900740BBD /* LMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 376E729520025DF900740BBD /* LMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E729620025DF900740BBD /* LMSegmentedControl.m */; };
 		3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3799BAE71DF18396006E6B3D /* MarkupKit.framework */; };
@@ -216,8 +214,6 @@
 		3763AD3B1DF713AE00E88F7A /* Fonts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Fonts.plist; path = "../../MarkupKit-iOS/MarkupKitExamples/Fonts.plist"; sourceTree = "<group>"; };
 		3763AD3C1DF713AE00E88F7A /* pharmacies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = pharmacies.json; path = "../../MarkupKit-iOS/MarkupKitExamples/pharmacies.json"; sourceTree = "<group>"; };
 		3763AD8C1DF714AF00E88F7A /* sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample.jpg; path = "../../MarkupKit-iOS/MarkupKitDemo/sample.jpg"; sourceTree = "<group>"; };
-		37659D551ECF59600043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BarsViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.swift"; sourceTree = "<group>"; };
-		37659D561ECF59600043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = BarsViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/BarsViewController.xml"; sourceTree = "<group>"; };
 		376E729520025DF900740BBD /* LMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMSegmentedControl.h; path = "../../MarkupKit-iOS/MarkupKit/LMSegmentedControl.h"; sourceTree = "<group>"; };
 		376E729620025DF900740BBD /* LMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMSegmentedControl.m; path = "../../MarkupKit-iOS/MarkupKit/LMSegmentedControl.m"; sourceTree = "<group>"; };
 		3787205F1DF70F53004FF42A /* MarkupKitExamples.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarkupKitExamples.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -356,8 +352,6 @@
 				37B392361E50B06C00931587 /* CollectionViewController.xml */,
 				37B392371E50B06C00931587 /* ColorCell.swift */,
 				37B392381E50B06C00931587 /* ColorCell.xml */,
-				37659D551ECF59600043C9C1 /* BarsViewController.swift */,
-				37659D561ECF59600043C9C1 /* BarsViewController.xml */,
 				3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */,
 				3763AD001DF713AE00E88F7A /* EffectViewController.xml */,
 				3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */,
@@ -669,7 +663,6 @@
 				373BFB4E1DFB017100BB7509 /* EffectViewController.xml in Resources */,
 				373BFB591DFB017100BB7509 /* LinearGradientViewController.xml in Resources */,
 				373BFB5A1DFB017100BB7509 /* RadialGradientViewController.xml in Resources */,
-				37659D581ECF59600043C9C1 /* BarsViewController.xml in Resources */,
 				3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */,
 				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
@@ -733,7 +726,6 @@
 				373BFB3F1DFB015000BB7509 /* EffectViewController.swift in Sources */,
 				373BFB451DFB015000BB7509 /* LinearGradientViewController.swift in Sources */,
 				373BFB461DFB015000BB7509 /* RadialGradientViewController.swift in Sources */,
-				37659D571ECF59600043C9C1 /* BarsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

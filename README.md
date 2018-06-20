@@ -1938,8 +1938,6 @@ MarkupKit adds support for the following processing instructions to `UITextField
 
 * `<?leftView?>`
 * `<?rightView?>`
-* `<?inputView?>`
-* `<?inputAccessoryView?>`
 
 For example, the following markup declares an instance of `UITextField` suitable for entering email addresses. The text field includes an email icon as a right view as a hint to the user about the field's content:
 
@@ -1950,25 +1948,7 @@ For example, the following markup declares an instance of `UITextField` suitable
     <?rightView?>
     <UIImageView image="email.png"/>
 </UITextField>
-```
-
-This markup declares a text field with an associated `UIDatePicker` as an input view and a `UIToolbar` as as input accessory view:
-
-```xml
-<UITextField id="dateTextField" placeholder="Date">
-    <?inputView?>
-    <UIDatePicker id="datePicker" datePickerMode="date"/>
-
-    <?inputAccessoryView?>
-    <UIToolbar>
-        <item type="cancel" action="cancelDateEdit"/>
-        <item type="flexibleSpace"/>
-        <item type="done" action="updateDateText"/>
-    </UIToolbar>
-</UITextField>
-```
- 
-MarkupKit's support for `UIToolbar` is discussed in more detail below.
+``` 
 
 ### UILabel
 MarkupKit adds the following properties to `UILabel` to allow a label's shadow offset width and height to be configured independently:
@@ -2027,103 +2007,6 @@ For example, the following markup declares an instance of a default-style `UIPro
 
 ```xml
 <UIProgressView style="defaultProgressView"/>
-```
-
-### UIToolbar
-Toolbars are populated using the `items` property of `UIToolbar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow toolbar content to be configured in markup. 
-
-The `item` element is used to add an item to a toolbar. The "title" attribute of the `item` tag can be used to specify an items's title:
-
-```xml
-<UIToolbar>
-    <item title="OK"/>
-    <item title="Cancel"/>
-</UIToolbar>
-```
-
-Similarly, the "image" attribute can be used to specify an image for an item:
-
-```xml
-<UIToolbar>
-    <item image="ok.png"/>
-    <item image="cancel.png"/>
-</UIToolbar>
-```
-
-Finally, the "type" attribute can be used to create a system-type toolbar item; for example:
-
-```xml
-<UIToolbar>
-    <item type="play"/>
-    <item type="pause"/>
-    <item type="rewind"/>
-    <item type="fastForward"/>        
-</UIToolbar>
-```
- 
-The "action" attribute of the `item` tag can be used to associate an action with a toolbar item:
-
-```xml
-<UIToolbar>
-    <item type="cancel" action="cancel:"/>        
-    <item type="flexibleSpace"/>
-    <item type="done" action="done:"/>        
-</UIToolbar>
-```
-
-The action is not assigned to a specific target, so it will propagate up the responder chain until it finds a handler. Action handlers are typically defined in the controller class; for example:
-
-```swift
-@IBAction func cancel(_ sender: UIBarButtonItem) {
-    // User tapped cancel item
-}
-
-@IBAction func done(_ sender: UIBarButtonItem) {
-    // User tapped done item
-}
-```
-
-### UITabBar and UITabBarItem
-Tab bars are populated using the `items` property of `UITabBar`. MarkupKit overrides the `processMarkupElement:properties:` method to allow tab bar content to be configured in markup. 
-
-The `item` element is used to add an item to a tab bar. The "title", "image", and "selectedImage" attributes of the `item` tag can be used to specify the corresponding item properties:
-
-```xml
-<UITabBar>
-    <item title="Home" image="home.png" selectedImage="home_selected.png"/>
-    <item title="About" image="about.png" selectedImage="about_selected.png"/>
-    <item title="Contact Us" image="contact_us.png" selectedImage="contact_us_selected.png"/>
-</UIToolbar>
-```
-
-Additionally, the "type" attribute can be used to create a system-type tab bar item; for example:
-
-```xml
-<UITabBar>
-    <item type="featured"/>
-    <item type="recents"/>
-    <item type="bookmarks"/>
-</UITabBar>
-```
-
-Finally, MarkupKit adds a `name` property to the `UITabBarItem` class so selected tabs can be identified at run time:
-
-```xml
-<UILabel id="tabLabel" textAlignment="center"/>
-    
-<UITabBar id="tabBar">
-    <item type="featured" name="featured"/>
-    <item type="recents" name="recents"/>
-    <item type="bookmarks" name="bookmarks"/>
-</UITabBar>
-```
-
-For example:
-
-```swift
-func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-    tabLabel.text = String(format: "You selected the \"%@\" tab.", item.name)
-}
 ```
 
 ### UIScrollView

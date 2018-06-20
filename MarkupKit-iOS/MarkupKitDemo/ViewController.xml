@@ -65,41 +65,6 @@ limitations under the License.
         <UITextField placeholder="@password" secureTextEntry="true"/>
     </LMTableViewCell>
 
-    <?case iOS?>
-    <LMTableViewCell selectionStyle="none">
-        <UITextField id="dateTextField" placeholder="@date">
-            <?inputView?>
-            <UIDatePicker id="datePicker" datePickerMode="date"/>
-
-            <?inputAccessoryView?>
-            <UIToolbar>
-                <item type="cancel" action="cancelEdit"/>
-                <item type="flexibleSpace"/>
-                <item type="done" action="updateDateText"/>
-            </UIToolbar>
-        </UITextField>
-    </LMTableViewCell>
-
-    <LMTableViewCell selectionStyle="none">
-        <UITextField id="sizeTextField" placeholder="@size">
-            <?inputView?>
-            <LMPickerView id="sizePickerView">
-                <row title="@small"/>
-                <row title="@medium"/>
-                <row title="@large"/>
-                <row title="@extraLarge"/>
-            </LMPickerView>
-
-            <?inputAccessoryView?>
-            <UIToolbar>
-                <item type="cancel" action="cancelEdit"/>
-                <item type="flexibleSpace"/>
-                <item type="done" action="updateSizeText"/>
-            </UIToolbar>
-        </UITextField>
-    </LMTableViewCell>
-    <?end?>
-
     <!-- Radio buttons -->
     <?sectionBreak?>
     <?sectionSelectionMode singleCheckmark?>

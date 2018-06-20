@@ -96,8 +96,6 @@
 		376306741DF188F400357E68 /* LMCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF61DF18539006E6B3D /* LMCollectionView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306751DF188F400357E68 /* LMCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BAF81DF18539006E6B3D /* LMCollectionViewCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376306761DF188F400357E68 /* LMViewBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3799BB161DF18539006E6B3D /* LMViewBuilder.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37659D511ECF59290043C9C1 /* BarsViewController.swift */; };
-		37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 37659D521ECF59290043C9C1 /* BarsViewController.xml */; };
 		3767951B2089094800B8AEF5 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3767951A2089094800B8AEF5 /* DetailViewController.xib */; };
 		376E729320025D7100740BBD /* LMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 376E729120025D7100740BBD /* LMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		376E729420025D7100740BBD /* LMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 376E729220025D7100740BBD /* LMSegmentedControl.m */; };
@@ -272,8 +270,6 @@
 		3715C2AF1F5039AF007D39C4 /* quebec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = quebec.jpg; sourceTree = "<group>"; };
 		371E236C1E042E1D00A29425 /* sample.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = sample.mov; sourceTree = "<group>"; };
 		373EF94020890FEB00537E5D /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
-		37659D511ECF59290043C9C1 /* BarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarsViewController.swift; sourceTree = "<group>"; };
-		37659D521ECF59290043C9C1 /* BarsViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = BarsViewController.xml; sourceTree = "<group>"; };
 		3767951A2089094800B8AEF5 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		376E729120025D7100740BBD /* LMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMSegmentedControl.h; sourceTree = "<group>"; };
 		376E729220025D7100740BBD /* LMSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMSegmentedControl.m; sourceTree = "<group>"; };
@@ -540,8 +536,6 @@
 				3771E9EC1DF1BAB50064CC82 /* WebViewController.xml */,
 				3771E9EF1DF1BAC20064CC82 /* MapViewController.swift */,
 				3771E9F01DF1BAC20064CC82 /* MapViewController.xml */,
-				37659D511ECF59290043C9C1 /* BarsViewController.swift */,
-				37659D521ECF59290043C9C1 /* BarsViewController.xml */,
 				3771E9A11DF1B9C70064CC82 /* EffectViewController.swift */,
 				3771E9A21DF1B9C70064CC82 /* EffectViewController.xml */,
 				3771E9B51DF1B9FD0064CC82 /* LinearGradientViewController.swift */,
@@ -960,7 +954,6 @@
 				373BFB291DFB007B00BB7509 /* ColorCell.xml in Resources */,
 				373BFB2A1DFB007B00BB7509 /* WebViewController.xml in Resources */,
 				373BFB2B1DFB007B00BB7509 /* MapViewController.xml in Resources */,
-				37659D541ECF59290043C9C1 /* BarsViewController.xml in Resources */,
 				373BFB101DFB007B00BB7509 /* EffectViewController.xml in Resources */,
 				373BFB1F1DFB007B00BB7509 /* LinearGradientViewController.xml in Resources */,
 				373BFB201DFB007B00BB7509 /* RadialGradientViewController.xml in Resources */,
@@ -1064,7 +1057,6 @@
 				373BFB071DFB003800BB7509 /* ColorCell.swift in Sources */,
 				373BFB081DFB003800BB7509 /* WebViewController.swift in Sources */,
 				373BFB091DFB003800BB7509 /* MapViewController.swift in Sources */,
-				37659D531ECF59290043C9C1 /* BarsViewController.swift in Sources */,
 				373BFAF41DFB003800BB7509 /* EffectViewController.swift in Sources */,
 				373BFAFF1DFB003800BB7509 /* LinearGradientViewController.swift in Sources */,
 				373BFB001DFB003800BB7509 /* RadialGradientViewController.swift in Sources */,

@@ -93,9 +93,6 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(MapViewController(), animated: true)
             #endif
 
-        case "bars":
-            navigationController!.pushViewController(BarsViewController(), animated: true)
-
         case "effectView":
             navigationController!.pushViewController(EffectViewController(), animated: true)
 

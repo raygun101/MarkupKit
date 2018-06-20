@@ -454,15 +454,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
 
 @end
 
-@interface UITabBarItem (Markup)
-
-/**
- * The name associated with the tab bar item, or <code>nil</code> for no name.
- */
-@property (nonatomic) NSString *name;
-
-@end
-
 @interface UIScrollView (Markup)
 
 /**
