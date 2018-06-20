@@ -1,6 +1,5 @@
 [![Releases](https://img.shields.io/github/release/gk-brown/MarkupKit.svg)](https://github.com/gk-brown/MarkupKit/releases)
 [![CocoaPods](https://img.shields.io/cocoapods/v/MarkupKit.svg)](https://cocoapods.org/pods/MarkupKit)
-[![Discussion](https://badges.gitter.im/gk-brown/MarkupKit.svg)](https://gitter.im/MarkupKit/Lobby)
 
 # Introduction
 MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable, HTML-like markup language, and can in most cases be used as a drop-in replacement for XIB files or storyboards.
@@ -41,9 +40,7 @@ MarkupKit requires either iOS 10 or tvOS 10 or later. The latest release can be 
 Many code samples are included in the [project workspace](https://github.com/gk-brown/MarkupKit/archive/master.zip). For additional information and examples, including a "Hello World"-style tutorial introduction, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
 
 # Feedback
-Feedback is welcome and encouraged. If you have any questions, comments, or suggestions, let me know in the [discussion forum](https://gitter.im/MarkupKit/Lobby). You can also contact me directly via [email](mailto:gk_brown@icloud.com?subject=MarkupKit).
-
-Also, if you like using MarkupKit, please consider [starring it](https://github.com/gk-brown/MarkupKit/stargazers)!
+Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!
 
 # Contents
 * [Installation](#installation)
@@ -612,7 +609,6 @@ The remaining sections of this document discuss the classes included with the Ma
 * `LMCollectionView` and `LMCollectionViewCell` - `UICollectionView` and `UICollectionViewCell` subclasses, respectively, that facilitate declaration of collection view content
 * `LMSegmentedControl` - `UISegmentedControl` subclass that facilitates the declaration of segmented control content
 * `LMPickerView` - `UIPickerView` subclass that facilitates the declaration of picker view content
-* `LMLinearGradientView` and `LMRadialGradientView` - views that facilitate the declaration of linear and radial gradient effects, respectively
 
 Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
@@ -1271,18 +1267,16 @@ In general, the `checked` property should not be set directly. Instead, its stat
 The first two methods get and set a single selected value and are typically used with sections whose selection mode is set to "singleCheckmark". The second set of methods are used to get and set a list of selected values and are typically used with sections using the "multipleCheckmarks" selection mode.
 
 ### Accessory Views
-The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with a linear gradient background:
+The `backgroundView` processing instruction can be used to assign a background view to a table view. It corresponds to a call to the `setBackgroundView:` method of the `UITableView` class. For example, this markup creates a grouped table view with an activity indicator view background:
 
 ```xml
 <LMTableView style="groupedTableView">
     <?backgroundView?>
-    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+    <UIActivityIndicatorView id="activityIndicatorView"/>
 
     ...
 </LMTableView>
 ```
-
-Gradient views are discussed in more detail later.
 
 The `tableHeaderView` and `tableFooterView` processing instructions are used to set a table view's header and footer views, respectively, and correspond to the `setTableHeaderView:` and `setTableFooterView:` methods of `UITableView`. For example, the following markup declares a table view containing a search bar as a header view:
 
@@ -1479,14 +1473,14 @@ MarkupKit adds several properties to the `UICollectionViewFlowLayout` class that
 These properties are discussed in more detail in a later section.
 
 ### Accessory Views
-The `backgroundView` processing instruction can be used to assign a background view to a collection view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with a linear gradient background:
+The `backgroundView` processing instruction can be used to assign a background view to a collection view. It corresponds to a call to the `setBackgroundView:` method of the `UICollectionView` class. For example, the following markup creates a collection view with with an activity indicator view background:
 
 ```xml
 <LMCollectionView style="flowLayoutCollectionView"
     collectionViewLayout.itemWidth="80" collectionViewLayout.itemHeight="120"
     collectionViewLayout.sectionInset="12">
     <?backgroundView?>
-    <LMLinearGradientView colors="#fefefe, #ededed" locations="0.0, 0.5"/>
+    <UIActivityIndicatorView id="activityIndicatorView"/>
 
     ...
 </LMCollectionView>
@@ -1705,69 +1699,6 @@ func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent c
 ```
 
 `LMPickerView` is available in iOS only. See [LMPickerView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMPickerView.h) for more information.
-
-## LMGradientView
-`LMGradientView` is the base class for views that facilitate the declaration of gradient effects. The gradient is automatically sized to fill the entire view.
-
-`LMGradientView` defines the following properties: 
-
-```objc
-@property (nonatomic, nullable, copy) NSArray *colors;
-@property (nonatomic, nullable, copy) NSArray *locations;
-```
-
-The first property is an array representing the colors displayed by the gradient. The second is an optional array representing the gradient's stop locations. If unspecified, the colors will be evenly distributed across the gradient.
-
-Gradient views are commonly used as a background in a layer view. Two types of gradient views are currently supported:
-
-* `LMLinearGradientView` - displays a linear gradient effect
-* `LMRadialGradientView` - displays a radial gradient effect
-
-Each is discussed in more detail below.
-
-### LMLinearGradientView
-The `LMLinearGradientView` class displays a linear gradient effect. It adds the following properties to the to the `colors` and `locations` properties defined by the base class:
-
-```objc
-@property (nonatomic) CGFloat startX;
-@property (nonatomic) CGFloat startY;
-@property (nonatomic) CGPoint startPoint;
-    
-@property (nonatomic) CGFloat endX;
-@property (nonatomic) CGFloat endY;
-@property (nonatomic) CGPoint endPoint;
-```
-
-The start point defines the starting location of the gradient, and the end point defines the ending location. Coordinate values are relative to the view's size and range from 0.0 to 1.0. The default value of `startPoint` is `{0.5, 0.0}`, and the default value of `endPoint` is `{0.5, 1.0}`, producing a vertical linear gradient.
-
-For example, the following markup creates a linear gradient view whose color values cycle through red, green, and blue, with stops at 0.0, 0.5, and 1.0:
-
-```xml
-<LMLinearGradientView colors="#ff0000, #00ff00, #0000ff" locations="0.0, 0.5, 1.0"/>
-```
-  
-See [LMLinearGradientView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMLinearGradientView.h) for more information.
-
-### LMRadialGradientView
-The `LMRadialGradientView ` class displays a radial gradient effect. It adds the following properties to the to the `colors` and `locations` properties defined by the base class:
-
-```objc
-@property (nonatomic) CGFloat centerX;
-@property (nonatomic) CGFloat centerY;
-@property (nonatomic) CGPoint centerPoint;
-    
-@property (nonatomic) CGFloat radius;
-```
-
-The center point defines the position of the of the gradient's center. Coordinate values are relative to the view's size and range from 0.0 to 1.0. The default value is `{0.5, 0.5}`. The radius defines the extent of the gradient and is also relative to the view's size; its default value is 0.5.
-
-For example, the following markup creates a radial gradient view whose color values cycle through red, green, and blue, with stops at 0.0, 0.5, and 1.0:
-
-```xml
-<LMRadialGradientView colors="#ff0000, #00ff00, #0000ff" locations="0.0, 0.5, 1.0"/>
-```
-
-See [LMRadialGradientView.h](https://github.com/gk-brown/MarkupKit/blob/master/MarkupKit-iOS/MarkupKit/LMRadialGradientView.h) for more information.
 
 ## UIKit Extensions
 MarkupKit provides extensions to several UIKit classes to enhance their behavior or adapt them for use in markup. For example, as discussed earlier, some classes define a custom initializer and must be instantiated via factory methods. Additionally, features of some standard UIKit classes are not exposed as properties that can be set via KVC. MarkupKit adds the factory methods and property definitions required to allow these classes to be used in markup. These extensions are documented below.

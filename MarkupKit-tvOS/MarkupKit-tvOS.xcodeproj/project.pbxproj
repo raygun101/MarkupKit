@@ -23,8 +23,6 @@
 		373BFB421DFB015000BB7509 /* CustomCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACF81DF713AE00E88F7A /* CustomCellViewController.swift */; };
 		373BFB431DFB015000BB7509 /* PharmacyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763ACF91DF713AE00E88F7A /* PharmacyCell.swift */; };
 		373BFB441DFB015000BB7509 /* CustomSectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD051DF713AE00E88F7A /* CustomSectionViewController.swift */; };
-		373BFB451DFB015000BB7509 /* LinearGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */; };
-		373BFB461DFB015000BB7509 /* RadialGradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3763AD0B1DF713AE00E88F7A /* RadialGradientViewController.swift */; };
 		373BFB491DFB017100BB7509 /* ViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACF01DF713AE00E88F7A /* ViewController.xml */; };
 		373BFB4A1DFB017100BB7509 /* RadioButtonViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACF21DF713AE00E88F7A /* RadioButtonViewController.xml */; };
 		373BFB4B1DFB017100BB7509 /* CheckboxViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACF41DF713AE00E88F7A /* CheckboxViewController.xml */; };
@@ -33,8 +31,6 @@
 		373BFB4E1DFB017100BB7509 /* EffectViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD001DF713AE00E88F7A /* EffectViewController.xml */; };
 		373BFB571DFB017100BB7509 /* PharmacyCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763ACFA1DF713AE00E88F7A /* PharmacyCell.xml */; };
 		373BFB581DFB017100BB7509 /* CustomSectionViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD061DF713AE00E88F7A /* CustomSectionViewController.xml */; };
-		373BFB591DFB017100BB7509 /* LinearGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD0A1DF713AE00E88F7A /* LinearGradientViewController.xml */; };
-		373BFB5A1DFB017100BB7509 /* RadialGradientViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD0C1DF713AE00E88F7A /* RadialGradientViewController.xml */; };
 		373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */; };
 		373BFB661DFB017100BB7509 /* Colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3A1DF713AE00E88F7A /* Colors.plist */; };
 		373BFB671DFB017100BB7509 /* Fonts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3763AD3B1DF713AE00E88F7A /* Fonts.plist */; };
@@ -63,9 +59,6 @@
 		37E57A751DF190F1002984B9 /* LMRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579DB1DF19090002984B9 /* LMRowView.m */; };
 		37E57A771DF190F1002984B9 /* LMAnchorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579DF1DF19090002984B9 /* LMAnchorView.m */; };
 		37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E11DF19090002984B9 /* LMSpacer.m */; };
-		37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E31DF19090002984B9 /* LMGradientView.m */; };
-		37E57A7A1DF190F1002984B9 /* LMLinearGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E51DF19090002984B9 /* LMLinearGradientView.m */; };
-		37E57A7B1DF190F1002984B9 /* LMRadialGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579E71DF19090002984B9 /* LMRadialGradientView.m */; };
 		37E57A7D1DF190F1002984B9 /* LMScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579EB1DF19090002984B9 /* LMScrollView.m */; };
 		37E57A801DF190F1002984B9 /* LMTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579F11DF19090002984B9 /* LMTableView.m */; };
 		37E57A811DF190F1002984B9 /* LMTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 37E579F31DF19090002984B9 /* LMTableViewCell.m */; };
@@ -79,9 +72,6 @@
 		37E57A9D1DF1911F002984B9 /* LMRowView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579DA1DF19090002984B9 /* LMRowView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57A9F1DF1911F002984B9 /* LMAnchorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579DE1DF19090002984B9 /* LMAnchorView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA01DF1911F002984B9 /* LMSpacer.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E01DF19090002984B9 /* LMSpacer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37E57AA11DF1911F002984B9 /* LMGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E21DF19090002984B9 /* LMGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37E57AA21DF1911F002984B9 /* LMLinearGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E41DF19090002984B9 /* LMLinearGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		37E57AA31DF1911F002984B9 /* LMRadialGradientView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E61DF19090002984B9 /* LMRadialGradientView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA41DF1911F002984B9 /* LMPickerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579E81DF19090002984B9 /* LMPickerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA51DF1911F002984B9 /* LMScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579EA1DF19090002984B9 /* LMScrollView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		37E57AA61DF1911F002984B9 /* LMPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 37E579EC1DF19090002984B9 /* LMPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -204,10 +194,6 @@
 		3763AD041DF713AE00E88F7A /* GridViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = GridViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/GridViewController.xml"; sourceTree = "<group>"; };
 		3763AD051DF713AE00E88F7A /* CustomSectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSectionViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/CustomSectionViewController.swift"; sourceTree = "<group>"; };
 		3763AD061DF713AE00E88F7A /* CustomSectionViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = CustomSectionViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/CustomSectionViewController.xml"; sourceTree = "<group>"; };
-		3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinearGradientViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/LinearGradientViewController.swift"; sourceTree = "<group>"; };
-		3763AD0A1DF713AE00E88F7A /* LinearGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = LinearGradientViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/LinearGradientViewController.xml"; sourceTree = "<group>"; };
-		3763AD0B1DF713AE00E88F7A /* RadialGradientViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadialGradientViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/RadialGradientViewController.swift"; sourceTree = "<group>"; };
-		3763AD0C1DF713AE00E88F7A /* RadialGradientViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = RadialGradientViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/RadialGradientViewController.xml"; sourceTree = "<group>"; };
 		3763AD331DF713AE00E88F7A /* AnchorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnchorViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/AnchorViewController.swift"; sourceTree = "<group>"; };
 		3763AD341DF713AE00E88F7A /* AnchorViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = AnchorViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/AnchorViewController.xml"; sourceTree = "<group>"; };
 		3763AD3A1DF713AE00E88F7A /* Colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Colors.plist; path = "../../MarkupKit-iOS/MarkupKitExamples/Colors.plist"; sourceTree = "<group>"; };
@@ -242,12 +228,6 @@
 		37E579DF1DF19090002984B9 /* LMAnchorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMAnchorView.m; path = "../../MarkupKit-iOS/MarkupKit/LMAnchorView.m"; sourceTree = "<group>"; };
 		37E579E01DF19090002984B9 /* LMSpacer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMSpacer.h; path = "../../MarkupKit-iOS/MarkupKit/LMSpacer.h"; sourceTree = "<group>"; };
 		37E579E11DF19090002984B9 /* LMSpacer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMSpacer.m; path = "../../MarkupKit-iOS/MarkupKit/LMSpacer.m"; sourceTree = "<group>"; };
-		37E579E21DF19090002984B9 /* LMGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMGradientView.h; path = "../../MarkupKit-iOS/MarkupKit/LMGradientView.h"; sourceTree = "<group>"; };
-		37E579E31DF19090002984B9 /* LMGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMGradientView.m; path = "../../MarkupKit-iOS/MarkupKit/LMGradientView.m"; sourceTree = "<group>"; };
-		37E579E41DF19090002984B9 /* LMLinearGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMLinearGradientView.h; path = "../../MarkupKit-iOS/MarkupKit/LMLinearGradientView.h"; sourceTree = "<group>"; };
-		37E579E51DF19090002984B9 /* LMLinearGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMLinearGradientView.m; path = "../../MarkupKit-iOS/MarkupKit/LMLinearGradientView.m"; sourceTree = "<group>"; };
-		37E579E61DF19090002984B9 /* LMRadialGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMRadialGradientView.h; path = "../../MarkupKit-iOS/MarkupKit/LMRadialGradientView.h"; sourceTree = "<group>"; };
-		37E579E71DF19090002984B9 /* LMRadialGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMRadialGradientView.m; path = "../../MarkupKit-iOS/MarkupKit/LMRadialGradientView.m"; sourceTree = "<group>"; };
 		37E579E81DF19090002984B9 /* LMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMPickerView.h; path = "../../MarkupKit-iOS/MarkupKit/LMPickerView.h"; sourceTree = "<group>"; };
 		37E579EA1DF19090002984B9 /* LMScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LMScrollView.h; path = "../../MarkupKit-iOS/MarkupKit/LMScrollView.h"; sourceTree = "<group>"; };
 		37E579EB1DF19090002984B9 /* LMScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LMScrollView.m; path = "../../MarkupKit-iOS/MarkupKit/LMScrollView.m"; sourceTree = "<group>"; };
@@ -354,10 +334,6 @@
 				37B392381E50B06C00931587 /* ColorCell.xml */,
 				3763ACFF1DF713AE00E88F7A /* EffectViewController.swift */,
 				3763AD001DF713AE00E88F7A /* EffectViewController.xml */,
-				3763AD091DF713AE00E88F7A /* LinearGradientViewController.swift */,
-				3763AD0A1DF713AE00E88F7A /* LinearGradientViewController.xml */,
-				3763AD0B1DF713AE00E88F7A /* RadialGradientViewController.swift */,
-				3763AD0C1DF713AE00E88F7A /* RadialGradientViewController.xml */,
 				3715C2BA1F503AAF007D39C4 /* orchard.jpg */,
 				371E236E1E042E8F00A29425 /* sample.mov */,
 				37BC06DB1DF7230B00C46DF6 /* Icons.xcassets */,
@@ -399,12 +375,6 @@
 				37F136741FB139AC00651E12 /* LMRootView.m */,
 				37E579E01DF19090002984B9 /* LMSpacer.h */,
 				37E579E11DF19090002984B9 /* LMSpacer.m */,
-				37E579E21DF19090002984B9 /* LMGradientView.h */,
-				37E579E31DF19090002984B9 /* LMGradientView.m */,
-				37E579E41DF19090002984B9 /* LMLinearGradientView.h */,
-				37E579E51DF19090002984B9 /* LMLinearGradientView.m */,
-				37E579E61DF19090002984B9 /* LMRadialGradientView.h */,
-				37E579E71DF19090002984B9 /* LMRadialGradientView.m */,
 				376E729520025DF900740BBD /* LMSegmentedControl.h */,
 				376E729620025DF900740BBD /* LMSegmentedControl.m */,
 				37EADB6E2002A6A500C5189D /* LMSegmentedControl.swift */,
@@ -494,9 +464,6 @@
 				37F136771FB139E600651E12 /* LMRootView.h in Headers */,
 				37E57AA01DF1911F002984B9 /* LMSpacer.h in Headers */,
 				376E729720025DF900740BBD /* LMSegmentedControl.h in Headers */,
-				37E57AA11DF1911F002984B9 /* LMGradientView.h in Headers */,
-				37E57AA21DF1911F002984B9 /* LMLinearGradientView.h in Headers */,
-				37E57AA31DF1911F002984B9 /* LMRadialGradientView.h in Headers */,
 				37E57AA41DF1911F002984B9 /* LMPickerView.h in Headers */,
 				37E57AA51DF1911F002984B9 /* LMScrollView.h in Headers */,
 				37E57AA61DF1911F002984B9 /* LMPageView.h in Headers */,
@@ -661,8 +628,6 @@
 				37B3923A1E50B06C00931587 /* CollectionViewController.xml in Resources */,
 				37B3923C1E50B06C00931587 /* ColorCell.xml in Resources */,
 				373BFB4E1DFB017100BB7509 /* EffectViewController.xml in Resources */,
-				373BFB591DFB017100BB7509 /* LinearGradientViewController.xml in Resources */,
-				373BFB5A1DFB017100BB7509 /* RadialGradientViewController.xml in Resources */,
 				3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */,
 				371E236F1E042E8F00A29425 /* sample.mov in Resources */,
 				373BFB641DFB017100BB7509 /* Icons.xcassets in Resources */,
@@ -724,8 +689,6 @@
 				37B392391E50B06C00931587 /* CollectionViewController.swift in Sources */,
 				37B3923B1E50B06C00931587 /* ColorCell.swift in Sources */,
 				373BFB3F1DFB015000BB7509 /* EffectViewController.swift in Sources */,
-				373BFB451DFB015000BB7509 /* LinearGradientViewController.swift in Sources */,
-				373BFB461DFB015000BB7509 /* RadialGradientViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,9 +705,6 @@
 				37E57A781DF190F1002984B9 /* LMSpacer.m in Sources */,
 				376E729820025DF900740BBD /* LMSegmentedControl.m in Sources */,
 				37EADB6F2002A6A500C5189D /* LMSegmentedControl.swift in Sources */,
-				37E57A791DF190F1002984B9 /* LMGradientView.m in Sources */,
-				37E57A7A1DF190F1002984B9 /* LMLinearGradientView.m in Sources */,
-				37E57A7B1DF190F1002984B9 /* LMRadialGradientView.m in Sources */,
 				37E57A7D1DF190F1002984B9 /* LMScrollView.m in Sources */,
 				37E57A801DF190F1002984B9 /* LMTableView.m in Sources */,
 				37E57A811DF190F1002984B9 /* LMTableViewCell.m in Sources */,

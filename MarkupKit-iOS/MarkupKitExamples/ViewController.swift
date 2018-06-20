@@ -38,12 +38,6 @@ class ViewController: UITableViewController {
         let value = cell!.value as? String
 
         switch value {
-        case "radioButtons":
-            navigationController!.pushViewController(RadioButtonViewController(), animated: true)
-
-        case "checkboxes":
-            navigationController!.pushViewController(CheckboxViewController(), animated: true)
-
         case "horizontalAlignment":
             navigationController!.pushViewController(HorizontalAlignmentViewController(), animated: true)
 
@@ -93,11 +87,14 @@ class ViewController: UITableViewController {
             navigationController!.pushViewController(MapViewController(), animated: true)
             #endif
 
+        case "radioButtons":
+            navigationController!.pushViewController(RadioButtonViewController(), animated: true)
+
+        case "checkboxes":
+            navigationController!.pushViewController(CheckboxViewController(), animated: true)
+
         case "effectView":
             navigationController!.pushViewController(EffectViewController(), animated: true)
-
-        case "gradientViews":
-            navigationController!.pushViewController(LinearGradientViewController(), animated: true)
 
         case "animation":
             #if os(iOS)
