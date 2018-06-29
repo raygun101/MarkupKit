@@ -43,7 +43,7 @@ Many code samples are included in the [project workspace](https://github.com/gk-
 Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!
 
 # Contents
-* [Installation](#installation)
+* [Getting MarkupKit](#getting-markupkit)
 * [Document Structure](#document-structure)
     * [Elements](#elements)
     * [Attributes](#attributes)
@@ -72,7 +72,7 @@ Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_b
 * [Live Preview](#live-preview)
 * [Additional Information](#additional-information)
 
-# Installation
+# Getting MarkupKit
 MarkupKit is distributed as a universal binary that will run in the iOS simulator as well as on an actual device. To install:
 
 * Download the [latest release](https://github.com/gk-brown/MarkupKit/releases) archive and expand
