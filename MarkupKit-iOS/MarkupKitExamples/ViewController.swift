@@ -28,7 +28,7 @@ class ViewController: UITableViewController {
         title = "MarkupKit Examples"
 
         #if os(iOS)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         #endif
     }
 

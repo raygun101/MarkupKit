@@ -41,8 +41,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
 
         latitudeTextField.becomeFirstResponder()
     }
@@ -62,7 +62,7 @@ class MapViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
-        let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let frame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
 
         let rootView = view as! LMRootView
 
@@ -80,7 +80,8 @@ class MapViewController: UIViewController, UITextFieldDelegate {
         let longitude = Double(longitudeTextField.text ?? "") ?? 0
         
         if (latitude >= -90 && latitude <= 90 && longitude >= -180 && longitude <= 180) {
-            let region = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: latitude, longitude: longitude), radius * 1000, radius * 1000)
+            let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                latitudinalMeters: radius * 1000, longitudinalMeters: radius * 1000)
 
             if (region.center.latitude + region.span.latitudeDelta <= 90
                 && region.center.latitude - region.span.latitudeDelta >= -90) {

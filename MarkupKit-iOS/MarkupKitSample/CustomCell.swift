@@ -23,7 +23,7 @@ class CustomCell: LMTableViewCell {
     @objc dynamic var row: Row!
 
     // View initialization
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         LMViewBuilder.view(withName: "CustomCell", owner: self, root: self)

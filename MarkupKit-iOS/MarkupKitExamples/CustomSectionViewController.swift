@@ -75,7 +75,7 @@ class CustomSectionViewController: LMTableViewController {
                         message: "You selected row \(indexPath.row + 1).",
                         preferredStyle: .alert)
 
-                    alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default))
+                    alertController.addAction(UIAlertAction(title: "OK", style: .default))
 
                     self.present(alertController, animated: true)
                 }

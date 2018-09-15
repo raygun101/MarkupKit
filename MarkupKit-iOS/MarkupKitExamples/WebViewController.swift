@@ -39,8 +39,8 @@ class WebViewController: UIViewController, UITextFieldDelegate {
         
         let defaultNotificationCenter = NotificationCenter.default
         
-        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
-        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        defaultNotificationCenter.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         urlTextField.becomeFirstResponder()
     }
@@ -60,7 +60,7 @@ class WebViewController: UIViewController, UITextFieldDelegate {
     }
 
     @objc func keyboardWillShow(_ notification: Notification) {
-        let frame = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
+        let frame = notification.userInfo![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect
 
         let rootView = view as! LMRootView
 
