@@ -12,7 +12,7 @@ import MarkupKit
 class ___FILEBASENAMEASIDENTIFIER___: LMTableViewCell {
     // TODO: Define outlets or model properties for view elements
 
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         LMViewBuilder.view(withName: "___FILEBASENAMEASIDENTIFIER___", owner: self, root: self)
