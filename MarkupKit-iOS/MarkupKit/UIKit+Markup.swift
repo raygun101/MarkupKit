@@ -14,12 +14,12 @@
 
 import UIKit
 
-extension UISegmentedControl {
-    open func valueForSegment(at segment: Int) -> Any? {
+public extension UISegmentedControl {
+    public func valueForSegment(at segment: Int) -> Any? {
         return __valueForSegment(at: UInt(segment))
     }
 
-    open func setValue(_ value: Any?, forSegmentAt segment: Int) {
+    public func setValue(_ value: Any?, forSegmentAt segment: Int) {
         __setValue(value, forSegmentAt: UInt(segment))
     }
 }

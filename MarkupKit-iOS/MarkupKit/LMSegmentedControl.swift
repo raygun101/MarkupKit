@@ -17,12 +17,12 @@ import UIKit
 /**
  * Swift refinements to segmented control.
  */
-extension LMSegmentedControl {
-    open func insertSegment(withTitle title: String?, value: Any?, at segment: Int, animated: Bool) {
+public extension LMSegmentedControl {
+    public func insertSegment(withTitle title: String?, value: Any?, at segment: Int, animated: Bool) {
         __insertSegment(withTitle: title, value: value, at: UInt(segment), animated: animated)
     }
 
-    open func insertSegment(with image: UIImage?, value: Any?, at segment: Int, animated: Bool) {
+    public func insertSegment(with image: UIImage?, value: Any?, at segment: Int, animated: Bool) {
         __insertSegment(with: image, value: value, at: UInt(segment), animated: animated)
     }
 }

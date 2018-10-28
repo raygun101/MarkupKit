@@ -18,8 +18,8 @@ import UIKit
  * Swift refinements to page view.
  */
 #if os(iOS)
-extension LMPageView {
-    open func insertPage(_ page: UIView, at index: Int) {
+public extension LMPageView {
+    public func insertPage(_ page: UIView, at index: Int) {
         __insertPage(page, at: UInt(index))
     }
 }

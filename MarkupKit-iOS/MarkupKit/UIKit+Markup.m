@@ -627,21 +627,6 @@ static NSDictionary *anchorValues;
     [[self superview] setNeedsUpdateConstraints];
 }
 
-- (LMAnchor)anchor
-{
-    NSNumber *anchor = objc_getAssociatedObject(self, @selector(anchor));
-
-    return (anchor == nil) ? 0 : [anchor unsignedIntegerValue];
-}
-
-- (void)setAnchor:(LMAnchor)anchor
-{
-    objc_setAssociatedObject(self, @selector(anchor), [NSNumber numberWithUnsignedInteger:anchor],
-        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    [[self superview] setNeedsUpdateConstraints];
-}
-
 - (CGFloat)layoutMarginTop
 {
     return [self layoutMargins].top;
@@ -827,6 +812,21 @@ static NSDictionary *anchorValues;
 - (void)setTrailingSpacing:(CGFloat)trailingSpacing
 {
     objc_setAssociatedObject(self, @selector(trailingSpacing), isnan(trailingSpacing) ? nil : [NSNumber numberWithFloat:trailingSpacing],
+        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+    [[self superview] setNeedsUpdateConstraints];
+}
+
+- (LMAnchor)anchor
+{
+    NSNumber *anchor = objc_getAssociatedObject(self, @selector(anchor));
+
+    return (anchor == nil) ? 0 : [anchor unsignedIntegerValue];
+}
+
+- (void)setAnchor:(LMAnchor)anchor
+{
+    objc_setAssociatedObject(self, @selector(anchor), [NSNumber numberWithUnsignedInteger:anchor],
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     [[self superview] setNeedsUpdateConstraints];
