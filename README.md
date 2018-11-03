@@ -1,31 +1,30 @@
 [![Releases](https://img.shields.io/github/release/gk-brown/MarkupKit.svg)](https://github.com/gk-brown/MarkupKit/releases)
 [![CocoaPods](https://img.shields.io/cocoapods/v/MarkupKit.svg)](https://cocoapods.org/pods/MarkupKit)
 
-<div style="padding: 8px; background-color: #ffeeee; border: solid 1px #ffcccc">
-<p>MarkupKit is being retired. Users are encouraged to migrate to the <a href="https://github.com/gk-brown/Lima">Lima</a> project, which is currently in development. Lima supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL.</p>
+# Important
+MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which is currently in development. Lima supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL.
 
-<p>Converting markup to Lima syntax is straightforward. For example, given this markup:</p>
+Converting markup to Lima syntax is straightforward. For example, given this markup:
 
-<pre>
-&lt;LMColumnView spacing="16"&gt;
-    &lt;UIImageView image="world.png"/&gt;
-    &lt;UILabel text="Hello, World!"/&gt;
-&lt;/LMColumnView&gt;
-</pre>
+```xml
+<LMColumnView spacing="16">
+    <UIImageView image="world.png"/>
+    <UILabel text="Hello, World!"/>
+</LMColumnView>
+```
 
-<p>the Lima equivalent is as follows:</p>
+the Lima equivalent is as follows:
 
-<pre>
+```swift
 LMColumnView(spacing: 16,
     UIImage(image: UIImage(named: "world.png")),
     UILabel(text: "Hello, World!")
 )
-</pre>
+```
 
-<p>For more information, see the Lima <a href="https://github.com/gk-brown/Lima/blob/master/README.md">README</a>.</p>
+For more information, see the Lima [README](https://github.com/gk-brown/Lima/blob/master/README.md).
 
-<p>Thanks for using MarkupKit!</p>
-</div>
+Thanks for using MarkupKit!
 
 # Introduction
 MarkupKit is an open-source framework for simplifying development of native iOS and tvOS applications. It allows developers to construct user interfaces declaratively using a human-readable, HTML-like markup language, and can in most cases be used as a drop-in replacement for XIB files or storyboards.
