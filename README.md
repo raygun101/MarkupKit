@@ -2,7 +2,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/MarkupKit.svg)](https://cocoapods.org/pods/MarkupKit)
 
 # Important
-MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which is currently in development. Lima supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL.
+MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL.
 
 Converting markup to Lima syntax is straightforward. For example, given this markup:
 
