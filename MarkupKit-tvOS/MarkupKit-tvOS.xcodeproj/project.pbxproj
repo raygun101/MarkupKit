@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37090B4921939A41000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; };
+		37090B5421939A7E000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; };
+		37090B5521939A7E000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B5621939A82000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; };
+		37090B5721939A82000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B5821939A87000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; };
+		37090B5921939A87000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4821939A41000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3715C2BF1F503B03007D39C4 /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2BA1F503AAF007D39C4 /* orchard.jpg */; };
 		3718A3D11F27E47F0035C398 /* HorizontalAlignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */; };
 		3718A3D21F27E47F0035C398 /* HorizontalAlignmentViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = 3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */; };
@@ -138,6 +145,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3787206F1DF70F5E004FF42A /* MarkupKit.framework in Embed Frameworks */,
+				37090B5921939A87000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +157,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				37E57B381DF1B3FF002984B9 /* MarkupKit.framework in Embed Frameworks */,
+				37090B5721939A82000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -160,6 +169,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				37E57B431DF1B48D002984B9 /* MarkupKit.framework in Embed Frameworks */,
+				37090B5521939A7E000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,6 +177,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37090B4821939A41000644AE /* Lima.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Lima.framework; sourceTree = "<group>"; };
 		3715C2BA1F503AAF007D39C4 /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = orchard.jpg; path = "../../MarkupKit-iOS/MarkupKitExamples/orchard.jpg"; sourceTree = "<group>"; };
 		3718A3CD1F27E47F0035C398 /* HorizontalAlignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HorizontalAlignmentViewController.swift; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.swift"; sourceTree = "<group>"; };
 		3718A3CE1F27E47F0035C398 /* HorizontalAlignmentViewController.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = HorizontalAlignmentViewController.xml; path = "../../MarkupKit-iOS/MarkupKitExamples/HorizontalAlignmentViewController.xml"; sourceTree = "<group>"; };
@@ -274,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3787206E1DF70F5E004FF42A /* MarkupKit.framework in Frameworks */,
+				37090B5821939A87000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +293,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37090B4921939A41000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E57B421DF1B48D002984B9 /* MarkupKit.framework in Frameworks */,
+				37090B5421939A7E000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,12 +311,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E57B371DF1B3FF002984B9 /* MarkupKit.framework in Frameworks */,
+				37090B5621939A82000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37090B4721939A41000644AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37090B4821939A41000644AE /* Lima.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		378720601DF70F53004FF42A /* MarkupKitExamples */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +439,7 @@
 				37E57B291DF1B398002984B9 /* MarkupKitDemo */,
 				378720601DF70F53004FF42A /* MarkupKitExamples */,
 				3799BAE81DF18396006E6B3D /* Products */,
+				37090B4721939A41000644AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -801,6 +825,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -859,6 +887,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -912,6 +944,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -975,6 +1011,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1090,6 +1130,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1148,6 +1192,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1199,6 +1247,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1257,6 +1309,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		37090B4621939A35000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B4A21939A61000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B4B21939A61000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B4C21939A66000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B4D21939A66000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B4E21939A69000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B4F21939A69000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B5021939A6D000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B5121939A6D000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		37090B5221939A70000644AE /* Lima.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; };
+		37090B5321939A70000644AE /* Lima.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 37090B4521939A35000644AE /* Lima.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		3715C2B01F503A60007D39C4 /* orchard.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AD1F5039AE007D39C4 /* orchard.jpg */; };
 		3715C2B11F503A60007D39C4 /* quebec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AF1F5039AF007D39C4 /* quebec.jpg */; };
 		3715C2B21F503A60007D39C4 /* lighthouse.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3715C2AC1F5039AE007D39C4 /* lighthouse.jpg */; };
@@ -202,6 +213,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3771E9471DF1B68A0064CC82 /* MarkupKit.framework in Embed Frameworks */,
+				37090B4F21939A69000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,6 +225,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3771E9791DF1B8C00064CC82 /* MarkupKit.framework in Embed Frameworks */,
+				37090B5121939A6D000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +237,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				3771EAA21DF1C2D00064CC82 /* MarkupKit.framework in Embed Frameworks */,
+				37090B5321939A70000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +249,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				37E57ADE1DF19258002984B9 /* MarkupKit.framework in Embed Frameworks */,
+				37090B4B21939A61000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +261,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				37E57B121DF1B1A3002984B9 /* MarkupKit.framework in Embed Frameworks */,
+				37090B4D21939A66000644AE /* Lima.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,6 +269,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		37090B4521939A35000644AE /* Lima.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Lima.framework; sourceTree = "<group>"; };
 		3715C2AB1F5039AE007D39C4 /* daisies.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = daisies.jpg; sourceTree = "<group>"; };
 		3715C2AC1F5039AE007D39C4 /* lighthouse.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = lighthouse.jpg; sourceTree = "<group>"; };
 		3715C2AD1F5039AE007D39C4 /* orchard.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orchard.jpg; sourceTree = "<group>"; };
@@ -410,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3771E9461DF1B68A0064CC82 /* MarkupKit.framework in Frameworks */,
+				37090B4E21939A69000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +436,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3771E9781DF1B8C00064CC82 /* MarkupKit.framework in Frameworks */,
+				37090B5021939A6D000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3771EAA11DF1C2D00064CC82 /* MarkupKit.framework in Frameworks */,
+				37090B5221939A70000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +453,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37090B4621939A35000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E57ADD1DF19258002984B9 /* MarkupKit.framework in Frameworks */,
+				37090B4A21939A61000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,12 +471,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				37E57B111DF1B1A3002984B9 /* MarkupKit.framework in Frameworks */,
+				37090B4C21939A66000644AE /* Lima.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		37090B4421939A35000644AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				37090B4521939A35000644AE /* Lima.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3771E9351DF1B66A0064CC82 /* MarkupKitSample */ = {
 			isa = PBXGroup;
 			children = (
@@ -632,6 +663,7 @@
 				3771E9671DF1B8B00064CC82 /* MarkupKitExamples */,
 				3771EA771DF1C1D70064CC82 /* MarkupKitTest */,
 				3799BADA1DF18389006E6B3D /* Products */,
+				37090B4421939A35000644AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1221,6 +1253,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1279,6 +1315,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1330,6 +1370,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1388,6 +1432,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1439,6 +1487,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1497,6 +1549,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1550,6 +1606,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1613,6 +1673,10 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1728,6 +1792,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1786,6 +1854,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1837,6 +1909,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1895,6 +1971,10 @@
 				DEVELOPMENT_TEAM = FBUU23VBFN;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
