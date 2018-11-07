@@ -12,9 +12,10 @@
 // limitations under the License.
 //
 
-#import "UIKit+Markup.h"
 #import "Foundation+Markup.h"
+#import "UIKit+Markup.h"
 
+#import <Lima/UIKit+Lima.h>
 #import <objc/message.h>
 
 #import "LMViewBuilder.h"
@@ -430,32 +431,6 @@ static NSDictionary *anchorValues;
     };
 }
 
-- (CGFloat)width
-{
-    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
-
-    return (constraint == nil) ? NAN : [constraint constant];
-}
-
-- (void)setWidth:(CGFloat)width
-{
-    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(width));
-
-    [constraint setActive:NO];
-
-    if (!isnan(width)) {
-        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeWidth
-            relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:width];
-    } else {
-        constraint = nil;
-    }
-
-    [constraint setActive:YES];
-
-    objc_setAssociatedObject(self, @selector(width), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
 - (CGFloat)minimumWidth
 {
     NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(minimumWidth));
@@ -506,32 +481,6 @@ static NSDictionary *anchorValues;
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(maximumWidth), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)height
-{
-    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
-
-    return (constraint == nil) ? NAN : [constraint constant];
-}
-
-- (void)setHeight:(CGFloat)height
-{
-    NSLayoutConstraint *constraint = objc_getAssociatedObject(self, @selector(height));
-
-    [constraint setActive:NO];
-
-    if (!isnan(height)) {
-        constraint = [NSLayoutConstraint constraintWithItem:self attribute:NSLayoutAttributeHeight
-            relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute
-            multiplier:1 constant:height];
-    } else {
-        constraint = nil;
-    }
-
-    [constraint setActive:YES];
-
-    objc_setAssociatedObject(self, @selector(height), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (CGFloat)minimumHeight
@@ -610,21 +559,6 @@ static NSDictionary *anchorValues;
     [constraint setActive:YES];
 
     objc_setAssociatedObject(self, @selector(aspectRatio), constraint, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-- (CGFloat)weight
-{
-    NSNumber *weight = objc_getAssociatedObject(self, @selector(weight));
-
-    return (weight == nil) ? NAN : [weight floatValue];
-}
-
-- (void)setWeight:(CGFloat)weight
-{
-    objc_setAssociatedObject(self, @selector(weight), isnan(weight) ? nil : [NSNumber numberWithFloat:weight],
-        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    [[self superview] setNeedsUpdateConstraints];
 }
 
 - (CGFloat)layoutMarginTop
@@ -812,21 +746,6 @@ static NSDictionary *anchorValues;
 - (void)setTrailingSpacing:(CGFloat)trailingSpacing
 {
     objc_setAssociatedObject(self, @selector(trailingSpacing), isnan(trailingSpacing) ? nil : [NSNumber numberWithFloat:trailingSpacing],
-        OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-
-    [[self superview] setNeedsUpdateConstraints];
-}
-
-- (LMAnchor)anchor
-{
-    NSNumber *anchor = objc_getAssociatedObject(self, @selector(anchor));
-
-    return (anchor == nil) ? 0 : [anchor unsignedIntegerValue];
-}
-
-- (void)setAnchor:(LMAnchor)anchor
-{
-    objc_setAssociatedObject(self, @selector(anchor), [NSNumber numberWithUnsignedInteger:anchor],
         OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 
     [[self superview] setNeedsUpdateConstraints];

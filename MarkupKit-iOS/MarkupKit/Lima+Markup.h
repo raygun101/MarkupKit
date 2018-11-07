@@ -12,14 +12,37 @@
 // limitations under the License.
 //
 
-#import <UIKit/UIKit.h>
+#import <Lima/Lima.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * Table view cell that hosts custom content.
- */
-@interface LMTableViewCell : UITableViewCell
+@interface LMLayoutView (Markup)
+
+@end
+
+@interface LMBoxView (Markup)
+
+@end
+
+@interface LMRowView (Markup)
+
+@end
+
+@interface LMScrollView (Markup)
+
+@property (nonatomic, nullable) UIView *contentView;
+
+@end
+
+@interface LMTableViewCell (Markup)
+
+@end
+
+@interface LMTableViewHeaderFooterView (Markup)
+
+@end
+
+@interface LMCollectionViewCell (Markup)
 
 @end
 

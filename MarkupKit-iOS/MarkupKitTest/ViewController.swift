@@ -69,6 +69,6 @@ class ViewController: UIViewController {
     }
 
     @IBAction func handleSwitchValueChanged(_ sender: UISwitch) {
-        imageView.isHidden = !sender.isOn
+        imageView.isDisplayable = sender.isOn
     }
 }

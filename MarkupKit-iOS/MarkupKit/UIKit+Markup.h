@@ -62,41 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/**
- * Anchor options.
- */
-typedef NS_OPTIONS(NSUInteger, LMAnchor) {
-    /** No anchor. */
-    LMAnchorNone = 0,
-
-    /** Top anchor. */
-    LMAnchorTop = 1 << 0,
-
-    /** Bottom anchor. */
-    LMAnchorBottom = 1 << 1,
-
-    /** Left anchor. */
-    LMAnchorLeft = 1 << 2,
-
-    /** Right anchor. */
-    LMAnchorRight = 1 << 3,
-
-    /** Leading anchor. */
-    LMAnchorLeading = 1 << 4,
-
-    /** Trailing anchor. */
-    LMAnchorTrailing = 1 << 5,
-
-    /** All anchors. */
-    LMAnchorAll = LMAnchorTop | LMAnchorBottom | LMAnchorLeading | LMAnchorTrailing
-};
-
 @interface UIView (Markup)
-
-/**
- * The view's width, or <code>NaN</code> for no explicit width.
- */
-@property (nonatomic) CGFloat width;
 
 /**
  * The view's minimum width, or <code>NaN</code> for no explicit minimum width.
@@ -107,11 +73,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
  * The view's maximum width, or <code>NaN</code> for no explicit maximum width.
  */
 @property (nonatomic) CGFloat maximumWidth;
-
-/**
- * The view's height, or <code>NaN</code> for no explicit height.
- */
-@property (nonatomic) CGFloat height;
 
 /**
  * The view's minimum height, or <code>NaN</code> for no explicit minimum height.
@@ -127,11 +88,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
  * The view's aspect ratio, or <code>NaN</code> for no explicit aspect ratio.
  */
 @property (nonatomic) CGFloat aspectRatio;
-
-/**
- * The view's weight, or <code>NaN</code> for no weight.
- */
-@property (nonatomic) CGFloat weight;
 
 /**
  * The top layout margin.
@@ -182,11 +138,6 @@ typedef NS_OPTIONS(NSUInteger, LMAnchor) {
  * The amount of space to reserve at the view's trailing edge. The default is 0.
  */
 @property (nonatomic) CGFloat trailingSpacing;
-
-/**
- * The view's anchors.
- */
-@property (nonatomic) LMAnchor anchor;
 
 /**
  * Processes a markup instruction.

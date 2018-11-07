@@ -21,24 +21,14 @@ FOUNDATION_EXPORT double MarkupKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char MarkupKitVersionString[];
 
 // Public framework headers
-#import <MarkupKit/LMLayoutView.h>
-#import <MarkupKit/LMBoxView.h>
-#import <MarkupKit/LMColumnView.h>
-#import <MarkupKit/LMRowView.h>
-#import <MarkupKit/LMAnchorView.h>
-#import <MarkupKit/LMRootView.h>
-#import <MarkupKit/LMSpacer.h>
 #import <MarkupKit/LMSegmentedControl.h>
 #import <MarkupKit/LMPickerView.h>
-#import <MarkupKit/LMScrollView.h>
 #import <MarkupKit/LMPageView.h>
 #import <MarkupKit/LMTableView.h>
-#import <MarkupKit/LMTableViewCell.h>
-#import <MarkupKit/LMTableViewHeaderFooterView.h>
 #import <MarkupKit/LMTableViewController.h>
 #import <MarkupKit/LMCollectionView.h>
-#import <MarkupKit/LMCollectionViewCell.h>
 #import <MarkupKit/LMViewBuilder.h>
 #import <MarkupKit/Foundation+Markup.h>
 #import <MarkupKit/QuartzCore+Markup.h>
 #import <MarkupKit/UIKit+Markup.h>
+#import <MarkupKit/Lima+Markup.h>
