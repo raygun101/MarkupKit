@@ -268,7 +268,7 @@ typedef enum {
 
 - (void)appendMarkupElementView:(UIView *)view
 {
-    NSNumber *elementDisposition = objc_getAssociatedObject(self, @encode(__LMTableViewHeaderFooterViewElementDisposition));
+    NSNumber *elementDisposition = objc_getAssociatedObject(self, @encode(__LMCollectionViewCellElementDisposition));
 
     if (elementDisposition == nil) {
         elementDisposition = @(kCollectionViewCellElementDefault);
@@ -300,7 +300,7 @@ typedef enum {
         }
     }
 
-    objc_setAssociatedObject(self, @encode(__LMTableViewHeaderFooterViewElementDisposition),
+    objc_setAssociatedObject(self, @encode(__LMCollectionViewCellElementDisposition),
         nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
