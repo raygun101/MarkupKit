@@ -19,8 +19,6 @@ class ScrollViewController: UIViewController {
     @IBOutlet var label1: UILabel!
     @IBOutlet var label2: UILabel!
 
-    let dispatchQueue = DispatchQueue(label: "Dispatch Queue", attributes: [], target: nil)
-
     override func loadView() {
         view = LMViewBuilder.view(withName: "ScrollViewController", owner: self, root: nil)
     }
@@ -45,15 +43,5 @@ class ScrollViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "OK", style: .default))
 
         present(alertController, animated: true)
-    }
-
-    @IBAction func refresh(_ sender: UIRefreshControl) {
-        dispatchQueue.async {
-            Thread.sleep(forTimeInterval: 2)
-
-            OperationQueue.main.addOperation() {
-                sender.endRefreshing()
-            }
-        }
     }
 }
