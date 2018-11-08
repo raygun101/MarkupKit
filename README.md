@@ -1,8 +1,7 @@
 [![Releases](https://img.shields.io/github/release/gk-brown/MarkupKit.svg)](https://github.com/gk-brown/MarkupKit/releases)
-[![CocoaPods](https://img.shields.io/cocoapods/v/MarkupKit.svg)](https://cocoapods.org/pods/MarkupKit)
 
 # Important
-MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL.
+MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL. Many classes described in this document are currently provided by Lima, which is now a dependency.
 
 Converting markup to Lima syntax is straightforward. For example, given this markup:
 
@@ -60,10 +59,6 @@ Additionally, MarkupKit's live preview support allows developers to validate vie
 
 This guide introduces the MarkupKit framework and provides an overview of its key features. The first section describes the structure of a MarkupKit document and explains how view instances are created and configured in markup. The remaining sections introduce the classes included with the framework and discuss how they can be used to help simplify application development. Extensions to several UIKit classes that enhance the classes' behavior or adapt their respective types for use in markup are also discusssed.
 
-MarkupKit requires either iOS 10 or tvOS 10 or later. The latest release can be downloaded [here](https://github.com/gk-brown/MarkupKit/releases). It is also available via [CocoaPods](https://cocoapods.org/pods/MarkupKit).
-
-Many code samples are included in the [project workspace](https://github.com/gk-brown/MarkupKit/archive/master.zip). For additional information and examples, including a "Hello World"-style tutorial introduction, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki). 
-
 # Feedback
 Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_brown@icloud.com?subject=MarkupKit) with any questions, comments, or suggestions. Also, if you like using MarkupKit, please consider [starring](https://github.com/gk-brown/MarkupKit/stargazers) it!
 
@@ -95,7 +90,6 @@ Feedback is welcome and encouraged. Please feel free to [contact me](mailto:gk_b
     * [LMPickerView](#lmpickerview)
     * [UIKit Extensions](#uikit-extensions)
 * [Live Preview](#live-preview)
-* [Additional Information](#additional-information)
 
 # Getting MarkupKit
 MarkupKit is distributed as a universal binary that will run in the iOS simulator as well as on an actual device. To install:
@@ -107,7 +101,7 @@ MarkupKit is distributed as a universal binary that will run in the iOS simulato
 * Drag _MarkupKit.framework_ to the "Embedded Binaries" section
 * In the dialog that appears, ensure that "Copy items if needed" is checked and click "Finish"
 
-Note that the framework binary must be "trimmed" prior to App Store submission. See the [deployment](https://github.com/gk-brown/MarkupKit/wiki/Deployment) section of the wiki for more information.
+**IMPORTANT** The [Lima](https://github.com/gk-brown/Lima) framework is now a dependency and must also be embedded in the application. The current MarkupKit release is for transitional purposes only. Users are encouraged to migrate to Lima as soon as possible.
 
 # Document Structure
 MarkupKit uses XML to define the structure of a user interface. The hierarchical nature of an XML document parallels the view hierarchy of an iOS application, making it easy to understand the relationships between views. 
@@ -2158,6 +2152,3 @@ class ViewControllerPreview: LMColumnView {
 Note that the view class and XIB file are only used at design time - the view controller is still responsible for loading the view document at run time.
 
 Live preview can significantly reduce development time, since it eliminates the round trip through the simulator that is typically required to test an update. Using live preview, successive updates can be quickly verified, and the simulator launched only when the desired layout has been achieved.
-
-# Additional Information
-For additional information and examples, see the [wiki](https://github.com/gk-brown/MarkupKit/wiki).
