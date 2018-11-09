@@ -1,6 +1,7 @@
 [![Releases](https://img.shields.io/github/release/gk-brown/MarkupKit.svg)](https://github.com/gk-brown/MarkupKit/releases)
 
 <h1>Important <img src="README/warning.png" width="32px"/></h1>
+
 MarkupKit is being retired. Users are encouraged to migrate to the [Lima](https://github.com/gk-brown/Lima) project, which supports most MarkupKit features and allows developers to create iOS and tvOS applications declaratively using an intuitive Swift-based DSL. Many classes described in this document are currently provided by Lima, which is now a dependency.
 
 Converting markup to Lima syntax is straightforward. For example, given this markup:
